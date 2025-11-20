@@ -1,37 +1,74 @@
-import { type User, type InsertUser } from "@shared/schema";
+import { type Booking, type InsertBooking } from "@shared/schema";
 import { randomUUID } from "crypto";
 
-// modify the interface with any CRUD methods
-// you might need
-
 export interface IStorage {
-  getUser(id: string): Promise<User | undefined>;
-  getUserByUsername(username: string): Promise<User | undefined>;
-  createUser(user: InsertUser): Promise<User>;
+  // Booking operations
+  getBooking(id: string): Promise<Booking | undefined>;
+  getAllBookings(): Promise<Booking[]>;
+  createBooking(booking: InsertBooking): Promise<Booking>;
+  updateBookingStatus(id: string, status: string): Promise<Booking | undefined>;
+  updateBookingSmartMovingSync(id: string, smartmovingId: string): Promise<Booking | undefined>;
 }
 
 export class MemStorage implements IStorage {
-  private users: Map<string, User>;
+  private bookings: Map<string, Booking>;
 
   constructor() {
-    this.users = new Map();
+    this.bookings = new Map();
   }
 
-  async getUser(id: string): Promise<User | undefined> {
-    return this.users.get(id);
+  async getBooking(id: string): Promise<Booking | undefined> {
+    return this.bookings.get(id);
   }
 
-  async getUserByUsername(username: string): Promise<User | undefined> {
-    return Array.from(this.users.values()).find(
-      (user) => user.username === username,
+  async getAllBookings(): Promise<Booking[]> {
+    return Array.from(this.bookings.values()).sort((a, b) => 
+      new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
     );
   }
 
-  async createUser(insertUser: InsertUser): Promise<User> {
+  async createBooking(insertBooking: InsertBooking): Promise<Booking> {
     const id = randomUUID();
-    const user: User = { ...insertUser, id };
-    this.users.set(id, user);
-    return user;
+    const now = new Date();
+    const booking: Booking = {
+      ...insertBooking,
+      id,
+      smartmovingId: null,
+      smartmovingSynced: false,
+      smartmovingSyncedAt: null,
+      createdAt: now,
+      updatedAt: now,
+    };
+    this.bookings.set(id, booking);
+    return booking;
+  }
+
+  async updateBookingStatus(id: string, status: string): Promise<Booking | undefined> {
+    const booking = this.bookings.get(id);
+    if (!booking) return undefined;
+
+    const updated: Booking = {
+      ...booking,
+      status,
+      updatedAt: new Date(),
+    };
+    this.bookings.set(id, updated);
+    return updated;
+  }
+
+  async updateBookingSmartMovingSync(id: string, smartmovingId: string): Promise<Booking | undefined> {
+    const booking = this.bookings.get(id);
+    if (!booking) return undefined;
+
+    const updated: Booking = {
+      ...booking,
+      smartmovingId,
+      smartmovingSynced: true,
+      smartmovingSyncedAt: new Date(),
+      updatedAt: new Date(),
+    };
+    this.bookings.set(id, updated);
+    return updated;
   }
 }
 

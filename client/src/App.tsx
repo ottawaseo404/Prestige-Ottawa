@@ -3,13 +3,76 @@ import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+import { AppSidebar } from "@/components/app-sidebar";
 import NotFound from "@/pages/not-found";
+import Home from "@/pages/home";
+import Booking from "@/pages/booking";
+import AdminDashboard from "@/pages/admin/dashboard";
+import AdminBookings from "@/pages/admin/bookings";
+import AdminCustomers from "@/pages/admin/customers";
+import AdminSmartMoving from "@/pages/admin/smartmoving";
+
+function AdminLayout({ children }: { children: React.ReactNode }) {
+  const style = {
+    "--sidebar-width": "16rem",
+    "--sidebar-width-icon": "3rem",
+  };
+
+  return (
+    <SidebarProvider style={style as React.CSSProperties}>
+      <div className="flex h-screen w-full">
+        <AppSidebar />
+        <div className="flex flex-col flex-1 overflow-hidden">
+          <header className="flex items-center h-16 px-6 border-b shrink-0">
+            <SidebarTrigger data-testid="button-sidebar-toggle" />
+          </header>
+          <main className="flex-1 overflow-y-auto p-6 bg-accent/20">
+            {children}
+          </main>
+        </div>
+      </div>
+    </SidebarProvider>
+  );
+}
 
 function Router() {
   return (
     <Switch>
-      {/* Add pages below */}
-      {/* <Route path="/" component={Home}/> */}
+      {/* Public Pages */}
+      <Route path="/" component={Home} />
+      <Route path="/book" component={Booking} />
+      
+      {/* Admin Pages */}
+      <Route path="/admin">
+        {() => (
+          <AdminLayout>
+            <AdminDashboard />
+          </AdminLayout>
+        )}
+      </Route>
+      <Route path="/admin/bookings">
+        {() => (
+          <AdminLayout>
+            <AdminBookings />
+          </AdminLayout>
+        )}
+      </Route>
+      <Route path="/admin/customers">
+        {() => (
+          <AdminLayout>
+            <AdminCustomers />
+          </AdminLayout>
+        )}
+      </Route>
+      <Route path="/admin/smartmoving">
+        {() => (
+          <AdminLayout>
+            <AdminSmartMoving />
+          </AdminLayout>
+        )}
+      </Route>
+
       {/* Fallback to 404 */}
       <Route component={NotFound} />
     </Switch>
