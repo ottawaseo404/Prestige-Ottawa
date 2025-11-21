@@ -15,9 +15,9 @@ export default function Home() {
       {/* Navigation */}
       <nav className="sticky top-0 z-50 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16 gap-4">
+          <div className="flex justify-between items-center h-20 gap-4">
             <div className="flex items-center">
-              <img src={logoUrl} alt="Prestige Moving" className="h-16 w-auto" data-testid="img-logo" />
+              <img src={logoUrl} alt="Prestige Moving" className="h-32 w-auto" data-testid="img-logo" />
             </div>
             <div className="flex items-center gap-2 sm:gap-4 flex-wrap">
               <a href="tel:604-000-0000" className="flex items-center gap-2 text-sm font-medium hover-elevate active-elevate-2 px-3 py-2 rounded-md" data-testid="link-phone">
