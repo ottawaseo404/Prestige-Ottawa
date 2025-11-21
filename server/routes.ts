@@ -161,15 +161,39 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  // Get SmartMoving customers (placeholder for future implementation)
+  // Get SmartMoving customers
   app.get("/api/smartmoving/customers", async (req, res) => {
     try {
-      // This would call SmartMoving API to fetch customers
-      // For now, return empty array
-      res.json([]);
+      const apiKey = process.env.SMARTMOVING_API_KEY;
+      
+      if (!apiKey) {
+        return res.status(400).json({ message: "SmartMoving API Key not configured" });
+      }
+
+      const page = parseInt(req.query.page as string) || 1;
+      const pageSize = parseInt(req.query.pageSize as string) || 50;
+
+      const url = `https://api.smartmoving.com/api/customers?Page=${page}&PageSize=${pageSize}`;
+      
+      const response = await fetch(url, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'x-api-key': apiKey,
+        },
+      });
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        console.error("SmartMoving API error:", response.status, errorText);
+        throw new Error(`SmartMoving API error: ${response.status} - ${errorText}`);
+      }
+
+      const data = await response.json();
+      res.json(data);
     } catch (error: any) {
       console.error("Error fetching customers:", error);
-      res.status(500).json({ message: "Failed to fetch customers" });
+      res.status(500).json({ message: error.message || "Failed to fetch customers" });
     }
   });
 
