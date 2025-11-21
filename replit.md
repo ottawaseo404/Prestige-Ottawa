@@ -124,7 +124,8 @@ Modern, responsive website for Prestige Moving Vancouver franchise with integrat
 ### SmartMoving
 - `GET /api/smartmoving/status` - Get sync status and connection state
 - `POST /api/smartmoving/sync-all` - Bulk sync all pending bookings
-- `GET /api/smartmoving/customers` - Get customers (future)
+- `GET /api/smartmoving/customers` - Get customers from SmartMoving API (pagination supported)
+- `POST /api/webhooks/smartmoving` - Webhook endpoint for real-time updates from SmartMoving
 
 ## Design System
 - **Colors**: Gold (#C5A572), Navy (#1A2332), White, Gray
@@ -139,20 +140,40 @@ npm run dev  # Starts both frontend (Vite) and backend (Express)
 ```
 
 ## Storage
-Currently uses in-memory storage (MemStorage). Bookings are lost on server restart but this is acceptable for MVP. For production, consider migrating to PostgreSQL with Drizzle ORM.
+**PostgreSQL Database** - All booking data persists in PostgreSQL database using Drizzle ORM with Neon serverless. Data survives server restarts. DbStorage class implements all CRUD operations with proper connection pooling.
 
-## Recent Changes
-- Implemented complete booking flow with SmartMoving integration
+## Recent Changes (Phase 2 - Advanced Features)
+- **Database Persistence**: Migrated from in-memory storage to PostgreSQL with Drizzle ORM - all bookings now persist across restarts
+- **SmartMoving Customer Integration**: Admin customers page now fetches real customer data from SmartMoving API
+- **Webhook System**: Implemented SmartMoving webhook endpoint for real-time booking status updates
+  - Handles Opportunity Status Changed, Job Created/Finalized/Closed events
+  - Automatically updates local booking status when SmartMoving sends notifications
+  - Comprehensive event logging for debugging
+
+## Phase 1 Completion
+- Implemented complete booking flow with SmartMoving Lead API integration
 - Built admin dashboard with comprehensive booking management
-- Added real-time sync status monitoring
+- Added manual and bulk SmartMoving sync operations
 - Configured Prestige Moving branding throughout
 - Mobile-responsive design across all pages
 
-## Future Enhancements
-- PostgreSQL persistence
-- SmartMoving webhooks for real-time updates
+## Completed Enhancements
+- ✅ PostgreSQL persistence (implemented)
+- ✅ SmartMoving webhooks for real-time updates (implemented)
+- ✅ SmartMoving customer data integration (implemented)
+
+## Upcoming Enhancements
 - Customer portal for tracking moves
-- Payment processing integration
+- Payment processing (Stripe) integration
 - SMS/Email notifications
-- Advanced analytics dashboard
-- Image gallery from prestigemoving.ca
+- Advanced analytics dashboard with revenue tracking
+- Service image gallery from prestigemoving.ca
+
+## Webhook Configuration
+To enable real-time sync from SmartMoving:
+1. Login to SmartMoving at https://app.smartmoving.com
+2. Navigate to Settings → Integrations → SmartMoving API → Webhooks
+3. Click "Add Webhook"
+4. Enter callback URL: `https://your-replit-url.replit.app/api/webhooks/smartmoving`
+5. Select events: Opportunity Status Changed, Opportunity Changed, Job Created, Job Finalized, Job Closed
+6. Save webhook configuration
