@@ -179,23 +179,46 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              { icon: HomeIcon, title: "Residential Moving", description: "Apartment and house moves handled with care" },
-              { icon: Building2, title: "Commercial Moving", description: "Office relocations with minimal downtime" },
-              { icon: MapPin, title: "Long Distance", description: "Moves across BC and beyond" },
-              { icon: Package, title: "Packing Services", description: "Professional packing materials and expertise" },
-              { icon: TruckIcon, title: "Storage Solutions", description: "Secure storage for your belongings" },
-              { icon: Shield, title: "Furniture Assembly", description: "Disassembly and reassembly included" },
-            ].map((service, idx) => (
-              <Card key={idx} className="hover-elevate" data-testid={`card-service-${idx}`}>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <Link href="/services/residential-moving">
+              <Card className="hover-elevate active-elevate-2 cursor-pointer h-full" data-testid="card-service-residential">
                 <CardHeader>
-                  <service.icon className="h-12 w-12 text-primary mb-4" />
-                  <CardTitle className="text-xl">{service.title}</CardTitle>
-                  <CardDescription>{service.description}</CardDescription>
+                  <HomeIcon className="h-12 w-12 text-primary mb-4" />
+                  <CardTitle className="text-xl">Residential Moving</CardTitle>
+                  <CardDescription>Apartment and house moves handled with care and professionalism</CardDescription>
                 </CardHeader>
               </Card>
-            ))}
+            </Link>
+
+            <Link href="/services/commercial-moving">
+              <Card className="hover-elevate active-elevate-2 cursor-pointer h-full" data-testid="card-service-commercial">
+                <CardHeader>
+                  <Building2 className="h-12 w-12 text-primary mb-4" />
+                  <CardTitle className="text-xl">Commercial Moving</CardTitle>
+                  <CardDescription>Office relocations with minimal downtime for your business</CardDescription>
+                </CardHeader>
+              </Card>
+            </Link>
+
+            <Link href="/services/packing-services">
+              <Card className="hover-elevate active-elevate-2 cursor-pointer h-full" data-testid="card-service-packing">
+                <CardHeader>
+                  <Package className="h-12 w-12 text-primary mb-4" />
+                  <CardTitle className="text-xl">Packing Services</CardTitle>
+                  <CardDescription>Professional packing materials and expert techniques</CardDescription>
+                </CardHeader>
+              </Card>
+            </Link>
+
+            <Link href="/services/storage-solutions">
+              <Card className="hover-elevate active-elevate-2 cursor-pointer h-full" data-testid="card-service-storage">
+                <CardHeader>
+                  <TruckIcon className="h-12 w-12 text-primary mb-4" />
+                  <CardTitle className="text-xl">Storage Solutions</CardTitle>
+                  <CardDescription>Secure, climate-controlled storage for your belongings</CardDescription>
+                </CardHeader>
+              </Card>
+            </Link>
           </div>
         </div>
       </section>

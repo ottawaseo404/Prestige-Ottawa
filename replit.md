@@ -105,6 +105,10 @@ Modern, responsive website for Prestige Moving Vancouver franchise with integrat
 ### Public
 - `/` - Landing page
 - `/book` - Booking form
+- `/services/residential-moving` - Residential moving service page (SEO optimized)
+- `/services/commercial-moving` - Commercial moving service page (SEO optimized)
+- `/services/packing-services` - Packing services page (SEO optimized)
+- `/services/storage-solutions` - Storage solutions page (SEO optimized)
 
 ### Admin
 - `/admin` - Dashboard overview
@@ -142,7 +146,19 @@ npm run dev  # Starts both frontend (Vite) and backend (Express)
 ## Storage
 **PostgreSQL Database** - All booking data persists in PostgreSQL database using Drizzle ORM with Neon serverless. Data survives server restarts. DbStorage class implements all CRUD operations with proper connection pooling.
 
-## Recent Changes (Phase 2 - Advanced Features)
+## Recent Changes
+
+### Latest Updates (November 2025)
+- **SEO Service Pages**: Created four comprehensive, SEO-optimized service pages:
+  - Residential Moving: Apartments, condos, houses with detailed process breakdown
+  - Commercial Moving: Office relocations, IT equipment, warehouse moves
+  - Packing Services: Full-service packing, fragile items, furniture protection
+  - Storage Solutions: Short/long-term storage, climate-controlled facilities
+  - Each page includes proper SEO meta tags, Open Graph tags, detailed content sections, clear CTAs
+  - Navigation header with back button and logo on all service pages
+  - Home page updated with clickable service cards linking to dedicated pages
+
+### Phase 2 - Advanced Features
 - **Database Persistence**: Migrated from in-memory storage to PostgreSQL with Drizzle ORM - all bookings now persist across restarts
 - **SmartMoving Customer Integration**: Admin customers page now fetches real customer data from SmartMoving API
 - **Webhook System**: Implemented SmartMoving webhook endpoint for real-time booking status updates

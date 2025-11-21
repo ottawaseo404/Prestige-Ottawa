@@ -8,6 +8,10 @@ import { AppSidebar } from "@/components/app-sidebar";
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/home";
 import Booking from "@/pages/booking";
+import ResidentialMoving from "@/pages/services/residential-moving";
+import CommercialMoving from "@/pages/services/commercial-moving";
+import PackingServices from "@/pages/services/packing-services";
+import StorageSolutions from "@/pages/services/storage-solutions";
 import AdminDashboard from "@/pages/admin/dashboard";
 import AdminBookings from "@/pages/admin/bookings";
 import AdminCustomers from "@/pages/admin/customers";
@@ -42,6 +46,12 @@ function Router() {
       {/* Public Pages */}
       <Route path="/" component={Home} />
       <Route path="/book" component={Booking} />
+      
+      {/* Service Pages */}
+      <Route path="/services/residential-moving" component={ResidentialMoving} />
+      <Route path="/services/commercial-moving" component={CommercialMoving} />
+      <Route path="/services/packing-services" component={PackingServices} />
+      <Route path="/services/storage-solutions" component={StorageSolutions} />
       
       {/* Admin Pages */}
       <Route path="/admin">
