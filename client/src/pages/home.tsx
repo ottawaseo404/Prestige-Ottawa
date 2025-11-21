@@ -1,34 +1,152 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Phone, CheckCircle2, Award, Clock, Shield, TruckIcon, Package, Home as HomeIcon, Building2, MapPin } from "lucide-react";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from "@/components/ui/navigation-menu";
+import { Phone, CheckCircle2, Award, Clock, Shield, TruckIcon, Package, Home as HomeIcon, Building2, MapPin, Menu, Warehouse } from "lucide-react";
 import { Link } from "wouter";
+import { useState } from "react";
 import logoUrl from "@assets/originalonglogo_1763689606978.png";
 import heroImage from "@assets/generated_images/vancouver_seabus_ferry_scenic_view.png";
 import { packageTypes, type PackageType } from "@shared/schema";
 
 export default function Home() {
   const packages: PackageType[] = ["Premium", "Deluxe", "Diamond"];
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const services = [
+    {
+      title: "Residential Moving",
+      description: "Apartments, condos, and houses",
+      icon: HomeIcon,
+      href: "/services/residential-moving"
+    },
+    {
+      title: "Commercial Moving",
+      description: "Office relocations and business moves",
+      icon: Building2,
+      href: "/services/commercial-moving"
+    },
+    {
+      title: "Packing Services",
+      description: "Professional packing and materials",
+      icon: Package,
+      href: "/services/packing-services"
+    },
+    {
+      title: "Storage Solutions",
+      description: "Secure climate-controlled storage",
+      icon: Warehouse,
+      href: "/services/storage-solutions"
+    }
+  ];
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Navigation */}
-      <nav className="sticky top-0 z-50 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      {/* Modern Navigation */}
+      <nav className="sticky top-0 z-50 border-b bg-background/80 backdrop-blur-md supports-[backdrop-filter]:bg-background/80 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-36 gap-4">
-            <div className="flex items-center py-2">
-              <img src={logoUrl} alt="Prestige Moving" className="h-32 w-auto" data-testid="img-logo" />
-            </div>
-            <div className="flex items-center gap-2 sm:gap-4 flex-wrap">
-              <a href="tel:604-000-0000" className="flex items-center gap-2 text-sm font-medium hover-elevate active-elevate-2 px-3 py-2 rounded-md" data-testid="link-phone">
+          <div className="flex justify-between items-center h-20 gap-6">
+            {/* Logo */}
+            <Link href="/" data-testid="link-logo">
+              <img src={logoUrl} alt="Prestige Moving" className="h-16 w-auto hover:opacity-90 transition-opacity" data-testid="img-logo" />
+            </Link>
+
+            {/* Desktop Navigation */}
+            <div className="hidden lg:flex items-center gap-8">
+              <NavigationMenu>
+                <NavigationMenuList>
+                  <NavigationMenuItem>
+                    <NavigationMenuTrigger className="text-base font-medium" data-testid="nav-services-trigger">
+                      Services
+                    </NavigationMenuTrigger>
+                    <NavigationMenuContent>
+                      <div className="grid w-[600px] gap-3 p-4">
+                        {services.map((service) => (
+                          <Link key={service.href} href={service.href}>
+                            <NavigationMenuLink asChild>
+                              <div className="flex items-start gap-4 p-3 rounded-md hover-elevate active-elevate-2 cursor-pointer" data-testid={`nav-service-${service.title.toLowerCase().replace(/\s+/g, '-')}`}>
+                                <service.icon className="h-6 w-6 text-primary mt-1 flex-shrink-0" />
+                                <div>
+                                  <div className="font-semibold mb-1">{service.title}</div>
+                                  <div className="text-sm text-muted-foreground">{service.description}</div>
+                                </div>
+                              </div>
+                            </NavigationMenuLink>
+                          </Link>
+                        ))}
+                      </div>
+                    </NavigationMenuContent>
+                  </NavigationMenuItem>
+                </NavigationMenuList>
+              </NavigationMenu>
+
+              <a href="tel:604-000-0000" className="flex items-center gap-2 text-sm font-medium hover-elevate active-elevate-2 px-3 py-2 rounded-md transition-all" data-testid="link-phone">
                 <Phone className="h-4 w-4" />
-                <span className="hidden sm:inline">604-000-0000</span>
+                <span>604-000-0000</span>
               </a>
+
               <Link href="/book">
-                <Button variant="default" size="default" data-testid="button-get-quote">
-                  Get Instant Quote
+                <Button variant="default" size="default" className="shadow-md" data-testid="button-get-quote">
+                  Get Free Quote
                 </Button>
               </Link>
+            </div>
+
+            {/* Mobile Menu */}
+            <div className="lg:hidden flex items-center gap-2">
+              <a href="tel:604-000-0000" className="p-2" data-testid="link-phone-mobile">
+                <Phone className="h-5 w-5" />
+              </a>
+              <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
+                <SheetTrigger asChild>
+                  <Button variant="ghost" size="icon" data-testid="button-mobile-menu">
+                    <Menu className="h-6 w-6" />
+                  </Button>
+                </SheetTrigger>
+                <SheetContent side="right" className="w-[300px] sm:w-[400px]">
+                  <div className="flex flex-col gap-6 mt-8">
+                    <div>
+                      <h3 className="font-semibold text-lg mb-4">Services</h3>
+                      <div className="space-y-2">
+                        {services.map((service) => (
+                          <Link key={service.href} href={service.href}>
+                            <div 
+                              onClick={() => setMobileMenuOpen(false)}
+                              className="flex items-start gap-3 p-3 rounded-md hover-elevate active-elevate-2 cursor-pointer"
+                              data-testid={`mobile-nav-service-${service.title.toLowerCase().replace(/\s+/g, '-')}`}
+                            >
+                              <service.icon className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                              <div>
+                                <div className="font-medium">{service.title}</div>
+                                <div className="text-sm text-muted-foreground">{service.description}</div>
+                              </div>
+                            </div>
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                    <Link href="/book">
+                      <Button 
+                        variant="default" 
+                        className="w-full" 
+                        size="lg"
+                        onClick={() => setMobileMenuOpen(false)}
+                        data-testid="button-mobile-quote"
+                      >
+                        Get Free Quote
+                      </Button>
+                    </Link>
+                  </div>
+                </SheetContent>
+              </Sheet>
             </div>
           </div>
         </div>

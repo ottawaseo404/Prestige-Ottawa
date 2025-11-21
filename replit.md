@@ -149,6 +149,13 @@ npm run dev  # Starts both frontend (Vite) and backend (Express)
 ## Recent Changes
 
 ### Latest Updates (November 2025)
+- **Modern Interactive Navigation**: Completely redesigned header with premium navigation experience:
+  - Desktop: Shadcn NavigationMenu dropdown with all 4 services (hover/click to open)
+  - Mobile: Hamburger menu with Sheet component for responsive navigation
+  - Fixed logo sizing (h-16) to prevent cutoff, reduced header height to h-20
+  - Enhanced styling: backdrop blur, shadow, smooth transitions, hover states
+  - Services accessible directly from header on all pages
+  
 - **SEO Service Pages**: Created four comprehensive, SEO-optimized service pages:
   - Residential Moving: Apartments, condos, houses with detailed process breakdown
   - Commercial Moving: Office relocations, IT equipment, warehouse moves
