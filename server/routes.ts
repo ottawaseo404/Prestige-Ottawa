@@ -161,6 +161,49 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  // SmartMoving Webhook endpoint
+  app.post("/api/webhooks/smartmoving", async (req, res) => {
+    try {
+      const webhookData = req.body;
+      console.log("Received SmartMoving webhook:", JSON.stringify(webhookData, null, 2));
+
+      // Extract event type and data
+      const { eventType, data } = webhookData;
+
+      if (!eventType || !data) {
+        console.error("Invalid webhook payload");
+        return res.status(400).json({ message: "Invalid webhook payload" });
+      }
+
+      // Handle different event types
+      switch (eventType) {
+        case "Opportunity Status Changed":
+        case "Opportunity Changed":
+          await handleOpportunityUpdate(data);
+          break;
+        
+        case "Job Created":
+        case "Job Finalized":
+        case "Job Closed":
+          await handleJobUpdate(data, eventType);
+          break;
+        
+        case "Customer Created":
+        case "Customer Updated":
+          console.log("Customer event received:", eventType);
+          break;
+        
+        default:
+          console.log("Unhandled event type:", eventType);
+      }
+
+      res.json({ success: true, message: "Webhook processed" });
+    } catch (error: any) {
+      console.error("Error processing webhook:", error);
+      res.status(500).json({ message: "Failed to process webhook" });
+    }
+  });
+
   // Get SmartMoving customers
   app.get("/api/smartmoving/customers", async (req, res) => {
     try {
@@ -256,4 +299,71 @@ async function syncBookingToSmartMoving(bookingId: string): Promise<void> {
 
   // Update booking with sync status
   await storage.updateBookingSmartMovingSync(bookingId, "synced");
+}
+
+// Helper function to handle opportunity updates from webhooks
+async function handleOpportunityUpdate(data: any): Promise<void> {
+  console.log("Processing opportunity update:", data);
+  
+  // Find booking by SmartMoving ID or email
+  const bookings = await storage.getAllBookings();
+  const booking = bookings.find(b => 
+    b.smartmovingId === data.id || 
+    b.email === data.email
+  );
+
+  if (!booking) {
+    console.log("No matching booking found for opportunity:", data.id);
+    return;
+  }
+
+  // Map SmartMoving status to our status
+  let newStatus = booking.status;
+  if (data.status) {
+    const statusMap: Record<string, string> = {
+      'pending': 'pending',
+      'quote sent': 'pending',
+      'confirmed': 'confirmed',
+      'booked': 'confirmed',
+      'completed': 'completed',
+      'cancelled': 'cancelled',
+      'lost': 'cancelled',
+    };
+    newStatus = statusMap[data.status.toLowerCase()] || booking.status;
+  }
+
+  if (newStatus !== booking.status) {
+    console.log(`Updating booking ${booking.id} status from ${booking.status} to ${newStatus}`);
+    await storage.updateBookingStatus(booking.id, newStatus);
+  }
+}
+
+// Helper function to handle job updates from webhooks
+async function handleJobUpdate(data: any, eventType: string): Promise<void> {
+  console.log("Processing job update:", eventType, data);
+  
+  // Find booking by SmartMoving ID or customer email
+  const bookings = await storage.getAllBookings();
+  const booking = bookings.find(b => 
+    b.smartmovingId === data.opportunityId || 
+    b.email === data.customerEmail
+  );
+
+  if (!booking) {
+    console.log("No matching booking found for job:", data.id);
+    return;
+  }
+
+  // Update status based on job event
+  let newStatus = booking.status;
+  if (eventType === "Job Created" || eventType === "Job Finalized") {
+    newStatus = "confirmed";
+  } else if (eventType === "Job Closed") {
+    newStatus = "completed";
+  }
+
+  if (newStatus !== booking.status) {
+    console.log(`Updating booking ${booking.id} status from ${booking.status} to ${newStatus}`);
+    await storage.updateBookingStatus(booking.id, newStatus);
+  }
 }
