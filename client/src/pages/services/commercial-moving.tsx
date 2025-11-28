@@ -24,12 +24,6 @@ import commercialImage from "@assets/commercial_truck_night.png";
 export default function CommercialMoving() {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    message: "",
-  });
 
   const [contactForm, setContactForm] = useState({
     companyName: "",
@@ -43,31 +37,6 @@ export default function CommercialMoving() {
     message: "",
   });
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    
-    try {
-      await apiRequest("POST", "/api/quote-request", {
-        ...formData,
-        serviceType: "Commercial Moving",
-      });
-      
-      toast({
-        title: "Quote Request Submitted!",
-        description: "We'll contact you within 1 hour with your quote.",
-      });
-      setFormData({ name: "", email: "", phone: "", message: "" });
-    } catch (error: any) {
-      toast({
-        title: "Submission Failed",
-        description: error.message || "Please try again or call us directly at 604-616-6066",
-        variant: "destructive",
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
 
   const schemaData = {
     "@context": "https://schema.org",
@@ -475,130 +444,6 @@ export default function CommercialMoving() {
                   </CardContent>
                 </Card>
               </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Quick Quote Section */}
-        <section className="py-16 md:py-24 bg-[#1A2332]">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div>
-                <Badge className="mb-4 bg-[#C5A572] text-white">Free Quote</Badge>
-                <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                  Get Your Free Commercial Moving Quote
-                </h2>
-                <p className="text-gray-300 text-lg mb-8">
-                  Tell us about your office move and we'll provide a customized quote with competitive pricing. Your business deserves expert movers who minimize downtime.
-                </p>
-                <ul className="space-y-4">
-                  <li className="flex items-center gap-3 text-gray-200">
-                    <CheckCircle2 className="h-5 w-5 text-[#C5A572]" />
-                    <span>Response within 1 hour</span>
-                  </li>
-                  <li className="flex items-center gap-3 text-gray-200">
-                    <CheckCircle2 className="h-5 w-5 text-[#C5A572]" />
-                    <span>Free on-site assessment</span>
-                  </li>
-                  <li className="flex items-center gap-3 text-gray-200">
-                    <CheckCircle2 className="h-5 w-5 text-[#C5A572]" />
-                    <span>After-hours & weekend options</span>
-                  </li>
-                  <li className="flex items-center gap-3 text-gray-200">
-                    <CheckCircle2 className="h-5 w-5 text-[#C5A572]" />
-                    <span>Dedicated move coordinator</span>
-                  </li>
-                </ul>
-              </div>
-
-              <Card className="bg-white">
-                <CardHeader>
-                  <CardTitle className="text-2xl">Request Your Quote</CardTitle>
-                  <CardDescription>Fill out the form and we'll get back to you ASAP</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <form onSubmit={handleSubmit} className="space-y-4">
-                    <div className="space-y-2">
-                      <Label htmlFor="quote-name">Full Name</Label>
-                      <div className="relative">
-                        <User className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                        <Input
-                          id="quote-name"
-                          placeholder="Your name"
-                          className="pl-10"
-                          value={formData.name}
-                          onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                          required
-                          data-testid="input-quote-name"
-                        />
-                      </div>
-                    </div>
-                    <div className="grid grid-cols-2 gap-4">
-                      <div className="space-y-2">
-                        <Label htmlFor="quote-email">Email</Label>
-                        <div className="relative">
-                          <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                          <Input
-                            id="quote-email"
-                            type="email"
-                            placeholder="email@example.com"
-                            className="pl-10"
-                            value={formData.email}
-                            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                            required
-                            data-testid="input-quote-email"
-                          />
-                        </div>
-                      </div>
-                      <div className="space-y-2">
-                        <Label htmlFor="quote-phone">Phone</Label>
-                        <div className="relative">
-                          <Phone className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                          <Input
-                            id="quote-phone"
-                            type="tel"
-                            placeholder="604-XXX-XXXX"
-                            className="pl-10"
-                            value={formData.phone}
-                            onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                            required
-                            data-testid="input-quote-phone"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="quote-message">Tell us about your office move</Label>
-                      <Textarea
-                        id="quote-message"
-                        placeholder="Describe your move requirements, timeline, IT equipment, and any special handling needs..."
-                        rows={4}
-                        value={formData.message}
-                        onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                        data-testid="input-quote-message"
-                      />
-                    </div>
-                    <Button 
-                      type="submit" 
-                      className="w-full bg-[#C5A572] hover:bg-[#B8956A] text-white py-6"
-                      data-testid="button-submit-quote"
-                      disabled={isSubmitting}
-                    >
-                      {isSubmitting ? (
-                        <>
-                          <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                          Submitting...
-                        </>
-                      ) : (
-                        <>
-                          Get Free Quote
-                          <ChevronRight className="ml-2 h-4 w-4" />
-                        </>
-                      )}
-                    </Button>
-                  </form>
-                </CardContent>
-              </Card>
             </div>
           </div>
         </section>
