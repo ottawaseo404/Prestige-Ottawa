@@ -373,6 +373,101 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Award Winning Section */}
+      <section className="py-16 md:py-24 bg-gradient-to-r from-purple-900 via-purple-800 to-indigo-900 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-20" style={{backgroundImage: "radial-gradient(circle at 25px 25px, rgba(255,255,255,0.1) 2px, transparent 0)"}} />
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-5xl font-black text-white tracking-wide uppercase" data-testid="heading-awards">
+              Award Winning Moving Company
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 md:gap-8">
+            {/* BBB A+ Rating */}
+            <div className="flex flex-col items-center text-center group" data-testid="award-bbb">
+              <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-white/10 backdrop-blur border border-white/20 flex items-center justify-center mb-3 group-hover:bg-white/20 transition-all group-hover:scale-105">
+                <Award className="h-10 w-10 md:h-12 md:w-12 text-primary" />
+              </div>
+              <span className="text-xs md:text-sm font-bold text-white uppercase tracking-wide">BBB A+ Rating</span>
+            </div>
+
+            {/* Google 5-Star */}
+            <div className="flex flex-col items-center text-center group" data-testid="award-google">
+              <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-white/10 backdrop-blur border border-white/20 flex items-center justify-center mb-3 group-hover:bg-white/20 transition-all group-hover:scale-105">
+                <Star className="h-10 w-10 md:h-12 md:w-12 text-primary fill-primary" />
+              </div>
+              <span className="text-xs md:text-sm font-bold text-white uppercase tracking-wide">5-Star Google Reviews</span>
+            </div>
+
+            {/* Consumer Choice */}
+            <div className="flex flex-col items-center text-center group" data-testid="award-consumer">
+              <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-white/10 backdrop-blur border border-white/20 flex items-center justify-center mb-3 group-hover:bg-white/20 transition-all group-hover:scale-105">
+                <ThumbsUp className="h-10 w-10 md:h-12 md:w-12 text-primary" />
+              </div>
+              <span className="text-xs md:text-sm font-bold text-white uppercase tracking-wide">Consumer Choice Award</span>
+            </div>
+
+            {/* Top Rated Movers */}
+            <div className="flex flex-col items-center text-center group" data-testid="award-top-rated">
+              <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-white/10 backdrop-blur border border-white/20 flex items-center justify-center mb-3 group-hover:bg-white/20 transition-all group-hover:scale-105">
+                <Medal className="h-10 w-10 md:h-12 md:w-12 text-primary" />
+              </div>
+              <span className="text-xs md:text-sm font-bold text-white uppercase tracking-wide">Top Rated Movers</span>
+            </div>
+
+            {/* Best of Vancouver */}
+            <div className="flex flex-col items-center text-center group" data-testid="award-best-vancouver">
+              <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-white/10 backdrop-blur border border-white/20 flex items-center justify-center mb-3 group-hover:bg-white/20 transition-all group-hover:scale-105">
+                <Crown className="h-10 w-10 md:h-12 md:w-12 text-primary" />
+              </div>
+              <span className="text-xs md:text-sm font-bold text-white uppercase tracking-wide">Best of Vancouver</span>
+            </div>
+
+            {/* WSIB Insured */}
+            <div className="flex flex-col items-center text-center group" data-testid="award-wsib">
+              <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-white/10 backdrop-blur border border-white/20 flex items-center justify-center mb-3 group-hover:bg-white/20 transition-all group-hover:scale-105">
+                <Shield className="h-10 w-10 md:h-12 md:w-12 text-primary" />
+              </div>
+              <span className="text-xs md:text-sm font-bold text-white uppercase tracking-wide">WSIB Insured</span>
+            </div>
+
+            {/* Excellence Award */}
+            <div className="flex flex-col items-center text-center group" data-testid="award-excellence">
+              <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-white/10 backdrop-blur border border-white/20 flex items-center justify-center mb-3 group-hover:bg-white/20 transition-all group-hover:scale-105">
+                <CheckCircle2 className="h-10 w-10 md:h-12 md:w-12 text-primary" />
+              </div>
+              <span className="text-xs md:text-sm font-bold text-white uppercase tracking-wide">Excellence Award</span>
+            </div>
+
+            {/* Licensed & Bonded */}
+            <div className="flex flex-col items-center text-center group" data-testid="award-licensed">
+              <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-white/10 backdrop-blur border border-white/20 flex items-center justify-center mb-3 group-hover:bg-white/20 transition-all group-hover:scale-105">
+                <TruckIcon className="h-10 w-10 md:h-12 md:w-12 text-primary" />
+              </div>
+              <span className="text-xs md:text-sm font-bold text-white uppercase tracking-wide">Licensed & Bonded</span>
+            </div>
+
+            {/* Customer Satisfaction */}
+            <div className="flex flex-col items-center text-center group" data-testid="award-satisfaction">
+              <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-white/10 backdrop-blur border border-white/20 flex items-center justify-center mb-3 group-hover:bg-white/20 transition-all group-hover:scale-105">
+                <Users className="h-10 w-10 md:h-12 md:w-12 text-primary" />
+              </div>
+              <span className="text-xs md:text-sm font-bold text-white uppercase tracking-wide">99% Satisfaction</span>
+            </div>
+
+            {/* Top 3 Moving Companies */}
+            <div className="flex flex-col items-center text-center group" data-testid="award-top3">
+              <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-white/10 backdrop-blur border border-white/20 flex items-center justify-center mb-3 group-hover:bg-white/20 transition-all group-hover:scale-105">
+                <Headphones className="h-10 w-10 md:h-12 md:w-12 text-primary" />
+              </div>
+              <span className="text-xs md:text-sm font-bold text-white uppercase tracking-wide">Top 3 Movers in BC</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* About Company Section */}
       <section className="py-20 md:py-28 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
