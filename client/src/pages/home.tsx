@@ -35,7 +35,7 @@ import heroImage from "@assets/generated_images/vancouver_seabus_ferry_scenic_vi
 import heroVideo1 from "@assets/generated_videos/bc_ferry_crossing_burrard_inlet.mp4";
 import heroVideo2 from "@assets/generated_videos/white_truck_driving_bc_mountains.mp4";
 import residentialImage from "@assets/truck1_1764291781341.jpeg";
-import commercialImage from "@assets/commercial moving_1764347423562.webp";
+import commercialImage from "@assets/commercial_1764347548715.jpeg";
 import longDistanceImage from "@assets/movers_staircase.png";
 import packingImage from "@assets/packing_interior.png";
 import { packageTypes, type PackageType } from "@shared/schema";
