@@ -1101,182 +1101,153 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Service Cards with Images - Modern Redesign */}
+      {/* Our Moving Services - Modern Bento Grid */}
       <section className="py-20 md:py-28 bg-gradient-to-b from-gray-50 to-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Section Header with Animated Accent */}
-          <div className="text-center mb-16 relative">
-            <div className="inline-block">
-              <span className="inline-block px-4 py-1.5 bg-primary/10 text-primary font-semibold text-sm rounded-full mb-4 tracking-wide uppercase">
-                How We Help
-              </span>
-            </div>
+          {/* Section Header */}
+          <div className="text-center mb-16">
+            <Badge className="bg-[#1A2332] text-white mb-4 px-4 py-1.5">
+              <Sparkles className="h-4 w-4 mr-2" />
+              12 Professional Services
+            </Badge>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-[#1A2332] mb-6">
-              Moving Made <span className="text-primary">Simple</span>
+              Our Moving <span className="text-primary">Services</span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Whether it's across town or across the country, we've got you covered. Pick what fits your move.
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              From local apartment moves to cross-country relocations, we offer comprehensive moving solutions tailored to your unique needs.
             </p>
-            {/* Decorative line */}
-            <div className="flex items-center justify-center gap-2 mt-6">
-              <div className="h-1 w-12 bg-primary rounded-full" />
-              <div className="h-1 w-4 bg-primary/50 rounded-full" />
-              <div className="h-1 w-2 bg-primary/30 rounded-full" />
-            </div>
           </div>
 
-          {/* Modern Card Grid */}
-          <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
-            {/* Residential Moving Card - Featured */}
-            <Link href="/services/residential-moving">
-              <div className="group relative h-[420px] rounded-3xl overflow-hidden cursor-pointer shadow-xl hover:shadow-2xl transition-all duration-500" data-testid="service-card-residential">
+          {/* Bento Grid Layout */}
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 lg:gap-6">
+            
+            {/* Residential - Large Feature Card */}
+            <Link href="/services/residential-moving" className="col-span-2 row-span-2">
+              <div className="group relative h-full min-h-[380px] rounded-3xl overflow-hidden cursor-pointer shadow-xl hover:shadow-2xl transition-all duration-500" data-testid="service-card-residential">
                 <img 
                   src={residentialImage} 
                   alt="Residential Moving Services" 
                   className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
                 />
-                {/* Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#1A2332] via-[#1A2332]/60 to-transparent opacity-90 group-hover:opacity-95 transition-opacity" />
-                
-                {/* Content */}
-                <div className="absolute inset-0 p-8 flex flex-col justify-end">
-                  <div className="transform group-hover:-translate-y-2 transition-transform duration-300">
-                    <Badge className="bg-primary text-[#1A2332] font-bold mb-4 shadow-lg">
-                      <Star className="h-3 w-3 mr-1 fill-current" />
-                      Most Popular
-                    </Badge>
-                    <h3 className="text-3xl md:text-4xl font-black text-white mb-3">
-                      Residential Moving
-                    </h3>
-                    <p className="text-white/80 mb-4 line-clamp-2 group-hover:line-clamp-none transition-all">
-                      From apartments to houses — we handle your home move with care. Sit back and let our expert team transform your stressful move into a seamless experience.
-                    </p>
-                    <div className="flex items-center gap-2 text-primary font-bold">
-                      <span>Explore Service</span>
-                      <ArrowRight className="h-5 w-5 group-hover:translate-x-2 transition-transform" />
-                    </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-[#1A2332] via-[#1A2332]/70 to-[#1A2332]/20" />
+                <div className="absolute inset-0 p-6 flex flex-col justify-end">
+                  <Badge className="bg-primary text-[#1A2332] font-bold mb-3 w-fit shadow-lg">
+                    <Star className="h-3 w-3 mr-1 fill-current" />
+                    Most Popular
+                  </Badge>
+                  <h3 className="text-2xl md:text-3xl font-black text-white mb-2">Residential Moving</h3>
+                  <p className="text-white/80 text-sm mb-3">Apartments, condos, and houses — handled with care</p>
+                  <div className="flex items-center gap-2 text-primary font-bold text-sm">
+                    <span>Learn More</span>
+                    <ArrowRight className="h-4 w-4 group-hover:translate-x-2 transition-transform" />
                   </div>
                 </div>
-                
-                {/* Hover Glow Effect */}
-                <div className="absolute inset-0 border-2 border-primary/0 group-hover:border-primary/50 rounded-3xl transition-colors duration-300" />
               </div>
             </Link>
 
-            {/* Commercial Moving Card */}
-            <Link href="/services/commercial-moving">
-              <div className="group relative h-[420px] rounded-3xl overflow-hidden cursor-pointer shadow-xl hover:shadow-2xl transition-all duration-500" data-testid="service-card-commercial">
+            {/* Commercial - Medium Card */}
+            <Link href="/services/commercial-moving" className="col-span-2">
+              <div className="group relative h-[180px] rounded-2xl overflow-hidden cursor-pointer shadow-lg hover:shadow-xl transition-all duration-300" data-testid="service-card-commercial">
                 <img 
                   src={commercialImage} 
-                  alt="Commercial Moving Services" 
-                  className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+                  alt="Commercial Moving" 
+                  className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#1A2332] via-[#1A2332]/60 to-transparent opacity-90 group-hover:opacity-95 transition-opacity" />
-                
-                <div className="absolute inset-0 p-8 flex flex-col justify-end">
-                  <div className="transform group-hover:-translate-y-2 transition-transform duration-300">
-                    <Badge variant="outline" className="border-white/30 text-white font-semibold mb-4 backdrop-blur-sm">
-                      <Building2 className="h-3 w-3 mr-1" />
-                      Business Solutions
-                    </Badge>
-                    <h3 className="text-3xl md:text-4xl font-black text-white mb-3">
-                      Commercial Moving
-                    </h3>
-                    <p className="text-white/80 mb-4 line-clamp-2 group-hover:line-clamp-none transition-all">
-                      Minimize downtime with our efficient office relocation services. Our skilled team handles IT equipment, furniture, and everything in between.
-                    </p>
-                    <div className="flex items-center gap-2 text-primary font-bold">
-                      <span>Explore Service</span>
-                      <ArrowRight className="h-5 w-5 group-hover:translate-x-2 transition-transform" />
+                <div className="absolute inset-0 bg-gradient-to-r from-[#1A2332]/95 to-[#1A2332]/70" />
+                <div className="absolute inset-0 p-5 flex flex-col justify-center">
+                  <div className="flex items-center gap-3">
+                    <div className="h-12 w-12 bg-primary/20 rounded-xl flex items-center justify-center">
+                      <Building2 className="h-6 w-6 text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-black text-white">Commercial Moving</h3>
+                      <p className="text-white/70 text-sm">Office & business relocations</p>
                     </div>
                   </div>
                 </div>
-                
-                <div className="absolute inset-0 border-2 border-primary/0 group-hover:border-primary/50 rounded-3xl transition-colors duration-300" />
               </div>
             </Link>
 
-            {/* Long Distance Moving Card */}
-            <Link href="/services/long-distance-moving">
-              <div className="group relative h-[420px] rounded-3xl overflow-hidden cursor-pointer shadow-xl hover:shadow-2xl transition-all duration-500" data-testid="service-card-long-distance">
+            {/* Long Distance - Medium Card */}
+            <Link href="/services/long-distance-moving" className="col-span-2">
+              <div className="group relative h-[180px] rounded-2xl overflow-hidden cursor-pointer shadow-lg hover:shadow-xl transition-all duration-300" data-testid="service-card-long-distance">
                 <img 
                   src={longDistanceImage} 
-                  alt="Long Distance Moving Services" 
-                  className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+                  alt="Long Distance Moving" 
+                  className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#1A2332] via-[#1A2332]/60 to-transparent opacity-90 group-hover:opacity-95 transition-opacity" />
-                
-                <div className="absolute inset-0 p-8 flex flex-col justify-end">
-                  <div className="transform group-hover:-translate-y-2 transition-transform duration-300">
-                    <Badge variant="outline" className="border-white/30 text-white font-semibold mb-4 backdrop-blur-sm">
-                      <Truck className="h-3 w-3 mr-1" />
-                      Cross-Country
-                    </Badge>
-                    <h3 className="text-3xl md:text-4xl font-black text-white mb-3">
-                      Long Distance Moving
-                    </h3>
-                    <p className="text-white/80 mb-4 line-clamp-2 group-hover:line-clamp-none transition-all">
-                      Moving across BC or Canada? We handle logistics, route planning, and safe transport so you can focus on your new chapter.
-                    </p>
-                    <div className="flex items-center gap-2 text-primary font-bold">
-                      <span>Explore Service</span>
-                      <ArrowRight className="h-5 w-5 group-hover:translate-x-2 transition-transform" />
+                <div className="absolute inset-0 bg-gradient-to-r from-[#1A2332]/95 to-[#1A2332]/70" />
+                <div className="absolute inset-0 p-5 flex flex-col justify-center">
+                  <div className="flex items-center gap-3">
+                    <div className="h-12 w-12 bg-primary/20 rounded-xl flex items-center justify-center">
+                      <MapPin className="h-6 w-6 text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-black text-white">Long Distance</h3>
+                      <p className="text-white/70 text-sm">Coast-to-coast across Canada</p>
                     </div>
                   </div>
                 </div>
-                
-                <div className="absolute inset-0 border-2 border-primary/0 group-hover:border-primary/50 rounded-3xl transition-colors duration-300" />
               </div>
             </Link>
 
-            {/* Packing Services Card */}
-            <Link href="/services/packing-services">
-              <div className="group relative h-[420px] rounded-3xl overflow-hidden cursor-pointer shadow-xl hover:shadow-2xl transition-all duration-500" data-testid="service-card-packing">
+            {/* Packing Services */}
+            <Link href="/services/packing-services" className="col-span-2">
+              <div className="group relative h-[180px] rounded-2xl overflow-hidden cursor-pointer shadow-lg hover:shadow-xl transition-all duration-300" data-testid="service-card-packing">
                 <img 
                   src={packingImage} 
-                  alt="Professional Packing Services" 
-                  className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+                  alt="Packing Services" 
+                  className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#1A2332] via-[#1A2332]/60 to-transparent opacity-90 group-hover:opacity-95 transition-opacity" />
-                
-                <div className="absolute inset-0 p-8 flex flex-col justify-end">
-                  <div className="transform group-hover:-translate-y-2 transition-transform duration-300">
-                    <Badge variant="outline" className="border-white/30 text-white font-semibold mb-4 backdrop-blur-sm">
-                      <Package className="h-3 w-3 mr-1" />
-                      Full Service
-                    </Badge>
-                    <h3 className="text-3xl md:text-4xl font-black text-white mb-3">
-                      Packing Services
-                    </h3>
-                    <p className="text-white/80 mb-4 line-clamp-2 group-hover:line-clamp-none transition-all">
-                      No time to pack? Our professional team uses premium materials to protect your valuables. Full or partial packing options available.
-                    </p>
-                    <div className="flex items-center gap-2 text-primary font-bold">
-                      <span>Explore Service</span>
-                      <ArrowRight className="h-5 w-5 group-hover:translate-x-2 transition-transform" />
+                <div className="absolute inset-0 bg-gradient-to-r from-[#1A2332]/95 to-[#1A2332]/70" />
+                <div className="absolute inset-0 p-5 flex flex-col justify-center">
+                  <div className="flex items-center gap-3">
+                    <div className="h-12 w-12 bg-primary/20 rounded-xl flex items-center justify-center">
+                      <Package className="h-6 w-6 text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-black text-white">Packing Services</h3>
+                      <p className="text-white/70 text-sm">Full-service professional packing</p>
                     </div>
                   </div>
                 </div>
-                
-                <div className="absolute inset-0 border-2 border-primary/0 group-hover:border-primary/50 rounded-3xl transition-colors duration-300" />
               </div>
             </Link>
+
+            {/* Small Service Cards - Specialty Services */}
+            {[
+              { title: "Moving Supplies", icon: Box, href: "/services/moving-supplies", desc: "Boxes & materials" },
+              { title: "Student Moving", icon: GraduationCap, href: "/services/student-moving", desc: "Budget-friendly" },
+              { title: "Storage", icon: Warehouse, href: "/services/storage-solutions", desc: "Secure facilities" },
+              { title: "Specialty Items", icon: Dumbbell, href: "/services/specialty-item-moving", desc: "Hot tubs & more" },
+              { title: "Antiques", icon: Crown, href: "/services/antique-moving", desc: "Careful handling" },
+              { title: "Piano Moving", icon: Music, href: "/services/piano-moving", desc: "Specialized transport" },
+              { title: "Senior Moving", icon: Heart, href: "/services/senior-moving", desc: "Compassionate care" },
+              { title: "Military Moving", icon: Medal, href: "/services/military-moving", desc: "PCS relocations" },
+            ].map((service, index) => (
+              <Link key={service.href} href={service.href} className="col-span-1">
+                <div className="group bg-white border border-gray-200 rounded-2xl p-4 h-[140px] flex flex-col justify-between hover:border-primary hover:shadow-lg transition-all duration-300 cursor-pointer" data-testid={`service-card-${service.title.toLowerCase().replace(/\s+/g, '-')}`}>
+                  <div className="h-10 w-10 bg-primary/10 rounded-xl flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                    <service.icon className="h-5 w-5 text-primary" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-[#1A2332] text-sm leading-tight">{service.title}</h4>
+                    <p className="text-gray-500 text-xs mt-1">{service.desc}</p>
+                  </div>
+                </div>
+              </Link>
+            ))}
           </div>
 
-          {/* CTA Section */}
-          <div className="mt-16 text-center">
-            <div className="inline-flex flex-col sm:flex-row items-center gap-4 p-6 bg-[#1A2332] rounded-2xl shadow-xl">
-              <div className="text-white text-center sm:text-left">
-                <p className="font-bold text-lg">Ready to get started?</p>
-                <p className="text-white/70 text-sm">Get your free, no-obligation quote today</p>
-              </div>
-              <Link href="/book">
-                <Button size="lg" className="font-bold text-lg px-8 shadow-lg whitespace-nowrap" data-testid="button-get-quote-services">
-                  GET FREE QUOTE
-                  <ArrowRight className="h-5 w-5 ml-2" />
-                </Button>
-              </Link>
-            </div>
+          {/* View All Services Link */}
+          <div className="mt-12 text-center">
+            <p className="text-gray-600 mb-4">Looking for something specific? We handle all types of moves.</p>
+            <Link href="/book">
+              <Button size="lg" className="font-bold text-lg px-10 shadow-lg shadow-primary/30" data-testid="button-get-quote-services">
+                Get Free Quote
+                <ArrowRight className="h-5 w-5 ml-2" />
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
