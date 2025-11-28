@@ -1,4 +1,4 @@
-import { LayoutDashboard, Calendar, Users, Settings, RefreshCw, LogOut, TruckIcon } from "lucide-react";
+import { LayoutDashboard, Calendar, Users, Settings, RefreshCw, LogOut, TruckIcon, BarChart3 } from "lucide-react";
 import {
   Sidebar,
   SidebarContent,
@@ -26,9 +26,9 @@ const menuItems = [
     icon: TruckIcon,
   },
   {
-    title: "Customers",
-    url: "/admin/customers",
-    icon: Users,
+    title: "Analytics",
+    url: "/admin/analytics",
+    icon: BarChart3,
   },
   {
     title: "SmartMoving Sync",
