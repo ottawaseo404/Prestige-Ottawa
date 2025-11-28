@@ -1087,28 +1087,149 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 md:py-28 bg-primary">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl md:text-5xl font-black text-[#1A2332] mb-6">
-            Ready to Move?
-          </h2>
-          <p className="text-xl text-[#1A2332]/80 mb-8 max-w-2xl mx-auto">
-            Get your free, no-obligation quote today. Our team is standing by to help make your move stress-free.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/book">
-              <Button size="lg" className="text-lg font-bold px-10 py-6 bg-[#1A2332] text-white hover:bg-[#1A2332]/90" data-testid="button-cta-quote">
-                GET FREE QUOTE
-                <ArrowRight className="h-5 w-5 ml-2" />
-              </Button>
-            </Link>
-            <a href="tel:604-616-6066">
-              <Button size="lg" variant="outline" className="text-lg font-bold px-10 py-6 border-2 border-[#1A2332] text-[#1A2332] hover:bg-[#1A2332] hover:text-white" data-testid="button-cta-call">
-                <Phone className="h-5 w-5 mr-2" />
-                604-616-6066
-              </Button>
-            </a>
+      {/* CTA Section - Modern Redesign */}
+      <section className="relative py-24 md:py-32 overflow-hidden">
+        {/* Animated Background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#1A2332] via-[#2a3a52] to-[#1A2332]">
+          {/* Decorative Elements */}
+          <div className="absolute top-0 left-0 w-96 h-96 bg-primary/20 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
+          <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-primary/10 rounded-full blur-3xl translate-x-1/4 translate-y-1/4" />
+          <div className="absolute top-1/2 left-1/2 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
+          
+          {/* Subtle Grid Pattern */}
+          <div className="absolute inset-0 opacity-5" style={{ 
+            backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)',
+            backgroundSize: '40px 40px'
+          }} />
+        </div>
+
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left Side - Content */}
+            <div className="text-center lg:text-left">
+              <div className="inline-flex items-center gap-2 bg-primary/20 border border-primary/40 rounded-full px-4 py-2 mb-6">
+                <Sparkles className="h-4 w-4 text-primary" />
+                <span className="text-primary font-semibold text-sm">Free No-Obligation Quote</span>
+              </div>
+              
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 leading-tight">
+                Ready to Make<br />
+                <span className="text-primary">Your Move?</span>
+              </h2>
+              
+              <p className="text-xl text-white/70 mb-8 max-w-lg mx-auto lg:mx-0">
+                Join over 10,000 happy customers who trusted us with their moves. Get your personalized quote in minutes.
+              </p>
+
+              {/* Trust Indicators */}
+              <div className="flex flex-wrap justify-center lg:justify-start gap-6 mb-8">
+                <div className="flex items-center gap-2 text-white/80">
+                  <CheckCircle2 className="h-5 w-5 text-primary" />
+                  <span className="text-sm font-medium">No Hidden Fees</span>
+                </div>
+                <div className="flex items-center gap-2 text-white/80">
+                  <CheckCircle2 className="h-5 w-5 text-primary" />
+                  <span className="text-sm font-medium">Fully Insured</span>
+                </div>
+                <div className="flex items-center gap-2 text-white/80">
+                  <CheckCircle2 className="h-5 w-5 text-primary" />
+                  <span className="text-sm font-medium">Same-Day Response</span>
+                </div>
+              </div>
+
+              {/* CTA Buttons */}
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                <Link href="/book">
+                  <Button size="lg" className="text-lg font-bold px-10 py-7 shadow-xl shadow-primary/30 group" data-testid="button-cta-quote">
+                    GET FREE QUOTE
+                    <ArrowRight className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                </Link>
+                <a href="tel:604-616-6066">
+                  <Button size="lg" variant="outline" className="text-lg font-bold px-10 py-7 border-2 border-white/30 text-white hover:bg-white/10 hover:border-white/50 backdrop-blur-sm" data-testid="button-cta-call">
+                    <Phone className="h-5 w-5 mr-2" />
+                    604-616-6066
+                  </Button>
+                </a>
+              </div>
+            </div>
+
+            {/* Right Side - Interactive Stats Card */}
+            <div className="hidden lg:block">
+              <div className="relative">
+                {/* Glowing effect behind card */}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/40 to-primary/10 rounded-3xl blur-2xl transform scale-105" />
+                
+                <div className="relative bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-8 shadow-2xl">
+                  <div className="text-center mb-8">
+                    <div className="inline-flex items-center justify-center w-16 h-16 bg-primary rounded-2xl mb-4 shadow-lg">
+                      <TruckIcon className="h-8 w-8 text-[#1A2332]" />
+                    </div>
+                    <h3 className="text-2xl font-bold text-white mb-2">Why Choose Us?</h3>
+                    <p className="text-white/60 text-sm">Trusted by thousands of families</p>
+                  </div>
+
+                  {/* Animated Stats */}
+                  <div className="space-y-4">
+                    <div className="group p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-all duration-300 cursor-default">
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-3">
+                          <div className="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center">
+                            <Users className="h-5 w-5 text-primary" />
+                          </div>
+                          <span className="text-white font-medium">Happy Customers</span>
+                        </div>
+                        <span className="text-2xl font-black text-primary group-hover:scale-110 transition-transform">10,000+</span>
+                      </div>
+                    </div>
+
+                    <div className="group p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-all duration-300 cursor-default">
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-3">
+                          <div className="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center">
+                            <Star className="h-5 w-5 text-primary fill-primary" />
+                          </div>
+                          <span className="text-white font-medium">Google Rating</span>
+                        </div>
+                        <span className="text-2xl font-black text-primary group-hover:scale-110 transition-transform">5.0</span>
+                      </div>
+                    </div>
+
+                    <div className="group p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-all duration-300 cursor-default">
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-3">
+                          <div className="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center">
+                            <Clock className="h-5 w-5 text-primary" />
+                          </div>
+                          <span className="text-white font-medium">Years Experience</span>
+                        </div>
+                        <span className="text-2xl font-black text-primary group-hover:scale-110 transition-transform">15+</span>
+                      </div>
+                    </div>
+
+                    <div className="group p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-all duration-300 cursor-default">
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-3">
+                          <div className="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center">
+                            <Shield className="h-5 w-5 text-primary" />
+                          </div>
+                          <span className="text-white font-medium">Satisfaction Rate</span>
+                        </div>
+                        <span className="text-2xl font-black text-primary group-hover:scale-110 transition-transform">100%</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Bottom Badge */}
+                  <div className="mt-6 pt-6 border-t border-white/10 text-center">
+                    <div className="inline-flex items-center gap-2 text-white/60 text-sm">
+                      <Award className="h-4 w-4 text-primary" />
+                      <span>BBB A+ Rated • WSIB Insured • Licensed</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
