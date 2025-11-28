@@ -70,65 +70,67 @@ export default function ResidentialMoving() {
         <SharedNavigation />
 
         {/* Hero Section with Video */}
-        <section className="relative h-[70vh] min-h-[500px] overflow-hidden">
-          <video 
-            autoPlay 
-            loop 
-            muted 
-            playsInline
-            className="absolute inset-0 w-full h-full object-cover"
-          >
-            <source src={residentialVideo} type="video/mp4" />
-          </video>
-          <div className="absolute inset-0 bg-gradient-to-r from-[#1A2332]/90 via-[#1A2332]/70 to-transparent" />
-          
-          <div className="relative z-10 h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center">
-            <div className="max-w-2xl">
-              <Badge className="bg-primary text-[#1A2332] font-bold mb-4">Residential Moving</Badge>
-              <h1 className="text-4xl md:text-6xl font-black text-white mb-6 leading-tight">
-                Vancouver's #1<br />
-                <span className="text-primary">Home Movers</span>
-              </h1>
-              <p className="text-xl text-white/90 mb-8 leading-relaxed">
-                From studio apartments to large family homes, we've helped over 10,000 Vancouver families move safely. WSIB insured, transparent pricing, and experienced movers you can trust.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Link href="/book">
-                  <Button size="lg" className="text-base font-bold px-8 py-6 shadow-xl">
-                    Get Free Quote
-                    <ArrowRight className="h-5 w-5 ml-2" />
-                  </Button>
-                </Link>
-                <a href="tel:604-616-6066">
-                  <Button size="lg" variant="outline" className="text-base font-bold px-8 py-6 border-2 border-white text-white hover:bg-white hover:text-[#1A2332]">
-                    <Phone className="h-5 w-5 mr-2" />
-                    604-616-6066
-                  </Button>
-                </a>
+        <section className="relative overflow-hidden">
+          <div className="relative min-h-[600px] md:min-h-[70vh]">
+            <video 
+              autoPlay 
+              loop 
+              muted 
+              playsInline
+              className="absolute inset-0 w-full h-full object-cover"
+            >
+              <source src={residentialVideo} type="video/mp4" />
+            </video>
+            <div className="absolute inset-0 bg-gradient-to-r from-[#1A2332]/95 via-[#1A2332]/80 to-[#1A2332]/60 md:to-transparent" />
+            
+            <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+              <div className="max-w-2xl">
+                <Badge className="bg-primary text-[#1A2332] font-bold mb-4">Residential Moving</Badge>
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white mb-4 md:mb-6 leading-tight">
+                  Vancouver's #1<br />
+                  <span className="text-primary">Home Movers</span>
+                </h1>
+                <p className="text-base md:text-xl text-white/90 mb-6 md:mb-8 leading-relaxed">
+                  From studio apartments to large family homes, we've helped over 10,000 Vancouver families move safely. WSIB insured, transparent pricing, and experienced movers you can trust.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
+                  <Link href="/book">
+                    <Button size="lg" className="text-base font-bold px-6 md:px-8 py-5 md:py-6 shadow-xl w-full sm:w-auto">
+                      Get Free Quote
+                      <ArrowRight className="h-5 w-5 ml-2" />
+                    </Button>
+                  </Link>
+                  <a href="tel:604-616-6066">
+                    <Button size="lg" variant="outline" className="text-base font-bold px-6 md:px-8 py-5 md:py-6 border-2 border-white text-white hover:bg-white hover:text-[#1A2332] w-full sm:w-auto">
+                      <Phone className="h-5 w-5 mr-2" />
+                      604-616-6066
+                    </Button>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
 
-          {/* Stats bar */}
-          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-400">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+          {/* Stats bar - Separate from hero content */}
+          <div className="bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-400">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 md:py-5">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 text-center">
                 <div className="group cursor-pointer transition-transform hover:scale-105">
-                  <div className="text-2xl md:text-3xl font-black text-[#1A2332]">10,000+</div>
+                  <div className="text-xl sm:text-2xl md:text-3xl font-black text-[#1A2332]">10,000+</div>
                   <div className="text-xs md:text-sm font-bold text-[#1A2332]/80">Homes Moved</div>
                 </div>
                 <div className="group cursor-pointer transition-transform hover:scale-105">
-                  <div className="flex items-center justify-center gap-1 text-2xl md:text-3xl font-black text-[#1A2332]">
-                    5.0 <Star className="h-5 w-5 fill-[#1A2332]" />
+                  <div className="flex items-center justify-center gap-1 text-xl sm:text-2xl md:text-3xl font-black text-[#1A2332]">
+                    5.0 <Star className="h-4 w-4 md:h-5 md:w-5 fill-[#1A2332]" />
                   </div>
                   <div className="text-xs md:text-sm font-bold text-[#1A2332]/80">Google Rating</div>
                 </div>
                 <div className="group cursor-pointer transition-transform hover:scale-105">
-                  <div className="text-2xl md:text-3xl font-black text-[#1A2332]">15+</div>
+                  <div className="text-xl sm:text-2xl md:text-3xl font-black text-[#1A2332]">15+</div>
                   <div className="text-xs md:text-sm font-bold text-[#1A2332]/80">Years Experience</div>
                 </div>
                 <div className="group cursor-pointer transition-transform hover:scale-105">
-                  <div className="text-2xl md:text-3xl font-black text-[#1A2332]">Same Day</div>
+                  <div className="text-xl sm:text-2xl md:text-3xl font-black text-[#1A2332]">Same Day</div>
                   <div className="text-xs md:text-sm font-bold text-[#1A2332]/80">Quotes Available</div>
                 </div>
               </div>
