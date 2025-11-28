@@ -73,7 +73,7 @@ export default function Home() {
       setHeroFormSubmitted(true);
       toast({
         title: "Quote Request Submitted!",
-        description: "We'll contact you within 30 minutes with your free estimate.",
+        description: "We'll contact you within 24 hours with your free estimate.",
       });
     },
     onError: () => {
@@ -425,7 +425,7 @@ export default function Home() {
                       <CheckCircle2 className="h-8 w-8 text-green-600" />
                     </div>
                     <h3 className="text-2xl font-bold text-[#1A2332] mb-2">Quote Request Sent!</h3>
-                    <p className="text-gray-600 mb-4">We'll contact you within 30 minutes with your free estimate.</p>
+                    <p className="text-gray-600 mb-4">We'll contact you within 24 hours with your free estimate.</p>
                     <Button 
                       variant="outline" 
                       onClick={() => {
@@ -441,7 +441,7 @@ export default function Home() {
                   <>
                     <div className="text-center mb-6">
                       <h3 className="text-2xl font-bold text-[#1A2332] mb-2">Get Your Free Quote</h3>
-                      <p className="text-gray-600 text-sm">Fill out the form and we'll contact you within 30 minutes</p>
+                      <p className="text-gray-600 text-sm">Fill out the form and we'll contact you within 24 hours</p>
                     </div>
                     
                     <form onSubmit={handleHeroFormSubmit} className="space-y-4">
