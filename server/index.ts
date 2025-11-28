@@ -14,14 +14,17 @@ declare module 'http' {
   }
 }
 
+const isProduction = process.env.NODE_ENV === 'production' || process.env.REPLIT_DEPLOYMENT === '1';
+const isReplit = !!process.env.REPLIT;
+
 app.use(session({
   secret: process.env.SESSION_SECRET || 'prestige-moving-secret-key',
   resave: false,
   saveUninitialized: false,
   cookie: {
-    secure: process.env.NODE_ENV === 'production',
+    secure: isReplit || isProduction,
     httpOnly: true,
-    sameSite: 'lax',
+    sameSite: isReplit ? 'none' : 'lax',
     maxAge: 24 * 60 * 60 * 1000
   }
 }));
