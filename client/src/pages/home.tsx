@@ -14,8 +14,17 @@ import {
   Phone, CheckCircle2, Award, Clock, Shield, TruckIcon, Package, 
   Home as HomeIcon, Building2, MapPin, Menu, Warehouse, GraduationCap, 
   Heart, Music, Crown, Dumbbell, Box, Medal, ArrowRight, Star, 
-  Quote, Users, ThumbsUp, ChevronLeft, ChevronRight, Truck, Headphones
+  Quote, Users, ThumbsUp, ChevronLeft, ChevronRight, Truck, Headphones,
+  Mail, Calendar
 } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Link } from "wouter";
 import { useState } from "react";
 import logoUrl from "@assets/originalonglogo_1763689606978.png";
@@ -82,6 +91,26 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-background">
+      {/* Top Contact Bar - White */}
+      <div className="bg-white border-b border-gray-200 hidden md:block">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-end items-center h-10 gap-8">
+            <a href="#locations" className="flex items-center gap-2 text-gray-600 text-sm hover:text-primary transition-colors" data-testid="topbar-locations">
+              <MapPin className="h-4 w-4" />
+              <span>Vancouver & Area</span>
+            </a>
+            <a href="tel:604-616-6066" className="flex items-center gap-2 text-gray-600 text-sm hover:text-primary transition-colors font-semibold" data-testid="topbar-phone">
+              <Phone className="h-4 w-4" />
+              <span>604-616-6066</span>
+            </a>
+            <a href="mailto:info@prestigemoving.ca" className="flex items-center gap-2 text-gray-600 text-sm hover:text-primary transition-colors" data-testid="topbar-email">
+              <Mail className="h-4 w-4" />
+              <span>Contact Us</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
       {/* Modern Navigation - Dark Theme */}
       <nav className="sticky top-0 z-50 bg-[#1A2332] border-b border-primary/20 shadow-lg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -291,8 +320,70 @@ export default function Home() {
         </div>
       </section>
 
+      {/* How Can We Help - Quick Quote Form */}
+      <section className="relative -mt-8 z-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-5xl mx-auto">
+          <div className="bg-white rounded-xl shadow-xl p-6 md:p-8 border border-gray-100">
+            <h3 className="text-lg md:text-xl font-bold text-gray-800 mb-6" data-testid="heading-quick-quote">
+              How can we help?
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-5 gap-4 items-end">
+              <div className="space-y-2">
+                <label className="text-sm text-gray-500">Property Type:</label>
+                <Select defaultValue="home">
+                  <SelectTrigger className="bg-gray-50 border-gray-200 h-12" data-testid="select-property-type">
+                    <SelectValue placeholder="Select type" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="home">Home</SelectItem>
+                    <SelectItem value="apartment">Apartment</SelectItem>
+                    <SelectItem value="condo">Condo</SelectItem>
+                    <SelectItem value="office">Office</SelectItem>
+                    <SelectItem value="storage">Storage</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+              <div className="space-y-2">
+                <label className="text-sm text-gray-500">Moving Date:</label>
+                <div className="relative">
+                  <Input 
+                    type="date" 
+                    className="bg-gray-50 border-gray-200 h-12 pl-10" 
+                    data-testid="input-moving-date"
+                  />
+                  <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
+                </div>
+              </div>
+              <div className="space-y-2">
+                <label className="text-sm text-gray-500">From:</label>
+                <Input 
+                  type="text" 
+                  placeholder="City or Postal Code" 
+                  className="bg-gray-50 border-gray-200 h-12"
+                  data-testid="input-from-location"
+                />
+              </div>
+              <div className="space-y-2">
+                <label className="text-sm text-gray-500">To:</label>
+                <Input 
+                  type="text" 
+                  placeholder="City or Postal Code" 
+                  className="bg-gray-50 border-gray-200 h-12"
+                  data-testid="input-to-location"
+                />
+              </div>
+              <Link href="/book">
+                <Button size="lg" variant="outline" className="w-full h-12 font-bold border-2 border-primary text-primary hover:bg-primary hover:text-white" data-testid="button-quick-quote">
+                  Get a Quote
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Trust Badges Section */}
-      <section className="py-12 bg-background border-b">
+      <section className="py-12 pt-16 bg-background border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
             <h2 className="text-lg font-semibold text-muted-foreground uppercase tracking-wider">
