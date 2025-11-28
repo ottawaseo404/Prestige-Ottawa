@@ -1,10 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Phone, CheckCircle2, Package, Box, Shield, Star, Sparkles, Clock } from "lucide-react";
+import { Phone, CheckCircle2, Package, Box, Shield, Star, Sparkles, Clock, ArrowRight } from "lucide-react";
 import { Link } from "wouter";
 import { Helmet } from "react-helmet";
 import { SharedNavigation } from "@/components/shared-navigation";
+import packingHeroImage from "@assets/generated_images/professional_packing_services_vancouver.png";
 
 export default function PackingServices() {
   const schemaData = {
@@ -46,29 +47,112 @@ export default function PackingServices() {
       <div className="min-h-screen bg-background">
         <SharedNavigation />
 
-        {/* Hero Section */}
-        <section className="relative bg-gradient-to-br from-primary/10 via-accent to-background py-20 md:py-32">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-3xl">
-              <Badge variant="default" className="mb-4">Packing Services</Badge>
-              <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6 tracking-tight">
-                Professional Packing<br />Services in Vancouver
+        {/* Hero Section with Image */}
+        <section className="relative min-h-[70vh] overflow-hidden">
+          {/* Background Image */}
+          <div className="absolute inset-0">
+            <img 
+              src={packingHeroImage} 
+              alt="Professional packing services in Vancouver" 
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#1A2332]/95 via-[#1A2332]/80 to-[#1A2332]/40" />
+          </div>
+
+          {/* Stats Bar at Top */}
+          <div className="absolute top-0 left-0 right-0 bg-black/30 backdrop-blur-sm border-b border-white/10 z-20">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+              <div className="flex flex-wrap justify-center gap-6 md:gap-12 text-white/90 text-sm">
+                <div className="flex items-center gap-2">
+                  <Package className="h-4 w-4 text-primary" />
+                  <span>Quality Materials</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Shield className="h-4 w-4 text-primary" />
+                  <span>Fully Insured</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Clock className="h-4 w-4 text-primary" />
+                  <span>Same Day Service</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Star className="h-4 w-4 text-primary fill-primary" />
+                  <span>5.0 Rated</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Hero Content */}
+          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32 flex items-center min-h-[70vh]">
+            <div className="max-w-2xl">
+              <Badge className="bg-primary text-[#1A2332] font-bold mb-6 text-sm px-4 py-2">
+                <Package className="h-4 w-4 mr-2" />
+                Packing Services
+              </Badge>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 tracking-tight leading-tight">
+                Professional Packing<br />
+                <span className="text-primary">Services in Vancouver</span>
               </h1>
-              <p className="text-xl text-muted-foreground mb-8">
+              <p className="text-lg md:text-xl text-white/80 mb-8 leading-relaxed">
                 Let our expert team handle the packing while you focus on your move. Quality materials, careful handling, and peace of mind included.
               </p>
+
+              {/* Trust Indicators */}
+              <div className="flex flex-wrap gap-4 mb-8">
+                <div className="flex items-center gap-2 text-white/80">
+                  <CheckCircle2 className="h-5 w-5 text-primary" />
+                  <span className="text-sm font-medium">Premium Materials</span>
+                </div>
+                <div className="flex items-center gap-2 text-white/80">
+                  <CheckCircle2 className="h-5 w-5 text-primary" />
+                  <span className="text-sm font-medium">Expert Packers</span>
+                </div>
+                <div className="flex items-center gap-2 text-white/80">
+                  <CheckCircle2 className="h-5 w-5 text-primary" />
+                  <span className="text-sm font-medium">Fragile Item Specialists</span>
+                </div>
+              </div>
+
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link href="/book">
-                  <Button size="lg" variant="default" className="text-base px-8">
+                  <Button size="lg" className="text-base font-bold px-8 py-6 shadow-xl w-full sm:w-auto">
                     Get Free Quote
+                    <ArrowRight className="h-5 w-5 ml-2" />
                   </Button>
                 </Link>
                 <a href="tel:604-616-6066">
-                  <Button size="lg" variant="outline" className="text-base px-8">
+                  <Button size="lg" variant="outline" className="text-base font-bold px-8 py-6 border-2 border-white text-white hover:bg-white hover:text-[#1A2332] w-full sm:w-auto">
                     <Phone className="h-5 w-5 mr-2" />
-                    Call 604-616-6066
+                    604-616-6066
                   </Button>
                 </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Stats Bar at Bottom */}
+          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-400 z-20">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                <div className="group cursor-pointer transition-transform hover:scale-105">
+                  <div className="text-xl md:text-2xl font-black text-[#1A2332]">10,000+</div>
+                  <div className="text-xs md:text-sm font-bold text-[#1A2332]/80">Homes Packed</div>
+                </div>
+                <div className="group cursor-pointer transition-transform hover:scale-105">
+                  <div className="flex items-center justify-center gap-1 text-xl md:text-2xl font-black text-[#1A2332]">
+                    5.0 <Star className="h-4 w-4 fill-[#1A2332]" />
+                  </div>
+                  <div className="text-xs md:text-sm font-bold text-[#1A2332]/80">Google Rating</div>
+                </div>
+                <div className="group cursor-pointer transition-transform hover:scale-105">
+                  <div className="text-xl md:text-2xl font-black text-[#1A2332]">Same Day</div>
+                  <div className="text-xs md:text-sm font-bold text-[#1A2332]/80">Service Available</div>
+                </div>
+                <div className="group cursor-pointer transition-transform hover:scale-105">
+                  <div className="text-xl md:text-2xl font-black text-[#1A2332]">100%</div>
+                  <div className="text-xs md:text-sm font-bold text-[#1A2332]/80">Satisfaction</div>
+                </div>
               </div>
             </div>
           </div>
