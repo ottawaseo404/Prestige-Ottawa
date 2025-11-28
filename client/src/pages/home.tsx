@@ -38,7 +38,7 @@ import heroVideo2 from "@assets/generated_videos/white_truck_driving_bc_mountain
 import residentialImage from "@assets/truck1_1764291781341.jpeg";
 import commercialImage from "@assets/commercial_1764347548715.jpeg";
 import longDistanceImage from "@assets/movers_staircase.png";
-import packingImage from "@assets/packing_interior.png";
+import packingImage from "@assets/IMG_5767_1764348259855.jpeg";
 import { packageTypes, type PackageType } from "@shared/schema";
 import { SharedFooter } from "@/components/shared-footer";
 
