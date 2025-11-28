@@ -92,21 +92,60 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-background">
       {/* Top Contact Bar - White */}
-      <div className="bg-white border-b border-gray-200 hidden md:block">
+      <div className="bg-white border-b border-gray-200 hidden md:block overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-end items-center h-10 gap-8">
-            <a href="#locations" className="flex items-center gap-2 text-gray-600 text-sm hover:text-primary transition-colors" data-testid="topbar-locations">
-              <MapPin className="h-4 w-4" />
-              <span>Vancouver & Area</span>
-            </a>
-            <a href="tel:604-616-6066" className="flex items-center gap-2 text-gray-600 text-sm hover:text-primary transition-colors font-semibold" data-testid="topbar-phone">
-              <Phone className="h-4 w-4" />
-              <span>604-616-6066</span>
-            </a>
-            <a href="mailto:info@prestigemoving.ca" className="flex items-center gap-2 text-gray-600 text-sm hover:text-primary transition-colors" data-testid="topbar-email">
-              <Mail className="h-4 w-4" />
-              <span>Contact Us</span>
-            </a>
+          <div className="flex justify-between items-center h-10 gap-8">
+            {/* Live Ticker */}
+            <div className="flex-1 overflow-hidden relative" data-testid="ticker-container">
+              <div className="flex animate-marquee whitespace-nowrap">
+                <span className="text-sm text-gray-600 mx-8 flex items-center gap-2">
+                  <Star className="h-3 w-3 text-primary fill-primary" /> Free Estimates Available
+                </span>
+                <span className="text-sm text-gray-600 mx-8 flex items-center gap-2">
+                  <TruckIcon className="h-3 w-3 text-primary" /> Same Day Moving Available
+                </span>
+                <span className="text-sm text-gray-600 mx-8 flex items-center gap-2">
+                  <Shield className="h-3 w-3 text-primary" /> Fully Insured & Bonded
+                </span>
+                <span className="text-sm text-gray-600 mx-8 flex items-center gap-2">
+                  <Award className="h-3 w-3 text-primary" /> BBB A+ Rated Company
+                </span>
+                <span className="text-sm text-gray-600 mx-8 flex items-center gap-2">
+                  <Clock className="h-3 w-3 text-primary" /> Available 7 Days a Week
+                </span>
+                <span className="text-sm text-gray-600 mx-8 flex items-center gap-2">
+                  <Star className="h-3 w-3 text-primary fill-primary" /> Free Estimates Available
+                </span>
+                <span className="text-sm text-gray-600 mx-8 flex items-center gap-2">
+                  <TruckIcon className="h-3 w-3 text-primary" /> Same Day Moving Available
+                </span>
+                <span className="text-sm text-gray-600 mx-8 flex items-center gap-2">
+                  <Shield className="h-3 w-3 text-primary" /> Fully Insured & Bonded
+                </span>
+                <span className="text-sm text-gray-600 mx-8 flex items-center gap-2">
+                  <Award className="h-3 w-3 text-primary" /> BBB A+ Rated Company
+                </span>
+                <span className="text-sm text-gray-600 mx-8 flex items-center gap-2">
+                  <Clock className="h-3 w-3 text-primary" /> Available 7 Days a Week
+                </span>
+              </div>
+            </div>
+            
+            {/* Contact Info */}
+            <div className="flex items-center gap-6 flex-shrink-0 border-l border-gray-200 pl-6">
+              <a href="#locations" className="flex items-center gap-2 text-gray-600 text-sm hover:text-primary transition-colors" data-testid="topbar-locations">
+                <MapPin className="h-4 w-4" />
+                <span>Vancouver & Area</span>
+              </a>
+              <a href="tel:604-616-6066" className="flex items-center gap-2 text-gray-600 text-sm hover:text-primary transition-colors font-semibold" data-testid="topbar-phone">
+                <Phone className="h-4 w-4" />
+                <span>604-616-6066</span>
+              </a>
+              <a href="mailto:info@prestigemoving.ca" className="flex items-center gap-2 text-gray-600 text-sm hover:text-primary transition-colors" data-testid="topbar-email">
+                <Mail className="h-4 w-4" />
+                <span>Contact Us</span>
+              </a>
+            </div>
           </div>
         </div>
       </div>
