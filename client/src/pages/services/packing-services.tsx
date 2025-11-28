@@ -5,7 +5,7 @@ import { Phone, CheckCircle2, Package, Box, Shield, Star, Sparkles, Clock, Arrow
 import { Link } from "wouter";
 import { Helmet } from "react-helmet";
 import { SharedNavigation } from "@/components/shared-navigation";
-import packingHeroImage from "@assets/generated_images/professional_packing_services_vancouver.png";
+import packingHeroVideo from "@assets/generated_videos/professional_packing_services_vancouver.mp4";
 
 export default function PackingServices() {
   const schemaData = {
@@ -47,15 +47,19 @@ export default function PackingServices() {
       <div className="min-h-screen bg-background">
         <SharedNavigation />
 
-        {/* Hero Section with Image */}
+        {/* Hero Section with Video */}
         <section className="relative min-h-[70vh] overflow-hidden">
-          {/* Background Image */}
+          {/* Background Video */}
           <div className="absolute inset-0">
-            <img 
-              src={packingHeroImage} 
-              alt="Professional packing services in Vancouver" 
+            <video 
+              autoPlay 
+              loop 
+              muted 
+              playsInline
               className="w-full h-full object-cover"
-            />
+            >
+              <source src={packingHeroVideo} type="video/mp4" />
+            </video>
             <div className="absolute inset-0 bg-gradient-to-r from-[#1A2332]/95 via-[#1A2332]/80 to-[#1A2332]/40" />
           </div>
 
