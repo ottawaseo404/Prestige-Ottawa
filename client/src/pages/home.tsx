@@ -1121,7 +1121,7 @@ export default function Home() {
             <Link href="/services/commercial-moving">
               <div className="group relative h-[420px] rounded-3xl overflow-hidden cursor-pointer shadow-xl hover:shadow-2xl transition-all duration-500" data-testid="service-card-commercial">
                 <img 
-                  src={commercialImage} 
+                  src={longDistanceImage} 
                   alt="Commercial Moving Services" 
                   className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
                 />
@@ -1154,7 +1154,7 @@ export default function Home() {
             <Link href="/services/long-distance-moving">
               <div className="group relative h-[420px] rounded-3xl overflow-hidden cursor-pointer shadow-xl hover:shadow-2xl transition-all duration-500" data-testid="service-card-long-distance">
                 <img 
-                  src={longDistanceImage} 
+                  src={commercialImage} 
                   alt="Long Distance Moving Services" 
                   className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
                 />
