@@ -301,12 +301,12 @@ export default function Home() {
     <>
       <Helmet>
         <title>Vancouver Moving Company | #1 Rated Movers | Prestige Moving Vancouver</title>
-        <meta name="description" content="Vancouver's top-rated moving company. Residential, commercial, long-distance moves. 5-star Google rating, WSIB insured, 10,000+ successful moves. Free estimates. Call 604-616-6066!" />
+        <meta name="description" content="Vancouver's top-rated moving company. Residential, commercial, long-distance moves. 5-star Google rating, WSIB insured, professional movers you can trust. Free estimates. Call 604-616-6066!" />
         <meta name="keywords" content="Vancouver moving company, movers Vancouver BC, residential movers, commercial movers, long distance moving, piano movers Vancouver, office relocation Vancouver, best movers Vancouver, affordable moving company, professional movers BC" />
         <meta name="robots" content="index, follow" />
         <meta name="author" content="Prestige Moving Vancouver" />
         <meta property="og:title" content="Prestige Moving Vancouver | #1 Rated Moving Company in Vancouver BC" />
-        <meta property="og:description" content="Vancouver's most trusted moving company. 10,000+ successful moves, 5-star rating, fully insured. Residential, commercial, specialty moves. Free quotes!" />
+        <meta property="og:description" content="Vancouver's most trusted moving company. Professional movers you can trust. 5-star rating, fully insured. Residential, commercial, specialty moves. Free quotes!" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://vancouver.prestigemoving.ca" />
         <meta property="og:site_name" content="Prestige Moving Vancouver" />
