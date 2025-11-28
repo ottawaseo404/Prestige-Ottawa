@@ -1295,10 +1295,7 @@ export default function Home() {
             </div>
           </div>
           
-          <div className="border-t border-white/10 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-sm text-white/50">
-              © {new Date().getFullYear()} Prestige Moving Vancouver. All rights reserved.
-            </p>
+          <div className="border-t border-white/10 mt-12 pt-8 flex justify-center items-center">
             <div className="flex items-center gap-6 text-sm text-white/50">
               <span>WSIB Insured</span>
               <span>•</span>
