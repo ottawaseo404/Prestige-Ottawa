@@ -127,8 +127,32 @@ export default function ResidentialMoving() {
               <source src={residentialVideo} type="video/mp4" />
             </video>
             <div className="absolute inset-0 bg-gradient-to-r from-[#1A2332]/95 via-[#1A2332]/80 to-[#1A2332]/60 md:to-transparent" />
+
+            {/* Features Bar at Top */}
+            <div className="absolute top-0 left-0 right-0 bg-black/30 backdrop-blur-sm border-b border-white/10 z-20">
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+                <div className="flex flex-wrap justify-center gap-6 md:gap-12 text-white/90 text-sm">
+                  <div className="flex items-center gap-2">
+                    <Home className="h-4 w-4 text-primary" />
+                    <span>Local Area Coverage</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Shield className="h-4 w-4 text-primary" />
+                    <span>Full Insurance</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Users className="h-4 w-4 text-primary" />
+                    <span>Professional Movers</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Star className="h-4 w-4 text-primary fill-primary" />
+                    <span>5.0 Rated</span>
+                  </div>
+                </div>
+              </div>
+            </div>
             
-            <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+            <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 pt-24 md:pt-32">
               <div className="max-w-2xl">
                 <Badge className="bg-primary text-[#1A2332] font-bold mb-4">Residential Moving</Badge>
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white mb-4 md:mb-6 leading-tight">
