@@ -185,11 +185,49 @@ export function SharedNavigation() {
                   <Menu className="h-6 w-6" />
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right" className="w-[300px] sm:w-[400px] bg-[#1A2332] border-primary/20">
-                <div className="flex flex-col gap-6 mt-8">
+              <SheetContent side="right" className="w-[300px] sm:w-[400px] bg-[#1A2332] border-primary/20 overflow-y-auto">
+                <div className="flex flex-col gap-4 mt-8">
+                  {/* Main Navigation */}
+                  <div className="space-y-1">
+                    <button
+                      onClick={() => {
+                        handleNavClick("/");
+                        setMobileMenuOpen(false);
+                      }}
+                      className="flex items-center gap-3 p-3 rounded-md hover:bg-white/10 cursor-pointer w-full text-left"
+                      data-testid="mobile-nav-home"
+                    >
+                      <HomeIcon className="h-5 w-5 text-primary flex-shrink-0" />
+                      <span className="font-medium text-white">Home</span>
+                    </button>
+                    <button
+                      onClick={() => {
+                        handleNavClick("/contact");
+                        setMobileMenuOpen(false);
+                      }}
+                      className="flex items-center gap-3 p-3 rounded-md hover:bg-white/10 cursor-pointer w-full text-left"
+                      data-testid="mobile-nav-contact"
+                    >
+                      <Mail className="h-5 w-5 text-primary flex-shrink-0" />
+                      <span className="font-medium text-white">Contact Us</span>
+                    </button>
+                    <a
+                      href="tel:604-616-6066"
+                      className="flex items-center gap-3 p-3 rounded-md hover:bg-white/10 cursor-pointer w-full text-left"
+                      data-testid="mobile-nav-phone"
+                    >
+                      <Phone className="h-5 w-5 text-primary flex-shrink-0" />
+                      <span className="font-medium text-white">604-616-6066</span>
+                    </a>
+                  </div>
+
+                  {/* Divider */}
+                  <div className="border-t border-white/10" />
+
+                  {/* Services */}
                   <div>
-                    <h3 className="font-bold text-lg mb-4 text-white">Services</h3>
-                    <div className="space-y-1 max-h-[60vh] overflow-y-auto">
+                    <h3 className="font-bold text-sm uppercase tracking-wider mb-3 text-primary">Our Services</h3>
+                    <div className="space-y-1 max-h-[45vh] overflow-y-auto">
                       {services.map((service) => (
                         <button
                           key={service.href}
@@ -206,6 +244,17 @@ export function SharedNavigation() {
                       ))}
                     </div>
                   </div>
+
+                  {/* Divider */}
+                  <div className="border-t border-white/10" />
+
+                  {/* Location */}
+                  <div className="flex items-center gap-3 p-3 text-white/70">
+                    <MapPin className="h-5 w-5 text-primary flex-shrink-0" />
+                    <span className="text-sm">Serving Vancouver & Area</span>
+                  </div>
+
+                  {/* CTA Button */}
                   <Link href="/book">
                     <Button variant="default" className="w-full font-bold" size="lg" onClick={() => setMobileMenuOpen(false)} data-testid="button-mobile-quote">
                       GET FREE ESTIMATE
