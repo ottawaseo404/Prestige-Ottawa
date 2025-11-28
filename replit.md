@@ -105,10 +105,20 @@ Modern, responsive website for Prestige Moving Vancouver franchise with integrat
 ### Public
 - `/` - Landing page
 - `/book` - Booking form
-- `/services/residential-moving` - Residential moving service page (SEO optimized)
-- `/services/commercial-moving` - Commercial moving service page (SEO optimized)
-- `/services/packing-services` - Packing services page (SEO optimized)
-- `/services/storage-solutions` - Storage solutions page (SEO optimized)
+
+### Service Pages (All SEO Optimized with JSON-LD Schema)
+- `/services/residential-moving` - Apartments, condos, houses
+- `/services/commercial-moving` - Office relocations, business moves
+- `/services/long-distance-moving` - Cross-BC and Canada-wide moves
+- `/services/packing-services` - Full-service packing, materials
+- `/services/moving-supplies` - Boxes, tape, packing supplies delivery
+- `/services/student-moving` - Affordable moves for students
+- `/services/storage-solutions` - Climate-controlled storage
+- `/services/specialty-item-moving` - Hot tubs, pool tables, gym equipment
+- `/services/antique-moving` - Careful handling of valuables
+- `/services/piano-moving` - Specialized piano transport
+- `/services/senior-moving` - Compassionate elderly relocations
+- `/services/military-moving` - PCS moves and base relocations
 
 ### Admin
 - `/admin` - Dashboard overview
@@ -149,21 +159,18 @@ npm run dev  # Starts both frontend (Vite) and backend (Express)
 ## Recent Changes
 
 ### Latest Updates (November 2025)
-- **Modern Interactive Navigation**: Completely redesigned header with premium navigation experience:
-  - Desktop: Shadcn NavigationMenu dropdown with all 4 services (hover/click to open)
+- **Complete 12-Service Page Suite**: All 12 moving services now have dedicated SEO-optimized pages:
+  - Residential, Commercial, Long Distance, Packing, Moving Supplies, Student
+  - Storage, Specialty Item, Antique, Piano, Senior, and Military Moving
+  - Each page includes: JSON-LD schema markup, meta descriptions, keywords, canonical URLs, Open Graph tags
+  - Comprehensive content sections with features, benefits, process steps, and clear CTAs
+  - Consistent navigation with back button, logo, and Get Quote CTA
+
+- **Enhanced Navigation**: 2-column dropdown grid displaying all 12 services:
+  - Desktop: Shadcn NavigationMenu with hover-activated dropdown (700px wide, 2-column grid)
   - Mobile: Hamburger menu with Sheet component for responsive navigation
-  - Fixed logo sizing (h-16) to prevent cutoff, reduced header height to h-20
+  - Fixed logo sizing (h-16), header height h-20
   - Enhanced styling: backdrop blur, shadow, smooth transitions, hover states
-  - Services accessible directly from header on all pages
-  
-- **SEO Service Pages**: Created four comprehensive, SEO-optimized service pages:
-  - Residential Moving: Apartments, condos, houses with detailed process breakdown
-  - Commercial Moving: Office relocations, IT equipment, warehouse moves
-  - Packing Services: Full-service packing, fragile items, furniture protection
-  - Storage Solutions: Short/long-term storage, climate-controlled facilities
-  - Each page includes proper SEO meta tags, Open Graph tags, detailed content sections, clear CTAs
-  - Navigation header with back button and logo on all service pages
-  - Home page updated with clickable service cards linking to dedicated pages
 
 ### Phase 2 - Advanced Features
 - **Database Persistence**: Migrated from in-memory storage to PostgreSQL with Drizzle ORM - all bookings now persist across restarts
