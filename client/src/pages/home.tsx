@@ -167,11 +167,21 @@ export default function Home() {
   };
 
   const googleReviews = [
-    { text: "They were professional, efficient, and took great care of our belongings!", author: "Mike R.", rating: 5 },
-    { text: "Best moving company in Vancouver! Highly recommend their services.", author: "Lisa T.", rating: 5 },
-    { text: "Outstanding service from start to finish. Will use again!", author: "David K.", rating: 5 },
-    { text: "Affordable, professional, and reliable. Exceeded expectations!", author: "Sarah M.", rating: 5 },
-    { text: "The team was punctual, careful, and friendly. 5 stars!", author: "James P.", rating: 5 },
+    { text: "Best movers in Vancouver, hands down!", author: "Mike R.", rating: 5 },
+    { text: "Fast, friendly, and affordable. Loved it!", author: "Lisa T.", rating: 5 },
+    { text: "Outstanding service from start to finish!", author: "David K.", rating: 5 },
+    { text: "Professional team, zero stress. Highly recommend!", author: "Sarah M.", rating: 5 },
+    { text: "Punctual, careful, and friendly. 5 stars!", author: "James P.", rating: 5 },
+    { text: "Made our move so easy. Thank you!", author: "Emily C.", rating: 5 },
+    { text: "Incredible value for the quality. Will use again!", author: "Ryan B.", rating: 5 },
+    { text: "They treated our stuff like their own.", author: "Amanda L.", rating: 5 },
+    { text: "Smooth move, no surprises. Perfect!", author: "Chris W.", rating: 5 },
+    { text: "On time, on budget. Couldn't ask for more!", author: "Jennifer H.", rating: 5 },
+    { text: "True professionals. Exceeded all expectations!", author: "Mark D.", rating: 5 },
+    { text: "Quick and careful. Highly recommend!", author: "Nicole P.", rating: 5 },
+    { text: "Stress-free experience. Amazing team!", author: "Kevin S.", rating: 5 },
+    { text: "Best decision we made for our move!", author: "Laura M.", rating: 5 },
+    { text: "Efficient, polite, and reasonably priced!", author: "Brian T.", rating: 5 },
   ];
 
   useEffect(() => {

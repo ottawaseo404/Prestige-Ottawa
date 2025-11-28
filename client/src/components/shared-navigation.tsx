@@ -16,10 +16,21 @@ import { useState } from "react";
 import logoUrl from "@assets/originalonglogo_1763689606978.png";
 
 const reviews = [
-  { text: "Best moving company in Vancouver!", author: "Sarah M." },
-  { text: "Professional and careful with everything", author: "John D." },
-  { text: "Highly recommend their services", author: "Mike R." },
-  { text: "On time and very efficient", author: "Lisa K." },
+  { text: "Best movers in Vancouver, hands down!", author: "Mike R." },
+  { text: "Fast, friendly, and affordable. Loved it!", author: "Lisa T." },
+  { text: "Outstanding service from start to finish!", author: "David K." },
+  { text: "Professional team, zero stress. Highly recommend!", author: "Sarah M." },
+  { text: "Punctual, careful, and friendly. 5 stars!", author: "James P." },
+  { text: "Made our move so easy. Thank you!", author: "Emily C." },
+  { text: "Incredible value for the quality. Will use again!", author: "Ryan B." },
+  { text: "They treated our stuff like their own.", author: "Amanda L." },
+  { text: "Smooth move, no surprises. Perfect!", author: "Chris W." },
+  { text: "On time, on budget. Couldn't ask for more!", author: "Jennifer H." },
+  { text: "True professionals. Exceeded all expectations!", author: "Mark D." },
+  { text: "Quick and careful. Highly recommend!", author: "Nicole P." },
+  { text: "Stress-free experience. Amazing team!", author: "Kevin S." },
+  { text: "Best decision we made for our move!", author: "Laura M." },
+  { text: "Efficient, polite, and reasonably priced!", author: "Brian T." },
 ];
 
 const services = [
