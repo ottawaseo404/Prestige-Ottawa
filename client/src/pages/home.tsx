@@ -32,7 +32,7 @@ import { useToast } from "@/hooks/use-toast";
 import { Helmet } from "react-helmet";
 import logoUrl from "@assets/originalonglogo_1763689606978.png";
 import heroImage from "@assets/generated_images/vancouver_seabus_ferry_scenic_view.png";
-import heroVideo from "@assets/generated_videos/bc_ferry_sailing_scenic_vancouver_waters.mp4";
+import heroVideo from "@assets/generated_videos/vancouver_ferry_crossing_burrard_inlet.mp4";
 import residentialImage from "@assets/truck1_1764291781341.jpeg";
 import commercialImage from "@assets/commercial_truck_night.png";
 import longDistanceImage from "@assets/movers_staircase.png";
