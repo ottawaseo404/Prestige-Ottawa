@@ -336,27 +336,27 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Stats Bar at Bottom - Responsive */}
-        <div className="absolute bottom-0 left-0 right-0 bg-primary/95 backdrop-blur">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 md:py-6">
+        {/* Stats Bar at Bottom - Bright Gold Interactive */}
+        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-400 shadow-lg">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 md:py-7">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
-              <div className="text-center" data-testid="stat-moves">
-                <div className="text-2xl md:text-4xl font-black text-[#1A2332]">10,000+</div>
-                <div className="text-xs md:text-sm font-semibold text-[#1A2332]/80">Successful Moves</div>
+              <div className="text-center group cursor-pointer transform transition-all duration-300 hover:scale-110" data-testid="stat-moves">
+                <div className="text-2xl md:text-4xl font-black text-[#1A2332] group-hover:text-white transition-colors drop-shadow-sm">10,000+</div>
+                <div className="text-xs md:text-sm font-bold text-[#1A2332]/90 group-hover:text-white/90 transition-colors uppercase tracking-wide">Successful Moves</div>
               </div>
-              <div className="text-center" data-testid="stat-rating">
-                <div className="flex items-center justify-center gap-1 text-2xl md:text-4xl font-black text-[#1A2332]">
-                  5.0 <Star className="h-4 w-4 md:h-6 md:w-6 fill-[#1A2332]" />
+              <div className="text-center group cursor-pointer transform transition-all duration-300 hover:scale-110" data-testid="stat-rating">
+                <div className="flex items-center justify-center gap-1 text-2xl md:text-4xl font-black text-[#1A2332] group-hover:text-white transition-colors drop-shadow-sm">
+                  5.0 <Star className="h-5 w-5 md:h-7 md:w-7 fill-[#1A2332] group-hover:fill-white transition-colors" />
                 </div>
-                <div className="text-xs md:text-sm font-semibold text-[#1A2332]/80">Google Rating</div>
+                <div className="text-xs md:text-sm font-bold text-[#1A2332]/90 group-hover:text-white/90 transition-colors uppercase tracking-wide">Google Rating</div>
               </div>
-              <div className="text-center" data-testid="stat-years">
-                <div className="text-2xl md:text-4xl font-black text-[#1A2332]">15+</div>
-                <div className="text-xs md:text-sm font-semibold text-[#1A2332]/80">Years Experience</div>
+              <div className="text-center group cursor-pointer transform transition-all duration-300 hover:scale-110" data-testid="stat-years">
+                <div className="text-2xl md:text-4xl font-black text-[#1A2332] group-hover:text-white transition-colors drop-shadow-sm">15+</div>
+                <div className="text-xs md:text-sm font-bold text-[#1A2332]/90 group-hover:text-white/90 transition-colors uppercase tracking-wide">Years Experience</div>
               </div>
-              <div className="text-center" data-testid="stat-team">
-                <div className="text-2xl md:text-4xl font-black text-[#1A2332]">50+</div>
-                <div className="text-xs md:text-sm font-semibold text-[#1A2332]/80">Expert Movers</div>
+              <div className="text-center group cursor-pointer transform transition-all duration-300 hover:scale-110" data-testid="stat-team">
+                <div className="text-2xl md:text-4xl font-black text-[#1A2332] group-hover:text-white transition-colors drop-shadow-sm">50+</div>
+                <div className="text-xs md:text-sm font-bold text-[#1A2332]/90 group-hover:text-white/90 transition-colors uppercase tracking-wide">Expert Movers</div>
               </div>
             </div>
           </div>
