@@ -21,6 +21,10 @@ import { useState } from "react";
 import logoUrl from "@assets/originalonglogo_1763689606978.png";
 import heroImage from "@assets/generated_images/vancouver_seabus_ferry_scenic_view.png";
 import heroVideo from "@assets/generated_videos/vancouver_ferry_crossing_burrard_inlet.mp4";
+import residentialImage from "@assets/generated_images/residential_moving_truck_at_home.png";
+import commercialImage from "@assets/generated_images/commercial_office_movers_working.png";
+import longDistanceImage from "@assets/generated_images/long_distance_moving_truck_highway.png";
+import packingImage from "@assets/generated_images/professional_packing_services.png";
 import { packageTypes, type PackageType } from "@shared/schema";
 
 export default function Home() {
@@ -320,6 +324,114 @@ export default function Home() {
               </div>
               <span className="text-sm font-bold text-foreground">Fully Licensed</span>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Service Cards with Images */}
+      <section className="py-20 md:py-28 bg-background">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-black text-foreground mb-4">
+              Our Core Services
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Professional moving solutions for every need
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
+            {/* Residential Moving Card */}
+            <Link href="/services/residential-moving">
+              <div className="group cursor-pointer" data-testid="service-card-residential">
+                <div className="relative overflow-hidden rounded-xl mb-6">
+                  <img 
+                    src={residentialImage} 
+                    alt="Residential Moving Services" 
+                    className="w-full h-64 object-cover transform group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                  <div className="absolute bottom-4 left-4">
+                    <Badge className="bg-primary text-[#1A2332] font-bold">Most Popular</Badge>
+                  </div>
+                </div>
+                <h3 className="text-2xl font-bold text-primary mb-3 group-hover:text-primary/80 transition-colors uppercase tracking-wide text-center">
+                  Residential Moving
+                </h3>
+                <p className="text-muted-foreground text-center leading-relaxed">
+                  Let us take care of all your home moving needs. All you need to do is give us the dates, your new location, and the size of the move, then sit back and relax as we will take over and execute the operation in one swift. We ensure to turn the stressful residential moving in Vancouver into a seamless experience.
+                </p>
+              </div>
+            </Link>
+
+            {/* Commercial Moving Card */}
+            <Link href="/services/commercial-moving">
+              <div className="group cursor-pointer" data-testid="service-card-commercial">
+                <div className="relative overflow-hidden rounded-xl mb-6">
+                  <img 
+                    src={commercialImage} 
+                    alt="Commercial Moving Services" 
+                    className="w-full h-64 object-cover transform group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                </div>
+                <h3 className="text-2xl font-bold text-primary mb-3 group-hover:text-primary/80 transition-colors uppercase tracking-wide text-center">
+                  Commercial Moving
+                </h3>
+                <p className="text-muted-foreground text-center leading-relaxed">
+                  Moving your business is now easier with us. No matter how small or big the operation is, our experienced and skilled office movers in Vancouver will significantly reduce the hassle and costs associated with moving yourself. Simply book your move with us and sit back, our team will do the rest for you.
+                </p>
+              </div>
+            </Link>
+
+            {/* Long Distance Moving Card */}
+            <Link href="/services/long-distance-moving">
+              <div className="group cursor-pointer" data-testid="service-card-long-distance">
+                <div className="relative overflow-hidden rounded-xl mb-6">
+                  <img 
+                    src={longDistanceImage} 
+                    alt="Long Distance Moving Services" 
+                    className="w-full h-64 object-cover transform group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                </div>
+                <h3 className="text-2xl font-bold text-primary mb-3 group-hover:text-primary/80 transition-colors uppercase tracking-wide text-center">
+                  Long Distance Moving
+                </h3>
+                <p className="text-muted-foreground text-center leading-relaxed">
+                  Planning a cross-province or cross-country move? Our long distance moving service covers all of British Columbia and Canada. We handle the logistics, route planning, and safe transport of your belongings so you can focus on starting your new chapter with peace of mind.
+                </p>
+              </div>
+            </Link>
+
+            {/* Packing Services Card */}
+            <Link href="/services/packing-services">
+              <div className="group cursor-pointer" data-testid="service-card-packing">
+                <div className="relative overflow-hidden rounded-xl mb-6">
+                  <img 
+                    src={packingImage} 
+                    alt="Professional Packing Services" 
+                    className="w-full h-64 object-cover transform group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                </div>
+                <h3 className="text-2xl font-bold text-primary mb-3 group-hover:text-primary/80 transition-colors uppercase tracking-wide text-center">
+                  Packing Services
+                </h3>
+                <p className="text-muted-foreground text-center leading-relaxed">
+                  Don't have time to pack? Our professional packing team uses high-quality materials to carefully wrap and protect your belongings. From fragile items to bulky furniture, we ensure everything is packed securely for a damage-free move. Full or partial packing options available.
+                </p>
+              </div>
+            </Link>
+          </div>
+
+          <div className="text-center mt-12">
+            <Link href="/book">
+              <Button size="lg" className="font-bold text-lg px-10" data-testid="button-get-quote-services">
+                GET YOUR FREE QUOTE
+                <ArrowRight className="h-5 w-5 ml-2" />
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
