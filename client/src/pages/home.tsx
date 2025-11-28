@@ -30,6 +30,7 @@ import { useMutation } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
 import { Helmet } from "react-helmet";
+import { SiFacebook, SiInstagram, SiLinkedin, SiYoutube } from "react-icons/si";
 import logoUrl from "@assets/originalonglogo_1763689606978.png";
 import heroImage from "@assets/generated_images/vancouver_seabus_ferry_scenic_view.png";
 import heroVideo1 from "@assets/generated_videos/bc_ferry_crossing_burrard_inlet.mp4";
@@ -631,6 +632,50 @@ export default function Home() {
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             {/* Left Side - Hero Content */}
             <div className="max-w-xl">
+              {/* Social Media Icons */}
+              <div className="flex items-center gap-3 mb-4">
+                <a 
+                  href="https://www.facebook.com/PrestigeMovingOttawa" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="group w-10 h-10 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center hover:bg-primary hover:border-primary transition-all duration-300 hover:scale-110"
+                  data-testid="social-facebook"
+                  aria-label="Follow us on Facebook"
+                >
+                  <SiFacebook className="h-4 w-4 text-white group-hover:text-[#1A2332] transition-colors" />
+                </a>
+                <a 
+                  href="https://www.instagram.com/prestigemoving" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="group w-10 h-10 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center hover:bg-primary hover:border-primary transition-all duration-300 hover:scale-110"
+                  data-testid="social-instagram"
+                  aria-label="Follow us on Instagram"
+                >
+                  <SiInstagram className="h-4 w-4 text-white group-hover:text-[#1A2332] transition-colors" />
+                </a>
+                <a 
+                  href="https://www.linkedin.com/company/prestige-moving" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="group w-10 h-10 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center hover:bg-primary hover:border-primary transition-all duration-300 hover:scale-110"
+                  data-testid="social-linkedin"
+                  aria-label="Follow us on LinkedIn"
+                >
+                  <SiLinkedin className="h-4 w-4 text-white group-hover:text-[#1A2332] transition-colors" />
+                </a>
+                <a 
+                  href="https://www.youtube.com/@prestigemoving" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="group w-10 h-10 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center hover:bg-primary hover:border-primary transition-all duration-300 hover:scale-110"
+                  data-testid="social-youtube"
+                  aria-label="Subscribe on YouTube"
+                >
+                  <SiYoutube className="h-4 w-4 text-white group-hover:text-[#1A2332] transition-colors" />
+                </a>
+              </div>
+
               <div className="inline-flex items-center gap-2 bg-primary/20 border border-primary/40 rounded-full px-4 py-2 mb-6" data-testid="badge-experience">
                 <Award className="h-5 w-5 text-primary" />
                 <span className="text-primary font-semibold text-sm md:text-base">Vancouver's Most Trusted Movers</span>
