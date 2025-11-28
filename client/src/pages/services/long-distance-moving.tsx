@@ -16,7 +16,7 @@ import { SharedNavigation } from "@/components/shared-navigation";
 import { SharedFooter } from "@/components/shared-footer";
 import { useToast } from "@/hooks/use-toast";
 import { apiRequest } from "@/lib/queryClient";
-import longDistanceVideo from "@assets/generated_videos/moving_trucks_driving_on_highway.mp4";
+import longDistanceVideo from "@assets/generated_videos/white_trucks_driving_bc_mountains.mp4";
 
 const canadianDestinations = [
   // British Columbia
