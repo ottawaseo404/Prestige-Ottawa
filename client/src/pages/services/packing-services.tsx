@@ -1,13 +1,54 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Phone, CheckCircle2, Package, Box, Shield, Star, Sparkles, Clock, ArrowRight } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import { Phone, CheckCircle2, Package, Box, Shield, Star, Sparkles, Clock, ArrowRight, Loader2, ChevronRight, Mail, User } from "lucide-react";
 import { Link } from "wouter";
 import { Helmet } from "react-helmet";
 import { SharedNavigation } from "@/components/shared-navigation";
+import { useToast } from "@/hooks/use-toast";
+import { apiRequest } from "@/lib/queryClient";
 import packingHeroVideo from "@assets/generated_videos/professional_packing_services_vancouver.mp4";
 
 export default function PackingServices() {
+  const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    
+    try {
+      await apiRequest("POST", "/api/quote-request", {
+        ...formData,
+        serviceType: "Packing Services",
+      });
+      
+      toast({
+        title: "Quote Request Submitted!",
+        description: "We'll contact you within 1 hour with your quote.",
+      });
+      setFormData({ name: "", email: "", phone: "", message: "" });
+    } catch (error: any) {
+      toast({
+        title: "Submission Failed",
+        description: error.message || "Please try again or call us directly at 604-616-6066",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   const schemaData = {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -425,6 +466,145 @@ export default function PackingServices() {
                   Everything packed and ready for moving day
                 </p>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Quick Quote Section */}
+        <section className="py-16 md:py-24">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid lg:grid-cols-2 gap-12 items-start">
+              <div>
+                <Badge variant="outline" className="mb-4">Quick Quote</Badge>
+                <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
+                  Get Your Free Packing Quote
+                </h2>
+                <p className="text-lg text-muted-foreground mb-8">
+                  Ready to take the stress out of packing? Fill out the form and we'll get back to you within 1 hour with a personalized quote.
+                </p>
+
+                <div className="space-y-4">
+                  <div className="flex items-start gap-3">
+                    <CheckCircle2 className="h-6 w-6 text-[#C5A572] mt-0.5 flex-shrink-0" />
+                    <div>
+                      <h3 className="font-semibold">Free, No-Obligation Quote</h3>
+                      <p className="text-muted-foreground">Get an accurate estimate with no commitment required</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <CheckCircle2 className="h-6 w-6 text-[#C5A572] mt-0.5 flex-shrink-0" />
+                    <div>
+                      <h3 className="font-semibold">Fast Response Time</h3>
+                      <p className="text-muted-foreground">We'll contact you within 1 hour during business hours</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <CheckCircle2 className="h-6 w-6 text-[#C5A572] mt-0.5 flex-shrink-0" />
+                    <div>
+                      <h3 className="font-semibold">All Materials Included</h3>
+                      <p className="text-muted-foreground">Professional-grade boxes, bubble wrap, and packing paper</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <CheckCircle2 className="h-6 w-6 text-[#C5A572] mt-0.5 flex-shrink-0" />
+                    <div>
+                      <h3 className="font-semibold">Fully Insured Service</h3>
+                      <p className="text-muted-foreground">Your belongings are protected throughout the packing process</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <Card>
+                <CardHeader>
+                  <CardTitle>Request Your Quote</CardTitle>
+                  <CardDescription>Fill out the form below and we'll get back to you shortly</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <form onSubmit={handleSubmit} className="space-y-4">
+                    <div className="space-y-2">
+                      <Label htmlFor="name">Full Name</Label>
+                      <div className="relative">
+                        <User className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                        <Input
+                          id="name"
+                          placeholder="Your name"
+                          value={formData.name}
+                          onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                          className="pl-10"
+                          required
+                          data-testid="input-name"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="space-y-2">
+                      <Label htmlFor="email">Email Address</Label>
+                      <div className="relative">
+                        <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                        <Input
+                          id="email"
+                          type="email"
+                          placeholder="your@email.com"
+                          value={formData.email}
+                          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                          className="pl-10"
+                          required
+                          data-testid="input-email"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="space-y-2">
+                      <Label htmlFor="phone">Phone Number</Label>
+                      <div className="relative">
+                        <Phone className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                        <Input
+                          id="phone"
+                          type="tel"
+                          placeholder="(604) 555-1234"
+                          value={formData.phone}
+                          onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                          className="pl-10"
+                          required
+                          data-testid="input-phone"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="space-y-2">
+                      <Label htmlFor="message">Tell us about your packing needs</Label>
+                      <Textarea
+                        id="message"
+                        placeholder="Describe what you need packed, approximate home size, any fragile items, and your preferred timeline..."
+                        value={formData.message}
+                        onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                        rows={4}
+                        data-testid="input-message"
+                      />
+                    </div>
+
+                    <Button
+                      type="submit"
+                      className="w-full bg-[#C5A572] hover:bg-[#B8956A] text-white"
+                      disabled={isSubmitting}
+                      data-testid="button-submit-quote"
+                    >
+                      {isSubmitting ? (
+                        <>
+                          <Loader2 className="h-4 w-4 mr-2 animate-spin" />
+                          Submitting...
+                        </>
+                      ) : (
+                        <>
+                          Get Your Free Quote
+                          <ChevronRight className="h-4 w-4 ml-2" />
+                        </>
+                      )}
+                    </Button>
+                  </form>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </section>

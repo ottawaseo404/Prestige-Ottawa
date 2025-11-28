@@ -19,6 +19,7 @@ import { useMutation } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
 import { z } from "zod";
+import { SharedNavigation } from "@/components/shared-navigation";
 
 const bookingFormSchema = insertBookingSchema.extend({
   moveDate: z.date().min(new Date(), "Move date must be in the future"),
@@ -146,20 +147,22 @@ export default function Booking() {
 
   return (
     <div className="min-h-screen bg-accent/20">
-      {/* Header */}
-      <header className="border-b bg-background">
+      {/* Navigation */}
+      <SharedNavigation />
+      
+      {/* Progress Header */}
+      <div className="bg-background border-b">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <Link href="/">
-              <div className="flex items-center gap-3 hover-elevate active-elevate-2 px-2 py-1 rounded-md -ml-2">
-                <ArrowLeft className="h-5 w-5" />
-                <img src={logoUrl} alt="Prestige Moving" className="h-8 w-auto" />
-              </div>
-            </Link>
+          <div className="flex justify-between items-center h-14">
+            <div className="flex items-center gap-2 text-sm text-muted-foreground">
+              <Link href="/" className="hover:text-foreground transition-colors">Home</Link>
+              <span>/</span>
+              <span className="text-foreground font-medium">Book Your Move</span>
+            </div>
             <Badge variant="secondary" data-testid="badge-step">Step {step} of 5</Badge>
           </div>
         </div>
-      </header>
+      </div>
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
         {/* Progress Indicator */}
@@ -657,6 +660,7 @@ export default function Booking() {
                               className="resize-none" 
                               rows={4}
                               {...field}
+                              value={field.value ?? ""}
                               data-testid="textarea-notes"
                             />
                           </FormControl>

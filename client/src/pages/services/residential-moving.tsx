@@ -1,13 +1,54 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Phone, CheckCircle2, Home, TruckIcon, Package, Shield, Clock, Users, Star, MapPin, ArrowRight, Sparkles, Heart, ThumbsUp } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import { Phone, CheckCircle2, Home, TruckIcon, Package, Shield, Clock, Users, Star, MapPin, ArrowRight, Sparkles, Heart, ThumbsUp, Loader2, ChevronRight, Mail, User } from "lucide-react";
 import { Link } from "wouter";
 import { Helmet } from "react-helmet";
 import { SharedNavigation } from "@/components/shared-navigation";
+import { useToast } from "@/hooks/use-toast";
+import { apiRequest } from "@/lib/queryClient";
 import residentialVideo from "@assets/generated_videos/vancouver_residential_movers_with_boxes.mp4";
 
 export default function ResidentialMoving() {
+  const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    
+    try {
+      await apiRequest("POST", "/api/quote-request", {
+        ...formData,
+        serviceType: "Residential Moving",
+      });
+      
+      toast({
+        title: "Quote Request Submitted!",
+        description: "We'll contact you within 1 hour with your quote.",
+      });
+      setFormData({ name: "", email: "", phone: "", message: "" });
+    } catch (error: any) {
+      toast({
+        title: "Submission Failed",
+        description: error.message || "Please try again or call us directly at 604-616-6066",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   const schemaData = {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -479,8 +520,150 @@ export default function ResidentialMoving() {
           </div>
         </section>
 
-        {/* FAQ Section for SEO */}
+        {/* Quick Quote Section */}
         <section className="py-20 md:py-28 bg-background">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <Badge className="bg-primary/10 text-primary mb-4">Free Quote</Badge>
+              <h2 className="text-3xl md:text-5xl font-black text-foreground mb-4">
+                Get Your Free Residential Moving Quote
+              </h2>
+              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+                Fill out the form below and we'll provide a customized quote for your move within 1 hour
+              </p>
+            </div>
+
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div>
+                <h3 className="text-2xl font-bold text-foreground mb-6">
+                  Why Get a Quote From Us?
+                </h3>
+                <ul className="space-y-4">
+                  <li className="flex items-start gap-3">
+                    <CheckCircle2 className="h-6 w-6 text-primary mt-0.5 flex-shrink-0" />
+                    <div>
+                      <span className="font-semibold text-foreground">Response Within 1 Hour</span>
+                      <p className="text-muted-foreground">Get a detailed quote quickly so you can plan your move</p>
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle2 className="h-6 w-6 text-primary mt-0.5 flex-shrink-0" />
+                    <div>
+                      <span className="font-semibold text-foreground">Transparent Pricing</span>
+                      <p className="text-muted-foreground">No hidden fees - what we quote is what you pay</p>
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle2 className="h-6 w-6 text-primary mt-0.5 flex-shrink-0" />
+                    <div>
+                      <span className="font-semibold text-foreground">Fully Insured</span>
+                      <p className="text-muted-foreground">WSIB coverage protects you and your belongings</p>
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle2 className="h-6 w-6 text-primary mt-0.5 flex-shrink-0" />
+                    <div>
+                      <span className="font-semibold text-foreground">Flexible Scheduling</span>
+                      <p className="text-muted-foreground">We work around your schedule for maximum convenience</p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+              <Card>
+                <CardHeader>
+                  <CardTitle className="text-2xl">Request Your Quote</CardTitle>
+                  <CardDescription>Fill out the form and we'll get back to you ASAP</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <form onSubmit={handleSubmit} className="space-y-4">
+                    <div className="space-y-2">
+                      <Label htmlFor="name">Full Name</Label>
+                      <div className="relative">
+                        <User className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                        <Input
+                          id="name"
+                          placeholder="Your name"
+                          className="pl-10"
+                          value={formData.name}
+                          onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                          required
+                          data-testid="input-name"
+                        />
+                      </div>
+                    </div>
+                    <div className="grid grid-cols-2 gap-4">
+                      <div className="space-y-2">
+                        <Label htmlFor="email">Email</Label>
+                        <div className="relative">
+                          <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                          <Input
+                            id="email"
+                            type="email"
+                            placeholder="email@example.com"
+                            className="pl-10"
+                            value={formData.email}
+                            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                            required
+                            data-testid="input-email"
+                          />
+                        </div>
+                      </div>
+                      <div className="space-y-2">
+                        <Label htmlFor="phone">Phone</Label>
+                        <div className="relative">
+                          <Phone className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                          <Input
+                            id="phone"
+                            type="tel"
+                            placeholder="604-XXX-XXXX"
+                            className="pl-10"
+                            value={formData.phone}
+                            onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                            required
+                            data-testid="input-phone"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="message">Tell us about your move</Label>
+                      <Textarea
+                        id="message"
+                        placeholder="Describe your move - home size, distance, special items, preferred dates..."
+                        rows={4}
+                        value={formData.message}
+                        onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                        data-testid="input-message"
+                      />
+                    </div>
+                    <Button 
+                      type="submit" 
+                      className="w-full bg-[#C5A572] hover:bg-[#B8956A] text-white py-6"
+                      data-testid="button-submit-quote"
+                      disabled={isSubmitting}
+                    >
+                      {isSubmitting ? (
+                        <>
+                          <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                          Submitting...
+                        </>
+                      ) : (
+                        <>
+                          Get Free Quote
+                          <ChevronRight className="ml-2 h-4 w-4" />
+                        </>
+                      )}
+                    </Button>
+                  </form>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ Section for SEO */}
+        <section className="py-20 md:py-28 bg-gray-50">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <Badge className="bg-primary/10 text-primary mb-4">FAQs</Badge>
