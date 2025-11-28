@@ -425,38 +425,63 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Trust Badges Section */}
-      <section className="py-12 bg-background border-b">
+      {/* Trust Badges Section - Modern & Interactive */}
+      <section className="py-16 bg-gradient-to-b from-[#1A2332] to-[#2a3a52]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8">
-            <h2 className="text-lg font-semibold text-muted-foreground uppercase tracking-wider">
+          <div className="text-center mb-12">
+            <Badge className="bg-primary/20 text-primary border-primary/30 mb-4">Why Choose Us</Badge>
+            <h2 className="text-3xl md:text-4xl font-black text-white mb-2">
               Your Trusted Moving Partners
             </h2>
+            <p className="text-white/60">Industry-leading certifications and customer satisfaction</p>
           </div>
-          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16">
-            <div className="flex flex-col items-center gap-2 p-4" data-testid="badge-bbb">
-              <div className="h-16 w-16 bg-primary/10 rounded-full flex items-center justify-center">
-                <Award className="h-8 w-8 text-primary" />
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {/* BBB A+ */}
+            <div className="group relative bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-6 text-center hover:bg-white/10 hover:border-primary/50 transition-all duration-300 cursor-pointer hover:scale-105 hover:shadow-xl hover:shadow-primary/20" data-testid="badge-bbb">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl" />
+              <div className="relative">
+                <div className="h-20 w-20 mx-auto mb-4 bg-gradient-to-br from-amber-400 to-amber-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-amber-500/30 transition-shadow rotate-3 group-hover:rotate-0">
+                  <Award className="h-10 w-10 text-white" />
+                </div>
+                <h3 className="text-lg font-bold text-white mb-1">BBB A+ Rating</h3>
+                <p className="text-sm text-white/50">Accredited Business</p>
               </div>
-              <span className="text-sm font-bold text-foreground">BBB A+ Rating</span>
             </div>
-            <div className="flex flex-col items-center gap-2 p-4" data-testid="badge-wsib">
-              <div className="h-16 w-16 bg-primary/10 rounded-full flex items-center justify-center">
-                <Shield className="h-8 w-8 text-primary" />
+
+            {/* WSIB Insured */}
+            <div className="group relative bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-6 text-center hover:bg-white/10 hover:border-primary/50 transition-all duration-300 cursor-pointer hover:scale-105 hover:shadow-xl hover:shadow-primary/20" data-testid="badge-wsib">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl" />
+              <div className="relative">
+                <div className="h-20 w-20 mx-auto mb-4 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-emerald-500/30 transition-shadow -rotate-3 group-hover:rotate-0">
+                  <Shield className="h-10 w-10 text-white" />
+                </div>
+                <h3 className="text-lg font-bold text-white mb-1">WSIB Insured</h3>
+                <p className="text-sm text-white/50">Full Coverage Protection</p>
               </div>
-              <span className="text-sm font-bold text-foreground">WSIB Insured</span>
             </div>
-            <div className="flex flex-col items-center gap-2 p-4" data-testid="badge-google">
-              <div className="h-16 w-16 bg-primary/10 rounded-full flex items-center justify-center">
-                <Star className="h-8 w-8 text-primary" />
+
+            {/* 5-Star Google */}
+            <div className="group relative bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-6 text-center hover:bg-white/10 hover:border-primary/50 transition-all duration-300 cursor-pointer hover:scale-105 hover:shadow-xl hover:shadow-primary/20" data-testid="badge-google">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl" />
+              <div className="relative">
+                <div className="h-20 w-20 mx-auto mb-4 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-yellow-500/30 transition-shadow rotate-3 group-hover:rotate-0">
+                  <Star className="h-10 w-10 text-white fill-white" />
+                </div>
+                <h3 className="text-lg font-bold text-white mb-1">5-Star Google</h3>
+                <p className="text-sm text-white/50">500+ Happy Customers</p>
               </div>
-              <span className="text-sm font-bold text-foreground">5-Star Google</span>
             </div>
-            <div className="flex flex-col items-center gap-2 p-4" data-testid="badge-licensed">
-              <div className="h-16 w-16 bg-primary/10 rounded-full flex items-center justify-center">
-                <CheckCircle2 className="h-8 w-8 text-primary" />
+
+            {/* Fully Licensed */}
+            <div className="group relative bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-6 text-center hover:bg-white/10 hover:border-primary/50 transition-all duration-300 cursor-pointer hover:scale-105 hover:shadow-xl hover:shadow-primary/20" data-testid="badge-licensed">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl" />
+              <div className="relative">
+                <div className="h-20 w-20 mx-auto mb-4 bg-gradient-to-br from-blue-400 to-blue-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-blue-500/30 transition-shadow -rotate-3 group-hover:rotate-0">
+                  <CheckCircle2 className="h-10 w-10 text-white" />
+                </div>
+                <h3 className="text-lg font-bold text-white mb-1">Fully Licensed</h3>
+                <p className="text-sm text-white/50">Professional & Legal</p>
               </div>
-              <span className="text-sm font-bold text-foreground">Fully Licensed</span>
             </div>
           </div>
         </div>
