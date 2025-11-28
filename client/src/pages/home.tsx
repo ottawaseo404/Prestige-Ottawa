@@ -242,11 +242,11 @@ export default function Home() {
                 </NavigationMenuList>
               </NavigationMenu>
 
-              <div className="h-6 w-px bg-white/20" />
-
-              <a href="tel:604-616-6066" className="flex items-center gap-2 text-white font-bold hover:text-primary transition-colors" data-testid="link-phone">
-                <Phone className="h-5 w-5" />
-                <span>604-616-6066</span>
+              <a href="tel:604-616-6066">
+                <Button variant="outline" size="lg" className="font-bold border-2 border-white text-white hover:bg-white hover:text-[#1A2332]" data-testid="button-call-us">
+                  <Phone className="h-5 w-5 mr-2" />
+                  CALL US
+                </Button>
               </a>
 
               <Link href="/book">
