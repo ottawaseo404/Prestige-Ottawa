@@ -21,10 +21,10 @@ import { useState } from "react";
 import logoUrl from "@assets/originalonglogo_1763689606978.png";
 import heroImage from "@assets/generated_images/vancouver_seabus_ferry_scenic_view.png";
 import heroVideo from "@assets/generated_videos/vancouver_ferry_crossing_burrard_inlet.mp4";
-import residentialImage from "@assets/generated_images/residential_moving_truck_at_home.png";
-import commercialImage from "@assets/generated_images/commercial_office_movers_working.png";
-import longDistanceImage from "@assets/generated_images/long_distance_moving_truck_highway.png";
-import packingImage from "@assets/generated_images/professional_packing_services.png";
+import residentialImage from "@assets/truck1_1764291781341.jpeg";
+import commercialImage from "@assets/commercial_truck_night.png";
+import longDistanceImage from "@assets/movers_staircase.png";
+import packingImage from "@assets/packing_interior.png";
 import { packageTypes, type PackageType } from "@shared/schema";
 
 export default function Home() {
