@@ -26,6 +26,9 @@ import {
 } from "@/components/ui/select";
 import { Link, useLocation } from "wouter";
 import { useState, useEffect } from "react";
+import { useMutation } from "@tanstack/react-query";
+import { apiRequest } from "@/lib/queryClient";
+import { useToast } from "@/hooks/use-toast";
 import logoUrl from "@assets/originalonglogo_1763689606978.png";
 import heroImage from "@assets/generated_images/vancouver_seabus_ferry_scenic_view.png";
 import heroVideo from "@assets/generated_videos/vancouver_ferry_crossing_burrard_inlet.mp4";
@@ -42,6 +45,58 @@ export default function Home() {
   const [testimonialIndex, setTestimonialIndex] = useState(0);
   const [topbarReviewIndex, setTopbarReviewIndex] = useState(0);
   const [, setLocation] = useLocation();
+  const { toast } = useToast();
+  
+  // Hero quote form state
+  const [heroFormData, setHeroFormData] = useState({
+    name: "",
+    phone: "",
+    email: "",
+    movingFrom: "",
+    movingTo: "",
+    moveDate: ""
+  });
+  const [heroFormSubmitted, setHeroFormSubmitted] = useState(false);
+
+  // Quote form mutation
+  const quoteMutation = useMutation({
+    mutationFn: async (data: typeof heroFormData) => {
+      return apiRequest("POST", "/api/quote-request", {
+        name: data.name,
+        email: data.email,
+        phone: data.phone,
+        message: `Moving from ${data.movingFrom} to ${data.movingTo} on ${data.moveDate}`,
+        serviceType: "General Moving Quote"
+      });
+    },
+    onSuccess: () => {
+      setHeroFormSubmitted(true);
+      toast({
+        title: "Quote Request Submitted!",
+        description: "We'll contact you within 30 minutes with your free estimate.",
+      });
+    },
+    onError: () => {
+      toast({
+        title: "Error",
+        description: "Failed to submit quote request. Please try again.",
+        variant: "destructive",
+      });
+    },
+  });
+
+  const handleHeroFormSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!heroFormData.name || !heroFormData.phone || !heroFormData.email) {
+      toast({
+        title: "Missing Information",
+        description: "Please fill in your name, phone, and email.",
+        variant: "destructive",
+      });
+      return;
+    }
+    quoteMutation.mutate(heroFormData);
+  };
 
   const handleNavClick = (href: string) => {
     setLocation(href);
@@ -364,65 +419,103 @@ export default function Home() {
             {/* Right Side - CTA Quote Box */}
             <div className="hidden lg:block">
               <div className="bg-white/95 backdrop-blur-sm rounded-2xl shadow-2xl p-6 max-w-md ml-auto border border-white/20">
-                <div className="text-center mb-6">
-                  <h3 className="text-2xl font-bold text-[#1A2332] mb-2">Get Your Free Quote</h3>
-                  <p className="text-gray-600 text-sm">Fill out the form and we'll contact you within 30 minutes</p>
-                </div>
-                
-                <div className="space-y-4">
-                  <div>
-                    <Input 
-                      type="text" 
-                      placeholder="Your Name" 
-                      className="h-12 bg-gray-50 border-gray-200"
-                      data-testid="input-hero-name"
-                    />
-                  </div>
-                  <div>
-                    <Input 
-                      type="tel" 
-                      placeholder="Phone Number" 
-                      className="h-12 bg-gray-50 border-gray-200"
-                      data-testid="input-hero-phone"
-                    />
-                  </div>
-                  <div>
-                    <Input 
-                      type="email" 
-                      placeholder="Email Address" 
-                      className="h-12 bg-gray-50 border-gray-200"
-                      data-testid="input-hero-email"
-                    />
-                  </div>
-                  <div className="grid grid-cols-2 gap-3">
-                    <Input 
-                      type="text" 
-                      placeholder="Moving From" 
-                      className="h-12 bg-gray-50 border-gray-200"
-                      data-testid="input-hero-from"
-                    />
-                    <Input 
-                      type="text" 
-                      placeholder="Moving To" 
-                      className="h-12 bg-gray-50 border-gray-200"
-                      data-testid="input-hero-to"
-                    />
-                  </div>
-                  <div>
-                    <Input 
-                      type="date" 
-                      className="h-12 bg-gray-50 border-gray-200"
-                      data-testid="input-hero-date"
-                    />
-                  </div>
-                  
-                  <Link href="/book">
-                    <Button size="lg" className="w-full font-bold text-lg py-6 shadow-lg" data-testid="button-hero-cta-submit">
-                      Get Free Estimate
-                      <ArrowRight className="h-5 w-5 ml-2" />
+                {heroFormSubmitted ? (
+                  <div className="text-center py-8">
+                    <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <CheckCircle2 className="h-8 w-8 text-green-600" />
+                    </div>
+                    <h3 className="text-2xl font-bold text-[#1A2332] mb-2">Quote Request Sent!</h3>
+                    <p className="text-gray-600 mb-4">We'll contact you within 30 minutes with your free estimate.</p>
+                    <Button 
+                      variant="outline" 
+                      onClick={() => {
+                        setHeroFormSubmitted(false);
+                        setHeroFormData({ name: "", phone: "", email: "", movingFrom: "", movingTo: "", moveDate: "" });
+                      }}
+                      data-testid="button-submit-another"
+                    >
+                      Submit Another Quote
                     </Button>
-                  </Link>
-                </div>
+                  </div>
+                ) : (
+                  <>
+                    <div className="text-center mb-6">
+                      <h3 className="text-2xl font-bold text-[#1A2332] mb-2">Get Your Free Quote</h3>
+                      <p className="text-gray-600 text-sm">Fill out the form and we'll contact you within 30 minutes</p>
+                    </div>
+                    
+                    <form onSubmit={handleHeroFormSubmit} className="space-y-4">
+                      <div>
+                        <Input 
+                          type="text" 
+                          placeholder="Your Name" 
+                          className="h-12 bg-gray-50 border-gray-200"
+                          value={heroFormData.name}
+                          onChange={(e) => setHeroFormData(prev => ({ ...prev, name: e.target.value }))}
+                          data-testid="input-hero-name"
+                        />
+                      </div>
+                      <div>
+                        <Input 
+                          type="tel" 
+                          placeholder="Phone Number" 
+                          className="h-12 bg-gray-50 border-gray-200"
+                          value={heroFormData.phone}
+                          onChange={(e) => setHeroFormData(prev => ({ ...prev, phone: e.target.value }))}
+                          data-testid="input-hero-phone"
+                        />
+                      </div>
+                      <div>
+                        <Input 
+                          type="email" 
+                          placeholder="Email Address" 
+                          className="h-12 bg-gray-50 border-gray-200"
+                          value={heroFormData.email}
+                          onChange={(e) => setHeroFormData(prev => ({ ...prev, email: e.target.value }))}
+                          data-testid="input-hero-email"
+                        />
+                      </div>
+                      <div className="grid grid-cols-2 gap-3">
+                        <Input 
+                          type="text" 
+                          placeholder="Moving From" 
+                          className="h-12 bg-gray-50 border-gray-200"
+                          value={heroFormData.movingFrom}
+                          onChange={(e) => setHeroFormData(prev => ({ ...prev, movingFrom: e.target.value }))}
+                          data-testid="input-hero-from"
+                        />
+                        <Input 
+                          type="text" 
+                          placeholder="Moving To" 
+                          className="h-12 bg-gray-50 border-gray-200"
+                          value={heroFormData.movingTo}
+                          onChange={(e) => setHeroFormData(prev => ({ ...prev, movingTo: e.target.value }))}
+                          data-testid="input-hero-to"
+                        />
+                      </div>
+                      <div>
+                        <Input 
+                          type="date" 
+                          className="h-12 bg-gray-50 border-gray-200"
+                          value={heroFormData.moveDate}
+                          onChange={(e) => setHeroFormData(prev => ({ ...prev, moveDate: e.target.value }))}
+                          data-testid="input-hero-date"
+                        />
+                      </div>
+                      
+                      <Button 
+                        type="submit" 
+                        size="lg" 
+                        className="w-full font-bold text-lg py-6 shadow-lg" 
+                        disabled={quoteMutation.isPending}
+                        data-testid="button-hero-cta-submit"
+                      >
+                        {quoteMutation.isPending ? "Submitting..." : "Get Free Estimate"}
+                        {!quoteMutation.isPending && <ArrowRight className="h-5 w-5 ml-2" />}
+                      </Button>
+                    </form>
+                  </>
+                )}
 
                 <div className="mt-4 flex items-center justify-center gap-4 text-xs text-gray-500">
                   <div className="flex items-center gap-1">
