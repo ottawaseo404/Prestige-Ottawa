@@ -11,6 +11,7 @@ import {
 import { Link } from "wouter";
 import { Helmet } from "react-helmet";
 import { SharedNavigation } from "@/components/shared-navigation";
+import longDistanceVideo from "@assets/generated_videos/moving_trucks_bc_mountain_highway.mp4";
 
 const canadianDestinations = [
   // British Columbia
@@ -103,42 +104,145 @@ export default function LongDistanceMoving() {
       <div className="min-h-screen bg-background">
         <SharedNavigation />
 
-        {/* Hero Section */}
-        <section className="relative py-20 md:py-32 bg-gradient-to-br from-[#1A2332] via-[#2a3a52] to-[#1A2332] overflow-hidden">
-          <div className="absolute inset-0 opacity-20">
-            <div className="absolute top-20 left-10 w-72 h-72 bg-primary/30 rounded-full blur-3xl" />
-            <div className="absolute bottom-10 right-20 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl" />
+        {/* Video Hero Section */}
+        <section className="relative min-h-[80vh] flex items-center overflow-hidden">
+          {/* Video Background */}
+          <div className="absolute inset-0">
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="absolute inset-0 w-full h-full object-cover"
+              data-testid="video-hero-long-distance"
+            >
+              <source src={longDistanceVideo} type="video/mp4" />
+            </video>
+            {/* Gradient Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-r from-[#1A2332]/95 via-[#1A2332]/80 to-[#1A2332]/60" />
+          </div>
+
+          {/* Stats Bar at Top */}
+          <div className="absolute top-0 left-0 right-0 bg-black/30 backdrop-blur-sm border-b border-white/10">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+              <div className="flex flex-wrap justify-center gap-6 md:gap-12 text-white/90 text-sm">
+                <div className="flex items-center gap-2">
+                  <TruckIcon className="h-4 w-4 text-primary" />
+                  <span>Coast-to-Coast Coverage</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Shield className="h-4 w-4 text-primary" />
+                  <span>Full Insurance</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <MapPin className="h-4 w-4 text-primary" />
+                  <span>GPS Tracking</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Star className="h-4 w-4 text-primary fill-primary" />
+                  <span>5.0 Rated</span>
+                </div>
+              </div>
+            </div>
           </div>
           
-          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-3xl">
-              <Badge className="bg-primary/20 text-primary border-primary/30 mb-4">
-                <MapPin className="h-3 w-3 mr-1" />
-                Coast to Coast Moving
-              </Badge>
-              <h1 className="text-4xl md:text-6xl font-black text-white mb-6 tracking-tight">
-                Coast to Coast<br />
-                <span className="text-primary">Moving Services</span>
-              </h1>
-              <p className="text-xl text-white/80 mb-8 leading-relaxed">
-                Long-distance moving can be stressful. Moving from British Columbia to Nova Scotia, Vancouver to Toronto, or any other cross-country configuration comes with a lot of logistics that need to be worked out. When you've got a big move ahead of you, let <strong className="text-primary">Prestige Moving Vancouver</strong> be your number one coast-to-coast moving service.
-              </p>
-              <p className="text-lg text-white/70 mb-8">
-                Our professional team is well-versed in moving your belongings safely, securely, and on time. Whether you're moving from the west coast to the east coast, or anywhere in between, we'll help make your move as stress-free as possible.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Link href="/calculator">
-                  <Button size="lg" variant="default" className="text-base px-8 font-bold">
-                    <Calculator className="h-5 w-5 mr-2" />
-                    Moving Calculator
-                  </Button>
-                </Link>
-                <a href="tel:604-616-6066">
-                  <Button size="lg" variant="outline" className="text-base px-8 bg-transparent border-2 border-white text-white hover:bg-white/10">
-                    <Phone className="h-5 w-5 mr-2" />
-                    Call 604-616-6066
-                  </Button>
-                </a>
+          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32 z-10">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div className="max-w-2xl">
+                <Badge className="bg-primary/20 text-primary border-primary/30 mb-6 text-sm px-4 py-2">
+                  <MapPin className="h-4 w-4 mr-2" />
+                  Coast to Coast Moving
+                </Badge>
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 tracking-tight leading-tight">
+                  Coast to Coast<br />
+                  <span className="text-primary">Moving Services</span>
+                </h1>
+                <p className="text-lg md:text-xl text-white/80 mb-6 leading-relaxed">
+                  Long-distance moving can be stressful. Moving from British Columbia to Nova Scotia, Vancouver to Toronto, or any other cross-country configuration comes with a lot of logistics that need to be worked out. When you've got a big move ahead of you, let <strong className="text-primary">Prestige Moving Vancouver</strong> be your number one coast-to-coast moving service.
+                </p>
+                <p className="text-lg text-white/70 mb-8">
+                  Our professional team is well-versed in moving your belongings safely, securely, and on time. Whether you're moving from the west coast to the east coast, or anywhere in between, we'll help make your move as stress-free as possible.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <Link href="/calculator">
+                    <Button size="lg" variant="default" className="text-base px-8 font-bold">
+                      <Calculator className="h-5 w-5 mr-2" />
+                      Moving Calculator
+                    </Button>
+                  </Link>
+                  <a href="tel:604-616-6066">
+                    <Button size="lg" variant="outline" className="text-base px-8 bg-transparent border-2 border-white text-white hover:bg-white/10">
+                      <Phone className="h-5 w-5 mr-2" />
+                      Call 604-616-6066
+                    </Button>
+                  </a>
+                </div>
+              </div>
+
+              {/* Right Side - CTA Quote Box */}
+              <div className="hidden lg:block">
+                <div className="bg-white/95 backdrop-blur-sm rounded-2xl shadow-2xl p-6 max-w-md ml-auto border border-white/20">
+                  <div className="text-center mb-6">
+                    <h3 className="text-2xl font-bold text-[#1A2332] mb-2">Get Your Free Quote</h3>
+                    <p className="text-gray-600 text-sm">We'll contact you within 30 minutes</p>
+                  </div>
+                  
+                  <div className="space-y-4">
+                    <Input 
+                      type="text" 
+                      placeholder="Your Name" 
+                      className="h-12 bg-gray-50 border-gray-200"
+                      data-testid="input-long-distance-name"
+                    />
+                    <Input 
+                      type="tel" 
+                      placeholder="Phone Number" 
+                      className="h-12 bg-gray-50 border-gray-200"
+                      data-testid="input-long-distance-phone"
+                    />
+                    <div className="grid grid-cols-2 gap-3">
+                      <Input 
+                        type="text" 
+                        placeholder="Moving From" 
+                        className="h-12 bg-gray-50 border-gray-200"
+                        data-testid="input-long-distance-from"
+                      />
+                      <Input 
+                        type="text" 
+                        placeholder="Moving To" 
+                        className="h-12 bg-gray-50 border-gray-200"
+                        data-testid="input-long-distance-to"
+                      />
+                    </div>
+                    <Input 
+                      type="date" 
+                      className="h-12 bg-gray-50 border-gray-200"
+                      data-testid="input-long-distance-date"
+                    />
+                    
+                    <Link href="/book">
+                      <Button size="lg" className="w-full font-bold text-lg py-6 shadow-lg" data-testid="button-long-distance-cta">
+                        Get Free Estimate
+                        <ArrowRight className="h-5 w-5 ml-2" />
+                      </Button>
+                    </Link>
+                  </div>
+
+                  <div className="mt-4 flex items-center justify-center gap-4 text-xs text-gray-500">
+                    <div className="flex items-center gap-1">
+                      <Shield className="h-3 w-3 text-primary" />
+                      <span>Full Insurance</span>
+                    </div>
+                    <div className="flex items-center gap-1">
+                      <MapPin className="h-3 w-3 text-primary" />
+                      <span>GPS Tracking</span>
+                    </div>
+                    <div className="flex items-center gap-1">
+                      <Star className="h-3 w-3 text-primary fill-primary" />
+                      <span>5.0 Rating</span>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
