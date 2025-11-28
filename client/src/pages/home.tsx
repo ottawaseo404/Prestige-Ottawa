@@ -322,34 +322,117 @@ export default function Home() {
         </div>
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20 z-10">
-          <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 bg-primary/20 border border-primary/40 rounded-full px-4 py-2 mb-6" data-testid="badge-experience">
-              <Award className="h-5 w-5 text-primary" />
-              <span className="text-primary font-semibold text-sm md:text-base">Vancouver's Most Trusted Movers</span>
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            {/* Left Side - Hero Content */}
+            <div className="max-w-xl">
+              <div className="inline-flex items-center gap-2 bg-primary/20 border border-primary/40 rounded-full px-4 py-2 mb-6" data-testid="badge-experience">
+                <Award className="h-5 w-5 text-primary" />
+                <span className="text-primary font-semibold text-sm md:text-base">Vancouver's Most Trusted Movers</span>
+              </div>
+              
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-black text-white mb-6 leading-tight tracking-tight">
+                Your Premium<br />
+                <span className="text-primary">Moving Specialists</span>
+              </h1>
+              
+              <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed">
+                Over 10,000 successful moves across Vancouver. Professional movers, transparent pricing, and complete peace of mind.
+              </p>
+              
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link href="/book">
+                  <Button size="lg" className="text-base md:text-lg font-bold px-8 md:px-10 py-5 md:py-6 shadow-xl w-full sm:w-auto" data-testid="button-hero-quote">
+                    GET FREE QUOTE
+                    <ArrowRight className="h-5 w-5 ml-2" />
+                  </Button>
+                </Link>
+                <a href="tel:604-616-6066">
+                  <Button size="lg" variant="outline" className="text-base md:text-lg font-bold px-8 md:px-10 py-5 md:py-6 border-2 border-white text-white hover:bg-white hover:text-[#1A2332] w-full sm:w-auto" data-testid="button-hero-call">
+                    <Phone className="h-5 w-5 mr-2" />
+                    CALL NOW
+                  </Button>
+                </a>
+              </div>
             </div>
-            
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white mb-6 leading-tight tracking-tight">
-              Your Premium<br />
-              <span className="text-primary">Moving Specialists</span>
-            </h1>
-            
-            <p className="text-lg md:text-xl lg:text-2xl text-white/90 mb-8 leading-relaxed max-w-2xl">
-              Over 10,000 successful moves across Vancouver. Professional movers, transparent pricing, and complete peace of mind.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link href="/book">
-                <Button size="lg" className="text-base md:text-lg font-bold px-8 md:px-10 py-5 md:py-6 shadow-xl w-full sm:w-auto" data-testid="button-hero-quote">
-                  GET FREE QUOTE
-                  <ArrowRight className="h-5 w-5 ml-2" />
-                </Button>
-              </Link>
-              <a href="tel:604-616-6066">
-                <Button size="lg" variant="outline" className="text-base md:text-lg font-bold px-8 md:px-10 py-5 md:py-6 border-2 border-white text-white hover:bg-white hover:text-[#1A2332] w-full sm:w-auto" data-testid="button-hero-call">
-                  <Phone className="h-5 w-5 mr-2" />
-                  CALL NOW
-                </Button>
-              </a>
+
+            {/* Right Side - CTA Quote Box */}
+            <div className="hidden lg:block">
+              <div className="bg-white/95 backdrop-blur-sm rounded-2xl shadow-2xl p-6 max-w-md ml-auto border border-white/20">
+                <div className="text-center mb-6">
+                  <h3 className="text-2xl font-bold text-[#1A2332] mb-2">Get Your Free Quote</h3>
+                  <p className="text-gray-600 text-sm">Fill out the form and we'll contact you within 30 minutes</p>
+                </div>
+                
+                <div className="space-y-4">
+                  <div>
+                    <Input 
+                      type="text" 
+                      placeholder="Your Name" 
+                      className="h-12 bg-gray-50 border-gray-200"
+                      data-testid="input-hero-name"
+                    />
+                  </div>
+                  <div>
+                    <Input 
+                      type="tel" 
+                      placeholder="Phone Number" 
+                      className="h-12 bg-gray-50 border-gray-200"
+                      data-testid="input-hero-phone"
+                    />
+                  </div>
+                  <div>
+                    <Input 
+                      type="email" 
+                      placeholder="Email Address" 
+                      className="h-12 bg-gray-50 border-gray-200"
+                      data-testid="input-hero-email"
+                    />
+                  </div>
+                  <div className="grid grid-cols-2 gap-3">
+                    <Input 
+                      type="text" 
+                      placeholder="Moving From" 
+                      className="h-12 bg-gray-50 border-gray-200"
+                      data-testid="input-hero-from"
+                    />
+                    <Input 
+                      type="text" 
+                      placeholder="Moving To" 
+                      className="h-12 bg-gray-50 border-gray-200"
+                      data-testid="input-hero-to"
+                    />
+                  </div>
+                  <div>
+                    <Input 
+                      type="date" 
+                      className="h-12 bg-gray-50 border-gray-200"
+                      data-testid="input-hero-date"
+                    />
+                  </div>
+                  
+                  <Link href="/book">
+                    <Button size="lg" className="w-full font-bold text-lg py-6 shadow-lg" data-testid="button-hero-cta-submit">
+                      Get Free Estimate
+                      <ArrowRight className="h-5 w-5 ml-2" />
+                    </Button>
+                  </Link>
+                </div>
+
+                <div className="mt-4 flex items-center justify-center gap-4 text-xs text-gray-500">
+                  <div className="flex items-center gap-1">
+                    <Shield className="h-3 w-3 text-primary" />
+                    <span>Fully Insured</span>
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <Star className="h-3 w-3 text-primary fill-primary" />
+                    <span>5.0 Rating</span>
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <Clock className="h-3 w-3 text-primary" />
+                    <span>Fast Response</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
