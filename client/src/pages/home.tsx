@@ -407,12 +407,16 @@ export default function Home() {
                   <NavigationMenuItem>
                     <button 
                       onClick={() => handleNavClick("/services/residential-moving")}
-                      className="group relative flex items-center gap-2 px-4 py-2 text-white font-medium hover:text-primary transition-colors"
+                      className={`group relative flex items-center gap-2 px-4 py-2 font-medium transition-colors ${
+                        location === "/services/residential-moving" ? "text-primary" : "text-white hover:text-primary"
+                      }`}
                       data-testid="nav-residential"
                     >
                       <HomeIcon className="h-4 w-4" />
                       Residential
-                      <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-primary group-hover:w-3/4 transition-all duration-300 rounded-full shadow-[0_0_10px_rgba(197,165,114,0.8),0_0_20px_rgba(197,165,114,0.4)]" />
+                      <span className={`absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 bg-primary transition-all duration-300 rounded-full shadow-[0_0_10px_rgba(197,165,114,0.8),0_0_20px_rgba(197,165,114,0.4)] ${
+                        location === "/services/residential-moving" ? "w-3/4" : "w-0 group-hover:w-3/4"
+                      }`} />
                     </button>
                   </NavigationMenuItem>
 
@@ -420,12 +424,16 @@ export default function Home() {
                   <NavigationMenuItem>
                     <button 
                       onClick={() => handleNavClick("/services/commercial-moving")}
-                      className="group relative flex items-center gap-2 px-4 py-2 text-white font-medium hover:text-primary transition-colors"
+                      className={`group relative flex items-center gap-2 px-4 py-2 font-medium transition-colors ${
+                        location === "/services/commercial-moving" ? "text-primary" : "text-white hover:text-primary"
+                      }`}
                       data-testid="nav-commercial"
                     >
                       <Building2 className="h-4 w-4" />
                       Commercial
-                      <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-primary group-hover:w-3/4 transition-all duration-300 rounded-full shadow-[0_0_10px_rgba(197,165,114,0.8),0_0_20px_rgba(197,165,114,0.4)]" />
+                      <span className={`absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 bg-primary transition-all duration-300 rounded-full shadow-[0_0_10px_rgba(197,165,114,0.8),0_0_20px_rgba(197,165,114,0.4)] ${
+                        location === "/services/commercial-moving" ? "w-3/4" : "w-0 group-hover:w-3/4"
+                      }`} />
                     </button>
                   </NavigationMenuItem>
 
@@ -433,21 +441,36 @@ export default function Home() {
                   <NavigationMenuItem>
                     <button 
                       onClick={() => handleNavClick("/services/long-distance-moving")}
-                      className="group relative flex items-center gap-2 px-4 py-2 text-white font-medium hover:text-primary transition-colors whitespace-nowrap"
+                      className={`group relative flex items-center gap-2 px-4 py-2 font-medium transition-colors whitespace-nowrap ${
+                        location === "/services/long-distance-moving" ? "text-primary" : "text-white hover:text-primary"
+                      }`}
                       data-testid="nav-long-distance"
                     >
                       <Truck className="h-4 w-4 flex-shrink-0" />
                       Long Distance
-                      <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-primary group-hover:w-3/4 transition-all duration-300 rounded-full shadow-[0_0_10px_rgba(197,165,114,0.8),0_0_20px_rgba(197,165,114,0.4)]" />
+                      <span className={`absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 bg-primary transition-all duration-300 rounded-full shadow-[0_0_10px_rgba(197,165,114,0.8),0_0_20px_rgba(197,165,114,0.4)] ${
+                        location === "/services/long-distance-moving" ? "w-3/4" : "w-0 group-hover:w-3/4"
+                      }`} />
                     </button>
                   </NavigationMenuItem>
 
                   {/* More Services Dropdown */}
                   <NavigationMenuItem>
-                    <NavigationMenuTrigger className="group relative text-white font-medium bg-transparent hover:bg-white/10 data-[state=open]:bg-white/10 gap-2 hover:text-primary" data-testid="nav-services-trigger">
+                    <NavigationMenuTrigger 
+                      className={`group relative font-medium bg-transparent hover:bg-white/10 data-[state=open]:bg-white/10 gap-2 ${
+                        location.startsWith("/services/") && 
+                        !["/services/residential-moving", "/services/commercial-moving", "/services/long-distance-moving"].includes(location)
+                          ? "text-primary" : "text-white hover:text-primary"
+                      }`} 
+                      data-testid="nav-services-trigger"
+                    >
                       <Package className="h-4 w-4" />
                       More Services
-                      <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-primary group-hover:w-3/4 transition-all duration-300 rounded-full shadow-[0_0_10px_rgba(197,165,114,0.8),0_0_20px_rgba(197,165,114,0.4)]" />
+                      <span className={`absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 bg-primary transition-all duration-300 rounded-full shadow-[0_0_10px_rgba(197,165,114,0.8),0_0_20px_rgba(197,165,114,0.4)] ${
+                        location.startsWith("/services/") && 
+                        !["/services/residential-moving", "/services/commercial-moving", "/services/long-distance-moving"].includes(location)
+                          ? "w-3/4" : "w-0 group-hover:w-3/4"
+                      }`} />
                     </NavigationMenuTrigger>
                     <NavigationMenuContent>
                       <div className="w-[400px] p-4 bg-background">
