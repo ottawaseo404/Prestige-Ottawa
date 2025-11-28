@@ -162,14 +162,15 @@ export function SharedNavigation() {
                           <button
                             key={service.href}
                             onClick={() => handleNavClick(service.href)}
-                            className="flex items-center gap-3 p-3 rounded-md hover-elevate cursor-pointer w-full text-left"
+                            className="group/service relative flex items-center gap-3 p-3 rounded-md hover:bg-primary/5 cursor-pointer w-full text-left transition-all duration-300"
                             data-testid={`nav-service-${service.title.toLowerCase().replace(/\s+/g, '-')}`}
                           >
-                            <service.icon className="h-5 w-5 text-primary flex-shrink-0" />
-                            <div>
-                              <div className="font-medium text-sm">{service.title}</div>
+                            <service.icon className="h-5 w-5 text-primary flex-shrink-0 transition-transform duration-300 group-hover/service:scale-110" />
+                            <div className="flex-1">
+                              <div className="font-medium text-sm text-foreground group-hover/service:text-primary transition-colors duration-300">{service.title}</div>
                               <div className="text-xs text-muted-foreground">{service.description}</div>
                             </div>
+                            <span className="absolute bottom-1 left-12 right-3 h-0.5 bg-gradient-to-r from-primary via-primary to-transparent rounded-full scale-x-0 origin-left transition-transform duration-300 group-hover/service:scale-x-100 shadow-[0_0_8px_rgba(197,165,114,0.6)]" />
                           </button>
                         ))}
                       </div>
