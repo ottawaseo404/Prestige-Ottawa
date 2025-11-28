@@ -24,6 +24,7 @@ import AdminDashboard from "@/pages/admin/dashboard";
 import AdminBookings from "@/pages/admin/bookings";
 import AdminCustomers from "@/pages/admin/customers";
 import AdminSmartMoving from "@/pages/admin/smartmoving";
+import Calculator from "@/pages/calculator";
 
 function AdminLayout({ children }: { children: React.ReactNode }) {
   const style = {
@@ -54,6 +55,7 @@ function Router() {
       {/* Public Pages */}
       <Route path="/" component={Home} />
       <Route path="/book" component={Booking} />
+      <Route path="/calculator" component={Calculator} />
       
       {/* Service Pages */}
       <Route path="/services/residential-moving" component={ResidentialMoving} />

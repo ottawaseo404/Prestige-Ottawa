@@ -4,6 +4,7 @@ import { storage } from "./storage";
 import { insertBookingSchema, type SmartMovingLead, packageTypes } from "@shared/schema";
 import { z } from "zod";
 import { fromZodError } from "zod-validation-error";
+import OpenAI from "openai";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Health check
@@ -237,6 +238,95 @@ export async function registerRoutes(app: Express): Promise<Server> {
     } catch (error: any) {
       console.error("Error fetching customers:", error);
       res.status(500).json({ message: error.message || "Failed to fetch customers" });
+    }
+  });
+
+  // AI Moving Cost Calculator
+  app.post("/api/ai-calculator", async (req, res) => {
+    try {
+      const openai = new OpenAI({
+        apiKey: process.env.AI_INTEGRATIONS_OPENAI_API_KEY,
+        baseURL: process.env.AI_INTEGRATIONS_OPENAI_BASE_URL,
+      });
+
+      const { 
+        moveType, 
+        homeSize, 
+        originCity, 
+        destinationCity, 
+        moveDate,
+        hasSpecialItems,
+        specialItems,
+        needsPacking,
+        hasStairs,
+        stairFlights
+      } = req.body;
+
+      const systemPrompt = `You are a professional moving cost estimator for Prestige Moving Vancouver. 
+      
+Our pricing structure:
+- Premium Package: $155/hour (2 movers + 16-20ft truck), 3 hour minimum + $155 travel fee
+- Deluxe Package: $195/hour (3 movers + 26ft truck), 3 hour minimum + $195 travel fee  
+- Diamond Package: $315/hour (4 movers + 2 trucks), 3 hour minimum + $315 travel fee
+
+Additional costs:
+- Stairs: Add $25-50 per flight
+- Packing services: Add $50-150 depending on home size
+- Special items (piano, hot tub, pool table): $100-400 each
+- Long distance (outside Metro Vancouver): Add $1.50-2.50/km
+
+Estimate realistic hours based on home size:
+- Studio/1BR: 2-4 hours
+- 2BR: 3-5 hours
+- 3BR: 4-7 hours
+- 4BR+: 6-10 hours
+- House with garage/basement: Add 1-3 hours
+
+Provide estimates in JSON format with these fields:
+- recommendedPackage: "Premium" | "Deluxe" | "Diamond"
+- estimatedHours: number (range like "4-6")
+- estimatedCostLow: number
+- estimatedCostHigh: number
+- breakdown: array of { item: string, cost: string }
+- tips: array of strings (3 helpful tips)
+- confidence: "high" | "medium" | "low"
+- explanation: string (brief 2-3 sentence explanation)`;
+
+      const userMessage = `Please estimate the moving cost for:
+- Move type: ${moveType || 'Residential'}
+- Home size: ${homeSize || 'Not specified'}
+- From: ${originCity || 'Vancouver area'}
+- To: ${destinationCity || 'Vancouver area'}
+- Move date: ${moveDate || 'Not specified'}
+- Special items: ${hasSpecialItems ? specialItems : 'None'}
+- Packing needed: ${needsPacking ? 'Yes' : 'No'}
+- Stairs involved: ${hasStairs ? `Yes, ${stairFlights} flights` : 'No'}
+
+Provide a detailed cost estimate in JSON format.`;
+
+      const response = await openai.chat.completions.create({
+        model: "gpt-4o-mini",
+        messages: [
+          { role: "system", content: systemPrompt },
+          { role: "user", content: userMessage }
+        ],
+        response_format: { type: "json_object" },
+        temperature: 0.7,
+      });
+
+      const content = response.choices[0]?.message?.content;
+      if (!content) {
+        throw new Error("No response from AI");
+      }
+
+      const estimate = JSON.parse(content);
+      res.json(estimate);
+    } catch (error: any) {
+      console.error("AI Calculator error:", error);
+      res.status(500).json({ 
+        message: "Failed to generate estimate", 
+        error: error.message 
+      });
     }
   });
 
