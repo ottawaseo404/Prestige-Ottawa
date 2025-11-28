@@ -1062,14 +1062,14 @@ export default function Home() {
           <div className="text-center mb-16 relative">
             <div className="inline-block">
               <span className="inline-block px-4 py-1.5 bg-primary/10 text-primary font-semibold text-sm rounded-full mb-4 tracking-wide uppercase">
-                What We Offer
+                How We Help
               </span>
             </div>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-[#1A2332] mb-6">
-              Our Core <span className="text-primary">Services</span>
+              Moving Made <span className="text-primary">Simple</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Vancouver's premier moving solutions — expertly tailored to make your move seamless
+              Whether it's across town or across the country, we've got you covered. Pick what fits your move.
             </p>
             {/* Decorative line */}
             <div className="flex items-center justify-center gap-2 mt-6">
