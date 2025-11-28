@@ -99,44 +99,48 @@ export function SharedNavigation() {
 
           <div className="hidden lg:flex items-center gap-4">
             <NavigationMenu>
-              <NavigationMenuList className="gap-1">
+              <NavigationMenuList className="gap-2">
                 <NavigationMenuItem>
                   <button 
                     onClick={() => handleNavClick("/services/residential-moving")}
-                    className="flex items-center gap-2 px-4 py-2 text-white font-medium hover:text-primary transition-colors"
+                    className="group relative flex items-center gap-2 px-4 py-2.5 text-white/90 font-medium tracking-wide text-sm uppercase transition-all duration-300 hover:text-white"
                     data-testid="nav-residential"
                   >
-                    <HomeIcon className="h-4 w-4" />
-                    Residential
+                    <HomeIcon className="h-4 w-4 transition-transform duration-300 group-hover:scale-110" />
+                    <span>Residential</span>
+                    <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-primary rounded-full transition-all duration-300 group-hover:w-4/5 group-hover:shadow-[0_0_10px_rgba(197,165,114,0.8),0_0_20px_rgba(197,165,114,0.4)]" />
                   </button>
                 </NavigationMenuItem>
 
                 <NavigationMenuItem>
                   <button 
                     onClick={() => handleNavClick("/services/commercial-moving")}
-                    className="flex items-center gap-2 px-4 py-2 text-white font-medium hover:text-primary transition-colors"
+                    className="group relative flex items-center gap-2 px-4 py-2.5 text-white/90 font-medium tracking-wide text-sm uppercase transition-all duration-300 hover:text-white"
                     data-testid="nav-commercial"
                   >
-                    <Building2 className="h-4 w-4" />
-                    Commercial
+                    <Building2 className="h-4 w-4 transition-transform duration-300 group-hover:scale-110" />
+                    <span>Commercial</span>
+                    <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-primary rounded-full transition-all duration-300 group-hover:w-4/5 group-hover:shadow-[0_0_10px_rgba(197,165,114,0.8),0_0_20px_rgba(197,165,114,0.4)]" />
                   </button>
                 </NavigationMenuItem>
 
                 <NavigationMenuItem>
                   <button 
                     onClick={() => handleNavClick("/services/long-distance-moving")}
-                    className="flex items-center gap-2 px-4 py-2 text-white font-medium hover:text-primary transition-colors whitespace-nowrap"
+                    className="group relative flex items-center gap-2 px-4 py-2.5 text-white/90 font-medium tracking-wide text-sm uppercase transition-all duration-300 hover:text-white whitespace-nowrap"
                     data-testid="nav-long-distance"
                   >
-                    <Truck className="h-4 w-4 flex-shrink-0" />
-                    Long Distance
+                    <Truck className="h-4 w-4 flex-shrink-0 transition-transform duration-300 group-hover:scale-110" />
+                    <span>Long Distance</span>
+                    <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-primary rounded-full transition-all duration-300 group-hover:w-4/5 group-hover:shadow-[0_0_10px_rgba(197,165,114,0.8),0_0_20px_rgba(197,165,114,0.4)]" />
                   </button>
                 </NavigationMenuItem>
 
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger className="text-white font-medium bg-transparent hover:bg-white/10 data-[state=open]:bg-white/10 gap-2" data-testid="nav-services-trigger">
-                    <Package className="h-4 w-4" />
-                    More Services
+                  <NavigationMenuTrigger className="group relative text-white/90 font-medium tracking-wide text-sm uppercase bg-transparent hover:bg-transparent hover:text-white data-[state=open]:bg-transparent data-[state=open]:text-white gap-2 transition-all duration-300" data-testid="nav-services-trigger">
+                    <Package className="h-4 w-4 transition-transform duration-300 group-hover:scale-110" />
+                    <span>More Services</span>
+                    <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-primary rounded-full transition-all duration-300 group-hover:w-4/5 group-data-[state=open]:w-4/5 group-hover:shadow-[0_0_10px_rgba(197,165,114,0.8),0_0_20px_rgba(197,165,114,0.4)] group-data-[state=open]:shadow-[0_0_10px_rgba(197,165,114,0.8),0_0_20px_rgba(197,165,114,0.4)]" />
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <div className="w-[400px] p-4 bg-background">
