@@ -36,6 +36,7 @@ import AdminBookings from "@/pages/admin/bookings";
 import AdminCustomers from "@/pages/admin/customers";
 import AdminSmartMoving from "@/pages/admin/smartmoving";
 import Calculator from "@/pages/calculator";
+import Contact from "@/pages/contact";
 
 function AdminLayout({ children }: { children: React.ReactNode }) {
   const style = {
@@ -67,6 +68,7 @@ function Router() {
       <Route path="/" component={Home} />
       <Route path="/book" component={Booking} />
       <Route path="/calculator" component={Calculator} />
+      <Route path="/contact" component={Contact} />
       
       {/* Service Pages */}
       <Route path="/services/residential-moving" component={ResidentialMoving} />

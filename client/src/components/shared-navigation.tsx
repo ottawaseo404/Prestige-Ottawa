@@ -49,7 +49,7 @@ export function SharedNavigation() {
   return (
     <div className="sticky top-0 z-50">
       {/* Top Contact Bar */}
-      <div className="bg-[#1A2332] border-b border-primary/20 hidden md:block">
+      <div className="bg-white border-b border-gray-200 hidden md:block">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-10">
             {/* Reviews */}
@@ -61,20 +61,24 @@ export function SharedNavigation() {
                 <Star className="h-3.5 w-3.5 text-yellow-500 fill-yellow-500" />
                 <Star className="h-3.5 w-3.5 text-yellow-500 fill-yellow-500" />
               </div>
-              <span className="text-sm text-gray-300 italic">"{reviews[reviewIndex % reviews.length].text}"</span>
-              <span className="text-sm text-gray-400">— {reviews[reviewIndex % reviews.length].author}</span>
+              <span className="text-sm text-gray-600 italic">"{reviews[reviewIndex % reviews.length].text}"</span>
+              <span className="text-sm text-gray-500">— {reviews[reviewIndex % reviews.length].author}</span>
             </div>
 
             {/* Contact Info */}
             <div className="flex items-center gap-6">
-              <div className="flex items-center gap-2 text-gray-300 text-sm">
+              <div className="flex items-center gap-2 text-gray-600 text-sm">
                 <MapPin className="h-4 w-4" />
                 <span>Vancouver & Area</span>
               </div>
-              <a href="tel:604-616-6066" className="flex items-center gap-2 text-gray-300 text-sm hover:text-primary transition-colors font-semibold">
+              <a href="tel:604-616-6066" className="flex items-center gap-2 text-gray-600 text-sm hover:text-primary transition-colors font-semibold">
                 <Phone className="h-4 w-4" />
                 <span>604-616-6066</span>
               </a>
+              <Link href="/contact" className="flex items-center gap-2 text-gray-600 text-sm hover:text-primary transition-colors font-semibold">
+                <Mail className="h-4 w-4" />
+                <span>Contact Us</span>
+              </Link>
             </div>
           </div>
         </div>
