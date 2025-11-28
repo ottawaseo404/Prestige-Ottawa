@@ -242,13 +242,6 @@ export default function Home() {
                 </NavigationMenuList>
               </NavigationMenu>
 
-              <a href="tel:604-616-6066">
-                <Button variant="outline" size="lg" className="font-bold border-2 border-white text-white hover:bg-white hover:text-[#1A2332]" data-testid="button-call-us">
-                  <Phone className="h-5 w-5 mr-2" />
-                  CALL US
-                </Button>
-              </a>
-
               <Link href="/book">
                 <Button variant="default" size="lg" className="font-bold shadow-lg" data-testid="button-get-quote">
                   FREE ESTIMATE
