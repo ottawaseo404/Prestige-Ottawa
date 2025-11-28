@@ -9,11 +9,18 @@ import {
 } from "@/components/ui/navigation-menu";
 import { 
   Phone, Home as HomeIcon, Building2, MapPin, Menu, Warehouse, GraduationCap, 
-  Heart, Music, Crown, Dumbbell, Box, Medal, Package, Truck
+  Heart, Music, Crown, Dumbbell, Box, Medal, Package, Truck, Star, Mail
 } from "lucide-react";
 import { Link, useLocation } from "wouter";
 import { useState } from "react";
 import logoUrl from "@assets/originalonglogo_1763689606978.png";
+
+const reviews = [
+  { text: "Best moving company in Vancouver!", author: "Sarah M." },
+  { text: "Professional and careful with everything", author: "John D." },
+  { text: "Highly recommend their services", author: "Mike R." },
+  { text: "On time and very efficient", author: "Lisa K." },
+];
 
 const services = [
   { title: "Residential Moving", description: "Apartments, condos, and houses", icon: HomeIcon, href: "/services/residential-moving" },
@@ -33,13 +40,48 @@ const services = [
 export function SharedNavigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [location, setLocation] = useLocation();
+  const [reviewIndex, setReviewIndex] = useState(0);
 
   const handleNavClick = (href: string) => {
     setLocation(href);
   };
 
   return (
-    <nav className="sticky top-0 z-50 bg-[#1A2332] border-b border-primary/20 shadow-lg">
+    <div className="sticky top-0 z-50">
+      {/* Top Contact Bar */}
+      <div className="bg-[#1A2332] border-b border-primary/20 hidden md:block">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-10">
+            {/* Reviews */}
+            <div className="flex items-center gap-2 overflow-hidden">
+              <div className="flex items-center gap-1">
+                <Star className="h-3.5 w-3.5 text-yellow-500 fill-yellow-500" />
+                <Star className="h-3.5 w-3.5 text-yellow-500 fill-yellow-500" />
+                <Star className="h-3.5 w-3.5 text-yellow-500 fill-yellow-500" />
+                <Star className="h-3.5 w-3.5 text-yellow-500 fill-yellow-500" />
+                <Star className="h-3.5 w-3.5 text-yellow-500 fill-yellow-500" />
+              </div>
+              <span className="text-sm text-gray-300 italic">"{reviews[reviewIndex % reviews.length].text}"</span>
+              <span className="text-sm text-gray-400">— {reviews[reviewIndex % reviews.length].author}</span>
+            </div>
+
+            {/* Contact Info */}
+            <div className="flex items-center gap-6">
+              <div className="flex items-center gap-2 text-gray-300 text-sm">
+                <MapPin className="h-4 w-4" />
+                <span>Vancouver & Area</span>
+              </div>
+              <a href="tel:604-616-6066" className="flex items-center gap-2 text-gray-300 text-sm hover:text-primary transition-colors font-semibold">
+                <Phone className="h-4 w-4" />
+                <span>604-616-6066</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Navigation */}
+      <nav className="bg-[#1A2332] border-b border-primary/20 shadow-lg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-28 gap-6">
           <Link href="/" data-testid="link-logo" className="flex-shrink-0">
@@ -166,7 +208,8 @@ export function SharedNavigation() {
             </Sheet>
           </div>
         </div>
-      </div>
-    </nav>
+        </div>
+      </nav>
+    </div>
   );
 }

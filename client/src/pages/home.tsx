@@ -326,55 +326,57 @@ export default function Home() {
       </Helmet>
 
     <div className="min-h-screen bg-background">
-      {/* Top Contact Bar - White */}
-      <div className="bg-white border-b border-gray-200 hidden md:block">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-10">
-            {/* Rotating Google Reviews */}
-            <div className="flex items-center gap-2 overflow-hidden" data-testid="topbar-reviews">
-              <div className="flex items-center gap-1">
-                <Star className="h-3.5 w-3.5 text-yellow-500 fill-yellow-500" />
-                <Star className="h-3.5 w-3.5 text-yellow-500 fill-yellow-500" />
-                <Star className="h-3.5 w-3.5 text-yellow-500 fill-yellow-500" />
-                <Star className="h-3.5 w-3.5 text-yellow-500 fill-yellow-500" />
-                <Star className="h-3.5 w-3.5 text-yellow-500 fill-yellow-500" />
-              </div>
-              <div className="relative h-5 overflow-hidden max-w-md">
-                <div 
-                  className="transition-all duration-500 ease-in-out"
-                  key={topbarReviewIndex}
-                >
-                  <span className="text-sm text-gray-600 italic">
-                    "{googleReviews[topbarReviewIndex].text}"
-                  </span>
-                  <span className="text-sm text-gray-500 ml-2">
-                    — {googleReviews[topbarReviewIndex].author}
-                  </span>
+      {/* Sticky Header Container */}
+      <div className="sticky top-0 z-50">
+        {/* Top Contact Bar */}
+        <div className="bg-[#1A2332] border-b border-primary/20 hidden md:block">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex justify-between items-center h-10">
+              {/* Rotating Google Reviews */}
+              <div className="flex items-center gap-2 overflow-hidden" data-testid="topbar-reviews">
+                <div className="flex items-center gap-1">
+                  <Star className="h-3.5 w-3.5 text-yellow-500 fill-yellow-500" />
+                  <Star className="h-3.5 w-3.5 text-yellow-500 fill-yellow-500" />
+                  <Star className="h-3.5 w-3.5 text-yellow-500 fill-yellow-500" />
+                  <Star className="h-3.5 w-3.5 text-yellow-500 fill-yellow-500" />
+                  <Star className="h-3.5 w-3.5 text-yellow-500 fill-yellow-500" />
+                </div>
+                <div className="relative h-5 overflow-hidden max-w-md">
+                  <div 
+                    className="transition-all duration-500 ease-in-out"
+                    key={topbarReviewIndex}
+                  >
+                    <span className="text-sm text-gray-300 italic">
+                      "{googleReviews[topbarReviewIndex].text}"
+                    </span>
+                    <span className="text-sm text-gray-400 ml-2">
+                      — {googleReviews[topbarReviewIndex].author}
+                    </span>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            {/* Contact Info */}
-            <div className="flex items-center gap-6">
-              <a href="#locations" className="flex items-center gap-2 text-gray-600 text-sm hover:text-primary transition-colors" data-testid="topbar-locations">
-                <MapPin className="h-4 w-4" />
-                <span>Vancouver & Area</span>
-              </a>
-              <a href="tel:604-616-6066" className="flex items-center gap-2 text-gray-600 text-sm hover:text-primary transition-colors font-semibold" data-testid="topbar-phone">
-                <Phone className="h-4 w-4" />
-                <span>604-616-6066</span>
-              </a>
-              <a href="mailto:info@prestigemoving.ca" className="flex items-center gap-2 text-gray-600 text-sm hover:text-primary transition-colors" data-testid="topbar-email">
-                <Mail className="h-4 w-4" />
-                <span>Contact Us</span>
-              </a>
+              {/* Contact Info */}
+              <div className="flex items-center gap-6">
+                <a href="#locations" className="flex items-center gap-2 text-gray-300 text-sm hover:text-primary transition-colors" data-testid="topbar-locations">
+                  <MapPin className="h-4 w-4" />
+                  <span>Vancouver & Area</span>
+                </a>
+                <a href="tel:604-616-6066" className="flex items-center gap-2 text-gray-300 text-sm hover:text-primary transition-colors font-semibold" data-testid="topbar-phone">
+                  <Phone className="h-4 w-4" />
+                  <span>604-616-6066</span>
+                </a>
+                <a href="mailto:info@prestigemoving.ca" className="flex items-center gap-2 text-gray-300 text-sm hover:text-primary transition-colors" data-testid="topbar-email">
+                  <Mail className="h-4 w-4" />
+                  <span>Contact Us</span>
+                </a>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      {/* Modern Navigation - Dark Theme */}
-      <nav className="sticky top-0 z-50 bg-[#1A2332] border-b border-primary/20 shadow-lg">
+        {/* Modern Navigation - Dark Theme */}
+        <nav className="bg-[#1A2332] border-b border-primary/20 shadow-lg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-28 gap-6">
             <Link href="/" data-testid="link-logo">
@@ -506,7 +508,8 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </nav>
+        </nav>
+      </div>
 
       {/* Hero Section - Full Bleed Dramatic with Video Background */}
       <section className="relative min-h-[600px] md:min-h-[85vh] flex items-center overflow-hidden pb-32 md:pb-24">
