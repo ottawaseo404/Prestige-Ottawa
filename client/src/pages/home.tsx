@@ -1280,55 +1280,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Featured Services Grid */}
-      <section className="py-20 md:py-28 bg-[#1A2332]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
-              Our Moving Services
-            </h2>
-            <p className="text-xl text-white/70 max-w-2xl mx-auto">
-              Complete moving solutions tailored to your needs
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-6">
-            {featuredServices.map((service, index) => (
-              <Link key={service.href} href={service.href}>
-                <Card className="group h-full bg-white/5 border-white/10 hover:bg-white/10 hover:border-primary/50 transition-all duration-300 cursor-pointer overflow-hidden" data-testid={`card-featured-${service.title.toLowerCase().replace(/\s+/g, '-')}`}>
-                  <CardContent className="p-8 flex items-start gap-6">
-                    <div className="h-16 w-16 rounded-xl bg-primary/20 flex items-center justify-center shrink-0 group-hover:bg-primary/30 transition-colors">
-                      <service.icon className="h-8 w-8 text-primary" />
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-primary transition-colors">
-                        {service.title}
-                      </h3>
-                      <p className="text-white/70 mb-4 leading-relaxed">
-                        {service.description}
-                      </p>
-                      <div className="flex items-center gap-2 text-primary font-semibold">
-                        <span>Learn More</span>
-                        <ArrowRight className="h-4 w-4 group-hover:translate-x-2 transition-transform" />
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              </Link>
-            ))}
-          </div>
-
-          <div className="text-center mt-12">
-            <Link href="/services/residential-moving">
-              <Button variant="outline" size="lg" className="font-bold border-2 border-primary text-primary hover:bg-primary hover:text-[#1A2332]" data-testid="button-view-all-services">
-                VIEW ALL SERVICES
-                <ArrowRight className="h-5 w-5 ml-2" />
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </section>
-
       {/* About Company Section */}
       <section className="py-20 md:py-28 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
