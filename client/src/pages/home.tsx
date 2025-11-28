@@ -32,7 +32,8 @@ import { useToast } from "@/hooks/use-toast";
 import { Helmet } from "react-helmet";
 import logoUrl from "@assets/originalonglogo_1763689606978.png";
 import heroImage from "@assets/generated_images/vancouver_seabus_ferry_scenic_view.png";
-import heroVideo from "@assets/generated_videos/vancouver_ferry_crossing_burrard_inlet.mp4";
+import heroVideo1 from "@assets/generated_videos/vancouver_ferry_crossing_burrard_inlet.mp4";
+import heroVideo2 from "@assets/generated_videos/moving_truck_on_scenic_highway.mp4";
 import residentialImage from "@assets/truck1_1764291781341.jpeg";
 import commercialImage from "@assets/commercial_truck_night.png";
 import longDistanceImage from "@assets/movers_staircase.png";
@@ -46,6 +47,9 @@ export default function Home() {
   const [testimonialIndex, setTestimonialIndex] = useState(0);
   const [topbarReviewIndex, setTopbarReviewIndex] = useState(0);
   const [reviewIndex, setReviewIndex] = useState(0);
+  const [heroVideoIndex, setHeroVideoIndex] = useState(0);
+  
+  const heroVideos = [heroVideo1, heroVideo2];
 
   // Google Reviews data - 50 reviews
   const reviewsList = [
@@ -184,6 +188,14 @@ export default function Home() {
     }, 5000);
     return () => clearInterval(interval);
   }, [reviewsList.length]);
+
+  // Auto-rotate hero videos
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setHeroVideoIndex((prev) => (prev + 1) % heroVideos.length);
+    }, 10000);
+    return () => clearInterval(interval);
+  }, [heroVideos.length]);
 
   const services = [
     { title: "Residential Moving", description: "Apartments, condos, and houses", icon: HomeIcon, href: "/services/residential-moving" },
@@ -511,25 +523,45 @@ export default function Home() {
         </nav>
       </div>
 
-      {/* Hero Section - Full Bleed Dramatic with Video Background */}
+      {/* Hero Section - Full Bleed Dramatic with Video Background Slider */}
       <section className="relative min-h-[600px] md:min-h-[85vh] flex items-center overflow-hidden pb-32 md:pb-24">
         <div className="absolute inset-0">
-          {/* Video Background */}
-          <video 
-            autoPlay 
-            muted 
-            loop 
-            playsInline
-            poster={heroImage}
-            className="w-full h-full object-cover"
-            data-testid="video-hero-background"
-          >
-            <source src={heroVideo} type="video/mp4" />
-            {/* Fallback to image if video fails */}
-            <img src={heroImage} alt="Vancouver Moving Services" className="w-full h-full object-cover" />
-          </video>
+          {/* Video Background Slider */}
+          {heroVideos.map((video, index) => (
+            <video 
+              key={index}
+              autoPlay 
+              muted 
+              loop 
+              playsInline
+              poster={heroImage}
+              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
+                index === heroVideoIndex ? 'opacity-100' : 'opacity-0'
+              }`}
+              data-testid={`video-hero-background-${index}`}
+            >
+              <source src={video} type="video/mp4" />
+            </video>
+          ))}
           {/* Gradient Overlay */}
           <div className="absolute inset-0 bg-gradient-to-r from-[#1A2332]/95 via-[#1A2332]/80 to-[#1A2332]/60" />
+        </div>
+
+        {/* Video Slider Navigation Dots */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+          {heroVideos.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setHeroVideoIndex(index)}
+              className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                index === heroVideoIndex 
+                  ? 'bg-primary w-8' 
+                  : 'bg-white/50 hover:bg-white/80'
+              }`}
+              data-testid={`hero-slider-dot-${index}`}
+              aria-label={`Go to slide ${index + 1}`}
+            />
+          ))}
         </div>
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20 z-10">
