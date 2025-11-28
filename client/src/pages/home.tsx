@@ -26,7 +26,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Link } from "wouter";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import logoUrl from "@assets/originalonglogo_1763689606978.png";
 import heroImage from "@assets/generated_images/vancouver_seabus_ferry_scenic_view.png";
 import heroVideo from "@assets/generated_videos/vancouver_ferry_crossing_burrard_inlet.mp4";
@@ -40,6 +40,22 @@ export default function Home() {
   const packages: PackageType[] = ["Premium", "Deluxe", "Diamond"];
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [testimonialIndex, setTestimonialIndex] = useState(0);
+  const [topbarReviewIndex, setTopbarReviewIndex] = useState(0);
+
+  const googleReviews = [
+    { text: "They were professional, efficient, and took great care of our belongings!", author: "Mike R.", rating: 5 },
+    { text: "Best moving company in Vancouver! Highly recommend their services.", author: "Lisa T.", rating: 5 },
+    { text: "Outstanding service from start to finish. Will use again!", author: "David K.", rating: 5 },
+    { text: "Affordable, professional, and reliable. Exceeded expectations!", author: "Sarah M.", rating: 5 },
+    { text: "The team was punctual, careful, and friendly. 5 stars!", author: "James P.", rating: 5 },
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTopbarReviewIndex((prev) => (prev + 1) % googleReviews.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [googleReviews.length]);
 
   const services = [
     { title: "Residential Moving", description: "Apartments, condos, and houses", icon: HomeIcon, href: "/services/residential-moving" },
@@ -94,19 +110,46 @@ export default function Home() {
       {/* Top Contact Bar - White */}
       <div className="bg-white border-b border-gray-200 hidden md:block">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-end items-center h-10 gap-8">
-            <a href="#locations" className="flex items-center gap-2 text-gray-600 text-sm hover:text-primary transition-colors" data-testid="topbar-locations">
-              <MapPin className="h-4 w-4" />
-              <span>Vancouver & Area</span>
-            </a>
-            <a href="tel:604-616-6066" className="flex items-center gap-2 text-gray-600 text-sm hover:text-primary transition-colors font-semibold" data-testid="topbar-phone">
-              <Phone className="h-4 w-4" />
-              <span>604-616-6066</span>
-            </a>
-            <a href="mailto:info@prestigemoving.ca" className="flex items-center gap-2 text-gray-600 text-sm hover:text-primary transition-colors" data-testid="topbar-email">
-              <Mail className="h-4 w-4" />
-              <span>Contact Us</span>
-            </a>
+          <div className="flex justify-between items-center h-10">
+            {/* Rotating Google Reviews */}
+            <div className="flex items-center gap-2 overflow-hidden" data-testid="topbar-reviews">
+              <div className="flex items-center gap-1">
+                <Star className="h-3.5 w-3.5 text-yellow-500 fill-yellow-500" />
+                <Star className="h-3.5 w-3.5 text-yellow-500 fill-yellow-500" />
+                <Star className="h-3.5 w-3.5 text-yellow-500 fill-yellow-500" />
+                <Star className="h-3.5 w-3.5 text-yellow-500 fill-yellow-500" />
+                <Star className="h-3.5 w-3.5 text-yellow-500 fill-yellow-500" />
+              </div>
+              <div className="relative h-5 overflow-hidden max-w-md">
+                <div 
+                  className="transition-all duration-500 ease-in-out"
+                  key={topbarReviewIndex}
+                >
+                  <span className="text-sm text-gray-600 italic">
+                    "{googleReviews[topbarReviewIndex].text}"
+                  </span>
+                  <span className="text-sm text-gray-500 ml-2">
+                    — {googleReviews[topbarReviewIndex].author}
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* Contact Info */}
+            <div className="flex items-center gap-6">
+              <a href="#locations" className="flex items-center gap-2 text-gray-600 text-sm hover:text-primary transition-colors" data-testid="topbar-locations">
+                <MapPin className="h-4 w-4" />
+                <span>Vancouver & Area</span>
+              </a>
+              <a href="tel:604-616-6066" className="flex items-center gap-2 text-gray-600 text-sm hover:text-primary transition-colors font-semibold" data-testid="topbar-phone">
+                <Phone className="h-4 w-4" />
+                <span>604-616-6066</span>
+              </a>
+              <a href="mailto:info@prestigemoving.ca" className="flex items-center gap-2 text-gray-600 text-sm hover:text-primary transition-colors" data-testid="topbar-email">
+                <Mail className="h-4 w-4" />
+                <span>Contact Us</span>
+              </a>
+            </div>
           </div>
         </div>
       </div>
