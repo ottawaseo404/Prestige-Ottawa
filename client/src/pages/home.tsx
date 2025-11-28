@@ -54,7 +54,8 @@ export default function Home() {
     email: "",
     movingFrom: "",
     movingTo: "",
-    moveDate: ""
+    moveDate: "",
+    moveSize: ""
   });
   const [heroFormSubmitted, setHeroFormSubmitted] = useState(false);
 
@@ -65,8 +66,11 @@ export default function Home() {
         name: data.name,
         email: data.email,
         phone: data.phone,
-        message: `Moving from ${data.movingFrom} to ${data.movingTo} on ${data.moveDate}`,
-        serviceType: "General Moving Quote"
+        moveDate: data.moveDate,
+        moveSize: data.moveSize,
+        originCity: data.movingFrom,
+        destinationCity: data.movingTo,
+        serviceType: "Moving"
       });
     },
     onSuccess: () => {
@@ -431,7 +435,7 @@ export default function Home() {
                       size="sm"
                       onClick={() => {
                         setHeroFormSubmitted(false);
-                        setHeroFormData({ name: "", phone: "", email: "", movingFrom: "", movingTo: "", moveDate: "" });
+                        setHeroFormData({ name: "", phone: "", email: "", movingFrom: "", movingTo: "", moveDate: "", moveSize: "" });
                       }}
                       className="text-primary hover:text-primary/80"
                       data-testid="button-submit-another"
@@ -504,15 +508,36 @@ export default function Home() {
                           />
                         </div>
                       </div>
-                      <div className="relative group">
-                        <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400 group-focus-within:text-primary transition-colors pointer-events-none z-10" />
-                        <Input 
-                          type="date" 
-                          className="h-10 pl-10 bg-gray-50/50 border-gray-200 rounded-lg text-sm focus:bg-white focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all"
-                          value={heroFormData.moveDate}
-                          onChange={(e) => setHeroFormData(prev => ({ ...prev, moveDate: e.target.value }))}
-                          data-testid="input-hero-date"
-                        />
+                      <div className="grid grid-cols-2 gap-2">
+                        <div className="relative">
+                          <HomeIcon className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400 pointer-events-none z-10" />
+                          <Select 
+                            value={heroFormData.moveSize} 
+                            onValueChange={(value) => setHeroFormData(prev => ({ ...prev, moveSize: value }))}
+                          >
+                            <SelectTrigger className="h-10 pl-10 bg-gray-50/50 border-gray-200 rounded-lg text-sm" data-testid="select-hero-size">
+                              <SelectValue placeholder="Move Size" />
+                            </SelectTrigger>
+                            <SelectContent>
+                              <SelectItem value="Studio">Studio</SelectItem>
+                              <SelectItem value="1 Bedroom">1 Bedroom</SelectItem>
+                              <SelectItem value="2 Bedroom">2 Bedroom</SelectItem>
+                              <SelectItem value="3 Bedroom">3 Bedroom</SelectItem>
+                              <SelectItem value="4+ Bedroom">4+ Bedroom</SelectItem>
+                              <SelectItem value="Office">Office</SelectItem>
+                            </SelectContent>
+                          </Select>
+                        </div>
+                        <div className="relative group">
+                          <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400 group-focus-within:text-primary transition-colors pointer-events-none z-10" />
+                          <Input 
+                            type="date" 
+                            className="h-10 pl-10 bg-gray-50/50 border-gray-200 rounded-lg text-sm focus:bg-white focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all"
+                            value={heroFormData.moveDate}
+                            onChange={(e) => setHeroFormData(prev => ({ ...prev, moveDate: e.target.value }))}
+                            data-testid="input-hero-date"
+                          />
+                        </div>
                       </div>
                       
                       <Button 

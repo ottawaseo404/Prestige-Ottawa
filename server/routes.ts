@@ -169,6 +169,10 @@ export async function registerRoutes(app: Express): Promise<Server> {
     phone: z.string().min(1, "Phone is required"),
     message: z.string().optional(),
     serviceType: z.string().optional(),
+    moveDate: z.string().optional(),
+    moveSize: z.string().optional(),
+    originCity: z.string().optional(),
+    destinationCity: z.string().optional(),
     school: z.string().optional(),
     pianoType: z.string().optional(),
     itemType: z.string().optional(),
@@ -200,12 +204,19 @@ export async function registerRoutes(app: Express): Promise<Server> {
       if (validatedData.message) notesParts.push(`Message: ${validatedData.message}`);
       notesParts.push(`Source: Website Quote Form`);
 
-      // Format for SmartMoving Lead API
+      // Format for SmartMoving Lead API with all available fields
       const leadData: SmartMovingLead = {
         FirstName: firstName,
         LastName: lastName || 'Customer',
         Email: validatedData.email,
         Phone: validatedData.phone,
+        MoveDate: validatedData.moveDate || undefined,
+        ServiceType: validatedData.serviceType || "Moving",
+        MoveSize: validatedData.moveSize || undefined,
+        OriginCity: validatedData.originCity || undefined,
+        OriginState: "BC",
+        DestinationCity: validatedData.destinationCity || undefined,
+        DestinationState: "BC",
         Notes: notesParts.join('\n'),
       };
 
