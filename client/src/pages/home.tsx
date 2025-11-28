@@ -633,7 +633,7 @@ export default function Home() {
             {/* Left Side - Hero Content */}
             <div className="max-w-xl">
               {/* Social Media Icons */}
-              <div className="flex items-center gap-3 mb-4">
+              <div className="flex items-center gap-3 mb-8">
                 <a 
                   href="https://www.facebook.com/PrestigeMovingOttawa" 
                   target="_blank" 
