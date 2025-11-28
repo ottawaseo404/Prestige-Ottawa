@@ -35,7 +35,7 @@ import heroImage from "@assets/generated_images/vancouver_seabus_ferry_scenic_vi
 import heroVideo1 from "@assets/generated_videos/bc_ferry_crossing_burrard_inlet.mp4";
 import heroVideo2 from "@assets/generated_videos/white_truck_driving_bc_mountains.mp4";
 import residentialImage from "@assets/truck1_1764291781341.jpeg";
-import commercialImage from "@assets/commercial_truck_night.png";
+import commercialImage from "@assets/commercial moving_1764347423562.webp";
 import longDistanceImage from "@assets/movers_staircase.png";
 import packingImage from "@assets/packing_interior.png";
 import { packageTypes, type PackageType } from "@shared/schema";
@@ -1121,7 +1121,7 @@ export default function Home() {
             <Link href="/services/commercial-moving">
               <div className="group relative h-[420px] rounded-3xl overflow-hidden cursor-pointer shadow-xl hover:shadow-2xl transition-all duration-500" data-testid="service-card-commercial">
                 <img 
-                  src={longDistanceImage} 
+                  src={commercialImage} 
                   alt="Commercial Moving Services" 
                   className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
                 />
@@ -1154,7 +1154,7 @@ export default function Home() {
             <Link href="/services/long-distance-moving">
               <div className="group relative h-[420px] rounded-3xl overflow-hidden cursor-pointer shadow-xl hover:shadow-2xl transition-all duration-500" data-testid="service-card-long-distance">
                 <img 
-                  src={commercialImage} 
+                  src={longDistanceImage} 
                   alt="Long Distance Moving Services" 
                   className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
                 />
