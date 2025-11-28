@@ -42,11 +42,11 @@ export function SharedNavigation() {
     <nav className="sticky top-0 z-50 bg-[#1A2332] border-b border-primary/20 shadow-lg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-28 gap-6">
-          <Link href="/" data-testid="link-logo">
+          <Link href="/" data-testid="link-logo" className="flex-shrink-0">
             <img 
               src={logoUrl} 
               alt="Prestige Moving" 
-              className="h-24 w-auto cursor-pointer transition-all duration-300 hover:scale-105 hover:drop-shadow-[0_0_15px_rgba(197,165,114,0.5)]" 
+              className="h-20 w-auto object-contain cursor-pointer transition-all duration-300 hover:scale-105 hover:drop-shadow-[0_0_15px_rgba(197,165,114,0.5)]" 
               data-testid="img-logo" 
             />
           </Link>
