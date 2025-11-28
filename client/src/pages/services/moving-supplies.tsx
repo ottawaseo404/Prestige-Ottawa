@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Phone, CheckCircle2, Box, Package, Truck, ArrowLeft, Tape, ShoppingBag } from "lucide-react";
+import { Phone, CheckCircle2, Box, Package, Truck, ArrowLeft, Scissors, ShoppingBag } from "lucide-react";
 import { Link } from "wouter";
 import { Helmet } from "react-helmet";
 import logoUrl from "@assets/originalonglogo_1763689606978.png";
@@ -138,7 +138,7 @@ export default function MovingSupplies() {
                 </CardContent>
               </Card>
               <Card>
-                <CardHeader><Tape className="h-10 w-10 text-primary mb-2" /><CardTitle>Tape & Markers</CardTitle></CardHeader>
+                <CardHeader><Scissors className="h-10 w-10 text-primary mb-2" /><CardTitle>Tape & Markers</CardTitle></CardHeader>
                 <CardContent>
                   <ul className="space-y-2">
                     <li className="flex items-start gap-2"><CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" /><span>Heavy-duty packing tape</span></li>

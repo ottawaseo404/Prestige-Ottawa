@@ -10,7 +10,7 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
-import { Phone, CheckCircle2, Award, Clock, Shield, TruckIcon, Package, Home as HomeIcon, Building2, MapPin, Menu, Warehouse } from "lucide-react";
+import { Phone, CheckCircle2, Award, Clock, Shield, TruckIcon, Package, Home as HomeIcon, Building2, MapPin, Menu, Warehouse, GraduationCap, Heart, Music, Crown, Dumbbell, Box, Medal } from "lucide-react";
 import { Link } from "wouter";
 import { useState } from "react";
 import logoUrl from "@assets/originalonglogo_1763689606978.png";
@@ -35,16 +35,64 @@ export default function Home() {
       href: "/services/commercial-moving"
     },
     {
+      title: "Long Distance Moving",
+      description: "Cross-BC and Canada-wide moves",
+      icon: MapPin,
+      href: "/services/long-distance-moving"
+    },
+    {
       title: "Packing Services",
       description: "Professional packing and materials",
       icon: Package,
       href: "/services/packing-services"
     },
     {
+      title: "Moving Supplies",
+      description: "Boxes, tape, and packing materials",
+      icon: Box,
+      href: "/services/moving-supplies"
+    },
+    {
+      title: "Student Moving",
+      description: "Affordable moves for students",
+      icon: GraduationCap,
+      href: "/services/student-moving"
+    },
+    {
       title: "Storage Solutions",
       description: "Secure climate-controlled storage",
       icon: Warehouse,
       href: "/services/storage-solutions"
+    },
+    {
+      title: "Specialty Item Moving",
+      description: "Hot tubs, pool tables, gym equipment",
+      icon: Dumbbell,
+      href: "/services/specialty-item-moving"
+    },
+    {
+      title: "Antique Moving",
+      description: "Careful handling of valuables",
+      icon: Crown,
+      href: "/services/antique-moving"
+    },
+    {
+      title: "Piano Moving",
+      description: "Specialized piano transport",
+      icon: Music,
+      href: "/services/piano-moving"
+    },
+    {
+      title: "Senior Moving",
+      description: "Compassionate elderly relocations",
+      icon: Heart,
+      href: "/services/senior-moving"
+    },
+    {
+      title: "Military Moving",
+      description: "PCS moves and base relocations",
+      icon: Medal,
+      href: "/services/military-moving"
     }
   ];
 
@@ -68,15 +116,15 @@ export default function Home() {
                       Services
                     </NavigationMenuTrigger>
                     <NavigationMenuContent>
-                      <div className="grid w-[600px] gap-3 p-4">
+                      <div className="grid w-[700px] grid-cols-2 gap-2 p-4">
                         {services.map((service) => (
                           <Link key={service.href} href={service.href}>
                             <NavigationMenuLink asChild>
-                              <div className="flex items-start gap-4 p-3 rounded-md hover-elevate active-elevate-2 cursor-pointer" data-testid={`nav-service-${service.title.toLowerCase().replace(/\s+/g, '-')}`}>
-                                <service.icon className="h-6 w-6 text-primary mt-1 flex-shrink-0" />
+                              <div className="flex items-start gap-3 p-3 rounded-md hover-elevate active-elevate-2 cursor-pointer" data-testid={`nav-service-${service.title.toLowerCase().replace(/\s+/g, '-')}`}>
+                                <service.icon className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
                                 <div>
-                                  <div className="font-semibold mb-1">{service.title}</div>
-                                  <div className="text-sm text-muted-foreground">{service.description}</div>
+                                  <div className="font-medium text-sm">{service.title}</div>
+                                  <div className="text-xs text-muted-foreground">{service.description}</div>
                                 </div>
                               </div>
                             </NavigationMenuLink>

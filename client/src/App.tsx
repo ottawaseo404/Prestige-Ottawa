@@ -12,6 +12,14 @@ import ResidentialMoving from "@/pages/services/residential-moving";
 import CommercialMoving from "@/pages/services/commercial-moving";
 import PackingServices from "@/pages/services/packing-services";
 import StorageSolutions from "@/pages/services/storage-solutions";
+import LongDistanceMoving from "@/pages/services/long-distance-moving";
+import StudentMoving from "@/pages/services/student-moving";
+import SeniorMoving from "@/pages/services/senior-moving";
+import PianoMoving from "@/pages/services/piano-moving";
+import AntiqueMoving from "@/pages/services/antique-moving";
+import SpecialtyItemMoving from "@/pages/services/specialty-item-moving";
+import MovingSupplies from "@/pages/services/moving-supplies";
+import MilitaryMoving from "@/pages/services/military-moving";
 import AdminDashboard from "@/pages/admin/dashboard";
 import AdminBookings from "@/pages/admin/bookings";
 import AdminCustomers from "@/pages/admin/customers";
@@ -52,6 +60,14 @@ function Router() {
       <Route path="/services/commercial-moving" component={CommercialMoving} />
       <Route path="/services/packing-services" component={PackingServices} />
       <Route path="/services/storage-solutions" component={StorageSolutions} />
+      <Route path="/services/long-distance-moving" component={LongDistanceMoving} />
+      <Route path="/services/student-moving" component={StudentMoving} />
+      <Route path="/services/senior-moving" component={SeniorMoving} />
+      <Route path="/services/piano-moving" component={PianoMoving} />
+      <Route path="/services/antique-moving" component={AntiqueMoving} />
+      <Route path="/services/specialty-item-moving" component={SpecialtyItemMoving} />
+      <Route path="/services/moving-supplies" component={MovingSupplies} />
+      <Route path="/services/military-moving" component={MilitaryMoving} />
       
       {/* Admin Pages */}
       <Route path="/admin">
