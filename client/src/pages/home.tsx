@@ -86,41 +86,75 @@ export default function Home() {
               <img src={logoUrl} alt="Prestige Moving" className="h-24 w-auto hover:opacity-90 transition-opacity" data-testid="img-logo" />
             </Link>
 
-            <div className="hidden lg:flex items-center gap-6">
+            <div className="hidden lg:flex items-center gap-4">
               <NavigationMenu>
-                <NavigationMenuList>
+                <NavigationMenuList className="gap-1">
+                  {/* Residential */}
                   <NavigationMenuItem>
-                    <NavigationMenuTrigger className="text-base font-semibold text-white bg-transparent hover:bg-white/10 data-[state=open]:bg-white/10" data-testid="nav-services-trigger">
-                      Services
+                    <Link href="/services/residential-moving">
+                      <NavigationMenuLink className="flex items-center gap-2 px-4 py-2 text-white font-medium hover:text-primary transition-colors" data-testid="nav-residential">
+                        <HomeIcon className="h-4 w-4" />
+                        Residential
+                      </NavigationMenuLink>
+                    </Link>
+                  </NavigationMenuItem>
+
+                  {/* Commercial */}
+                  <NavigationMenuItem>
+                    <Link href="/services/commercial-moving">
+                      <NavigationMenuLink className="flex items-center gap-2 px-4 py-2 text-white font-medium hover:text-primary transition-colors" data-testid="nav-commercial">
+                        <Building2 className="h-4 w-4" />
+                        Commercial
+                      </NavigationMenuLink>
+                    </Link>
+                  </NavigationMenuItem>
+
+                  {/* Long Distance */}
+                  <NavigationMenuItem>
+                    <Link href="/services/long-distance-moving">
+                      <NavigationMenuLink className="flex items-center gap-2 px-4 py-2 text-white font-medium hover:text-primary transition-colors" data-testid="nav-long-distance">
+                        <Truck className="h-4 w-4" />
+                        Long Distance
+                      </NavigationMenuLink>
+                    </Link>
+                  </NavigationMenuItem>
+
+                  {/* More Services Dropdown */}
+                  <NavigationMenuItem>
+                    <NavigationMenuTrigger className="text-white font-medium bg-transparent hover:bg-white/10 data-[state=open]:bg-white/10 gap-2" data-testid="nav-services-trigger">
+                      <Package className="h-4 w-4" />
+                      More Services
                     </NavigationMenuTrigger>
                     <NavigationMenuContent>
-                      <div className="grid w-[700px] grid-cols-2 gap-2 p-4 bg-background">
-                        {services.map((service) => (
-                          <Link key={service.href} href={service.href}>
-                            <NavigationMenuLink asChild>
-                              <div className="flex items-start gap-3 p-3 rounded-md hover-elevate active-elevate-2 cursor-pointer" data-testid={`nav-service-${service.title.toLowerCase().replace(/\s+/g, '-')}`}>
-                                <service.icon className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                                <div>
-                                  <div className="font-medium text-sm">{service.title}</div>
-                                  <div className="text-xs text-muted-foreground">{service.description}</div>
+                      <div className="w-[400px] p-4 bg-background">
+                        <div className="space-y-1">
+                          {services.filter(s => 
+                            !['Residential Moving', 'Commercial Moving', 'Long Distance Moving'].includes(s.title)
+                          ).map((service) => (
+                            <Link key={service.href} href={service.href}>
+                              <NavigationMenuLink asChild>
+                                <div className="flex items-center gap-3 p-3 rounded-md hover-elevate cursor-pointer" data-testid={`nav-service-${service.title.toLowerCase().replace(/\s+/g, '-')}`}>
+                                  <service.icon className="h-5 w-5 text-primary flex-shrink-0" />
+                                  <div>
+                                    <div className="font-medium text-sm">{service.title}</div>
+                                    <div className="text-xs text-muted-foreground">{service.description}</div>
+                                  </div>
                                 </div>
-                              </div>
-                            </NavigationMenuLink>
-                          </Link>
-                        ))}
+                              </NavigationMenuLink>
+                            </Link>
+                          ))}
+                        </div>
                       </div>
                     </NavigationMenuContent>
                   </NavigationMenuItem>
                 </NavigationMenuList>
               </NavigationMenu>
 
-              <Link href="/book" className="text-white font-semibold hover:text-primary transition-colors" data-testid="link-nav-quote">
-                Get Quote
-              </Link>
+              <div className="h-6 w-px bg-white/20" />
 
-              <a href="tel:604-000-0000" className="flex items-center gap-2 text-white font-bold text-lg hover:text-primary transition-colors" data-testid="link-phone">
+              <a href="tel:604-616-6066" className="flex items-center gap-2 text-white font-bold hover:text-primary transition-colors" data-testid="link-phone">
                 <Phone className="h-5 w-5" />
-                <span>604-000-0000</span>
+                <span>604-616-6066</span>
               </a>
 
               <Link href="/book">
@@ -131,7 +165,7 @@ export default function Home() {
             </div>
 
             <div className="lg:hidden flex items-center gap-2">
-              <a href="tel:604-000-0000" className="p-2 text-white" data-testid="link-phone-mobile">
+              <a href="tel:604-616-6066" className="p-2 text-white" data-testid="link-phone-mobile">
                 <Phone className="h-5 w-5" />
               </a>
               <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
@@ -216,7 +250,7 @@ export default function Home() {
                   <ArrowRight className="h-5 w-5 ml-2" />
                 </Button>
               </Link>
-              <a href="tel:604-000-0000">
+              <a href="tel:604-616-6066">
                 <Button size="lg" variant="outline" className="text-base md:text-lg font-bold px-8 md:px-10 py-5 md:py-6 border-2 border-white text-white hover:bg-white hover:text-[#1A2332] w-full sm:w-auto" data-testid="button-hero-call">
                   <Phone className="h-5 w-5 mr-2" />
                   CALL NOW
@@ -592,10 +626,10 @@ export default function Home() {
                 <ArrowRight className="h-5 w-5 ml-2" />
               </Button>
             </Link>
-            <a href="tel:604-000-0000">
+            <a href="tel:604-616-6066">
               <Button size="lg" variant="outline" className="text-lg font-bold px-10 py-6 border-2 border-[#1A2332] text-[#1A2332] hover:bg-[#1A2332] hover:text-white" data-testid="button-cta-call">
                 <Phone className="h-5 w-5 mr-2" />
-                604-000-0000
+                604-616-6066
               </Button>
             </a>
           </div>
@@ -641,9 +675,9 @@ export default function Home() {
               <h4 className="font-bold text-lg mb-4">Contact Us</h4>
               <div className="space-y-3 text-sm text-white/70">
                 <p>Vancouver, BC</p>
-                <a href="tel:604-000-0000" className="flex items-center gap-2 hover:text-primary transition-colors">
+                <a href="tel:604-616-6066" className="flex items-center gap-2 hover:text-primary transition-colors">
                   <Phone className="h-4 w-4" />
-                  604-000-0000
+                  604-616-6066
                 </a>
                 <p>info@prestigemoving.ca</p>
               </div>

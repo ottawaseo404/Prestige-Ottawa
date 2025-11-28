@@ -20,7 +20,7 @@ export default function SpecialtyItemMoving() {
         "addressRegion": "BC",
         "addressCountry": "CA"
       },
-      "telephone": "604-000-0000",
+      "telephone": "604-616-6066",
       "priceRange": "$$"
     },
     "areaServed": {
@@ -52,8 +52,8 @@ export default function SpecialtyItemMoving() {
                 <Link href="/"><img src={logoUrl} alt="Prestige Moving Vancouver" className="h-12 w-auto" data-testid="img-logo" /></Link>
               </div>
               <div className="flex items-center gap-2 sm:gap-4">
-                <a href="tel:604-000-0000" className="flex items-center gap-2 text-sm font-medium hover-elevate active-elevate-2 px-3 py-2 rounded-md" data-testid="link-phone">
-                  <Phone className="h-4 w-4" /><span className="hidden sm:inline">604-000-0000</span>
+                <a href="tel:604-616-6066" className="flex items-center gap-2 text-sm font-medium hover-elevate active-elevate-2 px-3 py-2 rounded-md" data-testid="link-phone">
+                  <Phone className="h-4 w-4" /><span className="hidden sm:inline">604-616-6066</span>
                 </a>
                 <Link href="/book"><Button variant="default" size="default" data-testid="button-get-quote">Get Quote</Button></Link>
               </div>
@@ -73,7 +73,7 @@ export default function SpecialtyItemMoving() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link href="/book"><Button size="lg" variant="default" className="text-base px-8">Get Specialty Quote</Button></Link>
-                <a href="tel:604-000-0000"><Button size="lg" variant="outline" className="text-base px-8"><Phone className="h-5 w-5 mr-2" />Call 604-000-0000</Button></a>
+                <a href="tel:604-616-6066"><Button size="lg" variant="outline" className="text-base px-8"><Phone className="h-5 w-5 mr-2" />Call 604-616-6066</Button></a>
               </div>
             </div>
           </div>
@@ -169,7 +169,7 @@ export default function SpecialtyItemMoving() {
             <p className="text-xl mb-8 opacity-90">Tell us about your unique moving needs. We have the equipment and expertise to handle it.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/book"><Button size="lg" variant="secondary" className="text-base px-8">Get Specialty Quote</Button></Link>
-              <a href="tel:604-000-0000"><Button size="lg" variant="outline" className="text-base px-8 bg-transparent border-2 border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10"><Phone className="h-5 w-5 mr-2" />604-000-0000</Button></a>
+              <a href="tel:604-616-6066"><Button size="lg" variant="outline" className="text-base px-8 bg-transparent border-2 border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10"><Phone className="h-5 w-5 mr-2" />604-616-6066</Button></a>
             </div>
           </div>
         </section>

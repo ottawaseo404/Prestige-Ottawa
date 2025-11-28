@@ -20,7 +20,7 @@ export default function PackingServices() {
         "addressRegion": "BC",
         "addressCountry": "CA"
       },
-      "telephone": "604-000-0000",
+      "telephone": "604-616-6066",
       "priceRange": "$$"
     },
     "areaServed": {
@@ -59,9 +59,9 @@ export default function PackingServices() {
                 </Link>
               </div>
               <div className="flex items-center gap-2 sm:gap-4">
-                <a href="tel:604-000-0000" className="flex items-center gap-2 text-sm font-medium hover-elevate active-elevate-2 px-3 py-2 rounded-md" data-testid="link-phone">
+                <a href="tel:604-616-6066" className="flex items-center gap-2 text-sm font-medium hover-elevate active-elevate-2 px-3 py-2 rounded-md" data-testid="link-phone">
                   <Phone className="h-4 w-4" />
-                  <span className="hidden sm:inline">604-000-0000</span>
+                  <span className="hidden sm:inline">604-616-6066</span>
                 </a>
                 <Link href="/book">
                   <Button variant="default" size="default" data-testid="button-get-quote">
@@ -90,10 +90,10 @@ export default function PackingServices() {
                     Get Free Quote
                   </Button>
                 </Link>
-                <a href="tel:604-000-0000">
+                <a href="tel:604-616-6066">
                   <Button size="lg" variant="outline" className="text-base px-8">
                     <Phone className="h-5 w-5 mr-2" />
-                    Call 604-000-0000
+                    Call 604-616-6066
                   </Button>
                 </a>
               </div>
@@ -383,10 +383,10 @@ export default function PackingServices() {
                   Get Free Quote
                 </Button>
               </Link>
-              <a href="tel:604-000-0000">
+              <a href="tel:604-616-6066">
                 <Button size="lg" variant="outline" className="text-base px-8 bg-transparent border-2 border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10">
                   <Phone className="h-5 w-5 mr-2" />
-                  604-000-0000
+                  604-616-6066
                 </Button>
               </a>
             </div>
