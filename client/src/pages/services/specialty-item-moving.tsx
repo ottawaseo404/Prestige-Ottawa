@@ -27,11 +27,13 @@ import {
   User,
   MessageSquare,
   MapPin,
+  Loader2,
 } from "lucide-react";
 import { Link } from "wouter";
 import { Helmet } from "react-helmet";
 import { SharedNavigation } from "@/components/shared-navigation";
 import { useToast } from "@/hooks/use-toast";
+import { apiRequest } from "@/lib/queryClient";
 import specialtyVideo from "@assets/generated_videos/specialty_item_moving_hot_tub.mp4";
 
 export default function SpecialtyItemMoving() {
@@ -43,14 +45,32 @@ export default function SpecialtyItemMoving() {
     itemType: "",
     message: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Quote Request Submitted!",
-      description: "We'll contact you within 1 hour with your specialty item quote.",
-    });
-    setFormData({ name: "", email: "", phone: "", itemType: "", message: "" });
+    setIsSubmitting(true);
+    
+    try {
+      const response = await apiRequest("POST", "/api/quote-request", {
+        ...formData,
+        serviceType: "Specialty Item Moving",
+      });
+      
+      toast({
+        title: "Quote Request Submitted!",
+        description: "We'll contact you within 1 hour with your specialty moving quote.",
+      });
+      setFormData({ name: "", email: "", phone: "", itemType: "", message: "" });
+    } catch (error: any) {
+      toast({
+        title: "Submission Failed",
+        description: error.message || "Please try again or call us directly at 604-616-6066",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const schemaData = {
@@ -565,9 +585,19 @@ export default function SpecialtyItemMoving() {
                     size="lg" 
                     className="w-full bg-[#C5A572] hover:bg-[#B8956A] text-white"
                     data-testid="button-submit-quote"
+                    disabled={isSubmitting}
                   >
-                    Request Specialty Quote
-                    <ArrowRight className="ml-2 h-5 w-5" />
+                    {isSubmitting ? (
+                      <>
+                        <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                        Submitting...
+                      </>
+                    ) : (
+                      <>
+                        Request Specialty Quote
+                        <ArrowRight className="ml-2 h-5 w-5" />
+                      </>
+                    )}
                   </Button>
 
                   <p className="text-sm text-muted-foreground text-center">

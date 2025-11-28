@@ -28,15 +28,18 @@ import {
   User,
   MessageSquare,
   ChevronRight,
+  Loader2,
 } from "lucide-react";
 import { Link } from "wouter";
 import { Helmet } from "react-helmet";
 import { SharedNavigation } from "@/components/shared-navigation";
 import { useToast } from "@/hooks/use-toast";
+import { apiRequest } from "@/lib/queryClient";
 import movingSuppliesVideo from "@assets/generated_videos/moving_supplies_delivery_vancouver.mp4";
 
 export default function MovingSupplies() {
   const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -44,13 +47,30 @@ export default function MovingSupplies() {
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Request Submitted!",
-      description: "We'll contact you within 1 hour with your quote.",
-    });
-    setFormData({ name: "", email: "", phone: "", message: "" });
+    setIsSubmitting(true);
+    
+    try {
+      const response = await apiRequest("POST", "/api/quote-request", {
+        ...formData,
+        serviceType: "Moving Supplies",
+      });
+      
+      toast({
+        title: "Quote Request Submitted!",
+        description: "We'll contact you within 1 hour with your quote.",
+      });
+      setFormData({ name: "", email: "", phone: "", message: "" });
+    } catch (error: any) {
+      toast({
+        title: "Submission Failed",
+        description: error.message || "Please try again or call us directly at 604-616-6066",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const schemaData = {
@@ -593,9 +613,19 @@ export default function MovingSupplies() {
                       type="submit" 
                       className="w-full bg-[#C5A572] hover:bg-[#B8956A] text-white py-6"
                       data-testid="button-submit-quote"
+                      disabled={isSubmitting}
                     >
-                      Get Free Quote
-                      <ChevronRight className="ml-2 h-4 w-4" />
+                      {isSubmitting ? (
+                        <>
+                          <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                          Submitting...
+                        </>
+                      ) : (
+                        <>
+                          Get Free Quote
+                          <ChevronRight className="ml-2 h-4 w-4" />
+                        </>
+                      )}
                     </Button>
                   </form>
                 </CardContent>

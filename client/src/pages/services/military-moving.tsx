@@ -25,11 +25,13 @@ import {
   MessageSquare,
   MapPin,
   Users,
+  Loader2,
 } from "lucide-react";
 import { Link } from "wouter";
 import { Helmet } from "react-helmet";
 import { SharedNavigation } from "@/components/shared-navigation";
 import { useToast } from "@/hooks/use-toast";
+import { apiRequest } from "@/lib/queryClient";
 import militaryVideo from "@assets/generated_videos/military_pcs_moving_relocation.mp4";
 
 export default function MilitaryMoving() {
@@ -40,14 +42,32 @@ export default function MilitaryMoving() {
     phone: "",
     message: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Request Submitted!",
-      description: "We'll contact you within 1 hour with your military moving quote.",
-    });
-    setFormData({ name: "", email: "", phone: "", message: "" });
+    setIsSubmitting(true);
+    
+    try {
+      const response = await apiRequest("POST", "/api/quote-request", {
+        ...formData,
+        serviceType: "Military Moving",
+      });
+      
+      toast({
+        title: "Quote Request Submitted!",
+        description: "We'll contact you within 1 hour with your military moving quote.",
+      });
+      setFormData({ name: "", email: "", phone: "", message: "" });
+    } catch (error: any) {
+      toast({
+        title: "Submission Failed",
+        description: error.message || "Please try again or call us directly at 604-616-6066",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const schemaData = {
@@ -606,9 +626,19 @@ export default function MilitaryMoving() {
                       size="lg"
                       className="w-full bg-[#C5A572] hover:bg-[#B8956A] text-white"
                       data-testid="button-submit-quote"
+                      disabled={isSubmitting}
                     >
-                      Get My Military Quote
-                      <ArrowRight className="ml-2 h-5 w-5" />
+                      {isSubmitting ? (
+                        <>
+                          <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                          Submitting...
+                        </>
+                      ) : (
+                        <>
+                          Get My Military Quote
+                          <ArrowRight className="ml-2 h-5 w-5" />
+                        </>
+                      )}
                     </Button>
                   </form>
                 </CardContent>

@@ -162,6 +162,101 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  // Quick quote submission - sends directly to SmartMoving
+  const quoteRequestSchema = z.object({
+    name: z.string().min(1, "Name is required"),
+    email: z.string().email("Valid email is required"),
+    phone: z.string().min(1, "Phone is required"),
+    message: z.string().optional(),
+    serviceType: z.string().optional(),
+    school: z.string().optional(),
+    pianoType: z.string().optional(),
+    itemType: z.string().optional(),
+  });
+
+  app.post("/api/quote-request", async (req, res) => {
+    try {
+      const providerKey = process.env.SMARTMOVING_PROVIDER_KEY;
+      
+      if (!providerKey) {
+        console.error("SmartMoving Provider Key not configured");
+        return res.status(500).json({ message: "CRM integration not configured" });
+      }
+
+      // Validate request body
+      const validatedData = quoteRequestSchema.parse(req.body);
+
+      // Parse name into first and last
+      const nameParts = validatedData.name.trim().split(' ');
+      const firstName = nameParts[0] || '';
+      const lastName = nameParts.slice(1).join(' ') || '';
+
+      // Build notes from optional fields
+      const notesParts: string[] = [];
+      if (validatedData.serviceType) notesParts.push(`Service: ${validatedData.serviceType}`);
+      if (validatedData.school) notesParts.push(`School: ${validatedData.school}`);
+      if (validatedData.pianoType) notesParts.push(`Piano Type: ${validatedData.pianoType}`);
+      if (validatedData.itemType) notesParts.push(`Item Type: ${validatedData.itemType}`);
+      if (validatedData.message) notesParts.push(`Message: ${validatedData.message}`);
+      notesParts.push(`Source: Website Quote Form`);
+
+      // Format for SmartMoving Lead API
+      const leadData: SmartMovingLead = {
+        FirstName: firstName,
+        LastName: lastName || 'Customer',
+        Email: validatedData.email,
+        Phone: validatedData.phone,
+        Notes: notesParts.join('\n'),
+      };
+
+      console.log("Submitting lead to SmartMoving:", JSON.stringify(leadData, null, 2));
+
+      // Call SmartMoving Lead API
+      const url = `https://api.smartmoving.com/api/leads/from-provider/v2?providerKey=${providerKey}`;
+      
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(leadData),
+      });
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        console.error("SmartMoving API error:", response.status, errorText);
+        
+        // Handle duplicate submission gracefully
+        if (response.status === 400 && errorText.includes("already been submitted")) {
+          return res.json({ 
+            success: true, 
+            message: "Your information has been received. We'll be in touch soon!" 
+          });
+        }
+        
+        throw new Error(`SmartMoving API error: ${response.status}`);
+      }
+
+      const result = await response.json();
+      console.log("SmartMoving lead submitted successfully:", result);
+
+      res.json({ 
+        success: true, 
+        message: "Quote request submitted successfully!",
+        leadId: result.id || null
+      });
+    } catch (error: any) {
+      console.error("Error submitting quote request:", error);
+      
+      if (error instanceof z.ZodError) {
+        const validationError = fromZodError(error);
+        return res.status(400).json({ message: validationError.message });
+      }
+      
+      res.status(500).json({ message: "Failed to submit quote request. Please call us directly." });
+    }
+  });
+
   // SmartMoving Webhook endpoint
   app.post("/api/webhooks/smartmoving", async (req, res) => {
     try {
