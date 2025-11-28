@@ -56,7 +56,7 @@ function ProtectedAdminLayout({ children }: { children: React.ReactNode }) {
   }
 
   if (!isAuthenticated) {
-    setLocation("/admin/login");
+    setLocation("/login");
     return null;
   }
 
@@ -120,7 +120,7 @@ function Router() {
       <Route path="/services/military-moving" component={MilitaryMoving} />
       
       {/* Admin Login */}
-      <Route path="/admin/login" component={AdminLogin} />
+      <Route path="/login" component={AdminLogin} />
       
       {/* Admin Pages (Protected) */}
       <Route path="/admin">

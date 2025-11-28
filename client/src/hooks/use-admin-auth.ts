@@ -22,7 +22,7 @@ export function useAdminAuth() {
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["/api/admin/check"] });
-      setLocation("/admin/login");
+      setLocation("/login");
     },
   });
 
