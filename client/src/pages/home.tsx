@@ -332,17 +332,29 @@ export default function Home() {
                 Over 10,000 successful moves across Vancouver. Professional movers, transparent pricing, and complete peace of mind.
               </p>
               
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-col sm:flex-row gap-3">
                 <Link href="/book">
-                  <Button size="lg" className="text-base md:text-lg font-bold px-8 md:px-10 py-5 md:py-6 shadow-xl w-full sm:w-auto" data-testid="button-hero-quote">
-                    GET FREE QUOTE
-                    <ArrowRight className="h-5 w-5 ml-2" />
+                  <Button 
+                    size="default" 
+                    className="group relative overflow-hidden text-sm font-semibold px-6 py-2.5 shadow-lg hover:shadow-primary/40 hover:shadow-xl transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] w-full sm:w-auto" 
+                    data-testid="button-hero-quote"
+                  >
+                    <span className="relative z-10 flex items-center gap-2">
+                      Get Free Quote
+                      <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                    </span>
+                    <span className="absolute inset-0 bg-gradient-to-r from-primary via-amber-500 to-primary bg-[length:200%_100%] opacity-0 group-hover:opacity-100 group-hover:animate-shimmer transition-opacity duration-300" />
                   </Button>
                 </Link>
                 <a href="tel:604-616-6066">
-                  <Button size="lg" variant="outline" className="text-base md:text-lg font-bold px-8 md:px-10 py-5 md:py-6 border-2 border-white text-white hover:bg-white hover:text-[#1A2332] w-full sm:w-auto" data-testid="button-hero-call">
-                    <Phone className="h-5 w-5 mr-2" />
-                    CALL NOW
+                  <Button 
+                    size="default" 
+                    variant="outline" 
+                    className="group text-sm font-semibold px-6 py-2.5 border border-white/40 text-white backdrop-blur-sm hover:bg-white/10 hover:border-white hover:shadow-lg hover:shadow-white/10 transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] w-full sm:w-auto" 
+                    data-testid="button-hero-call"
+                  >
+                    <Phone className="h-4 w-4 mr-2 transition-transform duration-300 group-hover:rotate-12" />
+                    Call Now
                   </Button>
                 </a>
               </div>
