@@ -14,7 +14,7 @@ import {
   Home as HomeIcon, Building2, MapPin, Menu, Warehouse, GraduationCap, 
   Heart, Music, Crown, Dumbbell, Box, Medal, ArrowRight, Star, 
   Quote, Users, ThumbsUp, ChevronLeft, ChevronRight, Truck, Headphones,
-  Mail, Calendar, Calculator, Sparkles
+  Mail, Calendar, Calculator, Sparkles, Lock
 } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import {
@@ -490,6 +490,12 @@ export default function Home() {
               <Link href="/book">
                 <Button variant="default" size="lg" className="font-bold shadow-lg" data-testid="button-get-quote">
                   FREE ESTIMATE
+                </Button>
+              </Link>
+              
+              <Link href="/admin">
+                <Button variant="ghost" size="icon" className="text-white hover:bg-white/10" data-testid="link-admin-nav">
+                  <Lock className="h-5 w-5" />
                 </Button>
               </Link>
             </div>

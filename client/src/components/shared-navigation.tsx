@@ -186,8 +186,10 @@ export function SharedNavigation() {
               </Button>
             </Link>
             
-            <Link href="/admin" data-testid="link-admin-nav">
-              <Lock className="h-5 w-5 text-white/70 hover:text-white transition-colors cursor-pointer" />
+            <Link href="/admin">
+              <Button variant="ghost" size="icon" className="text-white hover:bg-white/10" data-testid="link-admin-nav">
+                <Lock className="h-5 w-5" />
+              </Button>
             </Link>
           </div>
 
