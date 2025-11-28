@@ -34,8 +34,7 @@ import { SiFacebook, SiInstagram, SiLinkedin, SiYoutube } from "react-icons/si";
 import logoUrl from "@assets/originalonglogo_1763689606978.png";
 import heroImage from "@assets/generated_images/vancouver_seabus_ferry_scenic_view.png";
 import heroVideo1 from "@assets/generated_videos/bc_ferry_crossing_burrard_inlet.mp4";
-import heroVideo2 from "@assets/generated_videos/white_truck_driving_bc_mountains.mp4";
-import heroVideo3 from "@assets/prestigemoving_1764364145182.mp4";
+import heroVideo2 from "@assets/prestigemoving_converted.mp4";
 import residentialImage from "@assets/truck1_1764291781341.jpeg";
 import commercialImage from "@assets/commercial_1764347548715.jpeg";
 import longDistanceImage from "@assets/longdistance moving_1764348335754.jpg";
@@ -51,7 +50,7 @@ export default function Home() {
   const [reviewIndex, setReviewIndex] = useState(0);
   const [heroVideoIndex, setHeroVideoIndex] = useState(0);
   
-  const heroVideos = [heroVideo1, heroVideo2, heroVideo3];
+  const heroVideos = [heroVideo1, heroVideo2];
 
   // Google Reviews data - 50 reviews
   const reviewsList = [
