@@ -418,20 +418,22 @@ export default function Home() {
 
             {/* Right Side - CTA Quote Box */}
             <div className="hidden lg:block">
-              <div className="bg-white/95 backdrop-blur-sm rounded-2xl shadow-2xl p-6 max-w-md ml-auto border border-white/20">
+              <div className="bg-white rounded-xl shadow-2xl p-5 max-w-sm ml-auto border border-gray-100 transform hover:scale-[1.02] transition-transform duration-300">
                 {heroFormSubmitted ? (
-                  <div className="text-center py-8">
-                    <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <CheckCircle2 className="h-8 w-8 text-green-600" />
+                  <div className="text-center py-6">
+                    <div className="w-14 h-14 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-3 animate-pulse">
+                      <CheckCircle2 className="h-7 w-7 text-green-500" />
                     </div>
-                    <h3 className="text-2xl font-bold text-[#1A2332] mb-2">Quote Request Sent!</h3>
-                    <p className="text-gray-600 mb-4">We'll contact you within 24 hours with your free estimate.</p>
+                    <h3 className="text-xl font-bold text-[#1A2332] mb-1">Quote Request Sent!</h3>
+                    <p className="text-gray-500 text-sm mb-4">We'll contact you within 24 hours.</p>
                     <Button 
-                      variant="outline" 
+                      variant="ghost" 
+                      size="sm"
                       onClick={() => {
                         setHeroFormSubmitted(false);
                         setHeroFormData({ name: "", phone: "", email: "", movingFrom: "", movingTo: "", moveDate: "" });
                       }}
+                      className="text-primary hover:text-primary/80"
                       data-testid="button-submit-another"
                     >
                       Submit Another Quote
@@ -439,64 +441,74 @@ export default function Home() {
                   </div>
                 ) : (
                   <>
-                    <div className="text-center mb-6">
-                      <h3 className="text-2xl font-bold text-[#1A2332] mb-2">Get Your Free Quote</h3>
-                      <p className="text-gray-600 text-sm">Fill out the form and we'll contact you within 24 hours</p>
+                    <div className="text-center mb-4">
+                      <h3 className="text-xl font-bold text-[#1A2332] mb-1">Get Your Free Quote</h3>
+                      <p className="text-gray-500 text-xs">We'll contact you within 24 hours</p>
                     </div>
                     
-                    <form onSubmit={handleHeroFormSubmit} className="space-y-4">
-                      <div>
+                    <form onSubmit={handleHeroFormSubmit} className="space-y-3">
+                      <div className="relative group">
+                        <Users className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400 group-focus-within:text-primary transition-colors" />
                         <Input 
                           type="text" 
                           placeholder="Your Name" 
-                          className="h-12 bg-gray-50 border-gray-200"
+                          className="h-10 pl-10 bg-gray-50/50 border-gray-200 rounded-lg text-sm focus:bg-white focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all"
                           value={heroFormData.name}
                           onChange={(e) => setHeroFormData(prev => ({ ...prev, name: e.target.value }))}
                           data-testid="input-hero-name"
                         />
                       </div>
-                      <div>
+                      <div className="relative group">
+                        <Phone className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400 group-focus-within:text-primary transition-colors" />
                         <Input 
                           type="tel" 
                           placeholder="Phone Number" 
-                          className="h-12 bg-gray-50 border-gray-200"
+                          className="h-10 pl-10 bg-gray-50/50 border-gray-200 rounded-lg text-sm focus:bg-white focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all"
                           value={heroFormData.phone}
                           onChange={(e) => setHeroFormData(prev => ({ ...prev, phone: e.target.value }))}
                           data-testid="input-hero-phone"
                         />
                       </div>
-                      <div>
+                      <div className="relative group">
+                        <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400 group-focus-within:text-primary transition-colors" />
                         <Input 
                           type="email" 
                           placeholder="Email Address" 
-                          className="h-12 bg-gray-50 border-gray-200"
+                          className="h-10 pl-10 bg-gray-50/50 border-gray-200 rounded-lg text-sm focus:bg-white focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all"
                           value={heroFormData.email}
                           onChange={(e) => setHeroFormData(prev => ({ ...prev, email: e.target.value }))}
                           data-testid="input-hero-email"
                         />
                       </div>
-                      <div className="grid grid-cols-2 gap-3">
-                        <Input 
-                          type="text" 
-                          placeholder="Moving From" 
-                          className="h-12 bg-gray-50 border-gray-200"
-                          value={heroFormData.movingFrom}
-                          onChange={(e) => setHeroFormData(prev => ({ ...prev, movingFrom: e.target.value }))}
-                          data-testid="input-hero-from"
-                        />
-                        <Input 
-                          type="text" 
-                          placeholder="Moving To" 
-                          className="h-12 bg-gray-50 border-gray-200"
-                          value={heroFormData.movingTo}
-                          onChange={(e) => setHeroFormData(prev => ({ ...prev, movingTo: e.target.value }))}
-                          data-testid="input-hero-to"
-                        />
+                      <div className="grid grid-cols-2 gap-2">
+                        <div className="relative group">
+                          <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400 group-focus-within:text-primary transition-colors" />
+                          <Input 
+                            type="text" 
+                            placeholder="From" 
+                            className="h-10 pl-10 bg-gray-50/50 border-gray-200 rounded-lg text-sm focus:bg-white focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all"
+                            value={heroFormData.movingFrom}
+                            onChange={(e) => setHeroFormData(prev => ({ ...prev, movingFrom: e.target.value }))}
+                            data-testid="input-hero-from"
+                          />
+                        </div>
+                        <div className="relative group">
+                          <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400 group-focus-within:text-primary transition-colors" />
+                          <Input 
+                            type="text" 
+                            placeholder="To" 
+                            className="h-10 pl-10 bg-gray-50/50 border-gray-200 rounded-lg text-sm focus:bg-white focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all"
+                            value={heroFormData.movingTo}
+                            onChange={(e) => setHeroFormData(prev => ({ ...prev, movingTo: e.target.value }))}
+                            data-testid="input-hero-to"
+                          />
+                        </div>
                       </div>
-                      <div>
+                      <div className="relative group">
+                        <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400 group-focus-within:text-primary transition-colors pointer-events-none z-10" />
                         <Input 
                           type="date" 
-                          className="h-12 bg-gray-50 border-gray-200"
+                          className="h-10 pl-10 bg-gray-50/50 border-gray-200 rounded-lg text-sm focus:bg-white focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all"
                           value={heroFormData.moveDate}
                           onChange={(e) => setHeroFormData(prev => ({ ...prev, moveDate: e.target.value }))}
                           data-testid="input-hero-date"
@@ -505,32 +517,40 @@ export default function Home() {
                       
                       <Button 
                         type="submit" 
-                        size="lg" 
-                        className="w-full font-bold text-lg py-6 shadow-lg" 
+                        className="w-full font-semibold h-11 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 group" 
                         disabled={quoteMutation.isPending}
                         data-testid="button-hero-cta-submit"
                       >
-                        {quoteMutation.isPending ? "Submitting..." : "Get Free Estimate"}
-                        {!quoteMutation.isPending && <ArrowRight className="h-5 w-5 ml-2" />}
+                        {quoteMutation.isPending ? (
+                          <span className="flex items-center gap-2">
+                            <span className="h-4 w-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                            Submitting...
+                          </span>
+                        ) : (
+                          <span className="flex items-center gap-2">
+                            Get Free Estimate
+                            <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                          </span>
+                        )}
                       </Button>
                     </form>
+
+                    <div className="mt-4 pt-3 border-t border-gray-100 flex items-center justify-center gap-4 text-[10px] text-gray-400">
+                      <div className="flex items-center gap-1">
+                        <Shield className="h-3 w-3 text-primary/70" />
+                        <span>Insured</span>
+                      </div>
+                      <div className="flex items-center gap-1">
+                        <Star className="h-3 w-3 text-primary/70 fill-primary/70" />
+                        <span>5.0 Rating</span>
+                      </div>
+                      <div className="flex items-center gap-1">
+                        <Clock className="h-3 w-3 text-primary/70" />
+                        <span>Fast</span>
+                      </div>
+                    </div>
                   </>
                 )}
-
-                <div className="mt-4 flex items-center justify-center gap-4 text-xs text-gray-500">
-                  <div className="flex items-center gap-1">
-                    <Shield className="h-3 w-3 text-primary" />
-                    <span>Fully Insured</span>
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <Star className="h-3 w-3 text-primary fill-primary" />
-                    <span>5.0 Rating</span>
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <Clock className="h-3 w-3 text-primary" />
-                    <span>Fast Response</span>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
