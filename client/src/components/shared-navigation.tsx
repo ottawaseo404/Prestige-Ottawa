@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/navigation-menu";
 import { 
   Phone, Home as HomeIcon, Building2, MapPin, Menu, Warehouse, GraduationCap, 
-  Heart, Music, Crown, Dumbbell, Box, Medal, Package, Truck, Star, Mail
+  Heart, Music, Crown, Dumbbell, Box, Medal, Package, Truck, Star, Mail, Lock
 } from "lucide-react";
 import { Link, useLocation } from "wouter";
 import { useState } from "react";
@@ -78,6 +78,14 @@ export function SharedNavigation() {
 
             {/* Contact Info */}
             <div className="flex items-center gap-6">
+              <Link 
+                href="/admin" 
+                className="flex items-center gap-1.5 text-gray-500 text-sm hover:text-primary transition-colors"
+                data-testid="link-admin"
+              >
+                <Lock className="h-3.5 w-3.5" />
+                <span>Admin</span>
+              </Link>
               <div className="flex items-center gap-2 text-gray-600 text-sm">
                 <MapPin className="h-4 w-4" />
                 <span>Vancouver & Area</span>
