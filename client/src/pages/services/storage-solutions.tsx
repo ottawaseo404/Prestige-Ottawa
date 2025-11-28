@@ -7,13 +7,40 @@ import { Helmet } from "react-helmet";
 import logoUrl from "@assets/originalonglogo_1763689606978.png";
 
 export default function StorageSolutions() {
+  const schemaData = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Storage Solutions Vancouver",
+    "provider": {
+      "@type": "MovingCompany",
+      "name": "Prestige Moving Vancouver",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Vancouver",
+        "addressRegion": "BC",
+        "addressCountry": "CA"
+      },
+      "telephone": "604-000-0000",
+      "priceRange": "$$"
+    },
+    "areaServed": {
+      "@type": "City",
+      "name": "Vancouver"
+    },
+    "description": "Secure storage solutions in Vancouver. Climate-controlled units with flexible terms. Short-term and long-term storage for moving transitions."
+  };
+
   return (
     <>
       <Helmet>
-        <title>Storage Solutions Vancouver | Secure Moving Storage | Prestige Moving</title>
-        <meta name="description" content="Secure storage solutions in Vancouver. Climate-controlled units, flexible terms, WSIB insured. Short-term and long-term storage available. Get your free quote today!" />
+        <title>Storage Solutions Vancouver BC | Climate-Controlled Storage | Prestige Moving</title>
+        <meta name="description" content="Secure storage solutions in Vancouver BC. Climate-controlled units, flexible terms, WSIB insured. Short-term and long-term storage. Free quote!" />
+        <meta name="keywords" content="storage solutions Vancouver, moving storage BC, climate controlled storage, secure storage Vancouver, short term storage" />
         <meta property="og:title" content="Storage Solutions Vancouver | Prestige Moving" />
         <meta property="og:description" content="Secure, climate-controlled storage in Vancouver. Flexible terms, professional handling, full insurance. Perfect for moving transitions." />
+        <meta property="og:type" content="website" />
+        <link rel="canonical" href="https://prestigemoving.ca/services/storage-solutions" />
+        <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
       </Helmet>
 
       <div className="min-h-screen bg-background">

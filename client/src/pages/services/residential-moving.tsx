@@ -7,13 +7,40 @@ import { Helmet } from "react-helmet";
 import logoUrl from "@assets/originalonglogo_1763689606978.png";
 
 export default function ResidentialMoving() {
+  const schemaData = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Residential Moving Services Vancouver",
+    "provider": {
+      "@type": "MovingCompany",
+      "name": "Prestige Moving Vancouver",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Vancouver",
+        "addressRegion": "BC",
+        "addressCountry": "CA"
+      },
+      "telephone": "604-000-0000",
+      "priceRange": "$$"
+    },
+    "areaServed": {
+      "@type": "City",
+      "name": "Vancouver"
+    },
+    "description": "Professional residential moving services in Vancouver. Experienced movers for apartments, condos, and houses. WSIB insured with transparent pricing."
+  };
+
   return (
     <>
       <Helmet>
-        <title>Residential Moving Services Vancouver | Prestige Moving</title>
-        <meta name="description" content="Professional residential moving services in Vancouver. Experienced movers, WSIB insured, transparent pricing. Specializing in apartments, condos, and houses. Get your free quote today!" />
+        <title>Residential Moving Services Vancouver BC | Home Movers | Prestige Moving</title>
+        <meta name="description" content="Professional residential moving services in Vancouver BC. Experienced movers, WSIB insured, transparent pricing. Apartments, condos, houses. Get your free quote today!" />
+        <meta name="keywords" content="residential moving Vancouver, home movers BC, apartment moving, condo moving Vancouver, house moving service" />
         <meta property="og:title" content="Residential Moving Services Vancouver | Prestige Moving" />
         <meta property="og:description" content="Vancouver's trusted residential movers. From studio apartments to 5-bedroom homes. Professional, insured, and affordable." />
+        <meta property="og:type" content="website" />
+        <link rel="canonical" href="https://prestigemoving.ca/services/residential-moving" />
+        <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
       </Helmet>
 
       <div className="min-h-screen bg-background">

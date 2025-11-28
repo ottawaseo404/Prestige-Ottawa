@@ -7,13 +7,40 @@ import { Helmet } from "react-helmet";
 import logoUrl from "@assets/originalonglogo_1763689606978.png";
 
 export default function CommercialMoving() {
+  const schemaData = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Commercial Moving Services Vancouver",
+    "provider": {
+      "@type": "MovingCompany",
+      "name": "Prestige Moving Vancouver",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Vancouver",
+        "addressRegion": "BC",
+        "addressCountry": "CA"
+      },
+      "telephone": "604-000-0000",
+      "priceRange": "$$"
+    },
+    "areaServed": {
+      "@type": "City",
+      "name": "Vancouver"
+    },
+    "description": "Professional commercial and office moving services in Vancouver. Minimize downtime with experienced business movers. IT equipment, furniture, and complete office relocations."
+  };
+
   return (
     <>
       <Helmet>
-        <title>Commercial Moving Services Vancouver | Office Movers | Prestige Moving</title>
-        <meta name="description" content="Professional commercial moving services in Vancouver. Office relocations, business moves, IT equipment handling. Minimize downtime with experienced commercial movers. Free consultation!" />
+        <title>Commercial Moving Services Vancouver BC | Office Movers | Prestige Moving</title>
+        <meta name="description" content="Professional commercial moving services in Vancouver BC. Office relocations, business moves, IT equipment handling. Minimize downtime. Free consultation!" />
+        <meta name="keywords" content="commercial moving Vancouver, office movers BC, business relocation, IT equipment moving, corporate moving service" />
         <meta property="og:title" content="Commercial Moving Services Vancouver | Prestige Moving" />
         <meta property="og:description" content="Vancouver's trusted commercial movers. Office relocations, business moves, minimal downtime. Professional, insured, and efficient." />
+        <meta property="og:type" content="website" />
+        <link rel="canonical" href="https://prestigemoving.ca/services/commercial-moving" />
+        <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
       </Helmet>
 
       <div className="min-h-screen bg-background">

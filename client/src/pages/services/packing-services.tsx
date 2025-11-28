@@ -7,13 +7,40 @@ import { Helmet } from "react-helmet";
 import logoUrl from "@assets/originalonglogo_1763689606978.png";
 
 export default function PackingServices() {
+  const schemaData = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Professional Packing Services Vancouver",
+    "provider": {
+      "@type": "MovingCompany",
+      "name": "Prestige Moving Vancouver",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Vancouver",
+        "addressRegion": "BC",
+        "addressCountry": "CA"
+      },
+      "telephone": "604-000-0000",
+      "priceRange": "$$"
+    },
+    "areaServed": {
+      "@type": "City",
+      "name": "Vancouver"
+    },
+    "description": "Expert packing services in Vancouver. Full-service packing, fragile item protection, and quality materials included. Professional packers for stress-free moves."
+  };
+
   return (
     <>
       <Helmet>
-        <title>Professional Packing Services Vancouver | Prestige Moving</title>
-        <meta name="description" content="Expert packing services in Vancouver. Full-service packing, fragile item protection, quality materials included. Save time and ensure safe transport. Get your free quote today!" />
+        <title>Professional Packing Services Vancouver BC | Expert Packers | Prestige Moving</title>
+        <meta name="description" content="Expert packing services in Vancouver BC. Full-service packing, fragile item protection, quality materials. Save time and ensure safe transport. Free quote!" />
+        <meta name="keywords" content="packing services Vancouver, professional packers BC, moving packing service, fragile item packing, full service packing" />
         <meta property="og:title" content="Professional Packing Services Vancouver | Prestige Moving" />
         <meta property="og:description" content="Professional packing services in Vancouver. Expert packers, quality materials, fragile item specialists. Make your move stress-free." />
+        <meta property="og:type" content="website" />
+        <link rel="canonical" href="https://prestigemoving.ca/services/packing-services" />
+        <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
       </Helmet>
 
       <div className="min-h-screen bg-background">
