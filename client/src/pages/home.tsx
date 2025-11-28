@@ -364,7 +364,7 @@ export default function Home() {
       </section>
 
       {/* How Can We Help - Quick Quote Form */}
-      <section className="relative -mt-8 z-20 px-4 sm:px-6 lg:px-8">
+      <section className="relative z-20 px-4 sm:px-6 lg:px-8 py-8 bg-gray-50">
         <div className="max-w-5xl mx-auto">
           <div className="bg-white rounded-xl shadow-xl p-6 md:p-8 border border-gray-100">
             <h3 className="text-lg md:text-xl font-bold text-gray-800 mb-6" data-testid="heading-quick-quote">
@@ -426,7 +426,7 @@ export default function Home() {
       </section>
 
       {/* Trust Badges Section */}
-      <section className="py-12 pt-16 bg-background border-b">
+      <section className="py-12 bg-background border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
             <h2 className="text-lg font-semibold text-muted-foreground uppercase tracking-wider">
