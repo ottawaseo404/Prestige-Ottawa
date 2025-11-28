@@ -29,6 +29,7 @@ import {
 import { Link } from "wouter";
 import { Helmet } from "react-helmet";
 import { SharedNavigation } from "@/components/shared-navigation";
+import { SharedFooter } from "@/components/shared-footer";
 import { useToast } from "@/hooks/use-toast";
 import { apiRequest } from "@/lib/queryClient";
 import seniorVideo from "@assets/generated_videos/senior_moving_compassionate_service.mp4";
@@ -644,6 +645,8 @@ export default function SeniorMoving() {
             </a>
           </div>
         </section>
+
+        <SharedFooter />
       </div>
     </>
   );

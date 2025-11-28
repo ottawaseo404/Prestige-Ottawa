@@ -20,6 +20,7 @@ import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
 import { z } from "zod";
 import { SharedNavigation } from "@/components/shared-navigation";
+import { SharedFooter } from "@/components/shared-footer";
 
 const bookingFormSchema = insertBookingSchema.extend({
   moveDate: z.date().min(new Date(), "Move date must be in the future"),
@@ -766,6 +767,7 @@ export default function Booking() {
           </form>
         </Form>
       </div>
+      <SharedFooter />
     </div>
   );
 }

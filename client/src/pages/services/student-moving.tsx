@@ -32,6 +32,7 @@ import {
 import { Link } from "wouter";
 import { Helmet } from "react-helmet";
 import { SharedNavigation } from "@/components/shared-navigation";
+import { SharedFooter } from "@/components/shared-footer";
 import { useToast } from "@/hooks/use-toast";
 import { apiRequest } from "@/lib/queryClient";
 import studentMovingVideo from "@assets/generated_videos/student_moving_vancouver_campus.mp4";
@@ -648,6 +649,8 @@ export default function StudentMoving() {
             </div>
           </div>
         </section>
+
+        <SharedFooter />
       </div>
     </>
   );

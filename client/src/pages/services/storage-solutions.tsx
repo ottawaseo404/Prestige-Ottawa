@@ -31,6 +31,7 @@ import {
 import { Link } from "wouter";
 import { Helmet } from "react-helmet";
 import { SharedNavigation } from "@/components/shared-navigation";
+import { SharedFooter } from "@/components/shared-footer";
 import { useToast } from "@/hooks/use-toast";
 import { apiRequest } from "@/lib/queryClient";
 import storageVideo from "@assets/generated_videos/climate_controlled_storage_facility.mp4";
@@ -802,6 +803,8 @@ export default function StorageSolutions() {
             </div>
           </div>
         </section>
+
+        <SharedFooter />
       </div>
     </>
   );

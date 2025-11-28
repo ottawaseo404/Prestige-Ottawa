@@ -34,6 +34,7 @@ import commercialImage from "@assets/commercial_truck_night.png";
 import longDistanceImage from "@assets/movers_staircase.png";
 import packingImage from "@assets/packing_interior.png";
 import { packageTypes, type PackageType } from "@shared/schema";
+import { SharedFooter } from "@/components/shared-footer";
 
 export default function Home() {
   const packages: PackageType[] = ["Premium", "Deluxe", "Diamond"];
@@ -1308,6 +1309,7 @@ export default function Home() {
           </div>
         </div>
       </footer>
+      <SharedFooter />
     </div>
   );
 }

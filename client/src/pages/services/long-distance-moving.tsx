@@ -13,6 +13,7 @@ import {
 import { Link } from "wouter";
 import { Helmet } from "react-helmet";
 import { SharedNavigation } from "@/components/shared-navigation";
+import { SharedFooter } from "@/components/shared-footer";
 import { useToast } from "@/hooks/use-toast";
 import { apiRequest } from "@/lib/queryClient";
 import longDistanceVideo from "@assets/generated_videos/moving_trucks_driving_on_highway.mp4";
@@ -819,6 +820,8 @@ export default function LongDistanceMoving() {
             </div>
           </div>
         </section>
+
+        <SharedFooter />
       </div>
     </>
   );

@@ -33,6 +33,7 @@ import {
 import { Link } from "wouter";
 import { Helmet } from "react-helmet";
 import { SharedNavigation } from "@/components/shared-navigation";
+import { SharedFooter } from "@/components/shared-footer";
 import { useToast } from "@/hooks/use-toast";
 import { apiRequest } from "@/lib/queryClient";
 import movingSuppliesVideo from "@assets/generated_videos/moving_supplies_delivery_vancouver.mp4";
@@ -658,6 +659,8 @@ export default function MovingSupplies() {
             </div>
           </div>
         </section>
+
+        <SharedFooter />
       </div>
     </>
   );

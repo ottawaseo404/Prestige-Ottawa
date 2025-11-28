@@ -15,6 +15,7 @@ import {
 import { Link } from "wouter";
 import { Helmet } from "react-helmet";
 import { SharedNavigation } from "@/components/shared-navigation";
+import { SharedFooter } from "@/components/shared-footer";
 import { useToast } from "@/hooks/use-toast";
 import { apiRequest } from "@/lib/queryClient";
 import commercialVideo from "@assets/generated_videos/commercial_office_moving_scene.mp4";
@@ -789,6 +790,8 @@ export default function CommercialMoving() {
             </Link>
           </div>
         </section>
+
+        <SharedFooter />
       </div>
     </>
   );

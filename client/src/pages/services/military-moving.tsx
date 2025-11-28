@@ -30,6 +30,7 @@ import {
 import { Link } from "wouter";
 import { Helmet } from "react-helmet";
 import { SharedNavigation } from "@/components/shared-navigation";
+import { SharedFooter } from "@/components/shared-footer";
 import { useToast } from "@/hooks/use-toast";
 import { apiRequest } from "@/lib/queryClient";
 import militaryVideo from "@assets/generated_videos/military_pcs_moving_relocation.mp4";
@@ -679,6 +680,8 @@ export default function MilitaryMoving() {
             </div>
           </div>
         </section>
+
+        <SharedFooter />
       </div>
     </>
   );

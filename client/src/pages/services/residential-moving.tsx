@@ -9,6 +9,7 @@ import { Phone, CheckCircle2, Home, TruckIcon, Package, Shield, Clock, Users, St
 import { Link } from "wouter";
 import { Helmet } from "react-helmet";
 import { SharedNavigation } from "@/components/shared-navigation";
+import { SharedFooter } from "@/components/shared-footer";
 import { useToast } from "@/hooks/use-toast";
 import { apiRequest } from "@/lib/queryClient";
 import residentialVideo from "@assets/generated_videos/vancouver_residential_movers_with_boxes.mp4";
@@ -722,6 +723,8 @@ export default function ResidentialMoving() {
             </div>
           </div>
         </section>
+
+        <SharedFooter />
       </div>
     </>
   );
