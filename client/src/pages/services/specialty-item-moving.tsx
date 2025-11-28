@@ -172,7 +172,10 @@ export default function SpecialtyItemMoving() {
         <meta property="og:title" content="Specialty Item Moving Vancouver | Prestige Moving" />
         <meta property="og:description" content="Professional specialty item moving. Hot tubs, pool tables, gym equipment, and more. Specialized equipment and expertise." />
         <meta property="og:type" content="website" />
-        <link rel="canonical" href="https://prestigemoving.ca/services/specialty-item-moving" />
+        <meta property="og:image" content="https://vancouver.prestigemoving.ca/og-image.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://vancouver.prestigemoving.ca/og-image.png" />
+        <link rel="canonical" href="https://vancouver.prestigemoving.ca/services/specialty-item-moving" />
         <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
         <script type="application/ld+json">{JSON.stringify(faqData)}</script>
       </Helmet>

@@ -160,7 +160,10 @@ export default function SeniorMoving() {
         <meta property="og:title" content="Senior Moving Services Vancouver | Prestige Moving" />
         <meta property="og:description" content="Compassionate senior moving in Vancouver. Specialized care for elderly relocations and downsizing. Patient, professional service." />
         <meta property="og:type" content="website" />
-        <link rel="canonical" href="https://prestigemoving.ca/services/senior-moving" />
+        <meta property="og:image" content="https://vancouver.prestigemoving.ca/og-image.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://vancouver.prestigemoving.ca/og-image.png" />
+        <link rel="canonical" href="https://vancouver.prestigemoving.ca/services/senior-moving" />
         <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
         <script type="application/ld+json">{JSON.stringify(faqData)}</script>
       </Helmet>

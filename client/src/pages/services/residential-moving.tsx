@@ -104,7 +104,10 @@ export default function ResidentialMoving() {
         <meta property="og:title" content="Residential Moving Services Vancouver | Prestige Moving" />
         <meta property="og:description" content="Vancouver's trusted residential movers. From studio apartments to 5-bedroom homes. Professional, insured, and affordable." />
         <meta property="og:type" content="website" />
-        <link rel="canonical" href="https://prestigemoving.ca/services/residential-moving" />
+        <meta property="og:image" content="https://vancouver.prestigemoving.ca/og-image.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://vancouver.prestigemoving.ca/og-image.png" />
+        <link rel="canonical" href="https://vancouver.prestigemoving.ca/services/residential-moving" />
         <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
       </Helmet>
 

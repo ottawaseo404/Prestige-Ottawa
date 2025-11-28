@@ -160,7 +160,10 @@ export default function AntiqueMoving() {
         <meta property="og:title" content="Antique Moving Services Vancouver | Prestige Moving" />
         <meta property="og:description" content="Professional antique moving in Vancouver. Museum-quality care for your valuable antiques and heirlooms. Fully insured." />
         <meta property="og:type" content="website" />
-        <link rel="canonical" href="https://prestigemoving.ca/services/antique-moving" />
+        <meta property="og:image" content="https://vancouver.prestigemoving.ca/og-image.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://vancouver.prestigemoving.ca/og-image.png" />
+        <link rel="canonical" href="https://vancouver.prestigemoving.ca/services/antique-moving" />
         <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
         <script type="application/ld+json">{JSON.stringify(faqData)}</script>
       </Helmet>

@@ -137,7 +137,10 @@ export default function LongDistanceMoving() {
         <meta property="og:title" content="Coast to Coast Moving Services | Prestige Moving Vancouver" />
         <meta property="og:description" content="Professional long distance moving from Vancouver to anywhere in Canada. Full insurance, GPS tracking. Trusted by thousands of families." />
         <meta property="og:type" content="website" />
-        <link rel="canonical" href="https://prestigemoving.ca/services/long-distance-moving" />
+        <meta property="og:image" content="https://vancouver.prestigemoving.ca/og-image.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://vancouver.prestigemoving.ca/og-image.png" />
+        <link rel="canonical" href="https://vancouver.prestigemoving.ca/services/long-distance-moving" />
         <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
       </Helmet>
 

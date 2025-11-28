@@ -82,7 +82,10 @@ export default function PackingServices() {
         <meta property="og:title" content="Professional Packing Services Vancouver | Prestige Moving" />
         <meta property="og:description" content="Professional packing services in Vancouver. Expert packers, quality materials, fragile item specialists. Make your move stress-free." />
         <meta property="og:type" content="website" />
-        <link rel="canonical" href="https://prestigemoving.ca/services/packing-services" />
+        <meta property="og:image" content="https://vancouver.prestigemoving.ca/og-image.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://vancouver.prestigemoving.ca/og-image.png" />
+        <link rel="canonical" href="https://vancouver.prestigemoving.ca/services/packing-services" />
         <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
       </Helmet>
 

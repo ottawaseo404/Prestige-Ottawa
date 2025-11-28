@@ -29,6 +29,7 @@ import { useState, useEffect } from "react";
 import { useMutation } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
+import { Helmet } from "react-helmet";
 import logoUrl from "@assets/originalonglogo_1763689606978.png";
 import heroImage from "@assets/generated_images/vancouver_seabus_ferry_scenic_view.png";
 import heroVideo from "@assets/generated_videos/vancouver_ferry_crossing_burrard_inlet.mp4";
@@ -232,7 +233,98 @@ export default function Home() {
     setTestimonialIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
   };
 
+  // Schema.org data for SEO
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "MovingCompany",
+    "name": "Prestige Moving Vancouver",
+    "image": "https://vancouver.prestigemoving.ca/logo.png",
+    "description": "Vancouver's premier moving company offering residential, commercial, long-distance, and specialty moving services. WSIB insured, 5-star rated, 15+ years experience.",
+    "url": "https://vancouver.prestigemoving.ca",
+    "telephone": "604-616-6066",
+    "email": "info@prestigemoving.ca",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Vancouver",
+      "addressRegion": "BC",
+      "postalCode": "V6B 1A1",
+      "addressCountry": "CA"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 49.2827,
+      "longitude": -123.1207
+    },
+    "openingHours": "Mo-Su 08:00-20:00",
+    "priceRange": "$$",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5.0",
+      "reviewCount": "337",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "areaServed": [
+      { "@type": "City", "name": "Vancouver" },
+      { "@type": "City", "name": "Burnaby" },
+      { "@type": "City", "name": "Richmond" },
+      { "@type": "City", "name": "Surrey" },
+      { "@type": "City", "name": "North Vancouver" },
+      { "@type": "City", "name": "Coquitlam" }
+    ],
+    "sameAs": [
+      "https://www.facebook.com/prestigemovingvancouver",
+      "https://www.instagram.com/prestigemovingvancouver"
+    ]
+  };
+
+  const localBusinessSchema = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Prestige Moving Vancouver",
+    "image": "https://vancouver.prestigemoving.ca/logo.png",
+    "@id": "https://vancouver.prestigemoving.ca",
+    "url": "https://vancouver.prestigemoving.ca",
+    "telephone": "604-616-6066",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Vancouver",
+      "addressLocality": "Vancouver",
+      "addressRegion": "BC",
+      "postalCode": "V6B 1A1",
+      "addressCountry": "CA"
+    },
+    "priceRange": "$$"
+  };
+
   return (
+    <>
+      <Helmet>
+        <title>Vancouver Moving Company | #1 Rated Movers | Prestige Moving Vancouver</title>
+        <meta name="description" content="Vancouver's top-rated moving company. Residential, commercial, long-distance moves. 5-star Google rating, WSIB insured, 10,000+ successful moves. Free estimates. Call 604-616-6066!" />
+        <meta name="keywords" content="Vancouver moving company, movers Vancouver BC, residential movers, commercial movers, long distance moving, piano movers Vancouver, office relocation Vancouver, best movers Vancouver, affordable moving company, professional movers BC" />
+        <meta name="robots" content="index, follow" />
+        <meta name="author" content="Prestige Moving Vancouver" />
+        <meta property="og:title" content="Prestige Moving Vancouver | #1 Rated Moving Company in Vancouver BC" />
+        <meta property="og:description" content="Vancouver's most trusted moving company. 10,000+ successful moves, 5-star rating, fully insured. Residential, commercial, specialty moves. Free quotes!" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://vancouver.prestigemoving.ca" />
+        <meta property="og:site_name" content="Prestige Moving Vancouver" />
+        <meta property="og:locale" content="en_CA" />
+        <meta property="og:image" content="https://vancouver.prestigemoving.ca/og-image.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Prestige Moving Vancouver | Top-Rated Movers" />
+        <meta name="twitter:description" content="Vancouver's premier moving company. 5-star rated, WSIB insured, 15+ years experience. Get your free quote today!" />
+        <meta name="twitter:image" content="https://vancouver.prestigemoving.ca/og-image.png" />
+        <link rel="canonical" href="https://vancouver.prestigemoving.ca" />
+        <meta name="geo.region" content="CA-BC" />
+        <meta name="geo.placename" content="Vancouver" />
+        <script type="application/ld+json">{JSON.stringify(organizationSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(localBusinessSchema)}</script>
+      </Helmet>
+
     <div className="min-h-screen bg-background">
       {/* Top Contact Bar - White */}
       <div className="bg-white border-b border-gray-200 hidden md:block">
@@ -1546,5 +1638,6 @@ export default function Home() {
       </footer>
       <SharedFooter />
     </div>
+    </>
   );
 }

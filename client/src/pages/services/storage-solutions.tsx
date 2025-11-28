@@ -193,7 +193,10 @@ export default function StorageSolutions() {
         <meta property="og:title" content="Storage Solutions Vancouver | Prestige Moving" />
         <meta property="og:description" content="Secure, climate-controlled storage in Vancouver. Flexible terms, professional handling, full insurance. Perfect for moving transitions." />
         <meta property="og:type" content="website" />
-        <link rel="canonical" href="https://prestigemoving.ca/services/storage-solutions" />
+        <meta property="og:image" content="https://vancouver.prestigemoving.ca/og-image.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://vancouver.prestigemoving.ca/og-image.png" />
+        <link rel="canonical" href="https://vancouver.prestigemoving.ca/services/storage-solutions" />
         <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
         <script type="application/ld+json">{JSON.stringify(faqData)}</script>
       </Helmet>

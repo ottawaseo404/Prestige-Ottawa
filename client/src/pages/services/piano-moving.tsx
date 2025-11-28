@@ -161,7 +161,10 @@ export default function PianoMoving() {
         <meta property="og:title" content="Piano Moving Services Vancouver | Prestige Moving" />
         <meta property="og:description" content="Professional piano moving in Vancouver. Specialized equipment, full insurance, climate-controlled transport for all piano types." />
         <meta property="og:type" content="website" />
-        <link rel="canonical" href="https://prestigemoving.ca/services/piano-moving" />
+        <meta property="og:image" content="https://vancouver.prestigemoving.ca/og-image.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://vancouver.prestigemoving.ca/og-image.png" />
+        <link rel="canonical" href="https://vancouver.prestigemoving.ca/services/piano-moving" />
         <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
         <script type="application/ld+json">{JSON.stringify(faqData)}</script>
       </Helmet>

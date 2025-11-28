@@ -191,7 +191,10 @@ export default function MovingSupplies() {
         <meta property="og:title" content="Moving Supplies Delivery Vancouver | Prestige Moving" />
         <meta property="og:description" content="Moving supplies delivered to your door. Professional boxes, packing materials, and protective supplies. Same-day delivery!" />
         <meta property="og:type" content="website" />
-        <link rel="canonical" href="https://prestigemoving.ca/services/moving-supplies" />
+        <meta property="og:image" content="https://vancouver.prestigemoving.ca/og-image.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://vancouver.prestigemoving.ca/og-image.png" />
+        <link rel="canonical" href="https://vancouver.prestigemoving.ca/services/moving-supplies" />
         <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
         <script type="application/ld+json">{JSON.stringify(faqData)}</script>
       </Helmet>

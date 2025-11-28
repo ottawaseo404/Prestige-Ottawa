@@ -19,6 +19,7 @@ import { useMutation } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
 import { z } from "zod";
+import { Helmet } from "react-helmet";
 import { SharedNavigation } from "@/components/shared-navigation";
 import { SharedFooter } from "@/components/shared-footer";
 
@@ -146,7 +147,39 @@ export default function Booking() {
     );
   }
 
+  const bookingSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Book Your Move - Prestige Moving Vancouver",
+    "provider": {
+      "@type": "MovingCompany",
+      "name": "Prestige Moving Vancouver",
+      "telephone": "604-616-6066"
+    },
+    "areaServed": {
+      "@type": "City",
+      "name": "Vancouver"
+    },
+    "description": "Book your professional move with Prestige Moving Vancouver. Easy online booking, instant quotes, and reliable service."
+  };
+
   return (
+    <>
+      <Helmet>
+        <title>Book Your Move | Free Moving Quote Vancouver | Prestige Moving</title>
+        <meta name="description" content="Book your move online with Vancouver's top-rated movers. Get a free quote in minutes. Residential, commercial, long-distance moves. WSIB insured, 5-star rated. Call 604-616-6066!" />
+        <meta name="keywords" content="book moving Vancouver, moving quote Vancouver, hire movers BC, schedule move Vancouver, online moving booking, Vancouver mover estimate" />
+        <meta name="robots" content="index, follow" />
+        <meta property="og:title" content="Book Your Move | Prestige Moving Vancouver" />
+        <meta property="og:description" content="Book your professional move online. Free quotes, easy scheduling, trusted Vancouver movers." />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://vancouver.prestigemoving.ca/og-image.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://vancouver.prestigemoving.ca/og-image.png" />
+        <link rel="canonical" href="https://vancouver.prestigemoving.ca/book" />
+        <script type="application/ld+json">{JSON.stringify(bookingSchema)}</script>
+      </Helmet>
+
     <div className="min-h-screen bg-accent/20">
       {/* Navigation */}
       <SharedNavigation />
@@ -769,5 +802,6 @@ export default function Booking() {
       </div>
       <SharedFooter />
     </div>
+    </>
   );
 }

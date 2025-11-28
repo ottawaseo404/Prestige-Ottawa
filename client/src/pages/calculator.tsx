@@ -293,7 +293,16 @@ export default function Calculator() {
     <>
       <Helmet>
         <title>Moving Calculator | Free Inventory Estimator | Prestige Moving Vancouver</title>
-        <meta name="description" content="Calculate your moving costs with our free inventory calculator. Add items room by room for an accurate moving estimate in Vancouver." />
+        <meta name="description" content="Calculate your moving costs with our free inventory calculator. Add items room by room for an accurate moving estimate in Vancouver. Get instant pricing!" />
+        <meta name="keywords" content="moving calculator Vancouver, moving cost estimator, furniture inventory calculator, moving estimate BC, free moving quote calculator" />
+        <meta name="robots" content="index, follow" />
+        <meta property="og:title" content="Free Moving Calculator | Prestige Moving Vancouver" />
+        <meta property="og:description" content="Calculate your moving costs instantly. Room-by-room inventory for accurate Vancouver moving estimates." />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://vancouver.prestigemoving.ca/og-image.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://vancouver.prestigemoving.ca/og-image.png" />
+        <link rel="canonical" href="https://vancouver.prestigemoving.ca/calculator" />
       </Helmet>
 
       <div className="min-h-screen bg-background">

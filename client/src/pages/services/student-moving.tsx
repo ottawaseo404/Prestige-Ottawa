@@ -165,7 +165,10 @@ export default function StudentMoving() {
         <meta property="og:title" content="Student Moving Services Vancouver | Prestige Moving" />
         <meta property="og:description" content="Affordable student moving in Vancouver. 15% discount for university students. Professional, budget-friendly service." />
         <meta property="og:type" content="website" />
-        <link rel="canonical" href="https://prestigemoving.ca/services/student-moving" />
+        <meta property="og:image" content="https://vancouver.prestigemoving.ca/og-image.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://vancouver.prestigemoving.ca/og-image.png" />
+        <link rel="canonical" href="https://vancouver.prestigemoving.ca/services/student-moving" />
         <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
         <script type="application/ld+json">{JSON.stringify(faqData)}</script>
       </Helmet>
