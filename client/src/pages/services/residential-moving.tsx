@@ -7,7 +7,7 @@ import {
   Phone, CheckCircle2, Home, TruckIcon, Package, Shield, Clock, Users, 
   Star, MapPin, ArrowRight, Sparkles, Heart, ThumbsUp, ChevronLeft, 
   ChevronRight, Mail, Calendar, Building2, Sofa, Box, Award, Zap,
-  Timer, HandHeart, Play
+  Timer, HandHeart, Play, Warehouse, Music
 } from "lucide-react";
 import { Link } from "wouter";
 import { Helmet } from "react-helmet";
@@ -581,6 +581,75 @@ export default function ResidentialMoving() {
                   {hood}
                 </Badge>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* SEO Content Section with Internal Links */}
+        <section className="py-20 md:py-28 bg-gradient-to-b from-white to-gray-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-3xl md:text-4xl font-black text-foreground mb-6">
+                Vancouver's Premier Residential Moving Company
+              </h2>
+              <div className="prose prose-lg max-w-none text-muted-foreground mb-8">
+                <p>
+                  Moving to a new home in Vancouver, Burnaby, Richmond, or anywhere in the Lower Mainland? Prestige Moving Vancouver has been helping families relocate since 2009, earning a reputation as one of the most trusted <strong>residential movers in Metro Vancouver</strong>. Our experienced team handles everything from studio apartments in Yaletown to luxury estates in Shaughnessy, ensuring your belongings arrive safely at your new address.
+                </p>
+                <p>
+                  What sets us apart from other Vancouver moving companies is our commitment to a stress-free experience. We offer transparent, upfront pricing with no hidden fees, fully trained and background-checked movers, and comprehensive protection for your valuables. Whether you're moving across the street or across the city, our <strong>professional home movers</strong> treat every item as if it were their own.
+                </p>
+              </div>
+              
+              <h3 className="text-2xl font-bold text-foreground mb-4">Complete Your Move with Our Additional Services</h3>
+              <p className="text-muted-foreground mb-6">
+                Need help with more than just moving? We offer a full range of services to make your transition seamless:
+              </p>
+              
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <Link href="/services/packing-services">
+                  <div className="p-4 bg-white rounded-xl border hover:border-primary hover:shadow-md transition-all group">
+                    <Package className="h-6 w-6 text-primary mb-2" />
+                    <h4 className="font-semibold text-foreground group-hover:text-primary transition-colors">Packing Services</h4>
+                    <p className="text-sm text-muted-foreground">Professional packing for fragile items and full homes</p>
+                  </div>
+                </Link>
+                <Link href="/services/storage-solutions">
+                  <div className="p-4 bg-white rounded-xl border hover:border-primary hover:shadow-md transition-all group">
+                    <Warehouse className="h-6 w-6 text-primary mb-2" />
+                    <h4 className="font-semibold text-foreground group-hover:text-primary transition-colors">Storage Solutions</h4>
+                    <p className="text-sm text-muted-foreground">Climate-controlled short and long-term storage</p>
+                  </div>
+                </Link>
+                <Link href="/services/long-distance-moving">
+                  <div className="p-4 bg-white rounded-xl border hover:border-primary hover:shadow-md transition-all group">
+                    <TruckIcon className="h-6 w-6 text-primary mb-2" />
+                    <h4 className="font-semibold text-foreground group-hover:text-primary transition-colors">Long Distance Moving</h4>
+                    <p className="text-sm text-muted-foreground">Cross-province and Canada-wide relocations</p>
+                  </div>
+                </Link>
+                <Link href="/services/piano-moving">
+                  <div className="p-4 bg-white rounded-xl border hover:border-primary hover:shadow-md transition-all group">
+                    <Music className="h-6 w-6 text-primary mb-2" />
+                    <h4 className="font-semibold text-foreground group-hover:text-primary transition-colors">Piano Moving</h4>
+                    <p className="text-sm text-muted-foreground">Specialized equipment for safe piano transport</p>
+                  </div>
+                </Link>
+                <Link href="/services/senior-moving">
+                  <div className="p-4 bg-white rounded-xl border hover:border-primary hover:shadow-md transition-all group">
+                    <Heart className="h-6 w-6 text-primary mb-2" />
+                    <h4 className="font-semibold text-foreground group-hover:text-primary transition-colors">Senior Moving</h4>
+                    <p className="text-sm text-muted-foreground">Compassionate downsizing and relocation assistance</p>
+                  </div>
+                </Link>
+                <Link href="/services/specialty-item-moving">
+                  <div className="p-4 bg-white rounded-xl border hover:border-primary hover:shadow-md transition-all group">
+                    <Sparkles className="h-6 w-6 text-primary mb-2" />
+                    <h4 className="font-semibold text-foreground group-hover:text-primary transition-colors">Specialty Items</h4>
+                    <p className="text-sm text-muted-foreground">Hot tubs, pool tables, gym equipment & more</p>
+                  </div>
+                </Link>
+              </div>
             </div>
           </div>
         </section>

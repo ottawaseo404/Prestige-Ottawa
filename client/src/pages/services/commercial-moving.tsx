@@ -5,7 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { 
   Phone, CheckCircle2, Building2, TruckIcon, Package, Shield, Clock, Briefcase,
-  Users, Award, MapPin, ArrowRight, Star, Sparkles, Calendar,
+  Users, Award, MapPin, ArrowRight, Star, Sparkles, Calendar, Home, Box,
   Monitor, Server, Warehouse, Store, Stethoscope, UtensilsCrossed, Factory,
   Dumbbell, Target, FileCheck, ClipboardList, ChevronLeft, ChevronRight,
   Zap, Timer, DollarSign, TrendingUp, BarChart3, PieChart, AlertTriangle,
@@ -616,6 +616,75 @@ export default function CommercialMoving() {
                     </div>
                   </div>
                 </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* SEO Content Section with Internal Links */}
+        <section className="py-20 md:py-28 bg-gradient-to-b from-white to-gray-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-3xl md:text-4xl font-black text-foreground mb-6">
+                Trusted Commercial Movers in Vancouver
+              </h2>
+              <div className="prose prose-lg max-w-none text-muted-foreground mb-8">
+                <p>
+                  When your business needs to relocate, downtime isn't just inconvenient—it's costly. That's why Vancouver's leading companies trust Prestige Moving for their <strong>commercial and office relocations</strong>. Our dedicated business moving team specializes in minimizing disruption while maximizing efficiency, whether you're moving a 10-person startup or a 500-employee corporate headquarters.
+                </p>
+                <p>
+                  We understand that every hour counts in business. Our <strong>after-hours and weekend moving options</strong> mean your team can leave work Friday and return to a fully set-up office Monday morning. From IT infrastructure and server rooms to executive furniture and sensitive documents, we handle every aspect of your commercial move with precision and care.
+                </p>
+              </div>
+              
+              <h3 className="text-2xl font-bold text-foreground mb-4">Explore Our Related Moving Services</h3>
+              <p className="text-muted-foreground mb-6">
+                We offer comprehensive solutions for all your business moving needs:
+              </p>
+              
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <Link href="/services/residential-moving">
+                  <div className="p-4 bg-white rounded-xl border hover:border-primary hover:shadow-md transition-all group">
+                    <Home className="h-6 w-6 text-primary mb-2" />
+                    <h4 className="font-semibold text-foreground group-hover:text-primary transition-colors">Residential Moving</h4>
+                    <p className="text-sm text-muted-foreground">Home and apartment moving services</p>
+                  </div>
+                </Link>
+                <Link href="/services/long-distance-moving">
+                  <div className="p-4 bg-white rounded-xl border hover:border-primary hover:shadow-md transition-all group">
+                    <TruckIcon className="h-6 w-6 text-primary mb-2" />
+                    <h4 className="font-semibold text-foreground group-hover:text-primary transition-colors">Long Distance Moving</h4>
+                    <p className="text-sm text-muted-foreground">Cross-province business relocations</p>
+                  </div>
+                </Link>
+                <Link href="/services/packing-services">
+                  <div className="p-4 bg-white rounded-xl border hover:border-primary hover:shadow-md transition-all group">
+                    <Package className="h-6 w-6 text-primary mb-2" />
+                    <h4 className="font-semibold text-foreground group-hover:text-primary transition-colors">Packing Services</h4>
+                    <p className="text-sm text-muted-foreground">Professional office packing and unpacking</p>
+                  </div>
+                </Link>
+                <Link href="/services/storage-solutions">
+                  <div className="p-4 bg-white rounded-xl border hover:border-primary hover:shadow-md transition-all group">
+                    <Warehouse className="h-6 w-6 text-primary mb-2" />
+                    <h4 className="font-semibold text-foreground group-hover:text-primary transition-colors">Storage Solutions</h4>
+                    <p className="text-sm text-muted-foreground">Secure commercial storage facilities</p>
+                  </div>
+                </Link>
+                <Link href="/services/specialty-item-moving">
+                  <div className="p-4 bg-white rounded-xl border hover:border-primary hover:shadow-md transition-all group">
+                    <Server className="h-6 w-6 text-primary mb-2" />
+                    <h4 className="font-semibold text-foreground group-hover:text-primary transition-colors">Specialty Items</h4>
+                    <p className="text-sm text-muted-foreground">IT equipment and sensitive machinery</p>
+                  </div>
+                </Link>
+                <Link href="/services/moving-supplies">
+                  <div className="p-4 bg-white rounded-xl border hover:border-primary hover:shadow-md transition-all group">
+                    <Box className="h-6 w-6 text-primary mb-2" />
+                    <h4 className="font-semibold text-foreground group-hover:text-primary transition-colors">Moving Supplies</h4>
+                    <p className="text-sm text-muted-foreground">Commercial-grade packing materials</p>
+                  </div>
+                </Link>
               </div>
             </div>
           </div>

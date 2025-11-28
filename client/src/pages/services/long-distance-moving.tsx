@@ -8,7 +8,7 @@ import {
   ArrowRight, Star, Package, Users, Sparkles, Calendar, ChevronLeft,
   ChevronRight, Plane, Train, Timer, Fuel, Route, Map, Globe,
   Compass, Mountain, Building2, TreePine, Waves, Zap, Award,
-  LocateFixed, Truck, PackageCheck, Home, ArrowDown, DollarSign
+  LocateFixed, Truck, PackageCheck, Home, ArrowDown, DollarSign, Warehouse, Box
 } from "lucide-react";
 import { Link } from "wouter";
 import { Helmet } from "react-helmet";
@@ -539,6 +539,75 @@ export default function LongDistanceMoving() {
                   <div className="text-white/60 font-medium mt-2">{stat.label}</div>
                 </div>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* SEO Content Section with Internal Links */}
+        <section className="py-20 md:py-28 bg-gradient-to-b from-white to-gray-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-3xl md:text-4xl font-black text-foreground mb-6">
+                Canada's Trusted Long Distance Moving Company
+              </h2>
+              <div className="prose prose-lg max-w-none text-muted-foreground mb-8">
+                <p>
+                  Planning a move from Vancouver to Calgary, Toronto, or anywhere across Canada? Prestige Moving Vancouver is your trusted partner for <strong>long distance and cross-country relocations</strong>. With over 15 years of experience moving families and businesses across provincial borders, we've perfected the art of safe, timely, and stress-free interstate moving.
+                </p>
+                <p>
+                  What makes us different from other long distance movers? Our <strong>real-time GPS tracking</strong> lets you follow your belongings every step of the way. Combined with dedicated moving coordinators, comprehensive transit insurance, and guaranteed delivery dates, we take the uncertainty out of long-haul moves. Whether you're relocating for work, family, or a fresh start, we treat your belongings with the care they deserve.
+                </p>
+              </div>
+              
+              <h3 className="text-2xl font-bold text-foreground mb-4">Complete Moving Solutions</h3>
+              <p className="text-muted-foreground mb-6">
+                Complement your long distance move with our full range of services:
+              </p>
+              
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <Link href="/services/residential-moving">
+                  <div className="p-4 bg-white rounded-xl border hover:border-primary hover:shadow-md transition-all group">
+                    <Home className="h-6 w-6 text-primary mb-2" />
+                    <h4 className="font-semibold text-foreground group-hover:text-primary transition-colors">Residential Moving</h4>
+                    <p className="text-sm text-muted-foreground">Local Vancouver home moving</p>
+                  </div>
+                </Link>
+                <Link href="/services/commercial-moving">
+                  <div className="p-4 bg-white rounded-xl border hover:border-primary hover:shadow-md transition-all group">
+                    <Building2 className="h-6 w-6 text-primary mb-2" />
+                    <h4 className="font-semibold text-foreground group-hover:text-primary transition-colors">Commercial Moving</h4>
+                    <p className="text-sm text-muted-foreground">Office and business relocations</p>
+                  </div>
+                </Link>
+                <Link href="/services/packing-services">
+                  <div className="p-4 bg-white rounded-xl border hover:border-primary hover:shadow-md transition-all group">
+                    <Package className="h-6 w-6 text-primary mb-2" />
+                    <h4 className="font-semibold text-foreground group-hover:text-primary transition-colors">Packing Services</h4>
+                    <p className="text-sm text-muted-foreground">Professional packing for long haul</p>
+                  </div>
+                </Link>
+                <Link href="/services/storage-solutions">
+                  <div className="p-4 bg-white rounded-xl border hover:border-primary hover:shadow-md transition-all group">
+                    <Warehouse className="h-6 w-6 text-primary mb-2" />
+                    <h4 className="font-semibold text-foreground group-hover:text-primary transition-colors">Storage Solutions</h4>
+                    <p className="text-sm text-muted-foreground">Short and long-term storage</p>
+                  </div>
+                </Link>
+                <Link href="/services/specialty-item-moving">
+                  <div className="p-4 bg-white rounded-xl border hover:border-primary hover:shadow-md transition-all group">
+                    <Box className="h-6 w-6 text-primary mb-2" />
+                    <h4 className="font-semibold text-foreground group-hover:text-primary transition-colors">Specialty Items</h4>
+                    <p className="text-sm text-muted-foreground">Pianos, antiques, fragile items</p>
+                  </div>
+                </Link>
+                <Link href="/services/moving-supplies">
+                  <div className="p-4 bg-white rounded-xl border hover:border-primary hover:shadow-md transition-all group">
+                    <Package className="h-6 w-6 text-primary mb-2" />
+                    <h4 className="font-semibold text-foreground group-hover:text-primary transition-colors">Moving Supplies</h4>
+                    <p className="text-sm text-muted-foreground">Boxes and packing materials</p>
+                  </div>
+                </Link>
+              </div>
             </div>
           </div>
         </section>
