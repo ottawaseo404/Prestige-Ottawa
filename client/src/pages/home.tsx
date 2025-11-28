@@ -1544,7 +1544,7 @@ export default function Home() {
               
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 leading-tight">
                 Ready to Make<br />
-                <span className="text-primary">Your Move?</span>
+                <span className="text-primary inline-block mt-2">Your Move?</span>
               </h2>
               
               <p className="text-xl text-white/70 mb-8 max-w-lg mx-auto lg:mx-0">
