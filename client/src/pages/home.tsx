@@ -163,7 +163,12 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-28 gap-6">
             <Link href="/" data-testid="link-logo">
-              <img src={logoUrl} alt="Prestige Moving" className="h-24 w-auto hover:opacity-90 transition-opacity" data-testid="img-logo" />
+              <img 
+                src={logoUrl} 
+                alt="Prestige Moving" 
+                className="h-24 w-auto cursor-pointer transition-all duration-300 hover:scale-105 hover:drop-shadow-[0_0_15px_rgba(197,165,114,0.5)]" 
+                data-testid="img-logo" 
+              />
             </Link>
 
             <div className="hidden lg:flex items-center gap-4">
@@ -197,10 +202,10 @@ export default function Home() {
                   <NavigationMenuItem>
                     <button 
                       onClick={() => handleNavClick("/services/long-distance-moving")}
-                      className="flex items-center gap-2 px-4 py-2 text-white font-medium hover:text-primary transition-colors"
+                      className="flex items-center gap-2 px-4 py-2 text-white font-medium hover:text-primary transition-colors whitespace-nowrap"
                       data-testid="nav-long-distance"
                     >
-                      <Truck className="h-4 w-4" />
+                      <Truck className="h-4 w-4 flex-shrink-0" />
                       Long Distance
                     </button>
                   </NavigationMenuItem>
