@@ -33,7 +33,7 @@ import { Helmet } from "react-helmet";
 import logoUrl from "@assets/originalonglogo_1763689606978.png";
 import heroImage from "@assets/generated_images/vancouver_seabus_ferry_scenic_view.png";
 import heroVideo1 from "@assets/generated_videos/vancouver_ferry_crossing_burrard_inlet.mp4";
-import heroVideo2 from "@assets/generated_videos/moving_truck_on_scenic_highway.mp4";
+import heroVideo2 from "@assets/generated_videos/white_truck_driving_bc_mountains.mp4";
 import residentialImage from "@assets/truck1_1764291781341.jpeg";
 import commercialImage from "@assets/commercial_truck_night.png";
 import longDistanceImage from "@assets/movers_staircase.png";
