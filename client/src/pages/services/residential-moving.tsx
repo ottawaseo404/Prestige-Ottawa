@@ -15,7 +15,7 @@ import { SharedNavigation } from "@/components/shared-navigation";
 import { SharedFooter } from "@/components/shared-footer";
 import { useToast } from "@/hooks/use-toast";
 import { apiRequest } from "@/lib/queryClient";
-import residentialVideo from "@assets/generated_videos/vancouver_residential_movers_with_boxes.mp4";
+import residentialVideo from "@assets/residential_moving_video.mp4";
 import residentialImage from "@assets/truck1_1764291781341.jpeg";
 
 export default function ResidentialMoving() {
