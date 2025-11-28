@@ -6,6 +6,26 @@ import { z } from "zod";
 import { fromZodError } from "zod-validation-error";
 import OpenAI from "openai";
 
+// Helper functions for user agent parsing
+function getBrowser(userAgent: string): string {
+  if (userAgent.includes('Chrome') && !userAgent.includes('Edg')) return 'Chrome';
+  if (userAgent.includes('Safari') && !userAgent.includes('Chrome')) return 'Safari';
+  if (userAgent.includes('Firefox')) return 'Firefox';
+  if (userAgent.includes('Edg')) return 'Edge';
+  if (userAgent.includes('Opera') || userAgent.includes('OPR')) return 'Opera';
+  if (userAgent.includes('MSIE') || userAgent.includes('Trident')) return 'IE';
+  return 'Other';
+}
+
+function getOS(userAgent: string): string {
+  if (userAgent.includes('Windows')) return 'Windows';
+  if (userAgent.includes('Mac OS')) return 'macOS';
+  if (userAgent.includes('Linux')) return 'Linux';
+  if (userAgent.includes('Android')) return 'Android';
+  if (userAgent.includes('iOS') || userAgent.includes('iPhone') || userAgent.includes('iPad')) return 'iOS';
+  return 'Other';
+}
+
 function requireAdmin(req: any, res: Response, next: NextFunction) {
   if (req.session?.isAdmin) {
     next();
@@ -381,6 +401,133 @@ export async function registerRoutes(app: Express): Promise<Server> {
     } catch (error: any) {
       console.error("Error fetching customers:", error);
       res.status(500).json({ message: error.message || "Failed to fetch customers" });
+    }
+  });
+
+  // Analytics - Track page view
+  app.post("/api/analytics/pageview", async (req, res) => {
+    try {
+      const { sessionId, page, referrer } = req.body;
+      
+      if (!sessionId || !page) {
+        return res.status(400).json({ message: "sessionId and page are required" });
+      }
+
+      // Parse user agent
+      const userAgent = req.headers['user-agent'] || '';
+      const device = /Mobile|Android|iPhone|iPad/i.test(userAgent) ? 'Mobile' : 'Desktop';
+      const browser = getBrowser(userAgent);
+      const os = getOS(userAgent);
+
+      // Get IP address
+      const ipAddress = (req.headers['x-forwarded-for'] as string)?.split(',')[0] || req.ip || '';
+
+      // Parse referrer to determine source
+      let source = 'Direct';
+      let medium = 'none';
+      if (referrer) {
+        if (referrer.includes('google')) {
+          source = 'Google';
+          medium = 'organic';
+        } else if (referrer.includes('facebook') || referrer.includes('fb.')) {
+          source = 'Facebook';
+          medium = 'social';
+        } else if (referrer.includes('instagram')) {
+          source = 'Instagram';
+          medium = 'social';
+        } else if (referrer.includes('yelp')) {
+          source = 'Yelp';
+          medium = 'referral';
+        } else if (!referrer.includes('prestigemoving') && !referrer.includes('localhost') && !referrer.includes('replit')) {
+          source = new URL(referrer).hostname;
+          medium = 'referral';
+        }
+      }
+
+      // Create page view
+      await storage.createPageView({
+        sessionId,
+        page,
+        referrer: referrer || null,
+        userAgent,
+        ipAddress,
+        device,
+        browser,
+        os,
+      });
+
+      // Create or update session
+      await storage.createOrUpdateSession({
+        sessionId,
+        firstPage: page,
+        referrer: referrer || null,
+        source,
+        medium,
+        userAgent,
+        ipAddress,
+        device,
+        browser,
+        os,
+        pageCount: 1,
+        duration: 0,
+        isActive: true,
+      });
+
+      res.json({ success: true });
+    } catch (error: any) {
+      console.error("Error tracking page view:", error);
+      res.status(500).json({ message: "Failed to track page view" });
+    }
+  });
+
+  // Analytics - Get dashboard stats (protected)
+  app.get("/api/analytics/stats", requireAdmin, async (req, res) => {
+    try {
+      const [
+        pageViewsToday,
+        sessionsToday,
+        activeVisitors,
+        pageViewsByPage,
+        topSources,
+        visitorsByDevice,
+        visitorsByBrowser,
+        pageViewsLast7Days,
+      ] = await Promise.all([
+        storage.getPageViewsToday(),
+        storage.getSessionsToday(),
+        storage.getActiveVisitors(),
+        storage.getPageViewsByPage(),
+        storage.getTopSources(),
+        storage.getVisitorsByDevice(),
+        storage.getVisitorsByBrowser(),
+        storage.getPageViewsLast7Days(),
+      ]);
+
+      res.json({
+        pageViewsToday,
+        sessionsToday,
+        activeVisitors,
+        pageViewsByPage,
+        topSources,
+        visitorsByDevice,
+        visitorsByBrowser,
+        pageViewsLast7Days,
+      });
+    } catch (error: any) {
+      console.error("Error fetching analytics:", error);
+      res.status(500).json({ message: "Failed to fetch analytics" });
+    }
+  });
+
+  // Analytics - Get recent sessions (protected)
+  app.get("/api/analytics/sessions", requireAdmin, async (req, res) => {
+    try {
+      const limit = parseInt(req.query.limit as string) || 20;
+      const sessions = await storage.getRecentSessions(limit);
+      res.json(sessions);
+    } catch (error: any) {
+      console.error("Error fetching sessions:", error);
+      res.status(500).json({ message: "Failed to fetch sessions" });
     }
   });
 

@@ -1,7 +1,11 @@
-import { type Booking, type InsertBooking, bookings } from "@shared/schema";
+import { 
+  type Booking, type InsertBooking, bookings,
+  type PageView, type InsertPageView, pageViews,
+  type VisitorSession, type InsertVisitorSession, visitorSessions 
+} from "@shared/schema";
 import { drizzle } from "drizzle-orm/neon-serverless";
 import { Pool, neonConfig } from "@neondatabase/serverless";
-import { eq, desc, sql } from "drizzle-orm";
+import { eq, desc, sql, gte, and, count } from "drizzle-orm";
 import ws from "ws";
 
 neonConfig.webSocketConstructor = ws;
@@ -13,6 +17,22 @@ export interface IStorage {
   createBooking(booking: InsertBooking): Promise<Booking>;
   updateBookingStatus(id: string, status: string): Promise<Booking | undefined>;
   updateBookingSmartMovingSync(id: string, smartmovingId: string): Promise<Booking | undefined>;
+  
+  // Analytics operations
+  createPageView(pageView: InsertPageView): Promise<PageView>;
+  getPageViewsToday(): Promise<number>;
+  getPageViewsByPage(): Promise<{ page: string; views: number }[]>;
+  getPageViewsByReferrer(): Promise<{ referrer: string; views: number }[]>;
+  
+  createOrUpdateSession(session: InsertVisitorSession): Promise<VisitorSession>;
+  updateSessionActivity(sessionId: string, page: string): Promise<void>;
+  getActiveVisitors(): Promise<number>;
+  getSessionsToday(): Promise<number>;
+  getTopSources(): Promise<{ source: string; sessions: number }[]>;
+  getVisitorsByDevice(): Promise<{ device: string; count: number }[]>;
+  getVisitorsByBrowser(): Promise<{ browser: string; count: number }[]>;
+  getRecentSessions(limit: number): Promise<VisitorSession[]>;
+  getPageViewsLast7Days(): Promise<{ date: string; views: number }[]>;
 }
 
 export class DbStorage implements IStorage {
@@ -64,6 +84,172 @@ export class DbStorage implements IStorage {
       .where(eq(bookings.id, id))
       .returning();
     return result[0];
+  }
+
+  // Analytics operations
+  async createPageView(pageView: InsertPageView): Promise<PageView> {
+    const result = await this.db.insert(pageViews).values(pageView).returning();
+    return result[0];
+  }
+
+  async getPageViewsToday(): Promise<number> {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const result = await this.db
+      .select({ count: count() })
+      .from(pageViews)
+      .where(gte(pageViews.createdAt, today));
+    return result[0]?.count || 0;
+  }
+
+  async getPageViewsByPage(): Promise<{ page: string; views: number }[]> {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const result = await this.db
+      .select({ 
+        page: pageViews.page, 
+        views: count() 
+      })
+      .from(pageViews)
+      .where(gte(pageViews.createdAt, today))
+      .groupBy(pageViews.page)
+      .orderBy(desc(count()));
+    return result.map(r => ({ page: r.page, views: r.views }));
+  }
+
+  async getPageViewsByReferrer(): Promise<{ referrer: string; views: number }[]> {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const result = await this.db
+      .select({ 
+        referrer: pageViews.referrer, 
+        views: count() 
+      })
+      .from(pageViews)
+      .where(gte(pageViews.createdAt, today))
+      .groupBy(pageViews.referrer)
+      .orderBy(desc(count()));
+    return result.map(r => ({ referrer: r.referrer || 'Direct', views: r.views }));
+  }
+
+  async createOrUpdateSession(session: InsertVisitorSession): Promise<VisitorSession> {
+    const existing = await this.db
+      .select()
+      .from(visitorSessions)
+      .where(eq(visitorSessions.sessionId, session.sessionId));
+    
+    if (existing.length > 0) {
+      const result = await this.db
+        .update(visitorSessions)
+        .set({ 
+          lastActiveAt: new Date(),
+          isActive: true
+        })
+        .where(eq(visitorSessions.sessionId, session.sessionId))
+        .returning();
+      return result[0];
+    }
+    
+    const result = await this.db.insert(visitorSessions).values(session).returning();
+    return result[0];
+  }
+
+  async updateSessionActivity(sessionId: string, page: string): Promise<void> {
+    await this.db
+      .update(visitorSessions)
+      .set({ 
+        lastActiveAt: new Date(),
+        isActive: true,
+        pageCount: sql`${visitorSessions.pageCount} + 1`
+      })
+      .where(eq(visitorSessions.sessionId, sessionId));
+  }
+
+  async getActiveVisitors(): Promise<number> {
+    const fiveMinutesAgo = new Date(Date.now() - 5 * 60 * 1000);
+    const result = await this.db
+      .select({ count: count() })
+      .from(visitorSessions)
+      .where(and(
+        gte(visitorSessions.lastActiveAt, fiveMinutesAgo),
+        eq(visitorSessions.isActive, true)
+      ));
+    return result[0]?.count || 0;
+  }
+
+  async getSessionsToday(): Promise<number> {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const result = await this.db
+      .select({ count: count() })
+      .from(visitorSessions)
+      .where(gte(visitorSessions.createdAt, today));
+    return result[0]?.count || 0;
+  }
+
+  async getTopSources(): Promise<{ source: string; sessions: number }[]> {
+    const sevenDaysAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000);
+    const result = await this.db
+      .select({ 
+        source: visitorSessions.source, 
+        sessions: count() 
+      })
+      .from(visitorSessions)
+      .where(gte(visitorSessions.createdAt, sevenDaysAgo))
+      .groupBy(visitorSessions.source)
+      .orderBy(desc(count()))
+      .limit(10);
+    return result.map(r => ({ source: r.source || 'Direct', sessions: r.sessions }));
+  }
+
+  async getVisitorsByDevice(): Promise<{ device: string; count: number }[]> {
+    const sevenDaysAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000);
+    const result = await this.db
+      .select({ 
+        device: visitorSessions.device, 
+        count: count() 
+      })
+      .from(visitorSessions)
+      .where(gte(visitorSessions.createdAt, sevenDaysAgo))
+      .groupBy(visitorSessions.device)
+      .orderBy(desc(count()));
+    return result.map(r => ({ device: r.device || 'Unknown', count: r.count }));
+  }
+
+  async getVisitorsByBrowser(): Promise<{ browser: string; count: number }[]> {
+    const sevenDaysAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000);
+    const result = await this.db
+      .select({ 
+        browser: visitorSessions.browser, 
+        count: count() 
+      })
+      .from(visitorSessions)
+      .where(gte(visitorSessions.createdAt, sevenDaysAgo))
+      .groupBy(visitorSessions.browser)
+      .orderBy(desc(count()));
+    return result.map(r => ({ browser: r.browser || 'Unknown', count: r.count }));
+  }
+
+  async getRecentSessions(limit: number): Promise<VisitorSession[]> {
+    return await this.db
+      .select()
+      .from(visitorSessions)
+      .orderBy(desc(visitorSessions.lastActiveAt))
+      .limit(limit);
+  }
+
+  async getPageViewsLast7Days(): Promise<{ date: string; views: number }[]> {
+    const sevenDaysAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000);
+    const result = await this.db
+      .select({ 
+        date: sql<string>`DATE(${pageViews.createdAt})::text`,
+        views: count() 
+      })
+      .from(pageViews)
+      .where(gte(pageViews.createdAt, sevenDaysAgo))
+      .groupBy(sql`DATE(${pageViews.createdAt})`)
+      .orderBy(sql`DATE(${pageViews.createdAt})`);
+    return result.map(r => ({ date: r.date, views: r.views }));
   }
 }
 

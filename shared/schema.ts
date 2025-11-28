@@ -186,3 +186,59 @@ export type SmartMovingLead = {
   DestinationZip?: string;
   Notes?: string;
 };
+
+// Analytics - Page Views
+export const pageViews = pgTable("page_views", {
+  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+  sessionId: text("session_id").notNull(),
+  page: text("page").notNull(),
+  referrer: text("referrer"),
+  userAgent: text("user_agent"),
+  ipAddress: text("ip_address"),
+  country: text("country"),
+  city: text("city"),
+  device: text("device"),
+  browser: text("browser"),
+  os: text("os"),
+  createdAt: timestamp("created_at").notNull().default(sql`now()`),
+});
+
+export const insertPageViewSchema = createInsertSchema(pageViews).omit({
+  id: true,
+  createdAt: true,
+});
+
+export type InsertPageView = z.infer<typeof insertPageViewSchema>;
+export type PageView = typeof pageViews.$inferSelect;
+
+// Analytics - Visitor Sessions
+export const visitorSessions = pgTable("visitor_sessions", {
+  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+  sessionId: text("session_id").notNull().unique(),
+  firstPage: text("first_page").notNull(),
+  referrer: text("referrer"),
+  source: text("source"),
+  medium: text("medium"),
+  campaign: text("campaign"),
+  userAgent: text("user_agent"),
+  ipAddress: text("ip_address"),
+  country: text("country"),
+  city: text("city"),
+  device: text("device"),
+  browser: text("browser"),
+  os: text("os"),
+  pageCount: integer("page_count").notNull().default(1),
+  duration: integer("duration").default(0),
+  isActive: boolean("is_active").notNull().default(true),
+  lastActiveAt: timestamp("last_active_at").notNull().default(sql`now()`),
+  createdAt: timestamp("created_at").notNull().default(sql`now()`),
+});
+
+export const insertVisitorSessionSchema = createInsertSchema(visitorSessions).omit({
+  id: true,
+  createdAt: true,
+  lastActiveAt: true,
+});
+
+export type InsertVisitorSession = z.infer<typeof insertVisitorSessionSchema>;
+export type VisitorSession = typeof visitorSessions.$inferSelect;

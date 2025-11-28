@@ -33,12 +33,13 @@ import MovingSupplies from "@/pages/services/moving-supplies";
 import MilitaryMoving from "@/pages/services/military-moving";
 import AdminDashboard from "@/pages/admin/dashboard";
 import AdminBookings from "@/pages/admin/bookings";
-import AdminCustomers from "@/pages/admin/customers";
+import AdminAnalytics from "@/pages/admin-analytics";
 import AdminSmartMoving from "@/pages/admin/smartmoving";
 import AdminLogin from "@/pages/admin-login";
 import Calculator from "@/pages/calculator";
 import Contact from "@/pages/contact";
 import { useAdminAuth } from "@/hooks/use-admin-auth";
+import { useAnalytics } from "@/hooks/use-analytics";
 import { Button } from "@/components/ui/button";
 import { LogOut, Loader2 } from "lucide-react";
 
@@ -136,10 +137,10 @@ function Router() {
           </ProtectedAdminLayout>
         )}
       </Route>
-      <Route path="/admin/customers">
+      <Route path="/admin/analytics">
         {() => (
           <ProtectedAdminLayout>
-            <AdminCustomers />
+            <AdminAnalytics />
           </ProtectedAdminLayout>
         )}
       </Route>
@@ -157,10 +158,16 @@ function Router() {
   );
 }
 
+function AnalyticsTracker() {
+  useAnalytics();
+  return null;
+}
+
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
+        <AnalyticsTracker />
         <ScrollToTop />
         <Toaster />
         <Router />
