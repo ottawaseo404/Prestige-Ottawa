@@ -28,6 +28,12 @@ import {
   Calendar,
   Percent,
   Loader2,
+  Home,
+  Box,
+  Package,
+  Warehouse,
+  Truck,
+  Heart,
 } from "lucide-react";
 import { Link } from "wouter";
 import { Helmet } from "react-helmet";
@@ -490,6 +496,97 @@ export default function StudentMoving() {
                 </AccordionItem>
               ))}
             </Accordion>
+          </div>
+        </section>
+
+        {/* SEO Content Section with Internal Links */}
+        <section className="py-20 md:py-28 bg-gradient-to-b from-white to-gray-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-3xl md:text-4xl font-black text-foreground mb-6">
+                Affordable Student Moving in Vancouver
+              </h2>
+              <div className="prose prose-lg max-w-none text-muted-foreground mb-8">
+                <p>
+                  Moving as a student in Vancouver doesn't have to break the bank. Our <strong>affordable student moving services</strong> are designed specifically for university and college students throughout the Lower Mainland. Whether you're relocating to a new <strong>dorm room at UBC</strong>, transitioning to off-campus housing near SFU, or settling into a shared apartment in Burnaby, our budget-friendly packages make your move stress-free.
+                </p>
+                <p>
+                  We understand the unique challenges of <strong>student relocations in Vancouver</strong>, from tight budgets to tricky move-in schedules. That's why we offer flexible timing, <strong>mini-move specials</strong> for smaller loads, and group discounts when roommates book together. Our experienced team handles everything from studio apartments to multi-bedroom shared housing with the same professional care.
+                </p>
+              </div>
+              
+              <h3 className="text-2xl font-bold text-foreground mb-4">Explore Our Related Services</h3>
+              <p className="text-muted-foreground mb-6">Discover our comprehensive range of moving services designed to make your relocation seamless.</p>
+              
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <Link href="/services/residential-moving">
+                  <Card className="hover-elevate cursor-pointer h-full">
+                    <CardHeader className="flex flex-row items-center gap-3 pb-2">
+                      <Home className="h-5 w-5 text-[#C5A572]" />
+                      <CardTitle className="text-base">Residential Moving</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-sm text-muted-foreground">Complete home moving services across Vancouver</p>
+                    </CardContent>
+                  </Card>
+                </Link>
+                <Link href="/services/moving-supplies">
+                  <Card className="hover-elevate cursor-pointer h-full">
+                    <CardHeader className="flex flex-row items-center gap-3 pb-2">
+                      <Box className="h-5 w-5 text-[#C5A572]" />
+                      <CardTitle className="text-base">Moving Supplies</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-sm text-muted-foreground">Quality boxes and packing materials delivered</p>
+                    </CardContent>
+                  </Card>
+                </Link>
+                <Link href="/services/packing-services">
+                  <Card className="hover-elevate cursor-pointer h-full">
+                    <CardHeader className="flex flex-row items-center gap-3 pb-2">
+                      <Package className="h-5 w-5 text-[#C5A572]" />
+                      <CardTitle className="text-base">Packing Services</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-sm text-muted-foreground">Professional packing by trained experts</p>
+                    </CardContent>
+                  </Card>
+                </Link>
+                <Link href="/services/storage-solutions">
+                  <Card className="hover-elevate cursor-pointer h-full">
+                    <CardHeader className="flex flex-row items-center gap-3 pb-2">
+                      <Warehouse className="h-5 w-5 text-[#C5A572]" />
+                      <CardTitle className="text-base">Storage Solutions</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-sm text-muted-foreground">Secure storage during summer breaks</p>
+                    </CardContent>
+                  </Card>
+                </Link>
+                <Link href="/services/long-distance-moving">
+                  <Card className="hover-elevate cursor-pointer h-full">
+                    <CardHeader className="flex flex-row items-center gap-3 pb-2">
+                      <Truck className="h-5 w-5 text-[#C5A572]" />
+                      <CardTitle className="text-base">Long Distance Moving</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-sm text-muted-foreground">Moving home after graduation</p>
+                    </CardContent>
+                  </Card>
+                </Link>
+                <Link href="/services/senior-moving">
+                  <Card className="hover-elevate cursor-pointer h-full">
+                    <CardHeader className="flex flex-row items-center gap-3 pb-2">
+                      <Heart className="h-5 w-5 text-[#C5A572]" />
+                      <CardTitle className="text-base">Senior Moving</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-sm text-muted-foreground">Compassionate moves for elderly loved ones</p>
+                    </CardContent>
+                  </Card>
+                </Link>
+              </div>
+            </div>
           </div>
         </section>
 

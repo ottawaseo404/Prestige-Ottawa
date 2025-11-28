@@ -26,6 +26,12 @@ import {
   MapPin,
   Users,
   Loader2,
+  Truck,
+  Home,
+  Package,
+  Warehouse,
+  Building2,
+  Box,
 } from "lucide-react";
 import { Link } from "wouter";
 import { Helmet } from "react-helmet";
@@ -514,6 +520,97 @@ export default function MilitaryMoving() {
                 </AccordionItem>
               ))}
             </Accordion>
+          </div>
+        </section>
+
+        {/* SEO Content Section with Internal Links */}
+        <section className="py-20 md:py-28 bg-gradient-to-b from-white to-gray-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-3xl md:text-4xl font-black text-foreground mb-6">
+                Professional Military Moving in Vancouver
+              </h2>
+              <div className="prose prose-lg max-w-none text-muted-foreground mb-8">
+                <p>
+                  Serving those who serve our country, our <strong>professional military moving services in Vancouver</strong> understand the unique demands of PCS relocations. We work with <strong>Canadian Armed Forces members</strong> and their families to ensure seamless transitions between bases, whether across British Columbia or across the country. Our team is experienced with military timelines, documentation requirements, and the flexibility needed for duty-driven moves.
+                </p>
+                <p>
+                  As trusted <strong>military relocation specialists</strong>, we offer exclusive discounts for active duty, veterans, and military families. Our services include <strong>government-approved moving procedures</strong>, detailed inventory documentation, and coordination with base housing offices. We understand that when duty calls, you need a moving company that can respond quickly and professionally.
+                </p>
+              </div>
+              
+              <h3 className="text-2xl font-bold text-foreground mb-4">Explore Our Related Services</h3>
+              <p className="text-muted-foreground mb-6">Discover our comprehensive range of moving services designed to make your relocation seamless.</p>
+              
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <Link href="/services/long-distance-moving">
+                  <Card className="hover-elevate cursor-pointer h-full">
+                    <CardHeader className="flex flex-row items-center gap-3 pb-2">
+                      <Truck className="h-5 w-5 text-[#C5A572]" />
+                      <CardTitle className="text-base">Long Distance Moving</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-sm text-muted-foreground">Cross-province and nationwide relocations</p>
+                    </CardContent>
+                  </Card>
+                </Link>
+                <Link href="/services/residential-moving">
+                  <Card className="hover-elevate cursor-pointer h-full">
+                    <CardHeader className="flex flex-row items-center gap-3 pb-2">
+                      <Home className="h-5 w-5 text-[#C5A572]" />
+                      <CardTitle className="text-base">Residential Moving</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-sm text-muted-foreground">Complete home moving services across Vancouver</p>
+                    </CardContent>
+                  </Card>
+                </Link>
+                <Link href="/services/packing-services">
+                  <Card className="hover-elevate cursor-pointer h-full">
+                    <CardHeader className="flex flex-row items-center gap-3 pb-2">
+                      <Package className="h-5 w-5 text-[#C5A572]" />
+                      <CardTitle className="text-base">Packing Services</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-sm text-muted-foreground">Professional packing by trained experts</p>
+                    </CardContent>
+                  </Card>
+                </Link>
+                <Link href="/services/storage-solutions">
+                  <Card className="hover-elevate cursor-pointer h-full">
+                    <CardHeader className="flex flex-row items-center gap-3 pb-2">
+                      <Warehouse className="h-5 w-5 text-[#C5A572]" />
+                      <CardTitle className="text-base">Storage Solutions</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-sm text-muted-foreground">Secure climate-controlled storage facilities</p>
+                    </CardContent>
+                  </Card>
+                </Link>
+                <Link href="/services/commercial-moving">
+                  <Card className="hover-elevate cursor-pointer h-full">
+                    <CardHeader className="flex flex-row items-center gap-3 pb-2">
+                      <Building2 className="h-5 w-5 text-[#C5A572]" />
+                      <CardTitle className="text-base">Commercial Moving</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-sm text-muted-foreground">Office and business relocation experts</p>
+                    </CardContent>
+                  </Card>
+                </Link>
+                <Link href="/services/moving-supplies">
+                  <Card className="hover-elevate cursor-pointer h-full">
+                    <CardHeader className="flex flex-row items-center gap-3 pb-2">
+                      <Box className="h-5 w-5 text-[#C5A572]" />
+                      <CardTitle className="text-base">Moving Supplies</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-sm text-muted-foreground">Quality boxes and packing materials delivered</p>
+                    </CardContent>
+                  </Card>
+                </Link>
+              </div>
+            </div>
           </div>
         </section>
 

@@ -25,6 +25,11 @@ import {
   User,
   MessageSquare,
   Loader2,
+  Package,
+  Warehouse,
+  Truck,
+  Box,
+  Gem,
 } from "lucide-react";
 import { Link } from "wouter";
 import { Helmet } from "react-helmet";
@@ -503,6 +508,97 @@ export default function SeniorMoving() {
                 </AccordionItem>
               ))}
             </Accordion>
+          </div>
+        </section>
+
+        {/* SEO Content Section with Internal Links */}
+        <section className="py-20 md:py-28 bg-gradient-to-b from-white to-gray-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-3xl md:text-4xl font-black text-foreground mb-6">
+                Compassionate Senior Moving in Vancouver
+              </h2>
+              <div className="prose prose-lg max-w-none text-muted-foreground mb-8">
+                <p>
+                  Relocating an elderly loved one requires patience, understanding, and specialized care. Our <strong>compassionate senior moving services in Vancouver</strong> are designed to support families through every step of this emotional transition. Whether moving to a <strong>retirement community, assisted living facility</strong>, or downsizing to a smaller home, our trained team provides the extra attention and time that senior moves deserve.
+                </p>
+                <p>
+                  We offer complete <strong>senior relocation assistance in Vancouver</strong> including sorting help, donation coordination, estate distribution, and new home setup. Our movers are trained in <strong>memory care transitions</strong> and understand the importance of recreating familiar surroundings. We work at your loved one's pace, ensuring comfort and dignity throughout the moving process.
+                </p>
+              </div>
+              
+              <h3 className="text-2xl font-bold text-foreground mb-4">Explore Our Related Services</h3>
+              <p className="text-muted-foreground mb-6">Discover our comprehensive range of moving services designed to make your relocation seamless.</p>
+              
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <Link href="/services/residential-moving">
+                  <Card className="hover-elevate cursor-pointer h-full">
+                    <CardHeader className="flex flex-row items-center gap-3 pb-2">
+                      <Home className="h-5 w-5 text-[#C5A572]" />
+                      <CardTitle className="text-base">Residential Moving</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-sm text-muted-foreground">Complete home moving services across Vancouver</p>
+                    </CardContent>
+                  </Card>
+                </Link>
+                <Link href="/services/packing-services">
+                  <Card className="hover-elevate cursor-pointer h-full">
+                    <CardHeader className="flex flex-row items-center gap-3 pb-2">
+                      <Package className="h-5 w-5 text-[#C5A572]" />
+                      <CardTitle className="text-base">Packing Services</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-sm text-muted-foreground">Professional packing by trained experts</p>
+                    </CardContent>
+                  </Card>
+                </Link>
+                <Link href="/services/storage-solutions">
+                  <Card className="hover-elevate cursor-pointer h-full">
+                    <CardHeader className="flex flex-row items-center gap-3 pb-2">
+                      <Warehouse className="h-5 w-5 text-[#C5A572]" />
+                      <CardTitle className="text-base">Storage Solutions</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-sm text-muted-foreground">Secure climate-controlled storage facilities</p>
+                    </CardContent>
+                  </Card>
+                </Link>
+                <Link href="/services/long-distance-moving">
+                  <Card className="hover-elevate cursor-pointer h-full">
+                    <CardHeader className="flex flex-row items-center gap-3 pb-2">
+                      <Truck className="h-5 w-5 text-[#C5A572]" />
+                      <CardTitle className="text-base">Long Distance Moving</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-sm text-muted-foreground">Cross-province and nationwide relocations</p>
+                    </CardContent>
+                  </Card>
+                </Link>
+                <Link href="/services/moving-supplies">
+                  <Card className="hover-elevate cursor-pointer h-full">
+                    <CardHeader className="flex flex-row items-center gap-3 pb-2">
+                      <Box className="h-5 w-5 text-[#C5A572]" />
+                      <CardTitle className="text-base">Moving Supplies</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-sm text-muted-foreground">Quality boxes and packing materials delivered</p>
+                    </CardContent>
+                  </Card>
+                </Link>
+                <Link href="/services/specialty-item-moving">
+                  <Card className="hover-elevate cursor-pointer h-full">
+                    <CardHeader className="flex flex-row items-center gap-3 pb-2">
+                      <Gem className="h-5 w-5 text-[#C5A572]" />
+                      <CardTitle className="text-base">Specialty Item Moving</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-sm text-muted-foreground">Safe transport for unique and fragile items</p>
+                    </CardContent>
+                  </Card>
+                </Link>
+              </div>
+            </div>
           </div>
         </section>
 
