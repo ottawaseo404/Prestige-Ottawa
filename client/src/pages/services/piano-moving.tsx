@@ -1,10 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Phone, CheckCircle2, Music, Shield, Truck, ArrowLeft, Award } from "lucide-react";
+import { Phone, CheckCircle2, Music, Shield, Truck, Award } from "lucide-react";
 import { Link } from "wouter";
 import { Helmet } from "react-helmet";
-import logoUrl from "@assets/originalonglogo_1763689606978.png";
+import { SharedNavigation } from "@/components/shared-navigation";
 
 export default function PianoMoving() {
   const schemaData = {
@@ -44,33 +44,7 @@ export default function PianoMoving() {
       </Helmet>
 
       <div className="min-h-screen bg-background">
-        <nav className="sticky top-0 z-50 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex justify-between items-center h-20 gap-4">
-              <div className="flex items-center gap-4">
-                <Link href="/">
-                  <Button variant="ghost" size="icon" data-testid="button-back">
-                    <ArrowLeft className="h-5 w-5" />
-                  </Button>
-                </Link>
-                <Link href="/">
-                  <img src={logoUrl} alt="Prestige Moving Vancouver" className="h-12 w-auto" data-testid="img-logo" />
-                </Link>
-              </div>
-              <div className="flex items-center gap-2 sm:gap-4">
-                <a href="tel:604-616-6066" className="flex items-center gap-2 text-sm font-medium hover-elevate active-elevate-2 px-3 py-2 rounded-md" data-testid="link-phone">
-                  <Phone className="h-4 w-4" />
-                  <span className="hidden sm:inline">604-616-6066</span>
-                </a>
-                <Link href="/book">
-                  <Button variant="default" size="default" data-testid="button-get-quote">
-                    Get Quote
-                  </Button>
-                </Link>
-              </div>
-            </div>
-          </div>
-        </nav>
+        <SharedNavigation />
 
         <section className="relative bg-gradient-to-br from-primary/10 via-accent to-background py-20 md:py-32">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
