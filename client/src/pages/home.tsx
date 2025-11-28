@@ -1281,17 +1281,17 @@ export default function Home() {
       </section>
 
       {/* About Company Section */}
-      <section className="py-20 md:py-28 bg-background">
+      <section className="py-20 md:py-28 bg-[#1A2332]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <Badge variant="outline" className="mb-4 text-primary border-primary" data-testid="badge-about">
+              <Badge className="mb-4 bg-primary/20 text-primary border-primary/40" data-testid="badge-about">
                 About Prestige Moving
               </Badge>
-              <h2 className="text-4xl md:text-5xl font-black text-foreground mb-6">
+              <h2 className="text-4xl md:text-5xl font-black text-white mb-6">
                 Vancouver's Premier Moving Company
               </h2>
-              <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+              <p className="text-lg text-white/70 mb-8 leading-relaxed">
                 Prestige Moving Vancouver has been helping families and businesses relocate with care and professionalism. We own our fleet of trucks and employ a trained team of moving specialists who treat every move as if it were their own.
               </p>
               
@@ -1306,13 +1306,13 @@ export default function Home() {
                 ].map((item, index) => (
                   <div key={index} className="flex items-start gap-3" data-testid={`about-feature-${index}`}>
                     <CheckCircle2 className="h-6 w-6 text-primary shrink-0 mt-0.5" />
-                    <span className="text-foreground font-medium">{item}</span>
+                    <span className="text-white font-medium">{item}</span>
                   </div>
                 ))}
               </div>
 
               <Link href="/book">
-                <Button size="lg" className="font-bold" data-testid="button-about-quote">
+                <Button size="lg" className="font-bold shadow-lg shadow-primary/30" data-testid="button-about-quote">
                   GET YOUR FREE QUOTE
                   <ArrowRight className="h-5 w-5 ml-2" />
                 </Button>
@@ -1320,27 +1320,27 @@ export default function Home() {
             </div>
 
             <div className="relative">
-              <div className="bg-gradient-to-br from-primary/20 to-primary/5 rounded-2xl p-8 lg:p-12">
+              <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 lg:p-12">
                 <div className="grid grid-cols-2 gap-6">
-                  <div className="bg-background rounded-xl p-6 text-center shadow-lg" data-testid="about-stat-1">
-                    <Truck className="h-10 w-10 text-primary mx-auto mb-3" />
-                    <div className="text-3xl font-black text-foreground">15+</div>
-                    <div className="text-sm text-muted-foreground">Moving Trucks</div>
+                  <div className="bg-white/10 backdrop-blur-sm border border-white/10 rounded-xl p-6 text-center hover:bg-white/15 transition-all duration-300 group" data-testid="about-stat-1">
+                    <Truck className="h-10 w-10 text-primary mx-auto mb-3 group-hover:scale-110 transition-transform" />
+                    <div className="text-3xl font-black text-white">15+</div>
+                    <div className="text-sm text-white/60">Moving Trucks</div>
                   </div>
-                  <div className="bg-background rounded-xl p-6 text-center shadow-lg" data-testid="about-stat-2">
-                    <Users className="h-10 w-10 text-primary mx-auto mb-3" />
-                    <div className="text-3xl font-black text-foreground">50+</div>
-                    <div className="text-sm text-muted-foreground">Team Members</div>
+                  <div className="bg-white/10 backdrop-blur-sm border border-white/10 rounded-xl p-6 text-center hover:bg-white/15 transition-all duration-300 group" data-testid="about-stat-2">
+                    <Users className="h-10 w-10 text-primary mx-auto mb-3 group-hover:scale-110 transition-transform" />
+                    <div className="text-3xl font-black text-white">50+</div>
+                    <div className="text-sm text-white/60">Team Members</div>
                   </div>
-                  <div className="bg-background rounded-xl p-6 text-center shadow-lg" data-testid="about-stat-3">
-                    <Clock className="h-10 w-10 text-primary mx-auto mb-3" />
-                    <div className="text-3xl font-black text-foreground">15</div>
-                    <div className="text-sm text-muted-foreground">Years Experience</div>
+                  <div className="bg-white/10 backdrop-blur-sm border border-white/10 rounded-xl p-6 text-center hover:bg-white/15 transition-all duration-300 group" data-testid="about-stat-3">
+                    <Clock className="h-10 w-10 text-primary mx-auto mb-3 group-hover:scale-110 transition-transform" />
+                    <div className="text-3xl font-black text-white">15</div>
+                    <div className="text-sm text-white/60">Years Experience</div>
                   </div>
-                  <div className="bg-background rounded-xl p-6 text-center shadow-lg" data-testid="about-stat-4">
-                    <ThumbsUp className="h-10 w-10 text-primary mx-auto mb-3" />
-                    <div className="text-3xl font-black text-foreground">99%</div>
-                    <div className="text-sm text-muted-foreground">Satisfaction Rate</div>
+                  <div className="bg-white/10 backdrop-blur-sm border border-white/10 rounded-xl p-6 text-center hover:bg-white/15 transition-all duration-300 group" data-testid="about-stat-4">
+                    <ThumbsUp className="h-10 w-10 text-primary mx-auto mb-3 group-hover:scale-110 transition-transform" />
+                    <div className="text-3xl font-black text-white">99%</div>
+                    <div className="text-sm text-white/60">Satisfaction Rate</div>
                   </div>
                 </div>
               </div>
