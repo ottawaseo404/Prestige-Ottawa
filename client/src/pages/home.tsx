@@ -104,7 +104,7 @@ export default function Home() {
     { name: "Mark Sanders", initial: "M", color: "#CDDC39", time: "2 weeks ago", text: "Best moving experience in 10 years of moving around for work. Finally found my go-to movers!" },
     { name: "Angela Price", initial: "A", color: "#FFC107", time: "1 month ago", text: "Excellent communication from booking to delivery. Always knew where my stuff was. Peace of mind!" },
   ];
-  const [, setLocation] = useLocation();
+  const [currentPath, setLocation] = useLocation();
   const { toast } = useToast();
   
   // Hero quote form state
@@ -408,14 +408,14 @@ export default function Home() {
                     <button 
                       onClick={() => handleNavClick("/services/residential-moving")}
                       className={`group relative flex items-center gap-2 px-4 py-2 font-medium transition-colors ${
-                        location === "/services/residential-moving" ? "text-primary" : "text-white hover:text-primary"
+                        currentPath === "/services/residential-moving" ? "text-primary" : "text-white hover:text-primary"
                       }`}
                       data-testid="nav-residential"
                     >
                       <HomeIcon className="h-4 w-4" />
                       Residential
                       <span className={`absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 bg-primary transition-all duration-300 rounded-full shadow-[0_0_10px_rgba(197,165,114,0.8),0_0_20px_rgba(197,165,114,0.4)] ${
-                        location === "/services/residential-moving" ? "w-3/4" : "w-0 group-hover:w-3/4"
+                        currentPath === "/services/residential-moving" ? "w-3/4" : "w-0 group-hover:w-3/4"
                       }`} />
                     </button>
                   </NavigationMenuItem>
