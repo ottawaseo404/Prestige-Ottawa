@@ -20,6 +20,7 @@ import { Link } from "wouter";
 import { useState } from "react";
 import logoUrl from "@assets/originalonglogo_1763689606978.png";
 import heroImage from "@assets/generated_images/vancouver_seabus_ferry_scenic_view.png";
+import heroVideo from "@assets/generated_videos/vancouver_ferry_crossing_burrard_inlet.mp4";
 import { packageTypes, type PackageType } from "@shared/schema";
 
 export default function Home() {
@@ -80,9 +81,9 @@ export default function Home() {
       {/* Modern Navigation - Dark Theme */}
       <nav className="sticky top-0 z-50 bg-[#1A2332] border-b border-primary/20 shadow-lg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-20 gap-6">
+          <div className="flex justify-between items-center h-28 gap-6">
             <Link href="/" data-testid="link-logo">
-              <img src={logoUrl} alt="Prestige Moving" className="h-14 w-auto hover:opacity-90 transition-opacity" data-testid="img-logo" />
+              <img src={logoUrl} alt="Prestige Moving" className="h-24 w-auto hover:opacity-90 transition-opacity" data-testid="img-logo" />
             </Link>
 
             <div className="hidden lg:flex items-center gap-6">
@@ -171,10 +172,24 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* Hero Section - Full Bleed Dramatic */}
+      {/* Hero Section - Full Bleed Dramatic with Video Background */}
       <section className="relative min-h-[600px] md:min-h-[85vh] flex items-center overflow-hidden pb-32 md:pb-24">
         <div className="absolute inset-0">
-          <img src={heroImage} alt="Vancouver Moving Services" className="w-full h-full object-cover" />
+          {/* Video Background */}
+          <video 
+            autoPlay 
+            muted 
+            loop 
+            playsInline
+            poster={heroImage}
+            className="w-full h-full object-cover"
+            data-testid="video-hero-background"
+          >
+            <source src={heroVideo} type="video/mp4" />
+            {/* Fallback to image if video fails */}
+            <img src={heroImage} alt="Vancouver Moving Services" className="w-full h-full object-cover" />
+          </video>
+          {/* Gradient Overlay */}
           <div className="absolute inset-0 bg-gradient-to-r from-[#1A2332]/95 via-[#1A2332]/80 to-[#1A2332]/60" />
         </div>
         
