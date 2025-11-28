@@ -333,41 +333,77 @@ export default function ResidentialMoving() {
         </section>
 
         {/* Modern Process Timeline */}
-        <section className="py-20 md:py-28 bg-gradient-to-b from-gray-50 to-white overflow-hidden">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="py-20 md:py-28 bg-[#1A2332] overflow-hidden relative">
+          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSA2MCAwIEwgMCAwIDAgNjAiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjAzKSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')] opacity-50" />
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="text-center mb-16">
-              <Badge className="bg-primary/10 text-primary mb-4">Simple Process</Badge>
-              <h2 className="text-4xl md:text-5xl font-black text-foreground mb-4">
+              <Badge className="bg-primary/20 text-primary border-primary/30 mb-4">Simple Process</Badge>
+              <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
                 How It Works
               </h2>
-              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              <p className="text-xl text-white/60 max-w-2xl mx-auto">
                 Four simple steps to your stress-free move
               </p>
             </div>
 
             <div className="relative">
-              {/* Connection Line */}
-              <div className="absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 via-purple-500 via-amber-500 to-rose-500 hidden md:block transform -translate-y-1/2 rounded-full" />
+              {/* Animated Connection Line - Desktop */}
+              <div className="absolute top-[72px] left-[12.5%] right-[12.5%] h-1 hidden md:block">
+                <div className="w-full h-full bg-white/10 rounded-full" />
+                <div 
+                  className="absolute inset-0 h-full bg-gradient-to-r from-primary via-amber-400 to-primary rounded-full animate-pulse"
+                  style={{ opacity: 0.8 }}
+                />
+              </div>
 
-              <div className="grid md:grid-cols-4 gap-8 relative">
+              <div className="grid md:grid-cols-4 gap-6 md:gap-8 relative">
                 {processSteps.map((step, index) => (
                   <div 
                     key={index}
-                    className="relative text-center group"
+                    className="relative group"
                     onMouseEnter={() => setHoveredStep(index)}
                     onMouseLeave={() => setHoveredStep(null)}
                   >
-                    <div className={`relative z-10 mx-auto w-24 h-24 rounded-3xl bg-gradient-to-br ${step.color} flex items-center justify-center mb-6 shadow-xl transform transition-all duration-500 ${hoveredStep === index ? 'scale-110 rotate-3' : 'group-hover:scale-105'}`}>
-                      <step.icon className="h-10 w-10 text-white" />
-                      <div className="absolute -top-2 -right-2 w-8 h-8 bg-[#1A2332] rounded-full flex items-center justify-center text-white font-bold text-sm border-2 border-white">
-                        {step.step}
+                    {/* Card Container */}
+                    <div className={`bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-6 transition-all duration-500 ${hoveredStep === index ? 'bg-white/10 border-primary/50 transform scale-105 shadow-2xl shadow-primary/20' : 'hover:bg-white/8 hover:border-white/20'}`}>
+                      {/* Icon with Glow Effect */}
+                      <div className="relative mb-6">
+                        <div className={`absolute inset-0 mx-auto w-20 h-20 bg-gradient-to-br ${step.color} rounded-2xl blur-xl transition-opacity duration-500 ${hoveredStep === index ? 'opacity-60' : 'opacity-20'}`} />
+                        <div className={`relative z-10 mx-auto w-20 h-20 rounded-2xl bg-gradient-to-br ${step.color} flex items-center justify-center shadow-xl transform transition-all duration-500 ${hoveredStep === index ? 'rotate-6 scale-110' : 'group-hover:rotate-3 group-hover:scale-105'}`}>
+                          <step.icon className="h-9 w-9 text-white" />
+                        </div>
+                        {/* Step Number Badge */}
+                        <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 w-8 h-8 bg-primary rounded-full flex items-center justify-center text-[#1A2332] font-bold text-sm border-2 border-[#1A2332] shadow-lg z-20">
+                          {step.step}
+                        </div>
+                      </div>
+                      
+                      {/* Content */}
+                      <div className="text-center">
+                        <h3 className="text-xl font-bold mb-2 text-white">{step.title}</h3>
+                        <p className="text-white/50 text-sm leading-relaxed">{step.description}</p>
                       </div>
                     </div>
-                    <h3 className="text-xl font-bold mb-2 text-foreground">{step.title}</h3>
-                    <p className="text-muted-foreground">{step.description}</p>
+
+                    {/* Mobile Connector */}
+                    {index < processSteps.length - 1 && (
+                      <div className="flex justify-center my-4 md:hidden">
+                        <div className="w-0.5 h-8 bg-gradient-to-b from-primary to-transparent" />
+                      </div>
+                    )}
                   </div>
                 ))}
               </div>
+            </div>
+
+            {/* CTA */}
+            <div className="text-center mt-12">
+              <Link href="/book">
+                <Button size="lg" className="bg-primary hover:bg-primary/90 text-[#1A2332] font-bold px-8 py-6 text-lg rounded-xl shadow-lg shadow-primary/30 transition-all duration-300 hover:scale-105">
+                  Start Your Move Today
+                  <ArrowRight className="h-5 w-5 ml-2" />
+                </Button>
+              </Link>
             </div>
           </div>
         </section>
@@ -392,10 +428,10 @@ export default function ResidentialMoving() {
                   </div>
                   <h3 className="text-3xl font-black text-white mb-4">Fully Insured & Protected</h3>
                   <p className="text-white/70 text-lg leading-relaxed mb-6">
-                    Complete WSIB insurance and liability coverage protects you, our team, and your belongings from pickup to delivery. Peace of mind guaranteed.
+                    Complete insurance and liability coverage protects you, our team, and your belongings from pickup to delivery. Peace of mind guaranteed.
                   </p>
                   <div className="flex flex-wrap gap-3">
-                    <Badge className="bg-white/10 text-white border-white/20">WSIB Insured</Badge>
+                    <Badge className="bg-white/10 text-white border-white/20">Fully Insured</Badge>
                     <Badge className="bg-white/10 text-white border-white/20">Liability Coverage</Badge>
                     <Badge className="bg-white/10 text-white border-white/20">Bonded Team</Badge>
                   </div>
