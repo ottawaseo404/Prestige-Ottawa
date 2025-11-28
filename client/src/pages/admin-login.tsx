@@ -5,7 +5,7 @@ import { Label } from "@/components/ui/label";
 import { Lock, Truck } from "lucide-react";
 import { useState } from "react";
 import { useLocation } from "wouter";
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
 import { Helmet } from "react-helmet";
@@ -15,19 +15,24 @@ export default function AdminLogin() {
   const [password, setPassword] = useState("");
   const [, setLocation] = useLocation();
   const { toast } = useToast();
+  const queryClient = useQueryClient();
 
   const loginMutation = useMutation({
     mutationFn: async (credentials: { username: string; password: string }) => {
       const response = await apiRequest("POST", "/api/admin/login", credentials);
       return response.json();
     },
-    onSuccess: (data) => {
+    onSuccess: async (data) => {
       if (data.success) {
         toast({
           title: "Login Successful",
           description: "Welcome to the admin dashboard",
         });
-        setLocation("/admin");
+        await queryClient.invalidateQueries({ queryKey: ["/api/admin/check"] });
+        await queryClient.refetchQueries({ queryKey: ["/api/admin/check"] });
+        setTimeout(() => {
+          setLocation("/admin");
+        }, 100);
       }
     },
     onError: () => {
