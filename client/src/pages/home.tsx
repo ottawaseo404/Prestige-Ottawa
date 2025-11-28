@@ -262,7 +262,7 @@ export default function Home() {
     "@type": "MovingCompany",
     "name": "Prestige Moving Vancouver",
     "image": "https://vancouver.prestigemoving.ca/logo.png",
-    "description": "Vancouver's premier moving company offering residential, commercial, long-distance, and specialty moving services. WSIB insured, 5-star rated, 15+ years experience.",
+    "description": "Vancouver's premier moving company offering residential, commercial, long-distance, and specialty moving services. Fully insured, 5-star rated, 15+ years experience.",
     "url": "https://vancouver.prestigemoving.ca",
     "telephone": "604-616-6066",
     "email": "info@prestigemoving.ca",
@@ -324,7 +324,7 @@ export default function Home() {
     <>
       <Helmet>
         <title>Vancouver Moving Company | #1 Rated Movers | Prestige Moving Vancouver</title>
-        <meta name="description" content="Vancouver's top-rated moving company. Residential, commercial, long-distance moves. 5-star Google rating, WSIB insured, professional movers you can trust. Free estimates. Call 604-616-6066!" />
+        <meta name="description" content="Vancouver's top-rated moving company. Residential, commercial, long-distance moves. 5-star Google rating, fully insured, professional movers you can trust. Free estimates. Call 604-616-6066!" />
         <meta name="keywords" content="Vancouver moving company, movers Vancouver BC, residential movers, commercial movers, long distance moving, piano movers Vancouver, office relocation Vancouver, best movers Vancouver, affordable moving company, professional movers BC" />
         <meta name="robots" content="index, follow" />
         <meta name="author" content="Prestige Moving Vancouver" />
@@ -339,7 +339,7 @@ export default function Home() {
         <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Prestige Moving Vancouver | Top-Rated Movers" />
-        <meta name="twitter:description" content="Vancouver's premier moving company. 5-star rated, WSIB insured, 15+ years experience. Get your free quote today!" />
+        <meta name="twitter:description" content="Vancouver's premier moving company. 5-star rated, fully insured, 15+ years experience. Get your free quote today!" />
         <meta name="twitter:image" content="https://vancouver.prestigemoving.ca/og-image.png" />
         <link rel="canonical" href="https://vancouver.prestigemoving.ca" />
         <meta name="geo.region" content="CA-BC" />
@@ -1143,15 +1143,15 @@ export default function Home() {
               </div>
             </div>
 
-            {/* WSIB Insured */}
-            <div className="group relative bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-6 text-center hover:bg-white/10 hover:border-primary/50 transition-all duration-300 cursor-pointer hover:scale-105 hover:shadow-xl hover:shadow-primary/20" data-testid="badge-wsib">
+            {/* Fully Insured */}
+            <div className="group relative bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-6 text-center hover:bg-white/10 hover:border-primary/50 transition-all duration-300 cursor-pointer hover:scale-105 hover:shadow-xl hover:shadow-primary/20" data-testid="badge-insured">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl" />
               <div className="relative">
                 <div className="h-20 w-20 mx-auto mb-4 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-emerald-500/30 transition-shadow -rotate-3 group-hover:rotate-0">
                   <Shield className="h-10 w-10 text-white" />
                 </div>
-                <h3 className="text-lg font-bold text-white mb-1">WSIB Insured</h3>
-                <p className="text-sm text-white/50">Full Coverage Protection</p>
+                <h3 className="text-lg font-bold text-white mb-1">Fully Insured</h3>
+                <p className="text-sm text-white/50">Complete Protection</p>
               </div>
             </div>
 
@@ -1351,7 +1351,7 @@ export default function Home() {
               <div className="space-y-4 mb-8">
                 {[
                   "Family owned and operated with first-rate customer service",
-                  "Fully bonded, licensed, and WSIB insured",
+                  "Fully bonded, licensed, and insured",
                   "BBB A+ rating with proven track record",
                   "Professional packing and unpacking services",
                   "Secure storage facilities available in Vancouver",
@@ -1552,7 +1552,7 @@ export default function Home() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               { icon: CheckCircle2, title: "Transparent Pricing", description: "No hidden fees or surprise charges. Get a detailed quote upfront that covers everything." },
-              { icon: Shield, title: "Fully Insured", description: "WSIB licensed and insured. Your belongings are protected throughout the entire move." },
+              { icon: Shield, title: "Fully Insured", description: "Licensed and insured. Your belongings are protected throughout the entire move." },
               { icon: Clock, title: "On-Time Guarantee", description: "We arrive when promised. Your time is valuable, and we respect that." },
               { icon: Users, title: "Professional Team", description: "Trained, background-checked movers who treat your belongings like their own." },
               { icon: Truck, title: "Modern Fleet", description: "Well-maintained trucks equipped with the latest moving equipment and tools." },
@@ -1707,7 +1707,7 @@ export default function Home() {
                   <div className="mt-6 pt-6 border-t border-white/10 text-center">
                     <div className="inline-flex items-center gap-2 text-white/60 text-sm">
                       <Award className="h-4 w-4 text-primary" />
-                      <span>BBB A+ Rated • WSIB Insured • Licensed</span>
+                      <span>BBB A+ Rated • Fully Insured • Licensed</span>
                     </div>
                   </div>
                 </div>
