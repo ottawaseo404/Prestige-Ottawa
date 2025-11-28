@@ -77,16 +77,7 @@ export function SharedNavigation() {
             </div>
 
             {/* Contact Info */}
-            <div className="flex items-center gap-4">
-              <Link 
-                href="/admin" 
-                className="flex items-center gap-1.5 text-gray-400 text-xs hover:text-primary transition-colors border border-gray-200 rounded px-2 py-1"
-                data-testid="link-admin"
-              >
-                <Lock className="h-3 w-3" />
-                <span>Admin</span>
-              </Link>
-              <div className="w-px h-4 bg-gray-300" />
+            <div className="flex items-center gap-6">
               <div className="flex items-center gap-2 text-gray-600 text-sm">
                 <MapPin className="h-4 w-4" />
                 <span>Vancouver & Area</span>
@@ -193,6 +184,10 @@ export function SharedNavigation() {
               <Button variant="default" size="lg" className="font-bold shadow-lg" data-testid="button-get-quote">
                 FREE ESTIMATE
               </Button>
+            </Link>
+            
+            <Link href="/admin" data-testid="link-admin-nav">
+              <Lock className="h-5 w-5 text-white/70 hover:text-white transition-colors cursor-pointer" />
             </Link>
           </div>
 
