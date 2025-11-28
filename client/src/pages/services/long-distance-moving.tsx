@@ -11,7 +11,7 @@ import {
 import { Link } from "wouter";
 import { Helmet } from "react-helmet";
 import { SharedNavigation } from "@/components/shared-navigation";
-import longDistanceVideo from "@assets/generated_videos/moving_trucks_bc_mountain_highway.mp4";
+import longDistanceVideo from "@assets/generated_videos/moving_trucks_driving_on_highway.mp4";
 
 const canadianDestinations = [
   // British Columbia
