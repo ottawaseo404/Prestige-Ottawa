@@ -159,6 +159,20 @@ npm run dev  # Starts both frontend (Vite) and backend (Express)
 ## Recent Changes
 
 ### Latest Updates (November 2025)
+- **Bold Homepage Redesign**: Complete visual overhaul inspired by industry leaders:
+  - Dark navy (#1A2332) navigation with gold accents
+  - Full-bleed hero section with gradient overlay and experience badge
+  - Stats bar with key metrics (10,000+ moves, 5.0 rating, 15+ years, 50+ movers)
+  - Trust badges section (BBB A+, WSIB, Google 5-Star, Fully Licensed)
+  - Featured services grid on dark background with hover effects
+  - About section with two-column layout and company stats
+  - Package pricing cards with "Most Popular" highlight on Diamond
+  - Testimonials carousel with accessible navigation (aria-labels)
+  - Why Choose Us section with 6 feature blocks
+  - Strong CTA section with gold background
+  - Modern footer with all 12 service links organized in columns
+  - Fully responsive design with mobile-optimized layouts
+
 - **Complete 12-Service Page Suite**: All 12 moving services now have dedicated SEO-optimized pages:
   - Residential, Commercial, Long Distance, Packing, Moving Supplies, Student
   - Storage, Specialty Item, Antique, Piano, Senior, and Military Moving
