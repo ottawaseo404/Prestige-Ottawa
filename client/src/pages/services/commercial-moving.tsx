@@ -15,7 +15,7 @@ import { Link } from "wouter";
 import { Helmet } from "react-helmet";
 import { SharedNavigation } from "@/components/shared-navigation";
 import { SharedFooter } from "@/components/shared-footer";
-import commercialVideo from "@assets/generated_videos/commercial_office_moving_scene.mp4";
+import commercialVideo from "@assets/commercial_moving_video.mp4";
 import commercialImage from "@assets/commercial_truck_night.png";
 
 export default function CommercialMoving() {
