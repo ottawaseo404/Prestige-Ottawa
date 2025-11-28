@@ -1,4 +1,4 @@
-import type { Express } from "express";
+import type { Express, Request, Response, NextFunction } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { insertBookingSchema, type SmartMovingLead, packageTypes } from "@shared/schema";
@@ -6,10 +6,47 @@ import { z } from "zod";
 import { fromZodError } from "zod-validation-error";
 import OpenAI from "openai";
 
+function requireAdmin(req: any, res: Response, next: NextFunction) {
+  if (req.session?.isAdmin) {
+    next();
+  } else {
+    res.status(401).json({ message: "Unauthorized" });
+  }
+}
+
 export async function registerRoutes(app: Express): Promise<Server> {
   // Health check
   app.get("/api/health", (req, res) => {
     res.json({ status: "ok" });
+  });
+
+  // Admin authentication routes
+  app.post("/api/admin/login", (req: any, res) => {
+    const { username, password } = req.body;
+    
+    const adminUsername = process.env.ADMIN_USERNAME || "admin";
+    const adminPassword = process.env.ADMIN_PASSWORD || "prestigemoving2025";
+    
+    if (username === adminUsername && password === adminPassword) {
+      req.session.isAdmin = true;
+      res.json({ success: true, message: "Login successful" });
+    } else {
+      res.status(401).json({ success: false, message: "Invalid credentials" });
+    }
+  });
+
+  app.post("/api/admin/logout", (req: any, res) => {
+    req.session.destroy((err: any) => {
+      if (err) {
+        res.status(500).json({ message: "Failed to logout" });
+      } else {
+        res.json({ success: true, message: "Logged out successfully" });
+      }
+    });
+  });
+
+  app.get("/api/admin/check", (req: any, res) => {
+    res.json({ isAuthenticated: !!req.session?.isAdmin });
   });
 
   // Get all bookings

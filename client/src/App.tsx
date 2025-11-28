@@ -35,10 +35,30 @@ import AdminDashboard from "@/pages/admin/dashboard";
 import AdminBookings from "@/pages/admin/bookings";
 import AdminCustomers from "@/pages/admin/customers";
 import AdminSmartMoving from "@/pages/admin/smartmoving";
+import AdminLogin from "@/pages/admin-login";
 import Calculator from "@/pages/calculator";
 import Contact from "@/pages/contact";
+import { useAdminAuth } from "@/hooks/use-admin-auth";
+import { Button } from "@/components/ui/button";
+import { LogOut, Loader2 } from "lucide-react";
 
-function AdminLayout({ children }: { children: React.ReactNode }) {
+function ProtectedAdminLayout({ children }: { children: React.ReactNode }) {
+  const { isAuthenticated, isLoading, logout, isLoggingOut } = useAdminAuth();
+  const [, setLocation] = useLocation();
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-accent/20">
+        <Loader2 className="h-8 w-8 animate-spin text-primary" />
+      </div>
+    );
+  }
+
+  if (!isAuthenticated) {
+    setLocation("/admin/login");
+    return null;
+  }
+
   const style = {
     "--sidebar-width": "16rem",
     "--sidebar-width-icon": "3rem",
@@ -49,8 +69,22 @@ function AdminLayout({ children }: { children: React.ReactNode }) {
       <div className="flex h-screen w-full">
         <AppSidebar />
         <div className="flex flex-col flex-1 overflow-hidden">
-          <header className="flex items-center h-16 px-6 border-b shrink-0">
+          <header className="flex items-center justify-between h-16 px-6 border-b shrink-0">
             <SidebarTrigger data-testid="button-sidebar-toggle" />
+            <Button 
+              variant="ghost" 
+              size="sm" 
+              onClick={() => logout()}
+              disabled={isLoggingOut}
+              data-testid="button-admin-logout"
+            >
+              {isLoggingOut ? (
+                <Loader2 className="h-4 w-4 mr-2 animate-spin" />
+              ) : (
+                <LogOut className="h-4 w-4 mr-2" />
+              )}
+              Logout
+            </Button>
           </header>
           <main className="flex-1 overflow-y-auto p-6 bg-accent/20">
             {children}
@@ -84,33 +118,36 @@ function Router() {
       <Route path="/services/moving-supplies" component={MovingSupplies} />
       <Route path="/services/military-moving" component={MilitaryMoving} />
       
-      {/* Admin Pages */}
+      {/* Admin Login */}
+      <Route path="/admin/login" component={AdminLogin} />
+      
+      {/* Admin Pages (Protected) */}
       <Route path="/admin">
         {() => (
-          <AdminLayout>
+          <ProtectedAdminLayout>
             <AdminDashboard />
-          </AdminLayout>
+          </ProtectedAdminLayout>
         )}
       </Route>
       <Route path="/admin/bookings">
         {() => (
-          <AdminLayout>
+          <ProtectedAdminLayout>
             <AdminBookings />
-          </AdminLayout>
+          </ProtectedAdminLayout>
         )}
       </Route>
       <Route path="/admin/customers">
         {() => (
-          <AdminLayout>
+          <ProtectedAdminLayout>
             <AdminCustomers />
-          </AdminLayout>
+          </ProtectedAdminLayout>
         )}
       </Route>
       <Route path="/admin/smartmoving">
         {() => (
-          <AdminLayout>
+          <ProtectedAdminLayout>
             <AdminSmartMoving />
-          </AdminLayout>
+          </ProtectedAdminLayout>
         )}
       </Route>
 
