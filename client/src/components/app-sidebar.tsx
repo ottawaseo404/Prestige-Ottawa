@@ -12,7 +12,7 @@ import {
   SidebarFooter,
 } from "@/components/ui/sidebar";
 import { Link, useLocation } from "wouter";
-import logoUrl from "@assets/f_1763665441943.png";
+import logoUrl from "@assets/original-logos_2021_Feb_8052-60387b102f202-e1691074056913-768x430_1764368674318.png";
 
 const menuItems = [
   {
