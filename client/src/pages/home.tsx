@@ -1199,18 +1199,18 @@ export default function Home() {
             </p>
           </div>
 
-          {/* Bento Grid Layout */}
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 lg:gap-6">
+          {/* Featured Services - Equal Size Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
             
-            {/* Residential - Large Feature Card */}
-            <Link href="/services/residential-moving" className="col-span-2 row-span-2">
-              <div className="group relative h-full min-h-[380px] rounded-3xl overflow-hidden cursor-pointer shadow-xl hover:shadow-2xl transition-all duration-500" data-testid="service-card-residential">
+            {/* Residential Moving */}
+            <Link href="/services/residential-moving">
+              <div className="group relative h-[320px] rounded-3xl overflow-hidden cursor-pointer shadow-xl hover:shadow-2xl transition-all duration-500" data-testid="service-card-residential">
                 <img 
                   src={residentialImage} 
                   alt="Residential Moving Services" 
                   className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#1A2332] via-[#1A2332]/70 to-[#1A2332]/20" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#1A2332] via-[#1A2332]/60 to-transparent" />
                 <div className="absolute inset-0 p-6 flex flex-col justify-end">
                   <Badge className="bg-primary text-[#1A2332] font-bold mb-3 w-fit shadow-lg">
                     <Star className="h-3 w-3 mr-1 fill-current" />
@@ -1226,76 +1226,81 @@ export default function Home() {
               </div>
             </Link>
 
-            {/* Commercial - Medium Card */}
-            <Link href="/services/commercial-moving" className="col-span-2">
-              <div className="group relative h-[180px] rounded-2xl overflow-hidden cursor-pointer shadow-lg hover:shadow-xl transition-all duration-300" data-testid="service-card-commercial">
+            {/* Commercial Moving */}
+            <Link href="/services/commercial-moving">
+              <div className="group relative h-[320px] rounded-3xl overflow-hidden cursor-pointer shadow-xl hover:shadow-2xl transition-all duration-500" data-testid="service-card-commercial">
                 <img 
                   src={commercialImage} 
-                  alt="Commercial Moving" 
-                  className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+                  alt="Commercial Moving Services" 
+                  className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-r from-[#1A2332]/95 to-[#1A2332]/70" />
-                <div className="absolute inset-0 p-5 flex flex-col justify-center">
-                  <div className="flex items-center gap-3">
-                    <div className="h-12 w-12 bg-primary/20 rounded-xl flex items-center justify-center">
-                      <Building2 className="h-6 w-6 text-primary" />
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-black text-white">Commercial Moving</h3>
-                      <p className="text-white/70 text-sm">Office & business relocations</p>
-                    </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-[#1A2332] via-[#1A2332]/60 to-transparent" />
+                <div className="absolute inset-0 p-6 flex flex-col justify-end">
+                  <Badge className="bg-blue-500 text-white font-bold mb-3 w-fit shadow-lg">
+                    <Building2 className="h-3 w-3 mr-1" />
+                    Business
+                  </Badge>
+                  <h3 className="text-2xl md:text-3xl font-black text-white mb-2">Commercial Moving</h3>
+                  <p className="text-white/80 text-sm mb-3">Office relocations and business moves — minimal downtime</p>
+                  <div className="flex items-center gap-2 text-primary font-bold text-sm">
+                    <span>Learn More</span>
+                    <ArrowRight className="h-4 w-4 group-hover:translate-x-2 transition-transform" />
                   </div>
                 </div>
               </div>
             </Link>
 
-            {/* Long Distance - Medium Card */}
-            <Link href="/services/long-distance-moving" className="col-span-2">
-              <div className="group relative h-[180px] rounded-2xl overflow-hidden cursor-pointer shadow-lg hover:shadow-xl transition-all duration-300" data-testid="service-card-long-distance">
+            {/* Long Distance Moving */}
+            <Link href="/services/long-distance-moving">
+              <div className="group relative h-[320px] rounded-3xl overflow-hidden cursor-pointer shadow-xl hover:shadow-2xl transition-all duration-500" data-testid="service-card-long-distance">
                 <img 
                   src={longDistanceImage} 
-                  alt="Long Distance Moving" 
-                  className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+                  alt="Long Distance Moving Services" 
+                  className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-r from-[#1A2332]/95 to-[#1A2332]/70" />
-                <div className="absolute inset-0 p-5 flex flex-col justify-center">
-                  <div className="flex items-center gap-3">
-                    <div className="h-12 w-12 bg-primary/20 rounded-xl flex items-center justify-center">
-                      <MapPin className="h-6 w-6 text-primary" />
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-black text-white">Long Distance</h3>
-                      <p className="text-white/70 text-sm">Coast-to-coast across Canada</p>
-                    </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-[#1A2332] via-[#1A2332]/60 to-transparent" />
+                <div className="absolute inset-0 p-6 flex flex-col justify-end">
+                  <Badge className="bg-green-500 text-white font-bold mb-3 w-fit shadow-lg">
+                    <MapPin className="h-3 w-3 mr-1" />
+                    Cross-Canada
+                  </Badge>
+                  <h3 className="text-2xl md:text-3xl font-black text-white mb-2">Long Distance Moving</h3>
+                  <p className="text-white/80 text-sm mb-3">Coast-to-coast across Canada — reliable delivery</p>
+                  <div className="flex items-center gap-2 text-primary font-bold text-sm">
+                    <span>Learn More</span>
+                    <ArrowRight className="h-4 w-4 group-hover:translate-x-2 transition-transform" />
                   </div>
                 </div>
               </div>
             </Link>
 
             {/* Packing Services */}
-            <Link href="/services/packing-services" className="col-span-2">
-              <div className="group relative h-[180px] rounded-2xl overflow-hidden cursor-pointer shadow-lg hover:shadow-xl transition-all duration-300" data-testid="service-card-packing">
+            <Link href="/services/packing-services">
+              <div className="group relative h-[320px] rounded-3xl overflow-hidden cursor-pointer shadow-xl hover:shadow-2xl transition-all duration-500" data-testid="service-card-packing">
                 <img 
                   src={packingImage} 
-                  alt="Packing Services" 
-                  className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+                  alt="Professional Packing Services" 
+                  className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-r from-[#1A2332]/95 to-[#1A2332]/70" />
-                <div className="absolute inset-0 p-5 flex flex-col justify-center">
-                  <div className="flex items-center gap-3">
-                    <div className="h-12 w-12 bg-primary/20 rounded-xl flex items-center justify-center">
-                      <Package className="h-6 w-6 text-primary" />
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-black text-white">Packing Services</h3>
-                      <p className="text-white/70 text-sm">Full-service professional packing</p>
-                    </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-[#1A2332] via-[#1A2332]/60 to-transparent" />
+                <div className="absolute inset-0 p-6 flex flex-col justify-end">
+                  <Badge className="bg-purple-500 text-white font-bold mb-3 w-fit shadow-lg">
+                    <Package className="h-3 w-3 mr-1" />
+                    Full-Service
+                  </Badge>
+                  <h3 className="text-2xl md:text-3xl font-black text-white mb-2">Packing Services</h3>
+                  <p className="text-white/80 text-sm mb-3">Professional packing with quality materials included</p>
+                  <div className="flex items-center gap-2 text-primary font-bold text-sm">
+                    <span>Learn More</span>
+                    <ArrowRight className="h-4 w-4 group-hover:translate-x-2 transition-transform" />
                   </div>
                 </div>
               </div>
             </Link>
+          </div>
 
-            {/* Small Service Cards - Specialty Services */}
+          {/* Specialty Services Grid */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-8 gap-4">
             {[
               { title: "Moving Supplies", icon: Box, href: "/services/moving-supplies", desc: "Boxes & materials" },
               { title: "Student Moving", icon: GraduationCap, href: "/services/student-moving", desc: "Budget-friendly" },
@@ -1305,9 +1310,9 @@ export default function Home() {
               { title: "Piano Moving", icon: Music, href: "/services/piano-moving", desc: "Specialized transport" },
               { title: "Senior Moving", icon: Heart, href: "/services/senior-moving", desc: "Compassionate care" },
               { title: "Military Moving", icon: Medal, href: "/services/military-moving", desc: "PCS relocations" },
-            ].map((service, index) => (
-              <Link key={service.href} href={service.href} className="col-span-1">
-                <div className="group bg-white border border-gray-200 rounded-2xl p-4 h-[140px] flex flex-col justify-between hover:border-primary hover:shadow-lg transition-all duration-300 cursor-pointer" data-testid={`service-card-${service.title.toLowerCase().replace(/\s+/g, '-')}`}>
+            ].map((service) => (
+              <Link key={service.href} href={service.href}>
+                <div className="group bg-white border border-gray-200 rounded-2xl p-4 h-[130px] flex flex-col justify-between hover:border-primary hover:shadow-lg transition-all duration-300 cursor-pointer" data-testid={`service-card-${service.title.toLowerCase().replace(/\s+/g, '-')}`}>
                   <div className="h-10 w-10 bg-primary/10 rounded-xl flex items-center justify-center group-hover:bg-primary/20 transition-colors">
                     <service.icon className="h-5 w-5 text-primary" />
                   </div>
