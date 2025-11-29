@@ -20,10 +20,10 @@ import {
   Star,
   Users,
   Truck,
-  DollarSign,
   Clock,
   RefreshCw,
-  CheckCircle
+  CheckCircle,
+  MapPin
 } from "lucide-react";
 import {
   Dialog,
@@ -331,7 +331,7 @@ export default function AdminPackages() {
                     <span>{pkg.minimumHours}hr min</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <DollarSign className="h-4 w-4 text-muted-foreground" />
+                    <MapPin className="h-4 w-4 text-muted-foreground" />
                     <span>${pkg.travelFee} travel</span>
                   </div>
                   <div className="flex items-center gap-2">
