@@ -1,7 +1,7 @@
 import type { Express, Request, Response, NextFunction } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
-import { insertBookingSchema, type SmartMovingLead, packageTypes } from "@shared/schema";
+import { insertBookingSchema, type SmartMovingLead, packageTypes, insertMovingPackageSchema } from "@shared/schema";
 import { z } from "zod";
 import { fromZodError } from "zod-validation-error";
 import OpenAI from "openai";
@@ -617,6 +617,204 @@ Provide a detailed cost estimate in JSON format.`;
         message: "Failed to generate estimate", 
         error: error.message 
       });
+    }
+  });
+
+  // Package Management Routes
+  
+  // Get all packages (public - for frontend display)
+  app.get("/api/packages", async (req, res) => {
+    try {
+      const packages = await storage.getActivePackages();
+      
+      // If no packages in DB, return default static packages for backwards compatibility
+      if (packages.length === 0) {
+        const defaultPackages = Object.entries(packageTypes).map(([key, pkg], index) => ({
+          id: key.toLowerCase(),
+          name: key,
+          displayName: pkg.name,
+          description: pkg.description,
+          hourlyRate: pkg.hourlyRate,
+          minimumHours: pkg.minimumHours,
+          travelFee: pkg.travelFee,
+          movers: pkg.movers,
+          trucks: key === 'Diamond' ? 2 : 1,
+          truckSize: pkg.truck,
+          features: pkg.features,
+          isPopular: key === 'Diamond',
+          isActive: true,
+          sortOrder: index,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        }));
+        return res.json(defaultPackages);
+      }
+      
+      res.json(packages);
+    } catch (error: any) {
+      console.error("Error fetching packages:", error);
+      res.status(500).json({ message: "Failed to fetch packages" });
+    }
+  });
+
+  // Get all packages including inactive (admin)
+  app.get("/api/admin/packages", requireAdmin, async (req, res) => {
+    try {
+      const packages = await storage.getAllPackages();
+      res.json(packages);
+    } catch (error: any) {
+      console.error("Error fetching packages:", error);
+      res.status(500).json({ message: "Failed to fetch packages" });
+    }
+  });
+
+  // Get single package
+  app.get("/api/admin/packages/:id", requireAdmin, async (req, res) => {
+    try {
+      const pkg = await storage.getPackage(req.params.id);
+      if (!pkg) {
+        return res.status(404).json({ message: "Package not found" });
+      }
+      res.json(pkg);
+    } catch (error: any) {
+      console.error("Error fetching package:", error);
+      res.status(500).json({ message: "Failed to fetch package" });
+    }
+  });
+
+  // Create new package
+  app.post("/api/admin/packages", requireAdmin, async (req, res) => {
+    try {
+      const validatedData = insertMovingPackageSchema.parse(req.body);
+      const pkg = await storage.createPackage(validatedData);
+      res.status(201).json(pkg);
+    } catch (error: any) {
+      console.error("Error creating package:", error);
+      if (error instanceof z.ZodError) {
+        const validationError = fromZodError(error);
+        return res.status(400).json({ message: validationError.message });
+      }
+      res.status(500).json({ message: "Failed to create package" });
+    }
+  });
+
+  // Update package
+  app.patch("/api/admin/packages/:id", requireAdmin, async (req, res) => {
+    try {
+      const pkg = await storage.updatePackage(req.params.id, req.body);
+      if (!pkg) {
+        return res.status(404).json({ message: "Package not found" });
+      }
+      res.json(pkg);
+    } catch (error: any) {
+      console.error("Error updating package:", error);
+      res.status(500).json({ message: "Failed to update package" });
+    }
+  });
+
+  // Delete package
+  app.delete("/api/admin/packages/:id", requireAdmin, async (req, res) => {
+    try {
+      const success = await storage.deletePackage(req.params.id);
+      if (!success) {
+        return res.status(404).json({ message: "Package not found" });
+      }
+      res.json({ success: true });
+    } catch (error: any) {
+      console.error("Error deleting package:", error);
+      res.status(500).json({ message: "Failed to delete package" });
+    }
+  });
+
+  // Initialize default packages if none exist
+  app.post("/api/admin/packages/initialize", requireAdmin, async (req, res) => {
+    try {
+      const existingPackages = await storage.getAllPackages();
+      if (existingPackages.length > 0) {
+        return res.status(400).json({ message: "Packages already exist" });
+      }
+
+      const defaultPackages = [
+        {
+          name: "Premium",
+          displayName: "Premium Package",
+          description: "Ideal for bachelor apartments, 1-2 bedroom moves",
+          hourlyRate: 155,
+          minimumHours: 3,
+          travelFee: 155,
+          movers: 2,
+          trucks: 1,
+          truckSize: "16ft - 20ft",
+          features: [
+            "2 Professional Movers",
+            "16ft - 20ft Moving Truck",
+            "Wrapping all furniture with tape and blankets",
+            "Shrink-wrapping couches for protection",
+            "Covering mattresses with brand-new plastic bags",
+            "Protective padding for floors and stair railings",
+            "Disassembly and reassembly of basic furniture",
+          ],
+          isPopular: false,
+          isActive: true,
+          sortOrder: 0,
+        },
+        {
+          name: "Deluxe",
+          displayName: "Deluxe Package",
+          description: "Ideal for 2-3 bedroom moves",
+          hourlyRate: 195,
+          minimumHours: 3,
+          travelFee: 195,
+          movers: 3,
+          trucks: 1,
+          truckSize: "26ft",
+          features: [
+            "3 Professional Movers",
+            "26ft Moving Truck",
+            "Wrapping all furniture with tape and blankets",
+            "Shrink-wrapping couches for added protection",
+            "Covering mattresses with brand-new plastic bags",
+            "Protective padding for floors and stair railings",
+            "Disassembly and reassembly of basic furniture",
+          ],
+          isPopular: false,
+          isActive: true,
+          sortOrder: 1,
+        },
+        {
+          name: "Diamond",
+          displayName: "Diamond Package",
+          description: "Ideal for large homes (3-5 bedrooms)",
+          hourlyRate: 315,
+          minimumHours: 3,
+          travelFee: 315,
+          movers: 4,
+          trucks: 2,
+          truckSize: "2 Trucks",
+          features: [
+            "4 Professional Movers",
+            "2 Moving Trucks",
+            "Wrapping all furniture with tape and blankets",
+            "Shrink-wrapping couches for extra protection",
+            "Covering mattresses with brand-new plastic bags",
+            "Protective padding for floors and stair railings",
+            "Disassembly and reassembly of all necessary furniture",
+            "Extra tape and additional shrink wrap included",
+          ],
+          isPopular: true,
+          isActive: true,
+          sortOrder: 2,
+        },
+      ];
+
+      const createdPackages = await Promise.all(
+        defaultPackages.map(pkg => storage.createPackage(pkg))
+      );
+
+      res.status(201).json(createdPackages);
+    } catch (error: any) {
+      console.error("Error initializing packages:", error);
+      res.status(500).json({ message: "Failed to initialize packages" });
     }
   });
 
