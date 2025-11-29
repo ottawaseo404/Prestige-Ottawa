@@ -166,6 +166,38 @@ export default function AdminBlogEditor() {
     },
   });
 
+  const generateContentMutation = useMutation({
+    mutationFn: async (topic: string) => {
+      const response = await apiRequest("POST", "/api/admin/blog/ai/generate", { topic });
+      return response.json();
+    },
+    onSuccess: (data: any) => {
+      console.log("AI generated content:", data);
+      setFormData((prev) => ({
+        ...prev,
+        title: data.title || prev.title,
+        slug: data.slug || prev.slug,
+        content: data.content || prev.content,
+        excerpt: data.excerpt || prev.excerpt,
+        metaTitle: data.metaTitle || prev.metaTitle,
+        metaDescription: data.metaDescription || prev.metaDescription,
+        keywords: data.keywords || prev.keywords,
+      }));
+      if (data.keywords) {
+        setKeywordsText(data.keywords.join(", "));
+      }
+      toast({ title: "Content generated successfully!" });
+    },
+    onError: (error: any) => {
+      console.error("AI generation error:", error);
+      toast({
+        title: "Failed to generate content",
+        description: error.message || "AI generation failed. Please try again.",
+        variant: "destructive",
+      });
+    },
+  });
+
   const handleSave = (publish: boolean = false) => {
     const keywords = keywordsText
       .split(",")
@@ -280,19 +312,45 @@ export default function AdminBlogEditor() {
         {/* Main Content */}
         <div className="lg:col-span-2 space-y-6">
           <Card>
-            <CardHeader>
+            <CardHeader className="flex flex-row items-center justify-between gap-4 flex-wrap">
               <CardTitle>Content</CardTitle>
+              <Button
+                variant="outline"
+                onClick={() => {
+                  const topic = formData.title || prompt("Enter a topic for AI to write about:");
+                  if (topic) {
+                    generateContentMutation.mutate(topic);
+                  }
+                }}
+                disabled={generateContentMutation.isPending}
+                data-testid="button-generate-ai-content"
+              >
+                {generateContentMutation.isPending ? (
+                  <>
+                    <Loader2 className="h-4 w-4 mr-2 animate-spin" />
+                    Generating...
+                  </>
+                ) : (
+                  <>
+                    <Sparkles className="h-4 w-4 mr-2" />
+                    Generate with AI
+                  </>
+                )}
+              </Button>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="space-y-2">
-                <Label htmlFor="title">Title</Label>
+                <Label htmlFor="title">Title / Topic</Label>
                 <Input
                   id="title"
-                  placeholder="Enter post title..."
+                  placeholder="Enter post title or topic for AI generation..."
                   value={formData.title}
                   onChange={(e) => handleTitleChange(e.target.value)}
                   data-testid="input-title"
                 />
+                <p className="text-xs text-muted-foreground">
+                  Enter a topic and click "Generate with AI" to create a full SEO-optimized article
+                </p>
               </div>
 
               <div className="space-y-2">

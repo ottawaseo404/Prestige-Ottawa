@@ -1020,11 +1020,17 @@ Provide a detailed cost estimate in JSON format.`;
         return res.status(400).json({ message: "Topic is required" });
       }
 
+      console.log("Generating blog content for topic:", topic);
       const content = await generateBlogPost(topic);
+      console.log("Blog content generated successfully");
       res.json(content);
     } catch (error: any) {
-      console.error("Error generating blog post:", error);
-      res.status(500).json({ message: "Failed to generate blog post content" });
+      console.error("Error generating blog post:", error?.message || error);
+      console.error("Full error:", JSON.stringify(error, null, 2));
+      res.status(500).json({ 
+        message: error?.message || "Failed to generate blog post content",
+        error: process.env.NODE_ENV === 'development' ? error?.message : undefined
+      });
     }
   });
 

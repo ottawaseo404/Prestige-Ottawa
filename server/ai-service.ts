@@ -2,12 +2,14 @@ import OpenAI from "openai";
 import pLimit from "p-limit";
 import pRetry from "p-retry";
 
-// the newest OpenAI model is "gpt-5" which was released August 7, 2025. do not change this unless explicitly requested by the user
 // This is using Replit's AI Integrations service, which provides OpenAI-compatible API access without requiring your own API key.
+// Supported models: gpt-4o, gpt-4o-mini, gpt-5, gpt-5-mini, gpt-5-nano, o3, o3-mini, o4-mini, gpt-image-1
 const openai = new OpenAI({
   baseURL: process.env.AI_INTEGRATIONS_OPENAI_BASE_URL,
   apiKey: process.env.AI_INTEGRATIONS_OPENAI_API_KEY
 });
+
+const AI_MODEL = "gpt-4o"; // Using gpt-4o for reliable performance
 
 // Rate limiting for API calls
 const limit = pLimit(2);
@@ -72,7 +74,7 @@ export async function generateBlogPost(topic: string): Promise<GeneratedBlogCont
     pRetry(
       async () => {
         const response = await openai.chat.completions.create({
-          model: "gpt-5",
+          model: AI_MODEL,
           messages: [
             {
               role: "system",
@@ -164,7 +166,7 @@ export async function generateBlogIdeas(count: number = 5): Promise<string[]> {
     pRetry(
       async () => {
         const response = await openai.chat.completions.create({
-          model: "gpt-5",
+          model: AI_MODEL,
           messages: [
             {
               role: "system",
