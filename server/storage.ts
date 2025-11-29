@@ -1,11 +1,12 @@
 import { 
   type Booking, type InsertBooking, bookings,
   type PageView, type InsertPageView, pageViews,
-  type VisitorSession, type InsertVisitorSession, visitorSessions 
+  type VisitorSession, type InsertVisitorSession, visitorSessions,
+  type MovingPackage, type InsertMovingPackage, movingPackages
 } from "@shared/schema";
 import { drizzle } from "drizzle-orm/neon-serverless";
 import { Pool, neonConfig } from "@neondatabase/serverless";
-import { eq, desc, sql, gte, and, count } from "drizzle-orm";
+import { eq, desc, sql, gte, and, count, asc } from "drizzle-orm";
 import ws from "ws";
 
 neonConfig.webSocketConstructor = ws;
@@ -33,6 +34,14 @@ export interface IStorage {
   getVisitorsByBrowser(): Promise<{ browser: string; count: number }[]>;
   getRecentSessions(limit: number): Promise<VisitorSession[]>;
   getPageViewsLast7Days(): Promise<{ date: string; views: number }[]>;
+  
+  // Package operations
+  getAllPackages(): Promise<MovingPackage[]>;
+  getActivePackages(): Promise<MovingPackage[]>;
+  getPackage(id: string): Promise<MovingPackage | undefined>;
+  createPackage(pkg: InsertMovingPackage): Promise<MovingPackage>;
+  updatePackage(id: string, pkg: Partial<InsertMovingPackage>): Promise<MovingPackage | undefined>;
+  deletePackage(id: string): Promise<boolean>;
 }
 
 export class DbStorage implements IStorage {
@@ -250,6 +259,43 @@ export class DbStorage implements IStorage {
       .groupBy(sql`DATE(${pageViews.createdAt})`)
       .orderBy(sql`DATE(${pageViews.createdAt})`);
     return result.map(r => ({ date: r.date, views: r.views }));
+  }
+
+  // Package operations
+  async getAllPackages(): Promise<MovingPackage[]> {
+    return await this.db.select().from(movingPackages).orderBy(asc(movingPackages.sortOrder));
+  }
+
+  async getActivePackages(): Promise<MovingPackage[]> {
+    return await this.db
+      .select()
+      .from(movingPackages)
+      .where(eq(movingPackages.isActive, true))
+      .orderBy(asc(movingPackages.sortOrder));
+  }
+
+  async getPackage(id: string): Promise<MovingPackage | undefined> {
+    const result = await this.db.select().from(movingPackages).where(eq(movingPackages.id, id));
+    return result[0];
+  }
+
+  async createPackage(pkg: InsertMovingPackage): Promise<MovingPackage> {
+    const result = await this.db.insert(movingPackages).values(pkg).returning();
+    return result[0];
+  }
+
+  async updatePackage(id: string, pkg: Partial<InsertMovingPackage>): Promise<MovingPackage | undefined> {
+    const result = await this.db
+      .update(movingPackages)
+      .set({ ...pkg, updatedAt: new Date() })
+      .where(eq(movingPackages.id, id))
+      .returning();
+    return result[0];
+  }
+
+  async deletePackage(id: string): Promise<boolean> {
+    const result = await this.db.delete(movingPackages).where(eq(movingPackages.id, id)).returning();
+    return result.length > 0;
   }
 }
 
