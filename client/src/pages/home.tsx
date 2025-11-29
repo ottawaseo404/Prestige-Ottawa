@@ -1241,7 +1241,7 @@ export default function Home() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#1A2332] via-[#1A2332]/60 to-transparent" />
                 <div className="absolute inset-0 p-6 flex flex-col justify-end">
-                  <Badge className="bg-blue-500 text-white font-bold mb-3 w-fit shadow-lg">
+                  <Badge className="bg-[#C5A572] text-white font-bold mb-3 w-fit shadow-lg">
                     <Building2 className="h-3 w-3 mr-1" />
                     Business
                   </Badge>
@@ -1265,7 +1265,7 @@ export default function Home() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#1A2332] via-[#1A2332]/60 to-transparent" />
                 <div className="absolute inset-0 p-6 flex flex-col justify-end">
-                  <Badge className="bg-green-500 text-white font-bold mb-3 w-fit shadow-lg">
+                  <Badge className="bg-[#C5A572] text-white font-bold mb-3 w-fit shadow-lg">
                     <MapPin className="h-3 w-3 mr-1" />
                     Cross-Canada
                   </Badge>
@@ -1289,7 +1289,7 @@ export default function Home() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#1A2332] via-[#1A2332]/60 to-transparent" />
                 <div className="absolute inset-0 p-6 flex flex-col justify-end">
-                  <Badge className="bg-purple-500 text-white font-bold mb-3 w-fit shadow-lg">
+                  <Badge className="bg-[#C5A572] text-white font-bold mb-3 w-fit shadow-lg">
                     <Package className="h-3 w-3 mr-1" />
                     Full-Service
                   </Badge>
