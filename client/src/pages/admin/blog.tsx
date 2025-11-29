@@ -12,16 +12,15 @@ import {
   Search, 
   Edit2, 
   Trash2, 
-  Eye, 
   Sparkles,
   FileText,
   RefreshCw,
   ExternalLink,
   Loader2,
-  Lightbulb,
   CheckCircle,
   Clock,
-  EyeOff
+  EyeOff,
+  Shuffle
 } from "lucide-react";
 import {
   Dialog,
@@ -49,14 +48,46 @@ import { format } from "date-fns";
 import { Link } from "wouter";
 import type { BlogPost, BlogCategory } from "@shared/schema";
 
+const SEO_BLOG_TITLES = [
+  "10 Essential Moving Tips for Vancouver Residents",
+  "How to Choose the Best Moving Company in Vancouver",
+  "Complete Guide to Moving to Vancouver in 2025",
+  "Vancouver Neighbourhood Moving Guide: Best Areas to Live",
+  "How Much Does Moving Cost in Vancouver? Complete Price Guide",
+  "Stress-Free Moving Checklist for Vancouver Families",
+  "Best Time to Move in Vancouver: Seasonal Moving Guide",
+  "How to Pack Like a Pro: Expert Moving Tips",
+  "Vancouver Condo Moving Tips: High-Rise Relocation Guide",
+  "Long Distance Moving from Vancouver: What You Need to Know",
+  "Senior Moving Guide: Compassionate Relocation in Vancouver",
+  "Student Moving Tips for Vancouver Universities",
+  "Office Relocation Vancouver: Minimize Business Downtime",
+  "How to Move Your Piano Safely: Professional Tips",
+  "Vancouver Storage Solutions: When You Need Extra Space",
+  "Moving with Pets in Vancouver: Complete Care Guide",
+  "Eco-Friendly Moving Tips for Sustainable Relocations",
+  "Downsizing in Vancouver: Smart Moving Strategies",
+  "Cross-Canada Moving Guide: BC to Ontario Relocation",
+  "Last-Minute Moving Tips: Quick Vancouver Relocations",
+  "How to Protect Furniture During Your Move",
+  "Moving Insurance in Vancouver: What Coverage Do You Need?",
+  "Winter Moving in Vancouver: Cold Weather Tips",
+  "Moving on a Budget: Affordable Vancouver Relocation",
+  "How to Unpack Efficiently After Your Move",
+];
+
 export default function AdminBlog() {
   const { toast } = useToast();
   const [searchQuery, setSearchQuery] = useState("");
   const [statusFilter, setStatusFilter] = useState<string>("all");
   const [deleteConfirmId, setDeleteConfirmId] = useState<string | null>(null);
-  const [aiIdeasOpen, setAiIdeasOpen] = useState(false);
   const [aiGenerateOpen, setAiGenerateOpen] = useState(false);
   const [aiTopic, setAiTopic] = useState("");
+
+  const getRandomTitle = () => {
+    const randomIndex = Math.floor(Math.random() * SEO_BLOG_TITLES.length);
+    setAiTopic(SEO_BLOG_TITLES[randomIndex]);
+  };
 
   const { data: posts, isLoading: postsLoading } = useQuery<BlogPost[]>({
     queryKey: ["/api/admin/blog/posts"],
@@ -107,17 +138,6 @@ export default function AdminBlog() {
     onError: (error: any) => {
       toast({
         title: "Failed to update status",
-        description: error.message,
-        variant: "destructive",
-      });
-    },
-  });
-
-  const generateIdeasMutation = useMutation({
-    mutationFn: () => apiRequest("POST", "/api/admin/blog/ai/ideas", { count: 5 }),
-    onError: (error: any) => {
-      toast({
-        title: "Failed to generate ideas",
         description: error.message,
         variant: "destructive",
       });
@@ -184,22 +204,6 @@ export default function AdminBlog() {
           <p className="text-muted-foreground">Create and manage blog posts with AI assistance</p>
         </div>
         <div className="flex gap-2 flex-wrap">
-          <Button
-            variant="outline"
-            onClick={() => {
-              generateIdeasMutation.mutate();
-              setAiIdeasOpen(true);
-            }}
-            disabled={generateIdeasMutation.isPending}
-            data-testid="button-ai-ideas"
-          >
-            {generateIdeasMutation.isPending ? (
-              <Loader2 className="h-4 w-4 mr-2 animate-spin" />
-            ) : (
-              <Lightbulb className="h-4 w-4 mr-2" />
-            )}
-            AI Ideas
-          </Button>
           <Button
             variant="outline"
             onClick={() => setAiGenerateOpen(true)}
@@ -474,63 +478,6 @@ export default function AdminBlog() {
         </DialogContent>
       </Dialog>
 
-      {/* AI Ideas Dialog */}
-      <Dialog open={aiIdeasOpen} onOpenChange={setAiIdeasOpen}>
-        <DialogContent className="max-w-lg">
-          <DialogHeader>
-            <DialogTitle className="flex items-center gap-2">
-              <Lightbulb className="h-5 w-5 text-primary" />
-              AI Blog Post Ideas
-            </DialogTitle>
-            <DialogDescription>
-              AI-generated blog post ideas optimized for SEO
-            </DialogDescription>
-          </DialogHeader>
-          <div className="space-y-2">
-            {generateIdeasMutation.isPending ? (
-              <div className="flex items-center justify-center py-8">
-                <Loader2 className="h-8 w-8 animate-spin text-primary" />
-              </div>
-            ) : generateIdeasMutation.data ? (
-              (generateIdeasMutation.data as any).ideas?.map((idea: string, index: number) => (
-                <div
-                  key={index}
-                  className="p-3 border rounded-lg hover-elevate cursor-pointer"
-                  onClick={() => {
-                    setAiTopic(idea);
-                    setAiIdeasOpen(false);
-                    setAiGenerateOpen(true);
-                  }}
-                  data-testid={`idea-${index}`}
-                >
-                  <p className="text-sm">{idea}</p>
-                </div>
-              ))
-            ) : (
-              <p className="text-center text-muted-foreground py-4">
-                Click "AI Ideas" to generate new blog post ideas
-              </p>
-            )}
-          </div>
-          <DialogFooter>
-            <Button variant="outline" onClick={() => setAiIdeasOpen(false)}>
-              Close
-            </Button>
-            <Button
-              onClick={() => generateIdeasMutation.mutate()}
-              disabled={generateIdeasMutation.isPending}
-            >
-              {generateIdeasMutation.isPending ? (
-                <Loader2 className="h-4 w-4 mr-2 animate-spin" />
-              ) : (
-                <RefreshCw className="h-4 w-4 mr-2" />
-              )}
-              Regenerate
-            </Button>
-          </DialogFooter>
-        </DialogContent>
-      </Dialog>
-
       {/* AI Generate Dialog */}
       <Dialog open={aiGenerateOpen} onOpenChange={setAiGenerateOpen}>
         <DialogContent>
@@ -545,7 +492,20 @@ export default function AdminBlog() {
           </DialogHeader>
           <div className="space-y-4">
             <div>
-              <label className="text-sm font-medium">Topic or Title</label>
+              <div className="flex items-center justify-between mb-1">
+                <label className="text-sm font-medium">Topic or Title</label>
+                <Button 
+                  type="button"
+                  variant="ghost" 
+                  size="sm"
+                  onClick={getRandomTitle}
+                  className="h-7 text-xs"
+                  data-testid="button-random-title"
+                >
+                  <Shuffle className="h-3 w-3 mr-1" />
+                  Random Title
+                </Button>
+              </div>
               <Input
                 placeholder="e.g., 10 Tips for Moving to Vancouver"
                 value={aiTopic}
