@@ -271,3 +271,77 @@ export const insertMovingPackageSchema = createInsertSchema(movingPackages).omit
 
 export type InsertMovingPackage = z.infer<typeof insertMovingPackageSchema>;
 export type MovingPackage = typeof movingPackages.$inferSelect;
+
+// Blog Categories
+export const blogCategories = pgTable("blog_categories", {
+  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+  name: text("name").notNull(),
+  slug: text("slug").notNull().unique(),
+  description: text("description"),
+  createdAt: timestamp("created_at").notNull().default(sql`now()`),
+});
+
+export const insertBlogCategorySchema = createInsertSchema(blogCategories).omit({
+  id: true,
+  createdAt: true,
+});
+
+export type InsertBlogCategory = z.infer<typeof insertBlogCategorySchema>;
+export type BlogCategory = typeof blogCategories.$inferSelect;
+
+// Blog Posts - WordPress-like structure
+export const blogPosts = pgTable("blog_posts", {
+  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+  // Core content
+  title: text("title").notNull(),
+  slug: text("slug").notNull().unique(),
+  excerpt: text("excerpt"),
+  content: text("content").notNull(),
+  
+  // Featured image
+  featuredImage: text("featured_image"),
+  featuredImageAlt: text("featured_image_alt"),
+  
+  // SEO fields
+  metaTitle: text("meta_title"),
+  metaDescription: text("meta_description"),
+  keywords: text("keywords").array(),
+  canonicalUrl: text("canonical_url"),
+  
+  // Organization
+  categoryId: varchar("category_id").references(() => blogCategories.id),
+  tags: text("tags").array(),
+  
+  // Author info
+  authorName: text("author_name").notNull().default("Prestige Moving Team"),
+  authorAvatar: text("author_avatar"),
+  
+  // Status and publishing
+  status: text("status").notNull().default("draft"), // draft, published, scheduled
+  publishedAt: timestamp("published_at"),
+  scheduledAt: timestamp("scheduled_at"),
+  
+  // AI generation tracking
+  isAiGenerated: boolean("is_ai_generated").notNull().default(false),
+  aiPrompt: text("ai_prompt"),
+  
+  // Engagement metrics
+  viewCount: integer("view_count").notNull().default(0),
+  
+  // Timestamps
+  createdAt: timestamp("created_at").notNull().default(sql`now()`),
+  updatedAt: timestamp("updated_at").notNull().default(sql`now()`),
+});
+
+export const insertBlogPostSchema = createInsertSchema(blogPosts).omit({
+  id: true,
+  createdAt: true,
+  updatedAt: true,
+  viewCount: true,
+}).extend({
+  publishedAt: z.coerce.date().optional().nullable(),
+  scheduledAt: z.coerce.date().optional().nullable(),
+});
+
+export type InsertBlogPost = z.infer<typeof insertBlogPostSchema>;
+export type BlogPost = typeof blogPosts.$inferSelect;

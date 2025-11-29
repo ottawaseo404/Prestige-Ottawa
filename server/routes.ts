@@ -1,10 +1,11 @@
 import type { Express, Request, Response, NextFunction } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
-import { insertBookingSchema, type SmartMovingLead, packageTypes, insertMovingPackageSchema } from "@shared/schema";
+import { insertBookingSchema, type SmartMovingLead, packageTypes, insertMovingPackageSchema, insertBlogPostSchema, insertBlogCategorySchema } from "@shared/schema";
 import { z } from "zod";
 import { fromZodError } from "zod-validation-error";
 import OpenAI from "openai";
+import { generateBlogPost, generateFeaturedImage, generateBlogIdeas } from "./ai-service";
 
 // Helper functions for user agent parsing
 function getBrowser(userAgent: string): string {
@@ -815,6 +816,310 @@ Provide a detailed cost estimate in JSON format.`;
     } catch (error: any) {
       console.error("Error initializing packages:", error);
       res.status(500).json({ message: "Failed to initialize packages" });
+    }
+  });
+
+  // ============= BLOG CATEGORY ROUTES =============
+
+  // Get all categories (public)
+  app.get("/api/blog/categories", async (req, res) => {
+    try {
+      const categories = await storage.getAllCategories();
+      res.json(categories);
+    } catch (error: any) {
+      console.error("Error fetching categories:", error);
+      res.status(500).json({ message: "Failed to fetch categories" });
+    }
+  });
+
+  // Create category (admin)
+  app.post("/api/admin/blog/categories", requireAdmin, async (req, res) => {
+    try {
+      const validatedData = insertBlogCategorySchema.parse(req.body);
+      const category = await storage.createCategory(validatedData);
+      res.status(201).json(category);
+    } catch (error: any) {
+      console.error("Error creating category:", error);
+      if (error instanceof z.ZodError) {
+        return res.status(400).json({ message: fromZodError(error).message });
+      }
+      res.status(500).json({ message: "Failed to create category" });
+    }
+  });
+
+  // Update category (admin)
+  app.patch("/api/admin/blog/categories/:id", requireAdmin, async (req, res) => {
+    try {
+      const category = await storage.updateCategory(req.params.id, req.body);
+      if (!category) {
+        return res.status(404).json({ message: "Category not found" });
+      }
+      res.json(category);
+    } catch (error: any) {
+      console.error("Error updating category:", error);
+      res.status(500).json({ message: "Failed to update category" });
+    }
+  });
+
+  // Delete category (admin)
+  app.delete("/api/admin/blog/categories/:id", requireAdmin, async (req, res) => {
+    try {
+      const success = await storage.deleteCategory(req.params.id);
+      if (!success) {
+        return res.status(404).json({ message: "Category not found" });
+      }
+      res.json({ success: true });
+    } catch (error: any) {
+      console.error("Error deleting category:", error);
+      res.status(500).json({ message: "Failed to delete category" });
+    }
+  });
+
+  // ============= BLOG POST ROUTES =============
+
+  // Get all published posts (public)
+  app.get("/api/blog/posts", async (req, res) => {
+    try {
+      const posts = await storage.getPublishedBlogPosts();
+      res.json(posts);
+    } catch (error: any) {
+      console.error("Error fetching blog posts:", error);
+      res.status(500).json({ message: "Failed to fetch blog posts" });
+    }
+  });
+
+  // Get single post by slug (public)
+  app.get("/api/blog/posts/slug/:slug", async (req, res) => {
+    try {
+      const post = await storage.getBlogPostBySlug(req.params.slug);
+      if (!post || post.status !== "published") {
+        return res.status(404).json({ message: "Blog post not found" });
+      }
+      // Increment view count
+      await storage.incrementBlogPostViews(post.id);
+      res.json(post);
+    } catch (error: any) {
+      console.error("Error fetching blog post:", error);
+      res.status(500).json({ message: "Failed to fetch blog post" });
+    }
+  });
+
+  // Get posts by category (public)
+  app.get("/api/blog/categories/:categoryId/posts", async (req, res) => {
+    try {
+      const posts = await storage.getBlogPostsByCategory(req.params.categoryId);
+      res.json(posts);
+    } catch (error: any) {
+      console.error("Error fetching posts by category:", error);
+      res.status(500).json({ message: "Failed to fetch posts" });
+    }
+  });
+
+  // Get all posts including drafts (admin)
+  app.get("/api/admin/blog/posts", requireAdmin, async (req, res) => {
+    try {
+      const posts = await storage.getAllBlogPosts();
+      res.json(posts);
+    } catch (error: any) {
+      console.error("Error fetching blog posts:", error);
+      res.status(500).json({ message: "Failed to fetch blog posts" });
+    }
+  });
+
+  // Get single post by id (admin)
+  app.get("/api/admin/blog/posts/:id", requireAdmin, async (req, res) => {
+    try {
+      const post = await storage.getBlogPost(req.params.id);
+      if (!post) {
+        return res.status(404).json({ message: "Blog post not found" });
+      }
+      res.json(post);
+    } catch (error: any) {
+      console.error("Error fetching blog post:", error);
+      res.status(500).json({ message: "Failed to fetch blog post" });
+    }
+  });
+
+  // Create blog post (admin)
+  app.post("/api/admin/blog/posts", requireAdmin, async (req, res) => {
+    try {
+      const validatedData = insertBlogPostSchema.parse(req.body);
+      
+      // Set publishedAt if publishing
+      if (validatedData.status === "published" && !validatedData.publishedAt) {
+        validatedData.publishedAt = new Date();
+      }
+      
+      const post = await storage.createBlogPost(validatedData);
+      res.status(201).json(post);
+    } catch (error: any) {
+      console.error("Error creating blog post:", error);
+      if (error instanceof z.ZodError) {
+        return res.status(400).json({ message: fromZodError(error).message });
+      }
+      res.status(500).json({ message: "Failed to create blog post" });
+    }
+  });
+
+  // Update blog post (admin)
+  app.patch("/api/admin/blog/posts/:id", requireAdmin, async (req, res) => {
+    try {
+      // Set publishedAt if publishing for the first time
+      if (req.body.status === "published") {
+        const existingPost = await storage.getBlogPost(req.params.id);
+        if (existingPost && existingPost.status !== "published" && !req.body.publishedAt) {
+          req.body.publishedAt = new Date();
+        }
+      }
+      
+      const post = await storage.updateBlogPost(req.params.id, req.body);
+      if (!post) {
+        return res.status(404).json({ message: "Blog post not found" });
+      }
+      res.json(post);
+    } catch (error: any) {
+      console.error("Error updating blog post:", error);
+      res.status(500).json({ message: "Failed to update blog post" });
+    }
+  });
+
+  // Delete blog post (admin)
+  app.delete("/api/admin/blog/posts/:id", requireAdmin, async (req, res) => {
+    try {
+      const success = await storage.deleteBlogPost(req.params.id);
+      if (!success) {
+        return res.status(404).json({ message: "Blog post not found" });
+      }
+      res.json({ success: true });
+    } catch (error: any) {
+      console.error("Error deleting blog post:", error);
+      res.status(500).json({ message: "Failed to delete blog post" });
+    }
+  });
+
+  // ============= AI BLOG GENERATION ROUTES =============
+
+  // Generate blog post ideas
+  app.post("/api/admin/blog/ai/ideas", requireAdmin, async (req, res) => {
+    try {
+      const { count = 5 } = req.body;
+      const ideas = await generateBlogIdeas(count);
+      res.json({ ideas });
+    } catch (error: any) {
+      console.error("Error generating blog ideas:", error);
+      res.status(500).json({ message: "Failed to generate blog ideas" });
+    }
+  });
+
+  // Generate blog post content from topic
+  app.post("/api/admin/blog/ai/generate", requireAdmin, async (req, res) => {
+    try {
+      const { topic } = req.body;
+      
+      if (!topic || typeof topic !== "string") {
+        return res.status(400).json({ message: "Topic is required" });
+      }
+
+      const content = await generateBlogPost(topic);
+      res.json(content);
+    } catch (error: any) {
+      console.error("Error generating blog post:", error);
+      res.status(500).json({ message: "Failed to generate blog post content" });
+    }
+  });
+
+  // Generate featured image for blog post
+  app.post("/api/admin/blog/ai/image", requireAdmin, async (req, res) => {
+    try {
+      const { title } = req.body;
+      
+      if (!title || typeof title !== "string") {
+        return res.status(400).json({ message: "Title is required" });
+      }
+
+      const imageUrl = await generateFeaturedImage(title);
+      res.json({ imageUrl });
+    } catch (error: any) {
+      console.error("Error generating featured image:", error);
+      res.status(500).json({ message: "Failed to generate featured image" });
+    }
+  });
+
+  // Generate and create complete blog post (topic -> content -> image -> save)
+  app.post("/api/admin/blog/ai/create-full", requireAdmin, async (req, res) => {
+    try {
+      const { topic, categoryId, generateImage = true } = req.body;
+      
+      if (!topic || typeof topic !== "string") {
+        return res.status(400).json({ message: "Topic is required" });
+      }
+
+      // Generate content
+      const content = await generateBlogPost(topic);
+      
+      // Generate featured image if requested
+      let featuredImage: string | undefined;
+      if (generateImage) {
+        try {
+          featuredImage = await generateFeaturedImage(content.title);
+        } catch (imgError) {
+          console.error("Failed to generate image, continuing without:", imgError);
+        }
+      }
+
+      // Create the blog post
+      const postData = {
+        title: content.title,
+        slug: content.slug,
+        excerpt: content.excerpt,
+        content: content.content,
+        metaTitle: content.metaTitle,
+        metaDescription: content.metaDescription,
+        keywords: content.keywords,
+        featuredImage: featuredImage || null,
+        featuredImageAlt: featuredImage ? `Featured image for ${content.title}` : null,
+        categoryId: categoryId || null,
+        status: "draft" as const,
+        isAiGenerated: true,
+        aiPrompt: topic,
+        authorName: "Prestige Moving Team",
+        tags: content.keywords,
+      };
+
+      const post = await storage.createBlogPost(postData);
+      res.status(201).json(post);
+    } catch (error: any) {
+      console.error("Error creating AI blog post:", error);
+      res.status(500).json({ message: "Failed to create AI blog post" });
+    }
+  });
+
+  // Initialize default blog categories
+  app.post("/api/admin/blog/categories/initialize", requireAdmin, async (req, res) => {
+    try {
+      const existingCategories = await storage.getAllCategories();
+      if (existingCategories.length > 0) {
+        return res.status(400).json({ message: "Categories already exist" });
+      }
+
+      const defaultCategories = [
+        { name: "Moving Tips", slug: "moving-tips", description: "Helpful tips and guides for your move" },
+        { name: "Vancouver Guide", slug: "vancouver-guide", description: "Vancouver neighborhoods and local moving info" },
+        { name: "Packing & Organization", slug: "packing-organization", description: "Packing tips and organization strategies" },
+        { name: "Moving Checklist", slug: "moving-checklist", description: "Checklists and timelines for moving" },
+        { name: "Cost Saving", slug: "cost-saving", description: "Ways to save money on your move" },
+        { name: "Specialty Moving", slug: "specialty-moving", description: "Piano, antique, and specialty item moving" },
+        { name: "Commercial Moving", slug: "commercial-moving", description: "Office and business relocation tips" },
+      ];
+
+      const createdCategories = await Promise.all(
+        defaultCategories.map(cat => storage.createCategory(cat))
+      );
+
+      res.status(201).json(createdCategories);
+    } catch (error: any) {
+      console.error("Error initializing categories:", error);
+      res.status(500).json({ message: "Failed to initialize categories" });
     }
   });
 
