@@ -10,9 +10,11 @@ export function useAdminAuth() {
   const [, setLocation] = useLocation();
   const queryClient = useQueryClient();
 
-  const { data, isLoading } = useQuery<AuthCheckResponse>({
+  const { data, isLoading, isFetching } = useQuery<AuthCheckResponse>({
     queryKey: ["/api/admin/check"],
     refetchOnWindowFocus: true,
+    staleTime: 0,
+    gcTime: 0,
   });
 
   const logoutMutation = useMutation({
@@ -28,7 +30,7 @@ export function useAdminAuth() {
 
   return {
     isAuthenticated: data?.isAuthenticated ?? false,
-    isLoading,
+    isLoading: isLoading || isFetching,
     logout: logoutMutation.mutate,
     isLoggingOut: logoutMutation.isPending,
   };

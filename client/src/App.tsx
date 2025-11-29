@@ -47,6 +47,12 @@ function ProtectedAdminLayout({ children }: { children: React.ReactNode }) {
   const { isAuthenticated, isLoading, logout, isLoggingOut } = useAdminAuth();
   const [, setLocation] = useLocation();
 
+  useEffect(() => {
+    if (!isLoading && !isAuthenticated) {
+      setLocation("/login");
+    }
+  }, [isLoading, isAuthenticated, setLocation]);
+
   if (isLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-accent/20">
@@ -56,8 +62,11 @@ function ProtectedAdminLayout({ children }: { children: React.ReactNode }) {
   }
 
   if (!isAuthenticated) {
-    setLocation("/login");
-    return null;
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-accent/20">
+        <Loader2 className="h-8 w-8 animate-spin text-primary" />
+      </div>
+    );
   }
 
   const style = {
