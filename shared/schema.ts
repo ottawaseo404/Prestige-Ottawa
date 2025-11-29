@@ -242,3 +242,32 @@ export const insertVisitorSessionSchema = createInsertSchema(visitorSessions).om
 
 export type InsertVisitorSession = z.infer<typeof insertVisitorSessionSchema>;
 export type VisitorSession = typeof visitorSessions.$inferSelect;
+
+// Moving Packages - Admin Configurable
+export const movingPackages = pgTable("moving_packages", {
+  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+  name: text("name").notNull(),
+  displayName: text("display_name").notNull(),
+  description: text("description").notNull(),
+  hourlyRate: integer("hourly_rate").notNull(),
+  minimumHours: integer("minimum_hours").notNull().default(3),
+  travelFee: integer("travel_fee").notNull(),
+  movers: integer("movers").notNull(),
+  trucks: integer("trucks").notNull().default(1),
+  truckSize: text("truck_size").notNull(),
+  features: text("features").array().notNull(),
+  isPopular: boolean("is_popular").notNull().default(false),
+  isActive: boolean("is_active").notNull().default(true),
+  sortOrder: integer("sort_order").notNull().default(0),
+  createdAt: timestamp("created_at").notNull().default(sql`now()`),
+  updatedAt: timestamp("updated_at").notNull().default(sql`now()`),
+});
+
+export const insertMovingPackageSchema = createInsertSchema(movingPackages).omit({
+  id: true,
+  createdAt: true,
+  updatedAt: true,
+});
+
+export type InsertMovingPackage = z.infer<typeof insertMovingPackageSchema>;
+export type MovingPackage = typeof movingPackages.$inferSelect;
