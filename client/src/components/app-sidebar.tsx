@@ -1,4 +1,4 @@
-import { LayoutDashboard, Calendar, Users, Settings, RefreshCw, LogOut, TruckIcon, BarChart3, Package, FileText, PenTool } from "lucide-react";
+import { LayoutDashboard, Calendar, Users, Settings, RefreshCw, LogOut, TruckIcon, BarChart3, Package, FileText, PenTool, Video } from "lucide-react";
 import {
   Sidebar,
   SidebarContent,
@@ -29,6 +29,11 @@ const menuItems = [
     title: "Packages",
     url: "/admin/packages",
     icon: Package,
+  },
+  {
+    title: "Hero Videos",
+    url: "/admin/hero-videos",
+    icon: Video,
   },
   {
     title: "Blog",

@@ -36,6 +36,7 @@ import AdminBookings from "@/pages/admin/bookings";
 import AdminAnalytics from "@/pages/admin-analytics";
 import AdminSmartMoving from "@/pages/admin/smartmoving";
 import AdminPackages from "@/pages/admin/packages";
+import AdminHeroVideos from "@/pages/admin/hero-videos";
 import AdminLogin from "@/pages/admin-login";
 import AdminBlog from "@/pages/admin/blog";
 import AdminBlogEditor from "@/pages/admin/blog-editor";
@@ -171,6 +172,13 @@ function Router() {
         {() => (
           <ProtectedAdminLayout>
             <AdminPackages />
+          </ProtectedAdminLayout>
+        )}
+      </Route>
+      <Route path="/admin/hero-videos">
+        {() => (
+          <ProtectedAdminLayout>
+            <AdminHeroVideos />
           </ProtectedAdminLayout>
         )}
       </Route>
