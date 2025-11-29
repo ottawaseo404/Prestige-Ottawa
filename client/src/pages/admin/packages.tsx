@@ -80,7 +80,7 @@ export default function AdminPackages() {
   });
 
   const initializeMutation = useMutation({
-    mutationFn: () => apiRequest("/api/admin/packages/initialize", "POST"),
+    mutationFn: () => apiRequest("POST", "/api/admin/packages/initialize"),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["/api/admin/packages"] });
       queryClient.invalidateQueries({ queryKey: ["/api/packages"] });
@@ -96,7 +96,7 @@ export default function AdminPackages() {
   });
 
   const createMutation = useMutation({
-    mutationFn: (data: PackageFormData) => apiRequest("/api/admin/packages", "POST", data),
+    mutationFn: (data: PackageFormData) => apiRequest("POST", "/api/admin/packages", data),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["/api/admin/packages"] });
       queryClient.invalidateQueries({ queryKey: ["/api/packages"] });
@@ -116,7 +116,7 @@ export default function AdminPackages() {
 
   const updateMutation = useMutation({
     mutationFn: ({ id, data }: { id: string; data: Partial<PackageFormData> }) => 
-      apiRequest(`/api/admin/packages/${id}`, "PATCH", data),
+      apiRequest("PATCH", `/api/admin/packages/${id}`, data),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["/api/admin/packages"] });
       queryClient.invalidateQueries({ queryKey: ["/api/packages"] });
@@ -135,7 +135,7 @@ export default function AdminPackages() {
   });
 
   const deleteMutation = useMutation({
-    mutationFn: (id: string) => apiRequest(`/api/admin/packages/${id}`, "DELETE"),
+    mutationFn: (id: string) => apiRequest("DELETE", `/api/admin/packages/${id}`),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["/api/admin/packages"] });
       queryClient.invalidateQueries({ queryKey: ["/api/packages"] });

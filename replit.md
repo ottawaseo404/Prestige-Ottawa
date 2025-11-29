@@ -54,6 +54,16 @@ Modern, responsive website for Prestige Moving Vancouver franchise with integrat
   - Bulk sync all pending bookings
   - Sync activity monitoring
 
+- **Package Management** (`/admin/packages`):
+  - View all pricing packages (Premium, Deluxe, Diamond)
+  - Edit hourly rates, travel fees, minimum hours
+  - Customize number of movers and trucks
+  - Edit package features list
+  - Toggle active/inactive status
+  - Mark packages as "Most Popular"
+  - Initialize default packages if none exist
+  - Changes reflect on homepage in real-time
+
 - **Customers** (`/admin/customers`):
   - Placeholder for SmartMoving customer data
   - Ready for future SmartMoving API integration
@@ -123,6 +133,7 @@ Modern, responsive website for Prestige Moving Vancouver franchise with integrat
 ### Admin
 - `/admin` - Dashboard overview
 - `/admin/bookings` - Bookings management
+- `/admin/packages` - Package pricing management
 - `/admin/customers` - Customer data
 - `/admin/smartmoving` - SmartMoving sync panel
 
@@ -140,6 +151,15 @@ Modern, responsive website for Prestige Moving Vancouver franchise with integrat
 - `POST /api/smartmoving/sync-all` - Bulk sync all pending bookings
 - `GET /api/smartmoving/customers` - Get customers from SmartMoving API (pagination supported)
 - `POST /api/webhooks/smartmoving` - Webhook endpoint for real-time updates from SmartMoving
+
+### Packages
+- `GET /api/packages` - Get active packages (public)
+- `GET /api/admin/packages` - Get all packages including inactive (admin)
+- `GET /api/admin/packages/:id` - Get single package (admin)
+- `POST /api/admin/packages` - Create new package (admin)
+- `PATCH /api/admin/packages/:id` - Update package (admin)
+- `DELETE /api/admin/packages/:id` - Delete package (admin)
+- `POST /api/admin/packages/initialize` - Initialize default packages (admin)
 
 ## Design System
 - **Colors**: Gold (#C5A572), Navy (#1A2332), White, Gray
