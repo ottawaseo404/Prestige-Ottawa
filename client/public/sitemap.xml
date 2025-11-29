@@ -116,4 +116,12 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+
+  <!-- Blog -->
+  <url>
+    <loc>https://vancouver.prestigemoving.ca/blog</loc>
+    <lastmod>2025-11-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>

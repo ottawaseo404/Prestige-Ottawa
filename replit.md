@@ -68,6 +68,31 @@ Modern, responsive website for Prestige Moving Vancouver franchise with integrat
   - Placeholder for SmartMoving customer data
   - Ready for future SmartMoving API integration
 
+- **Blog Management** (`/admin/blog`):
+  - AI-powered WordPress-like blog system
+  - Create, edit, and publish SEO-optimized articles
+  - AI content generation using OpenAI GPT-4o
+  - Categories and tags for organization
+  - SEO meta fields (title, description, focus keywords)
+  - Draft/published/scheduled status management
+  - Featured images with AI generation support
+  - Rich text editor for content creation
+  - Automatic slug generation from titles
+
+### Blog System (`/blog`)
+- **Blog Listing Page** (`/blog`):
+  - Displays all published posts with featured images
+  - Category filtering and search functionality
+  - Pagination support
+  - SEO-optimized with meta tags
+
+- **Blog Post Page** (`/blog/:slug`):
+  - Full article display with rich formatting
+  - JSON-LD schema markup for SEO
+  - Social sharing meta tags
+  - Related posts suggestions
+  - Author and publication date display
+
 ## API Integration
 
 ### SmartMoving Lead API
@@ -130,12 +155,19 @@ Modern, responsive website for Prestige Moving Vancouver franchise with integrat
 - `/services/senior-moving` - Compassionate elderly relocations
 - `/services/military-moving` - PCS moves and base relocations
 
+### Blog
+- `/blog` - Blog listing page
+- `/blog/:slug` - Individual blog post
+
 ### Admin
 - `/admin` - Dashboard overview
 - `/admin/bookings` - Bookings management
 - `/admin/packages` - Package pricing management
 - `/admin/customers` - Customer data
 - `/admin/smartmoving` - SmartMoving sync panel
+- `/admin/blog` - Blog management
+- `/admin/blog/new` - Create new blog post
+- `/admin/blog/edit/:id` - Edit existing blog post
 
 ## API Endpoints
 
@@ -160,6 +192,17 @@ Modern, responsive website for Prestige Moving Vancouver franchise with integrat
 - `PATCH /api/admin/packages/:id` - Update package (admin)
 - `DELETE /api/admin/packages/:id` - Delete package (admin)
 - `POST /api/admin/packages/initialize` - Initialize default packages (admin)
+
+### Blog
+- `GET /api/blog` - Get published blog posts (public)
+- `GET /api/blog/:slug` - Get single blog post by slug (public)
+- `GET /api/admin/blog` - Get all blog posts including drafts (admin)
+- `GET /api/admin/blog/:id` - Get single blog post by ID (admin)
+- `POST /api/admin/blog` - Create new blog post (admin)
+- `PATCH /api/admin/blog/:id` - Update blog post (admin)
+- `DELETE /api/admin/blog/:id` - Delete blog post (admin)
+- `POST /api/admin/blog/generate-content` - AI-generate blog content (admin)
+- `GET /api/blog-categories` - Get all blog categories
 
 ## Design System
 - **Colors**: Gold (#C5A572), Navy (#1A2332), White, Gray
