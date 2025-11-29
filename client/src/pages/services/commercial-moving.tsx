@@ -244,115 +244,102 @@ export default function CommercialMoving() {
           </div>
         </section>
 
-        {/* Downtime Cost Calculator Infographic */}
-        <section className="py-20 md:py-28 bg-gradient-to-b from-[#1A2332] to-[#2a3a52]">
+        {/* Comprehensive Commercial Services Explanation - SEO Friendly */}
+        <section className="py-20 md:py-28 bg-gradient-to-b from-white to-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <Badge className="bg-red-500/20 text-red-400 border-red-500/40 mb-4">
-                <AlertTriangle className="h-4 w-4 mr-2" />
-                The Hidden Cost
-              </Badge>
-              <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
-                What Does Downtime Really Cost?
-              </h2>
-              <p className="text-xl text-white/60 max-w-2xl mx-auto">
-                Calculate the true cost of office downtime during your move
-              </p>
-            </div>
-
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              {/* Calculator */}
-              <div className="bg-white/5 backdrop-blur border border-white/10 rounded-3xl p-8">
-                <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-2">
-                  <BarChart3 className="h-6 w-6 text-primary" />
-                  Downtime Calculator
-                </h3>
-                
-                <div className="space-y-8">
-                  <div>
-                    <label className="block text-white/80 mb-3 font-medium">
-                      Expected Downtime Hours: <span className="text-primary font-bold">{downtimeHours} hours</span>
-                    </label>
-                    <input
-                      type="range"
-                      min="4"
-                      max="72"
-                      value={downtimeHours}
-                      onChange={(e) => setDowntimeHours(Number(e.target.value))}
-                      className="w-full h-3 bg-white/10 rounded-lg appearance-none cursor-pointer accent-primary"
-                    />
-                    <div className="flex justify-between text-white/40 text-sm mt-1">
-                      <span>4 hrs</span>
-                      <span>72 hrs</span>
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-white/80 mb-3 font-medium">
-                      Number of Employees: <span className="text-primary font-bold">{employeeCount}</span>
-                    </label>
-                    <input
-                      type="range"
-                      min="5"
-                      max="200"
-                      value={employeeCount}
-                      onChange={(e) => setEmployeeCount(Number(e.target.value))}
-                      className="w-full h-3 bg-white/10 rounded-lg appearance-none cursor-pointer accent-primary"
-                    />
-                    <div className="flex justify-between text-white/40 text-sm mt-1">
-                      <span>5</span>
-                      <span>200+</span>
-                    </div>
-                  </div>
+            <div className="grid lg:grid-cols-2 gap-12 items-start mb-16">
+              <div>
+                <Badge className="bg-primary/10 text-primary mb-4">Complete Business Solutions</Badge>
+                <h2 className="text-3xl md:text-4xl font-black text-foreground mb-6">
+                  How Our Commercial Moving Services Work
+                </h2>
+                <div className="prose prose-lg max-w-none text-muted-foreground">
+                  <p>
+                    <strong>Commercial moving in Vancouver</strong> requires a completely different approach than residential relocations. At Prestige Moving, we've developed specialized systems and protocols specifically for business environments, ensuring your operations experience minimal disruption during the transition.
+                  </p>
+                  <p>
+                    Our commercial moving process begins with a comprehensive <strong>pre-move consultation</strong> where we assess your current space, inventory all equipment and furniture, and create a detailed floor plan for your new location. This planning phase is critical—it allows us to identify potential challenges, coordinate with building management at both locations, and establish a realistic timeline that aligns with your business needs.
+                  </p>
+                  <p>
+                    Unlike standard moving companies, we assign a <strong>dedicated project manager</strong> to oversee your entire relocation. This single point of contact coordinates all aspects of your move, from scheduling elevator access and loading dock reservations to ensuring IT equipment is properly disconnected, transported, and reconnected in the correct order.
+                  </p>
                 </div>
               </div>
-
-              {/* Results Visualization */}
-              <div className="space-y-6">
-                <div className="bg-red-500/10 border border-red-500/30 rounded-2xl p-6">
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="flex items-center gap-3">
-                      <div className="h-12 w-12 bg-red-500/20 rounded-xl flex items-center justify-center">
-                        <XCircle className="h-6 w-6 text-red-400" />
+              <div className="space-y-4">
+                {[
+                  { icon: ClipboardList, title: "Pre-Move Planning", desc: "Detailed inventory, floor planning, and timeline development customized to your business" },
+                  { icon: Users, title: "Dedicated Project Manager", desc: "Single point of contact from consultation through final setup and walkthrough" },
+                  { icon: Clock, title: "After-Hours & Weekend Moves", desc: "Zero-disruption moves scheduled outside business hours to maintain productivity" },
+                  { icon: Server, title: "IT & Equipment Handling", desc: "Specialized protocols for servers, workstations, and sensitive electronics" },
+                  { icon: Shield, title: "Full Insurance Coverage", desc: "Comprehensive protection for all equipment, furniture, and inventory items" },
+                  { icon: Settings, title: "Complete Setup Services", desc: "Furniture placement, workstation configuration, and post-move support" }
+                ].map((item, index) => {
+                  const ItemIcon = item.icon;
+                  return (
+                    <div key={index} className="flex gap-4 p-4 bg-white rounded-xl border hover:border-primary/50 transition-colors">
+                      <div className="h-12 w-12 bg-primary/10 rounded-xl flex items-center justify-center shrink-0">
+                        <ItemIcon className="h-6 w-6 text-primary" />
                       </div>
                       <div>
-                        <p className="text-white/60 text-sm">Traditional Moving Cost</p>
-                        <p className="text-white font-bold">Productivity Loss</p>
+                        <h4 className="font-bold text-foreground">{item.title}</h4>
+                        <p className="text-sm text-muted-foreground">{item.desc}</p>
                       </div>
                     </div>
-                    <div className="text-right">
-                      <p className="text-4xl font-black text-red-400">${downtimeCost.toLocaleString()}</p>
-                      <p className="text-white/40 text-sm">estimated loss</p>
-                    </div>
-                  </div>
-                  <p className="text-white/50 text-sm">
-                    Based on {downtimeHours} hours × {employeeCount} employees × $50/hr avg productivity
-                  </p>
-                </div>
+                  );
+                })}
+              </div>
+            </div>
 
-                <div className="flex items-center justify-center">
-                  <ArrowDown className="h-8 w-8 text-primary animate-bounce" />
-                </div>
-
-                <div className="bg-green-500/10 border border-green-500/30 rounded-2xl p-6">
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="flex items-center gap-3">
-                      <div className="h-12 w-12 bg-green-500/20 rounded-xl flex items-center justify-center">
-                        <CheckCircle className="h-6 w-6 text-green-400" />
-                      </div>
-                      <div>
-                        <p className="text-white/60 text-sm">With Prestige Moving</p>
-                        <p className="text-white font-bold">You Save</p>
-                      </div>
-                    </div>
-                    <div className="text-right">
-                      <p className="text-4xl font-black text-green-400">${savingsWithUs.toLocaleString()}</p>
-                      <p className="text-white/40 text-sm">in productivity</p>
-                    </div>
-                  </div>
-                  <p className="text-white/50 text-sm">
-                    70% less downtime with our efficient weekend/after-hours moving
+            {/* Detailed Service Explanation */}
+            <div className="bg-[#1A2332] rounded-3xl p-8 md:p-12">
+              <div className="grid md:grid-cols-2 gap-8">
+                <div>
+                  <h3 className="text-2xl font-bold text-white mb-4">Office & Corporate Relocations</h3>
+                  <p className="text-white/70 mb-4">
+                    Whether you're moving a small office or an entire corporate headquarters, our team has the expertise to handle it all. We specialize in:
                   </p>
+                  <ul className="space-y-2 text-white/70">
+                    <li className="flex items-start gap-2">
+                      <CheckCircle2 className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                      <span><strong className="text-white">Workstation disassembly and reassembly</strong> — cubicles, desks, and modular furniture properly deconstructed and rebuilt</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle2 className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                      <span><strong className="text-white">Executive office moves</strong> — white-glove handling of high-value furniture and artwork</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle2 className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                      <span><strong className="text-white">Conference room setup</strong> — AV equipment, presentation systems, and furniture arrangement</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle2 className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                      <span><strong className="text-white">File and document handling</strong> — secure transport of sensitive materials and records</span>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-white mb-4">IT & Technology Moving</h3>
+                  <p className="text-white/70 mb-4">
+                    Technology infrastructure requires specialized handling. Our IT moving services include:
+                  </p>
+                  <ul className="space-y-2 text-white/70">
+                    <li className="flex items-start gap-2">
+                      <CheckCircle2 className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                      <span><strong className="text-white">Server room relocations</strong> — climate-controlled transport with ESD protection</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle2 className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                      <span><strong className="text-white">Network infrastructure</strong> — coordination with your IT team for proper disconnection and reconnection</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle2 className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                      <span><strong className="text-white">Workstation setup</strong> — monitors, computers, and peripherals reconnected and tested</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle2 className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                      <span><strong className="text-white">Cable management</strong> — organized cabling for clean, professional installations</span>
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
@@ -621,106 +608,122 @@ export default function CommercialMoving() {
           </div>
         </section>
 
-        {/* Comprehensive Commercial Services Explanation */}
-        <section className="py-20 md:py-28 bg-gradient-to-b from-white to-gray-50">
+        {/* Downtime Cost Calculator */}
+        <section className="py-20 md:py-28 bg-gradient-to-b from-[#1A2332] to-[#2a3a52]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid lg:grid-cols-2 gap-12 items-start mb-16">
-              <div>
-                <Badge className="bg-primary/10 text-primary mb-4">Complete Business Solutions</Badge>
-                <h2 className="text-3xl md:text-4xl font-black text-foreground mb-6">
-                  How Our Commercial Moving Services Work
-                </h2>
-                <div className="prose prose-lg max-w-none text-muted-foreground">
-                  <p>
-                    <strong>Commercial moving in Vancouver</strong> requires a completely different approach than residential relocations. At Prestige Moving, we've developed specialized systems and protocols specifically for business environments, ensuring your operations experience minimal disruption during the transition.
-                  </p>
-                  <p>
-                    Our commercial moving process begins with a comprehensive <strong>pre-move consultation</strong> where we assess your current space, inventory all equipment and furniture, and create a detailed floor plan for your new location. This planning phase is critical—it allows us to identify potential challenges, coordinate with building management at both locations, and establish a realistic timeline that aligns with your business needs.
-                  </p>
-                  <p>
-                    Unlike standard moving companies, we assign a <strong>dedicated project manager</strong> to oversee your entire relocation. This single point of contact coordinates all aspects of your move, from scheduling elevator access and loading dock reservations to ensuring IT equipment is properly disconnected, transported, and reconnected in the correct order.
-                  </p>
+            <div className="text-center mb-16">
+              <Badge className="bg-red-500/20 text-red-400 border-red-500/40 mb-4">
+                <AlertTriangle className="h-4 w-4 mr-2" />
+                The Hidden Cost
+              </Badge>
+              <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
+                What Does Downtime Really Cost?
+              </h2>
+              <p className="text-xl text-white/60 max-w-2xl mx-auto">
+                Calculate the true cost of office downtime during your move
+              </p>
+            </div>
+
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div className="bg-white/5 backdrop-blur border border-white/10 rounded-3xl p-8">
+                <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-2">
+                  <BarChart3 className="h-6 w-6 text-primary" />
+                  Downtime Calculator
+                </h3>
+                
+                <div className="space-y-8">
+                  <div>
+                    <label className="block text-white/80 mb-3 font-medium">
+                      Expected Downtime Hours: <span className="text-primary font-bold">{downtimeHours} hours</span>
+                    </label>
+                    <input
+                      type="range"
+                      min="4"
+                      max="72"
+                      value={downtimeHours}
+                      onChange={(e) => setDowntimeHours(Number(e.target.value))}
+                      className="w-full h-3 bg-white/10 rounded-lg appearance-none cursor-pointer accent-primary"
+                    />
+                    <div className="flex justify-between text-white/40 text-sm mt-1">
+                      <span>4 hrs</span>
+                      <span>72 hrs</span>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-white/80 mb-3 font-medium">
+                      Number of Employees: <span className="text-primary font-bold">{employeeCount}</span>
+                    </label>
+                    <input
+                      type="range"
+                      min="5"
+                      max="200"
+                      value={employeeCount}
+                      onChange={(e) => setEmployeeCount(Number(e.target.value))}
+                      className="w-full h-3 bg-white/10 rounded-lg appearance-none cursor-pointer accent-primary"
+                    />
+                    <div className="flex justify-between text-white/40 text-sm mt-1">
+                      <span>5</span>
+                      <span>200+</span>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div className="space-y-4">
-                {[
-                  { icon: ClipboardList, title: "Pre-Move Planning", desc: "Detailed inventory, floor planning, and timeline development customized to your business" },
-                  { icon: Users, title: "Dedicated Project Manager", desc: "Single point of contact from consultation through final setup and walkthrough" },
-                  { icon: Clock, title: "After-Hours & Weekend Moves", desc: "Zero-disruption moves scheduled outside business hours to maintain productivity" },
-                  { icon: Server, title: "IT & Equipment Handling", desc: "Specialized protocols for servers, workstations, and sensitive electronics" },
-                  { icon: Shield, title: "Full Insurance Coverage", desc: "Comprehensive protection for all equipment, furniture, and inventory items" },
-                  { icon: Settings, title: "Complete Setup Services", desc: "Furniture placement, workstation configuration, and post-move support" }
-                ].map((item, index) => {
-                  const ItemIcon = item.icon;
-                  return (
-                    <div key={index} className="flex gap-4 p-4 bg-white rounded-xl border hover:border-primary/50 transition-colors">
-                      <div className="h-12 w-12 bg-primary/10 rounded-xl flex items-center justify-center shrink-0">
-                        <ItemIcon className="h-6 w-6 text-primary" />
+
+              <div className="space-y-6">
+                <div className="bg-red-500/10 border border-red-500/30 rounded-2xl p-6">
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center gap-3">
+                      <div className="h-12 w-12 bg-red-500/20 rounded-xl flex items-center justify-center">
+                        <XCircle className="h-6 w-6 text-red-400" />
                       </div>
                       <div>
-                        <h4 className="font-bold text-foreground">{item.title}</h4>
-                        <p className="text-sm text-muted-foreground">{item.desc}</p>
+                        <p className="text-white/60 text-sm">Traditional Moving Cost</p>
+                        <p className="text-white font-bold">Productivity Loss</p>
                       </div>
                     </div>
-                  );
-                })}
-              </div>
-            </div>
-
-            {/* Detailed Service Explanation */}
-            <div className="bg-[#1A2332] rounded-3xl p-8 md:p-12 mb-16">
-              <div className="grid md:grid-cols-2 gap-8">
-                <div>
-                  <h3 className="text-2xl font-bold text-white mb-4">Office & Corporate Relocations</h3>
-                  <p className="text-white/70 mb-4">
-                    Whether you're moving a small office or an entire corporate headquarters, our team has the expertise to handle it all. We specialize in:
+                    <div className="text-right">
+                      <p className="text-4xl font-black text-red-400">${downtimeCost.toLocaleString()}</p>
+                      <p className="text-white/40 text-sm">estimated loss</p>
+                    </div>
+                  </div>
+                  <p className="text-white/50 text-sm">
+                    Based on {downtimeHours} hours × {employeeCount} employees × $50/hr avg productivity
                   </p>
-                  <ul className="space-y-2 text-white/70">
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                      <span><strong className="text-white">Workstation disassembly and reassembly</strong> — cubicles, desks, and modular furniture properly deconstructed and rebuilt</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                      <span><strong className="text-white">Executive office moves</strong> — white-glove handling of high-value furniture and artwork</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                      <span><strong className="text-white">Conference room setup</strong> — AV equipment, presentation systems, and furniture arrangement</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                      <span><strong className="text-white">File and document handling</strong> — secure transport of sensitive materials and records</span>
-                    </li>
-                  </ul>
                 </div>
-                <div>
-                  <h3 className="text-2xl font-bold text-white mb-4">IT & Technology Moving</h3>
-                  <p className="text-white/70 mb-4">
-                    Technology infrastructure requires specialized handling. Our IT moving services include:
+
+                <div className="flex items-center justify-center">
+                  <ArrowDown className="h-8 w-8 text-primary animate-bounce" />
+                </div>
+
+                <div className="bg-green-500/10 border border-green-500/30 rounded-2xl p-6">
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center gap-3">
+                      <div className="h-12 w-12 bg-green-500/20 rounded-xl flex items-center justify-center">
+                        <CheckCircle className="h-6 w-6 text-green-400" />
+                      </div>
+                      <div>
+                        <p className="text-white/60 text-sm">With Prestige Moving</p>
+                        <p className="text-white font-bold">You Save</p>
+                      </div>
+                    </div>
+                    <div className="text-right">
+                      <p className="text-4xl font-black text-green-400">${savingsWithUs.toLocaleString()}</p>
+                      <p className="text-white/40 text-sm">in productivity</p>
+                    </div>
+                  </div>
+                  <p className="text-white/50 text-sm">
+                    70% less downtime with our efficient weekend/after-hours moving
                   </p>
-                  <ul className="space-y-2 text-white/70">
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                      <span><strong className="text-white">Server room relocations</strong> — climate-controlled transport with ESD protection</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                      <span><strong className="text-white">Network infrastructure</strong> — coordination with your IT team for proper disconnection and reconnection</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                      <span><strong className="text-white">Workstation setup</strong> — monitors, computers, and peripherals reconnected and tested</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                      <span><strong className="text-white">Cable management</strong> — organized cabling for clean, professional installations</span>
-                    </li>
-                  </ul>
                 </div>
               </div>
             </div>
+          </div>
+        </section>
 
+        {/* Industries We Serve & Related Services */}
+        <section className="py-20 md:py-28 bg-gradient-to-b from-white to-gray-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* Industries We Serve - SEO Text */}
             <div className="max-w-4xl mx-auto mb-16">
               <h3 className="text-2xl font-bold text-foreground mb-6 text-center">
