@@ -319,8 +319,7 @@ export default function AdminPackages() {
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <DollarSign className="h-5 w-5 text-amber-600" />
+                  <div className="flex items-center gap-1">
                     <span className="text-2xl font-bold">${pkg.hourlyRate}</span>
                     <span className="text-muted-foreground">/hour</span>
                   </div>
