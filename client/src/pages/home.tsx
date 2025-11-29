@@ -26,8 +26,9 @@ import {
 } from "@/components/ui/select";
 import { Link, useLocation } from "wouter";
 import { useState, useEffect } from "react";
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
+import type { MovingPackage } from "@shared/schema";
 import { useToast } from "@/hooks/use-toast";
 import { Helmet } from "react-helmet";
 import { SiFacebook, SiInstagram, SiLinkedin, SiYoutube } from "react-icons/si";
@@ -43,8 +44,12 @@ import { packageTypes, type PackageType } from "@shared/schema";
 import { SharedFooter } from "@/components/shared-footer";
 
 export default function Home() {
-  const packages: PackageType[] = ["Premium", "Deluxe", "Diamond"];
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  
+  // Fetch dynamic packages from database
+  const { data: dynamicPackages } = useQuery<MovingPackage[]>({
+    queryKey: ["/api/packages"],
+  });
   const [testimonialIndex, setTestimonialIndex] = useState(0);
   const [topbarReviewIndex, setTopbarReviewIndex] = useState(0);
   const [reviewIndex, setReviewIndex] = useState(0);
@@ -1420,14 +1425,13 @@ export default function Home() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            {packages.map((packageKey) => {
-              const pkg = packageTypes[packageKey];
-              const isFeatured = packageKey === "Diamond";
+            {(dynamicPackages || []).map((pkg) => {
+              const isFeatured = pkg.isPopular;
               return (
                 <Card 
-                  key={packageKey} 
+                  key={pkg.id} 
                   className={`relative overflow-hidden ${isFeatured ? 'border-2 border-primary shadow-xl ring-2 ring-primary/20' : 'border'}`}
-                  data-testid={`card-package-${packageKey.toLowerCase()}`}
+                  data-testid={`card-package-${pkg.name.toLowerCase()}`}
                 >
                   {isFeatured && (
                     <div className="absolute top-0 left-0 right-0 bg-primary text-center py-2">
@@ -1435,13 +1439,13 @@ export default function Home() {
                     </div>
                   )}
                   <CardHeader className={`pb-4 ${isFeatured ? 'pt-12' : ''}`}>
-                    <CardTitle className="text-2xl font-bold">{pkg.name}</CardTitle>
+                    <CardTitle className="text-2xl font-bold">{pkg.displayName}</CardTitle>
                     <CardDescription className="text-sm pt-2">{pkg.description}</CardDescription>
                   </CardHeader>
                   <CardContent className="space-y-6">
                     <div>
                       <div className="flex items-baseline gap-1">
-                        <span className="text-4xl font-black text-foreground" data-testid={`text-price-${packageKey.toLowerCase()}`}>${pkg.hourlyRate}</span>
+                        <span className="text-4xl font-black text-foreground" data-testid={`text-price-${pkg.name.toLowerCase()}`}>${pkg.hourlyRate}</span>
                         <span className="text-muted-foreground">/hr</span>
                       </div>
                       <div className="text-sm text-muted-foreground mt-1">
@@ -1453,12 +1457,12 @@ export default function Home() {
                       <TruckIcon className="h-5 w-5 text-primary" />
                       <span>{pkg.movers} Movers</span>
                       <span className="text-muted-foreground">•</span>
-                      <span>{pkg.truck}</span>
+                      <span>{pkg.truckSize}</span>
                     </div>
 
                     <div className="space-y-3">
                       {pkg.features.map((feature, idx) => (
-                        <div key={idx} className="flex gap-3 text-sm" data-testid={`feature-${packageKey.toLowerCase()}-${idx}`}>
+                        <div key={idx} className="flex gap-3 text-sm" data-testid={`feature-${pkg.name.toLowerCase()}-${idx}`}>
                           <CheckCircle2 className="h-5 w-5 text-primary shrink-0" />
                           <span>{feature}</span>
                         </div>
@@ -1471,9 +1475,9 @@ export default function Home() {
                         variant={isFeatured ? "default" : "outline"} 
                         className={`w-full font-bold ${isFeatured ? '' : 'border-2'}`}
                         size="lg"
-                        data-testid={`button-book-${packageKey.toLowerCase()}`}
+                        data-testid={`button-book-${pkg.name.toLowerCase()}`}
                       >
-                        {isFeatured ? 'GET STARTED' : `Book ${pkg.name}`}
+                        {isFeatured ? 'GET STARTED' : `Book ${pkg.displayName}`}
                       </Button>
                     </Link>
                   </CardFooter>
