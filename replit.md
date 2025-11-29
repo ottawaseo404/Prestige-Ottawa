@@ -204,6 +204,14 @@ Modern, responsive website for Prestige Moving Vancouver franchise with integrat
 - `POST /api/admin/blog/generate-content` - AI-generate blog content (admin)
 - `GET /api/blog-categories` - Get all blog categories
 
+### Hero Videos
+- `GET /api/hero-videos/:pageSlug` - Get hero video config by page slug (public, returns 404 for fallback)
+- `GET /api/admin/hero-videos` - Get all hero video configurations (admin)
+- `GET /api/admin/hero-videos/:id` - Get single hero video config (admin)
+- `POST /api/admin/hero-videos` - Create new hero video config (admin)
+- `PATCH /api/admin/hero-videos/:id` - Update hero video config (admin)
+- `DELETE /api/admin/hero-videos/:id` - Delete hero video config (admin)
+
 ## Design System
 - **Colors**: Gold (#C5A572), Navy (#1A2332), White, Gray
 - **Font**: Inter
@@ -275,6 +283,13 @@ npm run dev  # Starts both frontend (Vite) and backend (Express)
   - Social preview image at `/og-image.png`
   - Canonical URLs pointing to vancouver.prestigemoving.ca
   - JSON-LD schema markup on all service pages
+- ✅ Hero Video Management (implemented)
+  - Admin interface at `/admin/hero-videos` for managing hero videos per page
+  - Database-driven video configurations with auto-rotation support
+  - Configurable rotation interval (seconds) per page
+  - Support for multiple videos per page with cycling
+  - Graceful fallback to default videos when API unavailable
+  - Pre-configured default videos for major pages (home, commercial, long-distance)
 
 ## Upcoming Enhancements
 - Customer portal for tracking moves
