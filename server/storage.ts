@@ -4,7 +4,8 @@ import {
   type VisitorSession, type InsertVisitorSession, visitorSessions,
   type MovingPackage, type InsertMovingPackage, movingPackages,
   type BlogPost, type InsertBlogPost, blogPosts,
-  type BlogCategory, type InsertBlogCategory, blogCategories
+  type BlogCategory, type InsertBlogCategory, blogCategories,
+  type HeroVideo, type InsertHeroVideo, heroVideos
 } from "@shared/schema";
 import { drizzle } from "drizzle-orm/neon-serverless";
 import { Pool, neonConfig } from "@neondatabase/serverless";
@@ -63,6 +64,14 @@ export interface IStorage {
   updateBlogPost(id: string, post: Partial<InsertBlogPost>): Promise<BlogPost | undefined>;
   deleteBlogPost(id: string): Promise<boolean>;
   incrementBlogPostViews(id: string): Promise<void>;
+  
+  // Hero Video operations
+  getAllHeroVideos(): Promise<HeroVideo[]>;
+  getHeroVideo(id: string): Promise<HeroVideo | undefined>;
+  getHeroVideoByPageSlug(pageSlug: string): Promise<HeroVideo | undefined>;
+  createHeroVideo(heroVideo: InsertHeroVideo): Promise<HeroVideo>;
+  updateHeroVideo(id: string, heroVideo: Partial<InsertHeroVideo>): Promise<HeroVideo | undefined>;
+  deleteHeroVideo(id: string): Promise<boolean>;
 }
 
 export class DbStorage implements IStorage {
@@ -411,6 +420,40 @@ export class DbStorage implements IStorage {
       .update(blogPosts)
       .set({ viewCount: sql`${blogPosts.viewCount} + 1` })
       .where(eq(blogPosts.id, id));
+  }
+
+  // Hero Video operations
+  async getAllHeroVideos(): Promise<HeroVideo[]> {
+    return await this.db.select().from(heroVideos).orderBy(asc(heroVideos.pageName));
+  }
+
+  async getHeroVideo(id: string): Promise<HeroVideo | undefined> {
+    const result = await this.db.select().from(heroVideos).where(eq(heroVideos.id, id));
+    return result[0];
+  }
+
+  async getHeroVideoByPageSlug(pageSlug: string): Promise<HeroVideo | undefined> {
+    const result = await this.db.select().from(heroVideos).where(eq(heroVideos.pageSlug, pageSlug));
+    return result[0];
+  }
+
+  async createHeroVideo(heroVideo: InsertHeroVideo): Promise<HeroVideo> {
+    const result = await this.db.insert(heroVideos).values(heroVideo).returning();
+    return result[0];
+  }
+
+  async updateHeroVideo(id: string, heroVideo: Partial<InsertHeroVideo>): Promise<HeroVideo | undefined> {
+    const result = await this.db
+      .update(heroVideos)
+      .set({ ...heroVideo, updatedAt: new Date() })
+      .where(eq(heroVideos.id, id))
+      .returning();
+    return result[0];
+  }
+
+  async deleteHeroVideo(id: string): Promise<boolean> {
+    const result = await this.db.delete(heroVideos).where(eq(heroVideos.id, id)).returning();
+    return result.length > 0;
   }
 }
 

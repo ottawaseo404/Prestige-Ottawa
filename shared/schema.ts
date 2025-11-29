@@ -345,3 +345,74 @@ export const insertBlogPostSchema = createInsertSchema(blogPosts).omit({
 
 export type InsertBlogPost = z.infer<typeof insertBlogPostSchema>;
 export type BlogPost = typeof blogPosts.$inferSelect;
+
+// Hero Videos - Admin-managed hero video settings per page
+export const heroVideos = pgTable("hero_videos", {
+  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+  // Page identifier (e.g., "home", "commercial-moving", "long-distance-moving")
+  pageSlug: text("page_slug").notNull().unique(),
+  pageName: text("page_name").notNull(),
+  
+  // Video configuration - supports multiple videos for sliders
+  videoUrls: text("video_urls").array().notNull(),
+  
+  // Display settings
+  autoRotate: boolean("auto_rotate").notNull().default(true),
+  rotationInterval: integer("rotation_interval").notNull().default(8000), // milliseconds
+  
+  // Status
+  isActive: boolean("is_active").notNull().default(true),
+  
+  // Timestamps
+  createdAt: timestamp("created_at").notNull().default(sql`now()`),
+  updatedAt: timestamp("updated_at").notNull().default(sql`now()`),
+});
+
+export const insertHeroVideoSchema = createInsertSchema(heroVideos).omit({
+  id: true,
+  createdAt: true,
+  updatedAt: true,
+});
+
+export type InsertHeroVideo = z.infer<typeof insertHeroVideoSchema>;
+export type HeroVideo = typeof heroVideos.$inferSelect;
+
+// Available video assets for admin selection
+export const availableVideos = [
+  { path: "/assets/generated_videos/bc_ferry_crossing_burrard_inlet.mp4", name: "BC Ferry Crossing Burrard Inlet" },
+  { path: "/assets/generated_videos/bc_ferry_sailing_scenic_vancouver_waters.mp4", name: "BC Ferry Scenic Vancouver Waters" },
+  { path: "/assets/generated_videos/climate_controlled_storage_facility.mp4", name: "Climate Controlled Storage Facility" },
+  { path: "/assets/generated_videos/commercial_office_moving_scene.mp4", name: "Commercial Office Moving" },
+  { path: "/assets/generated_videos/grand_piano_professional_moving.mp4", name: "Grand Piano Professional Moving" },
+  { path: "/assets/generated_videos/military_pcs_moving_relocation.mp4", name: "Military PCS Moving" },
+  { path: "/assets/generated_videos/moving_supplies_delivery_vancouver.mp4", name: "Moving Supplies Delivery" },
+  { path: "/assets/generated_videos/moving_truck_on_scenic_highway.mp4", name: "Moving Truck Scenic Highway" },
+  { path: "/assets/generated_videos/moving_trucks_bc_mountain_highway.mp4", name: "Moving Trucks BC Mountain Highway" },
+  { path: "/assets/generated_videos/moving_trucks_driving_on_highway.mp4", name: "Moving Trucks Driving Highway" },
+  { path: "/assets/generated_videos/professional_packing_services_vancouver.mp4", name: "Professional Packing Services" },
+  { path: "/assets/generated_videos/senior_moving_compassionate_service.mp4", name: "Senior Moving Compassionate Service" },
+  { path: "/assets/generated_videos/specialty_item_moving_hot_tub.mp4", name: "Specialty Item Moving Hot Tub" },
+  { path: "/assets/generated_videos/student_moving_vancouver_campus.mp4", name: "Student Moving Vancouver Campus" },
+  { path: "/assets/generated_videos/vancouver_ferry_crossing_burrard_inlet.mp4", name: "Vancouver Ferry Crossing" },
+  { path: "/assets/generated_videos/vancouver_residential_movers_with_boxes.mp4", name: "Vancouver Residential Movers" },
+  { path: "/assets/generated_videos/white_trucks_driving_bc_mountains.mp4", name: "White Trucks BC Mountains" },
+  { path: "/assets/generated_videos/antique_furniture_moving_care.mp4", name: "Antique Furniture Moving Care" },
+  { path: "/assets/prestigemoving_converted.mp4", name: "Prestige Moving Brand Video" },
+] as const;
+
+// Pages with hero videos
+export const heroVideoPages = [
+  { slug: "home", name: "Home Page" },
+  { slug: "commercial-moving", name: "Commercial Moving" },
+  { slug: "long-distance-moving", name: "Long Distance Moving" },
+  { slug: "piano-moving", name: "Piano Moving" },
+  { slug: "specialty-item-moving", name: "Specialty Item Moving" },
+  { slug: "residential-moving", name: "Residential Moving" },
+  { slug: "packing-services", name: "Packing Services" },
+  { slug: "storage-solutions", name: "Storage Solutions" },
+  { slug: "senior-moving", name: "Senior Moving" },
+  { slug: "student-moving", name: "Student Moving" },
+  { slug: "military-moving", name: "Military Moving" },
+  { slug: "antique-moving", name: "Antique Moving" },
+  { slug: "moving-supplies", name: "Moving Supplies" },
+] as const;
