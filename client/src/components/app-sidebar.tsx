@@ -1,4 +1,4 @@
-import { LayoutDashboard, Calendar, Users, Settings, RefreshCw, LogOut, TruckIcon, BarChart3 } from "lucide-react";
+import { LayoutDashboard, Calendar, Users, Settings, RefreshCw, LogOut, TruckIcon, BarChart3, Package } from "lucide-react";
 import {
   Sidebar,
   SidebarContent,
@@ -24,6 +24,11 @@ const menuItems = [
     title: "Bookings",
     url: "/admin/bookings",
     icon: TruckIcon,
+  },
+  {
+    title: "Packages",
+    url: "/admin/packages",
+    icon: Package,
   },
   {
     title: "Analytics",

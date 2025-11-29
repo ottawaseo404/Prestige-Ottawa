@@ -35,6 +35,7 @@ import AdminDashboard from "@/pages/admin/dashboard";
 import AdminBookings from "@/pages/admin/bookings";
 import AdminAnalytics from "@/pages/admin-analytics";
 import AdminSmartMoving from "@/pages/admin/smartmoving";
+import AdminPackages from "@/pages/admin/packages";
 import AdminLogin from "@/pages/admin-login";
 import Calculator from "@/pages/calculator";
 import Contact from "@/pages/contact";
@@ -157,6 +158,13 @@ function Router() {
         {() => (
           <ProtectedAdminLayout>
             <AdminSmartMoving />
+          </ProtectedAdminLayout>
+        )}
+      </Route>
+      <Route path="/admin/packages">
+        {() => (
+          <ProtectedAdminLayout>
+            <AdminPackages />
           </ProtectedAdminLayout>
         )}
       </Route>
