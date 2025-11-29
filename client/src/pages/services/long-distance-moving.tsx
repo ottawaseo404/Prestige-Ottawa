@@ -14,7 +14,7 @@ import { Link } from "wouter";
 import { Helmet } from "react-helmet";
 import { SharedNavigation } from "@/components/shared-navigation";
 import { SharedFooter } from "@/components/shared-footer";
-import longDistanceVideo from "@assets/generated_videos/white_trucks_driving_bc_mountains.mp4";
+import { useHeroVideo, getDefaultVideoForPage } from "@/hooks/use-hero-video";
 
 const destinations = [
   { city: "Calgary", province: "AB", distance: 675, time: "8-10 hrs", popular: true, icon: Mountain },
@@ -40,6 +40,10 @@ export default function LongDistanceMoving() {
   const [trackingStep, setTrackingStep] = useState(0);
   const [animatedDistance, setAnimatedDistance] = useState(0);
   const [moveSize, setMoveSize] = useState(2);
+
+  // Fetch dynamic hero video from admin settings
+  const { videoUrls } = useHeroVideo("long-distance-moving");
+  const heroVideo = videoUrls.length > 0 ? videoUrls[0] : getDefaultVideoForPage("long-distance-moving")[0];
 
   const schemaData = {
     "@context": "https://schema.org",
@@ -125,7 +129,7 @@ export default function LongDistanceMoving() {
             className="absolute inset-0 w-full h-full object-cover"
             data-testid="video-hero-long-distance"
           >
-            <source src={longDistanceVideo} type="video/mp4" />
+            <source src={heroVideo} type="video/mp4" />
           </video>
           <div className="absolute inset-0 bg-gradient-to-r from-[#1A2332] via-[#1A2332]/90 to-[#1A2332]/50" />
 

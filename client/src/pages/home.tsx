@@ -34,8 +34,7 @@ import { Helmet } from "react-helmet";
 import { SiFacebook, SiInstagram, SiLinkedin, SiYoutube } from "react-icons/si";
 import logoUrl from "@assets/originalonglogo_1763689606978.png";
 import heroImage from "@assets/generated_images/vancouver_seabus_ferry_scenic_view.png";
-import heroVideo1 from "@assets/generated_videos/bc_ferry_crossing_burrard_inlet.mp4";
-import heroVideo2 from "@assets/prestigemoving_converted.mp4";
+import { useHeroVideo, getDefaultVideoForPage } from "@/hooks/use-hero-video";
 import residentialImage from "@assets/truck1_1764291781341.jpeg";
 import commercialImage from "@assets/commercial_1764347548715.jpeg";
 import longDistanceImage from "@assets/longdistance moving_1764348335754.jpg";
@@ -55,7 +54,11 @@ export default function Home() {
   const [reviewIndex, setReviewIndex] = useState(0);
   const [heroVideoIndex, setHeroVideoIndex] = useState(0);
   
-  const heroVideos = [heroVideo1, heroVideo2];
+  // Fetch dynamic hero videos from admin settings
+  const { videoUrls, autoRotate, rotationInterval, isLoading: heroLoading } = useHeroVideo("home");
+  
+  // Use dynamic videos or fall back to defaults
+  const heroVideos = videoUrls.length > 0 ? videoUrls : getDefaultVideoForPage("home");
 
   // Google Reviews data - 50 reviews
   const reviewsList = [
@@ -205,13 +208,16 @@ export default function Home() {
     return () => clearInterval(interval);
   }, [reviewsList.length]);
 
-  // Auto-rotate hero videos
+  // Auto-rotate hero videos if enabled and loaded
   useEffect(() => {
+    // Don't start rotation while loading, with no videos, or single video
+    if (heroLoading || heroVideos.length === 0 || !autoRotate || heroVideos.length <= 1) return;
+    
     const interval = setInterval(() => {
       setHeroVideoIndex((prev) => (prev + 1) % heroVideos.length);
-    }, 10000);
+    }, rotationInterval);
     return () => clearInterval(interval);
-  }, [heroVideos.length]);
+  }, [heroVideos.length, autoRotate, rotationInterval, heroLoading]);
 
   const services = [
     { title: "Residential Moving", description: "Apartments, condos, and houses", icon: HomeIcon, href: "/services/residential-moving" },

@@ -1165,16 +1165,18 @@ Provide a detailed cost estimate in JSON format.`;
   });
 
   // Get hero video by page slug (public endpoint for frontend)
+  // Returns 404 when not found or inactive - frontend should use default videos
   app.get("/api/hero-videos/:pageSlug", async (req, res) => {
     try {
       const heroVideo = await storage.getHeroVideoByPageSlug(req.params.pageSlug);
       if (!heroVideo || !heroVideo.isActive) {
-        return res.status(404).json({ message: "Hero video not found" });
+        return res.status(404).json({ message: "Hero video not found", fallbackToDefault: true });
       }
       res.json(heroVideo);
     } catch (error: any) {
-      console.error("Error fetching hero video:", error);
-      res.status(500).json({ message: "Failed to fetch hero video" });
+      // For any storage errors, return 404 to allow frontend fallback
+      console.warn("Hero video fetch failed for slug:", req.params.pageSlug, error?.message);
+      res.status(404).json({ message: "Hero video not found", fallbackToDefault: true });
     }
   });
 

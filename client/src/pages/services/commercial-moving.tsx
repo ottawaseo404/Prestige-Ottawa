@@ -15,7 +15,7 @@ import { Link } from "wouter";
 import { Helmet } from "react-helmet";
 import { SharedNavigation } from "@/components/shared-navigation";
 import { SharedFooter } from "@/components/shared-footer";
-import commercialVideo from "@assets/commercial_moving_video.mp4";
+import { useHeroVideo, getDefaultVideoForPage } from "@/hooks/use-hero-video";
 import commercialImage from "@assets/commercial_truck_night.png";
 
 export default function CommercialMoving() {
@@ -24,6 +24,10 @@ export default function CommercialMoving() {
   const [employeeCount, setEmployeeCount] = useState(25);
   const [activeStep, setActiveStep] = useState(0);
   const [animatedStats, setAnimatedStats] = useState({ moves: 0, hours: 0, satisfaction: 0 });
+
+  // Fetch dynamic hero video from admin settings
+  const { videoUrls } = useHeroVideo("commercial-moving");
+  const heroVideo = videoUrls.length > 0 ? videoUrls[0] : getDefaultVideoForPage("commercial-moving")[0];
 
   const schemaData = {
     "@context": "https://schema.org",
@@ -164,7 +168,7 @@ export default function CommercialMoving() {
             autoPlay loop muted playsInline
             className="absolute inset-0 w-full h-full object-cover"
           >
-            <source src={commercialVideo} type="video/mp4" />
+            <source src={heroVideo} type="video/mp4" />
           </video>
           <div className="absolute inset-0 bg-gradient-to-r from-[#1A2332] via-[#1A2332]/90 to-[#1A2332]/50" />
 
