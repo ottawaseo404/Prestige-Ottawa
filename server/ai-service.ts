@@ -35,21 +35,7 @@ Do not repeat my request. Make it a long article of at least 2000 words. Do not 
 
 All outputs will be in English. Write the article as long as possible, at least 1500 words. Make the headings bold and follow the h tags.
 
-The article should be about moving services in Vancouver, BC, Canada, focusing on Prestige Moving Vancouver. Include relevant internal links to our services when appropriate.
-
-Our services include:
-- Residential Moving
-- Commercial Moving
-- Long Distance Moving
-- Packing Services
-- Moving Supplies
-- Student Moving
-- Storage Solutions
-- Specialty Item Moving
-- Antique Moving
-- Piano Moving
-- Senior Moving
-- Military Moving
+The article should be about moving services in Vancouver, BC, Canada, focusing on Prestige Moving Vancouver. Do NOT include any internal links or markdown links to service pages.
 
 Company info:
 - Name: Prestige Moving Vancouver
