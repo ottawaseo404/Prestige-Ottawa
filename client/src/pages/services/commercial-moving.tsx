@@ -621,22 +621,126 @@ export default function CommercialMoving() {
           </div>
         </section>
 
-        {/* SEO Content Section with Internal Links */}
+        {/* Comprehensive Commercial Services Explanation */}
         <section className="py-20 md:py-28 bg-gradient-to-b from-white to-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-3xl md:text-4xl font-black text-foreground mb-6">
-                Trusted Commercial Movers in Vancouver
-              </h2>
-              <div className="prose prose-lg max-w-none text-muted-foreground mb-8">
+            <div className="grid lg:grid-cols-2 gap-12 items-start mb-16">
+              <div>
+                <Badge className="bg-primary/10 text-primary mb-4">Complete Business Solutions</Badge>
+                <h2 className="text-3xl md:text-4xl font-black text-foreground mb-6">
+                  How Our Commercial Moving Services Work
+                </h2>
+                <div className="prose prose-lg max-w-none text-muted-foreground">
+                  <p>
+                    <strong>Commercial moving in Vancouver</strong> requires a completely different approach than residential relocations. At Prestige Moving, we've developed specialized systems and protocols specifically for business environments, ensuring your operations experience minimal disruption during the transition.
+                  </p>
+                  <p>
+                    Our commercial moving process begins with a comprehensive <strong>pre-move consultation</strong> where we assess your current space, inventory all equipment and furniture, and create a detailed floor plan for your new location. This planning phase is critical—it allows us to identify potential challenges, coordinate with building management at both locations, and establish a realistic timeline that aligns with your business needs.
+                  </p>
+                  <p>
+                    Unlike standard moving companies, we assign a <strong>dedicated project manager</strong> to oversee your entire relocation. This single point of contact coordinates all aspects of your move, from scheduling elevator access and loading dock reservations to ensuring IT equipment is properly disconnected, transported, and reconnected in the correct order.
+                  </p>
+                </div>
+              </div>
+              <div className="space-y-4">
+                {[
+                  { icon: ClipboardList, title: "Pre-Move Planning", desc: "Detailed inventory, floor planning, and timeline development customized to your business" },
+                  { icon: Users, title: "Dedicated Project Manager", desc: "Single point of contact from consultation through final setup and walkthrough" },
+                  { icon: Clock, title: "After-Hours & Weekend Moves", desc: "Zero-disruption moves scheduled outside business hours to maintain productivity" },
+                  { icon: Server, title: "IT & Equipment Handling", desc: "Specialized protocols for servers, workstations, and sensitive electronics" },
+                  { icon: Shield, title: "Full Insurance Coverage", desc: "Comprehensive protection for all equipment, furniture, and inventory items" },
+                  { icon: Settings, title: "Complete Setup Services", desc: "Furniture placement, workstation configuration, and post-move support" }
+                ].map((item, index) => {
+                  const ItemIcon = item.icon;
+                  return (
+                    <div key={index} className="flex gap-4 p-4 bg-white rounded-xl border hover:border-primary/50 transition-colors">
+                      <div className="h-12 w-12 bg-primary/10 rounded-xl flex items-center justify-center shrink-0">
+                        <ItemIcon className="h-6 w-6 text-primary" />
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-foreground">{item.title}</h4>
+                        <p className="text-sm text-muted-foreground">{item.desc}</p>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Detailed Service Explanation */}
+            <div className="bg-[#1A2332] rounded-3xl p-8 md:p-12 mb-16">
+              <div className="grid md:grid-cols-2 gap-8">
+                <div>
+                  <h3 className="text-2xl font-bold text-white mb-4">Office & Corporate Relocations</h3>
+                  <p className="text-white/70 mb-4">
+                    Whether you're moving a small office or an entire corporate headquarters, our team has the expertise to handle it all. We specialize in:
+                  </p>
+                  <ul className="space-y-2 text-white/70">
+                    <li className="flex items-start gap-2">
+                      <CheckCircle2 className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                      <span><strong className="text-white">Workstation disassembly and reassembly</strong> — cubicles, desks, and modular furniture properly deconstructed and rebuilt</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle2 className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                      <span><strong className="text-white">Executive office moves</strong> — white-glove handling of high-value furniture and artwork</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle2 className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                      <span><strong className="text-white">Conference room setup</strong> — AV equipment, presentation systems, and furniture arrangement</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle2 className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                      <span><strong className="text-white">File and document handling</strong> — secure transport of sensitive materials and records</span>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-white mb-4">IT & Technology Moving</h3>
+                  <p className="text-white/70 mb-4">
+                    Technology infrastructure requires specialized handling. Our IT moving services include:
+                  </p>
+                  <ul className="space-y-2 text-white/70">
+                    <li className="flex items-start gap-2">
+                      <CheckCircle2 className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                      <span><strong className="text-white">Server room relocations</strong> — climate-controlled transport with ESD protection</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle2 className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                      <span><strong className="text-white">Network infrastructure</strong> — coordination with your IT team for proper disconnection and reconnection</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle2 className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                      <span><strong className="text-white">Workstation setup</strong> — monitors, computers, and peripherals reconnected and tested</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle2 className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                      <span><strong className="text-white">Cable management</strong> — organized cabling for clean, professional installations</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            {/* Industries We Serve - SEO Text */}
+            <div className="max-w-4xl mx-auto mb-16">
+              <h3 className="text-2xl font-bold text-foreground mb-6 text-center">
+                Industries We Serve Across Greater Vancouver
+              </h3>
+              <div className="prose prose-lg max-w-none text-muted-foreground">
                 <p>
-                  When your business needs to relocate, downtime isn't just inconvenient—it's costly. That's why Vancouver's leading companies trust Prestige Moving for their <strong>commercial and office relocations</strong>. Our dedicated business moving team specializes in minimizing disruption while maximizing efficiency, whether you're moving a 10-person startup or a 500-employee corporate headquarters.
+                  Our commercial moving expertise extends across virtually every industry in the Vancouver metro area. We've successfully relocated <strong>law firms in downtown Vancouver</strong>, requiring careful handling of confidential client files and legal libraries. <strong>Medical and dental practices</strong> throughout Burnaby and Richmond trust us with their specialized equipment, from X-ray machines to examination chairs.
                 </p>
                 <p>
-                  We understand that every hour counts in business. Our <strong>after-hours and weekend moving options</strong> mean your team can leave work Friday and return to a fully set-up office Monday morning. From IT infrastructure and server rooms to executive furniture and sensitive documents, we handle every aspect of your commercial move with precision and care.
+                  <strong>Tech companies and startups</strong> in Mount Pleasant and Gastown rely on our IT moving protocols to ensure their servers, development equipment, and workstations are transported safely and reconnected quickly. <strong>Retail businesses</strong> across the Lower Mainland appreciate our ability to move display fixtures, inventory, and point-of-sale systems with minimal store closure time.
+                </p>
+                <p>
+                  We also specialize in <strong>industrial and warehouse relocations</strong> throughout Surrey, Delta, and the Fraser Valley. Our team has the heavy equipment and expertise to move racking systems, machinery, and bulk inventory efficiently. From small boutiques in Kitsilano to corporate offices in Coal Harbour, Prestige Moving delivers the same commitment to professionalism and care.
                 </p>
               </div>
-              
+            </div>
+
+            {/* Related Services Section */}
+            <div className="max-w-4xl mx-auto">
               <h3 className="text-2xl font-bold text-foreground mb-4">Explore Our Related Moving Services</h3>
               <p className="text-muted-foreground mb-6">
                 We offer comprehensive solutions for all your business moving needs:
