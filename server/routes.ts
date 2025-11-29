@@ -1,7 +1,7 @@
 import type { Express, Request, Response, NextFunction } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
-import { insertBookingSchema, type SmartMovingLead, packageTypes, insertMovingPackageSchema, insertBlogPostSchema, insertBlogCategorySchema } from "@shared/schema";
+import { insertBookingSchema, type SmartMovingLead, packageTypes, insertMovingPackageSchema, insertBlogPostSchema, insertBlogCategorySchema, insertHeroVideoSchema, availableVideos, heroVideoPages } from "@shared/schema";
 import { z } from "zod";
 import { fromZodError } from "zod-validation-error";
 import OpenAI from "openai";
@@ -1126,6 +1126,158 @@ Provide a detailed cost estimate in JSON format.`;
     } catch (error: any) {
       console.error("Error initializing categories:", error);
       res.status(500).json({ message: "Failed to initialize categories" });
+    }
+  });
+
+  // ============== Hero Video Management Routes ==============
+  
+  // Get available videos list (for admin selection)
+  app.get("/api/admin/hero-videos/available", requireAdmin, (req, res) => {
+    res.json({
+      videos: availableVideos,
+      pages: heroVideoPages
+    });
+  });
+
+  // Get all hero video configurations
+  app.get("/api/admin/hero-videos", requireAdmin, async (req, res) => {
+    try {
+      const heroVideos = await storage.getAllHeroVideos();
+      res.json(heroVideos);
+    } catch (error: any) {
+      console.error("Error fetching hero videos:", error);
+      res.status(500).json({ message: "Failed to fetch hero videos" });
+    }
+  });
+
+  // Get single hero video by ID
+  app.get("/api/admin/hero-videos/:id", requireAdmin, async (req, res) => {
+    try {
+      const heroVideo = await storage.getHeroVideo(req.params.id);
+      if (!heroVideo) {
+        return res.status(404).json({ message: "Hero video configuration not found" });
+      }
+      res.json(heroVideo);
+    } catch (error: any) {
+      console.error("Error fetching hero video:", error);
+      res.status(500).json({ message: "Failed to fetch hero video" });
+    }
+  });
+
+  // Get hero video by page slug (public endpoint for frontend)
+  app.get("/api/hero-videos/:pageSlug", async (req, res) => {
+    try {
+      const heroVideo = await storage.getHeroVideoByPageSlug(req.params.pageSlug);
+      if (!heroVideo || !heroVideo.isActive) {
+        return res.status(404).json({ message: "Hero video not found" });
+      }
+      res.json(heroVideo);
+    } catch (error: any) {
+      console.error("Error fetching hero video:", error);
+      res.status(500).json({ message: "Failed to fetch hero video" });
+    }
+  });
+
+  // Create new hero video configuration
+  app.post("/api/admin/hero-videos", requireAdmin, async (req, res) => {
+    try {
+      const validatedData = insertHeroVideoSchema.parse(req.body);
+      
+      // Check if page already has a hero video configuration
+      const existing = await storage.getHeroVideoByPageSlug(validatedData.pageSlug);
+      if (existing) {
+        return res.status(400).json({ message: "Hero video configuration already exists for this page" });
+      }
+      
+      const heroVideo = await storage.createHeroVideo(validatedData);
+      res.status(201).json(heroVideo);
+    } catch (error: any) {
+      console.error("Error creating hero video:", error);
+      
+      if (error instanceof z.ZodError) {
+        const validationError = fromZodError(error);
+        return res.status(400).json({ message: validationError.message });
+      }
+      
+      res.status(500).json({ message: "Failed to create hero video" });
+    }
+  });
+
+  // Update hero video configuration
+  app.patch("/api/admin/hero-videos/:id", requireAdmin, async (req, res) => {
+    try {
+      const heroVideo = await storage.updateHeroVideo(req.params.id, req.body);
+      if (!heroVideo) {
+        return res.status(404).json({ message: "Hero video configuration not found" });
+      }
+      res.json(heroVideo);
+    } catch (error: any) {
+      console.error("Error updating hero video:", error);
+      res.status(500).json({ message: "Failed to update hero video" });
+    }
+  });
+
+  // Delete hero video configuration
+  app.delete("/api/admin/hero-videos/:id", requireAdmin, async (req, res) => {
+    try {
+      const deleted = await storage.deleteHeroVideo(req.params.id);
+      if (!deleted) {
+        return res.status(404).json({ message: "Hero video configuration not found" });
+      }
+      res.json({ message: "Hero video configuration deleted" });
+    } catch (error: any) {
+      console.error("Error deleting hero video:", error);
+      res.status(500).json({ message: "Failed to delete hero video" });
+    }
+  });
+
+  // Initialize default hero video configurations for all pages
+  app.post("/api/admin/hero-videos/initialize", requireAdmin, async (req, res) => {
+    try {
+      const existingVideos = await storage.getAllHeroVideos();
+      const existingSlugs = new Set(existingVideos.map(v => v.pageSlug));
+      
+      // Default video configurations for each page
+      const defaultConfigs: Record<string, string[]> = {
+        "home": ["/assets/prestigemoving_converted.mp4", "/assets/generated_videos/moving_trucks_bc_mountain_highway.mp4"],
+        "commercial-moving": ["/assets/generated_videos/commercial_office_moving_scene.mp4"],
+        "long-distance-moving": ["/assets/generated_videos/moving_trucks_bc_mountain_highway.mp4", "/assets/generated_videos/white_trucks_driving_bc_mountains.mp4"],
+        "piano-moving": ["/assets/generated_videos/grand_piano_professional_moving.mp4"],
+        "specialty-item-moving": ["/assets/generated_videos/specialty_item_moving_hot_tub.mp4"],
+        "residential-moving": ["/assets/generated_videos/vancouver_residential_movers_with_boxes.mp4"],
+        "packing-services": ["/assets/generated_videos/professional_packing_services_vancouver.mp4"],
+        "storage-solutions": ["/assets/generated_videos/climate_controlled_storage_facility.mp4"],
+        "senior-moving": ["/assets/generated_videos/senior_moving_compassionate_service.mp4"],
+        "student-moving": ["/assets/generated_videos/student_moving_vancouver_campus.mp4"],
+        "military-moving": ["/assets/generated_videos/military_pcs_moving_relocation.mp4"],
+        "antique-moving": ["/assets/generated_videos/antique_furniture_moving_care.mp4"],
+        "moving-supplies": ["/assets/generated_videos/moving_supplies_delivery_vancouver.mp4"],
+      };
+      
+      const created = [];
+      
+      for (const page of heroVideoPages) {
+        if (!existingSlugs.has(page.slug)) {
+          const videoUrls = defaultConfigs[page.slug] || ["/assets/prestigemoving_converted.mp4"];
+          const heroVideo = await storage.createHeroVideo({
+            pageSlug: page.slug,
+            pageName: page.name,
+            videoUrls,
+            autoRotate: videoUrls.length > 1,
+            rotationInterval: 8000,
+            isActive: true,
+          });
+          created.push(heroVideo);
+        }
+      }
+      
+      res.status(201).json({ 
+        message: `Initialized ${created.length} hero video configurations`,
+        created 
+      });
+    } catch (error: any) {
+      console.error("Error initializing hero videos:", error);
+      res.status(500).json({ message: "Failed to initialize hero videos" });
     }
   });
 
