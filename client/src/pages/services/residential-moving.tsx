@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Input } from "@/components/ui/input";
 import { 
   Phone, CheckCircle2, Home, TruckIcon, Package, Shield, Clock, Users, 
   Star, MapPin, ArrowRight, Sparkles, Heart, ThumbsUp, ChevronLeft, 
@@ -13,17 +12,13 @@ import { Link } from "wouter";
 import { Helmet } from "react-helmet";
 import { SharedNavigation } from "@/components/shared-navigation";
 import { SharedFooter } from "@/components/shared-footer";
-import { useToast } from "@/hooks/use-toast";
 import { WorkSafeBadge } from "@/components/worksafe-badge";
-import { apiRequest } from "@/lib/queryClient";
 import residentialVideo from "@assets/residential_moving_video.mp4";
 import residentialImage from "@assets/truck1_1764291781341.jpeg";
 
 export default function ResidentialMoving() {
-  const { toast } = useToast();
   const [activeTestimonial, setActiveTestimonial] = useState(0);
   const [activeTab, setActiveTab] = useState(0);
-  const [hoveredStep, setHoveredStep] = useState<number | null>(null);
 
   const schemaData = {
     "@context": "https://schema.org",
@@ -71,30 +66,27 @@ export default function ResidentialMoving() {
       title: "Apartment Moving",
       icon: Building2,
       description: "Expert high-rise and condo moving specialists",
-      features: ["Elevator coordination", "Building protection", "Strata compliance", "Parking management"],
-      image: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600"
+      features: ["Elevator coordination", "Building protection", "Strata compliance", "Parking management"]
     },
     {
       title: "House Moving", 
       icon: Home,
       description: "Full-service home relocation for any size",
-      features: ["1-5 bedroom homes", "Basement & garage", "Heavy furniture", "Multi-level expertise"],
-      image: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=600"
+      features: ["1-5 bedroom homes", "Basement & garage", "Heavy furniture", "Multi-level expertise"]
     },
     {
       title: "Specialty Items",
       icon: Sparkles,
       description: "Careful handling of valuable possessions",
-      features: ["Pianos & organs", "Artwork & antiques", "Pool tables", "Home theaters"],
-      image: "https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?w=600"
+      features: ["Pianos & organs", "Artwork & antiques", "Pool tables", "Home theaters"]
     }
   ];
 
   const processSteps = [
-    { step: 1, title: "Request Quote", description: "Fill out our form or call for instant pricing", icon: Mail, color: "from-blue-500 to-blue-600" },
-    { step: 2, title: "Choose Package", description: "Select Premium, Deluxe, or Diamond", icon: Package, color: "from-purple-500 to-purple-600" },
-    { step: 3, title: "We Move You", description: "Our expert team handles everything", icon: TruckIcon, color: "from-amber-500 to-amber-600" },
-    { step: 4, title: "Enjoy Home", description: "Settle in while we place furniture", icon: Heart, color: "from-rose-500 to-rose-600" }
+    { step: 1, title: "Request Quote", description: "Fill out our form or call for instant pricing", icon: Mail },
+    { step: 2, title: "Choose Package", description: "Select Premium, Deluxe, or Diamond", icon: Package },
+    { step: 3, title: "We Move You", description: "Our expert team handles everything", icon: TruckIcon },
+    { step: 4, title: "Enjoy Home", description: "Settle in while we place furniture", icon: Heart }
   ];
 
   const neighborhoods = [
@@ -127,8 +119,8 @@ export default function ResidentialMoving() {
       <div className="min-h-screen bg-background">
         <SharedNavigation />
 
-        {/* Immersive Hero Section */}
-        <section className="relative min-h-[90vh] flex items-center overflow-hidden">
+        {/* Hero Section */}
+        <section className="relative min-h-[85vh] flex items-center overflow-hidden">
           <video 
             autoPlay 
             loop 
@@ -139,26 +131,8 @@ export default function ResidentialMoving() {
             <source src={residentialVideo} type="video/mp4" />
           </video>
           <div className="absolute inset-0 bg-gradient-to-r from-[#1A2332] via-[#1A2332]/90 to-[#1A2332]/40" />
-          
-          {/* Floating Stats Cards */}
-          <div className="absolute right-10 top-1/4 hidden xl:flex flex-col gap-4 z-20">
-            <div className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-4 transform hover:scale-105 transition-all duration-300 animate-pulse">
-              <div className="text-3xl font-black text-primary">10K+</div>
-              <div className="text-white/70 text-sm">Homes Moved</div>
-            </div>
-            <div className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-4 transform hover:scale-105 transition-all duration-300">
-              <div className="flex items-center gap-1 text-3xl font-black text-primary">
-                5.0 <Star className="h-5 w-5 fill-primary" />
-              </div>
-              <div className="text-white/70 text-sm">Google Rating</div>
-            </div>
-            <div className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-4 transform hover:scale-105 transition-all duration-300">
-              <div className="text-3xl font-black text-primary">15+</div>
-              <div className="text-white/70 text-sm">Years Experience</div>
-            </div>
-          </div>
 
-          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16">
             <div className="max-w-2xl">
               <div className="flex items-center gap-3 mb-6">
                 <Badge className="bg-primary/20 text-primary border-primary/40 px-4 py-1.5">
@@ -173,16 +147,11 @@ export default function ResidentialMoving() {
 
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-6 leading-[1.1]">
                 Vancouver's<br />
-                <span className="text-primary relative">
-                  #1 Home Movers
-                  <svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 300 12" fill="none">
-                    <path d="M2 10C50 2 150 2 298 10" stroke="#C5A572" strokeWidth="3" strokeLinecap="round"/>
-                  </svg>
-                </span>
+                <span className="text-primary">#1 Home Movers</span>
               </h1>
 
               <p className="text-xl md:text-2xl text-white/80 mb-8 leading-relaxed">
-                From cozy studios to sprawling family homes, we've helped <span className="text-primary font-semibold">10,000+ Vancouver families</span> move with care. WorkSafe BC certified, transparent pricing, zero stress.
+                From cozy studios to sprawling family homes, we've helped <span className="text-primary font-semibold">10,000+ Vancouver families</span> move with care.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
@@ -200,7 +169,6 @@ export default function ResidentialMoving() {
                 </a>
               </div>
 
-              {/* Trust Indicators */}
               <div className="flex flex-wrap gap-6">
                 <WorkSafeBadge size="md" />
                 <div className="flex items-center gap-2 text-white/70">
@@ -214,16 +182,9 @@ export default function ResidentialMoving() {
               </div>
             </div>
           </div>
-
-          {/* Animated Scroll Indicator */}
-          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 animate-bounce">
-            <div className="w-6 h-10 border-2 border-white/40 rounded-full flex justify-center pt-2">
-              <div className="w-1.5 h-3 bg-primary rounded-full animate-pulse" />
-            </div>
-          </div>
         </section>
 
-        {/* Gold Stats Bar */}
+        {/* Stats Bar */}
         <section className="bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-400 py-6">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
@@ -233,30 +194,123 @@ export default function ResidentialMoving() {
                 { value: "15+", label: "Years Experience" },
                 { value: "1 Hour", label: "Quote Response" }
               ].map((stat, index) => (
-                <div key={index} className="group cursor-pointer transform transition-all duration-300 hover:scale-110">
-                  <div className="text-2xl md:text-4xl font-black text-[#1A2332] group-hover:text-white transition-colors">{stat.value}</div>
-                  <div className="text-sm font-bold text-[#1A2332]/80 group-hover:text-white/80 transition-colors uppercase tracking-wide">{stat.label}</div>
+                <div key={index}>
+                  <div className="text-2xl md:text-4xl font-black text-[#1A2332]">{stat.value}</div>
+                  <div className="text-sm font-bold text-[#1A2332]/80 uppercase tracking-wide">{stat.label}</div>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Interactive Service Types */}
-        <section className="py-20 md:py-28 bg-[#1A2332]">
+        {/* SEO Content - About Our Service */}
+        <section className="py-16 md:py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <Badge className="bg-primary/20 text-primary border-primary/30 mb-4">Our Services</Badge>
-              <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
-                What We Move
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div>
+                <Badge className="bg-primary/10 text-primary mb-4">About Our Service</Badge>
+                <h2 className="text-3xl md:text-4xl font-black text-foreground mb-6">
+                  Vancouver's Premier Residential Moving Company
+                </h2>
+                <div className="space-y-4 text-muted-foreground">
+                  <p>
+                    Moving to a new home in Vancouver, Burnaby, Richmond, or anywhere in the Lower Mainland? <strong>Prestige Moving Vancouver</strong> has been helping families relocate since 2009, earning a reputation as one of the most trusted residential movers in Metro Vancouver.
+                  </p>
+                  <p>
+                    Our experienced team handles everything from studio apartments in Yaletown to luxury estates in Shaughnessy, ensuring your belongings arrive safely at your new address.
+                  </p>
+                  <p>
+                    As a <strong>WorkSafe BC certified moving company</strong>, we prioritize the safety of both our team and your belongings. Our movers are fully covered under WorkSafe BC insurance, giving you complete peace of mind.
+                  </p>
+                </div>
+                <div className="mt-8">
+                  <Link href="/book">
+                    <Button size="lg" className="font-bold" data-testid="button-about-quote">
+                      Get Your Free Quote
+                      <ArrowRight className="h-5 w-5 ml-2" />
+                    </Button>
+                  </Link>
+                </div>
+              </div>
+              
+              <div className="relative rounded-2xl overflow-hidden h-[400px]">
+                <img 
+                  src={residentialImage}
+                  alt="Prestige Moving residential movers in Vancouver"
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#1A2332]/60 to-transparent" />
+                <div className="absolute bottom-6 left-6 right-6">
+                  <div className="flex items-center gap-3">
+                    <div className="flex -space-x-2">
+                      {[...Array(4)].map((_, i) => (
+                        <div key={i} className="h-10 w-10 rounded-full bg-primary border-2 border-white flex items-center justify-center">
+                          <Star className="h-4 w-4 text-[#1A2332] fill-[#1A2332]" />
+                        </div>
+                      ))}
+                    </div>
+                    <div className="text-white">
+                      <div className="font-bold">337+ Reviews</div>
+                      <div className="text-sm text-white/70">5-Star Rated on Google</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* What's Included */}
+        <section className="py-16 md:py-20 bg-gray-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <Badge className="bg-primary/10 text-primary mb-4">What's Included</Badge>
+              <h2 className="text-3xl md:text-4xl font-black text-foreground mb-4">
+                Everything You Need for a Stress-Free Move
               </h2>
-              <p className="text-xl text-white/60 max-w-2xl mx-auto">
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                Our residential moving service includes all the essentials for a smooth relocation
+              </p>
+            </div>
+
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[
+                { title: "Free In-Home Estimates", description: "Accurate quotes with no hidden surprises", icon: CheckCircle2 },
+                { title: "Professional Equipment", description: "Dollies, blankets, straps, and specialized tools", icon: Package },
+                { title: "Furniture Disassembly", description: "Beds, tables, shelving units handled with care", icon: Sofa },
+                { title: "Full Liability Coverage", description: "Your belongings are protected throughout the move", icon: Shield },
+                { title: "Trained & Vetted Movers", description: "Background-checked, professional team members", icon: Users },
+                { title: "WorkSafe BC Certified", description: "Full compliance with BC workplace safety standards", icon: Award }
+              ].map((item, index) => (
+                <Card key={index} className="border-2 hover:border-primary/50 transition-colors">
+                  <CardContent className="p-6">
+                    <div className="h-12 w-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
+                      <item.icon className="h-6 w-6 text-primary" />
+                    </div>
+                    <h3 className="font-bold text-lg text-foreground mb-2">{item.title}</h3>
+                    <p className="text-muted-foreground">{item.description}</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Service Types */}
+        <section className="py-16 md:py-20 bg-[#1A2332]">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <Badge className="bg-primary/20 text-primary border-primary/30 mb-4">Our Services</Badge>
+              <h2 className="text-3xl md:text-4xl font-black text-white mb-4">
+                Types of Moves We Handle
+              </h2>
+              <p className="text-lg text-white/60 max-w-2xl mx-auto">
                 Specialized solutions for every type of residential move
               </p>
             </div>
 
             {/* Tab Navigation */}
-            <div className="flex justify-center gap-2 mb-12 flex-wrap">
+            <div className="flex justify-center gap-2 mb-10 flex-wrap">
               {serviceTypes.map((service, index) => {
                 const ServiceIcon = service.icon;
                 return (
@@ -270,7 +324,7 @@ export default function ResidentialMoving() {
                     }`}
                     data-testid={`tab-${service.title.toLowerCase().replace(/\s+/g, '-')}`}
                   >
-                    <ServiceIcon className={`h-5 w-5 transition-transform duration-300 ${activeTab === index ? 'scale-110' : 'group-hover:scale-110'}`} />
+                    <ServiceIcon className="h-5 w-5" />
                     {service.title}
                   </button>
                 );
@@ -278,126 +332,81 @@ export default function ResidentialMoving() {
             </div>
 
             {/* Active Service Content */}
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              {(() => {
-                const ActiveIcon = serviceTypes[activeTab].icon;
-                return (
-                  <div className="relative rounded-3xl overflow-hidden h-[400px] group">
-                    <img 
-                      src={residentialImage}
-                      alt={serviceTypes[activeTab].title}
-                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#1A2332] via-transparent to-transparent" />
-                    <div className="absolute bottom-6 left-6 right-6">
-                      <Badge className="bg-primary text-[#1A2332] font-bold mb-3">
-                        <ActiveIcon className="h-4 w-4 mr-1" />
-                        {serviceTypes[activeTab].title}
-                      </Badge>
-                    </div>
+            <div className="bg-white/5 backdrop-blur border border-white/10 rounded-3xl p-8 md:p-12">
+              <div className="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                  <h3 className="text-2xl md:text-3xl font-black text-white mb-4">
+                    {serviceTypes[activeTab].title}
+                  </h3>
+                  <p className="text-lg text-white/70 mb-6">
+                    {serviceTypes[activeTab].description}
+                  </p>
+
+                  <div className="grid grid-cols-2 gap-4 mb-8">
+                    {serviceTypes[activeTab].features.map((feature, i) => (
+                      <div key={i} className="flex items-center gap-3">
+                        <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0" />
+                        <span className="text-white">{feature}</span>
+                      </div>
+                    ))}
                   </div>
-                );
-              })()}
 
-              <div>
-                <h3 className="text-3xl md:text-4xl font-black text-white mb-4">
-                  {serviceTypes[activeTab].title}
-                </h3>
-                <p className="text-xl text-white/70 mb-8">
-                  {serviceTypes[activeTab].description}
-                </p>
-
-                <div className="grid sm:grid-cols-2 gap-4 mb-8">
-                  {serviceTypes[activeTab].features.map((feature, i) => (
-                    <div 
-                      key={i}
-                      className="flex items-center gap-3 p-4 bg-white/5 rounded-xl border border-white/10 hover:bg-white/10 hover:border-primary/30 transition-all duration-300 group"
-                    >
-                      <CheckCircle2 className="h-5 w-5 text-primary group-hover:scale-110 transition-transform" />
-                      <span className="text-white font-medium">{feature}</span>
-                    </div>
-                  ))}
+                  <Link href="/book">
+                    <Button size="lg" className="font-bold" data-testid="button-service-quote">
+                      Get a Quote
+                      <ArrowRight className="h-5 w-5 ml-2" />
+                    </Button>
+                  </Link>
                 </div>
-
-                <Link href="/book">
-                  <Button size="lg" className="font-bold shadow-lg" data-testid="button-service-quote">
-                    Get a Quote for {serviceTypes[activeTab].title}
-                    <ArrowRight className="h-5 w-5 ml-2" />
-                  </Button>
-                </Link>
+                
+                <div className="relative rounded-2xl overflow-hidden h-[300px]">
+                  <img 
+                    src={residentialImage}
+                    alt={serviceTypes[activeTab].title}
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Modern Process Timeline */}
-        <section className="py-20 md:py-28 bg-[#1A2332] overflow-hidden relative">
-          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSA2MCAwIEwgMCAwIDAgNjAiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjAzKSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')] opacity-50" />
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div className="text-center mb-16">
-              <Badge className="bg-primary/20 text-primary border-primary/30 mb-4">Simple Process</Badge>
-              <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
+        {/* How It Works */}
+        <section className="py-16 md:py-20 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <Badge className="bg-primary/10 text-primary mb-4">Simple Process</Badge>
+              <h2 className="text-3xl md:text-4xl font-black text-foreground mb-4">
                 How It Works
               </h2>
-              <p className="text-xl text-white/60 max-w-2xl mx-auto">
+              <p className="text-lg text-muted-foreground">
                 Four simple steps to your stress-free move
               </p>
             </div>
 
-            <div className="relative">
-              {/* Animated Connection Line - Desktop */}
-              <div className="absolute top-[72px] left-[12.5%] right-[12.5%] h-1 hidden md:block">
-                <div className="w-full h-full bg-white/10 rounded-full" />
-                <div 
-                  className="absolute inset-0 h-full bg-gradient-to-r from-primary via-amber-400 to-primary rounded-full animate-pulse"
-                  style={{ opacity: 0.8 }}
-                />
-              </div>
-
-              <div className="grid md:grid-cols-4 gap-6 md:gap-8 relative">
-                {processSteps.map((step, index) => (
-                  <div 
-                    key={index}
-                    className="relative group"
-                    onMouseEnter={() => setHoveredStep(index)}
-                    onMouseLeave={() => setHoveredStep(null)}
-                  >
-                    {/* Card Container */}
-                    <div className={`bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-6 transition-all duration-500 ${hoveredStep === index ? 'bg-white/10 border-primary/50 transform scale-105 shadow-2xl shadow-primary/20' : 'hover:bg-white/8 hover:border-white/20'}`}>
-                      {/* Icon with Glow Effect */}
-                      <div className="relative mb-6">
-                        <div className={`absolute inset-0 mx-auto w-20 h-20 bg-gradient-to-br ${step.color} rounded-2xl blur-xl transition-opacity duration-500 ${hoveredStep === index ? 'opacity-60' : 'opacity-20'}`} />
-                        <div className={`relative z-10 mx-auto w-20 h-20 rounded-2xl bg-gradient-to-br ${step.color} flex items-center justify-center shadow-xl transform transition-all duration-500 ${hoveredStep === index ? 'rotate-6 scale-110' : 'group-hover:rotate-3 group-hover:scale-105'}`}>
-                          <step.icon className="h-9 w-9 text-white" />
-                        </div>
-                        {/* Step Number Badge */}
-                        <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 w-8 h-8 bg-primary rounded-full flex items-center justify-center text-[#1A2332] font-bold text-sm border-2 border-[#1A2332] shadow-lg z-20">
-                          {step.step}
-                        </div>
-                      </div>
-                      
-                      {/* Content */}
-                      <div className="text-center">
-                        <h3 className="text-xl font-bold mb-2 text-white">{step.title}</h3>
-                        <p className="text-white/50 text-sm leading-relaxed">{step.description}</p>
-                      </div>
+            <div className="grid md:grid-cols-4 gap-8">
+              {processSteps.map((step, index) => (
+                <div key={index} className="text-center relative">
+                  {index < processSteps.length - 1 && (
+                    <div className="hidden md:block absolute top-10 left-[60%] w-[80%] h-0.5 bg-gradient-to-r from-primary to-primary/20" />
+                  )}
+                  <div className="relative inline-flex items-center justify-center mb-4">
+                    <div className="h-20 w-20 bg-primary/10 rounded-2xl flex items-center justify-center">
+                      <step.icon className="h-10 w-10 text-primary" />
                     </div>
-
-                    {/* Mobile Connector */}
-                    {index < processSteps.length - 1 && (
-                      <div className="flex justify-center my-4 md:hidden">
-                        <div className="w-0.5 h-8 bg-gradient-to-b from-primary to-transparent" />
-                      </div>
-                    )}
+                    <div className="absolute -top-2 -right-2 h-8 w-8 bg-primary rounded-full flex items-center justify-center text-[#1A2332] font-bold text-sm">
+                      {step.step}
+                    </div>
                   </div>
-                ))}
-              </div>
+                  <h3 className="text-xl font-bold mb-2">{step.title}</h3>
+                  <p className="text-muted-foreground">{step.description}</p>
+                </div>
+              ))}
             </div>
 
-            {/* CTA */}
             <div className="text-center mt-12">
               <Link href="/book">
-                <Button size="lg" className="bg-primary hover:bg-primary/90 text-[#1A2332] font-bold px-8 py-6 text-lg rounded-xl shadow-lg shadow-primary/30 transition-all duration-300 hover:scale-105">
+                <Button size="lg" className="font-bold px-8" data-testid="button-process-quote">
                   Start Your Move Today
                   <ArrowRight className="h-5 w-5 ml-2" />
                 </Button>
@@ -406,82 +415,45 @@ export default function ResidentialMoving() {
           </div>
         </section>
 
-        {/* Why Choose Us - Bento Grid */}
-        <section className="py-20 md:py-28 bg-[#1A2332]">
+        {/* Why Choose Us */}
+        <section className="py-16 md:py-20 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <Badge className="bg-primary/20 text-primary border-primary/30 mb-4">Why Us</Badge>
-              <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
+            <div className="text-center mb-12">
+              <Badge className="bg-primary/10 text-primary mb-4">Why Choose Us</Badge>
+              <h2 className="text-3xl md:text-4xl font-black text-foreground mb-4">
                 The Prestige Difference
               </h2>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-6">
-              {/* Large Feature Card */}
-              <div className="md:col-span-2 md:row-span-2 relative group bg-gradient-to-br from-primary/20 to-primary/5 backdrop-blur border border-primary/30 rounded-3xl p-8 overflow-hidden hover:border-primary/50 transition-all duration-300">
-                <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2" />
-                <div className="relative z-10">
-                  <div className="h-20 w-20 bg-gradient-to-br from-primary to-amber-600 rounded-2xl flex items-center justify-center mb-6 shadow-lg">
-                    <Shield className="h-10 w-10 text-white" />
-                  </div>
-                  <h3 className="text-3xl font-black text-white mb-4">Fully Insured & Protected</h3>
-                  <p className="text-white/70 text-lg leading-relaxed mb-6">
-                    Complete insurance and liability coverage protects you, our team, and your belongings from pickup to delivery. Peace of mind guaranteed.
-                  </p>
-                  <div className="flex flex-wrap gap-3">
-                    <Badge className="bg-white/10 text-white border-white/20">Fully Insured</Badge>
-                    <Badge className="bg-white/10 text-white border-white/20">Liability Coverage</Badge>
-                    <Badge className="bg-white/10 text-white border-white/20">Bonded Team</Badge>
-                  </div>
-                </div>
-              </div>
-
-              {/* Small Feature Cards */}
-              <div className="group bg-white/5 backdrop-blur border border-white/10 rounded-3xl p-6 hover:bg-white/10 hover:border-primary/50 transition-all duration-300 hover:scale-[1.02]">
-                <div className="h-14 w-14 bg-gradient-to-br from-blue-400 to-blue-600 rounded-xl flex items-center justify-center mb-4">
-                  <Users className="h-7 w-7 text-white" />
-                </div>
-                <h3 className="text-xl font-bold text-white mb-2">Expert Team</h3>
-                <p className="text-white/60">Average 5+ years experience per mover. Trained professionals who care.</p>
-              </div>
-
-              <div className="group bg-white/5 backdrop-blur border border-white/10 rounded-3xl p-6 hover:bg-white/10 hover:border-primary/50 transition-all duration-300 hover:scale-[1.02]">
-                <div className="h-14 w-14 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-xl flex items-center justify-center mb-4">
-                  <Clock className="h-7 w-7 text-white" />
-                </div>
-                <h3 className="text-xl font-bold text-white mb-2">On-Time Guarantee</h3>
-                <p className="text-white/60">If we're late, your first hour is free. We respect your schedule.</p>
-              </div>
-
-              <div className="group bg-white/5 backdrop-blur border border-white/10 rounded-3xl p-6 hover:bg-white/10 hover:border-primary/50 transition-all duration-300 hover:scale-[1.02]">
-                <div className="h-14 w-14 bg-gradient-to-br from-violet-400 to-violet-600 rounded-xl flex items-center justify-center mb-4">
-                  <ThumbsUp className="h-7 w-7 text-white" />
-                </div>
-                <h3 className="text-xl font-bold text-white mb-2">Transparent Pricing</h3>
-                <p className="text-white/60">No hidden fees, no surprises. What we quote is what you pay.</p>
-              </div>
-
-              <div className="md:col-span-2 group bg-white/5 backdrop-blur border border-white/10 rounded-3xl p-6 hover:bg-white/10 hover:border-primary/50 transition-all duration-300">
-                <div className="flex items-center gap-6">
-                  <div className="h-14 w-14 bg-gradient-to-br from-rose-400 to-rose-600 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <HandHeart className="h-7 w-7 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-white mb-1">White Glove Service</h3>
-                    <p className="text-white/60">Furniture placement, reassembly, and cleanup included. We treat your home like our own.</p>
-                  </div>
-                </div>
-              </div>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[
+                { icon: Shield, title: "Fully Insured", description: "Complete protection for your belongings from pickup to delivery", color: "from-amber-500 to-amber-600" },
+                { icon: Users, title: "Expert Team", description: "Average 5+ years experience per mover. Trained professionals who care.", color: "from-blue-500 to-blue-600" },
+                { icon: Clock, title: "On-Time Guarantee", description: "If we're late, your first hour is free. We respect your schedule.", color: "from-emerald-500 to-emerald-600" },
+                { icon: ThumbsUp, title: "Transparent Pricing", description: "No hidden fees, no surprises. What we quote is what you pay.", color: "from-violet-500 to-violet-600" },
+                { icon: HandHeart, title: "White Glove Service", description: "Furniture placement, reassembly, and cleanup included.", color: "from-rose-500 to-rose-600" },
+                { icon: Award, title: "WorkSafe BC Certified", description: "Full compliance with workplace safety standards for your peace of mind.", color: "from-primary to-amber-600" }
+              ].map((item, index) => (
+                <Card key={index} className="border-2 hover:border-primary/50 transition-all hover:shadow-lg">
+                  <CardContent className="p-6">
+                    <div className={`h-14 w-14 bg-gradient-to-br ${item.color} rounded-xl flex items-center justify-center mb-4`}>
+                      <item.icon className="h-7 w-7 text-white" />
+                    </div>
+                    <h3 className="text-xl font-bold mb-2">{item.title}</h3>
+                    <p className="text-muted-foreground">{item.description}</p>
+                  </CardContent>
+                </Card>
+              ))}
             </div>
           </div>
         </section>
 
-        {/* Testimonials Carousel */}
-        <section className="py-20 md:py-28 bg-gradient-to-b from-gray-50 to-white">
+        {/* Testimonials */}
+        <section className="py-16 md:py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
+            <div className="text-center mb-12">
               <Badge className="bg-primary/10 text-primary mb-4">Reviews</Badge>
-              <h2 className="text-4xl md:text-5xl font-black text-foreground mb-4">
+              <h2 className="text-3xl md:text-4xl font-black text-foreground mb-4">
                 What Families Say
               </h2>
               <div className="flex items-center justify-center gap-2 text-muted-foreground">
@@ -490,13 +462,12 @@ export default function ResidentialMoving() {
                     <Star key={i} className="h-5 w-5 fill-primary text-primary" />
                   ))}
                 </div>
-                <span>Based on 500+ Google Reviews</span>
+                <span>Based on 337+ Google Reviews</span>
               </div>
             </div>
 
             <div className="relative max-w-4xl mx-auto">
-              {/* Main Testimonial */}
-              <Card className="border-2 shadow-xl bg-white overflow-hidden">
+              <Card className="border-2 shadow-xl">
                 <CardContent className="p-8 md:p-12">
                   <div className="flex gap-1 mb-6">
                     {[...Array(5)].map((_, i) => (
@@ -506,7 +477,7 @@ export default function ResidentialMoving() {
                   <p className="text-xl md:text-2xl text-foreground mb-8 leading-relaxed">
                     "{testimonials[activeTestimonial].text}"
                   </p>
-                  <div className="flex items-center justify-between">
+                  <div className="flex items-center justify-between flex-wrap gap-4">
                     <div className="flex items-center gap-4">
                       <div className="h-14 w-14 bg-gradient-to-br from-primary to-amber-600 rounded-full flex items-center justify-center text-white font-bold text-xl">
                         {testimonials[activeTestimonial].name[0]}
@@ -523,7 +494,6 @@ export default function ResidentialMoving() {
                 </CardContent>
               </Card>
 
-              {/* Navigation */}
               <div className="flex items-center justify-center gap-4 mt-8">
                 <button 
                   onClick={() => setActiveTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length)}
@@ -556,15 +526,15 @@ export default function ResidentialMoving() {
           </div>
         </section>
 
-        {/* Service Areas - Interactive Map Feel */}
-        <section className="py-20 md:py-28 bg-[#1A2332]">
+        {/* Service Areas */}
+        <section className="py-16 md:py-20 bg-[#1A2332]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
+            <div className="text-center mb-10">
               <Badge className="bg-primary/20 text-primary border-primary/30 mb-4">Coverage</Badge>
-              <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
+              <h2 className="text-3xl md:text-4xl font-black text-white mb-4">
                 Vancouver Neighborhoods We Serve
               </h2>
-              <p className="text-xl text-white/60">
+              <p className="text-lg text-white/60">
                 Comprehensive coverage across Metro Vancouver
               </p>
             </div>
@@ -583,127 +553,80 @@ export default function ResidentialMoving() {
           </div>
         </section>
 
-        {/* SEO Content Section with Internal Links */}
-        <section className="py-20 md:py-28 bg-gradient-to-b from-white to-gray-50">
+        {/* Related Services */}
+        <section className="py-16 md:py-20 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-3xl md:text-4xl font-black text-foreground mb-6">
-                Vancouver's Premier Residential Moving Company
+            <div className="text-center mb-12">
+              <Badge className="bg-primary/10 text-primary mb-4">More Services</Badge>
+              <h2 className="text-3xl md:text-4xl font-black text-foreground mb-4">
+                Complete Your Move
               </h2>
-              <div className="prose prose-lg max-w-none text-muted-foreground mb-8">
-                <p>
-                  Moving to a new home in Vancouver, Burnaby, Richmond, or anywhere in the Lower Mainland? Prestige Moving Vancouver has been helping families relocate since 2009, earning a reputation as one of the most trusted <strong>residential movers in Metro Vancouver</strong>. Our experienced team handles everything from studio apartments in Yaletown to luxury estates in Shaughnessy, ensuring your belongings arrive safely at your new address.
-                </p>
-                <p>
-                  What sets us apart from other Vancouver moving companies is our commitment to a stress-free experience. We offer transparent, upfront pricing with no hidden fees, fully trained and background-checked movers, and comprehensive protection for your valuables. Whether you're moving across the street or across the city, our <strong>professional home movers</strong> treat every item as if it were their own.
-                </p>
-                <p>
-                  As a <strong>WorkSafe BC certified moving company</strong>, we prioritize the safety of both our team and your belongings. Our movers are fully covered under WorkSafe BC insurance, giving you complete peace of mind during your move. This certification demonstrates our commitment to maintaining the highest safety standards in the moving industry.
-                </p>
-              </div>
-              
-              {/* What's Included Section */}
-              <h3 className="text-2xl font-bold text-foreground mb-4">What's Included in Our Residential Moving Service</h3>
-              <div className="grid sm:grid-cols-2 gap-4 mb-8">
-                <div className="flex items-start gap-3 p-4 bg-white rounded-xl border">
-                  <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                  <div>
-                    <h4 className="font-semibold text-foreground">Free In-Home Estimates</h4>
-                    <p className="text-sm text-muted-foreground">Accurate quotes with no hidden surprises</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3 p-4 bg-white rounded-xl border">
-                  <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                  <div>
-                    <h4 className="font-semibold text-foreground">Professional Equipment</h4>
-                    <p className="text-sm text-muted-foreground">Dollies, blankets, straps, and specialized tools</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3 p-4 bg-white rounded-xl border">
-                  <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                  <div>
-                    <h4 className="font-semibold text-foreground">Furniture Disassembly & Reassembly</h4>
-                    <p className="text-sm text-muted-foreground">Beds, tables, shelving units handled with care</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3 p-4 bg-white rounded-xl border">
-                  <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                  <div>
-                    <h4 className="font-semibold text-foreground">Full Liability Coverage</h4>
-                    <p className="text-sm text-muted-foreground">Your belongings are protected throughout the move</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3 p-4 bg-white rounded-xl border">
-                  <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                  <div>
-                    <h4 className="font-semibold text-foreground">Trained & Vetted Movers</h4>
-                    <p className="text-sm text-muted-foreground">Background-checked, professional team members</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3 p-4 bg-white rounded-xl border">
-                  <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                  <div>
-                    <h4 className="font-semibold text-foreground">WorkSafe BC Certified</h4>
-                    <p className="text-sm text-muted-foreground">Full compliance with BC workplace safety standards</p>
-                  </div>
-                </div>
-              </div>
-              
-              <h3 className="text-2xl font-bold text-foreground mb-4">Complete Your Move with Our Additional Services</h3>
-              <p className="text-muted-foreground mb-6">
-                Need help with more than just moving? We offer a full range of services to make your transition seamless:
+              <p className="text-lg text-muted-foreground">
+                Additional services to make your transition seamless
               </p>
-              
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                <Link href="/services/packing-services">
-                  <div className="p-4 bg-white rounded-xl border hover:border-primary hover:shadow-md transition-all group">
-                    <Package className="h-6 w-6 text-primary mb-2" />
-                    <h4 className="font-semibold text-foreground group-hover:text-primary transition-colors">Packing Services</h4>
-                    <p className="text-sm text-muted-foreground">Professional packing for fragile items and full homes</p>
-                  </div>
-                </Link>
-                <Link href="/services/storage-solutions">
-                  <div className="p-4 bg-white rounded-xl border hover:border-primary hover:shadow-md transition-all group">
-                    <Warehouse className="h-6 w-6 text-primary mb-2" />
-                    <h4 className="font-semibold text-foreground group-hover:text-primary transition-colors">Storage Solutions</h4>
-                    <p className="text-sm text-muted-foreground">Climate-controlled short and long-term storage</p>
-                  </div>
-                </Link>
-                <Link href="/services/long-distance-moving">
-                  <div className="p-4 bg-white rounded-xl border hover:border-primary hover:shadow-md transition-all group">
-                    <TruckIcon className="h-6 w-6 text-primary mb-2" />
-                    <h4 className="font-semibold text-foreground group-hover:text-primary transition-colors">Long Distance Moving</h4>
-                    <p className="text-sm text-muted-foreground">Cross-province and Canada-wide relocations</p>
-                  </div>
-                </Link>
-                <Link href="/services/piano-moving">
-                  <div className="p-4 bg-white rounded-xl border hover:border-primary hover:shadow-md transition-all group">
-                    <Music className="h-6 w-6 text-primary mb-2" />
-                    <h4 className="font-semibold text-foreground group-hover:text-primary transition-colors">Piano Moving</h4>
-                    <p className="text-sm text-muted-foreground">Specialized equipment for safe piano transport</p>
-                  </div>
-                </Link>
-                <Link href="/services/senior-moving">
-                  <div className="p-4 bg-white rounded-xl border hover:border-primary hover:shadow-md transition-all group">
-                    <Heart className="h-6 w-6 text-primary mb-2" />
-                    <h4 className="font-semibold text-foreground group-hover:text-primary transition-colors">Senior Moving</h4>
-                    <p className="text-sm text-muted-foreground">Compassionate downsizing and relocation assistance</p>
-                  </div>
-                </Link>
-                <Link href="/services/specialty-item-moving">
-                  <div className="p-4 bg-white rounded-xl border hover:border-primary hover:shadow-md transition-all group">
-                    <Sparkles className="h-6 w-6 text-primary mb-2" />
-                    <h4 className="font-semibold text-foreground group-hover:text-primary transition-colors">Specialty Items</h4>
-                    <p className="text-sm text-muted-foreground">Hot tubs, pool tables, gym equipment & more</p>
-                  </div>
-                </Link>
-              </div>
+            </div>
+            
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              <Link href="/services/packing-services">
+                <Card className="border-2 hover:border-primary hover:shadow-lg transition-all h-full">
+                  <CardContent className="p-6">
+                    <Package className="h-8 w-8 text-primary mb-4" />
+                    <h3 className="font-bold text-lg mb-2">Packing Services</h3>
+                    <p className="text-muted-foreground">Professional packing for fragile items and full homes</p>
+                  </CardContent>
+                </Card>
+              </Link>
+              <Link href="/services/storage-solutions">
+                <Card className="border-2 hover:border-primary hover:shadow-lg transition-all h-full">
+                  <CardContent className="p-6">
+                    <Warehouse className="h-8 w-8 text-primary mb-4" />
+                    <h3 className="font-bold text-lg mb-2">Storage Solutions</h3>
+                    <p className="text-muted-foreground">Climate-controlled short and long-term storage</p>
+                  </CardContent>
+                </Card>
+              </Link>
+              <Link href="/services/long-distance-moving">
+                <Card className="border-2 hover:border-primary hover:shadow-lg transition-all h-full">
+                  <CardContent className="p-6">
+                    <TruckIcon className="h-8 w-8 text-primary mb-4" />
+                    <h3 className="font-bold text-lg mb-2">Long Distance Moving</h3>
+                    <p className="text-muted-foreground">Cross-province and Canada-wide relocations</p>
+                  </CardContent>
+                </Card>
+              </Link>
+              <Link href="/services/piano-moving">
+                <Card className="border-2 hover:border-primary hover:shadow-lg transition-all h-full">
+                  <CardContent className="p-6">
+                    <Music className="h-8 w-8 text-primary mb-4" />
+                    <h3 className="font-bold text-lg mb-2">Piano Moving</h3>
+                    <p className="text-muted-foreground">Specialized equipment for safe piano transport</p>
+                  </CardContent>
+                </Card>
+              </Link>
+              <Link href="/services/senior-moving">
+                <Card className="border-2 hover:border-primary hover:shadow-lg transition-all h-full">
+                  <CardContent className="p-6">
+                    <Heart className="h-8 w-8 text-primary mb-4" />
+                    <h3 className="font-bold text-lg mb-2">Senior Moving</h3>
+                    <p className="text-muted-foreground">Compassionate downsizing and relocation assistance</p>
+                  </CardContent>
+                </Card>
+              </Link>
+              <Link href="/services/specialty-item-moving">
+                <Card className="border-2 hover:border-primary hover:shadow-lg transition-all h-full">
+                  <CardContent className="p-6">
+                    <Sparkles className="h-8 w-8 text-primary mb-4" />
+                    <h3 className="font-bold text-lg mb-2">Specialty Items</h3>
+                    <p className="text-muted-foreground">Hot tubs, pool tables, gym equipment & more</p>
+                  </CardContent>
+                </Card>
+              </Link>
             </div>
           </div>
         </section>
 
-        {/* Strong CTA Section */}
-        <section className="py-20 md:py-28 bg-gradient-to-r from-primary via-amber-500 to-primary relative overflow-hidden">
+        {/* CTA Section */}
+        <section className="py-16 md:py-20 bg-gradient-to-r from-primary via-amber-500 to-primary relative overflow-hidden">
           <div className="absolute inset-0 opacity-10">
             <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl" />
             <div className="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl" />
@@ -715,12 +638,12 @@ export default function ResidentialMoving() {
               <span className="text-[#1A2332] font-semibold text-sm">Free No-Obligation Quote</span>
             </div>
             
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-[#1A2332] mb-6">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-[#1A2332] mb-6">
               Ready to Move?
             </h2>
             
             <p className="text-xl text-[#1A2332]/80 mb-8 max-w-2xl mx-auto">
-              Join 10,000+ Vancouver families who trusted us. Get your personalized quote in under 1 hour.
+              Join 10,000+ Vancouver families who trusted us with their move. Get your personalized quote in under 1 hour.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
