@@ -14,6 +14,7 @@ import { Helmet } from "react-helmet";
 import { SharedNavigation } from "@/components/shared-navigation";
 import { SharedFooter } from "@/components/shared-footer";
 import { useToast } from "@/hooks/use-toast";
+import { WorkSafeBadge } from "@/components/worksafe-badge";
 import { apiRequest } from "@/lib/queryClient";
 import residentialVideo from "@assets/residential_moving_video.mp4";
 import residentialImage from "@assets/truck1_1764291781341.jpeg";
@@ -54,7 +55,7 @@ export default function ResidentialMoving() {
       { "@type": "City", "name": "Coquitlam" },
       { "@type": "City", "name": "Surrey" }
     ],
-    "description": "Professional residential moving services in Vancouver. Experienced movers for apartments, condos, and houses. WSIB insured with transparent pricing."
+    "description": "Professional residential moving services in Vancouver. Experienced movers for apartments, condos, and houses. WorkSafe BC certified with transparent pricing."
   };
 
   const testimonials = [
@@ -113,7 +114,7 @@ export default function ResidentialMoving() {
     <>
       <Helmet>
         <title>Residential Moving Services Vancouver BC | Home Movers | Prestige Moving</title>
-        <meta name="description" content="Professional residential moving services in Vancouver BC. Experienced movers, WSIB insured, transparent pricing. Apartments, condos, houses. Get your free quote today!" />
+        <meta name="description" content="Professional residential moving services in Vancouver BC. WorkSafe BC certified movers, BBB A+ rated, transparent pricing. Apartments, condos, houses. Get your free quote today!" />
         <meta name="keywords" content="residential moving Vancouver, home movers BC, apartment moving, condo moving Vancouver, house moving service, Vancouver movers, Burnaby movers, Richmond moving company" />
         <meta property="og:title" content="Residential Moving Services Vancouver | Prestige Moving" />
         <meta property="og:description" content="Vancouver's trusted residential movers. From studio apartments to 5-bedroom homes. Professional, insured, and affordable." />
@@ -181,7 +182,7 @@ export default function ResidentialMoving() {
               </h1>
 
               <p className="text-xl md:text-2xl text-white/80 mb-8 leading-relaxed">
-                From cozy studios to sprawling family homes, we've helped <span className="text-primary font-semibold">10,000+ Vancouver families</span> move with care. WSIB insured, transparent pricing, zero stress.
+                From cozy studios to sprawling family homes, we've helped <span className="text-primary font-semibold">10,000+ Vancouver families</span> move with care. WorkSafe BC certified, transparent pricing, zero stress.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
@@ -201,10 +202,7 @@ export default function ResidentialMoving() {
 
               {/* Trust Indicators */}
               <div className="flex flex-wrap gap-6">
-                <div className="flex items-center gap-2 text-white/70">
-                  <Shield className="h-5 w-5 text-primary" />
-                  <span>WSIB Insured</span>
-                </div>
+                <WorkSafeBadge size="md" />
                 <div className="flex items-center gap-2 text-white/70">
                   <Award className="h-5 w-5 text-primary" />
                   <span>BBB A+ Rated</span>
@@ -599,6 +597,56 @@ export default function ResidentialMoving() {
                 <p>
                   What sets us apart from other Vancouver moving companies is our commitment to a stress-free experience. We offer transparent, upfront pricing with no hidden fees, fully trained and background-checked movers, and comprehensive protection for your valuables. Whether you're moving across the street or across the city, our <strong>professional home movers</strong> treat every item as if it were their own.
                 </p>
+                <p>
+                  As a <strong>WorkSafe BC certified moving company</strong>, we prioritize the safety of both our team and your belongings. Our movers are fully covered under WorkSafe BC insurance, giving you complete peace of mind during your move. This certification demonstrates our commitment to maintaining the highest safety standards in the moving industry.
+                </p>
+              </div>
+              
+              {/* What's Included Section */}
+              <h3 className="text-2xl font-bold text-foreground mb-4">What's Included in Our Residential Moving Service</h3>
+              <div className="grid sm:grid-cols-2 gap-4 mb-8">
+                <div className="flex items-start gap-3 p-4 bg-white rounded-xl border">
+                  <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                  <div>
+                    <h4 className="font-semibold text-foreground">Free In-Home Estimates</h4>
+                    <p className="text-sm text-muted-foreground">Accurate quotes with no hidden surprises</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3 p-4 bg-white rounded-xl border">
+                  <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                  <div>
+                    <h4 className="font-semibold text-foreground">Professional Equipment</h4>
+                    <p className="text-sm text-muted-foreground">Dollies, blankets, straps, and specialized tools</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3 p-4 bg-white rounded-xl border">
+                  <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                  <div>
+                    <h4 className="font-semibold text-foreground">Furniture Disassembly & Reassembly</h4>
+                    <p className="text-sm text-muted-foreground">Beds, tables, shelving units handled with care</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3 p-4 bg-white rounded-xl border">
+                  <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                  <div>
+                    <h4 className="font-semibold text-foreground">Full Liability Coverage</h4>
+                    <p className="text-sm text-muted-foreground">Your belongings are protected throughout the move</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3 p-4 bg-white rounded-xl border">
+                  <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                  <div>
+                    <h4 className="font-semibold text-foreground">Trained & Vetted Movers</h4>
+                    <p className="text-sm text-muted-foreground">Background-checked, professional team members</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3 p-4 bg-white rounded-xl border">
+                  <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                  <div>
+                    <h4 className="font-semibold text-foreground">WorkSafe BC Certified</h4>
+                    <p className="text-sm text-muted-foreground">Full compliance with BC workplace safety standards</p>
+                  </div>
+                </div>
               </div>
               
               <h3 className="text-2xl font-bold text-foreground mb-4">Complete Your Move with Our Additional Services</h3>

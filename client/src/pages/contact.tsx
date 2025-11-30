@@ -101,7 +101,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <div className="font-bold">Email Us</div>
-                  <a href="mailto:info@prestigemoving.ca" className="hover:underline">info@prestigemoving.ca</a>
+                  <a href="mailto:vancouver@prestigemoving.ca" className="hover:underline">vancouver@prestigemoving.ca</a>
                 </div>
               </div>
               <div className="flex items-center justify-center gap-3 text-[#1A2332]">

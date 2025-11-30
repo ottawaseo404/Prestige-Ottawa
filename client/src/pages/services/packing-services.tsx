@@ -11,6 +11,7 @@ import { Helmet } from "react-helmet";
 import { SharedNavigation } from "@/components/shared-navigation";
 import { SharedFooter } from "@/components/shared-footer";
 import { useToast } from "@/hooks/use-toast";
+import { WorkSafeBadge } from "@/components/worksafe-badge";
 import { apiRequest } from "@/lib/queryClient";
 import packingHeroVideo from "@assets/generated_videos/professional_packing_services_vancouver.mp4";
 
@@ -116,10 +117,7 @@ export default function PackingServices() {
                   <Package className="h-4 w-4 text-primary" />
                   <span>Quality Materials</span>
                 </div>
-                <div className="flex items-center gap-2">
-                  <Shield className="h-4 w-4 text-primary" />
-                  <span>Fully Insured</span>
-                </div>
+                <WorkSafeBadge size="sm" />
                 <div className="flex items-center gap-2">
                   <Clock className="h-4 w-4 text-primary" />
                   <span>Same Day Service</span>

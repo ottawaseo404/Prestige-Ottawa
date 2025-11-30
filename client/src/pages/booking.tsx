@@ -167,7 +167,7 @@ export default function Booking() {
     <>
       <Helmet>
         <title>Book Your Move | Free Moving Quote Vancouver | Prestige Moving</title>
-        <meta name="description" content="Book your move online with Vancouver's top-rated movers. Get a free quote in minutes. Residential, commercial, long-distance moves. WSIB insured, 5-star rated. Call 604-616-6066!" />
+        <meta name="description" content="Book your move online with Vancouver's top-rated movers. Get a free quote in minutes. Residential, commercial, long-distance moves. WorkSafe BC certified, 5-star rated. Call 604-616-6066!" />
         <meta name="keywords" content="book moving Vancouver, moving quote Vancouver, hire movers BC, schedule move Vancouver, online moving booking, Vancouver mover estimate" />
         <meta name="robots" content="index, follow" />
         <meta property="og:title" content="Book Your Move | Prestige Moving Vancouver" />

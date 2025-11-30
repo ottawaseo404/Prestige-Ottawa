@@ -319,7 +319,7 @@ export default function StudentMoving() {
                   </div>
                   <CardTitle>Fully Insured</CardTitle>
                   <CardDescription>
-                    Your belongings are protected with our comprehensive WSIB coverage.
+                    Your belongings are protected with our comprehensive WorkSafe BC coverage.
                   </CardDescription>
                 </CardHeader>
               </Card>

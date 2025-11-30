@@ -15,6 +15,7 @@ import { Helmet } from "react-helmet";
 import { SharedNavigation } from "@/components/shared-navigation";
 import { SharedFooter } from "@/components/shared-footer";
 import { useHeroVideo, getDefaultVideoForPage } from "@/hooks/use-hero-video";
+import { WorkSafeBadge } from "@/components/worksafe-badge";
 
 const destinations = [
   { city: "Calgary", province: "AB", distance: 675, time: "8-10 hrs", popular: true, icon: Mountain },
@@ -197,10 +198,7 @@ export default function LongDistanceMoving() {
               </div>
 
               <div className="flex flex-wrap gap-6">
-                <div className="flex items-center gap-2 text-white/70">
-                  <Shield className="h-5 w-5 text-primary" />
-                  <span>Full Insurance</span>
-                </div>
+                <WorkSafeBadge size="md" />
                 <div className="flex items-center gap-2 text-white/70">
                   <LocateFixed className="h-5 w-5 text-primary" />
                   <span>GPS Tracking</span>

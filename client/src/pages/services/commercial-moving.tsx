@@ -16,6 +16,7 @@ import { Helmet } from "react-helmet";
 import { SharedNavigation } from "@/components/shared-navigation";
 import { SharedFooter } from "@/components/shared-footer";
 import { useHeroVideo, getDefaultVideoForPage } from "@/hooks/use-hero-video";
+import { WorkSafeBadge } from "@/components/worksafe-badge";
 import commercialImage from "@assets/commercial_truck_night.png";
 
 export default function CommercialMoving() {
@@ -45,7 +46,7 @@ export default function CommercialMoving() {
       "telephone": "604-616-6066",
       "priceRange": "$$"
     },
-    "description": "Professional commercial and office moving services in Vancouver. Minimize downtime with experienced business movers."
+    "description": "Professional commercial and office moving services in Vancouver. WorkSafe BC certified, minimize downtime with experienced business movers."
   };
 
   const industries = [
@@ -231,10 +232,7 @@ export default function CommercialMoving() {
 
               {/* Trust Row */}
               <div className="flex flex-wrap gap-6">
-                <div className="flex items-center gap-2 text-white/70">
-                  <Shield className="h-5 w-5 text-primary" />
-                  <span>Fully Insured</span>
-                </div>
+                <WorkSafeBadge size="md" />
                 <div className="flex items-center gap-2 text-white/70">
                   <Award className="h-5 w-5 text-primary" />
                   <span>BBB A+ Rated</span>
@@ -275,7 +273,7 @@ export default function CommercialMoving() {
                   { icon: Users, title: "Dedicated Project Manager", desc: "Single point of contact from consultation through final setup and walkthrough" },
                   { icon: Clock, title: "After-Hours & Weekend Moves", desc: "Zero-disruption moves scheduled outside business hours to maintain productivity" },
                   { icon: Server, title: "IT & Equipment Handling", desc: "Specialized protocols for servers, workstations, and sensitive electronics" },
-                  { icon: Shield, title: "Full Insurance Coverage", desc: "Comprehensive protection for all equipment, furniture, and inventory items" },
+                  { icon: Shield, title: "WorkSafe BC Certified", desc: "Full insurance and WorkSafe BC certification protecting all equipment and personnel" },
                   { icon: Settings, title: "Complete Setup Services", desc: "Furniture placement, workstation configuration, and post-move support" }
                 ].map((item, index) => {
                   const ItemIcon = item.icon;

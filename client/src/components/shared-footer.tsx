@@ -1,7 +1,8 @@
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
-import { Phone } from "lucide-react";
+import { Phone, Mail } from "lucide-react";
 import logoUrl from "@assets/originalonglogo_1763689606978.png";
+import { WorkSafeBadge } from "@/components/worksafe-badge";
 
 export function SharedFooter() {
   const currentYear = new Date().getFullYear();
@@ -16,6 +17,10 @@ export function SharedFooter() {
               <p className="text-white/70 text-sm leading-relaxed">
                 Vancouver's trusted moving company providing professional residential and commercial moving services.
               </p>
+              {/* WorkSafe BC Badge */}
+              <div className="mt-6">
+                <WorkSafeBadge size="lg" />
+              </div>
             </div>
             
             <div>
@@ -56,7 +61,10 @@ export function SharedFooter() {
                   <Phone className="h-4 w-4" />
                   604-616-6066
                 </a>
-                <p>info@prestigemoving.ca</p>
+                <a href="mailto:vancouver@prestigemoving.ca" className="flex items-center gap-2 hover:text-primary transition-colors">
+                  <Mail className="h-4 w-4" />
+                  vancouver@prestigemoving.ca
+                </a>
               </div>
               <div className="mt-6">
                 <Link href="/book">
@@ -70,11 +78,11 @@ export function SharedFooter() {
           
           <div className="border-t border-white/10 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="flex items-center gap-6 text-sm text-white/50">
-              <span>WSIB Insured</span>
+              <span>WorkSafe BC Certified</span>
               <span>•</span>
               <span>BBB A+ Rating</span>
               <span>•</span>
-              <span>Fully Licensed</span>
+              <span>Fully Licensed & Insured</span>
             </div>
             <div className="flex flex-col md:flex-row items-center gap-4 text-sm text-white/50">
               <p>&copy; {currentYear} Prestige Moving Vancouver. All rights reserved.</p>

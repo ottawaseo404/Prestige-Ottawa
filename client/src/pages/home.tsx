@@ -276,7 +276,7 @@ export default function Home() {
     "description": "Vancouver's premier moving company offering residential, commercial, long-distance, and specialty moving services. Fully insured, 5-star rated, 15+ years experience.",
     "url": "https://vancouver.prestigemoving.ca",
     "telephone": "604-616-6066",
-    "email": "info@prestigemoving.ca",
+    "email": "vancouver@prestigemoving.ca",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Vancouver",
@@ -307,8 +307,10 @@ export default function Home() {
       { "@type": "City", "name": "Coquitlam" }
     ],
     "sameAs": [
-      "https://www.facebook.com/prestigemovingvancouver",
-      "https://www.instagram.com/prestigemovingvancouver"
+      "https://www.facebook.com/PrestigeMovingVancouver",
+      "https://www.instagram.com/prestigemovingvancouver",
+      "https://www.linkedin.com/company/prestige-moving-vancouver",
+      "https://www.youtube.com/@prestigemovingvancouver"
     ]
   };
 
@@ -653,7 +655,7 @@ export default function Home() {
               {/* Social Media Icons */}
               <div className="flex items-center gap-3 mb-8">
                 <a 
-                  href="https://www.facebook.com/PrestigeMovingOttawa" 
+                  href="https://www.facebook.com/PrestigeMovingVancouver" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="group w-10 h-10 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center hover:bg-primary hover:border-primary transition-all duration-300 hover:scale-110"
@@ -663,7 +665,7 @@ export default function Home() {
                   <SiFacebook className="h-4 w-4 text-white group-hover:text-[#1A2332] transition-colors" />
                 </a>
                 <a 
-                  href="https://www.instagram.com/prestigemoving" 
+                  href="https://www.instagram.com/prestigemovingvancouver" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="group w-10 h-10 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center hover:bg-primary hover:border-primary transition-all duration-300 hover:scale-110"
@@ -673,7 +675,7 @@ export default function Home() {
                   <SiInstagram className="h-4 w-4 text-white group-hover:text-[#1A2332] transition-colors" />
                 </a>
                 <a 
-                  href="https://www.linkedin.com/company/prestige-moving" 
+                  href="https://www.linkedin.com/company/prestige-moving-vancouver" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="group w-10 h-10 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center hover:bg-primary hover:border-primary transition-all duration-300 hover:scale-110"
@@ -683,7 +685,7 @@ export default function Home() {
                   <SiLinkedin className="h-4 w-4 text-white group-hover:text-[#1A2332] transition-colors" />
                 </a>
                 <a 
-                  href="https://www.youtube.com/@prestigemoving" 
+                  href="https://www.youtube.com/@prestigemovingvancouver" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="group w-10 h-10 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center hover:bg-primary hover:border-primary transition-all duration-300 hover:scale-110"
@@ -1154,15 +1156,15 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Fully Insured */}
-            <div className="group relative bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-6 text-center hover:bg-white/10 hover:border-primary/50 transition-all duration-300 cursor-pointer hover:scale-105 hover:shadow-xl hover:shadow-primary/20" data-testid="badge-insured">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl" />
+            {/* WorkSafe BC Certified */}
+            <div className="group relative bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-6 text-center hover:bg-white/10 hover:border-[#F37021]/50 transition-all duration-300 cursor-pointer hover:scale-105 hover:shadow-xl hover:shadow-[#F37021]/20" data-testid="badge-worksafe">
+              <div className="absolute inset-0 bg-gradient-to-br from-[#F37021]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl" />
               <div className="relative">
-                <div className="h-20 w-20 mx-auto mb-4 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-emerald-500/30 transition-shadow -rotate-3 group-hover:rotate-0">
+                <div className="h-20 w-20 mx-auto mb-4 bg-gradient-to-br from-[#F37021] to-orange-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-[#F37021]/30 transition-shadow -rotate-3 group-hover:rotate-0">
                   <Shield className="h-10 w-10 text-white" />
                 </div>
-                <h3 className="text-lg font-bold text-white mb-1">Fully Insured</h3>
-                <p className="text-sm text-white/50">Complete Protection</p>
+                <h3 className="text-lg font-bold text-white mb-1">WorkSafe BC</h3>
+                <p className="text-sm text-white/50">Certified & Insured</p>
               </div>
             </div>
 

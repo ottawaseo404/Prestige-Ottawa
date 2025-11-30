@@ -154,7 +154,7 @@ export default function StorageSolutions() {
     },
     {
       question: "Is my storage insured?",
-      answer: "Yes, all items in our care are covered by our comprehensive WSIB insurance. We also offer additional valuation coverage options for high-value items. You'll receive a detailed inventory list and can add your own insurance policy if desired."
+      answer: "Yes, all items in our care are covered by our comprehensive WorkSafe BC insurance. We also offer additional valuation coverage options for high-value items. You'll receive a detailed inventory list and can add your own insurance policy if desired."
     }
   ];
 
@@ -193,7 +193,7 @@ export default function StorageSolutions() {
     <>
       <Helmet>
         <title>Storage Solutions Vancouver BC | Climate-Controlled Storage | Prestige Moving</title>
-        <meta name="description" content="Secure storage solutions in Vancouver BC. Climate-controlled units, flexible terms, WSIB insured. Short-term and long-term storage. Free quote!" />
+        <meta name="description" content="Secure storage solutions in Vancouver BC. Climate-controlled units, flexible terms, WorkSafe BC certified. Short-term and long-term storage. Free quote!" />
         <meta name="keywords" content="storage solutions Vancouver, moving storage BC, climate controlled storage, secure storage Vancouver, short term storage" />
         <meta property="og:title" content="Storage Solutions Vancouver | Prestige Moving" />
         <meta property="og:description" content="Secure, climate-controlled storage in Vancouver. Flexible terms, professional handling, full insurance. Perfect for moving transitions." />
@@ -347,7 +347,7 @@ export default function StorageSolutions() {
                   </div>
                   <CardTitle>Fully Insured</CardTitle>
                   <CardDescription>
-                    WSIB insurance coverage protects your belongings while in our care
+                    WorkSafe BC coverage protects your belongings while in our care
                   </CardDescription>
                 </CardHeader>
               </Card>
