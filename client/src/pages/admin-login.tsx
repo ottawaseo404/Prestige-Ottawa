@@ -9,6 +9,8 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
 import { Helmet } from "react-helmet";
+import { SharedNavigation } from "@/components/shared-navigation";
+import { SharedFooter } from "@/components/shared-footer";
 
 export default function AdminLogin() {
   const [username, setUsername] = useState("");
@@ -55,63 +57,69 @@ export default function AdminLogin() {
         <title>Admin Login | Prestige Moving Vancouver</title>
       </Helmet>
       
-      <div className="min-h-screen bg-[#1A2332] flex items-center justify-center p-4">
-        <Card className="w-full max-w-md">
-          <CardHeader className="text-center space-y-4">
-            <div className="flex justify-center">
-              <div className="h-16 w-16 bg-primary/10 rounded-full flex items-center justify-center">
-                <Truck className="h-8 w-8 text-primary" />
+      <div className="min-h-screen bg-[#1A2332] flex flex-col">
+        <SharedNavigation />
+        
+        <div className="flex-1 flex items-center justify-center p-4 pt-8">
+          <Card className="w-full max-w-md">
+            <CardHeader className="text-center space-y-4">
+              <div className="flex justify-center">
+                <div className="h-16 w-16 bg-primary/10 rounded-full flex items-center justify-center">
+                  <Truck className="h-8 w-8 text-primary" />
+                </div>
               </div>
-            </div>
-            <CardTitle className="text-2xl font-bold">Admin Login</CardTitle>
-            <CardDescription>
-              Enter your credentials to access the admin dashboard
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="space-y-2">
-                <Label htmlFor="username">Username</Label>
-                <Input
-                  id="username"
-                  type="text"
-                  placeholder="Enter username"
-                  value={username}
-                  onChange={(e) => setUsername(e.target.value)}
-                  required
-                  data-testid="input-admin-username"
-                />
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="password">Password</Label>
-                <Input
-                  id="password"
-                  type="password"
-                  placeholder="Enter password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  required
-                  data-testid="input-admin-password"
-                />
-              </div>
-              <Button 
-                type="submit" 
-                className="w-full" 
-                disabled={loginMutation.isPending}
-                data-testid="button-admin-login"
-              >
-                {loginMutation.isPending ? (
-                  "Logging in..."
-                ) : (
-                  <>
-                    <Lock className="h-4 w-4 mr-2" />
-                    Login
-                  </>
-                )}
-              </Button>
-            </form>
-          </CardContent>
-        </Card>
+              <CardTitle className="text-2xl font-bold">Admin Login</CardTitle>
+              <CardDescription>
+                Enter your credentials to access the admin dashboard
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div className="space-y-2">
+                  <Label htmlFor="username">Username</Label>
+                  <Input
+                    id="username"
+                    type="text"
+                    placeholder="Enter username"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                    required
+                    data-testid="input-admin-username"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="password">Password</Label>
+                  <Input
+                    id="password"
+                    type="password"
+                    placeholder="Enter password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    required
+                    data-testid="input-admin-password"
+                  />
+                </div>
+                <Button 
+                  type="submit" 
+                  className="w-full" 
+                  disabled={loginMutation.isPending}
+                  data-testid="button-admin-login"
+                >
+                  {loginMutation.isPending ? (
+                    "Logging in..."
+                  ) : (
+                    <>
+                      <Lock className="h-4 w-4 mr-2" />
+                      Login
+                    </>
+                  )}
+                </Button>
+              </form>
+            </CardContent>
+          </Card>
+        </div>
+        
+        <SharedFooter />
       </div>
     </>
   );
