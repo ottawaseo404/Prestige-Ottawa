@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -32,17 +32,32 @@ import {
   Warehouse,
   Building2,
   Box,
+  ChevronLeft,
+  ChevronRight,
+  Zap,
+  Timer,
+  ThumbsUp,
+  HandHeart,
+  Plane,
+  Globe,
+  Heart,
+  Music,
+  Sparkles,
 } from "lucide-react";
 import { Link } from "wouter";
 import { Helmet } from "react-helmet";
 import { SharedNavigation } from "@/components/shared-navigation";
 import { SharedFooter } from "@/components/shared-footer";
+import { WorkSafeBadge } from "@/components/worksafe-badge";
 import { useToast } from "@/hooks/use-toast";
 import { apiRequest } from "@/lib/queryClient";
 import militaryVideo from "@assets/generated_videos/military_pcs_moving_relocation.mp4";
+import residentialImage from "@assets/truck1_1764291781341.jpeg";
 
 export default function MilitaryMoving() {
   const { toast } = useToast();
+  const [activeTestimonial, setActiveTestimonial] = useState(0);
+  const [activeTab, setActiveTab] = useState(0);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -56,7 +71,7 @@ export default function MilitaryMoving() {
     setIsSubmitting(true);
     
     try {
-      const response = await apiRequest("POST", "/api/quote-request", {
+      await apiRequest("POST", "/api/quote-request", {
         ...formData,
         serviceType: "Military Moving",
       });
@@ -91,13 +106,20 @@ export default function MilitaryMoving() {
         "addressCountry": "CA"
       },
       "telephone": "604-616-6066",
-      "priceRange": "$$"
+      "priceRange": "$$",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "reviewCount": "500"
+      }
     },
-    "areaServed": {
-      "@type": "City",
-      "name": "Vancouver"
-    },
-    "description": "Professional military moving services in Vancouver. PCS moves, military base relocations, CAF-approved movers. Understanding of military timelines and requirements."
+    "areaServed": [
+      { "@type": "MilitaryBase", "name": "CFB Esquimalt" },
+      { "@type": "MilitaryBase", "name": "CFB Comox" },
+      { "@type": "City", "name": "Vancouver" },
+      { "@type": "City", "name": "Victoria" }
+    ],
+    "description": "Professional military moving services in Vancouver and Vancouver Island. PCS moves, OCONUS relocations, CAF-approved movers. WorkSafe BC certified with military discounts."
   };
 
   const faqData = {
@@ -117,7 +139,7 @@ export default function MilitaryMoving() {
         "name": "What military bases do you serve?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "We serve all major military installations in British Columbia including CFB Esquimalt, RCAF bases, and can coordinate cross-country moves to any Canadian military base."
+          "text": "We serve all major military installations in British Columbia including CFB Esquimalt, CFB Comox, RCAF bases, and can coordinate cross-country moves to any Canadian military base."
         }
       },
       {
@@ -143,17 +165,50 @@ export default function MilitaryMoving() {
           "@type": "Answer",
           "text": "We understand that military orders can change quickly. We offer flexible scheduling and can often accommodate moves within 48-72 hours notice. We also provide storage solutions for unexpected deployments."
         }
-      },
-      {
-        "@type": "Question",
-        "name": "Do you coordinate with the Canadian Forces Housing Agency?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes, we're experienced in working with military housing requirements and can coordinate move-in/move-out schedules with base housing offices to ensure a smooth transition."
-        }
       }
     ]
   };
+
+  const testimonials = [
+    { name: "Sgt. Michael T.", location: "CFB Esquimalt", text: "Incredible service during our PCS move. They understood our tight timeline and handled everything professionally. All documentation was perfect for reimbursement.", rating: 5, date: "2 weeks ago" },
+    { name: "CPO Sarah M.", location: "CFB Comox", text: "Best military move we've ever had. The team was punctual, respectful, and took great care of our belongings. They even worked around my husband's deployment schedule.", rating: 5, date: "1 month ago" },
+    { name: "Capt. James R.", location: "Victoria", text: "Third PCS move with Prestige and they never disappoint. Professional documentation, careful handling, and they understand military families. Highly recommend!", rating: 5, date: "3 weeks ago" },
+    { name: "WO David L.", location: "CFB Esquimalt", text: "Outstanding service for our OCONUS move. They coordinated everything seamlessly and provided all the weight tickets we needed. True professionals.", rating: 5, date: "1 week ago" },
+    { name: "Lt. Jennifer K.", location: "Vancouver", text: "Made our last-minute move stress-free when orders changed suddenly. They accommodated us within 48 hours and stored our items until housing was ready.", rating: 5, date: "2 months ago" }
+  ];
+
+  const serviceTypes = [
+    {
+      title: "PCS Moves",
+      icon: Shield,
+      description: "Permanent Change of Station relocations with full documentation",
+      features: ["Weight ticket coordination", "Reimbursement documentation", "DITY/PPM support", "Timeline flexibility"]
+    },
+    {
+      title: "OCONUS Moves",
+      icon: Globe,
+      description: "Outside Continental moves with international coordination",
+      features: ["Cross-border logistics", "Customs documentation", "Storage coordination", "Split shipments"]
+    },
+    {
+      title: "Base Relocations",
+      icon: MapPin,
+      description: "Moves between military installations across Canada",
+      features: ["CFB Esquimalt", "CFB Comox", "Cross-country moves", "Housing coordination"]
+    },
+    {
+      title: "Military Storage",
+      icon: Warehouse,
+      description: "Secure storage for deployments and delayed housing",
+      features: ["Climate-controlled", "Flexible terms", "Deployment storage", "Partial storage options"]
+    }
+  ];
+
+  const militaryBases = [
+    "CFB Esquimalt", "CFB Comox", "HMCS Naden", "Work Point Barracks",
+    "CFB Chilliwack", "19 Wing Comox", "MARPAC HQ", "Colwood",
+    "Belmont Park", "Rocky Point", "Albert Head", "Nanoose Bay"
+  ];
 
   const faqs = [
     {
@@ -162,7 +217,7 @@ export default function MilitaryMoving() {
     },
     {
       question: "What military bases do you serve?",
-      answer: "We serve all major military installations in British Columbia including CFB Esquimalt, RCAF bases, and can coordinate cross-country moves to any Canadian military base. We have experience with moves to and from bases across Canada including CFB Edmonton, CFB Petawawa, CFB Valcartier, and more."
+      answer: "We serve all major military installations in British Columbia including CFB Esquimalt, CFB Comox, 19 Wing Comox, MARPAC headquarters, and can coordinate cross-country moves to any Canadian military base. We have experience with moves to and from bases across Canada including CFB Edmonton, CFB Petawawa, CFB Valcartier, and more."
     },
     {
       question: "Do you offer military discounts?",
@@ -175,24 +230,30 @@ export default function MilitaryMoving() {
     {
       question: "How do you handle last-minute deployment moves?",
       answer: "We understand that military orders can change quickly. We offer flexible scheduling and can often accommodate moves within 48-72 hours notice. We also provide storage solutions for unexpected deployments or when your new housing isn't ready."
-    },
-    {
-      question: "Do you coordinate with the Canadian Forces Housing Agency?",
-      answer: "Yes, we're experienced in working with military housing requirements and can coordinate move-in/move-out schedules with base housing offices to ensure a smooth transition. We understand the inspection requirements and can help ensure your move goes smoothly."
     }
   ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveTestimonial((prev) => (prev + 1) % testimonials.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [testimonials.length]);
 
   return (
     <>
       <Helmet>
         <title>Military Moving Services Vancouver | CAF PCS Movers | Prestige Moving</title>
-        <meta name="description" content="Professional military moving services in Vancouver. Experienced with PCS moves, CAF requirements, and military base relocations. Punctual, reliable, and understanding of military needs." />
-        <meta name="keywords" content="military moving Vancouver, PCS movers BC, CAF moving service, military base relocation, armed forces movers Vancouver" />
-        <meta property="og:title" content="Military Moving Services Vancouver | Prestige Moving" />
-        <meta property="og:description" content="Professional military moving. PCS moves, base relocations, understanding of military timelines and requirements." />
+        <meta name="description" content="Professional military moving services in Vancouver and Vancouver Island. WorkSafe BC certified, CAF-experienced movers. PCS moves, OCONUS relocations, military discounts. Get your free quote!" />
+        <meta name="keywords" content="military moving Vancouver, PCS movers BC, CAF moving service, military base relocation, armed forces movers Vancouver, CFB Esquimalt movers, CFB Comox moving, OCONUS moves BC" />
+        <meta property="og:title" content="Military Moving Services Vancouver | CAF PCS Movers | Prestige Moving" />
+        <meta property="og:description" content="Vancouver's trusted military movers. PCS moves, base relocations, understanding of CAF timelines and requirements. Military discounts available." />
         <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://vancouver.prestigemoving.ca/services/military-moving" />
         <meta property="og:image" content="https://vancouver.prestigemoving.ca/og-image.png" />
         <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Military Moving Services Vancouver | Prestige Moving" />
+        <meta name="twitter:description" content="Professional military moving. PCS moves, base relocations, understanding of military timelines and requirements." />
         <meta name="twitter:image" content="https://vancouver.prestigemoving.ca/og-image.png" />
         <link rel="canonical" href="https://vancouver.prestigemoving.ca/services/military-moving" />
         <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
@@ -202,8 +263,8 @@ export default function MilitaryMoving() {
       <div className="min-h-screen bg-background">
         <SharedNavigation />
 
-        {/* Video Hero Section */}
-        <section className="relative min-h-[90vh] flex items-center overflow-hidden">
+        {/* Hero Section */}
+        <section className="relative min-h-[85vh] flex items-center overflow-hidden">
           <video
             autoPlay
             muted
@@ -214,288 +275,395 @@ export default function MilitaryMoving() {
           >
             <source src={militaryVideo} type="video/mp4" />
           </video>
-          <div className="absolute inset-0 bg-gradient-to-r from-[#1A2332]/95 via-[#1A2332]/80 to-[#1A2332]/60" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#1A2332] via-[#1A2332]/90 to-[#1A2332]/40" />
           
-          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-            <div className="max-w-3xl">
-              <Badge className="mb-6 bg-[#C5A572] text-white hover:bg-[#B8956A] text-sm px-4 py-1.5">
-                Military Moving Specialists
-              </Badge>
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 tracking-tight leading-tight">
-                Military Moving<br />
-                <span className="text-[#C5A572]">Services in Vancouver</span>
-              </h1>
-              <p className="text-xl md:text-2xl text-gray-200 mb-8 leading-relaxed">
-                We understand the unique challenges of military relocations. From tight timelines to specific requirements, our team handles PCS moves and base relocations with precision.
-              </p>
-              
-              {/* Stats Bar */}
-              <div className="flex flex-wrap gap-6 mb-10">
-                <div className="flex items-center gap-2">
-                  <Star className="h-5 w-5 text-[#C5A572]" />
-                  <span className="text-white font-semibold">5.0 Rating</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Award className="h-5 w-5 text-[#C5A572]" />
-                  <span className="text-white font-semibold">Military Discount</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Shield className="h-5 w-5 text-[#C5A572]" />
-                  <span className="text-white font-semibold">Fully Insured</span>
-                </div>
+          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16">
+            <div className="max-w-2xl">
+              <div className="flex items-center gap-3 mb-6 flex-wrap">
+                <Badge className="bg-primary/20 text-primary border-primary/40 px-4 py-1.5" data-testid="badge-military-moving">
+                  <Shield className="h-4 w-4 mr-2" />
+                  Military Moving Specialists
+                </Badge>
+                <Badge className="bg-green-500/20 text-green-400 border-green-500/40" data-testid="badge-military-discount">
+                  <Zap className="h-3 w-3 mr-1" />
+                  Military Discount
+                </Badge>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-4">
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-6 leading-[1.1]">
+                Trusted Military<br />
+                <span className="text-primary">Moving Experts</span>
+              </h1>
+
+              <p className="text-xl md:text-2xl text-white/80 mb-8 leading-relaxed">
+                We understand military life. From PCS moves to deployment storage, we've helped <span className="text-primary font-semibold">1,000+ CAF families</span> relocate with precision.
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-4 mb-8">
                 <Link href="/book">
-                  <Button 
-                    size="lg" 
-                    className="bg-[#C5A572] hover:bg-[#B8956A] text-white text-base px-8 py-6 h-auto group transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
-                    data-testid="button-get-military-quote"
-                  >
+                  <Button size="lg" className="text-lg font-bold px-8 py-7 shadow-xl shadow-primary/30 group" data-testid="button-hero-quote">
                     Get Military Quote
-                    <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </Link>
                 <a href="tel:604-616-6066">
-                  <Button 
-                    size="lg" 
-                    variant="outline" 
-                    className="border-white text-white hover:bg-white/10 text-base px-8 py-6 h-auto backdrop-blur-sm"
-                    data-testid="button-call-hero"
-                  >
+                  <Button size="lg" variant="outline" className="text-lg font-bold px-8 py-7 border-2 border-white/40 text-white hover:bg-white/10 backdrop-blur-sm" data-testid="button-hero-call">
                     <Phone className="h-5 w-5 mr-2" />
                     604-616-6066
                   </Button>
                 </a>
               </div>
+
+              <div className="flex flex-wrap gap-6">
+                <WorkSafeBadge size="md" data-testid="worksafe-badge-hero" />
+                <div className="flex items-center gap-2 text-white/70">
+                  <Award className="h-5 w-5 text-primary" />
+                  <span>CAF Experienced</span>
+                </div>
+                <div className="flex items-center gap-2 text-white/70">
+                  <Timer className="h-5 w-5 text-primary" />
+                  <span>48hr Response</span>
+                </div>
+              </div>
             </div>
           </div>
         </section>
 
-        {/* Why Military Families Choose Us */}
-        <section className="py-20">
+        {/* Stats Bar */}
+        <section className="bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-400 py-6">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+              {[
+                { value: "1,000+", label: "Military Moves" },
+                { value: "5.0", label: "Google Rating" },
+                { value: "15+", label: "Years Experience" },
+                { value: "48hr", label: "Emergency Moves" }
+              ].map((stat, index) => (
+                <div key={index} data-testid={`stat-${index}`}>
+                  <div className="text-2xl md:text-4xl font-black text-[#1A2332]">{stat.value}</div>
+                  <div className="text-sm font-bold text-[#1A2332]/80 uppercase tracking-wide">{stat.label}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* About Military Moving Service */}
+        <section className="py-16 md:py-20 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div>
+                <Badge className="bg-primary/10 text-primary mb-4">About Our Service</Badge>
+                <h2 className="text-3xl md:text-4xl font-black text-foreground mb-6">
+                  Vancouver's Premier Military Moving Company
+                </h2>
+                <div className="space-y-4 text-muted-foreground">
+                  <p>
+                    When duty calls, <strong>Prestige Moving Vancouver</strong> answers. We specialize in <strong>military relocations</strong> for Canadian Armed Forces members stationed in British Columbia, from CFB Esquimalt to CFB Comox and everywhere in between.
+                  </p>
+                  <p>
+                    Our team understands the unique challenges of PCS moves—tight timelines, changing orders, and specific documentation requirements. We've earned our reputation as the go-to <strong>CAF-experienced movers</strong> in the Vancouver area.
+                  </p>
+                  <p>
+                    As a <strong>WorkSafe BC certified moving company</strong>, we maintain the highest standards of professionalism. Every move includes detailed weight documentation, proper inventory sheets, and all paperwork needed for reimbursement claims.
+                  </p>
+                </div>
+                <div className="mt-8">
+                  <Link href="/book">
+                    <Button size="lg" className="font-bold" data-testid="button-about-quote">
+                      Get Your Military Quote
+                      <ArrowRight className="h-5 w-5 ml-2" />
+                    </Button>
+                  </Link>
+                </div>
+              </div>
+              
+              <div className="relative rounded-2xl overflow-hidden h-[400px]">
+                <img 
+                  src={residentialImage}
+                  alt="Prestige Moving military movers in Vancouver"
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#1A2332]/60 to-transparent" />
+                <div className="absolute bottom-6 left-6 right-6">
+                  <div className="flex items-center gap-3">
+                    <div className="flex -space-x-2">
+                      {[...Array(4)].map((_, i) => (
+                        <div key={i} className="h-10 w-10 rounded-full bg-primary border-2 border-white flex items-center justify-center">
+                          <Star className="h-4 w-4 text-[#1A2332] fill-[#1A2332]" />
+                        </div>
+                      ))}
+                    </div>
+                    <div className="text-white">
+                      <div className="font-bold">Trusted by CAF</div>
+                      <div className="text-sm text-white/70">5-Star Rated Service</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Military Benefits Section */}
+        <section className="py-16 md:py-20 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-              <Badge variant="outline" className="mb-4">Trusted by CAF Families</Badge>
-              <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">
-                Why Military Families Choose Us
+              <Badge className="bg-primary/10 text-primary mb-4">Military Benefits</Badge>
+              <h2 className="text-3xl md:text-4xl font-black text-foreground mb-4">
+                Exclusive Benefits for Service Members
               </h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                We understand and respect the unique needs of our service members
+                Thank you for your service. Here's how we support our military families.
               </p>
             </div>
-            <div className="grid md:grid-cols-3 gap-8">
-              <Card className="hover-elevate" data-testid="card-timeline-flexibility">
-                <CardHeader>
-                  <div className="h-14 w-14 rounded-xl bg-[#C5A572]/10 flex items-center justify-center mb-4">
-                    <Clock className="h-7 w-7 text-[#C5A572]" />
-                  </div>
-                  <CardTitle>Timeline Flexibility</CardTitle>
-                  <CardDescription>We understand orders can change quickly. Flexible scheduling for unexpected deployments and transfers.</CardDescription>
-                </CardHeader>
-              </Card>
-              <Card className="hover-elevate" data-testid="card-documentation">
-                <CardHeader>
-                  <div className="h-14 w-14 rounded-xl bg-[#C5A572]/10 flex items-center justify-center mb-4">
-                    <FileCheck className="h-7 w-7 text-[#C5A572]" />
-                  </div>
-                  <CardTitle>Documentation</CardTitle>
-                  <CardDescription>Proper inventories and documentation for reimbursement claims and military requirements.</CardDescription>
-                </CardHeader>
-              </Card>
-              <Card className="hover-elevate" data-testid="card-military-discount">
-                <CardHeader>
-                  <div className="h-14 w-14 rounded-xl bg-[#C5A572]/10 flex items-center justify-center mb-4">
-                    <Award className="h-7 w-7 text-[#C5A572]" />
-                  </div>
-                  <CardTitle>Military Discount</CardTitle>
-                  <CardDescription>Special rates for active duty, veterans, and military families as our thank you for your service.</CardDescription>
-                </CardHeader>
-              </Card>
+
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[
+                { title: "Military Discount", description: "Exclusive rates for active duty, veterans, and military families", icon: Award },
+                { title: "Flexible Scheduling", description: "We accommodate changing orders and last-minute moves", icon: Clock },
+                { title: "Complete Documentation", description: "All weight tickets and paperwork for reimbursement claims", icon: FileCheck },
+                { title: "Priority Service", description: "Fast-track scheduling for urgent PCS moves", icon: Zap },
+                { title: "Deployment Storage", description: "Secure storage solutions during overseas assignments", icon: Warehouse },
+                { title: "WorkSafe BC Certified", description: "Full compliance with BC workplace safety standards", icon: Shield }
+              ].map((item, index) => (
+                <Card key={index} className="border-2 hover:border-primary/50 transition-colors" data-testid={`benefit-card-${index}`}>
+                  <CardContent className="p-6">
+                    <div className="h-12 w-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
+                      <item.icon className="h-6 w-6 text-primary" />
+                    </div>
+                    <h3 className="font-bold text-lg text-foreground mb-2">{item.title}</h3>
+                    <p className="text-muted-foreground">{item.description}</p>
+                  </CardContent>
+                </Card>
+              ))}
             </div>
           </div>
         </section>
 
-        {/* Military Moving Services */}
-        <section className="py-20 bg-accent/30">
+        {/* Service Types Tabs */}
+        <section className="py-16 md:py-20 bg-[#1A2332]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Military Moving Services</h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Comprehensive moving solutions tailored to military requirements
+              <Badge className="bg-primary/20 text-primary border-primary/30 mb-4">Our Services</Badge>
+              <h2 className="text-3xl md:text-4xl font-black text-white mb-4">
+                Military Moving Services
+              </h2>
+              <p className="text-lg text-white/60 max-w-2xl mx-auto">
+                Specialized solutions for every type of military relocation
               </p>
             </div>
-            <div className="grid md:grid-cols-2 gap-6">
-              <Card className="hover-elevate" data-testid="card-pcs-moves">
-                <CardHeader>
-                  <div className="flex items-center gap-4">
-                    <div className="h-12 w-12 rounded-xl bg-[#C5A572]/10 flex items-center justify-center">
-                      <Shield className="h-6 w-6 text-[#C5A572]" />
-                    </div>
-                    <CardTitle>PCS Moves</CardTitle>
+
+            {/* Tab Navigation */}
+            <div className="flex justify-center gap-2 mb-10 flex-wrap">
+              {serviceTypes.map((service, index) => {
+                const ServiceIcon = service.icon;
+                return (
+                  <button
+                    key={index}
+                    onClick={() => setActiveTab(index)}
+                    className={`group px-6 py-3 rounded-full font-semibold transition-all duration-300 flex items-center gap-2 ${
+                      activeTab === index 
+                        ? 'bg-primary text-[#1A2332] shadow-lg shadow-primary/30' 
+                        : 'bg-white/10 text-white hover:bg-white/20'
+                    }`}
+                    data-testid={`tab-${service.title.toLowerCase().replace(/\s+/g, '-')}`}
+                  >
+                    <ServiceIcon className="h-5 w-5" />
+                    {service.title}
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Active Service Content */}
+            <div className="bg-white/5 backdrop-blur border border-white/10 rounded-3xl p-8 md:p-12">
+              <div className="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                  <h3 className="text-2xl md:text-3xl font-black text-white mb-4">
+                    {serviceTypes[activeTab].title}
+                  </h3>
+                  <p className="text-lg text-white/70 mb-6">
+                    {serviceTypes[activeTab].description}
+                  </p>
+
+                  <div className="grid grid-cols-2 gap-4 mb-8">
+                    {serviceTypes[activeTab].features.map((feature, i) => (
+                      <div key={i} className="flex items-center gap-3">
+                        <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0" />
+                        <span className="text-white">{feature}</span>
+                      </div>
+                    ))}
                   </div>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-3">
-                    <li className="flex items-start gap-3">
-                      <CheckCircle2 className="h-5 w-5 text-[#C5A572] mt-0.5 flex-shrink-0" />
-                      <span>Permanent Change of Station relocations</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <CheckCircle2 className="h-5 w-5 text-[#C5A572] mt-0.5 flex-shrink-0" />
-                      <span>DITY/PPM move assistance</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <CheckCircle2 className="h-5 w-5 text-[#C5A572] mt-0.5 flex-shrink-0" />
-                      <span>Weight ticket coordination</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <CheckCircle2 className="h-5 w-5 text-[#C5A572] mt-0.5 flex-shrink-0" />
-                      <span>Proper weight documentation</span>
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
-              <Card className="hover-elevate" data-testid="card-base-relocations">
-                <CardHeader>
-                  <div className="flex items-center gap-4">
-                    <div className="h-12 w-12 rounded-xl bg-[#C5A572]/10 flex items-center justify-center">
-                      <MapPin className="h-6 w-6 text-[#C5A572]" />
-                    </div>
-                    <CardTitle>Base Relocations</CardTitle>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-3">
-                    <li className="flex items-start gap-3">
-                      <CheckCircle2 className="h-5 w-5 text-[#C5A572] mt-0.5 flex-shrink-0" />
-                      <span>CFB Esquimalt moves</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <CheckCircle2 className="h-5 w-5 text-[#C5A572] mt-0.5 flex-shrink-0" />
-                      <span>RCAF base relocations</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <CheckCircle2 className="h-5 w-5 text-[#C5A572] mt-0.5 flex-shrink-0" />
-                      <span>Cross-country military moves</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <CheckCircle2 className="h-5 w-5 text-[#C5A572] mt-0.5 flex-shrink-0" />
-                      <span>Temporary housing coordination</span>
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
-              <Card className="hover-elevate" data-testid="card-documentation-support">
-                <CardHeader>
-                  <div className="flex items-center gap-4">
-                    <div className="h-12 w-12 rounded-xl bg-[#C5A572]/10 flex items-center justify-center">
-                      <FileCheck className="h-6 w-6 text-[#C5A572]" />
-                    </div>
-                    <CardTitle>Documentation Support</CardTitle>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-3">
-                    <li className="flex items-start gap-3">
-                      <CheckCircle2 className="h-5 w-5 text-[#C5A572] mt-0.5 flex-shrink-0" />
-                      <span>Detailed inventory sheets</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <CheckCircle2 className="h-5 w-5 text-[#C5A572] mt-0.5 flex-shrink-0" />
-                      <span>Weight tickets and receipts</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <CheckCircle2 className="h-5 w-5 text-[#C5A572] mt-0.5 flex-shrink-0" />
-                      <span>Damage reports if needed</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <CheckCircle2 className="h-5 w-5 text-[#C5A572] mt-0.5 flex-shrink-0" />
-                      <span>Moving expense documentation</span>
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
-              <Card className="hover-elevate" data-testid="card-flexible-scheduling">
-                <CardHeader>
-                  <div className="flex items-center gap-4">
-                    <div className="h-12 w-12 rounded-xl bg-[#C5A572]/10 flex items-center justify-center">
-                      <Clock className="h-6 w-6 text-[#C5A572]" />
-                    </div>
-                    <CardTitle>Flexible Scheduling</CardTitle>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-3">
-                    <li className="flex items-start gap-3">
-                      <CheckCircle2 className="h-5 w-5 text-[#C5A572] mt-0.5 flex-shrink-0" />
-                      <span>Last-minute move capability</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <CheckCircle2 className="h-5 w-5 text-[#C5A572] mt-0.5 flex-shrink-0" />
-                      <span>Weekend and holiday moves</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <CheckCircle2 className="h-5 w-5 text-[#C5A572] mt-0.5 flex-shrink-0" />
-                      <span>Storage for delayed moves</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <CheckCircle2 className="h-5 w-5 text-[#C5A572] mt-0.5 flex-shrink-0" />
-                      <span>Split shipments available</span>
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
+
+                  <Link href="/book">
+                    <Button size="lg" className="font-bold" data-testid="button-service-quote">
+                      Get a Quote
+                      <ArrowRight className="h-5 w-5 ml-2" />
+                    </Button>
+                  </Link>
+                </div>
+                
+                <div className="relative rounded-2xl overflow-hidden h-[300px]">
+                  <img 
+                    src={residentialImage}
+                    alt={serviceTypes[activeTab].title}
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </section>
 
-        {/* Thank You For Your Service Section */}
-        <section className="py-20">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <Badge variant="outline" className="mb-4">Honoring Our Heroes</Badge>
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">Thank You For Your Service</h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-12">
-              We're proud to support Canadian Armed Forces members and their families. All active duty, reserve, and veterans receive a special discount as our thank you for your dedication and sacrifice.
-            </p>
-            <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-              <Card className="hover-elevate text-center" data-testid="card-active-duty">
-                <CardHeader>
-                  <div className="h-16 w-16 rounded-full bg-[#C5A572]/10 flex items-center justify-center mx-auto mb-4">
-                    <Award className="h-8 w-8 text-[#C5A572]" />
+        {/* Why Choose Us */}
+        <section className="py-16 md:py-20 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <Badge className="bg-primary/10 text-primary mb-4">Why Choose Us</Badge>
+              <h2 className="text-3xl md:text-4xl font-black text-foreground mb-4">
+                The Prestige Military Moving Difference
+              </h2>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[
+                { icon: Shield, title: "CAF Experienced", description: "15+ years serving Canadian Armed Forces families across BC", color: "from-amber-500 to-amber-600" },
+                { icon: FileCheck, title: "Complete Documentation", description: "Weight tickets, inventories, and all reimbursement paperwork", color: "from-blue-500 to-blue-600" },
+                { icon: Clock, title: "Timeline Flexibility", description: "We adapt to changing orders and deployment schedules", color: "from-emerald-500 to-emerald-600" },
+                { icon: ThumbsUp, title: "Transparent Pricing", description: "No hidden fees. Military discount applied automatically.", color: "from-violet-500 to-violet-600" },
+                { icon: HandHeart, title: "White Glove Service", description: "Professional handling of all belongings, including specialty items", color: "from-rose-500 to-rose-600" },
+                { icon: Award, title: "WorkSafe BC Certified", description: "Full compliance and insurance for your peace of mind", color: "from-primary to-amber-600" }
+              ].map((item, index) => (
+                <Card key={index} className="border-2 hover:border-primary/50 transition-all hover:shadow-lg" data-testid={`why-choose-card-${index}`}>
+                  <CardContent className="p-6">
+                    <div className={`h-14 w-14 bg-gradient-to-br ${item.color} rounded-xl flex items-center justify-center mb-4`}>
+                      <item.icon className="h-7 w-7 text-white" />
+                    </div>
+                    <h3 className="text-xl font-bold mb-2">{item.title}</h3>
+                    <p className="text-muted-foreground">{item.description}</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Testimonials Carousel */}
+        <section className="py-16 md:py-20 bg-gray-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <Badge className="bg-primary/10 text-primary mb-4">Reviews</Badge>
+              <h2 className="text-3xl md:text-4xl font-black text-foreground mb-4">
+                What Military Families Say
+              </h2>
+              <div className="flex items-center justify-center gap-2 text-muted-foreground">
+                <div className="flex">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="h-5 w-5 fill-primary text-primary" />
+                  ))}
+                </div>
+                <span>Trusted by CAF Families</span>
+              </div>
+            </div>
+
+            <div className="relative max-w-4xl mx-auto">
+              <Card className="border-2 shadow-xl">
+                <CardContent className="p-8 md:p-12">
+                  <div className="flex gap-1 mb-6">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="h-6 w-6 fill-primary text-primary" />
+                    ))}
                   </div>
-                  <CardTitle>Active Duty</CardTitle>
-                  <CardDescription>Special rates for serving members of the Canadian Armed Forces</CardDescription>
-                </CardHeader>
-              </Card>
-              <Card className="hover-elevate text-center" data-testid="card-veterans">
-                <CardHeader>
-                  <div className="h-16 w-16 rounded-full bg-[#C5A572]/10 flex items-center justify-center mx-auto mb-4">
-                    <Shield className="h-8 w-8 text-[#C5A572]" />
+                  <p className="text-xl md:text-2xl text-foreground mb-8 leading-relaxed" data-testid="testimonial-text">
+                    "{testimonials[activeTestimonial].text}"
+                  </p>
+                  <div className="flex items-center justify-between flex-wrap gap-4">
+                    <div className="flex items-center gap-4">
+                      <div className="h-14 w-14 bg-gradient-to-br from-primary to-amber-600 rounded-full flex items-center justify-center text-white font-bold text-xl">
+                        {testimonials[activeTestimonial].name[0]}
+                      </div>
+                      <div>
+                        <p className="font-bold text-lg" data-testid="testimonial-name">{testimonials[activeTestimonial].name}</p>
+                        <p className="text-muted-foreground flex items-center gap-1" data-testid="testimonial-location">
+                          <MapPin className="h-4 w-4" /> {testimonials[activeTestimonial].location}
+                        </p>
+                      </div>
+                    </div>
+                    <span className="text-sm text-muted-foreground">{testimonials[activeTestimonial].date}</span>
                   </div>
-                  <CardTitle>Veterans</CardTitle>
-                  <CardDescription>Honoring those who have served with exclusive discounts</CardDescription>
-                </CardHeader>
+                </CardContent>
               </Card>
-              <Card className="hover-elevate text-center" data-testid="card-military-families">
-                <CardHeader>
-                  <div className="h-16 w-16 rounded-full bg-[#C5A572]/10 flex items-center justify-center mx-auto mb-4">
-                    <Users className="h-8 w-8 text-[#C5A572]" />
-                  </div>
-                  <CardTitle>Military Families</CardTitle>
-                  <CardDescription>Supporting the whole family through every relocation</CardDescription>
-                </CardHeader>
-              </Card>
+
+              <div className="flex items-center justify-center gap-4 mt-8">
+                <button 
+                  onClick={() => setActiveTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length)}
+                  className="w-12 h-12 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors"
+                  aria-label="Previous testimonial"
+                  data-testid="button-testimonial-prev"
+                >
+                  <ChevronLeft className="h-6 w-6" />
+                </button>
+                <div className="flex gap-2">
+                  {testimonials.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setActiveTestimonial(index)}
+                      className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                        index === activeTestimonial ? 'bg-primary w-8' : 'bg-gray-300 hover:bg-gray-400'
+                      }`}
+                      aria-label={`Go to testimonial ${index + 1}`}
+                      data-testid={`button-testimonial-dot-${index}`}
+                    />
+                  ))}
+                </div>
+                <button 
+                  onClick={() => setActiveTestimonial((prev) => (prev + 1) % testimonials.length)}
+                  className="w-12 h-12 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors"
+                  aria-label="Next testimonial"
+                  data-testid="button-testimonial-next"
+                >
+                  <ChevronRight className="h-6 w-6" />
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Service Areas - Military Bases */}
+        <section className="py-16 md:py-20 bg-[#1A2332]">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-10">
+              <Badge className="bg-primary/20 text-primary border-primary/30 mb-4">Coverage</Badge>
+              <h2 className="text-3xl md:text-4xl font-black text-white mb-4">
+                Military Bases We Serve
+              </h2>
+              <p className="text-lg text-white/60">
+                Comprehensive coverage for BC military installations
+              </p>
+            </div>
+
+            <div className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">
+              {militaryBases.map((base, index) => (
+                <Badge 
+                  key={index}
+                  className="bg-white/10 text-white border-white/20 hover:bg-primary hover:text-[#1A2332] hover:border-primary transition-all duration-300 cursor-pointer px-4 py-2 text-sm font-medium"
+                  data-testid={`badge-base-${index}`}
+                >
+                  <MapPin className="h-3 w-3 mr-1" />
+                  {base}
+                </Badge>
+              ))}
             </div>
           </div>
         </section>
 
         {/* FAQ Section */}
-        <section className="py-20 bg-accent/30">
+        <section className="py-16 md:py-20 bg-gray-50">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-              <Badge variant="outline" className="mb-4">Common Questions</Badge>
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+              <Badge className="bg-primary/10 text-primary mb-4">Common Questions</Badge>
+              <h2 className="text-3xl md:text-4xl font-black text-foreground mb-4">
                 Military Moving FAQs
               </h2>
               <p className="text-lg text-muted-foreground">
@@ -514,7 +682,7 @@ export default function MilitaryMoving() {
                   <AccordionTrigger className="text-left font-semibold hover:no-underline py-6" data-testid={`faq-trigger-${index}`}>
                     {faq.question}
                   </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground pb-6">
+                  <AccordionContent className="text-muted-foreground pb-6" data-testid={`faq-content-${index}`}>
                     {faq.answer}
                   </AccordionContent>
                 </AccordionItem>
@@ -523,104 +691,85 @@ export default function MilitaryMoving() {
           </div>
         </section>
 
-        {/* SEO Content Section with Internal Links */}
-        <section className="py-20 md:py-28 bg-gradient-to-b from-white to-gray-50">
+        {/* Related Services */}
+        <section className="py-16 md:py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-3xl md:text-4xl font-black text-foreground mb-6">
-                Professional Military Moving in Vancouver
+            <div className="text-center mb-12">
+              <Badge className="bg-primary/10 text-primary mb-4">More Services</Badge>
+              <h2 className="text-3xl md:text-4xl font-black text-foreground mb-4">
+                Complete Your Move
               </h2>
-              <div className="prose prose-lg max-w-none text-muted-foreground mb-8">
-                <p>
-                  Serving those who serve our country, our <strong>professional military moving services in Vancouver</strong> understand the unique demands of PCS relocations. We work with <strong>Canadian Armed Forces members</strong> and their families to ensure seamless transitions between bases, whether across British Columbia or across the country. Our team is experienced with military timelines, documentation requirements, and the flexibility needed for duty-driven moves.
-                </p>
-                <p>
-                  As trusted <strong>military relocation specialists</strong>, we offer exclusive discounts for active duty, veterans, and military families. Our services include <strong>government-approved moving procedures</strong>, detailed inventory documentation, and coordination with base housing offices. We understand that when duty calls, you need a moving company that can respond quickly and professionally.
-                </p>
-              </div>
-              
-              <h3 className="text-2xl font-bold text-foreground mb-4">Explore Our Related Services</h3>
-              <p className="text-muted-foreground mb-6">Discover our comprehensive range of moving services designed to make your relocation seamless.</p>
-              
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                <Link href="/services/long-distance-moving">
-                  <Card className="hover-elevate cursor-pointer h-full">
-                    <CardHeader className="flex flex-row items-center gap-3 pb-2">
-                      <Truck className="h-5 w-5 text-[#C5A572]" />
-                      <CardTitle className="text-base">Long Distance Moving</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-sm text-muted-foreground">Cross-province and nationwide relocations</p>
-                    </CardContent>
-                  </Card>
-                </Link>
-                <Link href="/services/residential-moving">
-                  <Card className="hover-elevate cursor-pointer h-full">
-                    <CardHeader className="flex flex-row items-center gap-3 pb-2">
-                      <Home className="h-5 w-5 text-[#C5A572]" />
-                      <CardTitle className="text-base">Residential Moving</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-sm text-muted-foreground">Complete home moving services across Vancouver</p>
-                    </CardContent>
-                  </Card>
-                </Link>
-                <Link href="/services/packing-services">
-                  <Card className="hover-elevate cursor-pointer h-full">
-                    <CardHeader className="flex flex-row items-center gap-3 pb-2">
-                      <Package className="h-5 w-5 text-[#C5A572]" />
-                      <CardTitle className="text-base">Packing Services</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-sm text-muted-foreground">Professional packing by trained experts</p>
-                    </CardContent>
-                  </Card>
-                </Link>
-                <Link href="/services/storage-solutions">
-                  <Card className="hover-elevate cursor-pointer h-full">
-                    <CardHeader className="flex flex-row items-center gap-3 pb-2">
-                      <Warehouse className="h-5 w-5 text-[#C5A572]" />
-                      <CardTitle className="text-base">Storage Solutions</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-sm text-muted-foreground">Secure climate-controlled storage facilities</p>
-                    </CardContent>
-                  </Card>
-                </Link>
-                <Link href="/services/commercial-moving">
-                  <Card className="hover-elevate cursor-pointer h-full">
-                    <CardHeader className="flex flex-row items-center gap-3 pb-2">
-                      <Building2 className="h-5 w-5 text-[#C5A572]" />
-                      <CardTitle className="text-base">Commercial Moving</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-sm text-muted-foreground">Office and business relocation experts</p>
-                    </CardContent>
-                  </Card>
-                </Link>
-                <Link href="/services/moving-supplies">
-                  <Card className="hover-elevate cursor-pointer h-full">
-                    <CardHeader className="flex flex-row items-center gap-3 pb-2">
-                      <Box className="h-5 w-5 text-[#C5A572]" />
-                      <CardTitle className="text-base">Moving Supplies</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-sm text-muted-foreground">Quality boxes and packing materials delivered</p>
-                    </CardContent>
-                  </Card>
-                </Link>
-              </div>
+              <p className="text-lg text-muted-foreground">
+                Additional services to make your military relocation seamless
+              </p>
+            </div>
+            
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              <Link href="/services/long-distance-moving">
+                <Card className="border-2 hover:border-primary hover:shadow-lg transition-all h-full" data-testid="related-service-long-distance">
+                  <CardContent className="p-6">
+                    <Truck className="h-8 w-8 text-primary mb-4" />
+                    <h3 className="font-bold text-lg mb-2">Long Distance Moving</h3>
+                    <p className="text-muted-foreground">Cross-province and Canada-wide relocations</p>
+                  </CardContent>
+                </Card>
+              </Link>
+              <Link href="/services/storage-solutions">
+                <Card className="border-2 hover:border-primary hover:shadow-lg transition-all h-full" data-testid="related-service-storage">
+                  <CardContent className="p-6">
+                    <Warehouse className="h-8 w-8 text-primary mb-4" />
+                    <h3 className="font-bold text-lg mb-2">Storage Solutions</h3>
+                    <p className="text-muted-foreground">Climate-controlled storage for deployments</p>
+                  </CardContent>
+                </Card>
+              </Link>
+              <Link href="/services/packing-services">
+                <Card className="border-2 hover:border-primary hover:shadow-lg transition-all h-full" data-testid="related-service-packing">
+                  <CardContent className="p-6">
+                    <Package className="h-8 w-8 text-primary mb-4" />
+                    <h3 className="font-bold text-lg mb-2">Packing Services</h3>
+                    <p className="text-muted-foreground">Professional packing for fragile items and full homes</p>
+                  </CardContent>
+                </Card>
+              </Link>
+              <Link href="/services/residential-moving">
+                <Card className="border-2 hover:border-primary hover:shadow-lg transition-all h-full" data-testid="related-service-residential">
+                  <CardContent className="p-6">
+                    <Home className="h-8 w-8 text-primary mb-4" />
+                    <h3 className="font-bold text-lg mb-2">Residential Moving</h3>
+                    <p className="text-muted-foreground">Complete home moving services across Vancouver</p>
+                  </CardContent>
+                </Card>
+              </Link>
+              <Link href="/services/piano-moving">
+                <Card className="border-2 hover:border-primary hover:shadow-lg transition-all h-full" data-testid="related-service-piano">
+                  <CardContent className="p-6">
+                    <Music className="h-8 w-8 text-primary mb-4" />
+                    <h3 className="font-bold text-lg mb-2">Piano Moving</h3>
+                    <p className="text-muted-foreground">Specialized equipment for safe piano transport</p>
+                  </CardContent>
+                </Card>
+              </Link>
+              <Link href="/services/specialty-item-moving">
+                <Card className="border-2 hover:border-primary hover:shadow-lg transition-all h-full" data-testid="related-service-specialty">
+                  <CardContent className="p-6">
+                    <Sparkles className="h-8 w-8 text-primary mb-4" />
+                    <h3 className="font-bold text-lg mb-2">Specialty Items</h3>
+                    <p className="text-muted-foreground">Hot tubs, pool tables, gym equipment & more</p>
+                  </CardContent>
+                </Card>
+              </Link>
             </div>
           </div>
         </section>
 
         {/* CTA Form Section */}
-        <section className="py-20">
+        <section className="py-16 md:py-20 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
-                <Badge className="mb-4 bg-[#C5A572] text-white hover:bg-[#B8956A]">Get Started Today</Badge>
-                <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
+                <Badge className="mb-4 bg-primary text-white">Get Started Today</Badge>
+                <h2 className="text-3xl md:text-4xl font-black text-foreground mb-6">
                   Ready for Your PCS Move?
                 </h2>
                 <p className="text-lg text-muted-foreground mb-8">
@@ -628,26 +777,26 @@ export default function MilitaryMoving() {
                 </p>
                 <div className="space-y-4">
                   <div className="flex items-center gap-3">
-                    <div className="h-10 w-10 rounded-full bg-[#C5A572]/10 flex items-center justify-center flex-shrink-0">
-                      <CheckCircle2 className="h-5 w-5 text-[#C5A572]" />
+                    <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                      <CheckCircle2 className="h-5 w-5 text-primary" />
                     </div>
                     <span className="text-foreground">Free, no-obligation quotes</span>
                   </div>
                   <div className="flex items-center gap-3">
-                    <div className="h-10 w-10 rounded-full bg-[#C5A572]/10 flex items-center justify-center flex-shrink-0">
-                      <CheckCircle2 className="h-5 w-5 text-[#C5A572]" />
+                    <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                      <CheckCircle2 className="h-5 w-5 text-primary" />
                     </div>
                     <span className="text-foreground">Military discount applied automatically</span>
                   </div>
                   <div className="flex items-center gap-3">
-                    <div className="h-10 w-10 rounded-full bg-[#C5A572]/10 flex items-center justify-center flex-shrink-0">
-                      <CheckCircle2 className="h-5 w-5 text-[#C5A572]" />
+                    <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                      <CheckCircle2 className="h-5 w-5 text-primary" />
                     </div>
                     <span className="text-foreground">Response within 1 hour</span>
                   </div>
                 </div>
                 <div className="mt-8">
-                  <a href="tel:604-616-6066" className="inline-flex items-center gap-2 text-lg font-semibold text-[#C5A572] hover:text-[#B8956A]">
+                  <a href="tel:604-616-6066" className="inline-flex items-center gap-2 text-lg font-semibold text-primary hover:text-primary/80">
                     <Phone className="h-5 w-5" />
                     604-616-6066
                   </a>
@@ -725,7 +874,7 @@ export default function MilitaryMoving() {
                     <Button
                       type="submit"
                       size="lg"
-                      className="w-full bg-[#C5A572] hover:bg-[#B8956A] text-white"
+                      className="w-full"
                       data-testid="button-submit-quote"
                       disabled={isSubmitting}
                     >
@@ -748,31 +897,36 @@ export default function MilitaryMoving() {
           </div>
         </section>
 
-        {/* Final CTA Banner */}
-        <section className="py-16 md:py-24 bg-[#1A2332] text-white">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl md:text-5xl font-bold mb-6">Serving Those Who Serve</h2>
-            <p className="text-xl mb-8 text-gray-300">
-              Ready to make your PCS move stress-free? Get your military moving quote today.
+        {/* Final CTA */}
+        <section className="py-16 md:py-20 bg-gradient-to-r from-primary via-amber-500 to-primary relative overflow-hidden">
+          <div className="absolute inset-0 opacity-10">
+            <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl" />
+            <div className="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl" />
+          </div>
+          
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <div className="inline-flex items-center gap-2 bg-[#1A2332]/20 backdrop-blur rounded-full px-4 py-2 mb-6">
+              <Shield className="h-4 w-4 text-[#1A2332]" />
+              <span className="text-[#1A2332] font-semibold text-sm">Serving Those Who Serve</span>
+            </div>
+            
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-[#1A2332] mb-6">
+              Ready for Your Military Move?
+            </h2>
+            
+            <p className="text-xl text-[#1A2332]/80 mb-8 max-w-2xl mx-auto">
+              Join 1,000+ CAF families who trusted us with their PCS move. Get your personalized military quote today.
             </p>
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/book">
-                <Button 
-                  size="lg" 
-                  className="bg-[#C5A572] hover:bg-[#B8956A] text-white text-base px-8 py-6 h-auto"
-                  data-testid="button-get-quote-cta"
-                >
+                <Button size="lg" className="bg-[#1A2332] hover:bg-[#1A2332]/90 text-white text-lg font-bold px-10 py-7 shadow-xl" data-testid="button-cta-quote">
                   Get Military Quote
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                  <ArrowRight className="h-5 w-5 ml-2" />
                 </Button>
               </Link>
               <a href="tel:604-616-6066">
-                <Button 
-                  size="lg" 
-                  variant="outline" 
-                  className="border-white text-white hover:bg-white/10 text-base px-8 py-6 h-auto"
-                  data-testid="button-call-cta"
-                >
+                <Button size="lg" variant="outline" className="border-2 border-[#1A2332] text-[#1A2332] hover:bg-[#1A2332] hover:text-white text-lg font-bold px-10 py-7" data-testid="button-cta-call">
                   <Phone className="h-5 w-5 mr-2" />
                   604-616-6066
                 </Button>

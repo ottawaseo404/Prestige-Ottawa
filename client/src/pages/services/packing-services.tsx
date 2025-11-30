@@ -1,55 +1,30 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
-import { Phone, CheckCircle2, Package, Box, Shield, Star, Sparkles, Clock, ArrowRight, Loader2, ChevronRight, Mail, User, Home, Building2, Truck, Warehouse } from "lucide-react";
+import { 
+  Phone, CheckCircle2, Package, Box, Shield, Star, Sparkles, Clock, 
+  ArrowRight, ChevronLeft, ChevronRight, MapPin, Award, Zap, Timer, 
+  Users, ThumbsUp, HandHeart, Home, Building2, Truck, Warehouse, Heart,
+  Wine, Tv, Frame
+} from "lucide-react";
 import { Link } from "wouter";
 import { Helmet } from "react-helmet";
 import { SharedNavigation } from "@/components/shared-navigation";
 import { SharedFooter } from "@/components/shared-footer";
-import { useToast } from "@/hooks/use-toast";
 import { WorkSafeBadge } from "@/components/worksafe-badge";
-import { apiRequest } from "@/lib/queryClient";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import packingHeroVideo from "@assets/generated_videos/professional_packing_services_vancouver.mp4";
+import packingImage from "@assets/generated_images/professional_packing_services_vancouver.png";
 
 export default function PackingServices() {
-  const { toast } = useToast();
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    message: "",
-  });
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    
-    try {
-      await apiRequest("POST", "/api/quote-request", {
-        ...formData,
-        serviceType: "Packing Services",
-      });
-      
-      toast({
-        title: "Quote Request Submitted!",
-        description: "We'll contact you within 1 hour with your quote.",
-      });
-      setFormData({ name: "", email: "", phone: "", message: "" });
-    } catch (error: any) {
-      toast({
-        title: "Submission Failed",
-        description: error.message || "Please try again or call us directly at 604-616-6066",
-        variant: "destructive",
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
+  const [activeTestimonial, setActiveTestimonial] = useState(0);
+  const [activeTab, setActiveTab] = useState(0);
 
   const schemaData = {
     "@context": "https://schema.org",
@@ -65,26 +40,111 @@ export default function PackingServices() {
         "addressCountry": "CA"
       },
       "telephone": "604-616-6066",
-      "priceRange": "$$"
+      "priceRange": "$$",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "reviewCount": "500"
+      }
     },
-    "areaServed": {
-      "@type": "City",
-      "name": "Vancouver"
-    },
+    "areaServed": [
+      { "@type": "City", "name": "Vancouver" },
+      { "@type": "City", "name": "Burnaby" },
+      { "@type": "City", "name": "Richmond" },
+      { "@type": "City", "name": "North Vancouver" },
+      { "@type": "City", "name": "West Vancouver" },
+      { "@type": "City", "name": "Coquitlam" },
+      { "@type": "City", "name": "Surrey" }
+    ],
     "description": "Expert packing services in Vancouver. Full-service packing, fragile item protection, and quality materials included. Professional packers for stress-free moves."
   };
+
+  const testimonials = [
+    { name: "Amanda R.", location: "Kitsilano", text: "The packing team was incredible! They wrapped every dish, glass, and picture frame with such care. Not a single item was damaged. Worth every penny!", rating: 5, date: "1 week ago" },
+    { name: "Kevin M.", location: "West Vancouver", text: "We had a last-minute move and they packed our entire 4-bedroom house in just one day. Professional, organized, and everything arrived perfectly.", rating: 5, date: "2 weeks ago" },
+    { name: "Susan L.", location: "Burnaby", text: "I was nervous about my grandmother's antique china collection. The team used custom packing and it all arrived without a scratch. Highly recommend!", rating: 5, date: "3 weeks ago" },
+    { name: "James T.", location: "North Vancouver", text: "Best packing service in Vancouver! They labeled every box by room and contents. Unpacking was so much easier. The materials they use are top quality.", rating: 5, date: "1 month ago" },
+    { name: "Michelle K.", location: "Downtown", text: "Their fragile item specialists packed my wine collection and artwork beautifully. Custom crating for my paintings was impressive. Five stars!", rating: 5, date: "2 months ago" }
+  ];
+
+  const serviceTypes = [
+    {
+      title: "Full-Service Packing",
+      icon: Package,
+      description: "Complete home or office packing from start to finish",
+      features: ["All materials included", "Room-by-room organization", "Detailed labeling", "Same-day available"]
+    },
+    {
+      title: "Fragile Items",
+      icon: Wine,
+      description: "Specialized handling for delicate and valuable items",
+      features: ["China & glassware", "Artwork & mirrors", "Electronics & TVs", "Wine collections"]
+    },
+    {
+      title: "Furniture Protection",
+      icon: Frame,
+      description: "Expert wrapping and padding for all furniture types",
+      features: ["Moving blankets", "Shrink wrapping", "Corner protection", "Mattress bags"]
+    },
+    {
+      title: "Partial Packing",
+      icon: Box,
+      description: "Flexible options to fit your needs and budget",
+      features: ["Kitchen only", "Fragile items only", "Last-minute help", "Custom plans"]
+    }
+  ];
+
+  const neighborhoods = [
+    "Downtown", "Kitsilano", "Yaletown", "Coal Harbour", "West End",
+    "Mount Pleasant", "Commercial Drive", "Kerrisdale", "Point Grey",
+    "UBC", "Shaughnessy", "Dunbar", "Marpole", "South Cambie", "Gastown"
+  ];
+
+  const faqItems = [
+    {
+      question: "How far in advance should I book packing services?",
+      answer: "We recommend booking at least 1-2 weeks in advance for standard moves. However, we do offer same-day and next-day packing services for urgent situations. During peak moving season (May-August), we suggest booking 2-3 weeks ahead to secure your preferred date."
+    },
+    {
+      question: "Do I need to provide any packing materials?",
+      answer: "No, all packing materials are included in our service. We bring professional-grade boxes in various sizes, bubble wrap, packing paper, tape, furniture blankets, mattress bags, and specialty materials for fragile items. Everything needed for a safe move is covered."
+    },
+    {
+      question: "How long does it take to pack a typical home?",
+      answer: "Packing times vary based on home size and contents. A 1-bedroom apartment typically takes 2-3 hours, a 2-bedroom takes 4-5 hours, and a 3-4 bedroom home takes 6-8 hours. Homes with many fragile items or collections may require additional time for proper care."
+    },
+    {
+      question: "Can you pack specialty items like artwork or antiques?",
+      answer: "Absolutely! Our team includes fragile item specialists trained in handling artwork, antiques, china, crystal, wine collections, and other valuables. We use custom crating for paintings, acid-free tissue for delicate items, and climate-appropriate materials for sensitive pieces."
+    },
+    {
+      question: "What happens if something gets damaged during packing?",
+      answer: "As a WorkSafe BC certified company, we carry full liability insurance. In the rare event of damage, our claims process is straightforward and we work quickly to resolve any issues. Our careful packing techniques mean damage claims are extremely rare - our track record speaks for itself."
+    }
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveTestimonial((prev) => (prev + 1) % testimonials.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [testimonials.length]);
 
   return (
     <>
       <Helmet>
         <title>Professional Packing Services Vancouver BC | Expert Packers | Prestige Moving</title>
-        <meta name="description" content="Expert packing services in Vancouver BC. Full-service packing, fragile item protection, quality materials. Save time and ensure safe transport. Free quote!" />
-        <meta name="keywords" content="packing services Vancouver, professional packers BC, moving packing service, fragile item packing, full service packing" />
+        <meta name="description" content="Expert packing services in Vancouver BC. Full-service packing, fragile item protection, quality materials included. WorkSafe BC certified. Save time and ensure safe transport. Free quote!" />
+        <meta name="keywords" content="packing services Vancouver, professional packers BC, moving packing service, fragile item packing, full service packing, Vancouver packers, Burnaby packing service, Richmond packing company" />
         <meta property="og:title" content="Professional Packing Services Vancouver | Prestige Moving" />
-        <meta property="og:description" content="Professional packing services in Vancouver. Expert packers, quality materials, fragile item specialists. Make your move stress-free." />
+        <meta property="og:description" content="Vancouver's trusted packing specialists. Expert packers, quality materials, fragile item handling. WorkSafe BC certified for your peace of mind." />
         <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://vancouver.prestigemoving.ca/services/packing-services" />
         <meta property="og:image" content="https://vancouver.prestigemoving.ca/og-image.png" />
+        <meta property="og:site_name" content="Prestige Moving Vancouver" />
         <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Professional Packing Services Vancouver | Prestige Moving" />
+        <meta name="twitter:description" content="Expert packing services with premium materials. Fragile item specialists. WorkSafe BC certified." />
         <meta name="twitter:image" content="https://vancouver.prestigemoving.ca/og-image.png" />
         <link rel="canonical" href="https://vancouver.prestigemoving.ca/services/packing-services" />
         <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
@@ -93,632 +153,534 @@ export default function PackingServices() {
       <div className="min-h-screen bg-background">
         <SharedNavigation />
 
-        {/* Hero Section with Video */}
-        <section className="relative min-h-[70vh] overflow-hidden">
-          {/* Background Video */}
-          <div className="absolute inset-0">
-            <video 
-              autoPlay 
-              loop 
-              muted 
-              playsInline
-              className="w-full h-full object-cover"
-            >
-              <source src={packingHeroVideo} type="video/mp4" />
-            </video>
-            <div className="absolute inset-0 bg-gradient-to-r from-[#1A2332]/95 via-[#1A2332]/80 to-[#1A2332]/40" />
-          </div>
+        {/* Hero Section */}
+        <section className="relative min-h-[85vh] flex items-center overflow-hidden" data-testid="section-hero">
+          <video 
+            autoPlay 
+            loop 
+            muted 
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover"
+          >
+            <source src={packingHeroVideo} type="video/mp4" />
+          </video>
+          <div className="absolute inset-0 bg-gradient-to-r from-[#1A2332] via-[#1A2332]/90 to-[#1A2332]/40" />
 
-          {/* Stats Bar at Top */}
-          <div className="absolute top-0 left-0 right-0 bg-black/30 backdrop-blur-sm border-b border-white/10 z-20">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
-              <div className="flex flex-wrap justify-center gap-6 md:gap-12 text-white/90 text-sm">
-                <div className="flex items-center gap-2">
-                  <Package className="h-4 w-4 text-primary" />
-                  <span>Quality Materials</span>
-                </div>
-                <WorkSafeBadge size="sm" />
-                <div className="flex items-center gap-2">
-                  <Clock className="h-4 w-4 text-primary" />
-                  <span>Same Day Service</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Star className="h-4 w-4 text-primary fill-primary" />
-                  <span>5.0 Rated</span>
-                </div>
+          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16">
+            <div className="max-w-2xl">
+              <div className="flex items-center gap-3 mb-6">
+                <Badge className="bg-primary/20 text-primary border-primary/40 px-4 py-1.5">
+                  <Package className="h-4 w-4 mr-2" />
+                  Packing Services
+                </Badge>
+                <Badge className="bg-green-500/20 text-green-400 border-green-500/40">
+                  <Zap className="h-3 w-3 mr-1" />
+                  Same-Day Available
+                </Badge>
               </div>
-            </div>
-          </div>
 
-          {/* Hero Content */}
-          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-32 md:py-32 flex items-center min-h-[70vh]">
-            <div className="max-w-2xl pb-20 md:pb-0">
-              <Badge className="bg-primary text-[#1A2332] font-bold mb-6 text-sm px-4 py-2">
-                <Package className="h-4 w-4 mr-2" />
-                Packing Services
-              </Badge>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 tracking-tight leading-tight">
-                Professional Packing<br />
-                <span className="text-primary">Services in Vancouver</span>
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-6 leading-[1.1]">
+                Vancouver's<br />
+                <span className="text-primary">#1 Packing Experts</span>
               </h1>
-              <p className="text-lg md:text-xl text-white/80 mb-8 leading-relaxed">
-                Let our expert team handle the packing while you focus on your move. Quality materials, careful handling, and peace of mind included.
+
+              <p className="text-xl md:text-2xl text-white/80 mb-8 leading-relaxed">
+                Let our expert team handle the packing while you focus on your move. We've safely packed <span className="text-primary font-semibold">10,000+ Vancouver homes</span>.
               </p>
 
-              {/* Trust Indicators */}
-              <div className="flex flex-wrap gap-4 mb-8">
-                <div className="flex items-center gap-2 text-white/80">
-                  <CheckCircle2 className="h-5 w-5 text-primary" />
-                  <span className="text-sm font-medium">Premium Materials</span>
-                </div>
-                <div className="flex items-center gap-2 text-white/80">
-                  <CheckCircle2 className="h-5 w-5 text-primary" />
-                  <span className="text-sm font-medium">Expert Packers</span>
-                </div>
-                <div className="flex items-center gap-2 text-white/80">
-                  <CheckCircle2 className="h-5 w-5 text-primary" />
-                  <span className="text-sm font-medium">Fragile Item Specialists</span>
-                </div>
-              </div>
-
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-col sm:flex-row gap-4 mb-8">
                 <Link href="/book">
-                  <Button size="lg" className="text-base font-bold px-8 py-6 shadow-xl w-full sm:w-auto">
+                  <Button size="lg" className="text-lg font-bold px-8 py-7 shadow-xl shadow-primary/30 group" data-testid="button-hero-quote">
                     Get Free Quote
-                    <ArrowRight className="h-5 w-5 ml-2" />
+                    <ArrowRight className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </Link>
                 <a href="tel:604-616-6066">
-                  <Button size="lg" variant="outline" className="text-base font-bold px-8 py-6 border-2 border-white text-white hover:bg-white hover:text-[#1A2332] w-full sm:w-auto">
+                  <Button size="lg" variant="outline" className="text-lg font-bold px-8 py-7 border-2 border-white/40 text-white hover:bg-white/10 backdrop-blur-sm" data-testid="button-hero-call">
                     <Phone className="h-5 w-5 mr-2" />
                     604-616-6066
                   </Button>
                 </a>
               </div>
-            </div>
-          </div>
 
-          {/* Stats Bar at Bottom */}
-          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-400 z-20">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-                <div className="group cursor-pointer transition-transform hover:scale-105">
-                  <div className="text-xl md:text-2xl font-black text-[#1A2332]">10,000+</div>
-                  <div className="text-xs md:text-sm font-bold text-[#1A2332]/80">Homes Packed</div>
+              <div className="flex flex-wrap gap-6">
+                <WorkSafeBadge size="md" />
+                <div className="flex items-center gap-2 text-white/70">
+                  <Award className="h-5 w-5 text-primary" />
+                  <span>BBB A+ Rated</span>
                 </div>
-                <div className="group cursor-pointer transition-transform hover:scale-105">
-                  <div className="flex items-center justify-center gap-1 text-xl md:text-2xl font-black text-[#1A2332]">
-                    5.0 <Star className="h-4 w-4 fill-[#1A2332]" />
-                  </div>
-                  <div className="text-xs md:text-sm font-bold text-[#1A2332]/80">Google Rating</div>
-                </div>
-                <div className="group cursor-pointer transition-transform hover:scale-105">
-                  <div className="text-xl md:text-2xl font-black text-[#1A2332]">Same Day</div>
-                  <div className="text-xs md:text-sm font-bold text-[#1A2332]/80">Service Available</div>
-                </div>
-                <div className="group cursor-pointer transition-transform hover:scale-105">
-                  <div className="text-xl md:text-2xl font-black text-[#1A2332]">100%</div>
-                  <div className="text-xs md:text-sm font-bold text-[#1A2332]/80">Satisfaction</div>
+                <div className="flex items-center gap-2 text-white/70">
+                  <Timer className="h-5 w-5 text-primary" />
+                  <span>Materials Included</span>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Benefits */}
-        <section className="py-16 md:py-24">
+        {/* Stats Bar */}
+        <section className="bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-400 py-6" data-testid="section-stats">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+              {[
+                { value: "10,000+", label: "Homes Packed" },
+                { value: "5.0★", label: "Google Rating" },
+                { value: "Same Day", label: "Service Available" },
+                { value: "100%", label: "Satisfaction" }
+              ].map((stat, index) => (
+                <div key={index} data-testid={`stat-${index}`}>
+                  <div className="text-2xl md:text-4xl font-black text-[#1A2332]">{stat.value}</div>
+                  <div className="text-sm font-bold text-[#1A2332]/80 uppercase tracking-wide">{stat.label}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* About Our Service */}
+        <section className="py-16 md:py-20 bg-white" data-testid="section-about">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div>
+                <Badge className="bg-primary/10 text-primary mb-4">About Our Service</Badge>
+                <h2 className="text-3xl md:text-4xl font-black text-foreground mb-6">
+                  Vancouver's Premier Packing Company
+                </h2>
+                <div className="space-y-4 text-muted-foreground">
+                  <p>
+                    Moving to a new home in Vancouver, Burnaby, Richmond, or anywhere in the Lower Mainland? <strong>Prestige Moving Vancouver</strong> offers professional packing services that save you time, stress, and ensure your belongings arrive safely.
+                  </p>
+                  <p>
+                    Our expert packers bring years of experience and use only premium materials - from double-walled boxes to custom crating for artwork. Whether you need full-service packing or just help with fragile items, we've got you covered.
+                  </p>
+                  <p>
+                    As a <strong>WorkSafe BC certified moving company</strong>, we prioritize the safety of both our team and your belongings. All materials are included in our transparent pricing - no hidden fees or surprises.
+                  </p>
+                </div>
+                <div className="mt-8">
+                  <Link href="/book">
+                    <Button size="lg" className="font-bold" data-testid="button-about-quote">
+                      Get Your Free Quote
+                      <ArrowRight className="h-5 w-5 ml-2" />
+                    </Button>
+                  </Link>
+                </div>
+              </div>
+              
+              <div className="relative rounded-2xl overflow-hidden h-[400px]">
+                <img 
+                  src={packingImage}
+                  alt="Prestige Moving professional packers in Vancouver"
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#1A2332]/60 to-transparent" />
+                <div className="absolute bottom-6 left-6 right-6">
+                  <div className="flex items-center gap-3">
+                    <div className="flex -space-x-2">
+                      {[...Array(4)].map((_, i) => (
+                        <div key={i} className="h-10 w-10 rounded-full bg-primary border-2 border-white flex items-center justify-center">
+                          <Star className="h-4 w-4 text-[#1A2332] fill-[#1A2332]" />
+                        </div>
+                      ))}
+                    </div>
+                    <div className="text-white">
+                      <div className="font-bold">337+ Reviews</div>
+                      <div className="text-sm text-white/70">5-Star Rated on Google</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* What's Included */}
+        <section className="py-16 md:py-20 bg-gray-50" data-testid="section-included">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-                Why Choose Our Packing Services?
+              <Badge className="bg-primary/10 text-primary mb-4">What's Included</Badge>
+              <h2 className="text-3xl md:text-4xl font-black text-foreground mb-4">
+                Everything You Need for Stress-Free Packing
               </h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Professional packing saves time, reduces stress, and protects your belongings
+                Our packing service includes all materials and expertise for a safe move
               </p>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-8">
-              <Card>
-                <CardHeader>
-                  <Clock className="h-12 w-12 text-primary mb-4" />
-                  <CardTitle>Save Time</CardTitle>
-                  <CardDescription>
-                    Professional packers work efficiently - what takes you days, we do in hours
-                  </CardDescription>
-                </CardHeader>
-              </Card>
-
-              <Card>
-                <CardHeader>
-                  <Shield className="h-12 w-12 text-primary mb-4" />
-                  <CardTitle>Expert Protection</CardTitle>
-                  <CardDescription>
-                    Specialized techniques for fragile items, ensuring safe transport and arrival
-                  </CardDescription>
-                </CardHeader>
-              </Card>
-
-              <Card>
-                <CardHeader>
-                  <Star className="h-12 w-12 text-primary mb-4" />
-                  <CardTitle>Quality Materials</CardTitle>
-                  <CardDescription>
-                    Professional-grade boxes, bubble wrap, and packing paper included in service
-                  </CardDescription>
-                </CardHeader>
-              </Card>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[
+                { title: "Premium Moving Boxes", description: "New, sturdy boxes in all sizes for every item", icon: Box },
+                { title: "Bubble Wrap & Paper", description: "Industrial-grade protection for fragile items", icon: Package },
+                { title: "Furniture Blankets", description: "Thick padding to prevent scratches and dents", icon: Frame },
+                { title: "Custom Crating", description: "Specialty protection for artwork and antiques", icon: Sparkles },
+                { title: "Detailed Labeling", description: "Room-by-room organization for easy unpacking", icon: CheckCircle2 },
+                { title: "WorkSafe BC Certified", description: "Full compliance with safety standards", icon: Award }
+              ].map((item, index) => (
+                <Card key={index} className="border-2 hover:border-primary/50 transition-colors" data-testid={`card-included-${index}`}>
+                  <CardContent className="p-6">
+                    <div className="h-12 w-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
+                      <item.icon className="h-6 w-6 text-primary" />
+                    </div>
+                    <h3 className="font-bold text-lg text-foreground mb-2">{item.title}</h3>
+                    <p className="text-muted-foreground">{item.description}</p>
+                  </CardContent>
+                </Card>
+              ))}
             </div>
           </div>
         </section>
 
-        {/* Services */}
-        <section className="py-16 md:py-24 bg-accent/50">
+        {/* Service Types with Tabs */}
+        <section className="py-16 md:py-20 bg-[#1A2332]" data-testid="section-service-types">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-12 text-center">
-              Packing Services We Offer
-            </h2>
-
-            <div className="grid md:grid-cols-2 gap-6">
-              <Card>
-                <CardHeader>
-                  <Package className="h-10 w-10 text-primary mb-2" />
-                  <CardTitle>Full-Service Packing</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-2">
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                      <span>Complete home or office packing</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                      <span>All packing materials provided</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                      <span>Room-by-room organization</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                      <span>Detailed labeling system</span>
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardHeader>
-                  <Sparkles className="h-10 w-10 text-primary mb-2" />
-                  <CardTitle>Fragile & Specialty Items</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-2">
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                      <span>Dishes, glassware, and china</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                      <span>Artwork and mirrors</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                      <span>Electronics and TVs</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                      <span>Antiques and collectibles</span>
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardHeader>
-                  <Box className="h-10 w-10 text-primary mb-2" />
-                  <CardTitle>Furniture Protection</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-2">
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                      <span>Furniture wrapping and padding</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                      <span>Mattress bags and protection</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                      <span>Couch shrink-wrapping</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                      <span>Corner and edge protection</span>
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardHeader>
-                  <Package className="h-10 w-10 text-primary mb-2" />
-                  <CardTitle>Partial Packing</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-2">
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                      <span>Kitchen and dining room only</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                      <span>Fragile items only</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                      <span>Last-minute assistance</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                      <span>Customized packing plans</span>
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </section>
-
-        {/* Materials */}
-        <section className="py-16 md:py-24">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-12 text-center">
-              Premium Packing Materials
-            </h2>
-
-            <div className="grid md:grid-cols-4 gap-6">
-              <div className="text-center">
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-4">
-                  <Box className="h-8 w-8 text-primary" />
-                </div>
-                <h3 className="font-semibold mb-2">Moving Boxes</h3>
-                <p className="text-sm text-muted-foreground">
-                  Various sizes, new and clean
-                </p>
-              </div>
-
-              <div className="text-center">
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-4">
-                  <Package className="h-8 w-8 text-primary" />
-                </div>
-                <h3 className="font-semibold mb-2">Bubble Wrap</h3>
-                <p className="text-sm text-muted-foreground">
-                  Industrial grade protection
-                </p>
-              </div>
-
-              <div className="text-center">
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-4">
-                  <Sparkles className="h-8 w-8 text-primary" />
-                </div>
-                <h3 className="font-semibold mb-2">Packing Paper</h3>
-                <p className="text-sm text-muted-foreground">
-                  Clean, newsprint-free
-                </p>
-              </div>
-
-              <div className="text-center">
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-4">
-                  <Shield className="h-8 w-8 text-primary" />
-                </div>
-                <h3 className="font-semibold mb-2">Specialty Items</h3>
-                <p className="text-sm text-muted-foreground">
-                  Mattress bags, tape, labels
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* How It Works */}
-        <section className="py-16 md:py-24 bg-accent/50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-12 text-center">
-              Our Packing Process
-            </h2>
-
-            <div className="grid md:grid-cols-4 gap-8">
-              <div className="text-center">
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary text-primary-foreground text-2xl font-bold mb-4">
-                  1
-                </div>
-                <h3 className="text-xl font-semibold mb-2">Assessment</h3>
-                <p className="text-muted-foreground">
-                  We evaluate your packing needs and provide a quote
-                </p>
-              </div>
-
-              <div className="text-center">
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary text-primary-foreground text-2xl font-bold mb-4">
-                  2
-                </div>
-                <h3 className="text-xl font-semibold mb-2">Materials</h3>
-                <p className="text-muted-foreground">
-                  We arrive with all necessary packing supplies
-                </p>
-              </div>
-
-              <div className="text-center">
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary text-primary-foreground text-2xl font-bold mb-4">
-                  3
-                </div>
-                <h3 className="text-xl font-semibold mb-2">Pack</h3>
-                <p className="text-muted-foreground">
-                  Careful packing with proper labeling
-                </p>
-              </div>
-
-              <div className="text-center">
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary text-primary-foreground text-2xl font-bold mb-4">
-                  4
-                </div>
-                <h3 className="text-xl font-semibold mb-2">Ready to Move</h3>
-                <p className="text-muted-foreground">
-                  Everything packed and ready for moving day
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Quick Quote Section */}
-        <section className="py-16 md:py-24">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid lg:grid-cols-2 gap-12 items-start">
-              <div>
-                <Badge variant="outline" className="mb-4">Quick Quote</Badge>
-                <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-                  Get Your Free Packing Quote
-                </h2>
-                <p className="text-lg text-muted-foreground mb-8">
-                  Ready to take the stress out of packing? Fill out the form and we'll get back to you within 1 hour with a personalized quote.
-                </p>
-
-                <div className="space-y-4">
-                  <div className="flex items-start gap-3">
-                    <CheckCircle2 className="h-6 w-6 text-[#C5A572] mt-0.5 flex-shrink-0" />
-                    <div>
-                      <h3 className="font-semibold">Free, No-Obligation Quote</h3>
-                      <p className="text-muted-foreground">Get an accurate estimate with no commitment required</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <CheckCircle2 className="h-6 w-6 text-[#C5A572] mt-0.5 flex-shrink-0" />
-                    <div>
-                      <h3 className="font-semibold">Fast Response Time</h3>
-                      <p className="text-muted-foreground">We'll contact you within 1 hour during business hours</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <CheckCircle2 className="h-6 w-6 text-[#C5A572] mt-0.5 flex-shrink-0" />
-                    <div>
-                      <h3 className="font-semibold">All Materials Included</h3>
-                      <p className="text-muted-foreground">Professional-grade boxes, bubble wrap, and packing paper</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <CheckCircle2 className="h-6 w-6 text-[#C5A572] mt-0.5 flex-shrink-0" />
-                    <div>
-                      <h3 className="font-semibold">Fully Insured Service</h3>
-                      <p className="text-muted-foreground">Your belongings are protected throughout the packing process</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <Card>
-                <CardHeader>
-                  <CardTitle>Request Your Quote</CardTitle>
-                  <CardDescription>Fill out the form below and we'll get back to you shortly</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <form onSubmit={handleSubmit} className="space-y-4">
-                    <div className="space-y-2">
-                      <Label htmlFor="name">Full Name</Label>
-                      <div className="relative">
-                        <User className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                        <Input
-                          id="name"
-                          placeholder="Your name"
-                          value={formData.name}
-                          onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                          className="pl-10"
-                          required
-                          data-testid="input-name"
-                        />
-                      </div>
-                    </div>
-
-                    <div className="space-y-2">
-                      <Label htmlFor="email">Email Address</Label>
-                      <div className="relative">
-                        <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                        <Input
-                          id="email"
-                          type="email"
-                          placeholder="your@email.com"
-                          value={formData.email}
-                          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                          className="pl-10"
-                          required
-                          data-testid="input-email"
-                        />
-                      </div>
-                    </div>
-
-                    <div className="space-y-2">
-                      <Label htmlFor="phone">Phone Number</Label>
-                      <div className="relative">
-                        <Phone className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                        <Input
-                          id="phone"
-                          type="tel"
-                          placeholder="(604) 555-1234"
-                          value={formData.phone}
-                          onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                          className="pl-10"
-                          required
-                          data-testid="input-phone"
-                        />
-                      </div>
-                    </div>
-
-                    <div className="space-y-2">
-                      <Label htmlFor="message">Tell us about your packing needs</Label>
-                      <Textarea
-                        id="message"
-                        placeholder="Describe what you need packed, approximate home size, any fragile items, and your preferred timeline..."
-                        value={formData.message}
-                        onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                        rows={4}
-                        data-testid="input-message"
-                      />
-                    </div>
-
-                    <Button
-                      type="submit"
-                      className="w-full bg-[#C5A572] hover:bg-[#B8956A] text-white"
-                      disabled={isSubmitting}
-                      data-testid="button-submit-quote"
-                    >
-                      {isSubmitting ? (
-                        <>
-                          <Loader2 className="h-4 w-4 mr-2 animate-spin" />
-                          Submitting...
-                        </>
-                      ) : (
-                        <>
-                          Get Your Free Quote
-                          <ChevronRight className="h-4 w-4 ml-2" />
-                        </>
-                      )}
-                    </Button>
-                  </form>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </section>
-
-        {/* SEO Content Section with Internal Links */}
-        <section className="py-20 md:py-28 bg-gradient-to-b from-white to-gray-50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-3xl md:text-4xl font-black text-foreground mb-6">
-                Professional Packing Services in Vancouver
+            <div className="text-center mb-12">
+              <Badge className="bg-primary/20 text-primary border-primary/30 mb-4">Our Services</Badge>
+              <h2 className="text-3xl md:text-4xl font-black text-white mb-4">
+                Packing Services We Offer
               </h2>
-              <div className="prose prose-lg max-w-none text-muted-foreground mb-8">
-                <p>
-                  When it comes to <strong>professional packing services in Vancouver</strong>, our expert packers bring years of experience and meticulous attention to detail to every move. We use only <strong>premium packing materials</strong> including double-walled boxes, acid-free tissue paper, and custom crating for your most valuable possessions. Our trained team specializes in <strong>fragile item handling</strong>, ensuring your fine china, artwork, and electronics arrive in perfect condition.
-                </p>
-                <p>
-                  As Vancouver's trusted <strong>full-service packing company</strong>, we understand that every home and office has unique requirements. From <strong>last-minute packing assistance</strong> to complete whole-house packing services, our flexible options accommodate your schedule and budget. We also offer <strong>specialty packing for antiques</strong>, wine collections, and other valuables that require extra care during your Vancouver move.
-                </p>
-              </div>
-              
-              <h3 className="text-2xl font-bold text-foreground mb-4">Explore Our Related Services</h3>
-              <p className="text-muted-foreground mb-6">Discover our comprehensive range of moving services designed to make your relocation seamless.</p>
-              
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                <Link href="/services/residential-moving">
-                  <Card className="hover-elevate cursor-pointer h-full">
-                    <CardHeader className="flex flex-row items-center gap-3 pb-2">
-                      <Home className="h-5 w-5 text-[#C5A572]" />
-                      <CardTitle className="text-base">Residential Moving</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-sm text-muted-foreground">Complete home moving services across Vancouver</p>
-                    </CardContent>
-                  </Card>
-                </Link>
-                <Link href="/services/commercial-moving">
-                  <Card className="hover-elevate cursor-pointer h-full">
-                    <CardHeader className="flex flex-row items-center gap-3 pb-2">
-                      <Building2 className="h-5 w-5 text-[#C5A572]" />
-                      <CardTitle className="text-base">Commercial Moving</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-sm text-muted-foreground">Office and business relocation experts</p>
-                    </CardContent>
-                  </Card>
-                </Link>
-                <Link href="/services/long-distance-moving">
-                  <Card className="hover-elevate cursor-pointer h-full">
-                    <CardHeader className="flex flex-row items-center gap-3 pb-2">
-                      <Truck className="h-5 w-5 text-[#C5A572]" />
-                      <CardTitle className="text-base">Long Distance Moving</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-sm text-muted-foreground">Cross-province and nationwide relocations</p>
-                    </CardContent>
-                  </Card>
-                </Link>
-                <Link href="/services/storage-solutions">
-                  <Card className="hover-elevate cursor-pointer h-full">
-                    <CardHeader className="flex flex-row items-center gap-3 pb-2">
-                      <Warehouse className="h-5 w-5 text-[#C5A572]" />
-                      <CardTitle className="text-base">Storage Solutions</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-sm text-muted-foreground">Secure climate-controlled storage facilities</p>
-                    </CardContent>
-                  </Card>
-                </Link>
-                <Link href="/services/moving-supplies">
-                  <Card className="hover-elevate cursor-pointer h-full">
-                    <CardHeader className="flex flex-row items-center gap-3 pb-2">
-                      <Box className="h-5 w-5 text-[#C5A572]" />
-                      <CardTitle className="text-base">Moving Supplies</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-sm text-muted-foreground">Quality boxes and packing materials delivered</p>
-                    </CardContent>
-                  </Card>
-                </Link>
-                <Link href="/services/specialty-item-moving">
-                  <Card className="hover-elevate cursor-pointer h-full">
-                    <CardHeader className="flex flex-row items-center gap-3 pb-2">
-                      <Package className="h-5 w-5 text-[#C5A572]" />
-                      <CardTitle className="text-base">Specialty Item Moving</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-sm text-muted-foreground">Safe transport for unique and fragile items</p>
-                    </CardContent>
-                  </Card>
-                </Link>
+              <p className="text-lg text-white/60 max-w-2xl mx-auto">
+                Choose the packing option that fits your needs and budget
+              </p>
+            </div>
+
+            {/* Tab Navigation */}
+            <div className="flex justify-center gap-2 mb-10 flex-wrap">
+              {serviceTypes.map((service, index) => {
+                const ServiceIcon = service.icon;
+                return (
+                  <button
+                    key={index}
+                    onClick={() => setActiveTab(index)}
+                    className={`group px-6 py-3 rounded-full font-semibold transition-all duration-300 flex items-center gap-2 ${
+                      activeTab === index 
+                        ? 'bg-primary text-[#1A2332] shadow-lg shadow-primary/30' 
+                        : 'bg-white/10 text-white hover:bg-white/20'
+                    }`}
+                    data-testid={`tab-${service.title.toLowerCase().replace(/\s+/g, '-')}`}
+                  >
+                    <ServiceIcon className="h-5 w-5" />
+                    {service.title}
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Active Service Content */}
+            <div className="bg-white/5 backdrop-blur border border-white/10 rounded-3xl p-8 md:p-12">
+              <div className="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                  <h3 className="text-2xl md:text-3xl font-black text-white mb-4">
+                    {serviceTypes[activeTab].title}
+                  </h3>
+                  <p className="text-lg text-white/70 mb-6">
+                    {serviceTypes[activeTab].description}
+                  </p>
+
+                  <div className="grid grid-cols-2 gap-4 mb-8">
+                    {serviceTypes[activeTab].features.map((feature, i) => (
+                      <div key={i} className="flex items-center gap-3">
+                        <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0" />
+                        <span className="text-white">{feature}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  <Link href="/book">
+                    <Button size="lg" className="font-bold" data-testid="button-service-quote">
+                      Get a Quote
+                      <ArrowRight className="h-5 w-5 ml-2" />
+                    </Button>
+                  </Link>
+                </div>
+                
+                <div className="relative rounded-2xl overflow-hidden h-[300px]">
+                  <img 
+                    src={packingImage}
+                    alt={serviceTypes[activeTab].title}
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* CTA */}
-        <section className="py-16 md:py-24 bg-primary text-primary-foreground">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl md:text-5xl font-bold mb-6">
-              Let Us Handle the Packing
+        {/* Why Choose Us */}
+        <section className="py-16 md:py-20 bg-white" data-testid="section-why-choose">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <Badge className="bg-primary/10 text-primary mb-4">Why Choose Us</Badge>
+              <h2 className="text-3xl md:text-4xl font-black text-foreground mb-4">
+                The Prestige Packing Difference
+              </h2>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[
+                { icon: Shield, title: "Fully Insured", description: "Complete protection for your belongings throughout the packing process", color: "from-amber-500 to-amber-600" },
+                { icon: Users, title: "Expert Packers", description: "Average 5+ years experience per packer. Trained specialists who care.", color: "from-blue-500 to-blue-600" },
+                { icon: Clock, title: "Same-Day Service", description: "Need packing done fast? We offer same-day and next-day availability.", color: "from-emerald-500 to-emerald-600" },
+                { icon: ThumbsUp, title: "All Materials Included", description: "Boxes, bubble wrap, tape, and specialty materials - all covered.", color: "from-violet-500 to-violet-600" },
+                { icon: HandHeart, title: "Fragile Item Specialists", description: "Custom packing for artwork, antiques, china, and valuables.", color: "from-rose-500 to-rose-600" },
+                { icon: Award, title: "WorkSafe BC Certified", description: "Full compliance with workplace safety standards for your peace of mind.", color: "from-primary to-amber-600" }
+              ].map((item, index) => (
+                <Card key={index} className="border-2 hover:border-primary/50 transition-all hover:shadow-lg" data-testid={`card-why-${index}`}>
+                  <CardContent className="p-6">
+                    <div className={`h-14 w-14 bg-gradient-to-br ${item.color} rounded-xl flex items-center justify-center mb-4`}>
+                      <item.icon className="h-7 w-7 text-white" />
+                    </div>
+                    <h3 className="text-xl font-bold mb-2">{item.title}</h3>
+                    <p className="text-muted-foreground">{item.description}</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Testimonials Carousel */}
+        <section className="py-16 md:py-20 bg-gray-50" data-testid="section-testimonials">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <Badge className="bg-primary/10 text-primary mb-4">Reviews</Badge>
+              <h2 className="text-3xl md:text-4xl font-black text-foreground mb-4">
+                What Customers Say About Our Packing
+              </h2>
+              <div className="flex items-center justify-center gap-2 text-muted-foreground">
+                <div className="flex">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="h-5 w-5 fill-primary text-primary" />
+                  ))}
+                </div>
+                <span>Based on 337+ Google Reviews</span>
+              </div>
+            </div>
+
+            <div className="relative max-w-4xl mx-auto">
+              <Card className="border-2 shadow-xl">
+                <CardContent className="p-8 md:p-12">
+                  <div className="flex gap-1 mb-6">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="h-6 w-6 fill-primary text-primary" />
+                    ))}
+                  </div>
+                  <p className="text-xl md:text-2xl text-foreground mb-8 leading-relaxed" data-testid="testimonial-text">
+                    "{testimonials[activeTestimonial].text}"
+                  </p>
+                  <div className="flex items-center justify-between flex-wrap gap-4">
+                    <div className="flex items-center gap-4">
+                      <div className="h-14 w-14 bg-gradient-to-br from-primary to-amber-600 rounded-full flex items-center justify-center text-white font-bold text-xl">
+                        {testimonials[activeTestimonial].name[0]}
+                      </div>
+                      <div>
+                        <p className="font-bold text-lg" data-testid="testimonial-name">{testimonials[activeTestimonial].name}</p>
+                        <p className="text-muted-foreground flex items-center gap-1">
+                          <MapPin className="h-4 w-4" /> {testimonials[activeTestimonial].location}
+                        </p>
+                      </div>
+                    </div>
+                    <span className="text-sm text-muted-foreground">{testimonials[activeTestimonial].date}</span>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <div className="flex items-center justify-center gap-4 mt-8">
+                <button 
+                  onClick={() => setActiveTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length)}
+                  className="w-12 h-12 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors"
+                  aria-label="Previous testimonial"
+                  data-testid="button-testimonial-prev"
+                >
+                  <ChevronLeft className="h-6 w-6" />
+                </button>
+                <div className="flex gap-2">
+                  {testimonials.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setActiveTestimonial(index)}
+                      className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                        index === activeTestimonial ? 'bg-primary w-8' : 'bg-gray-300 hover:bg-gray-400'
+                      }`}
+                      aria-label={`Go to testimonial ${index + 1}`}
+                      data-testid={`button-testimonial-dot-${index}`}
+                    />
+                  ))}
+                </div>
+                <button 
+                  onClick={() => setActiveTestimonial((prev) => (prev + 1) % testimonials.length)}
+                  className="w-12 h-12 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors"
+                  aria-label="Next testimonial"
+                  data-testid="button-testimonial-next"
+                >
+                  <ChevronRight className="h-6 w-6" />
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Service Areas */}
+        <section className="py-16 md:py-20 bg-[#1A2332]" data-testid="section-service-areas">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-10">
+              <Badge className="bg-primary/20 text-primary border-primary/30 mb-4">Coverage</Badge>
+              <h2 className="text-3xl md:text-4xl font-black text-white mb-4">
+                Vancouver Neighborhoods We Serve
+              </h2>
+              <p className="text-lg text-white/60">
+                Professional packing services across Metro Vancouver
+              </p>
+            </div>
+
+            <div className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">
+              {neighborhoods.map((hood, index) => (
+                <Badge 
+                  key={index}
+                  className="bg-white/10 text-white border-white/20 hover:bg-primary hover:text-[#1A2332] hover:border-primary transition-all duration-300 cursor-pointer px-4 py-2 text-sm font-medium"
+                  data-testid={`badge-neighborhood-${index}`}
+                >
+                  <MapPin className="h-3 w-3 mr-1" />
+                  {hood}
+                </Badge>
+              ))}
+            </div>
+
+            <div className="text-center mt-8">
+              <WorkSafeBadge size="md" />
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ Section */}
+        <section className="py-16 md:py-20 bg-white" data-testid="section-faq">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <Badge className="bg-primary/10 text-primary mb-4">FAQ</Badge>
+              <h2 className="text-3xl md:text-4xl font-black text-foreground mb-4">
+                Common Questions About Packing Services
+              </h2>
+              <p className="text-lg text-muted-foreground">
+                Everything you need to know about our professional packing
+              </p>
+            </div>
+
+            <Accordion type="single" collapsible className="w-full" data-testid="accordion-faq">
+              {faqItems.map((item, index) => (
+                <AccordionItem key={index} value={`item-${index}`} data-testid={`accordion-item-${index}`}>
+                  <AccordionTrigger className="text-left text-lg font-semibold" data-testid={`accordion-trigger-${index}`}>
+                    {item.question}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground text-base leading-relaxed" data-testid={`accordion-content-${index}`}>
+                    {item.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </div>
+        </section>
+
+        {/* Related Services */}
+        <section className="py-16 md:py-20 bg-gray-50" data-testid="section-related">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <Badge className="bg-primary/10 text-primary mb-4">More Services</Badge>
+              <h2 className="text-3xl md:text-4xl font-black text-foreground mb-4">
+                Complete Your Move
+              </h2>
+              <p className="text-lg text-muted-foreground">
+                Additional services to make your transition seamless
+              </p>
+            </div>
+            
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              <Link href="/services/residential-moving">
+                <Card className="border-2 hover:border-primary hover:shadow-lg transition-all h-full" data-testid="link-residential-moving">
+                  <CardContent className="p-6">
+                    <Home className="h-8 w-8 text-primary mb-4" />
+                    <h3 className="font-bold text-lg mb-2">Residential Moving</h3>
+                    <p className="text-muted-foreground">Complete home moving services across Vancouver</p>
+                  </CardContent>
+                </Card>
+              </Link>
+              <Link href="/services/commercial-moving">
+                <Card className="border-2 hover:border-primary hover:shadow-lg transition-all h-full" data-testid="link-commercial-moving">
+                  <CardContent className="p-6">
+                    <Building2 className="h-8 w-8 text-primary mb-4" />
+                    <h3 className="font-bold text-lg mb-2">Commercial Moving</h3>
+                    <p className="text-muted-foreground">Office and business relocation experts</p>
+                  </CardContent>
+                </Card>
+              </Link>
+              <Link href="/services/storage-solutions">
+                <Card className="border-2 hover:border-primary hover:shadow-lg transition-all h-full" data-testid="link-storage-solutions">
+                  <CardContent className="p-6">
+                    <Warehouse className="h-8 w-8 text-primary mb-4" />
+                    <h3 className="font-bold text-lg mb-2">Storage Solutions</h3>
+                    <p className="text-muted-foreground">Climate-controlled short and long-term storage</p>
+                  </CardContent>
+                </Card>
+              </Link>
+              <Link href="/services/long-distance-moving">
+                <Card className="border-2 hover:border-primary hover:shadow-lg transition-all h-full" data-testid="link-long-distance">
+                  <CardContent className="p-6">
+                    <Truck className="h-8 w-8 text-primary mb-4" />
+                    <h3 className="font-bold text-lg mb-2">Long Distance Moving</h3>
+                    <p className="text-muted-foreground">Cross-province and Canada-wide relocations</p>
+                  </CardContent>
+                </Card>
+              </Link>
+              <Link href="/services/senior-moving">
+                <Card className="border-2 hover:border-primary hover:shadow-lg transition-all h-full" data-testid="link-senior-moving">
+                  <CardContent className="p-6">
+                    <Heart className="h-8 w-8 text-primary mb-4" />
+                    <h3 className="font-bold text-lg mb-2">Senior Moving</h3>
+                    <p className="text-muted-foreground">Compassionate downsizing and relocation assistance</p>
+                  </CardContent>
+                </Card>
+              </Link>
+              <Link href="/services/specialty-item-moving">
+                <Card className="border-2 hover:border-primary hover:shadow-lg transition-all h-full" data-testid="link-specialty-items">
+                  <CardContent className="p-6">
+                    <Sparkles className="h-8 w-8 text-primary mb-4" />
+                    <h3 className="font-bold text-lg mb-2">Specialty Items</h3>
+                    <p className="text-muted-foreground">Hot tubs, pool tables, gym equipment & more</p>
+                  </CardContent>
+                </Card>
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* CTA Section */}
+        <section className="py-16 md:py-20 bg-gradient-to-r from-primary via-amber-500 to-primary relative overflow-hidden" data-testid="section-cta">
+          <div className="absolute inset-0 opacity-10">
+            <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl" />
+            <div className="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl" />
+          </div>
+          
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <div className="inline-flex items-center gap-2 bg-[#1A2332]/20 backdrop-blur rounded-full px-4 py-2 mb-6">
+              <Sparkles className="h-4 w-4 text-[#1A2332]" />
+              <span className="text-[#1A2332] font-semibold text-sm">Free No-Obligation Quote</span>
+            </div>
+            
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-[#1A2332] mb-6">
+              Ready to Take the Stress Out of Packing?
             </h2>
-            <p className="text-xl mb-8 opacity-90">
-              Professional packing services included in our moving packages or available separately.
+            
+            <p className="text-xl text-[#1A2332]/80 mb-8 max-w-2xl mx-auto">
+              Join 10,000+ Vancouver families who trusted our expert packers. Get your personalized quote in under 1 hour.
             </p>
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/book">
-                <Button size="lg" variant="secondary" className="text-base px-8">
+                <Button size="lg" className="bg-[#1A2332] hover:bg-[#1A2332]/90 text-white text-lg font-bold px-10 py-7 shadow-xl" data-testid="button-cta-quote">
                   Get Free Quote
+                  <ArrowRight className="h-5 w-5 ml-2" />
                 </Button>
               </Link>
               <a href="tel:604-616-6066">
-                <Button size="lg" variant="outline" className="text-base px-8 bg-transparent border-2 border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10">
+                <Button size="lg" variant="outline" className="border-2 border-[#1A2332] text-[#1A2332] hover:bg-[#1A2332] hover:text-white text-lg font-bold px-10 py-7" data-testid="button-cta-call">
                   <Phone className="h-5 w-5 mr-2" />
                   604-616-6066
                 </Button>

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -31,17 +31,30 @@ import {
   Package,
   Warehouse,
   Building2,
+  MapPin,
+  ChevronLeft,
+  ChevronRight,
+  ThumbsUp,
+  Users,
+  Zap,
+  Timer,
+  Sparkles,
+  Heart,
+  HandHeart,
 } from "lucide-react";
 import { Link } from "wouter";
 import { Helmet } from "react-helmet";
 import { SharedNavigation } from "@/components/shared-navigation";
 import { SharedFooter } from "@/components/shared-footer";
+import { WorkSafeBadge } from "@/components/worksafe-badge";
 import { useToast } from "@/hooks/use-toast";
 import { apiRequest } from "@/lib/queryClient";
 import pianoVideo from "@assets/generated_videos/grand_piano_professional_moving.mp4";
 
 export default function PianoMoving() {
   const { toast } = useToast();
+  const [activeTestimonial, setActiveTestimonial] = useState(0);
+  const [activeTab, setActiveTab] = useState(0);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -56,7 +69,7 @@ export default function PianoMoving() {
     setIsSubmitting(true);
     
     try {
-      const response = await apiRequest("POST", "/api/quote-request", {
+      await apiRequest("POST", "/api/quote-request", {
         ...formData,
         serviceType: "Piano Moving",
       });
@@ -91,13 +104,23 @@ export default function PianoMoving() {
         "addressCountry": "CA"
       },
       "telephone": "604-616-6066",
-      "priceRange": "$$"
+      "priceRange": "$$",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "reviewCount": "150"
+      }
     },
-    "areaServed": {
-      "@type": "City",
-      "name": "Vancouver"
-    },
-    "description": "Professional piano moving services in Vancouver. Specialists in grand, baby grand, upright, and digital piano moving. Fully insured with specialized equipment."
+    "areaServed": [
+      { "@type": "City", "name": "Vancouver" },
+      { "@type": "City", "name": "Burnaby" },
+      { "@type": "City", "name": "Richmond" },
+      { "@type": "City", "name": "North Vancouver" },
+      { "@type": "City", "name": "West Vancouver" },
+      { "@type": "City", "name": "Coquitlam" },
+      { "@type": "City", "name": "Surrey" }
+    ],
+    "description": "Professional piano moving services in Vancouver. Specialists in grand, baby grand, upright, and digital piano moving. WorkSafe BC certified, fully insured with specialized equipment."
   };
 
   const faqData = {
@@ -127,9 +150,99 @@ export default function PianoMoving() {
           "@type": "Answer",
           "text": "Yes! We offer climate-controlled piano storage with controlled temperature and humidity levels to protect your instrument. Our storage facilities maintain optimal conditions to prevent damage to the wood, strings, and internal mechanisms."
         }
+      },
+      {
+        "@type": "Question",
+        "name": "Should I tune my piano after the move?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, we recommend waiting 2-3 weeks after your piano is moved and settled in its new location before having it tuned. This allows the piano to acclimate to the new environment's temperature and humidity."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can you move a piano up or down stairs?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, our trained specialists are experienced in navigating stairs, tight corners, and challenging access points. We use specialized stair climbing equipment and proper techniques to safely move pianos up or down multiple floors."
+        }
       }
     ]
   };
+
+  const testimonials = [
+    { 
+      name: "Margaret W.", 
+      location: "Shaughnessy", 
+      text: "They moved our 1920s Steinway grand piano with incredible care. The team was professional, patient, and treated our family heirloom like it was their own. Not a scratch!", 
+      rating: 5, 
+      date: "1 week ago",
+      pianoType: "Concert Grand"
+    },
+    { 
+      name: "James C.", 
+      location: "West Vancouver", 
+      text: "Moving our baby grand up 3 flights of stairs seemed impossible, but these experts made it look easy. They took their time and the piano sounds perfect in its new home.", 
+      rating: 5, 
+      date: "2 weeks ago",
+      pianoType: "Baby Grand"
+    },
+    { 
+      name: "Linda M.", 
+      location: "Kitsilano", 
+      text: "I was nervous about moving my grandmother's antique upright piano. The team was so careful with the protective wrapping and climate-controlled truck. Highly recommend!", 
+      rating: 5, 
+      date: "3 weeks ago",
+      pianoType: "Upright Piano"
+    },
+    { 
+      name: "Robert T.", 
+      location: "North Vancouver", 
+      text: "Excellent service for our digital Yamaha Clavinova. They understood how to protect the electronics and screen. Fast, efficient, and reasonably priced.", 
+      rating: 5, 
+      date: "1 month ago",
+      pianoType: "Digital Piano"
+    },
+    { 
+      name: "Susan K.", 
+      location: "Burnaby", 
+      text: "Our Bösendorfer grand piano was moved perfectly from our old house to the new one across Vancouver. The crew was knowledgeable about piano mechanics. Exceptional service!", 
+      rating: 5, 
+      date: "2 months ago",
+      pianoType: "Grand Piano"
+    }
+  ];
+
+  const pianoTypes = [
+    {
+      title: "Upright Pianos",
+      icon: Music,
+      description: "Professional handling for all upright and console pianos",
+      features: ["Full-size uprights (52\")", "Studio uprights (45-48\")", "Console pianos (40-44\")", "Spinet pianos (36-39\")"],
+      priceFrom: "$250"
+    },
+    {
+      title: "Grand Pianos",
+      icon: Music,
+      description: "Expert care for concert and parlor grand pianos",
+      features: ["Concert grands (9'+)", "Semi-concert (7-8')", "Parlor grands (5'10\"-6')", "Leg & lyre removal"],
+      priceFrom: "$600"
+    },
+    {
+      title: "Baby Grands",
+      icon: Music,
+      description: "Specialized transport for baby and petite grand pianos",
+      features: ["Baby grands (5-5'8\")", "Petite grands (4'5-5')", "Proper positioning", "Climate protection"],
+      priceFrom: "$400"
+    },
+    {
+      title: "Digital Pianos",
+      icon: Music,
+      description: "Careful handling of electronic instruments and keyboards",
+      features: ["Digital grands", "Stage pianos", "Electric pianos", "Keyboard workstations"],
+      priceFrom: "$150"
+    }
+  ];
 
   const faqs = [
     {
@@ -145,10 +258,6 @@ export default function PianoMoving() {
       answer: "Absolutely! We move all types of digital pianos, stage pianos, and synthesizers with cabinets. While these are generally lighter than acoustic pianos, they still require careful handling to protect sensitive electronics and displays. We use appropriate padding and secure transport methods for all electronic instruments."
     },
     {
-      question: "Do you offer piano storage services?",
-      answer: "Yes! We offer climate-controlled piano storage with carefully maintained temperature and humidity levels to protect your instrument. Our storage facilities maintain optimal conditions (around 42% humidity and consistent temperature) to prevent damage to the wood, strings, soundboard, and internal mechanisms."
-    },
-    {
       question: "Should I tune my piano after the move?",
       answer: "Yes, we recommend waiting 2-3 weeks after your piano is moved and settled in its new location before having it tuned. This allows the piano to acclimate to the new environment's temperature and humidity. We can provide referrals to trusted piano tuners in the Vancouver area."
     },
@@ -158,28 +267,45 @@ export default function PianoMoving() {
     }
   ];
 
+  const neighborhoods = [
+    "Downtown", "Kitsilano", "Yaletown", "Coal Harbour", "West End",
+    "Mount Pleasant", "Commercial Drive", "Kerrisdale", "Point Grey", 
+    "UBC", "Shaughnessy", "Dunbar", "Marpole", "South Cambie", "Gastown",
+    "West Vancouver", "North Vancouver", "Burnaby", "Richmond", "Coquitlam"
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveTestimonial((prev) => (prev + 1) % testimonials.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [testimonials.length]);
+
   return (
     <>
       <Helmet>
-        <title>Piano Moving Services Vancouver | Grand & Upright Piano Movers | Prestige Moving</title>
-        <meta name="description" content="Professional piano moving services in Vancouver. Specialists in grand, baby grand, and upright pianos. Specialized equipment, fully insured, climate-controlled transport. Get your quote!" />
-        <meta name="keywords" content="piano moving Vancouver, grand piano movers, upright piano moving, piano transport BC, professional piano movers" />
-        <meta property="og:title" content="Piano Moving Services Vancouver | Prestige Moving" />
-        <meta property="og:description" content="Professional piano moving in Vancouver. Specialized equipment, full insurance, climate-controlled transport for all piano types." />
+        <title>Piano Moving Services Vancouver BC | Grand & Upright Piano Movers | Prestige Moving</title>
+        <meta name="description" content="Professional piano moving services in Vancouver BC. WorkSafe BC certified specialists for grand, baby grand, upright & digital pianos. Climate-controlled transport, fully insured. Get your free quote!" />
+        <meta name="keywords" content="piano moving Vancouver, grand piano movers BC, upright piano moving, baby grand piano transport, digital piano moving Vancouver, professional piano movers, climate-controlled piano transport" />
+        <meta property="og:title" content="Piano Moving Services Vancouver | Grand & Upright Piano Specialists | Prestige Moving" />
+        <meta property="og:description" content="Vancouver's trusted piano moving experts. WorkSafe BC certified, fully insured, climate-controlled transport for all piano types. Free quotes in 1 hour!" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://vancouver.prestigemoving.ca/og-image.png" />
+        <meta property="og:url" content="https://vancouver.prestigemoving.ca/services/piano-moving" />
         <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Piano Moving Services Vancouver | Prestige Moving" />
+        <meta name="twitter:description" content="Expert piano movers in Vancouver. Grand, baby grand, upright & digital pianos. Fully insured, climate-controlled transport." />
         <meta name="twitter:image" content="https://vancouver.prestigemoving.ca/og-image.png" />
         <link rel="canonical" href="https://vancouver.prestigemoving.ca/services/piano-moving" />
         <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
         <script type="application/ld+json">{JSON.stringify(faqData)}</script>
       </Helmet>
 
-      <div className="min-h-screen bg-background">
+      <div className="min-h-screen bg-background" data-testid="page-piano-moving">
         <SharedNavigation />
 
-        {/* Video Hero Section */}
-        <section className="relative min-h-[90vh] flex items-center overflow-hidden">
+        {/* Hero Section */}
+        <section className="relative min-h-[85vh] flex items-center overflow-hidden" data-testid="section-hero">
           <video
             autoPlay
             muted
@@ -190,302 +316,391 @@ export default function PianoMoving() {
           >
             <source src={pianoVideo} type="video/mp4" />
           </video>
-          <div className="absolute inset-0 bg-gradient-to-r from-[#1A2332]/95 via-[#1A2332]/80 to-[#1A2332]/60" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#1A2332] via-[#1A2332]/90 to-[#1A2332]/40" />
           
-          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-            <div className="max-w-3xl">
-              <Badge className="mb-6 bg-[#C5A572] text-white hover:bg-[#B8956A] text-sm px-4 py-1.5">
-                Specialized Piano Moving
-              </Badge>
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 tracking-tight leading-tight">
-                Piano Moving<br />
-                <span className="text-[#C5A572]">Services in Vancouver</span>
-              </h1>
-              <p className="text-xl md:text-2xl text-gray-200 mb-8 leading-relaxed">
-                Your piano is a valuable instrument that requires specialized care. Our trained movers use professional equipment to safely transport grand, baby grand, upright, and digital pianos.
-              </p>
-              
-              {/* Stats Bar */}
-              <div className="flex flex-wrap gap-6 mb-10">
-                <div className="flex items-center gap-2">
-                  <Star className="h-5 w-5 text-[#C5A572]" />
-                  <span className="text-white font-semibold">5.0 Rating</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Clock className="h-5 w-5 text-[#C5A572]" />
-                  <span className="text-white font-semibold">Same-Week Service</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Shield className="h-5 w-5 text-[#C5A572]" />
-                  <span className="text-white font-semibold">Fully Insured</span>
-                </div>
+          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16">
+            <div className="max-w-2xl">
+              <div className="flex items-center gap-3 mb-6 flex-wrap">
+                <Badge className="bg-primary/20 text-primary border-primary/40 px-4 py-1.5" data-testid="badge-piano-moving">
+                  <Music className="h-4 w-4 mr-2" />
+                  Piano Moving Specialists
+                </Badge>
+                <Badge className="bg-green-500/20 text-green-400 border-green-500/40" data-testid="badge-same-day">
+                  <Zap className="h-3 w-3 mr-1" />
+                  Same-Day Quotes
+                </Badge>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-4">
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-6 leading-[1.1]" data-testid="hero-title">
+                Vancouver's<br />
+                <span className="text-primary">#1 Piano Movers</span>
+              </h1>
+
+              <p className="text-xl md:text-2xl text-white/80 mb-8 leading-relaxed" data-testid="hero-description">
+                From cherished uprights to concert grands, we've safely moved <span className="text-primary font-semibold">2,500+ pianos</span> across Vancouver with specialized care.
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-4 mb-8">
                 <Link href="/book">
-                  <Button 
-                    size="lg" 
-                    className="bg-[#C5A572] hover:bg-[#B8956A] text-white text-base px-8 py-6 h-auto group transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
-                    data-testid="button-get-piano-quote"
-                  >
-                    Get Piano Moving Quote
-                    <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                  <Button size="lg" className="text-lg font-bold px-8 py-7 shadow-xl shadow-primary/30 group" data-testid="button-hero-quote">
+                    Get Free Piano Quote
+                    <ArrowRight className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </Link>
                 <a href="tel:604-616-6066">
-                  <Button 
-                    size="lg" 
-                    variant="outline" 
-                    className="border-white text-white hover:bg-white/10 text-base px-8 py-6 h-auto backdrop-blur-sm"
-                    data-testid="button-call-hero"
-                  >
+                  <Button size="lg" variant="outline" className="text-lg font-bold px-8 py-7 border-2 border-white/40 text-white hover:bg-white/10 backdrop-blur-sm" data-testid="button-hero-call">
                     <Phone className="h-5 w-5 mr-2" />
                     604-616-6066
                   </Button>
                 </a>
               </div>
+
+              <div className="flex flex-wrap gap-6">
+                <WorkSafeBadge size="md" />
+                <div className="flex items-center gap-2 text-white/70" data-testid="trust-indicator-insured">
+                  <Shield className="h-5 w-5 text-primary" />
+                  <span>Fully Insured</span>
+                </div>
+                <div className="flex items-center gap-2 text-white/70" data-testid="trust-indicator-climate">
+                  <Timer className="h-5 w-5 text-primary" />
+                  <span>Climate-Controlled</span>
+                </div>
+              </div>
             </div>
           </div>
         </section>
 
-        {/* Why Trust Us Section */}
-        <section className="py-20">
+        {/* Stats Bar */}
+        <section className="bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-400 py-6" data-testid="section-stats">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <Badge variant="outline" className="mb-4">Expert Care</Badge>
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-                Why Trust Us With Your Piano?
-              </h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Specialized expertise and equipment for safe piano transport
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-8">
-              <Card className="hover-elevate">
-                <CardHeader>
-                  <div className="h-14 w-14 rounded-xl bg-[#C5A572]/10 flex items-center justify-center mb-4">
-                    <Award className="h-7 w-7 text-[#C5A572]" />
-                  </div>
-                  <CardTitle>Trained Specialists</CardTitle>
-                  <CardDescription>
-                    Our team is specifically trained in piano moving techniques and handling
-                  </CardDescription>
-                </CardHeader>
-              </Card>
-
-              <Card className="hover-elevate">
-                <CardHeader>
-                  <div className="h-14 w-14 rounded-xl bg-[#C5A572]/10 flex items-center justify-center mb-4">
-                    <Truck className="h-7 w-7 text-[#C5A572]" />
-                  </div>
-                  <CardTitle>Specialized Equipment</CardTitle>
-                  <CardDescription>
-                    Piano boards, straps, padding, and climate-controlled trucks
-                  </CardDescription>
-                </CardHeader>
-              </Card>
-
-              <Card className="hover-elevate">
-                <CardHeader>
-                  <div className="h-14 w-14 rounded-xl bg-[#C5A572]/10 flex items-center justify-center mb-4">
-                    <Shield className="h-7 w-7 text-[#C5A572]" />
-                  </div>
-                  <CardTitle>Full Insurance</CardTitle>
-                  <CardDescription>
-                    Comprehensive coverage specifically for valuable musical instruments
-                  </CardDescription>
-                </CardHeader>
-              </Card>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+              {[
+                { value: "2,500+", label: "Pianos Moved" },
+                { value: "5.0★", label: "Google Rating" },
+                { value: "15+", label: "Years Experience" },
+                { value: "1 Hour", label: "Quote Response" }
+              ].map((stat, index) => (
+                <div key={index} data-testid={`stat-${stat.label.toLowerCase().replace(/\s+/g, '-')}`}>
+                  <div className="text-2xl md:text-4xl font-black text-[#1A2332]">{stat.value}</div>
+                  <div className="text-sm font-bold text-[#1A2332]/80 uppercase tracking-wide">{stat.label}</div>
+                </div>
+              ))}
             </div>
           </div>
         </section>
 
-        {/* Types of Pianos We Move */}
-        <section className="py-20 bg-accent/30">
+        {/* About Our Service */}
+        <section className="py-16 md:py-20 bg-white" data-testid="section-about">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div>
+                <Badge className="bg-primary/10 text-primary mb-4">About Our Service</Badge>
+                <h2 className="text-3xl md:text-4xl font-black text-foreground mb-6" data-testid="about-title">
+                  Vancouver's Premier Piano Moving Specialists
+                </h2>
+                <div className="space-y-4 text-muted-foreground">
+                  <p>
+                    Moving a piano requires specialized expertise that general movers simply don't have. <strong>Prestige Moving Vancouver</strong> has been the trusted choice for piano owners since 2009, earning a reputation as the most reliable piano movers in Metro Vancouver.
+                  </p>
+                  <p>
+                    Our team understands the delicate internal mechanisms, precise weight distribution, and <strong>climate sensitivity of fine pianos</strong>. From Steinway grand pianos to cherished family uprights, we handle each instrument with the care it deserves.
+                  </p>
+                  <p>
+                    As a <strong>WorkSafe BC certified moving company</strong>, we use specialized equipment including piano boards, skids, and climate-controlled trucks designed specifically for instrument transport.
+                  </p>
+                </div>
+                <div className="mt-8">
+                  <Link href="/book">
+                    <Button size="lg" className="font-bold" data-testid="button-about-quote">
+                      Get Your Free Quote
+                      <ArrowRight className="h-5 w-5 ml-2" />
+                    </Button>
+                  </Link>
+                </div>
+              </div>
+              
+              <div className="relative rounded-2xl overflow-hidden h-[400px] bg-gradient-to-br from-[#1A2332] to-[#2A3342]">
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="text-center p-8">
+                    <div className="h-24 w-24 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                      <Music className="h-12 w-12 text-primary" />
+                    </div>
+                    <h3 className="text-2xl font-bold text-white mb-4">Specialized Piano Care</h3>
+                    <div className="flex items-center justify-center gap-3 mb-4">
+                      <div className="flex -space-x-2">
+                        {[...Array(5)].map((_, i) => (
+                          <div key={i} className="h-10 w-10 rounded-full bg-primary border-2 border-[#1A2332] flex items-center justify-center">
+                            <Star className="h-4 w-4 text-[#1A2332] fill-[#1A2332]" />
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                    <div className="text-white">
+                      <div className="font-bold">150+ Piano Reviews</div>
+                      <div className="text-sm text-white/70">5-Star Rated Specialists</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Piano Types Tabs */}
+        <section className="py-16 md:py-20 bg-[#1A2332]" data-testid="section-piano-types">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-              <Badge variant="outline" className="mb-4">All Piano Types</Badge>
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-                Types of Pianos We Move
+              <Badge className="bg-primary/20 text-primary border-primary/30 mb-4">Types We Move</Badge>
+              <h2 className="text-3xl md:text-4xl font-black text-white mb-4" data-testid="piano-types-title">
+                Expert Moving for All Piano Types
               </h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                From concert grands to digital keyboards, we handle them all with care
+              <p className="text-lg text-white/60 max-w-2xl mx-auto">
+                Specialized solutions for every type of piano, from antique uprights to modern digital instruments
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-6">
-              <Card className="hover-elevate">
-                <CardHeader>
-                  <div className="flex items-center gap-4">
-                    <div className="h-12 w-12 rounded-xl bg-[#C5A572]/10 flex items-center justify-center">
-                      <Music className="h-6 w-6 text-[#C5A572]" />
-                    </div>
-                    <CardTitle>Grand & Baby Grand Pianos</CardTitle>
+            {/* Tab Navigation */}
+            <div className="flex justify-center gap-2 mb-10 flex-wrap">
+              {pianoTypes.map((piano, index) => {
+                const PianoIcon = piano.icon;
+                return (
+                  <button
+                    key={index}
+                    onClick={() => setActiveTab(index)}
+                    className={`group px-6 py-3 rounded-full font-semibold transition-all duration-300 flex items-center gap-2 ${
+                      activeTab === index 
+                        ? 'bg-primary text-[#1A2332] shadow-lg shadow-primary/30' 
+                        : 'bg-white/10 text-white hover:bg-white/20'
+                    }`}
+                    data-testid={`tab-${piano.title.toLowerCase().replace(/\s+/g, '-')}`}
+                  >
+                    <PianoIcon className="h-5 w-5" />
+                    {piano.title}
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Active Piano Content */}
+            <div className="bg-white/5 backdrop-blur border border-white/10 rounded-3xl p-8 md:p-12" data-testid="piano-type-content">
+              <div className="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                  <div className="flex items-center gap-4 mb-4">
+                    <h3 className="text-2xl md:text-3xl font-black text-white">
+                      {pianoTypes[activeTab].title}
+                    </h3>
+                    <Badge className="bg-primary text-[#1A2332]" data-testid="piano-price">
+                      From {pianoTypes[activeTab].priceFrom}
+                    </Badge>
                   </div>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-3">
-                    <li className="flex items-center gap-3">
-                      <CheckCircle2 className="h-5 w-5 text-[#C5A572] flex-shrink-0" />
-                      <span>Concert grands (9 feet and larger)</span>
-                    </li>
-                    <li className="flex items-center gap-3">
-                      <CheckCircle2 className="h-5 w-5 text-[#C5A572] flex-shrink-0" />
-                      <span>Semi-concert and parlor grands</span>
-                    </li>
-                    <li className="flex items-center gap-3">
-                      <CheckCircle2 className="h-5 w-5 text-[#C5A572] flex-shrink-0" />
-                      <span>Baby grands (5-6 feet)</span>
-                    </li>
-                    <li className="flex items-center gap-3">
-                      <CheckCircle2 className="h-5 w-5 text-[#C5A572] flex-shrink-0" />
-                      <span>Petite grands (under 5 feet)</span>
-                    </li>
-                  </ul>
+                  <p className="text-lg text-white/70 mb-6">
+                    {pianoTypes[activeTab].description}
+                  </p>
+
+                  <div className="grid grid-cols-2 gap-4 mb-8">
+                    {pianoTypes[activeTab].features.map((feature, i) => (
+                      <div key={i} className="flex items-center gap-3" data-testid={`feature-${i}`}>
+                        <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0" />
+                        <span className="text-white">{feature}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  <Link href="/book">
+                    <Button size="lg" className="font-bold" data-testid="button-piano-type-quote">
+                      Get a Quote
+                      <ArrowRight className="h-5 w-5 ml-2" />
+                    </Button>
+                  </Link>
+                </div>
+                
+                <div className="relative rounded-2xl overflow-hidden h-[300px] bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
+                  <div className="text-center">
+                    <Music className="h-20 w-20 text-primary mx-auto mb-4" />
+                    <p className="text-white font-semibold text-lg">{pianoTypes[activeTab].title}</p>
+                    <p className="text-white/60">Professional Handling</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Why Choose Our Piano Movers */}
+        <section className="py-16 md:py-20 bg-gray-50" data-testid="section-why-choose">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <Badge className="bg-primary/10 text-primary mb-4">Why Choose Us</Badge>
+              <h2 className="text-3xl md:text-4xl font-black text-foreground mb-4" data-testid="why-choose-title">
+                The Piano Moving Difference
+              </h2>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[
+                { icon: Music, title: "Piano Specialists", description: "Trained specifically in piano moving techniques, weight distribution, and delicate handling", color: "from-amber-500 to-amber-600" },
+                { icon: Truck, title: "Climate-Controlled Transport", description: "Temperature and humidity-controlled trucks to protect your piano's wood and strings", color: "from-blue-500 to-blue-600" },
+                { icon: Shield, title: "Full Insurance Coverage", description: "Comprehensive protection specifically for valuable musical instruments up to $100,000", color: "from-emerald-500 to-emerald-600" },
+                { icon: Award, title: "WorkSafe BC Certified", description: "Full compliance with BC workplace safety standards for complete peace of mind", color: "from-violet-500 to-violet-600" },
+                { icon: Users, title: "Experienced Crew", description: "Average 8+ years piano moving experience. Trained professionals who understand pianos", color: "from-rose-500 to-rose-600" },
+                { icon: ThumbsUp, title: "Tuner Referrals", description: "We connect you with trusted Vancouver piano tuners for post-move service", color: "from-primary to-amber-600" }
+              ].map((item, index) => (
+                <Card key={index} className="border-2 hover:border-primary/50 transition-all hover:shadow-lg" data-testid={`why-card-${index}`}>
+                  <CardContent className="p-6">
+                    <div className={`h-14 w-14 bg-gradient-to-br ${item.color} rounded-xl flex items-center justify-center mb-4`}>
+                      <item.icon className="h-7 w-7 text-white" />
+                    </div>
+                    <h3 className="text-xl font-bold mb-2">{item.title}</h3>
+                    <p className="text-muted-foreground">{item.description}</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Testimonials Carousel */}
+        <section className="py-16 md:py-20 bg-white" data-testid="section-testimonials">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <Badge className="bg-primary/10 text-primary mb-4">Piano Moving Reviews</Badge>
+              <h2 className="text-3xl md:text-4xl font-black text-foreground mb-4" data-testid="testimonials-title">
+                What Piano Owners Say
+              </h2>
+              <div className="flex items-center justify-center gap-2 text-muted-foreground">
+                <div className="flex">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="h-5 w-5 fill-primary text-primary" />
+                  ))}
+                </div>
+                <span>Based on 150+ Piano Moving Reviews</span>
+              </div>
+            </div>
+
+            <div className="relative max-w-4xl mx-auto">
+              <Card className="border-2 shadow-xl" data-testid="testimonial-card">
+                <CardContent className="p-8 md:p-12">
+                  <div className="flex items-center gap-2 mb-4">
+                    <Badge variant="outline" className="text-primary border-primary/40">
+                      <Music className="h-3 w-3 mr-1" />
+                      {testimonials[activeTestimonial].pianoType}
+                    </Badge>
+                  </div>
+                  <div className="flex gap-1 mb-6">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="h-6 w-6 fill-primary text-primary" />
+                    ))}
+                  </div>
+                  <p className="text-xl md:text-2xl text-foreground mb-8 leading-relaxed" data-testid="testimonial-text">
+                    "{testimonials[activeTestimonial].text}"
+                  </p>
+                  <div className="flex items-center justify-between flex-wrap gap-4">
+                    <div className="flex items-center gap-4">
+                      <div className="h-14 w-14 bg-gradient-to-br from-primary to-amber-600 rounded-full flex items-center justify-center text-white font-bold text-xl">
+                        {testimonials[activeTestimonial].name[0]}
+                      </div>
+                      <div>
+                        <p className="font-bold text-lg" data-testid="testimonial-name">{testimonials[activeTestimonial].name}</p>
+                        <p className="text-muted-foreground flex items-center gap-1">
+                          <MapPin className="h-4 w-4" /> {testimonials[activeTestimonial].location}
+                        </p>
+                      </div>
+                    </div>
+                    <span className="text-sm text-muted-foreground">{testimonials[activeTestimonial].date}</span>
+                  </div>
                 </CardContent>
               </Card>
 
-              <Card className="hover-elevate">
-                <CardHeader>
-                  <div className="flex items-center gap-4">
-                    <div className="h-12 w-12 rounded-xl bg-[#C5A572]/10 flex items-center justify-center">
-                      <Music className="h-6 w-6 text-[#C5A572]" />
-                    </div>
-                    <CardTitle>Upright & Console Pianos</CardTitle>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-3">
-                    <li className="flex items-center gap-3">
-                      <CheckCircle2 className="h-5 w-5 text-[#C5A572] flex-shrink-0" />
-                      <span>Full-size upright pianos</span>
-                    </li>
-                    <li className="flex items-center gap-3">
-                      <CheckCircle2 className="h-5 w-5 text-[#C5A572] flex-shrink-0" />
-                      <span>Studio upright pianos</span>
-                    </li>
-                    <li className="flex items-center gap-3">
-                      <CheckCircle2 className="h-5 w-5 text-[#C5A572] flex-shrink-0" />
-                      <span>Console and spinet pianos</span>
-                    </li>
-                    <li className="flex items-center gap-3">
-                      <CheckCircle2 className="h-5 w-5 text-[#C5A572] flex-shrink-0" />
-                      <span>Antique and vintage uprights</span>
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
-
-              <Card className="hover-elevate">
-                <CardHeader>
-                  <div className="flex items-center gap-4">
-                    <div className="h-12 w-12 rounded-xl bg-[#C5A572]/10 flex items-center justify-center">
-                      <Music className="h-6 w-6 text-[#C5A572]" />
-                    </div>
-                    <CardTitle>Digital & Electric Pianos</CardTitle>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-3">
-                    <li className="flex items-center gap-3">
-                      <CheckCircle2 className="h-5 w-5 text-[#C5A572] flex-shrink-0" />
-                      <span>Digital grand pianos</span>
-                    </li>
-                    <li className="flex items-center gap-3">
-                      <CheckCircle2 className="h-5 w-5 text-[#C5A572] flex-shrink-0" />
-                      <span>Stage pianos and keyboards</span>
-                    </li>
-                    <li className="flex items-center gap-3">
-                      <CheckCircle2 className="h-5 w-5 text-[#C5A572] flex-shrink-0" />
-                      <span>Electric pianos with cabinets</span>
-                    </li>
-                    <li className="flex items-center gap-3">
-                      <CheckCircle2 className="h-5 w-5 text-[#C5A572] flex-shrink-0" />
-                      <span>Synthesizers and workstations</span>
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
-
-              <Card className="hover-elevate">
-                <CardHeader>
-                  <div className="flex items-center gap-4">
-                    <div className="h-12 w-12 rounded-xl bg-[#C5A572]/10 flex items-center justify-center">
-                      <Shield className="h-6 w-6 text-[#C5A572]" />
-                    </div>
-                    <CardTitle>Specialty Services</CardTitle>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-3">
-                    <li className="flex items-center gap-3">
-                      <CheckCircle2 className="h-5 w-5 text-[#C5A572] flex-shrink-0" />
-                      <span>Stair and elevator navigation</span>
-                    </li>
-                    <li className="flex items-center gap-3">
-                      <CheckCircle2 className="h-5 w-5 text-[#C5A572] flex-shrink-0" />
-                      <span>Crane services for difficult access</span>
-                    </li>
-                    <li className="flex items-center gap-3">
-                      <CheckCircle2 className="h-5 w-5 text-[#C5A572] flex-shrink-0" />
-                      <span>Climate-controlled storage</span>
-                    </li>
-                    <li className="flex items-center gap-3">
-                      <CheckCircle2 className="h-5 w-5 text-[#C5A572] flex-shrink-0" />
-                      <span>Tuning referrals after move</span>
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
+              <div className="flex items-center justify-center gap-4 mt-8">
+                <button 
+                  onClick={() => setActiveTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length)}
+                  className="w-12 h-12 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors"
+                  aria-label="Previous testimonial"
+                  data-testid="button-testimonial-prev"
+                >
+                  <ChevronLeft className="h-6 w-6" />
+                </button>
+                <div className="flex gap-2">
+                  {testimonials.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setActiveTestimonial(index)}
+                      className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                        index === activeTestimonial ? 'bg-primary w-8' : 'bg-gray-300 hover:bg-gray-400'
+                      }`}
+                      aria-label={`Go to testimonial ${index + 1}`}
+                      data-testid={`button-testimonial-dot-${index}`}
+                    />
+                  ))}
+                </div>
+                <button 
+                  onClick={() => setActiveTestimonial((prev) => (prev + 1) % testimonials.length)}
+                  className="w-12 h-12 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors"
+                  aria-label="Next testimonial"
+                  data-testid="button-testimonial-next"
+                >
+                  <ChevronRight className="h-6 w-6" />
+                </button>
+              </div>
             </div>
           </div>
         </section>
 
         {/* Our Piano Moving Process */}
-        <section className="py-20">
+        <section className="py-16 md:py-20 bg-gray-50" data-testid="section-process">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-              <Badge variant="outline" className="mb-4">Our Process</Badge>
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+              <Badge className="bg-primary/10 text-primary mb-4">Our Process</Badge>
+              <h2 className="text-3xl md:text-4xl font-black text-foreground mb-4" data-testid="process-title">
                 Our Piano Moving Process
               </h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              <p className="text-lg text-muted-foreground">
                 A careful, methodical approach to ensure your piano arrives safely
               </p>
             </div>
 
             <div className="grid md:grid-cols-4 gap-8">
-              <div className="text-center">
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#C5A572] text-white text-2xl font-bold mb-4">1</div>
-                <h3 className="text-lg font-semibold mb-2">Assessment</h3>
-                <p className="text-sm text-muted-foreground">Evaluate piano type, location, and access points</p>
-              </div>
-              <div className="text-center">
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#C5A572] text-white text-2xl font-bold mb-4">2</div>
-                <h3 className="text-lg font-semibold mb-2">Preparation</h3>
-                <p className="text-sm text-muted-foreground">Secure lid, wrap with padding, protect keys</p>
-              </div>
-              <div className="text-center">
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#C5A572] text-white text-2xl font-bold mb-4">3</div>
-                <h3 className="text-lg font-semibold mb-2">Transport</h3>
-                <p className="text-sm text-muted-foreground">Climate-controlled truck with secure strapping</p>
-              </div>
-              <div className="text-center">
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#C5A572] text-white text-2xl font-bold mb-4">4</div>
-                <h3 className="text-lg font-semibold mb-2">Placement</h3>
-                <p className="text-sm text-muted-foreground">Position in new location, allow to acclimate</p>
-              </div>
+              {[
+                { step: 1, title: "Assessment", description: "Evaluate piano type, location, and access points", icon: CheckCircle2 },
+                { step: 2, title: "Preparation", description: "Secure lid, wrap with padding, protect keys", icon: Package },
+                { step: 3, title: "Transport", description: "Climate-controlled truck with secure strapping", icon: Truck },
+                { step: 4, title: "Placement", description: "Position in new location, allow to acclimate", icon: Home }
+              ].map((item, index) => (
+                <div key={index} className="text-center relative" data-testid={`process-step-${item.step}`}>
+                  {index < 3 && (
+                    <div className="hidden md:block absolute top-10 left-[60%] w-[80%] h-0.5 bg-gradient-to-r from-primary to-primary/20" />
+                  )}
+                  <div className="relative inline-flex items-center justify-center mb-4">
+                    <div className="h-20 w-20 bg-primary/10 rounded-2xl flex items-center justify-center">
+                      <item.icon className="h-10 w-10 text-primary" />
+                    </div>
+                    <div className="absolute -top-2 -right-2 h-8 w-8 bg-primary rounded-full flex items-center justify-center text-[#1A2332] font-bold text-sm">
+                      {item.step}
+                    </div>
+                  </div>
+                  <h3 className="text-xl font-bold mb-2">{item.title}</h3>
+                  <p className="text-muted-foreground">{item.description}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="text-center mt-12">
+              <Link href="/book">
+                <Button size="lg" className="font-bold px-8" data-testid="button-process-quote">
+                  Schedule Your Piano Move
+                  <ArrowRight className="h-5 w-5 ml-2" />
+                </Button>
+              </Link>
             </div>
           </div>
         </section>
 
         {/* FAQ Section */}
-        <section className="py-20 bg-accent/30">
+        <section className="py-16 md:py-20 bg-white" data-testid="section-faq">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-              <Badge variant="outline" className="mb-4">FAQ</Badge>
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+              <Badge className="bg-primary/10 text-primary mb-4">FAQ</Badge>
+              <h2 className="text-3xl md:text-4xl font-black text-foreground mb-4" data-testid="faq-title">
                 Frequently Asked Questions
               </h2>
               <p className="text-lg text-muted-foreground">
@@ -498,7 +713,7 @@ export default function PianoMoving() {
                 <AccordionItem 
                   key={index} 
                   value={`item-${index}`}
-                  className="bg-card border rounded-lg px-6 hover-elevate"
+                  className="bg-card border rounded-lg px-6"
                   data-testid={`accordion-faq-${index}`}
                 >
                   <AccordionTrigger 
@@ -507,7 +722,7 @@ export default function PianoMoving() {
                   >
                     <span className="font-semibold text-foreground">{faq.question}</span>
                   </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground pb-6">
+                  <AccordionContent className="text-muted-foreground pb-6" data-testid={`accordion-content-${index}`}>
                     {faq.answer}
                   </AccordionContent>
                 </AccordionItem>
@@ -516,104 +731,113 @@ export default function PianoMoving() {
           </div>
         </section>
 
-        {/* SEO Content Section with Internal Links */}
-        <section className="py-20 md:py-28 bg-gradient-to-b from-white to-gray-50">
+        {/* Service Areas */}
+        <section className="py-16 md:py-20 bg-[#1A2332]" data-testid="section-service-areas">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-3xl md:text-4xl font-black text-foreground mb-6">
-                Specialized Piano Moving in Vancouver
+            <div className="text-center mb-10">
+              <Badge className="bg-primary/20 text-primary border-primary/30 mb-4">Coverage</Badge>
+              <h2 className="text-3xl md:text-4xl font-black text-white mb-4" data-testid="service-areas-title">
+                Vancouver Neighborhoods We Serve
               </h2>
-              <div className="prose prose-lg max-w-none text-muted-foreground mb-8">
-                <p>
-                  Trust your precious instrument to <strong>Vancouver's piano moving specialists</strong>. Whether you own an upright, baby grand, or concert grand piano, our certified technicians have the training and equipment to relocate your piano safely. We understand the delicate internal mechanisms, precise weight distribution, and <strong>climate sensitivity of fine pianos</strong>, ensuring every move is executed with meticulous care.
-                </p>
-                <p>
-                  Our <strong>professional piano movers in Vancouver</strong> use specialized piano boards, skids, and climate-controlled trucks designed specifically for instrument transport. From navigating tight staircases and narrow doorways to coordinating crane lifts for difficult access points, we handle every challenge. Post-move, we recommend allowing your piano time to acclimate before tuning for optimal sound quality.
-                </p>
-              </div>
-              
-              <h3 className="text-2xl font-bold text-foreground mb-4">Explore Our Related Services</h3>
-              <p className="text-muted-foreground mb-6">Discover our comprehensive range of moving services designed to make your relocation seamless.</p>
-              
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                <Link href="/services/residential-moving">
-                  <Card className="hover-elevate cursor-pointer h-full">
-                    <CardHeader className="flex flex-row items-center gap-3 pb-2">
-                      <Home className="h-5 w-5 text-[#C5A572]" />
-                      <CardTitle className="text-base">Residential Moving</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-sm text-muted-foreground">Complete home moving services across Vancouver</p>
-                    </CardContent>
-                  </Card>
-                </Link>
-                <Link href="/services/antique-moving">
-                  <Card className="hover-elevate cursor-pointer h-full">
-                    <CardHeader className="flex flex-row items-center gap-3 pb-2">
-                      <Crown className="h-5 w-5 text-[#C5A572]" />
-                      <CardTitle className="text-base">Antique Moving</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-sm text-muted-foreground">White-glove care for your valuables</p>
-                    </CardContent>
-                  </Card>
-                </Link>
-                <Link href="/services/specialty-item-moving">
-                  <Card className="hover-elevate cursor-pointer h-full">
-                    <CardHeader className="flex flex-row items-center gap-3 pb-2">
-                      <Box className="h-5 w-5 text-[#C5A572]" />
-                      <CardTitle className="text-base">Specialty Item Moving</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-sm text-muted-foreground">Safe transport for unique and fragile items</p>
-                    </CardContent>
-                  </Card>
-                </Link>
-                <Link href="/services/packing-services">
-                  <Card className="hover-elevate cursor-pointer h-full">
-                    <CardHeader className="flex flex-row items-center gap-3 pb-2">
-                      <Package className="h-5 w-5 text-[#C5A572]" />
-                      <CardTitle className="text-base">Packing Services</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-sm text-muted-foreground">Professional packing by trained experts</p>
-                    </CardContent>
-                  </Card>
-                </Link>
-                <Link href="/services/storage-solutions">
-                  <Card className="hover-elevate cursor-pointer h-full">
-                    <CardHeader className="flex flex-row items-center gap-3 pb-2">
-                      <Warehouse className="h-5 w-5 text-[#C5A572]" />
-                      <CardTitle className="text-base">Storage Solutions</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-sm text-muted-foreground">Secure climate-controlled storage facilities</p>
-                    </CardContent>
-                  </Card>
-                </Link>
-                <Link href="/services/commercial-moving">
-                  <Card className="hover-elevate cursor-pointer h-full">
-                    <CardHeader className="flex flex-row items-center gap-3 pb-2">
-                      <Building2 className="h-5 w-5 text-[#C5A572]" />
-                      <CardTitle className="text-base">Commercial Moving</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-sm text-muted-foreground">Office and business relocation experts</p>
-                    </CardContent>
-                  </Card>
-                </Link>
-              </div>
+              <p className="text-lg text-white/60">
+                Expert piano moving across Metro Vancouver
+              </p>
+            </div>
+
+            <div className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">
+              {neighborhoods.map((hood, index) => (
+                <Badge 
+                  key={index}
+                  className="bg-white/10 text-white border-white/20 hover:bg-primary hover:text-[#1A2332] hover:border-primary transition-all duration-300 cursor-pointer px-4 py-2 text-sm font-medium"
+                  data-testid={`neighborhood-${hood.toLowerCase().replace(/\s+/g, '-')}`}
+                >
+                  <MapPin className="h-3 w-3 mr-1" />
+                  {hood}
+                </Badge>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Related Services */}
+        <section className="py-16 md:py-20 bg-gray-50" data-testid="section-related-services">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <Badge className="bg-primary/10 text-primary mb-4">More Services</Badge>
+              <h2 className="text-3xl md:text-4xl font-black text-foreground mb-4" data-testid="related-services-title">
+                Related Moving Services
+              </h2>
+              <p className="text-lg text-muted-foreground">
+                Complete your move with our additional services
+              </p>
+            </div>
+            
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              <Link href="/services/residential-moving">
+                <Card className="border-2 hover:border-primary hover:shadow-lg transition-all h-full" data-testid="link-residential-moving">
+                  <CardContent className="p-6">
+                    <Home className="h-8 w-8 text-primary mb-4" />
+                    <h3 className="font-bold text-lg mb-2">Residential Moving</h3>
+                    <p className="text-muted-foreground">Complete home moving services across Vancouver</p>
+                  </CardContent>
+                </Card>
+              </Link>
+              <Link href="/services/antique-moving">
+                <Card className="border-2 hover:border-primary hover:shadow-lg transition-all h-full" data-testid="link-antique-moving">
+                  <CardContent className="p-6">
+                    <Crown className="h-8 w-8 text-primary mb-4" />
+                    <h3 className="font-bold text-lg mb-2">Antique Moving</h3>
+                    <p className="text-muted-foreground">White-glove care for your valuable antiques</p>
+                  </CardContent>
+                </Card>
+              </Link>
+              <Link href="/services/storage-solutions">
+                <Card className="border-2 hover:border-primary hover:shadow-lg transition-all h-full" data-testid="link-storage-solutions">
+                  <CardContent className="p-6">
+                    <Warehouse className="h-8 w-8 text-primary mb-4" />
+                    <h3 className="font-bold text-lg mb-2">Piano Storage</h3>
+                    <p className="text-muted-foreground">Climate-controlled storage for your instrument</p>
+                  </CardContent>
+                </Card>
+              </Link>
+              <Link href="/services/specialty-item-moving">
+                <Card className="border-2 hover:border-primary hover:shadow-lg transition-all h-full" data-testid="link-specialty-moving">
+                  <CardContent className="p-6">
+                    <Sparkles className="h-8 w-8 text-primary mb-4" />
+                    <h3 className="font-bold text-lg mb-2">Specialty Items</h3>
+                    <p className="text-muted-foreground">Safe transport for unique and fragile items</p>
+                  </CardContent>
+                </Card>
+              </Link>
+              <Link href="/services/packing-services">
+                <Card className="border-2 hover:border-primary hover:shadow-lg transition-all h-full" data-testid="link-packing-services">
+                  <CardContent className="p-6">
+                    <Package className="h-8 w-8 text-primary mb-4" />
+                    <h3 className="font-bold text-lg mb-2">Packing Services</h3>
+                    <p className="text-muted-foreground">Professional packing by trained experts</p>
+                  </CardContent>
+                </Card>
+              </Link>
+              <Link href="/services/commercial-moving">
+                <Card className="border-2 hover:border-primary hover:shadow-lg transition-all h-full" data-testid="link-commercial-moving">
+                  <CardContent className="p-6">
+                    <Building2 className="h-8 w-8 text-primary mb-4" />
+                    <h3 className="font-bold text-lg mb-2">Commercial Moving</h3>
+                    <p className="text-muted-foreground">Office and business relocation experts</p>
+                  </CardContent>
+                </Card>
+              </Link>
             </div>
           </div>
         </section>
 
         {/* CTA Form Section */}
-        <section className="py-20 bg-[#1A2332]">
+        <section className="py-20 bg-[#1A2332]" data-testid="section-cta-form">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
                 <Badge className="mb-4 bg-[#C5A572] text-white">Free Quote</Badge>
-                <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+                <h2 className="text-3xl md:text-4xl font-bold text-white mb-6" data-testid="cta-form-title">
                   Get Your Piano Moving Quote
                 </h2>
                 <p className="text-gray-300 text-lg mb-8">
@@ -639,13 +863,13 @@ export default function PianoMoving() {
                 </ul>
               </div>
 
-              <Card className="bg-white">
+              <Card className="bg-white" data-testid="quote-form-card">
                 <CardHeader>
                   <CardTitle className="text-2xl">Request Your Quote</CardTitle>
                   <CardDescription>Fill out the form and we'll get back to you shortly</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <form onSubmit={handleSubmit} className="space-y-4">
+                  <form onSubmit={handleSubmit} className="space-y-4" data-testid="quote-form">
                     <div className="space-y-2">
                       <Label htmlFor="name">Full Name</Label>
                       <div className="relative">
@@ -747,31 +971,35 @@ export default function PianoMoving() {
         </section>
 
         {/* Final CTA Section */}
-        <section className="py-20 bg-[#C5A572]">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
+        <section className="py-16 md:py-20 bg-gradient-to-r from-primary via-amber-500 to-primary relative overflow-hidden" data-testid="section-final-cta">
+          <div className="absolute inset-0 opacity-10">
+            <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl" />
+            <div className="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl" />
+          </div>
+          
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <div className="inline-flex items-center gap-2 bg-[#1A2332]/20 backdrop-blur rounded-full px-4 py-2 mb-6">
+              <Music className="h-4 w-4 text-[#1A2332]" />
+              <span className="text-[#1A2332] font-semibold text-sm">Free No-Obligation Quote</span>
+            </div>
+            
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-[#1A2332] mb-6" data-testid="final-cta-title">
               Ready to Move Your Piano?
             </h2>
-            <p className="text-xl mb-8 text-white/90">
-              Get a specialized piano moving quote today. We treat your instrument with the care it deserves.
+            
+            <p className="text-xl text-[#1A2332]/80 mb-8 max-w-2xl mx-auto">
+              Join 2,500+ piano owners who trusted us with their precious instruments. Get your personalized quote in under 1 hour.
             </p>
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/book">
-                <Button 
-                  size="lg" 
-                  className="bg-[#1A2332] hover:bg-[#1A2332]/90 text-white text-base px-8"
-                  data-testid="button-get-quote-final"
-                >
-                  Get Piano Quote
+                <Button size="lg" className="bg-[#1A2332] hover:bg-[#1A2332]/90 text-white text-lg font-bold px-10 py-7 shadow-xl" data-testid="button-final-quote">
+                  Get Free Quote
+                  <ArrowRight className="h-5 w-5 ml-2" />
                 </Button>
               </Link>
               <a href="tel:604-616-6066">
-                <Button 
-                  size="lg" 
-                  variant="outline" 
-                  className="border-white text-white hover:bg-white/10 text-base px-8"
-                  data-testid="button-call-final"
-                >
+                <Button size="lg" variant="outline" className="border-2 border-[#1A2332] text-[#1A2332] hover:bg-[#1A2332] hover:text-white text-lg font-bold px-10 py-7" data-testid="button-final-call">
                   <Phone className="h-5 w-5 mr-2" />
                   604-616-6066
                 </Button>

@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
+import { Slider } from "@/components/ui/slider";
 import {
   Accordion,
   AccordionContent,
@@ -25,24 +26,40 @@ import {
   MapPin,
   Mail,
   User,
-  MessageSquare,
   Loader2,
   Home,
   Building2,
   Truck,
   Box,
   Gem,
+  Zap,
+  Award,
+  Timer,
+  ChevronLeft,
+  ChevronRight,
+  Calendar,
+  Snowflake,
+  Briefcase,
+  Calculator,
+  TruckIcon,
+  Music,
+  Heart,
+  Sparkles,
 } from "lucide-react";
 import { Link } from "wouter";
 import { Helmet } from "react-helmet";
 import { SharedNavigation } from "@/components/shared-navigation";
 import { SharedFooter } from "@/components/shared-footer";
+import { WorkSafeBadge } from "@/components/worksafe-badge";
 import { useToast } from "@/hooks/use-toast";
 import { apiRequest } from "@/lib/queryClient";
 import storageVideo from "@assets/generated_videos/climate_controlled_storage_facility.mp4";
 
 export default function StorageSolutions() {
   const { toast } = useToast();
+  const [activeTestimonial, setActiveTestimonial] = useState(0);
+  const [activeTab, setActiveTab] = useState(0);
+  const [storageSize, setStorageSize] = useState([100]);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -91,13 +108,23 @@ export default function StorageSolutions() {
         "addressCountry": "CA"
       },
       "telephone": "604-616-6066",
-      "priceRange": "$$"
+      "priceRange": "$$",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "reviewCount": "337"
+      }
     },
-    "areaServed": {
-      "@type": "City",
-      "name": "Vancouver"
-    },
-    "description": "Secure storage solutions in Vancouver. Climate-controlled units with flexible terms. Short-term and long-term storage for moving transitions."
+    "areaServed": [
+      { "@type": "City", "name": "Vancouver" },
+      { "@type": "City", "name": "Burnaby" },
+      { "@type": "City", "name": "Richmond" },
+      { "@type": "City", "name": "North Vancouver" },
+      { "@type": "City", "name": "West Vancouver" },
+      { "@type": "City", "name": "Coquitlam" },
+      { "@type": "City", "name": "Surrey" }
+    ],
+    "description": "Secure climate-controlled storage solutions in Vancouver. Short-term and long-term storage with 24/7 security, flexible terms, and WorkSafe BC certified."
   };
 
   const faqData = {
@@ -127,9 +154,90 @@ export default function StorageSolutions() {
           "@type": "Answer",
           "text": "We offer flexible terms from as short as one week to multi-year storage. There are no minimum or maximum time requirements, and you can extend or shorten your storage period at any time."
         }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you pick up and deliver stored items?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, our full-service storage includes pickup from your location, professional packing if needed, secure transportation to our facility, and delivery back to you when you're ready."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is my storage insured?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, all items in our care are covered by our comprehensive WorkSafe BC insurance. We also offer additional valuation coverage options for high-value items."
+        }
       }
     ]
   };
+
+  const testimonials = [
+    { 
+      name: "Robert H.", 
+      location: "Burnaby", 
+      text: "Needed storage during my condo renovation. Prestige picked up everything, stored it for 3 months, and delivered it all back in perfect condition. Incredibly convenient!", 
+      rating: 5, 
+      date: "2 weeks ago" 
+    },
+    { 
+      name: "Amanda C.", 
+      location: "North Vancouver", 
+      text: "The climate-controlled storage saved my vintage wine collection during our extended travel. Temperature and humidity perfectly maintained. Worth every penny!", 
+      rating: 5, 
+      date: "1 month ago" 
+    },
+    { 
+      name: "Kevin T.", 
+      location: "Downtown", 
+      text: "As a business owner, I needed reliable storage for excess inventory. Their commercial storage solution is exactly what I needed - secure and accessible.", 
+      rating: 5, 
+      date: "3 weeks ago" 
+    },
+    { 
+      name: "Patricia M.", 
+      location: "Kitsilano", 
+      text: "Stored my grandmother's antique furniture while downsizing. The team handled everything with such care. The items came back exactly as they left!", 
+      rating: 5, 
+      date: "1 week ago" 
+    },
+    { 
+      name: "James L.", 
+      location: "Richmond", 
+      text: "Used their short-term storage between selling our house and moving into the new one. Seamless experience from pickup to delivery. Highly recommend!", 
+      rating: 5, 
+      date: "2 months ago" 
+    }
+  ];
+
+  const storageTypes = [
+    {
+      title: "Short-Term Storage",
+      icon: Clock,
+      description: "Perfect for moving transitions and temporary needs",
+      features: ["Flexible day/week terms", "No long commitment", "Quick access available", "Pro-rated billing"]
+    },
+    {
+      title: "Long-Term Storage",
+      icon: Warehouse,
+      description: "Extended storage for renovation, travel, or downsizing",
+      features: ["Discounted monthly rates", "Inventory management", "Regular condition checks", "Flexible retrieval"]
+    },
+    {
+      title: "Climate-Controlled",
+      icon: Snowflake,
+      description: "Protect sensitive items from temperature damage",
+      features: ["Temperature regulation", "Humidity control", "Ideal for antiques", "Electronics safe"]
+    },
+    {
+      title: "Business Storage",
+      icon: Briefcase,
+      description: "Commercial storage for inventory and equipment",
+      features: ["Inventory overflow", "Office equipment", "Document archiving", "Seasonal stock"]
+    }
+  ];
 
   const faqs = [
     {
@@ -149,57 +257,47 @@ export default function StorageSolutions() {
       answer: "Absolutely! Our full-service storage includes pickup from your location, professional packing if needed, secure transportation to our facility, and delivery back to you when you're ready. You never need to visit the storage facility yourself."
     },
     {
-      question: "What items can I store with you?",
-      answer: "We can store virtually anything: furniture, appliances, electronics, artwork, antiques, pianos, business inventory, documents, seasonal items, and specialty items. The only restrictions are hazardous materials, perishables, and illegal items."
-    },
-    {
       question: "Is my storage insured?",
       answer: "Yes, all items in our care are covered by our comprehensive WorkSafe BC insurance. We also offer additional valuation coverage options for high-value items. You'll receive a detailed inventory list and can add your own insurance policy if desired."
     }
   ];
 
-  const storagePackages = [
-    {
-      name: "Compact",
-      size: "5' x 5'",
-      items: "Studio apartment, seasonal items",
-      price: "$99/mo",
-      popular: false
-    },
-    {
-      name: "Standard",
-      size: "10' x 10'",
-      items: "1-2 bedroom apartment contents",
-      price: "$179/mo",
-      popular: false
-    },
-    {
-      name: "Family",
-      size: "10' x 15'",
-      items: "2-3 bedroom home contents",
-      price: "$249/mo",
-      popular: true
-    },
-    {
-      name: "Commercial",
-      size: "10' x 20'",
-      items: "Large home or business inventory",
-      price: "$349/mo",
-      popular: false
-    }
+  const neighborhoods = [
+    "Downtown", "Kitsilano", "Yaletown", "Coal Harbour", "West End",
+    "Mount Pleasant", "Commercial Drive", "Kerrisdale", "Point Grey", 
+    "UBC", "Burnaby", "Richmond", "North Vancouver", "West Vancouver", "Coquitlam"
   ];
+
+  const getStorageRecommendation = (sqft: number) => {
+    if (sqft <= 50) return { size: "5' x 5'", name: "Compact", price: "$99/mo", items: "Small closet, seasonal items, boxes" };
+    if (sqft <= 100) return { size: "5' x 10'", name: "Small", price: "$139/mo", items: "Studio apartment, small office" };
+    if (sqft <= 150) return { size: "10' x 10'", name: "Standard", price: "$179/mo", items: "1-2 bedroom apartment contents" };
+    if (sqft <= 200) return { size: "10' x 15'", name: "Family", price: "$249/mo", items: "2-3 bedroom home contents" };
+    return { size: "10' x 20'", name: "Commercial", price: "$349/mo", items: "Large home or business inventory" };
+  };
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveTestimonial((prev) => (prev + 1) % testimonials.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [testimonials.length]);
 
   return (
     <>
       <Helmet>
         <title>Storage Solutions Vancouver BC | Climate-Controlled Storage | Prestige Moving</title>
-        <meta name="description" content="Secure storage solutions in Vancouver BC. Climate-controlled units, flexible terms, WorkSafe BC certified. Short-term and long-term storage. Free quote!" />
-        <meta name="keywords" content="storage solutions Vancouver, moving storage BC, climate controlled storage, secure storage Vancouver, short term storage" />
-        <meta property="og:title" content="Storage Solutions Vancouver | Prestige Moving" />
-        <meta property="og:description" content="Secure, climate-controlled storage in Vancouver. Flexible terms, professional handling, full insurance. Perfect for moving transitions." />
+        <meta name="description" content="Secure storage solutions in Vancouver BC. Climate-controlled units, 24/7 security, WorkSafe BC certified. Short-term and long-term storage with free pickup and delivery. Get your free quote!" />
+        <meta name="keywords" content="storage solutions Vancouver, moving storage BC, climate controlled storage, secure storage Vancouver, short term storage, long term storage, business storage Vancouver" />
+        <meta property="og:title" content="Storage Solutions Vancouver | Climate-Controlled & Secure | Prestige Moving" />
+        <meta property="og:description" content="Secure, climate-controlled storage in Vancouver. 24/7 security, flexible terms, professional handling, full WorkSafe BC insurance. Perfect for moving transitions." />
         <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://vancouver.prestigemoving.ca/services/storage-solutions" />
         <meta property="og:image" content="https://vancouver.prestigemoving.ca/og-image.png" />
+        <meta property="og:site_name" content="Prestige Moving Vancouver" />
         <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Storage Solutions Vancouver | Prestige Moving" />
+        <meta name="twitter:description" content="Secure, climate-controlled storage in Vancouver. Flexible terms, professional handling, full insurance." />
         <meta name="twitter:image" content="https://vancouver.prestigemoving.ca/og-image.png" />
         <link rel="canonical" href="https://vancouver.prestigemoving.ca/services/storage-solutions" />
         <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
@@ -209,8 +307,8 @@ export default function StorageSolutions() {
       <div className="min-h-screen bg-background">
         <SharedNavigation />
 
-        {/* Video Hero Section */}
-        <section className="relative min-h-[90vh] flex items-center overflow-hidden">
+        {/* Hero Section */}
+        <section className="relative min-h-[85vh] flex items-center overflow-hidden">
           <video
             autoPlay
             muted
@@ -221,105 +319,255 @@ export default function StorageSolutions() {
           >
             <source src={storageVideo} type="video/mp4" />
           </video>
-          <div className="absolute inset-0 bg-gradient-to-r from-[#1A2332]/95 via-[#1A2332]/80 to-[#1A2332]/60" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#1A2332] via-[#1A2332]/90 to-[#1A2332]/40" />
           
-          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-            <div className="max-w-3xl">
-              <Badge className="mb-6 bg-[#C5A572] text-white hover:bg-[#B8956A] text-sm px-4 py-1.5">
-                Climate-Controlled Facilities
-              </Badge>
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 tracking-tight leading-tight">
-                Secure Storage<br />
-                <span className="text-[#C5A572]">Solutions in Vancouver</span>
-              </h1>
-              <p className="text-xl md:text-2xl text-gray-200 mb-8 leading-relaxed">
-                Whether you need short-term storage during your move or long-term solutions, we provide secure, climate-controlled facilities with flexible terms.
-              </p>
-              
-              {/* Stats Bar */}
-              <div className="flex flex-wrap gap-6 mb-10">
-                <div className="flex items-center gap-2">
-                  <Star className="h-5 w-5 text-[#C5A572]" />
-                  <span className="text-white font-semibold">5.0 Rating</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Lock className="h-5 w-5 text-[#C5A572]" />
-                  <span className="text-white font-semibold">24/7 Security</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Shield className="h-5 w-5 text-[#C5A572]" />
-                  <span className="text-white font-semibold">Fully Insured</span>
-                </div>
+          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16">
+            <div className="max-w-2xl">
+              <div className="flex items-center gap-3 mb-6">
+                <Badge className="bg-primary/20 text-primary border-primary/40 px-4 py-1.5">
+                  <Warehouse className="h-4 w-4 mr-2" />
+                  Storage Solutions
+                </Badge>
+                <Badge className="bg-green-500/20 text-green-400 border-green-500/40">
+                  <Zap className="h-3 w-3 mr-1" />
+                  Climate-Controlled
+                </Badge>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-4">
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-6 leading-[1.1]">
+                Vancouver's<br />
+                <span className="text-primary">Secure Storage</span>
+              </h1>
+
+              <p className="text-xl md:text-2xl text-white/80 mb-8 leading-relaxed">
+                Whether you need short-term storage during your move or long-term solutions, we provide <span className="text-primary font-semibold">24/7 secured, climate-controlled facilities</span>.
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-4 mb-8">
                 <Link href="/book">
-                  <Button 
-                    size="lg" 
-                    className="bg-[#C5A572] hover:bg-[#B8956A] text-white text-base px-8 py-6 h-auto group transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
-                    data-testid="button-get-storage-quote"
-                  >
-                    Get Storage Quote
-                    <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                  <Button size="lg" className="text-lg font-bold px-8 py-7 shadow-xl shadow-primary/30 group" data-testid="button-hero-quote">
+                    Get Free Quote
+                    <ArrowRight className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </Link>
                 <a href="tel:604-616-6066">
-                  <Button 
-                    size="lg" 
-                    variant="outline" 
-                    className="border-white text-white hover:bg-white/10 text-base px-8 py-6 h-auto backdrop-blur-sm"
-                    data-testid="button-call-hero"
-                  >
+                  <Button size="lg" variant="outline" className="text-lg font-bold px-8 py-7 border-2 border-white/40 text-white hover:bg-white/10 backdrop-blur-sm" data-testid="button-hero-call">
                     <Phone className="h-5 w-5 mr-2" />
                     604-616-6066
                   </Button>
                 </a>
               </div>
+
+              <div className="flex flex-wrap gap-6">
+                <WorkSafeBadge size="md" />
+                <div className="flex items-center gap-2 text-white/70">
+                  <Lock className="h-5 w-5 text-primary" />
+                  <span>24/7 Security</span>
+                </div>
+                <div className="flex items-center gap-2 text-white/70">
+                  <Thermometer className="h-5 w-5 text-primary" />
+                  <span>Climate-Controlled</span>
+                </div>
+              </div>
             </div>
           </div>
         </section>
 
-        {/* Storage Packages */}
-        <section className="py-20 bg-accent/30">
+        {/* Stats Bar */}
+        <section className="bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-400 py-6">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+              {[
+                { value: "5,000+", label: "Items Stored" },
+                { value: "5.0", label: "Google Rating" },
+                { value: "24/7", label: "Security" },
+                { value: "1 Hour", label: "Quote Response" }
+              ].map((stat, index) => (
+                <div key={index} data-testid={`stat-${index}`}>
+                  <div className="text-2xl md:text-4xl font-black text-[#1A2332]">{stat.value}</div>
+                  <div className="text-sm font-bold text-[#1A2332]/80 uppercase tracking-wide">{stat.label}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Storage Types Tabs */}
+        <section className="py-16 md:py-20 bg-[#1A2332]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-              <Badge variant="outline" className="mb-4">Flexible Options</Badge>
-              <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">
-                Storage Unit Sizes
+              <Badge className="bg-primary/20 text-primary border-primary/30 mb-4">Storage Options</Badge>
+              <h2 className="text-3xl md:text-4xl font-black text-white mb-4">
+                Storage Solutions for Every Need
               </h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Choose the perfect size for your storage needs with flexible monthly terms
+              <p className="text-lg text-white/60 max-w-2xl mx-auto">
+                From short-term moving transitions to long-term business storage
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {storagePackages.map((pkg, index) => (
-                <Card 
-                  key={index} 
-                  className={`relative hover-elevate transition-all duration-300 ${pkg.popular ? 'ring-2 ring-[#C5A572]' : ''}`}
-                  data-testid={`card-storage-package-${index}`}
-                >
-                  {pkg.popular && (
-                    <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#C5A572] text-white">
-                      Most Popular
-                    </Badge>
-                  )}
-                  <CardHeader className="text-center pt-8">
-                    <CardTitle className="text-xl">{pkg.name}</CardTitle>
-                    <div className="text-2xl font-semibold text-muted-foreground mt-1">{pkg.size}</div>
-                    <div className="text-3xl font-bold text-[#C5A572] mt-2">{pkg.price}</div>
-                  </CardHeader>
-                  <CardContent className="text-center">
-                    <p className="text-muted-foreground mb-4">{pkg.items}</p>
-                    <Link href="/book">
-                      <Button 
-                        variant={pkg.popular ? "default" : "outline"} 
-                        className="w-full"
-                        data-testid={`button-book-storage-${index}`}
-                      >
-                        Reserve Now
-                      </Button>
-                    </Link>
+            {/* Tab Navigation */}
+            <div className="flex justify-center gap-2 mb-10 flex-wrap">
+              {storageTypes.map((storage, index) => {
+                const StorageIcon = storage.icon;
+                return (
+                  <button
+                    key={index}
+                    onClick={() => setActiveTab(index)}
+                    className={`group px-6 py-3 rounded-full font-semibold transition-all duration-300 flex items-center gap-2 ${
+                      activeTab === index 
+                        ? 'bg-primary text-[#1A2332] shadow-lg shadow-primary/30' 
+                        : 'bg-white/10 text-white hover:bg-white/20'
+                    }`}
+                    data-testid={`tab-${storage.title.toLowerCase().replace(/\s+/g, '-')}`}
+                  >
+                    <StorageIcon className="h-5 w-5" />
+                    {storage.title}
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Active Storage Content */}
+            <div className="bg-white/5 backdrop-blur border border-white/10 rounded-3xl p-8 md:p-12">
+              <div className="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                  <h3 className="text-2xl md:text-3xl font-black text-white mb-4">
+                    {storageTypes[activeTab].title}
+                  </h3>
+                  <p className="text-lg text-white/70 mb-6">
+                    {storageTypes[activeTab].description}
+                  </p>
+
+                  <div className="grid grid-cols-2 gap-4 mb-8">
+                    {storageTypes[activeTab].features.map((feature, i) => (
+                      <div key={i} className="flex items-center gap-3">
+                        <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0" />
+                        <span className="text-white">{feature}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  <Link href="/book">
+                    <Button size="lg" className="font-bold" data-testid="button-storage-quote">
+                      Get a Quote
+                      <ArrowRight className="h-5 w-5 ml-2" />
+                    </Button>
+                  </Link>
+                </div>
+                
+                <div className="relative rounded-2xl overflow-hidden h-[300px] bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
+                  {(() => {
+                    const ActiveIcon = storageTypes[activeTab].icon;
+                    return <ActiveIcon className="h-32 w-32 text-primary/50" />;
+                  })()}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Storage Size Calculator */}
+        <section className="py-16 md:py-20 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <Badge className="bg-primary/10 text-primary mb-4">Size Calculator</Badge>
+              <h2 className="text-3xl md:text-4xl font-black text-foreground mb-4">
+                Find Your Perfect Storage Size
+              </h2>
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                Use our calculator to estimate the storage space you need
+              </p>
+            </div>
+
+            <div className="max-w-3xl mx-auto">
+              <Card className="border-2">
+                <CardContent className="p-8">
+                  <div className="mb-8">
+                    <div className="flex items-center justify-between mb-4">
+                      <Label className="text-lg font-semibold">Estimated Square Footage Needed</Label>
+                      <span className="text-2xl font-bold text-primary">{storageSize[0]} sq ft</span>
+                    </div>
+                    <Slider
+                      value={storageSize}
+                      onValueChange={setStorageSize}
+                      max={300}
+                      min={25}
+                      step={25}
+                      className="w-full"
+                      data-testid="slider-storage-size"
+                    />
+                    <div className="flex justify-between text-sm text-muted-foreground mt-2">
+                      <span>25 sq ft</span>
+                      <span>300 sq ft</span>
+                    </div>
+                  </div>
+
+                  <div className="bg-gradient-to-br from-primary/10 to-primary/5 rounded-xl p-6">
+                    <div className="flex items-center gap-4 mb-4">
+                      <div className="h-16 w-16 bg-primary rounded-xl flex items-center justify-center">
+                        <Calculator className="h-8 w-8 text-white" />
+                      </div>
+                      <div>
+                        <h3 className="text-xl font-bold text-foreground">Recommended: {getStorageRecommendation(storageSize[0]).name}</h3>
+                        <p className="text-muted-foreground">Unit Size: {getStorageRecommendation(storageSize[0]).size}</p>
+                      </div>
+                    </div>
+                    
+                    <div className="grid md:grid-cols-2 gap-4">
+                      <div>
+                        <p className="text-sm text-muted-foreground mb-1">Ideal for:</p>
+                        <p className="font-medium">{getStorageRecommendation(storageSize[0]).items}</p>
+                      </div>
+                      <div className="text-right">
+                        <p className="text-sm text-muted-foreground mb-1">Starting at:</p>
+                        <p className="text-3xl font-black text-primary">{getStorageRecommendation(storageSize[0]).price}</p>
+                      </div>
+                    </div>
+
+                    <div className="mt-6">
+                      <Link href="/book">
+                        <Button className="w-full font-bold" size="lg" data-testid="button-calculator-quote">
+                          Get Exact Quote
+                          <ArrowRight className="h-5 w-5 ml-2" />
+                        </Button>
+                      </Link>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </section>
+
+        {/* What's Included */}
+        <section className="py-16 md:py-20 bg-gray-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <Badge className="bg-primary/10 text-primary mb-4">All Included</Badge>
+              <h2 className="text-3xl md:text-4xl font-black text-foreground mb-4">
+                Why Choose Our Storage
+              </h2>
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                Everything you need for safe, secure, and convenient storage
+              </p>
+            </div>
+
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[
+                { title: "Climate-Controlled", description: "Temperature and humidity regulated year-round", icon: Thermometer },
+                { title: "24/7 Security", description: "Video surveillance, alarms, and controlled access", icon: Lock },
+                { title: "Pickup & Delivery", description: "We come to you - no trips to storage facilities", icon: Truck },
+                { title: "Full Insurance", description: "WorkSafe BC coverage protects your belongings", icon: Shield },
+                { title: "Flexible Terms", description: "Day, week, month, or year - no long-term commitment", icon: Calendar },
+                { title: "Professional Inventory", description: "Detailed tracking of all stored items", icon: Package }
+              ].map((item, index) => (
+                <Card key={index} className="border-2 hover:border-primary/50 transition-colors" data-testid={`card-feature-${index}`}>
+                  <CardContent className="p-6">
+                    <div className="h-12 w-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
+                      <item.icon className="h-6 w-6 text-primary" />
+                    </div>
+                    <h3 className="font-bold text-lg text-foreground mb-2">{item.title}</h3>
+                    <p className="text-muted-foreground">{item.description}</p>
                   </CardContent>
                 </Card>
               ))}
@@ -327,301 +575,121 @@ export default function StorageSolutions() {
           </div>
         </section>
 
-        {/* Why Choose Our Storage */}
-        <section className="py-20">
+        {/* Testimonials Carousel */}
+        <section className="py-16 md:py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-                Why Choose Our Storage?
+              <Badge className="bg-primary/10 text-primary mb-4">Reviews</Badge>
+              <h2 className="text-3xl md:text-4xl font-black text-foreground mb-4">
+                What Our Customers Say
               </h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Safe, secure, and convenient storage solutions for all your needs
+              <div className="flex items-center justify-center gap-2 text-muted-foreground">
+                <div className="flex">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="h-5 w-5 fill-primary text-primary" />
+                  ))}
+                </div>
+                <span>Based on 337+ Google Reviews</span>
+              </div>
+            </div>
+
+            <div className="relative max-w-4xl mx-auto">
+              <Card className="border-2 shadow-xl">
+                <CardContent className="p-8 md:p-12">
+                  <div className="flex gap-1 mb-6">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="h-6 w-6 fill-primary text-primary" />
+                    ))}
+                  </div>
+                  <p className="text-xl md:text-2xl text-foreground mb-8 leading-relaxed" data-testid="text-testimonial">
+                    "{testimonials[activeTestimonial].text}"
+                  </p>
+                  <div className="flex items-center justify-between flex-wrap gap-4">
+                    <div className="flex items-center gap-4">
+                      <div className="h-14 w-14 bg-gradient-to-br from-primary to-amber-600 rounded-full flex items-center justify-center text-white font-bold text-xl">
+                        {testimonials[activeTestimonial].name[0]}
+                      </div>
+                      <div>
+                        <p className="font-bold text-lg" data-testid="text-testimonial-name">{testimonials[activeTestimonial].name}</p>
+                        <p className="text-muted-foreground flex items-center gap-1">
+                          <MapPin className="h-4 w-4" /> {testimonials[activeTestimonial].location}
+                        </p>
+                      </div>
+                    </div>
+                    <span className="text-sm text-muted-foreground">{testimonials[activeTestimonial].date}</span>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <div className="flex items-center justify-center gap-4 mt-8">
+                <button 
+                  onClick={() => setActiveTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length)}
+                  className="w-12 h-12 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors"
+                  aria-label="Previous testimonial"
+                  data-testid="button-testimonial-prev"
+                >
+                  <ChevronLeft className="h-6 w-6" />
+                </button>
+                <div className="flex gap-2">
+                  {testimonials.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setActiveTestimonial(index)}
+                      className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                        index === activeTestimonial ? 'bg-primary w-8' : 'bg-gray-300 hover:bg-gray-400'
+                      }`}
+                      aria-label={`Go to testimonial ${index + 1}`}
+                      data-testid={`button-testimonial-dot-${index}`}
+                    />
+                  ))}
+                </div>
+                <button 
+                  onClick={() => setActiveTestimonial((prev) => (prev + 1) % testimonials.length)}
+                  className="w-12 h-12 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors"
+                  aria-label="Next testimonial"
+                  data-testid="button-testimonial-next"
+                >
+                  <ChevronRight className="h-6 w-6" />
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Service Areas */}
+        <section className="py-16 md:py-20 bg-[#1A2332]">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-10">
+              <Badge className="bg-primary/20 text-primary border-primary/30 mb-4">Coverage</Badge>
+              <h2 className="text-3xl md:text-4xl font-black text-white mb-4">
+                Storage Pickup & Delivery Areas
+              </h2>
+              <p className="text-lg text-white/60">
+                Full-service storage available across Metro Vancouver
               </p>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-8">
-              <Card className="hover-elevate" data-testid="card-feature-insured">
-                <CardHeader>
-                  <div className="h-14 w-14 rounded-xl bg-[#C5A572]/10 flex items-center justify-center mb-4">
-                    <Shield className="h-7 w-7 text-[#C5A572]" />
-                  </div>
-                  <CardTitle>Fully Insured</CardTitle>
-                  <CardDescription>
-                    WorkSafe BC coverage protects your belongings while in our care
-                  </CardDescription>
-                </CardHeader>
-              </Card>
-
-              <Card className="hover-elevate" data-testid="card-feature-security">
-                <CardHeader>
-                  <div className="h-14 w-14 rounded-xl bg-[#C5A572]/10 flex items-center justify-center mb-4">
-                    <Lock className="h-7 w-7 text-[#C5A572]" />
-                  </div>
-                  <CardTitle>24/7 Security</CardTitle>
-                  <CardDescription>
-                    State-of-the-art security systems with monitoring and controlled access
-                  </CardDescription>
-                </CardHeader>
-              </Card>
-
-              <Card className="hover-elevate" data-testid="card-feature-climate">
-                <CardHeader>
-                  <div className="h-14 w-14 rounded-xl bg-[#C5A572]/10 flex items-center justify-center mb-4">
-                    <Thermometer className="h-7 w-7 text-[#C5A572]" />
-                  </div>
-                  <CardTitle>Climate Control</CardTitle>
-                  <CardDescription>
-                    Temperature and humidity controlled to protect sensitive items
-                  </CardDescription>
-                </CardHeader>
-              </Card>
-            </div>
-          </div>
-        </section>
-
-        {/* Storage Options */}
-        <section className="py-20 bg-accent/30">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-12 text-center">
-              Storage Options
-            </h2>
-
-            <div className="grid md:grid-cols-2 gap-6">
-              <Card className="hover-elevate" data-testid="card-short-term-storage">
-                <CardHeader>
-                  <div className="flex items-center gap-4">
-                    <div className="h-12 w-12 rounded-xl bg-[#C5A572]/10 flex items-center justify-center">
-                      <Clock className="h-6 w-6 text-[#C5A572]" />
-                    </div>
-                    <CardTitle>Short-Term Storage</CardTitle>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-3">
-                    <li className="flex items-center gap-3">
-                      <CheckCircle2 className="h-5 w-5 text-[#C5A572] flex-shrink-0" />
-                      <span>Perfect for moving transitions</span>
-                    </li>
-                    <li className="flex items-center gap-3">
-                      <CheckCircle2 className="h-5 w-5 text-[#C5A572] flex-shrink-0" />
-                      <span>Flexible day, week, or month terms</span>
-                    </li>
-                    <li className="flex items-center gap-3">
-                      <CheckCircle2 className="h-5 w-5 text-[#C5A572] flex-shrink-0" />
-                      <span>Quick access when you need it</span>
-                    </li>
-                    <li className="flex items-center gap-3">
-                      <CheckCircle2 className="h-5 w-5 text-[#C5A572] flex-shrink-0" />
-                      <span>No long-term commitment required</span>
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
-
-              <Card className="hover-elevate" data-testid="card-long-term-storage">
-                <CardHeader>
-                  <div className="flex items-center gap-4">
-                    <div className="h-12 w-12 rounded-xl bg-[#C5A572]/10 flex items-center justify-center">
-                      <Warehouse className="h-6 w-6 text-[#C5A572]" />
-                    </div>
-                    <CardTitle>Long-Term Storage</CardTitle>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-3">
-                    <li className="flex items-center gap-3">
-                      <CheckCircle2 className="h-5 w-5 text-[#C5A572] flex-shrink-0" />
-                      <span>Extended storage solutions</span>
-                    </li>
-                    <li className="flex items-center gap-3">
-                      <CheckCircle2 className="h-5 w-5 text-[#C5A572] flex-shrink-0" />
-                      <span>Competitive monthly rates</span>
-                    </li>
-                    <li className="flex items-center gap-3">
-                      <CheckCircle2 className="h-5 w-5 text-[#C5A572] flex-shrink-0" />
-                      <span>Ideal for downsizing or renovations</span>
-                    </li>
-                    <li className="flex items-center gap-3">
-                      <CheckCircle2 className="h-5 w-5 text-[#C5A572] flex-shrink-0" />
-                      <span>Professional inventory management</span>
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
-
-              <Card className="hover-elevate" data-testid="card-residential-storage">
-                <CardHeader>
-                  <div className="flex items-center gap-4">
-                    <div className="h-12 w-12 rounded-xl bg-[#C5A572]/10 flex items-center justify-center">
-                      <Package className="h-6 w-6 text-[#C5A572]" />
-                    </div>
-                    <CardTitle>Residential Storage</CardTitle>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-3">
-                    <li className="flex items-center gap-3">
-                      <CheckCircle2 className="h-5 w-5 text-[#C5A572] flex-shrink-0" />
-                      <span>Household furniture and belongings</span>
-                    </li>
-                    <li className="flex items-center gap-3">
-                      <CheckCircle2 className="h-5 w-5 text-[#C5A572] flex-shrink-0" />
-                      <span>Seasonal items and decorations</span>
-                    </li>
-                    <li className="flex items-center gap-3">
-                      <CheckCircle2 className="h-5 w-5 text-[#C5A572] flex-shrink-0" />
-                      <span>Sports equipment and toys</span>
-                    </li>
-                    <li className="flex items-center gap-3">
-                      <CheckCircle2 className="h-5 w-5 text-[#C5A572] flex-shrink-0" />
-                      <span>Documents and personal items</span>
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
-
-              <Card className="hover-elevate" data-testid="card-commercial-storage">
-                <CardHeader>
-                  <div className="flex items-center gap-4">
-                    <div className="h-12 w-12 rounded-xl bg-[#C5A572]/10 flex items-center justify-center">
-                      <Warehouse className="h-6 w-6 text-[#C5A572]" />
-                    </div>
-                    <CardTitle>Commercial Storage</CardTitle>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-3">
-                    <li className="flex items-center gap-3">
-                      <CheckCircle2 className="h-5 w-5 text-[#C5A572] flex-shrink-0" />
-                      <span>Office furniture and equipment</span>
-                    </li>
-                    <li className="flex items-center gap-3">
-                      <CheckCircle2 className="h-5 w-5 text-[#C5A572] flex-shrink-0" />
-                      <span>Inventory and stock overflow</span>
-                    </li>
-                    <li className="flex items-center gap-3">
-                      <CheckCircle2 className="h-5 w-5 text-[#C5A572] flex-shrink-0" />
-                      <span>Business documents and archives</span>
-                    </li>
-                    <li className="flex items-center gap-3">
-                      <CheckCircle2 className="h-5 w-5 text-[#C5A572] flex-shrink-0" />
-                      <span>Seasonal business items</span>
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </section>
-
-        {/* What We Store */}
-        <section className="py-20">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-12 text-center">
-              What We Can Store
-            </h2>
-
-            <div className="grid md:grid-cols-4 gap-6">
-              <div className="text-center p-6 rounded-lg bg-accent/30 hover-elevate">
-                <h3 className="font-semibold mb-3">Furniture</h3>
-                <ul className="text-sm text-muted-foreground space-y-1">
-                  <li>Sofas & Chairs</li>
-                  <li>Tables & Desks</li>
-                  <li>Beds & Mattresses</li>
-                  <li>Cabinets & Dressers</li>
-                </ul>
-              </div>
-
-              <div className="text-center p-6 rounded-lg bg-accent/30 hover-elevate">
-                <h3 className="font-semibold mb-3">Appliances</h3>
-                <ul className="text-sm text-muted-foreground space-y-1">
-                  <li>Refrigerators</li>
-                  <li>Washers & Dryers</li>
-                  <li>Ovens & Stoves</li>
-                  <li>Small Appliances</li>
-                </ul>
-              </div>
-
-              <div className="text-center p-6 rounded-lg bg-accent/30 hover-elevate">
-                <h3 className="font-semibold mb-3">Electronics</h3>
-                <ul className="text-sm text-muted-foreground space-y-1">
-                  <li>TVs & Monitors</li>
-                  <li>Computers</li>
-                  <li>Audio Equipment</li>
-                  <li>Office Equipment</li>
-                </ul>
-              </div>
-
-              <div className="text-center p-6 rounded-lg bg-accent/30 hover-elevate">
-                <h3 className="font-semibold mb-3">Specialty Items</h3>
-                <ul className="text-sm text-muted-foreground space-y-1">
-                  <li>Artwork & Antiques</li>
-                  <li>Pianos</li>
-                  <li>Sports Equipment</li>
-                  <li>Seasonal Decorations</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* How It Works */}
-        <section className="py-20 bg-accent/30">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-12 text-center">
-              How Storage Works
-            </h2>
-
-            <div className="grid md:grid-cols-4 gap-8">
-              <div className="text-center">
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#C5A572] text-white text-2xl font-bold mb-4">
-                  1
-                </div>
-                <h3 className="text-xl font-semibold mb-2">Get Quote</h3>
-                <p className="text-muted-foreground">
-                  Tell us what you need to store
-                </p>
-              </div>
-
-              <div className="text-center">
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#C5A572] text-white text-2xl font-bold mb-4">
-                  2
-                </div>
-                <h3 className="text-xl font-semibold mb-2">We Pick Up</h3>
-                <p className="text-muted-foreground">
-                  Our team collects your items
-                </p>
-              </div>
-
-              <div className="text-center">
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#C5A572] text-white text-2xl font-bold mb-4">
-                  3
-                </div>
-                <h3 className="text-xl font-semibold mb-2">Secure Storage</h3>
-                <p className="text-muted-foreground">
-                  Items safely stored in our facility
-                </p>
-              </div>
-
-              <div className="text-center">
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#C5A572] text-white text-2xl font-bold mb-4">
-                  4
-                </div>
-                <h3 className="text-xl font-semibold mb-2">We Deliver</h3>
-                <p className="text-muted-foreground">
-                  Items returned when you're ready
-                </p>
-              </div>
+            <div className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">
+              {neighborhoods.map((hood, index) => (
+                <Badge 
+                  key={index}
+                  className="bg-white/10 text-white border-white/20 hover:bg-primary hover:text-[#1A2332] hover:border-primary transition-all duration-300 cursor-pointer px-4 py-2 text-sm font-medium"
+                  data-testid={`badge-neighborhood-${index}`}
+                >
+                  <MapPin className="h-3 w-3 mr-1" />
+                  {hood}
+                </Badge>
+              ))}
             </div>
           </div>
         </section>
 
         {/* FAQ Section */}
-        <section className="py-20">
+        <section className="py-16 md:py-20 bg-gray-50">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-              <Badge variant="outline" className="mb-4">FAQ</Badge>
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+              <Badge className="bg-primary/10 text-primary mb-4">FAQ</Badge>
+              <h2 className="text-3xl md:text-4xl font-black text-foreground mb-4">
                 Frequently Asked Questions
               </h2>
               <p className="text-lg text-muted-foreground">
@@ -634,7 +702,7 @@ export default function StorageSolutions() {
                 <AccordionItem 
                   key={index} 
                   value={`item-${index}`}
-                  className="bg-card border rounded-lg px-6 hover-elevate"
+                  className="bg-card border rounded-lg px-6"
                   data-testid={`accordion-faq-${index}`}
                 >
                   <AccordionTrigger 
@@ -652,249 +720,108 @@ export default function StorageSolutions() {
           </div>
         </section>
 
-        {/* SEO Content Section with Internal Links */}
-        <section className="py-20 md:py-28 bg-gradient-to-b from-white to-gray-50">
+        {/* Related Services */}
+        <section className="py-16 md:py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-3xl md:text-4xl font-black text-foreground mb-6">
-                Secure Storage Solutions in Vancouver
+            <div className="text-center mb-12">
+              <Badge className="bg-primary/10 text-primary mb-4">More Services</Badge>
+              <h2 className="text-3xl md:text-4xl font-black text-foreground mb-4">
+                Complete Your Storage Solution
               </h2>
-              <div className="prose prose-lg max-w-none text-muted-foreground mb-8">
-                <p>
-                  Our <strong>secure storage solutions in Vancouver</strong> provide the perfect answer for both short-term and long-term storage needs. With <strong>climate-controlled facilities</strong> throughout the Greater Vancouver area, your belongings are protected from temperature extremes, humidity, and weather damage year-round. Whether you're between moves, downsizing, or simply need extra space, our flexible storage options accommodate any timeline.
-                </p>
-                <p>
-                  What sets our <strong>Vancouver storage services</strong> apart is the complete door-to-door experience. We'll pick up your items, transport them safely to our secure facility, and deliver them whenever you're ready. Our <strong>monitored storage units</strong> feature 24/7 security surveillance, individual access codes, and comprehensive insurance coverage for your peace of mind.
-                </p>
-              </div>
-              
-              <h3 className="text-2xl font-bold text-foreground mb-4">Explore Our Related Services</h3>
-              <p className="text-muted-foreground mb-6">Discover our comprehensive range of moving services designed to make your relocation seamless.</p>
-              
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                <Link href="/services/residential-moving">
-                  <Card className="hover-elevate cursor-pointer h-full">
-                    <CardHeader className="flex flex-row items-center gap-3 pb-2">
-                      <Home className="h-5 w-5 text-[#C5A572]" />
-                      <CardTitle className="text-base">Residential Moving</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-sm text-muted-foreground">Complete home moving services across Vancouver</p>
-                    </CardContent>
-                  </Card>
-                </Link>
-                <Link href="/services/commercial-moving">
-                  <Card className="hover-elevate cursor-pointer h-full">
-                    <CardHeader className="flex flex-row items-center gap-3 pb-2">
-                      <Building2 className="h-5 w-5 text-[#C5A572]" />
-                      <CardTitle className="text-base">Commercial Moving</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-sm text-muted-foreground">Office and business relocation experts</p>
-                    </CardContent>
-                  </Card>
-                </Link>
-                <Link href="/services/long-distance-moving">
-                  <Card className="hover-elevate cursor-pointer h-full">
-                    <CardHeader className="flex flex-row items-center gap-3 pb-2">
-                      <Truck className="h-5 w-5 text-[#C5A572]" />
-                      <CardTitle className="text-base">Long Distance Moving</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-sm text-muted-foreground">Cross-province and nationwide relocations</p>
-                    </CardContent>
-                  </Card>
-                </Link>
-                <Link href="/services/packing-services">
-                  <Card className="hover-elevate cursor-pointer h-full">
-                    <CardHeader className="flex flex-row items-center gap-3 pb-2">
-                      <Package className="h-5 w-5 text-[#C5A572]" />
-                      <CardTitle className="text-base">Packing Services</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-sm text-muted-foreground">Professional packing by trained experts</p>
-                    </CardContent>
-                  </Card>
-                </Link>
-                <Link href="/services/moving-supplies">
-                  <Card className="hover-elevate cursor-pointer h-full">
-                    <CardHeader className="flex flex-row items-center gap-3 pb-2">
-                      <Box className="h-5 w-5 text-[#C5A572]" />
-                      <CardTitle className="text-base">Moving Supplies</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-sm text-muted-foreground">Quality boxes and packing materials delivered</p>
-                    </CardContent>
-                  </Card>
-                </Link>
-                <Link href="/services/specialty-item-moving">
-                  <Card className="hover-elevate cursor-pointer h-full">
-                    <CardHeader className="flex flex-row items-center gap-3 pb-2">
-                      <Gem className="h-5 w-5 text-[#C5A572]" />
-                      <CardTitle className="text-base">Specialty Item Moving</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-sm text-muted-foreground">Safe transport for unique and fragile items</p>
-                    </CardContent>
-                  </Card>
-                </Link>
-              </div>
+              <p className="text-lg text-muted-foreground">
+                Additional services to complement your storage needs
+              </p>
+            </div>
+            
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              <Link href="/services/residential-moving">
+                <Card className="border-2 hover:border-primary hover:shadow-lg transition-all h-full" data-testid="link-residential-moving">
+                  <CardContent className="p-6">
+                    <Home className="h-8 w-8 text-primary mb-4" />
+                    <h3 className="font-bold text-lg mb-2">Residential Moving</h3>
+                    <p className="text-muted-foreground">Complete home moving services across Vancouver</p>
+                  </CardContent>
+                </Card>
+              </Link>
+              <Link href="/services/commercial-moving">
+                <Card className="border-2 hover:border-primary hover:shadow-lg transition-all h-full" data-testid="link-commercial-moving">
+                  <CardContent className="p-6">
+                    <Building2 className="h-8 w-8 text-primary mb-4" />
+                    <h3 className="font-bold text-lg mb-2">Commercial Moving</h3>
+                    <p className="text-muted-foreground">Office and business relocation experts</p>
+                  </CardContent>
+                </Card>
+              </Link>
+              <Link href="/services/packing-services">
+                <Card className="border-2 hover:border-primary hover:shadow-lg transition-all h-full" data-testid="link-packing-services">
+                  <CardContent className="p-6">
+                    <Package className="h-8 w-8 text-primary mb-4" />
+                    <h3 className="font-bold text-lg mb-2">Packing Services</h3>
+                    <p className="text-muted-foreground">Professional packing for fragile items and full homes</p>
+                  </CardContent>
+                </Card>
+              </Link>
+              <Link href="/services/long-distance-moving">
+                <Card className="border-2 hover:border-primary hover:shadow-lg transition-all h-full" data-testid="link-long-distance">
+                  <CardContent className="p-6">
+                    <TruckIcon className="h-8 w-8 text-primary mb-4" />
+                    <h3 className="font-bold text-lg mb-2">Long Distance Moving</h3>
+                    <p className="text-muted-foreground">Cross-province and Canada-wide relocations</p>
+                  </CardContent>
+                </Card>
+              </Link>
+              <Link href="/services/specialty-item-moving">
+                <Card className="border-2 hover:border-primary hover:shadow-lg transition-all h-full" data-testid="link-specialty-items">
+                  <CardContent className="p-6">
+                    <Sparkles className="h-8 w-8 text-primary mb-4" />
+                    <h3 className="font-bold text-lg mb-2">Specialty Items</h3>
+                    <p className="text-muted-foreground">Hot tubs, pool tables, gym equipment & more</p>
+                  </CardContent>
+                </Card>
+              </Link>
+              <Link href="/services/senior-moving">
+                <Card className="border-2 hover:border-primary hover:shadow-lg transition-all h-full" data-testid="link-senior-moving">
+                  <CardContent className="p-6">
+                    <Heart className="h-8 w-8 text-primary mb-4" />
+                    <h3 className="font-bold text-lg mb-2">Senior Moving</h3>
+                    <p className="text-muted-foreground">Compassionate downsizing and relocation assistance</p>
+                  </CardContent>
+                </Card>
+              </Link>
             </div>
           </div>
         </section>
 
-        {/* CTA Form Section */}
-        <section className="py-20 bg-[#1A2332]">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div>
-                <Badge className="mb-4 bg-[#C5A572] text-white">Free Quote</Badge>
-                <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                  Get Your Free Storage Quote
-                </h2>
-                <p className="text-gray-300 text-lg mb-8">
-                  Not sure what size you need? Tell us about your storage requirements and we'll recommend the perfect solution. Free quote, no obligation.
-                </p>
-                <ul className="space-y-4">
-                  <li className="flex items-center gap-3 text-gray-200">
-                    <CheckCircle2 className="h-5 w-5 text-[#C5A572]" />
-                    <span>Response within 1 hour</span>
-                  </li>
-                  <li className="flex items-center gap-3 text-gray-200">
-                    <CheckCircle2 className="h-5 w-5 text-[#C5A572]" />
-                    <span>Personalized recommendations</span>
-                  </li>
-                  <li className="flex items-center gap-3 text-gray-200">
-                    <CheckCircle2 className="h-5 w-5 text-[#C5A572]" />
-                    <span>Transparent pricing</span>
-                  </li>
-                  <li className="flex items-center gap-3 text-gray-200">
-                    <CheckCircle2 className="h-5 w-5 text-[#C5A572]" />
-                    <span>No hidden fees</span>
-                  </li>
-                </ul>
-              </div>
-
-              <Card className="bg-white">
-                <CardHeader>
-                  <CardTitle className="text-2xl">Request Your Quote</CardTitle>
-                  <CardDescription>Fill out the form and we'll get back to you quickly</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <form onSubmit={handleSubmit} className="space-y-4">
-                    <div className="space-y-2">
-                      <Label htmlFor="name">Your Name</Label>
-                      <div className="relative">
-                        <User className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                        <Input
-                          id="name"
-                          placeholder="John Smith"
-                          value={formData.name}
-                          onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                          className="pl-10"
-                          required
-                          data-testid="input-name"
-                        />
-                      </div>
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="email">Email Address</Label>
-                      <div className="relative">
-                        <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                        <Input
-                          id="email"
-                          type="email"
-                          placeholder="john@example.com"
-                          value={formData.email}
-                          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                          className="pl-10"
-                          required
-                          data-testid="input-email"
-                        />
-                      </div>
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="phone">Phone Number</Label>
-                      <div className="relative">
-                        <Phone className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                        <Input
-                          id="phone"
-                          type="tel"
-                          placeholder="604-XXX-XXXX"
-                          value={formData.phone}
-                          onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                          className="pl-10"
-                          required
-                          data-testid="input-phone"
-                        />
-                      </div>
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="message">What do you need to store?</Label>
-                      <div className="relative">
-                        <MessageSquare className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
-                        <Textarea
-                          id="message"
-                          placeholder="Describe your storage needs, items to store, approximate duration..."
-                          value={formData.message}
-                          onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                          className="pl-10 min-h-[100px] resize-none"
-                          required
-                          data-testid="input-message"
-                        />
-                      </div>
-                    </div>
-                    <Button 
-                      type="submit" 
-                      className="w-full bg-[#C5A572] hover:bg-[#B8956A] text-white"
-                      data-testid="button-submit-quote"
-                      disabled={isSubmitting}
-                    >
-                      {isSubmitting ? (
-                        <>
-                          <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                          Submitting...
-                        </>
-                      ) : (
-                        <>
-                          Get Free Quote
-                          <ArrowRight className="ml-2 h-4 w-4" />
-                        </>
-                      )}
-                    </Button>
-                  </form>
-                </CardContent>
-              </Card>
-            </div>
+        {/* CTA Section */}
+        <section className="py-16 md:py-20 bg-gradient-to-r from-primary via-amber-500 to-primary relative overflow-hidden">
+          <div className="absolute inset-0 opacity-10">
+            <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl" />
+            <div className="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl" />
           </div>
-        </section>
-
-        {/* Final CTA */}
-        <section className="py-16 md:py-24 bg-accent/30">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl md:text-5xl font-bold mb-6">
-              Ready to Store with Confidence?
+          
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <div className="inline-flex items-center gap-2 bg-[#1A2332]/20 backdrop-blur rounded-full px-4 py-2 mb-6">
+              <Sparkles className="h-4 w-4 text-[#1A2332]" />
+              <span className="text-[#1A2332] font-semibold text-sm">Free No-Obligation Quote</span>
+            </div>
+            
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-[#1A2332] mb-6">
+              Ready to Store?
             </h2>
-            <p className="text-xl text-muted-foreground mb-8">
-              Secure, climate-controlled storage with flexible terms. Call us today for your free quote.
+            
+            <p className="text-xl text-[#1A2332]/80 mb-8 max-w-2xl mx-auto">
+              Get secure, climate-controlled storage with pickup and delivery. Your belongings are safe with us.
             </p>
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/book">
-                <Button 
-                  size="lg" 
-                  className="bg-[#C5A572] hover:bg-[#B8956A] text-white text-base px-8"
-                  data-testid="button-final-cta-quote"
-                >
-                  Get Storage Quote
+                <Button size="lg" className="bg-[#1A2332] hover:bg-[#1A2332]/90 text-white text-lg font-bold px-10 py-7 shadow-xl" data-testid="button-cta-quote">
+                  Get Free Quote
+                  <ArrowRight className="h-5 w-5 ml-2" />
                 </Button>
               </Link>
               <a href="tel:604-616-6066">
-                <Button 
-                  size="lg" 
-                  variant="outline" 
-                  className="text-base px-8"
-                  data-testid="button-final-cta-call"
-                >
+                <Button size="lg" variant="outline" className="border-2 border-[#1A2332] text-[#1A2332] hover:bg-[#1A2332] hover:text-white text-lg font-bold px-10 py-7" data-testid="button-cta-call">
                   <Phone className="h-5 w-5 mr-2" />
                   604-616-6066
                 </Button>
