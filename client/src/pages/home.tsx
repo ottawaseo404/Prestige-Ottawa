@@ -336,13 +336,13 @@ export default function Home() {
   return (
     <>
       <Helmet>
-        <title>Vancouver Moving Company | #1 Rated Movers | Prestige Moving Vancouver</title>
-        <meta name="description" content="Vancouver's top-rated moving company. Residential, commercial, long-distance moves. 5-star Google rating, fully insured, professional movers you can trust. Free estimates. Call 604-616-6066!" />
-        <meta name="keywords" content="Vancouver moving company, movers Vancouver BC, residential movers, commercial movers, long distance moving, piano movers Vancouver, office relocation Vancouver, best movers Vancouver, affordable moving company, professional movers BC" />
+        <title>Vancouver Movers | #1 Rated Moving Company in BC | Prestige Moving Vancouver</title>
+        <meta name="description" content="Looking for reliable Vancouver movers? Prestige Moving is Vancouver's top-rated moving company with 5-star Google reviews. Professional residential, commercial, and long-distance movers. WorkSafe BC certified, fully insured. Free estimates - Call 604-616-6066!" />
+        <meta name="keywords" content="Vancouver movers, movers Vancouver, Vancouver moving company, movers in Vancouver BC, best movers Vancouver, affordable Vancouver movers, professional movers Vancouver, residential movers Vancouver, commercial movers Vancouver, local movers Vancouver, moving company Vancouver BC" />
         <meta name="robots" content="index, follow" />
         <meta name="author" content="Prestige Moving Vancouver" />
-        <meta property="og:title" content="Prestige Moving Vancouver | #1 Rated Moving Company in Vancouver BC" />
-        <meta property="og:description" content="Vancouver's most trusted moving company. Professional movers you can trust. 5-star rating, fully insured. Residential, commercial, specialty moves. Free quotes!" />
+        <meta property="og:title" content="Vancouver Movers | #1 Rated Moving Company | Prestige Moving" />
+        <meta property="og:description" content="Looking for Vancouver movers? Prestige Moving is the top-rated moving company in Vancouver BC. Professional residential, commercial, and long-distance movers. 5-star rated, WorkSafe BC certified. Get your free quote!" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://vancouver.prestigemoving.ca" />
         <meta property="og:site_name" content="Prestige Moving Vancouver" />
@@ -351,8 +351,8 @@ export default function Home() {
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Prestige Moving Vancouver | Top-Rated Movers" />
-        <meta name="twitter:description" content="Vancouver's premier moving company. 5-star rated, fully insured, 15+ years experience. Get your free quote today!" />
+        <meta name="twitter:title" content="Vancouver Movers | Prestige Moving - Top-Rated Moving Company" />
+        <meta name="twitter:description" content="Need Vancouver movers? Prestige Moving is the city's premier moving company. 5-star rated, WorkSafe BC certified, 15+ years experience. Get your free quote!" />
         <meta name="twitter:image" content="https://vancouver.prestigemoving.ca/og-image.png" />
         <link rel="canonical" href="https://vancouver.prestigemoving.ca" />
         <meta name="geo.region" content="CA-BC" />
@@ -1202,13 +1202,13 @@ export default function Home() {
           <div className="text-center mb-16">
             <Badge className="bg-[#1A2332] text-white mb-4 px-4 py-1.5">
               <Sparkles className="h-4 w-4 mr-2" />
-              12 Professional Services
+              Vancouver's Top-Rated Movers
             </Badge>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-[#1A2332] mb-6">
-              Our Moving <span className="text-primary">Services</span>
+              Professional <span className="text-primary">Vancouver Movers</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              From local apartment moves to cross-country relocations, we offer comprehensive moving solutions tailored to your unique needs.
+              As Vancouver's most trusted moving company, we provide comprehensive residential and commercial moving services across Metro Vancouver, the Lower Mainland, and all of British Columbia.
             </p>
           </div>
 
@@ -1347,6 +1347,103 @@ export default function Home() {
                 <ArrowRight className="h-5 w-5 ml-2" />
               </Button>
             </Link>
+          </div>
+
+          {/* SEO Content Section - Vancouver Movers */}
+          <div className="mt-20 border-t border-gray-200 pt-16">
+            <div className="grid lg:grid-cols-2 gap-12 items-start">
+              <div>
+                <h3 className="text-2xl md:text-3xl font-bold text-[#1A2332] mb-6">
+                  Why Choose Prestige as Your Vancouver Movers?
+                </h3>
+                <div className="prose prose-lg max-w-none text-gray-600">
+                  <p>
+                    When searching for <strong>Vancouver movers</strong> you can trust, Prestige Moving stands out as the premier choice for residential and commercial relocations. With over 15 years of experience serving the Greater Vancouver Area, we've built our reputation on reliability, professionalism, and exceptional customer care.
+                  </p>
+                  <p>
+                    Our team of <strong>professional movers in Vancouver</strong> handles everything from small apartment moves in downtown Vancouver to large family home relocations in the suburbs. Whether you're moving within Vancouver, relocating to Burnaby, Richmond, North Vancouver, or anywhere across British Columbia, our experienced crews ensure your belongings arrive safely and on time.
+                  </p>
+                  <p>
+                    As a locally-owned <strong>Vancouver moving company</strong>, we understand the unique challenges of moving in our city—from navigating narrow downtown streets to coordinating elevator bookings in high-rise buildings. We handle all the logistics so you can focus on settling into your new home.
+                  </p>
+                </div>
+              </div>
+              <div>
+                <h3 className="text-2xl md:text-3xl font-bold text-[#1A2332] mb-6">
+                  Full-Service Moving Solutions in Vancouver
+                </h3>
+                <div className="prose prose-lg max-w-none text-gray-600">
+                  <p>
+                    Our comprehensive <strong>moving services in Vancouver</strong> include professional packing, secure loading, careful transportation, and efficient unpacking at your destination. We use high-quality packing materials and industry-leading techniques to protect your furniture, electronics, and cherished belongings.
+                  </p>
+                  <p>
+                    What sets us apart from other <strong>Vancouver movers</strong> is our commitment to transparency and customer satisfaction. We provide detailed, upfront quotes with no hidden fees, and our WorkSafe BC certified team treats every item with the care it deserves. From antiques and pianos to office equipment and hot tubs, we have the expertise to move it all.
+                  </p>
+                  <p>
+                    Need <strong>affordable movers in Vancouver</strong>? We offer competitive rates without compromising on quality. Our flexible scheduling includes evening and weekend moves to accommodate your busy lifestyle, and we're available for last-minute relocations when you need us most.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Service Areas */}
+            <div className="mt-12 bg-[#1A2332] rounded-3xl p-8 md:p-12">
+              <h3 className="text-2xl md:text-3xl font-bold text-white mb-6 text-center">
+                Areas We Serve as Vancouver's Trusted Movers
+              </h3>
+              <p className="text-white/70 text-center max-w-3xl mx-auto mb-8">
+                Our <strong className="text-white">Vancouver moving company</strong> provides professional moving services throughout the Lower Mainland and beyond. We regularly serve the following communities:
+              </p>
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 text-center">
+                {[
+                  "Downtown Vancouver", "Kitsilano", "Yaletown", "West End",
+                  "North Vancouver", "West Vancouver", "Burnaby", "Richmond",
+                  "Coquitlam", "Surrey", "New Westminster", "Port Moody",
+                  "Langley", "Delta", "White Rock", "Maple Ridge",
+                  "Port Coquitlam", "Abbotsford"
+                ].map((area) => (
+                  <div key={area} className="bg-white/10 rounded-xl px-4 py-3 text-white/90 text-sm font-medium hover:bg-white/20 transition-colors">
+                    {area}
+                  </div>
+                ))}
+              </div>
+              <div className="text-center mt-8">
+                <p className="text-white/60 text-sm">
+                  Don't see your area? We service all of British Columbia including long-distance moves across Canada.
+                </p>
+              </div>
+            </div>
+
+            {/* Additional SEO Content */}
+            <div className="mt-12 grid md:grid-cols-3 gap-8">
+              <div className="bg-gray-50 rounded-2xl p-6">
+                <div className="h-12 w-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
+                  <TruckIcon className="h-6 w-6 text-primary" />
+                </div>
+                <h4 className="text-lg font-bold text-[#1A2332] mb-3">Local Vancouver Movers</h4>
+                <p className="text-gray-600 text-sm">
+                  For local moves within Vancouver and the Lower Mainland, our teams provide same-day service with hourly rates starting at competitive prices. We know the city inside and out, ensuring efficient routes and timely delivery.
+                </p>
+              </div>
+              <div className="bg-gray-50 rounded-2xl p-6">
+                <div className="h-12 w-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
+                  <MapPin className="h-6 w-6 text-primary" />
+                </div>
+                <h4 className="text-lg font-bold text-[#1A2332] mb-3">Long Distance Moving from Vancouver</h4>
+                <p className="text-gray-600 text-sm">
+                  Moving out of Vancouver? Our long-distance moving services connect you to destinations across British Columbia, Alberta, and all of Canada. GPS tracking keeps you informed every step of the way.
+                </p>
+              </div>
+              <div className="bg-gray-50 rounded-2xl p-6">
+                <div className="h-12 w-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
+                  <Building2 className="h-6 w-6 text-primary" />
+                </div>
+                <h4 className="text-lg font-bold text-[#1A2332] mb-3">Commercial Movers Vancouver</h4>
+                <p className="text-gray-600 text-sm">
+                  Office relocations require precision and minimal downtime. Our commercial moving team specializes in after-hours and weekend moves, IT equipment handling, and complete project management.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
