@@ -33,8 +33,7 @@ import { useToast } from "@/hooks/use-toast";
 import { Helmet } from "react-helmet";
 import { SiFacebook, SiInstagram, SiLinkedin, SiYoutube } from "react-icons/si";
 import logoUrl from "@assets/originalonglogo_1763689606978.png";
-import heroImage from "@assets/generated_images/long_distance_moving_truck_highway.png";
-import { useHeroVideo, getDefaultVideoForPage } from "@/hooks/use-hero-video";
+import { useHeroVideo } from "@/hooks/use-hero-video";
 import residentialImage from "@assets/truck1_1764291781341.jpeg";
 import commercialImage from "@assets/commercial_1764347548715.jpeg";
 import longDistanceImage from "@assets/longdistance moving_1764348335754.jpg";
@@ -54,11 +53,11 @@ export default function Home() {
   const [reviewIndex, setReviewIndex] = useState(0);
   const [heroVideoIndex, setHeroVideoIndex] = useState(0);
   
-  // Fetch dynamic hero videos from admin settings
+  // Fetch hero videos from admin database (only BC Ferry videos configured)
   const { videoUrls, autoRotate, rotationInterval, isLoading: heroLoading } = useHeroVideo("home");
   
-  // Use dynamic videos or fall back to defaults
-  const heroVideos = videoUrls.length > 0 ? videoUrls : getDefaultVideoForPage("home");
+  // Use videos from admin database only
+  const heroVideos = videoUrls;
 
   // Google Reviews data - 50 reviews
   const reviewsList = [
@@ -633,7 +632,7 @@ export default function Home() {
       {/* Hero Section - Full Bleed Dramatic with Video Background Slider */}
       <section className="relative min-h-[600px] md:min-h-[85vh] flex items-center overflow-hidden pb-32 md:pb-24">
         <div className="absolute inset-0">
-          {/* Video Background Slider */}
+          {/* Video Background Slider - BC Ferry Videos from Admin Database */}
           {heroVideos.map((video, index) => (
             <video 
               key={index}
@@ -641,7 +640,6 @@ export default function Home() {
               muted 
               loop 
               playsInline
-              poster={heroImage}
               className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
                 index === heroVideoIndex ? 'opacity-100' : 'opacity-0'
               }`}
