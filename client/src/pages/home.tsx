@@ -33,7 +33,7 @@ import { useToast } from "@/hooks/use-toast";
 import { Helmet } from "react-helmet";
 import { SiFacebook, SiInstagram, SiLinkedin, SiYoutube } from "react-icons/si";
 import logoUrl from "@assets/originalonglogo_1763689606978.png";
-import heroImage from "@assets/generated_images/vancouver_seabus_ferry_scenic_view.png";
+import heroImage from "@assets/generated_images/long_distance_moving_truck_highway.png";
 import { useHeroVideo, getDefaultVideoForPage } from "@/hooks/use-hero-video";
 import residentialImage from "@assets/truck1_1764291781341.jpeg";
 import commercialImage from "@assets/commercial_1764347548715.jpeg";
