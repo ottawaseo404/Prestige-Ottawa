@@ -1053,26 +1053,30 @@ export default function Home() {
                 </div>
 
                 {/* Desktop Carousel */}
-                <div className="hidden lg:block relative overflow-hidden">
+                <div className="hidden lg:block relative">
                   <div className="flex items-center gap-4">
                     <button 
                       onClick={() => setReviewIndex((prev) => (prev - 1 + reviewsList.length) % reviewsList.length)}
-                      className="flex-shrink-0 w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors"
+                      className="flex-shrink-0 w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors z-10"
                       aria-label="Previous review"
                       data-testid="button-review-prev"
                     >
                       <ChevronLeft className="h-5 w-5 text-gray-600" />
                     </button>
 
-                    <div className="flex-1 overflow-hidden">
+                    <div className="flex-1 overflow-hidden rounded-xl">
                       <div 
-                        className="flex transition-transform duration-500 ease-in-out gap-4"
-                        style={{ transform: `translateX(-${reviewIndex * (100 / 3)}%)` }}
+                        className="flex transition-transform duration-500 ease-in-out"
+                        style={{ 
+                          transform: `translateX(calc(-${reviewIndex} * (33.333% + 0.5rem)))`,
+                          gap: '1rem'
+                        }}
                       >
                         {reviewsList.map((review, index) => (
                           <div 
                             key={index}
-                            className="flex-shrink-0 w-[calc(33.333%-1rem)] bg-white rounded-xl border border-gray-200 p-4 hover:shadow-lg transition-shadow"
+                            className="flex-shrink-0 bg-white rounded-xl border border-gray-200 p-4 hover:shadow-lg transition-shadow"
+                            style={{ width: 'calc(33.333% - 0.667rem)' }}
                           >
                             <div className="flex items-start gap-3 mb-3">
                               <div 
@@ -1107,7 +1111,7 @@ export default function Home() {
 
                     <button 
                       onClick={() => setReviewIndex((prev) => (prev + 1) % reviewsList.length)}
-                      className="flex-shrink-0 w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors"
+                      className="flex-shrink-0 w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors z-10"
                       aria-label="Next review"
                       data-testid="button-review-next"
                     >
