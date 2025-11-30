@@ -131,8 +131,8 @@ export default function PackingServices() {
           </div>
 
           {/* Hero Content */}
-          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32 flex items-center min-h-[70vh]">
-            <div className="max-w-2xl">
+          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-32 md:py-32 flex items-center min-h-[70vh]">
+            <div className="max-w-2xl pb-20 md:pb-0">
               <Badge className="bg-primary text-[#1A2332] font-bold mb-6 text-sm px-4 py-2">
                 <Package className="h-4 w-4 mr-2" />
                 Packing Services
