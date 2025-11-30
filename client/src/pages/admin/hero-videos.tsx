@@ -69,7 +69,7 @@ export default function AdminHeroVideos() {
   const [previewVideo, setPreviewVideo] = useState<string | null>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  const { data: heroVideos, isLoading } = useQuery<HeroVideo[]>({
+  const { data: heroVideos, isLoading, isFetching } = useQuery<HeroVideo[]>({
     queryKey: ["/api/admin/hero-videos"],
   });
 
@@ -255,6 +255,19 @@ export default function AdminHeroVideos() {
           <p className="text-muted-foreground">Configure hero videos for each page</p>
         </div>
         <div className="flex gap-2">
+          <Button
+            onClick={() => {
+              queryClient.invalidateQueries({ queryKey: ["/api/admin/hero-videos"] });
+              queryClient.invalidateQueries({ queryKey: ["/api/admin/hero-videos/available"] });
+              toast({ title: "Hero videos synced", description: "Data refreshed from database" });
+            }}
+            variant="outline"
+            disabled={isFetching}
+            data-testid="button-sync"
+          >
+            <RefreshCw className={`mr-2 h-4 w-4 ${isFetching ? 'animate-spin' : ''}`} />
+            {isFetching ? 'Syncing...' : 'Sync'}
+          </Button>
           {(!heroVideos || heroVideos.length === 0) && (
             <Button
               onClick={() => initializeMutation.mutate()}
