@@ -1243,7 +1243,7 @@ Provide a detailed cost estimate in JSON format.`;
       const defaultConfigs: Record<string, string[]> = {
         "home": ["/assets/prestigemoving_converted.mp4", "/assets/generated_videos/moving_trucks_bc_mountain_highway.mp4"],
         "commercial-moving": ["/assets/generated_videos/commercial_office_moving_scene.mp4"],
-        "long-distance-moving": ["/assets/generated_videos/moving_trucks_bc_mountain_highway.mp4", "/assets/generated_videos/white_trucks_driving_bc_mountains.mp4"],
+        "long-distance-moving": ["/assets/generated_videos/moving_trucks_bc_mountain_highway.mp4", "/assets/generated_videos/moving_truck_on_scenic_highway.mp4"],
         "piano-moving": ["/assets/generated_videos/grand_piano_professional_moving.mp4"],
         "specialty-item-moving": ["/assets/generated_videos/specialty_item_moving_hot_tub.mp4"],
         "residential-moving": ["/assets/generated_videos/vancouver_residential_movers_with_boxes.mp4"],
