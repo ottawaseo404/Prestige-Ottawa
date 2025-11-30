@@ -630,8 +630,8 @@ export default function Home() {
       </div>
 
       {/* Hero Section - Full Bleed Dramatic with Video Background Slider */}
-      <section className="relative min-h-[600px] md:min-h-[85vh] flex items-center overflow-hidden pb-32 md:pb-24">
-        <div className="absolute inset-0">
+      <section className="relative min-h-[600px] md:min-h-[85vh] flex items-center overflow-hidden pb-32 md:pb-24 bg-[#1A2332]">
+        <div className="absolute inset-0 bg-[#1A2332]">
           {/* Video Background Slider - BC Ferry Videos from Admin Database */}
           {heroVideos.map((video, index) => (
             <video 
@@ -640,9 +640,11 @@ export default function Home() {
               muted 
               loop 
               playsInline
-              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
+              preload="auto"
+              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
                 index === heroVideoIndex ? 'opacity-100' : 'opacity-0'
               }`}
+              style={{ backgroundColor: '#1A2332' }}
               data-testid={`video-hero-background-${index}`}
             >
               <source src={video} type="video/mp4" />
@@ -1052,31 +1054,26 @@ export default function Home() {
                   </div>
                 </div>
 
-                {/* Desktop Carousel */}
+                {/* Desktop Carousel - Show 3 cards at a time */}
                 <div className="hidden lg:block relative">
                   <div className="flex items-center gap-4">
                     <button 
                       onClick={() => setReviewIndex((prev) => (prev - 1 + reviewsList.length) % reviewsList.length)}
-                      className="flex-shrink-0 w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors z-10"
+                      className="flex-shrink-0 w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors"
                       aria-label="Previous review"
                       data-testid="button-review-prev"
                     >
                       <ChevronLeft className="h-5 w-5 text-gray-600" />
                     </button>
 
-                    <div className="flex-1 overflow-hidden rounded-xl">
-                      <div 
-                        className="flex transition-transform duration-500 ease-in-out"
-                        style={{ 
-                          transform: `translateX(calc(-${reviewIndex} * (33.333% + 0.5rem)))`,
-                          gap: '1rem'
-                        }}
-                      >
-                        {reviewsList.map((review, index) => (
+                    <div className="flex-1 grid grid-cols-3 gap-4">
+                      {[0, 1, 2].map((offset) => {
+                        const index = (reviewIndex + offset) % reviewsList.length;
+                        const review = reviewsList[index];
+                        return (
                           <div 
-                            key={index}
-                            className="flex-shrink-0 bg-white rounded-xl border border-gray-200 p-4 hover:shadow-lg transition-shadow"
-                            style={{ width: 'calc(33.333% - 0.667rem)' }}
+                            key={`review-${reviewIndex}-${offset}`}
+                            className="bg-white rounded-xl border border-gray-200 p-4 hover:shadow-lg transition-all duration-300"
                           >
                             <div className="flex items-start gap-3 mb-3">
                               <div 
@@ -1105,8 +1102,8 @@ export default function Home() {
                             </div>
                             <p className="text-sm text-gray-700 line-clamp-3">{review.text}</p>
                           </div>
-                        ))}
-                      </div>
+                        );
+                      })}
                     </div>
 
                     <button 
