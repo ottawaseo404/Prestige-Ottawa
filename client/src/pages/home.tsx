@@ -329,10 +329,10 @@ export default function Home() {
       ]
     },
     "sameAs": [
-      "https://www.facebook.com/PrestigeMovingVancouver",
-      "https://www.instagram.com/prestigemovingvancouver",
-      "https://www.linkedin.com/company/prestige-moving-vancouver",
-      "https://www.youtube.com/@prestigemovingvancouver"
+      "https://www.facebook.com/prestigemoving.ca/",
+      "https://www.instagram.com/movingprestige/",
+      "https://ca.linkedin.com/in/prestige-moving-inc-824520287",
+      "https://www.youtube.com/@PrestigeMovingServicesInc"
     ]
   };
 
@@ -676,7 +676,7 @@ export default function Home() {
               {/* Social Media Icons */}
               <div className="flex items-center gap-3 mb-8">
                 <a 
-                  href="https://www.facebook.com/PrestigeMovingVancouver" 
+                  href="https://www.facebook.com/prestigemoving.ca/" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="group w-10 h-10 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center hover:bg-primary hover:border-primary transition-all duration-300 hover:scale-110"
@@ -686,7 +686,7 @@ export default function Home() {
                   <SiFacebook className="h-4 w-4 text-white group-hover:text-[#1A2332] transition-colors" />
                 </a>
                 <a 
-                  href="https://www.instagram.com/prestigemovingvancouver" 
+                  href="https://www.instagram.com/movingprestige/" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="group w-10 h-10 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center hover:bg-primary hover:border-primary transition-all duration-300 hover:scale-110"
@@ -696,7 +696,7 @@ export default function Home() {
                   <SiInstagram className="h-4 w-4 text-white group-hover:text-[#1A2332] transition-colors" />
                 </a>
                 <a 
-                  href="https://www.linkedin.com/company/prestige-moving-vancouver" 
+                  href="https://ca.linkedin.com/in/prestige-moving-inc-824520287" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="group w-10 h-10 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center hover:bg-primary hover:border-primary transition-all duration-300 hover:scale-110"
@@ -706,7 +706,7 @@ export default function Home() {
                   <SiLinkedin className="h-4 w-4 text-white group-hover:text-[#1A2332] transition-colors" />
                 </a>
                 <a 
-                  href="https://www.youtube.com/@prestigemovingvancouver" 
+                  href="https://www.youtube.com/@PrestigeMovingServicesInc" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="group w-10 h-10 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center hover:bg-primary hover:border-primary transition-all duration-300 hover:scale-110"
