@@ -50,6 +50,10 @@ import { WorkSafeBadge } from "@/components/worksafe-badge";
 import { useToast } from "@/hooks/use-toast";
 import { apiRequest } from "@/lib/queryClient";
 import pianoVideo from "@assets/generated_videos/grand_piano_professional_moving.mp4";
+import uprightPianoImage from "@assets/generated_images/elegant_upright_piano_photography.png";
+import grandPianoImage from "@assets/generated_images/concert_grand_piano_showcase.png";
+import babyGrandPianoImage from "@assets/generated_images/baby_grand_piano_showcase.png";
+import digitalPianoImage from "@assets/generated_images/modern_digital_piano_keyboard.png";
 
 export default function PianoMoving() {
   const { toast } = useToast();
@@ -217,6 +221,7 @@ export default function PianoMoving() {
     {
       title: "Upright Pianos",
       icon: Music,
+      image: uprightPianoImage,
       description: "Professional handling for all upright and console pianos",
       features: ["Full-size uprights (52\")", "Studio uprights (45-48\")", "Console pianos (40-44\")", "Spinet pianos (36-39\")"],
       priceFrom: "$250"
@@ -224,6 +229,7 @@ export default function PianoMoving() {
     {
       title: "Grand Pianos",
       icon: Music,
+      image: grandPianoImage,
       description: "Expert care for concert and parlor grand pianos",
       features: ["Concert grands (9'+)", "Semi-concert (7-8')", "Parlor grands (5'10\"-6')", "Leg & lyre removal"],
       priceFrom: "$600"
@@ -231,6 +237,7 @@ export default function PianoMoving() {
     {
       title: "Baby Grands",
       icon: Music,
+      image: babyGrandPianoImage,
       description: "Specialized transport for baby and petite grand pianos",
       features: ["Baby grands (5-5'8\")", "Petite grands (4'5-5')", "Proper positioning", "Climate protection"],
       priceFrom: "$400"
@@ -238,6 +245,7 @@ export default function PianoMoving() {
     {
       title: "Digital Pianos",
       icon: Music,
+      image: digitalPianoImage,
       description: "Careful handling of electronic instruments and keyboards",
       features: ["Digital grands", "Stage pianos", "Electric pianos", "Keyboard workstations"],
       priceFrom: "$150"
@@ -514,11 +522,16 @@ export default function PianoMoving() {
                   </Link>
                 </div>
                 
-                <div className="relative rounded-2xl overflow-hidden h-[300px] bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
-                  <div className="text-center">
-                    <Music className="h-20 w-20 text-primary mx-auto mb-4" />
+                <div className="relative rounded-2xl overflow-hidden h-[300px] bg-gradient-to-br from-[#1A2332] to-[#2a3545]">
+                  <img 
+                    src={pianoTypes[activeTab].image} 
+                    alt={`${pianoTypes[activeTab].title} - Professional piano moving service`}
+                    className="w-full h-full object-cover"
+                    data-testid={`piano-image-${activeTab}`}
+                  />
+                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
                     <p className="text-white font-semibold text-lg">{pianoTypes[activeTab].title}</p>
-                    <p className="text-white/60">Professional Handling</p>
+                    <p className="text-white/60 text-sm">Professional Handling</p>
                   </div>
                 </div>
               </div>
