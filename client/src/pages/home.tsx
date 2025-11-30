@@ -272,8 +272,9 @@ export default function Home() {
     "@context": "https://schema.org",
     "@type": "MovingCompany",
     "name": "Prestige Moving Vancouver",
+    "alternateName": ["Vancouver Movers", "Movers Vancouver", "Greater Vancouver Movers"],
     "image": "https://vancouver.prestigemoving.ca/logo.png",
-    "description": "Vancouver's premier moving company offering residential, commercial, long-distance, and specialty moving services. Fully insured, 5-star rated, 15+ years experience.",
+    "description": "Vancouver movers you can trust. Prestige Moving is Greater Vancouver's premier moving company serving Vancouver, North Vancouver, Burnaby, Richmond, Surrey & all of Metro Vancouver. Professional movers in Vancouver with 337 five-star Google reviews. WorkSafe BC certified, fully insured. Residential, commercial, and long-distance movers.",
     "url": "https://vancouver.prestigemoving.ca",
     "telephone": "604-616-6066",
     "email": "vancouver@prestigemoving.ca",
@@ -300,12 +301,34 @@ export default function Home() {
     },
     "areaServed": [
       { "@type": "City", "name": "Vancouver" },
+      { "@type": "City", "name": "North Vancouver" },
+      { "@type": "City", "name": "West Vancouver" },
       { "@type": "City", "name": "Burnaby" },
       { "@type": "City", "name": "Richmond" },
       { "@type": "City", "name": "Surrey" },
-      { "@type": "City", "name": "North Vancouver" },
-      { "@type": "City", "name": "Coquitlam" }
+      { "@type": "City", "name": "Coquitlam" },
+      { "@type": "City", "name": "Port Coquitlam" },
+      { "@type": "City", "name": "Port Moody" },
+      { "@type": "City", "name": "New Westminster" },
+      { "@type": "City", "name": "Delta" },
+      { "@type": "City", "name": "Langley" },
+      { "@type": "City", "name": "Maple Ridge" },
+      { "@type": "City", "name": "White Rock" },
+      { "@type": "AdministrativeArea", "name": "Greater Vancouver" },
+      { "@type": "AdministrativeArea", "name": "Metro Vancouver" },
+      { "@type": "AdministrativeArea", "name": "Lower Mainland" }
     ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Vancouver Moving Services",
+      "itemListElement": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Residential Moving Vancouver" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Commercial Moving Vancouver" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Long Distance Moving" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "North Vancouver Movers" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Greater Vancouver Movers" } }
+      ]
+    },
     "sameAs": [
       "https://www.facebook.com/PrestigeMovingVancouver",
       "https://www.instagram.com/prestigemovingvancouver",
@@ -336,13 +359,13 @@ export default function Home() {
   return (
     <>
       <Helmet>
-        <title>Vancouver Movers | #1 Rated Moving Company in BC | Prestige Moving Vancouver</title>
-        <meta name="description" content="Looking for reliable Vancouver movers? Prestige Moving is Vancouver's top-rated moving company with 5-star Google reviews. Professional residential, commercial, and long-distance movers. WorkSafe BC certified, fully insured. Free estimates - Call 604-616-6066!" />
-        <meta name="keywords" content="Vancouver movers, movers Vancouver, Vancouver moving company, movers in Vancouver BC, best movers Vancouver, affordable Vancouver movers, professional movers Vancouver, residential movers Vancouver, commercial movers Vancouver, local movers Vancouver, moving company Vancouver BC" />
+        <title>Movers Vancouver | Vancouver Movers | Greater Vancouver Moving Company | Prestige Moving</title>
+        <meta name="description" content="Movers Vancouver - Top-rated Vancouver movers serving Greater Vancouver & North Vancouver. Professional movers in Vancouver with 5-star reviews. WorkSafe BC certified. Residential, commercial & long-distance moving. Free estimates - Call 604-616-6066!" />
+        <meta name="keywords" content="movers vancouver, vancouver movers, greater vancouver movers, movers north vancouver, movers in vancouver, vancouver moving company, north vancouver movers, best movers vancouver, professional movers vancouver BC, local movers vancouver, affordable vancouver movers, residential movers vancouver, commercial movers vancouver, moving company greater vancouver, burnaby movers, richmond movers, surrey movers, coquitlam movers" />
         <meta name="robots" content="index, follow" />
         <meta name="author" content="Prestige Moving Vancouver" />
-        <meta property="og:title" content="Vancouver Movers | #1 Rated Moving Company | Prestige Moving" />
-        <meta property="og:description" content="Looking for Vancouver movers? Prestige Moving is the top-rated moving company in Vancouver BC. Professional residential, commercial, and long-distance movers. 5-star rated, WorkSafe BC certified. Get your free quote!" />
+        <meta property="og:title" content="Movers Vancouver | Vancouver Movers | #1 Rated Moving Company" />
+        <meta property="og:description" content="Vancouver movers you can trust! Prestige Moving serves Greater Vancouver & North Vancouver. Professional movers in Vancouver with 337 five-star reviews. WorkSafe BC certified. Get your free quote today!" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://vancouver.prestigemoving.ca" />
         <meta property="og:site_name" content="Prestige Moving Vancouver" />
@@ -351,8 +374,8 @@ export default function Home() {
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Vancouver Movers | Prestige Moving - Top-Rated Moving Company" />
-        <meta name="twitter:description" content="Need Vancouver movers? Prestige Moving is the city's premier moving company. 5-star rated, WorkSafe BC certified, 15+ years experience. Get your free quote!" />
+        <meta name="twitter:title" content="Movers Vancouver | Vancouver Movers | Prestige Moving" />
+        <meta name="twitter:description" content="Looking for movers in Vancouver? Prestige Moving is the top-rated Vancouver moving company. Greater Vancouver & North Vancouver movers. 5-star rated, WorkSafe BC certified. Free quote!" />
         <meta name="twitter:image" content="https://vancouver.prestigemoving.ca/og-image.png" />
         <link rel="canonical" href="https://vancouver.prestigemoving.ca" />
         <meta name="geo.region" content="CA-BC" />
@@ -698,16 +721,16 @@ export default function Home() {
 
               <div className="inline-flex items-center gap-2 bg-primary/20 border border-primary/40 rounded-full px-4 py-2 mb-6" data-testid="badge-experience">
                 <Award className="h-5 w-5 text-primary" />
-                <span className="text-primary font-semibold text-sm md:text-base">Vancouver's Most Trusted Movers</span>
+                <span className="text-primary font-semibold text-sm md:text-base">#1 Movers in Vancouver & Greater Vancouver</span>
               </div>
               
               <h1 className="text-4xl sm:text-5xl md:text-6xl font-black text-white mb-6 leading-tight tracking-tight">
-                Your Premium<br />
-                <span className="text-primary">Moving Specialists</span>
+                Vancouver Movers<br />
+                <span className="text-primary">You Can Trust</span>
               </h1>
               
               <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed">
-                Over 10,000 successful moves across Vancouver. Professional movers, transparent pricing, and complete peace of mind.
+                Over 10,000 successful moves across Greater Vancouver. Professional movers in Vancouver, North Vancouver, Burnaby, Richmond & beyond. Transparent pricing, complete peace of mind.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-3">
@@ -1202,13 +1225,13 @@ export default function Home() {
           <div className="text-center mb-16">
             <Badge className="bg-[#1A2332] text-white mb-4 px-4 py-1.5">
               <Sparkles className="h-4 w-4 mr-2" />
-              Vancouver's Top-Rated Movers
+              Greater Vancouver's Top-Rated Moving Company
             </Badge>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-[#1A2332] mb-6">
-              Professional <span className="text-primary">Vancouver Movers</span>
+              Professional <span className="text-primary">Movers in Vancouver</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              As Vancouver's most trusted moving company, we provide comprehensive residential and commercial moving services across Metro Vancouver, the Lower Mainland, and all of British Columbia.
+              Looking for <strong className="text-[#1A2332]">movers Vancouver</strong> residents trust? Prestige Moving provides professional moving services across Greater Vancouver, North Vancouver, Burnaby, Richmond, and all of Metro Vancouver. Full-service <strong className="text-[#1A2332]">Vancouver movers</strong> for residential and commercial relocations.
             </p>
           </div>
 
@@ -1457,10 +1480,10 @@ export default function Home() {
                 About Prestige Moving
               </Badge>
               <h2 className="text-4xl md:text-5xl font-black text-white mb-6">
-                Vancouver's Premier Moving Company
+                Greater Vancouver Movers You Can Trust
               </h2>
               <p className="text-lg text-white/70 mb-8 leading-relaxed">
-                Prestige Moving Vancouver has been helping families and businesses relocate with care and professionalism. We own our fleet of trucks and employ a trained team of moving specialists who treat every move as if it were their own.
+                As the top-rated <strong className="text-white">movers in Vancouver</strong>, Prestige Moving has been helping families and businesses relocate with care and professionalism. Our team of <strong className="text-white">Vancouver movers</strong> owns our fleet of trucks and treats every move as if it were their own. Serving Greater Vancouver, North Vancouver, and all of Metro Vancouver.
               </p>
               
               <div className="space-y-4 mb-8">
