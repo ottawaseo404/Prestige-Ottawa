@@ -94,8 +94,12 @@ export default function AdminHeroVideos() {
 
   const createMutation = useMutation({
     mutationFn: (data: any) => apiRequest("POST", "/api/admin/hero-videos", data),
-    onSuccess: () => {
+    onSuccess: (_, variables: any) => {
       queryClient.invalidateQueries({ queryKey: ["/api/admin/hero-videos"] });
+      // Also invalidate public-facing hero video query for immediate update
+      if (variables.pageSlug) {
+        queryClient.invalidateQueries({ queryKey: ["/api/hero-videos", variables.pageSlug] });
+      }
       setIsCreating(false);
       resetForm();
       toast({ title: "Hero video configuration created" });
@@ -110,10 +114,16 @@ export default function AdminHeroVideos() {
   });
 
   const updateMutation = useMutation({
-    mutationFn: ({ id, data }: { id: string; data: any }) => 
+    mutationFn: ({ id, data, pageSlug }: { id: string; data: any; pageSlug?: string }) => 
       apiRequest("PATCH", `/api/admin/hero-videos/${id}`, data),
-    onSuccess: () => {
+    onSuccess: (_, variables) => {
       queryClient.invalidateQueries({ queryKey: ["/api/admin/hero-videos"] });
+      // Also invalidate public-facing hero video query for immediate update
+      if (variables.pageSlug) {
+        queryClient.invalidateQueries({ queryKey: ["/api/hero-videos", variables.pageSlug] });
+      }
+      // Also invalidate all hero-videos queries to be safe
+      queryClient.invalidateQueries({ queryKey: ["/api/hero-videos"] });
       setEditingVideo(null);
       resetForm();
       toast({ title: "Hero video configuration updated" });
@@ -128,9 +138,14 @@ export default function AdminHeroVideos() {
   });
 
   const deleteMutation = useMutation({
-    mutationFn: (id: string) => apiRequest("DELETE", `/api/admin/hero-videos/${id}`),
-    onSuccess: () => {
+    mutationFn: ({ id, pageSlug }: { id: string; pageSlug?: string }) => apiRequest("DELETE", `/api/admin/hero-videos/${id}`),
+    onSuccess: (_, variables) => {
       queryClient.invalidateQueries({ queryKey: ["/api/admin/hero-videos"] });
+      // Also invalidate public-facing hero video query
+      if (variables.pageSlug) {
+        queryClient.invalidateQueries({ queryKey: ["/api/hero-videos", variables.pageSlug] });
+      }
+      queryClient.invalidateQueries({ queryKey: ["/api/hero-videos"] });
       toast({ title: "Hero video configuration deleted" });
     },
     onError: (error: any) => {
@@ -180,7 +195,7 @@ export default function AdminHeroVideos() {
     };
 
     if (editingVideo) {
-      updateMutation.mutate({ id: editingVideo.id, data });
+      updateMutation.mutate({ id: editingVideo.id, data, pageSlug: editingVideo.pageSlug });
     } else if (isCreating && newPageSlug) {
       const page = availableData?.pages.find(p => p.slug === newPageSlug);
       if (page) {
@@ -337,7 +352,7 @@ export default function AdminHeroVideos() {
                   <Button
                     variant="outline"
                     size="icon"
-                    onClick={() => deleteMutation.mutate(video.id)}
+                    onClick={() => deleteMutation.mutate({ id: video.id, pageSlug: video.pageSlug })}
                     data-testid={`button-delete-${video.id}`}
                   >
                     <Trash2 className="h-4 w-4 text-destructive" />

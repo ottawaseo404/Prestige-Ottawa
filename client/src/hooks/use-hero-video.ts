@@ -21,7 +21,7 @@ export function useHeroVideo(pageSlug: string) {
         return null;
       }
     },
-    staleTime: 1000 * 60 * 5, // Cache for 5 minutes
+    staleTime: 1000 * 30, // Cache for 30 seconds - allows quick updates from admin
     retry: false, // Don't retry 404s
   });
 
