@@ -38,20 +38,20 @@ export function useHeroVideo(pageSlug: string) {
 
 export function getDefaultVideoForPage(pageSlug: string): string[] {
   const defaultVideos: Record<string, string[]> = {
-    "home": ["/assets/prestigemoving_converted.mp4", "/assets/generated_videos/moving_trucks_bc_mountain_highway.mp4"],
-    "commercial-moving": ["/assets/generated_videos/commercial_office_moving_scene.mp4"],
-    "long-distance-moving": ["/assets/generated_videos/moving_trucks_bc_mountain_highway.mp4", "/assets/generated_videos/moving_truck_on_scenic_highway.mp4"],
-    "piano-moving": ["/assets/generated_videos/grand_piano_professional_moving.mp4"],
-    "specialty-item-moving": ["/assets/generated_videos/specialty_item_moving_hot_tub.mp4"],
-    "residential-moving": ["/assets/generated_videos/vancouver_residential_movers_with_boxes.mp4"],
-    "packing-services": ["/assets/generated_videos/professional_packing_services_vancouver.mp4"],
-    "storage-solutions": ["/assets/generated_videos/climate_controlled_storage_facility.mp4"],
-    "senior-moving": ["/assets/generated_videos/senior_moving_compassionate_service.mp4"],
-    "student-moving": ["/assets/generated_videos/student_moving_vancouver_campus.mp4"],
-    "military-moving": ["/assets/generated_videos/military_pcs_moving_relocation.mp4"],
-    "antique-moving": ["/assets/generated_videos/antique_furniture_moving_care.mp4"],
-    "moving-supplies": ["/assets/generated_videos/moving_supplies_delivery_vancouver.mp4"],
+    "home": ["/attached_assets/prestigemoving_converted.mp4", "/attached_assets/generated_videos/moving_trucks_bc_mountain_highway.mp4", "/attached_assets/generated_videos/white_trucks_driving_bc_mountains.mp4"],
+    "commercial-moving": ["/attached_assets/commercial_moving_video.mp4", "/attached_assets/generated_videos/commercial_office_moving_scene.mp4"],
+    "long-distance-moving": ["/attached_assets/generated_videos/moving_trucks_bc_mountain_highway.mp4", "/attached_assets/generated_videos/moving_truck_on_scenic_highway.mp4"],
+    "piano-moving": ["/attached_assets/generated_videos/grand_piano_professional_moving.mp4"],
+    "specialty-item-moving": ["/attached_assets/generated_videos/specialty_item_moving_hot_tub.mp4"],
+    "residential-moving": ["/attached_assets/residential_moving_video.mp4", "/attached_assets/generated_videos/vancouver_residential_movers_with_boxes.mp4"],
+    "packing-services": ["/attached_assets/generated_videos/professional_packing_services_vancouver.mp4"],
+    "storage-solutions": ["/attached_assets/generated_videos/climate_controlled_storage_facility.mp4"],
+    "senior-moving": ["/attached_assets/generated_videos/senior_moving_compassionate_service.mp4"],
+    "student-moving": ["/attached_assets/generated_videos/student_moving_vancouver_campus.mp4"],
+    "military-moving": ["/attached_assets/generated_videos/military_pcs_moving_relocation.mp4"],
+    "antique-moving": ["/attached_assets/generated_videos/antique_furniture_moving_care.mp4"],
+    "moving-supplies": ["/attached_assets/generated_videos/moving_supplies_delivery_vancouver.mp4"],
   };
   
-  return defaultVideos[pageSlug] || ["/assets/prestigemoving_converted.mp4"];
+  return defaultVideos[pageSlug] || ["/attached_assets/prestigemoving_converted.mp4"];
 }

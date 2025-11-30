@@ -1,9 +1,13 @@
 import express, { type Request, Response, NextFunction } from "express";
 import session from "express-session";
+import path from "path";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
 
 const app = express();
+
+// Serve attached_assets folder for hero videos and other media
+app.use('/attached_assets', express.static(path.join(process.cwd(), 'attached_assets')));
 
 // Trust proxy for Replit environment
 app.set('trust proxy', 1);
