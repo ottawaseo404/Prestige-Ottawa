@@ -67,7 +67,7 @@ export default function Contact() {
         <SharedNavigation />
 
         {/* Hero Section */}
-        <section className="bg-gradient-to-br from-[#1A2332] via-[#1A2332] to-[#2a3a52] py-16 md:py-24">
+        <section className="bg-gradient-to-br from-[#1A2332] via-[#1A2332] to-[#2a3a52] pt-32 md:pt-36 pb-16 md:pb-24">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <Badge className="bg-primary/20 text-primary border-primary/30 mb-4">
               <MessageSquare className="h-3 w-3 mr-1" />
