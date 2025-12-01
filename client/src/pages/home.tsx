@@ -271,9 +271,9 @@ export default function Home() {
     "@context": "https://schema.org",
     "@type": "MovingCompany",
     "name": "Prestige Moving Vancouver",
-    "alternateName": ["Vancouver Movers", "Movers Vancouver", "Greater Vancouver Movers"],
+    "alternateName": ["Vancouver Movers", "Moving Company Vancouver", "Best Movers Vancouver", "Top Movers Vancouver", "Vancouver Moving Company"],
     "image": "https://vancouver.prestigemoving.ca/logo.png",
-    "description": "Vancouver movers you can trust. Prestige Moving is Greater Vancouver's premier moving company serving Vancouver, North Vancouver, Burnaby, Richmond, Surrey & all of Metro Vancouver. Professional movers in Vancouver with 337 five-star Google reviews. WorkSafe BC certified, fully insured. Residential, commercial, and long-distance movers.",
+    "description": "Prestige Moving Vancouver - The best Vancouver movers you can trust. We are the top moving company Vancouver relies on for residential, commercial, and long-distance moves. Best movers Vancouver with 337 five-star Google reviews. Top movers Vancouver - WorkSafe BC certified, fully insured. Vancouver moving company serving all of Greater Vancouver.",
     "url": "https://vancouver.prestigemoving.ca",
     "telephone": "604-616-6066",
     "email": "vancouver@prestigemoving.ca",
@@ -358,13 +358,14 @@ export default function Home() {
   return (
     <>
       <Helmet>
-        <title>Movers Vancouver | Vancouver Movers | Greater Vancouver Moving Company | Prestige Moving</title>
-        <meta name="description" content="Movers Vancouver - Top-rated Vancouver movers serving Greater Vancouver & North Vancouver. Professional movers in Vancouver with 5-star reviews. WorkSafe BC certified. Residential, commercial & long-distance moving. Free estimates - Call 604-616-6066!" />
-        <meta name="keywords" content="movers vancouver, vancouver movers, greater vancouver movers, movers north vancouver, movers in vancouver, vancouver moving company, north vancouver movers, best movers vancouver, professional movers vancouver BC, local movers vancouver, affordable vancouver movers, residential movers vancouver, commercial movers vancouver, moving company greater vancouver, burnaby movers, richmond movers, surrey movers, coquitlam movers" />
-        <meta name="robots" content="index, follow" />
+        <title>Vancouver Movers | Moving Company Vancouver | Best Movers Vancouver | Prestige Moving Vancouver</title>
+        <meta name="description" content="Looking for Vancouver movers? Prestige Moving Vancouver is the top moving company Vancouver trusts. Best movers Vancouver with 337 five-star reviews. Top movers Vancouver for residential, commercial & long-distance moves. Vancouver moving company - WorkSafe BC certified, fully insured. Free estimates - Call 604-616-6066!" />
+        <meta name="keywords" content="vancouver movers, moving company vancouver, best movers vancouver, top movers vancouver, vancouver moving company, movers vancouver, movers in vancouver, vancouver bc movers, professional movers vancouver, local movers vancouver, affordable movers vancouver, residential movers vancouver, commercial movers vancouver, long distance movers vancouver, north vancouver movers, burnaby movers, richmond movers, surrey movers, coquitlam movers, greater vancouver movers" />
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
         <meta name="author" content="Prestige Moving Vancouver" />
-        <meta property="og:title" content="Movers Vancouver | Vancouver Movers | #1 Rated Moving Company" />
-        <meta property="og:description" content="Vancouver movers you can trust! Prestige Moving serves Greater Vancouver & North Vancouver. Professional movers in Vancouver with 337 five-star reviews. WorkSafe BC certified. Get your free quote today!" />
+        <meta name="publisher" content="Prestige Moving Vancouver" />
+        <meta property="og:title" content="Prestige Moving Vancouver | Best Vancouver Movers | Top Moving Company Vancouver" />
+        <meta property="og:description" content="Prestige Moving Vancouver - The best movers Vancouver has to offer! Top-rated Vancouver moving company with 337 five-star Google reviews. Vancouver movers for residential, commercial & long-distance moves. WorkSafe BC certified. Get your free quote today!" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://vancouver.prestigemoving.ca" />
         <meta property="og:site_name" content="Prestige Moving Vancouver" />
@@ -372,13 +373,18 @@ export default function Home() {
         <meta property="og:image" content="https://vancouver.prestigemoving.ca/og-image.png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="Prestige Moving Vancouver - Best Vancouver Movers" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Movers Vancouver | Vancouver Movers | Prestige Moving" />
-        <meta name="twitter:description" content="Looking for movers in Vancouver? Prestige Moving is the top-rated Vancouver moving company. Greater Vancouver & North Vancouver movers. 5-star rated, WorkSafe BC certified. Free quote!" />
+        <meta name="twitter:site" content="@PrestigeMoving" />
+        <meta name="twitter:title" content="Prestige Moving Vancouver | Best Vancouver Movers" />
+        <meta name="twitter:description" content="Top movers Vancouver trusts! Prestige Moving Vancouver is the best moving company Vancouver. 337 five-star reviews, WorkSafe BC certified. Vancouver movers for all your moving needs. Free quote!" />
         <meta name="twitter:image" content="https://vancouver.prestigemoving.ca/og-image.png" />
+        <meta name="twitter:image:alt" content="Prestige Moving Vancouver - Top Vancouver Moving Company" />
         <link rel="canonical" href="https://vancouver.prestigemoving.ca" />
         <meta name="geo.region" content="CA-BC" />
         <meta name="geo.placename" content="Vancouver" />
+        <meta name="geo.position" content="49.2827;-123.1207" />
+        <meta name="ICBM" content="49.2827, -123.1207" />
         <script type="application/ld+json">{JSON.stringify(organizationSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(localBusinessSchema)}</script>
       </Helmet>
