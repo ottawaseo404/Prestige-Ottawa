@@ -37,6 +37,17 @@ app.use(express.json({
 }));
 app.use(express.urlencoded({ extended: false }));
 
+// Cache control middleware - prevent caching of HTML for fresh content
+app.use((req, res, next) => {
+  // Don't cache HTML pages
+  if (req.accepts('html') && !req.path.startsWith('/api') && !req.path.match(/\.(js|css|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|mp4|webm)$/)) {
+    res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+    res.setHeader('Pragma', 'no-cache');
+    res.setHeader('Expires', '0');
+  }
+  next();
+});
+
 app.use((req, res, next) => {
   const start = Date.now();
   const path = req.path;
