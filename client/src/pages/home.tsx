@@ -358,6 +358,7 @@ export default function Home() {
   return (
     <>
       <Helmet>
+        <meta name="google-site-verification" content="qCldQT0CrqE6wxeHt9aTvmBl_fvb9c0qdu1Abn_SSn8" />
         <title>Vancouver Movers | Moving Company Vancouver | Best Movers Vancouver | Prestige Moving Vancouver</title>
         <meta name="description" content="Looking for Vancouver movers? Prestige Moving Vancouver is the top moving company Vancouver trusts. Best movers Vancouver with 337 five-star reviews. Top movers Vancouver for residential, commercial & long-distance moves. Vancouver moving company - WorkSafe BC certified, fully insured. Free estimates - Call 604-616-6066!" />
         <meta name="keywords" content="vancouver movers, moving company vancouver, best movers vancouver, top movers vancouver, vancouver moving company, movers vancouver, movers in vancouver, vancouver bc movers, professional movers vancouver, local movers vancouver, affordable movers vancouver, residential movers vancouver, commercial movers vancouver, long distance movers vancouver, north vancouver movers, burnaby movers, richmond movers, surrey movers, coquitlam movers, greater vancouver movers" />
