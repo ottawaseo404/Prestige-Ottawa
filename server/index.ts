@@ -3,6 +3,7 @@ import session from "express-session";
 import path from "path";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
+import { startBlogScheduler } from "./blog-scheduler";
 
 const app = express();
 
@@ -109,5 +110,8 @@ app.use((req, res, next) => {
     reusePort: true,
   }, () => {
     log(`serving on port ${port}`);
+    
+    // Start the daily blog scheduler
+    startBlogScheduler();
   });
 })();

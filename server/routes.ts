@@ -6,6 +6,7 @@ import { z } from "zod";
 import { fromZodError } from "zod-validation-error";
 import OpenAI from "openai";
 import { generateBlogPost, generateFeaturedImage, generateBlogIdeas } from "./ai-service";
+import { triggerManualGeneration } from "./blog-scheduler";
 
 // Helper functions for user agent parsing
 function getBrowser(userAgent: string): string {
@@ -1126,6 +1127,17 @@ Provide a detailed cost estimate in JSON format.`;
     } catch (error: any) {
       console.error("Error initializing categories:", error);
       res.status(500).json({ message: "Failed to initialize categories" });
+    }
+  });
+
+  // Trigger manual blog generation (generates 2 blogs with AI images)
+  app.post("/api/admin/blog/ai/generate-daily", requireAdmin, async (req, res) => {
+    try {
+      const result = await triggerManualGeneration();
+      res.json(result);
+    } catch (error: any) {
+      console.error("Error triggering blog generation:", error);
+      res.status(500).json({ message: "Failed to trigger blog generation" });
     }
   });
 
