@@ -110,24 +110,24 @@ export default function BlogPostPage() {
     "@type": "BlogPosting",
     "headline": post.title,
     "description": post.metaDescription || post.excerpt,
-    "image": post.featuredImage || "https://vancouver.prestigemoving.ca/og-image.png",
+    "image": post.featuredImage || "https://ottawa.prestigemoving.ca/og-image.png",
     "author": {
       "@type": "Person",
       "name": post.authorName
     },
     "publisher": {
       "@type": "Organization",
-      "name": "Prestige Moving Vancouver",
+      "name": "Prestige Moving Ottawa",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://vancouver.prestigemoving.ca/logo.png"
+        "url": "https://ottawa.prestigemoving.ca/logo.png"
       }
     },
     "datePublished": post.publishedAt || post.createdAt,
     "dateModified": post.updatedAt || post.createdAt,
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": `https://vancouver.prestigemoving.ca/blog/${post.slug}`
+      "@id": `https://ottawa.prestigemoving.ca/blog/${post.slug}`
     },
     "keywords": post.keywords?.join(", ") || ""
   };
@@ -135,16 +135,16 @@ export default function BlogPostPage() {
   return (
     <>
       <Helmet>
-        <title>{post.metaTitle || post.title} | Prestige Moving Vancouver</title>
+        <title>{post.metaTitle || post.title} | Prestige Moving Ottawa</title>
         <meta name="description" content={post.metaDescription || post.excerpt || ""} />
         <meta name="keywords" content={post.keywords?.join(", ") || ""} />
-        <link rel="canonical" href={`https://vancouver.prestigemoving.ca/blog/${post.slug}`} />
+        <link rel="canonical" href={`https://ottawa.prestigemoving.ca/blog/${post.slug}`} />
         
         {/* Open Graph */}
         <meta property="og:title" content={post.metaTitle || post.title} />
         <meta property="og:description" content={post.metaDescription || post.excerpt || ""} />
         <meta property="og:type" content="article" />
-        <meta property="og:url" content={`https://vancouver.prestigemoving.ca/blog/${post.slug}`} />
+        <meta property="og:url" content={`https://ottawa.prestigemoving.ca/blog/${post.slug}`} />
         {post.featuredImage && <meta property="og:image" content={post.featuredImage} />}
         <meta property="article:published_time" content={post.publishedAt?.toString() || post.createdAt.toString()} />
         <meta property="article:author" content={post.authorName || "Prestige Moving Team"} />
@@ -324,7 +324,7 @@ export default function BlogPostPage() {
           <Card className="bg-[#1A2332] text-white p-8 text-center">
             <h2 className="text-2xl font-bold mb-4">Ready to Move?</h2>
             <p className="text-gray-300 mb-6 max-w-xl mx-auto">
-              Get a free quote from Vancouver's most trusted moving company.
+              Get a free quote from Ottawa's most trusted moving company.
             </p>
             <div className="flex gap-4 justify-center flex-wrap">
               <Link href="/book">
@@ -333,9 +333,9 @@ export default function BlogPostPage() {
                   <ArrowRight className="h-4 w-4 ml-2" />
                 </Button>
               </Link>
-              <a href="tel:604-616-6066">
+              <a href="tel:613-555-1234">
                 <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
-                  Call 604-616-6066
+                  Call 613-555-1234
                 </Button>
               </a>
             </div>

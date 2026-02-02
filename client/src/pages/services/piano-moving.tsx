@@ -86,7 +86,7 @@ export default function PianoMoving() {
     } catch (error: any) {
       toast({
         title: "Submission Failed",
-        description: error.message || "Please try again or call us directly at 604-616-6066",
+        description: error.message || "Please try again or call us directly at 613-555-1234",
         variant: "destructive",
       });
     } finally {
@@ -97,17 +97,17 @@ export default function PianoMoving() {
   const schemaData = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": "Piano Moving Services Vancouver",
+    "name": "Piano Moving Services Ottawa",
     "provider": {
       "@type": "MovingCompany",
-      "name": "Prestige Moving Vancouver",
+      "name": "Prestige Moving Ottawa",
       "address": {
         "@type": "PostalAddress",
-        "addressLocality": "Vancouver",
-        "addressRegion": "BC",
+        "addressLocality": "Ottawa",
+        "addressRegion": "ON",
         "addressCountry": "CA"
       },
-      "telephone": "604-616-6066",
+      "telephone": "613-555-1234",
       "priceRange": "$$",
       "aggregateRating": {
         "@type": "AggregateRating",
@@ -116,15 +116,15 @@ export default function PianoMoving() {
       }
     },
     "areaServed": [
-      { "@type": "City", "name": "Vancouver" },
-      { "@type": "City", "name": "Burnaby" },
-      { "@type": "City", "name": "Richmond" },
-      { "@type": "City", "name": "North Vancouver" },
-      { "@type": "City", "name": "West Vancouver" },
-      { "@type": "City", "name": "Coquitlam" },
-      { "@type": "City", "name": "Surrey" }
+      { "@type": "City", "name": "Ottawa" },
+      { "@type": "City", "name": "Kanata" },
+      { "@type": "City", "name": "Orleans" },
+      { "@type": "City", "name": "Nepean" },
+      { "@type": "City", "name": "Barrhaven" },
+      { "@type": "City", "name": "Gloucester" },
+      { "@type": "City", "name": "Gatineau" }
     ],
-    "description": "Professional piano moving services in Vancouver. Specialists in grand, baby grand, upright, and digital piano moving. WorkSafe BC certified, fully insured with specialized equipment."
+    "description": "Professional piano moving services in Ottawa. Specialists in grand, baby grand, upright, and digital piano moving. WSIB certified, fully insured with specialized equipment."
   };
 
   const faqData = {
@@ -141,7 +141,7 @@ export default function PianoMoving() {
       },
       {
         "@type": "Question",
-        "name": "How much does it cost to move a piano in Vancouver?",
+        "name": "How much does it cost to move a piano in Ottawa?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "Piano moving costs depend on the type (upright, baby grand, grand), distance, and access challenges like stairs or tight doorways. Upright pianos typically start at $250, while grand pianos start at $400. Contact us for a free, detailed quote."
@@ -177,7 +177,7 @@ export default function PianoMoving() {
   const testimonials = [
     { 
       name: "Margaret W.", 
-      location: "Shaughnessy", 
+      location: "The Glebe", 
       text: "They moved our 1920s Steinway grand piano with incredible care. The team was professional, patient, and treated our family heirloom like it was their own. Not a scratch!", 
       rating: 5, 
       date: "1 week ago",
@@ -185,7 +185,7 @@ export default function PianoMoving() {
     },
     { 
       name: "James C.", 
-      location: "West Vancouver", 
+      location: "Rockcliffe Park", 
       text: "Moving our baby grand up 3 flights of stairs seemed impossible, but these experts made it look easy. They took their time and the piano sounds perfect in its new home.", 
       rating: 5, 
       date: "2 weeks ago",
@@ -193,7 +193,7 @@ export default function PianoMoving() {
     },
     { 
       name: "Linda M.", 
-      location: "Kitsilano", 
+      location: "Westboro", 
       text: "I was nervous about moving my grandmother's antique upright piano. The team was so careful with the protective wrapping and climate-controlled truck. Highly recommend!", 
       rating: 5, 
       date: "3 weeks ago",
@@ -201,7 +201,7 @@ export default function PianoMoving() {
     },
     { 
       name: "Robert T.", 
-      location: "North Vancouver", 
+      location: "Kanata", 
       text: "Excellent service for our digital Yamaha Clavinova. They understood how to protect the electronics and screen. Fast, efficient, and reasonably priced.", 
       rating: 5, 
       date: "1 month ago",
@@ -209,8 +209,8 @@ export default function PianoMoving() {
     },
     { 
       name: "Susan K.", 
-      location: "Burnaby", 
-      text: "Our Bösendorfer grand piano was moved perfectly from our old house to the new one across Vancouver. The crew was knowledgeable about piano mechanics. Exceptional service!", 
+      location: "Orleans", 
+      text: "Our Bösendorfer grand piano was moved perfectly from our old house to the new one across Ottawa. The crew was knowledgeable about piano mechanics. Exceptional service!", 
       rating: 5, 
       date: "2 months ago",
       pianoType: "Grand Piano"
@@ -258,7 +258,7 @@ export default function PianoMoving() {
       answer: "Grand pianos require specialized handling. We remove the legs and pedal lyre, carefully wrap the body in thick padding, and transport it on its side using a professional piano board. Our trained specialists use proper lifting techniques and secure strapping in our climate-controlled trucks to ensure safe transport. The entire process is handled with extreme care to protect both the exterior finish and internal components."
     },
     {
-      question: "How much does it cost to move a piano in Vancouver?",
+      question: "How much does it cost to move a piano in Ottawa?",
       answer: "Piano moving costs depend on several factors including the type (upright, baby grand, concert grand), distance, and access challenges like stairs, tight doorways, or elevator availability. Upright pianos typically start at $250, baby grands from $400, and concert grands from $600. Contact us for a free, detailed quote tailored to your specific situation."
     },
     {
@@ -267,7 +267,7 @@ export default function PianoMoving() {
     },
     {
       question: "Should I tune my piano after the move?",
-      answer: "Yes, we recommend waiting 2-3 weeks after your piano is moved and settled in its new location before having it tuned. This allows the piano to acclimate to the new environment's temperature and humidity. We can provide referrals to trusted piano tuners in the Vancouver area."
+      answer: "Yes, we recommend waiting 2-3 weeks after your piano is moved and settled in its new location before having it tuned. This allows the piano to acclimate to the new environment's temperature and humidity. We can provide referrals to trusted piano tuners in the Ottawa area."
     },
     {
       question: "Can you move a piano up or down stairs?",
@@ -276,10 +276,10 @@ export default function PianoMoving() {
   ];
 
   const neighborhoods = [
-    "Downtown", "Kitsilano", "Yaletown", "Coal Harbour", "West End",
-    "Mount Pleasant", "Commercial Drive", "Kerrisdale", "Point Grey", 
-    "UBC", "Shaughnessy", "Dunbar", "Marpole", "South Cambie", "Gastown",
-    "West Vancouver", "North Vancouver", "Burnaby", "Richmond", "Coquitlam"
+    "Centretown", "Westboro", "The Glebe", "Byward Market", "Sandy Hill",
+    "Hintonburg", "Little Italy", "Alta Vista", "Rockcliffe Park", 
+    "New Edinburgh", "Old Ottawa South", "Wellington West", "Vanier", "Barrhaven", "Kanata",
+    "Orleans", "Nepean", "Gloucester", "Stittsville", "Manotick"
   ];
 
   useEffect(() => {
@@ -292,19 +292,19 @@ export default function PianoMoving() {
   return (
     <>
       <Helmet>
-        <title>Piano Moving Services Vancouver BC | Grand & Upright Piano Movers | Prestige Moving</title>
-        <meta name="description" content="Professional piano moving services in Vancouver BC. WorkSafe BC certified specialists for grand, baby grand, upright & digital pianos. Climate-controlled transport, fully insured. Get your free quote!" />
-        <meta name="keywords" content="piano moving Vancouver, grand piano movers BC, upright piano moving, baby grand piano transport, digital piano moving Vancouver, professional piano movers, climate-controlled piano transport" />
-        <meta property="og:title" content="Piano Moving Services Vancouver | Grand & Upright Piano Specialists | Prestige Moving" />
-        <meta property="og:description" content="Vancouver's trusted piano moving experts. WorkSafe BC certified, fully insured, climate-controlled transport for all piano types. Free quotes in 1 hour!" />
+        <title>Piano Moving Services Ottawa ON | Grand & Upright Piano Movers | Prestige Moving</title>
+        <meta name="description" content="Professional piano moving services in Ottawa ON. WSIB certified specialists for grand, baby grand, upright & digital pianos. Climate-controlled transport, fully insured. Get your free quote!" />
+        <meta name="keywords" content="piano moving Ottawa, grand piano movers ON, upright piano moving, baby grand piano transport, digital piano moving Ottawa, professional piano movers, climate-controlled piano transport" />
+        <meta property="og:title" content="Piano Moving Services Ottawa | Grand & Upright Piano Specialists | Prestige Moving" />
+        <meta property="og:description" content="Ottawa's trusted piano moving experts. WSIB certified, fully insured, climate-controlled transport for all piano types. Free quotes in 1 hour!" />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://vancouver.prestigemoving.ca/og-image.png" />
-        <meta property="og:url" content="https://vancouver.prestigemoving.ca/services/piano-moving" />
+        <meta property="og:image" content="https://ottawa.prestigemoving.ca/og-image.png" />
+        <meta property="og:url" content="https://ottawa.prestigemoving.ca/services/piano-moving" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Piano Moving Services Vancouver | Prestige Moving" />
-        <meta name="twitter:description" content="Expert piano movers in Vancouver. Grand, baby grand, upright & digital pianos. Fully insured, climate-controlled transport." />
-        <meta name="twitter:image" content="https://vancouver.prestigemoving.ca/og-image.png" />
-        <link rel="canonical" href="https://vancouver.prestigemoving.ca/services/piano-moving" />
+        <meta name="twitter:title" content="Piano Moving Services Ottawa | Prestige Moving" />
+        <meta name="twitter:description" content="Expert piano movers in Ottawa. Grand, baby grand, upright & digital pianos. Fully insured, climate-controlled transport." />
+        <meta name="twitter:image" content="https://ottawa.prestigemoving.ca/og-image.png" />
+        <link rel="canonical" href="https://ottawa.prestigemoving.ca/services/piano-moving" />
         <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
         <script type="application/ld+json">{JSON.stringify(faqData)}</script>
       </Helmet>
@@ -340,12 +340,12 @@ export default function PianoMoving() {
               </div>
 
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-6 leading-[1.1]" data-testid="hero-title">
-                Vancouver's<br />
+                Ottawa's<br />
                 <span className="text-primary">#1 Piano Movers</span>
               </h1>
 
               <p className="text-xl md:text-2xl text-white/80 mb-8 leading-relaxed" data-testid="hero-description">
-                From cherished uprights to concert grands, we've safely moved <span className="text-primary font-semibold">2,500+ pianos</span> across Vancouver with specialized care.
+                From cherished uprights to concert grands, we've safely moved <span className="text-primary font-semibold">2,500+ pianos</span> across Ottawa with specialized care.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
@@ -355,10 +355,10 @@ export default function PianoMoving() {
                     <ArrowRight className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </Link>
-                <a href="tel:604-616-6066">
+                <a href="tel:613-555-1234">
                   <Button size="lg" variant="outline" className="text-lg font-bold px-8 py-7 border-2 border-white/40 text-white hover:bg-white/10 backdrop-blur-sm" data-testid="button-hero-call">
                     <Phone className="h-5 w-5 mr-2" />
-                    604-616-6066
+                    613-555-1234
                   </Button>
                 </a>
               </div>
@@ -404,17 +404,17 @@ export default function PianoMoving() {
               <div>
                 <Badge className="bg-primary/10 text-primary mb-4">About Our Service</Badge>
                 <h2 className="text-3xl md:text-4xl font-black text-foreground mb-6" data-testid="about-title">
-                  Vancouver's Premier Piano Moving Specialists
+                  Ottawa's Premier Piano Moving Specialists
                 </h2>
                 <div className="space-y-4 text-muted-foreground">
                   <p>
-                    Moving a piano requires specialized expertise that general movers simply don't have. <strong>Prestige Moving Vancouver</strong> has been the trusted choice for piano owners since 2009, earning a reputation as the most reliable piano movers in Metro Vancouver.
+                    Moving a piano requires specialized expertise that general movers simply don't have. <strong>Prestige Moving Ottawa</strong> has been the trusted choice for piano owners since 2009, earning a reputation as the most reliable piano movers in the National Capital Region.
                   </p>
                   <p>
                     Our team understands the delicate internal mechanisms, precise weight distribution, and <strong>climate sensitivity of fine pianos</strong>. From Steinway grand pianos to cherished family uprights, we handle each instrument with the care it deserves.
                   </p>
                   <p>
-                    As a <strong>WorkSafe BC certified moving company</strong>, we use specialized equipment including piano boards, skids, and climate-controlled trucks designed specifically for instrument transport.
+                    As a <strong>WSIB certified moving company</strong>, we use specialized equipment including piano boards, skids, and climate-controlled trucks designed specifically for instrument transport.
                   </p>
                 </div>
                 <div className="mt-8">
@@ -554,9 +554,9 @@ export default function PianoMoving() {
                 { icon: Music, title: "Piano Specialists", description: "Trained specifically in piano moving techniques, weight distribution, and delicate handling", color: "from-amber-500 to-amber-600" },
                 { icon: Truck, title: "Climate-Controlled Transport", description: "Temperature and humidity-controlled trucks to protect your piano's wood and strings", color: "from-blue-500 to-blue-600" },
                 { icon: Shield, title: "Full Insurance Coverage", description: "Comprehensive protection specifically for valuable musical instruments up to $100,000", color: "from-emerald-500 to-emerald-600" },
-                { icon: Award, title: "WorkSafe BC Certified", description: "Full compliance with BC workplace safety standards for complete peace of mind", color: "from-violet-500 to-violet-600" },
+                { icon: Award, title: "WSIB Certified", description: "Full compliance with Ontario workplace safety standards for complete peace of mind", color: "from-violet-500 to-violet-600" },
                 { icon: Users, title: "Experienced Crew", description: "Average 8+ years piano moving experience. Trained professionals who understand pianos", color: "from-rose-500 to-rose-600" },
-                { icon: ThumbsUp, title: "Tuner Referrals", description: "We connect you with trusted Vancouver piano tuners for post-move service", color: "from-primary to-amber-600" }
+                { icon: ThumbsUp, title: "Tuner Referrals", description: "We connect you with trusted Ottawa piano tuners for post-move service", color: "from-primary to-amber-600" }
               ].map((item, index) => (
                 <Card key={index} className="border-2 hover:border-primary/50 transition-all hover:shadow-lg" data-testid={`why-card-${index}`}>
                   <CardContent className="p-6">
@@ -750,10 +750,10 @@ export default function PianoMoving() {
             <div className="text-center mb-10">
               <Badge className="bg-primary/20 text-primary border-primary/30 mb-4">Coverage</Badge>
               <h2 className="text-3xl md:text-4xl font-black text-white mb-4" data-testid="service-areas-title">
-                Vancouver Neighborhoods We Serve
+                Ottawa Neighborhoods We Serve
               </h2>
               <p className="text-lg text-white/60">
-                Expert piano moving across Metro Vancouver
+                Expert piano moving across National Capital Region
               </p>
             </div>
 
@@ -791,7 +791,7 @@ export default function PianoMoving() {
                   <CardContent className="p-6">
                     <Home className="h-8 w-8 text-primary mb-4" />
                     <h3 className="font-bold text-lg mb-2">Residential Moving</h3>
-                    <p className="text-muted-foreground">Complete home moving services across Vancouver</p>
+                    <p className="text-muted-foreground">Complete home moving services across Ottawa</p>
                   </CardContent>
                 </Card>
               </Link>
@@ -1011,10 +1011,10 @@ export default function PianoMoving() {
                   <ArrowRight className="h-5 w-5 ml-2" />
                 </Button>
               </Link>
-              <a href="tel:604-616-6066">
+              <a href="tel:613-555-1234">
                 <Button size="lg" variant="outline" className="border-2 border-[#1A2332] text-[#1A2332] hover:bg-[#1A2332] hover:text-white text-lg font-bold px-10 py-7" data-testid="button-final-call">
                   <Phone className="h-5 w-5 mr-2" />
-                  604-616-6066
+                  613-555-1234
                 </Button>
               </a>
             </div>

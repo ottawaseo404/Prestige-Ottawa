@@ -80,7 +80,7 @@ export default function SeniorMoving() {
     } catch (error: any) {
       toast({
         title: "Submission Failed",
-        description: error.message || "Please try again or call us directly at 604-616-6066",
+        description: error.message || "Please try again or call us directly at 613-555-1234",
         variant: "destructive",
       });
     } finally {
@@ -91,17 +91,17 @@ export default function SeniorMoving() {
   const schemaData = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": "Senior Moving Services Vancouver",
+    "name": "Senior Moving Services Ottawa",
     "provider": {
       "@type": "MovingCompany",
-      "name": "Prestige Moving Vancouver",
+      "name": "Prestige Moving Ottawa",
       "address": {
         "@type": "PostalAddress",
-        "addressLocality": "Vancouver",
-        "addressRegion": "BC",
+        "addressLocality": "Ottawa",
+        "addressRegion": "ON",
         "addressCountry": "CA"
       },
-      "telephone": "604-616-6066",
+      "telephone": "613-555-1234",
       "priceRange": "$$",
       "aggregateRating": {
         "@type": "AggregateRating",
@@ -110,15 +110,15 @@ export default function SeniorMoving() {
       }
     },
     "areaServed": [
-      { "@type": "City", "name": "Vancouver" },
-      { "@type": "City", "name": "Burnaby" },
-      { "@type": "City", "name": "Richmond" },
-      { "@type": "City", "name": "North Vancouver" },
-      { "@type": "City", "name": "West Vancouver" },
-      { "@type": "City", "name": "Coquitlam" },
-      { "@type": "City", "name": "Surrey" }
+      { "@type": "City", "name": "Ottawa" },
+      { "@type": "City", "name": "Kanata" },
+      { "@type": "City", "name": "Orleans" },
+      { "@type": "City", "name": "Nepean" },
+      { "@type": "City", "name": "Barrhaven" },
+      { "@type": "City", "name": "Gloucester" },
+      { "@type": "City", "name": "Gatineau" }
     ],
-    "description": "Compassionate senior moving services in Vancouver. Specialized care for elderly relocations, downsizing assistance, retirement community moves. WorkSafe BC certified with patient, professional service."
+    "description": "Compassionate senior moving services in Ottawa. Specialized care for elderly relocations, downsizing assistance, retirement community moves. WSIB certified with patient, professional service."
   };
 
   const faqData = {
@@ -138,7 +138,7 @@ export default function SeniorMoving() {
         "name": "Do you move seniors to retirement homes and assisted living facilities?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes, we specialize in moves to all types of senior living communities including independent living facilities, assisted living communities, nursing homes, and memory care facilities throughout Greater Vancouver."
+          "text": "Yes, we specialize in moves to all types of senior living communities including independent living facilities, assisted living communities, nursing homes, and memory care facilities throughout Greater Ottawa."
         }
       },
       {
@@ -171,35 +171,35 @@ export default function SeniorMoving() {
   const testimonials = [
     { 
       name: "Margaret W.", 
-      location: "West Vancouver", 
+      location: "Rockcliffe Park", 
       text: "Moving my mother to her new assisted living home was emotional, but the Prestige team made it so much easier. They were patient, kind, and treated her belongings with such care. They even set up her room exactly like her old bedroom!", 
       rating: 5, 
       date: "2 weeks ago" 
     },
     { 
       name: "Robert & Linda K.", 
-      location: "Burnaby", 
+      location: "Kanata", 
       text: "After 45 years in our family home, downsizing felt overwhelming. The team spent extra time helping us decide what to keep, coordinated donations, and set up our new condo perfectly. Can't recommend them enough.", 
       rating: 5, 
       date: "1 month ago" 
     },
     { 
       name: "Susan T.", 
-      location: "Richmond", 
+      location: "Orleans", 
       text: "Dad was anxious about moving to the retirement community, but the movers were so gentle and understanding. They took breaks when he needed them and made sure his favorite chair was the first thing set up.", 
       rating: 5, 
       date: "3 weeks ago" 
     },
     { 
       name: "David H.", 
-      location: "North Vancouver", 
+      location: "Nepean", 
       text: "Moved my elderly aunt with dementia to a memory care facility. The team was incredibly trained and sensitive. They recreated her room layout exactly so she felt at home immediately. True professionals.", 
       rating: 5, 
       date: "1 week ago" 
     },
     { 
       name: "Patricia M.", 
-      location: "Vancouver", 
+      location: "Ottawa", 
       text: "The compassion shown during my father's move was exceptional. They handled his antique furniture and war medals with reverence. Every photo was carefully packed and hung in the same arrangement. Thank you!", 
       rating: 5, 
       date: "2 months ago" 
@@ -234,10 +234,10 @@ export default function SeniorMoving() {
   ];
 
   const neighborhoods = [
-    "Downtown", "Kitsilano", "West Vancouver", "North Vancouver", 
-    "Kerrisdale", "Shaughnessy", "Point Grey", "Oakridge",
-    "Burnaby", "Richmond", "Coquitlam", "New Westminster",
-    "White Rock", "Langley", "Delta"
+    "Centretown", "Westboro", "The Glebe", "Rockcliffe Park", 
+    "Alta Vista", "New Edinburgh", "Sandy Hill", "Old Ottawa South",
+    "Kanata", "Orleans", "Nepean", "Barrhaven",
+    "Gloucester", "Stittsville", "Manotick"
   ];
 
   const faqs = [
@@ -247,7 +247,7 @@ export default function SeniorMoving() {
     },
     {
       question: "Do you move seniors to retirement homes and assisted living facilities?",
-      answer: "Yes, we specialize in moves to all types of senior living communities including independent living facilities, assisted living communities, nursing homes, and memory care facilities throughout Greater Vancouver, Burnaby, Richmond, and surrounding areas. We're familiar with the requirements of most senior residences and coordinate directly with facility staff."
+      answer: "Yes, we specialize in moves to all types of senior living communities including independent living facilities, assisted living communities, nursing homes, and memory care facilities throughout Greater Ottawa, Kanata, Orleans, and surrounding areas. We're familiar with the requirements of most senior residences and coordinate directly with facility staff."
     },
     {
       question: "What makes your senior moving service different?",
@@ -273,18 +273,18 @@ export default function SeniorMoving() {
   return (
     <>
       <Helmet>
-        <title>Senior Moving Services Vancouver BC | Elderly Relocation Specialists | Prestige Moving</title>
-        <meta name="description" content="Compassionate senior moving services in Vancouver BC. WorkSafe BC certified movers specializing in elderly relocation, downsizing help, retirement community & assisted living moves. Free consultation!" />
-        <meta name="keywords" content="senior moving Vancouver, elderly relocation BC, downsizing help Vancouver, retirement home moving, senior citizen movers, assisted living moving, memory care relocation" />
-        <meta property="og:title" content="Senior Moving Services Vancouver | Compassionate Elderly Relocation | Prestige Moving" />
-        <meta property="og:description" content="Vancouver's trusted senior moving specialists. Compassionate downsizing help, retirement community moves, and assisted living relocations. Patient, professional service for your loved ones." />
+        <title>Senior Moving Services Ottawa ON | Elderly Relocation Specialists | Prestige Moving</title>
+        <meta name="description" content="Compassionate senior moving services in Ottawa ON. WSIB certified movers specializing in elderly relocation, downsizing help, retirement community & assisted living moves. Free consultation!" />
+        <meta name="keywords" content="senior moving Ottawa, elderly relocation ON, downsizing help Ottawa, retirement home moving, senior citizen movers, assisted living moving, memory care relocation" />
+        <meta property="og:title" content="Senior Moving Services Ottawa | Compassionate Elderly Relocation | Prestige Moving" />
+        <meta property="og:description" content="Ottawa's trusted senior moving specialists. Compassionate downsizing help, retirement community moves, and assisted living relocations. Patient, professional service for your loved ones." />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://vancouver.prestigemoving.ca/og-image.png" />
+        <meta property="og:image" content="https://ottawa.prestigemoving.ca/og-image.png" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Senior Moving Services Vancouver | Prestige Moving" />
-        <meta name="twitter:description" content="Compassionate senior moving in Vancouver. Specialized care for elderly relocations and downsizing." />
-        <meta name="twitter:image" content="https://vancouver.prestigemoving.ca/og-image.png" />
-        <link rel="canonical" href="https://vancouver.prestigemoving.ca/services/senior-moving" />
+        <meta name="twitter:title" content="Senior Moving Services Ottawa | Prestige Moving" />
+        <meta name="twitter:description" content="Compassionate senior moving in Ottawa. Specialized care for elderly relocations and downsizing." />
+        <meta name="twitter:image" content="https://ottawa.prestigemoving.ca/og-image.png" />
+        <link rel="canonical" href="https://ottawa.prestigemoving.ca/services/senior-moving" />
         <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
         <script type="application/ld+json">{JSON.stringify(faqData)}</script>
       </Helmet>
@@ -335,10 +335,10 @@ export default function SeniorMoving() {
                     <ArrowRight className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </Link>
-                <a href="tel:604-616-6066">
+                <a href="tel:613-555-1234">
                   <Button size="lg" variant="outline" className="text-lg font-bold px-8 py-7 border-2 border-white/40 text-white hover:bg-white/10 backdrop-blur-sm" data-testid="button-hero-call">
                     <Phone className="h-5 w-5 mr-2" />
-                    604-616-6066
+                    613-555-1234
                   </Button>
                 </a>
               </div>
@@ -384,17 +384,17 @@ export default function SeniorMoving() {
               <div>
                 <Badge className="bg-primary/10 text-primary mb-4">About Our Service</Badge>
                 <h2 className="text-3xl md:text-4xl font-black text-foreground mb-6">
-                  Vancouver's Compassionate Senior Moving Specialists
+                  Ottawa's Compassionate Senior Moving Specialists
                 </h2>
                 <div className="space-y-4 text-muted-foreground">
                   <p>
-                    Relocating an elderly loved one requires patience, understanding, and specialized care. <strong>Prestige Moving Vancouver</strong> provides compassionate senior moving services designed to support families through every step of this emotional transition.
+                    Relocating an elderly loved one requires patience, understanding, and specialized care. <strong>Prestige Moving Ottawa</strong> provides compassionate senior moving services designed to support families through every step of this emotional transition.
                   </p>
                   <p>
                     Whether moving to a <strong>retirement community, assisted living facility</strong>, or downsizing to a smaller home, our trained team provides the extra attention and time that senior moves deserve.
                   </p>
                   <p>
-                    As a <strong>WorkSafe BC certified moving company</strong>, we prioritize safety while offering the patience and care that makes all the difference. Our movers are trained in senior care and understand the emotional aspects of these important life transitions.
+                    As a <strong>WSIB certified moving company</strong>, we prioritize safety while offering the patience and care that makes all the difference. Our movers are trained in senior care and understand the emotional aspects of these important life transitions.
                   </p>
                 </div>
                 <div className="mt-8">
@@ -642,7 +642,7 @@ export default function SeniorMoving() {
                 Senior Moving Areas We Serve
               </h2>
               <p className="text-lg text-white/60">
-                Comprehensive senior relocation services across Metro Vancouver
+                Comprehensive senior relocation services across the National Capital Region
               </p>
             </div>
 
@@ -909,7 +909,7 @@ export default function SeniorMoving() {
             </h2>
             
             <p className="text-xl text-[#1A2332]/80 mb-8 max-w-2xl mx-auto">
-              Join 2,000+ Vancouver families who trusted us with their loved one's transition. Get your free consultation today.
+              Join 2,000+ Ottawa families who trusted us with their loved one's transition. Get your free consultation today.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -919,10 +919,10 @@ export default function SeniorMoving() {
                   <ArrowRight className="h-5 w-5 ml-2" />
                 </Button>
               </Link>
-              <a href="tel:604-616-6066">
+              <a href="tel:613-555-1234">
                 <Button size="lg" variant="outline" className="border-2 border-[#1A2332] text-[#1A2332] hover:bg-[#1A2332] hover:text-white text-lg font-bold px-10 py-7" data-testid="button-cta-call">
                   <Phone className="h-5 w-5 mr-2" />
-                  604-616-6066
+                  613-555-1234
                 </Button>
               </a>
             </div>

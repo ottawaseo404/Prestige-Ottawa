@@ -54,7 +54,7 @@ export default function AdminLogin() {
   return (
     <>
       <Helmet>
-        <title>Admin Login | Prestige Moving Vancouver</title>
+        <title>Admin Login | Prestige Moving Ottawa</title>
       </Helmet>
       
       <div className="min-h-screen bg-[#1A2332] flex flex-col">

@@ -33,20 +33,20 @@ export default function CommercialMoving() {
   const schemaData = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": "Commercial Moving Services Vancouver",
+    "name": "Commercial Moving Services Ottawa",
     "provider": {
       "@type": "MovingCompany",
-      "name": "Prestige Moving Vancouver",
+      "name": "Prestige Moving Ottawa",
       "address": {
         "@type": "PostalAddress",
-        "addressLocality": "Vancouver",
-        "addressRegion": "BC",
+        "addressLocality": "Ottawa",
+        "addressRegion": "ON",
         "addressCountry": "CA"
       },
-      "telephone": "604-616-6066",
+      "telephone": "613-555-1234",
       "priceRange": "$$"
     },
-    "description": "Professional commercial and office moving services in Vancouver. WorkSafe BC certified, minimize downtime with experienced business movers."
+    "description": "Professional commercial and office moving services in Ottawa. WSIB certified, minimize downtime with experienced business movers."
   };
 
   const industries = [
@@ -149,14 +149,14 @@ export default function CommercialMoving() {
   return (
     <>
       <Helmet>
-        <title>Commercial Moving Services Vancouver BC | Office & Business Movers | Prestige Moving</title>
-        <meta name="description" content="Vancouver's trusted commercial moving company. Office relocations, IT equipment, retail stores, warehouses. Minimize downtime with experienced business movers. Free consultation!" />
-        <meta name="keywords" content="commercial moving Vancouver, office movers BC, business relocation, IT equipment moving, corporate moving service, warehouse movers" />
-        <meta property="og:title" content="Commercial Moving Services Vancouver | Prestige Moving" />
-        <meta property="og:description" content="Vancouver's trusted commercial movers. Office relocations, IT equipment, business moves. Minimal downtime, fully insured." />
+        <title>Commercial Moving Services Ottawa ON | Office & Business Movers | Prestige Moving</title>
+        <meta name="description" content="Ottawa's trusted commercial moving company. Office relocations, IT equipment, retail stores, warehouses. Minimize downtime with experienced business movers. Free consultation!" />
+        <meta name="keywords" content="commercial moving Ottawa, office movers ON, business relocation, IT equipment moving, corporate moving service, warehouse movers" />
+        <meta property="og:title" content="Commercial Moving Services Ottawa | Prestige Moving" />
+        <meta property="og:description" content="Ottawa's trusted commercial movers. Office relocations, IT equipment, business moves. Minimal downtime, fully insured." />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://vancouver.prestigemoving.ca/og-image.png" />
-        <link rel="canonical" href="https://vancouver.prestigemoving.ca/services/commercial-moving" />
+        <meta property="og:image" content="https://ottawa.prestigemoving.ca/og-image.png" />
+        <link rel="canonical" href="https://ottawa.prestigemoving.ca/services/commercial-moving" />
         <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
       </Helmet>
 
@@ -212,7 +212,7 @@ export default function CommercialMoving() {
               </h1>
 
               <p className="text-xl md:text-2xl text-white/80 mb-8 leading-relaxed">
-                From tech startups to corporate headquarters, we've relocated <span className="text-primary font-semibold">1,500+ businesses</span> across Vancouver with minimal disruption and maximum efficiency.
+                From tech startups to corporate headquarters, we've relocated <span className="text-primary font-semibold">1,500+ businesses</span> across Ottawa with minimal disruption and maximum efficiency.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
@@ -222,10 +222,10 @@ export default function CommercialMoving() {
                     <ArrowRight className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </Link>
-                <a href="tel:604-616-6066">
+                <a href="tel:613-555-1234">
                   <Button size="lg" variant="outline" className="text-lg font-bold px-8 py-7 border-2 border-white/40 text-white hover:bg-white/10 backdrop-blur-sm" data-testid="button-hero-call">
                     <Phone className="h-5 w-5 mr-2" />
-                    604-616-6066
+                    613-555-1234
                   </Button>
                 </a>
               </div>
@@ -257,7 +257,7 @@ export default function CommercialMoving() {
                 </h2>
                 <div className="prose prose-lg max-w-none text-muted-foreground">
                   <p>
-                    <strong>Commercial moving in Vancouver</strong> requires a completely different approach than residential relocations. At Prestige Moving, we've developed specialized systems and protocols specifically for business environments, ensuring your operations experience minimal disruption during the transition.
+                    <strong>Commercial moving in Ottawa</strong> requires a completely different approach than residential relocations. At Prestige Moving, we've developed specialized systems and protocols specifically for business environments, ensuring your operations experience minimal disruption during the transition.
                   </p>
                   <p>
                     Our commercial moving process begins with a comprehensive <strong>pre-move consultation</strong> where we assess your current space, inventory all equipment and furniture, and create a detailed floor plan for your new location. This planning phase is critical—it allows us to identify potential challenges, coordinate with building management at both locations, and establish a realistic timeline that aligns with your business needs.
@@ -273,7 +273,7 @@ export default function CommercialMoving() {
                   { icon: Users, title: "Dedicated Project Manager", desc: "Single point of contact from consultation through final setup and walkthrough" },
                   { icon: Clock, title: "After-Hours & Weekend Moves", desc: "Zero-disruption moves scheduled outside business hours to maintain productivity" },
                   { icon: Server, title: "IT & Equipment Handling", desc: "Specialized protocols for servers, workstations, and sensitive electronics" },
-                  { icon: Shield, title: "WorkSafe BC Certified", desc: "Full insurance and WorkSafe BC certification protecting all equipment and personnel" },
+                  { icon: Shield, title: "WSIB Certified", desc: "Full insurance and WSIB certification protecting all equipment and personnel" },
                   { icon: Settings, title: "Complete Setup Services", desc: "Furniture placement, workstation configuration, and post-move support" }
                 ].map((item, index) => {
                   const ItemIcon = item.icon;
@@ -567,10 +567,10 @@ export default function CommercialMoving() {
               <div>
                 <Badge className="bg-primary/20 text-primary border-primary/30 mb-4">Trusted By</Badge>
                 <h2 className="text-4xl md:text-5xl font-black text-white mb-6">
-                  Vancouver's Business Community Trusts Us
+                  Ottawa's Business Community Trusts Us
                 </h2>
                 <p className="text-xl text-white/70 mb-8">
-                  From tech startups in Gastown to corporate offices downtown, businesses across Metro Vancouver rely on us for their commercial relocations.
+                  From tech startups in Gastown to corporate offices downtown, businesses across the National Capital Region rely on us for their commercial relocations.
                 </p>
                 <div className="grid grid-cols-2 gap-4">
                   {[
@@ -729,11 +729,11 @@ export default function CommercialMoving() {
             {/* Industries We Serve - SEO Text */}
             <div className="max-w-4xl mx-auto mb-16">
               <h3 className="text-2xl font-bold text-foreground mb-6 text-center">
-                Industries We Serve Across Greater Vancouver
+                Industries We Serve Across Greater Ottawa
               </h3>
               <div className="prose prose-lg max-w-none text-muted-foreground">
                 <p>
-                  Our commercial moving expertise extends across virtually every industry in the Vancouver metro area. We've successfully relocated <strong>law firms in downtown Vancouver</strong>, requiring careful handling of confidential client files and legal libraries. <strong>Medical and dental practices</strong> throughout Burnaby and Richmond trust us with their specialized equipment, from X-ray machines to examination chairs.
+                  Our commercial moving expertise extends across virtually every industry in the Ottawa metro area. We've successfully relocated <strong>law firms in downtown Ottawa</strong>, requiring careful handling of confidential client files and legal libraries. <strong>Medical and dental practices</strong> throughout Kanata and Orleans trust us with their specialized equipment, from X-ray machines to examination chairs.
                 </p>
                 <p>
                   <strong>Tech companies and startups</strong> in Mount Pleasant and Gastown rely on our IT moving protocols to ensure their servers, development equipment, and workstations are transported safely and reconnected quickly. <strong>Retail businesses</strong> across the Lower Mainland appreciate our ability to move display fixtures, inventory, and point-of-sale systems with minimal store closure time.
@@ -827,10 +827,10 @@ export default function CommercialMoving() {
                   <ArrowRight className="h-5 w-5 ml-2" />
                 </Button>
               </Link>
-              <a href="tel:604-616-6066">
+              <a href="tel:613-555-1234">
                 <Button size="lg" variant="outline" className="border-2 border-[#1A2332] text-[#1A2332] hover:bg-[#1A2332] hover:text-white text-lg font-bold px-10 py-7" data-testid="button-cta-call">
                   <Phone className="h-5 w-5 mr-2" />
-                  604-616-6066
+                  613-555-1234
                 </Button>
               </a>
             </div>

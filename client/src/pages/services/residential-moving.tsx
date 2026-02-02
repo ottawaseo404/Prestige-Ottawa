@@ -23,17 +23,17 @@ export default function ResidentialMoving() {
   const schemaData = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": "Residential Moving Services Vancouver",
+    "name": "Residential Moving Services Ottawa",
     "provider": {
       "@type": "MovingCompany",
-      "name": "Prestige Moving Vancouver",
+      "name": "Prestige Moving Ottawa",
       "address": {
         "@type": "PostalAddress",
-        "addressLocality": "Vancouver",
-        "addressRegion": "BC",
+        "addressLocality": "Ottawa",
+        "addressRegion": "ON",
         "addressCountry": "CA"
       },
-      "telephone": "604-616-6066",
+      "telephone": "613-555-1234",
       "priceRange": "$$",
       "aggregateRating": {
         "@type": "AggregateRating",
@@ -42,23 +42,23 @@ export default function ResidentialMoving() {
       }
     },
     "areaServed": [
-      { "@type": "City", "name": "Vancouver" },
-      { "@type": "City", "name": "Burnaby" },
-      { "@type": "City", "name": "Richmond" },
-      { "@type": "City", "name": "North Vancouver" },
-      { "@type": "City", "name": "West Vancouver" },
-      { "@type": "City", "name": "Coquitlam" },
-      { "@type": "City", "name": "Surrey" }
+      { "@type": "City", "name": "Ottawa" },
+      { "@type": "City", "name": "Gatineau" },
+      { "@type": "City", "name": "Kanata" },
+      { "@type": "City", "name": "Orleans" },
+      { "@type": "City", "name": "Nepean" },
+      { "@type": "City", "name": "Barrhaven" },
+      { "@type": "City", "name": "Gloucester" }
     ],
-    "description": "Professional residential moving services in Vancouver. Experienced movers for apartments, condos, and houses. WorkSafe BC certified with transparent pricing."
+    "description": "Professional residential moving services in Ottawa. Experienced movers for apartments, condos, and houses. WSIB certified with transparent pricing."
   };
 
   const testimonials = [
-    { name: "Sarah M.", location: "Kitsilano", text: "Incredible service! They moved our 3-bedroom house in under 6 hours. Professional, careful, and friendly. The team went above and beyond!", rating: 5, date: "2 weeks ago" },
-    { name: "David L.", location: "North Vancouver", text: "Best moving experience ever. The team was punctual, efficient, and took great care of our furniture. Highly recommend!", rating: 5, date: "1 month ago" },
-    { name: "Jennifer K.", location: "Burnaby", text: "Moved from a 2BR apartment to our new townhouse. They handled everything perfectly including our grand piano!", rating: 5, date: "3 weeks ago" },
+    { name: "Sarah M.", location: "Westboro", text: "Incredible service! They moved our 3-bedroom house in under 6 hours. Professional, careful, and friendly. The team went above and beyond!", rating: 5, date: "2 weeks ago" },
+    { name: "David L.", location: "Kanata", text: "Best moving experience ever. The team was punctual, efficient, and took great care of our furniture. Highly recommend!", rating: 5, date: "1 month ago" },
+    { name: "Jennifer K.", location: "Orleans", text: "Moved from a 2BR apartment to our new townhouse. They handled everything perfectly including our grand piano!", rating: 5, date: "3 weeks ago" },
     { name: "Michael R.", location: "Downtown", text: "Fast, professional, and reasonably priced. These guys know what they're doing. Will definitely use again.", rating: 5, date: "1 week ago" },
-    { name: "Lisa T.", location: "Richmond", text: "Amazing team! They made our move so stress-free. Everything arrived in perfect condition.", rating: 5, date: "2 months ago" }
+    { name: "Lisa T.", location: "Nepean", text: "Amazing team! They made our move so stress-free. Everything arrived in perfect condition.", rating: 5, date: "2 months ago" }
   ];
 
   const serviceTypes = [
@@ -90,9 +90,9 @@ export default function ResidentialMoving() {
   ];
 
   const neighborhoods = [
-    "Downtown", "Kitsilano", "Yaletown", "Coal Harbour", "West End",
-    "Mount Pleasant", "Commercial Drive", "Kerrisdale", "Point Grey", 
-    "UBC", "Shaughnessy", "Dunbar", "Marpole", "South Cambie", "Gastown"
+    "Downtown", "Westboro", "The Glebe", "Byward Market", "Sandy Hill",
+    "Centretown", "Hintonburg", "Kanata", "Orleans", 
+    "Nepean", "Barrhaven", "Alta Vista", "Rockcliffe Park", "New Edinburgh", "Little Italy"
   ];
 
   useEffect(() => {
@@ -105,14 +105,14 @@ export default function ResidentialMoving() {
   return (
     <>
       <Helmet>
-        <title>Residential Moving Services Vancouver BC | Home Movers | Prestige Moving</title>
-        <meta name="description" content="Professional residential moving services in Vancouver BC. WorkSafe BC certified movers, BBB A+ rated, transparent pricing. Apartments, condos, houses. Get your free quote today!" />
-        <meta name="keywords" content="residential moving Vancouver, home movers BC, apartment moving, condo moving Vancouver, house moving service, Vancouver movers, Burnaby movers, Richmond moving company" />
-        <meta property="og:title" content="Residential Moving Services Vancouver | Prestige Moving" />
-        <meta property="og:description" content="Vancouver's trusted residential movers. From studio apartments to 5-bedroom homes. Professional, insured, and affordable." />
+        <title>Residential Moving Services Ottawa ON | Home Movers | Prestige Moving</title>
+        <meta name="description" content="Professional residential moving services in Ottawa ON. WSIB certified movers, BBB A+ rated, transparent pricing. Apartments, condos, houses. Get your free quote today!" />
+        <meta name="keywords" content="residential moving Ottawa, home movers ON, apartment moving, condo moving Ottawa, house moving service, Ottawa movers, Kanata movers, Orleans moving company" />
+        <meta property="og:title" content="Residential Moving Services Ottawa | Prestige Moving" />
+        <meta property="og:description" content="Ottawa's trusted residential movers. From studio apartments to 5-bedroom homes. Professional, insured, and affordable." />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://vancouver.prestigemoving.ca/og-image.png" />
-        <link rel="canonical" href="https://vancouver.prestigemoving.ca/services/residential-moving" />
+        <meta property="og:image" content="https://ottawa.prestigemoving.ca/og-image.png" />
+        <link rel="canonical" href="https://ottawa.prestigemoving.ca/services/residential-moving" />
         <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
       </Helmet>
 
@@ -146,12 +146,12 @@ export default function ResidentialMoving() {
               </div>
 
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-6 leading-[1.1]">
-                Vancouver's<br />
+                Ottawa's<br />
                 <span className="text-primary">#1 Home Movers</span>
               </h1>
 
               <p className="text-xl md:text-2xl text-white/80 mb-8 leading-relaxed">
-                From cozy studios to sprawling family homes, we've helped <span className="text-primary font-semibold">10,000+ Vancouver families</span> move with care.
+                From cozy studios to sprawling family homes, we've helped <span className="text-primary font-semibold">10,000+ Ottawa families</span> move with care.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
@@ -161,10 +161,10 @@ export default function ResidentialMoving() {
                     <ArrowRight className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </Link>
-                <a href="tel:604-616-6066">
+                <a href="tel:613-555-1234">
                   <Button size="lg" variant="outline" className="text-lg font-bold px-8 py-7 border-2 border-white/40 text-white hover:bg-white/10 backdrop-blur-sm" data-testid="button-hero-call">
                     <Phone className="h-5 w-5 mr-2" />
-                    604-616-6066
+                    613-555-1234
                   </Button>
                 </a>
               </div>
@@ -210,17 +210,17 @@ export default function ResidentialMoving() {
               <div>
                 <Badge className="bg-primary/10 text-primary mb-4">About Our Service</Badge>
                 <h2 className="text-3xl md:text-4xl font-black text-foreground mb-6">
-                  Vancouver's Premier Residential Moving Company
+                  Ottawa's Premier Residential Moving Company
                 </h2>
                 <div className="space-y-4 text-muted-foreground">
                   <p>
-                    Moving to a new home in Vancouver, Burnaby, Richmond, or anywhere in the Lower Mainland? <strong>Prestige Moving Vancouver</strong> has been helping families relocate since 2009, earning a reputation as one of the most trusted residential movers in Metro Vancouver.
+                    Moving to a new home in Ottawa, Kanata, Orleans, or anywhere in the National Capital Region? <strong>Prestige Moving Ottawa</strong> has been helping families relocate since 2009, earning a reputation as one of the most trusted residential movers in Greater Ottawa.
                   </p>
                   <p>
-                    Our experienced team handles everything from studio apartments in Yaletown to luxury estates in Shaughnessy, ensuring your belongings arrive safely at your new address.
+                    Our experienced team handles everything from studio apartments in Centretown to luxury estates in Rockcliffe Park, ensuring your belongings arrive safely at your new address.
                   </p>
                   <p>
-                    As a <strong>WorkSafe BC certified moving company</strong>, we prioritize the safety of both our team and your belongings. Our movers are fully covered under WorkSafe BC insurance, giving you complete peace of mind.
+                    As a <strong>WSIB certified moving company</strong>, we prioritize the safety of both our team and your belongings. Our movers are fully covered under WSIB insurance, giving you complete peace of mind.
                   </p>
                 </div>
                 <div className="mt-8">
@@ -236,7 +236,7 @@ export default function ResidentialMoving() {
               <div className="relative rounded-2xl overflow-hidden h-[400px]">
                 <img 
                   src={residentialImage}
-                  alt="Prestige Moving residential movers in Vancouver"
+                  alt="Prestige Moving residential movers in Ottawa"
                   className="absolute inset-0 w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#1A2332]/60 to-transparent" />
@@ -280,7 +280,7 @@ export default function ResidentialMoving() {
                 { title: "Furniture Disassembly", description: "Beds, tables, shelving units handled with care", icon: Sofa },
                 { title: "Full Liability Coverage", description: "Your belongings are protected throughout the move", icon: Shield },
                 { title: "Trained & Vetted Movers", description: "Background-checked, professional team members", icon: Users },
-                { title: "WorkSafe BC Certified", description: "Full compliance with BC workplace safety standards", icon: Award }
+                { title: "WSIB Certified", description: "Full compliance with Ontario workplace safety standards", icon: Award }
               ].map((item, index) => (
                 <Card key={index} className="border-2 hover:border-primary/50 transition-colors">
                   <CardContent className="p-6">
@@ -432,7 +432,7 @@ export default function ResidentialMoving() {
                 { icon: Clock, title: "On-Time Guarantee", description: "If we're late, your first hour is free. We respect your schedule.", color: "from-emerald-500 to-emerald-600" },
                 { icon: ThumbsUp, title: "Transparent Pricing", description: "No hidden fees, no surprises. What we quote is what you pay.", color: "from-violet-500 to-violet-600" },
                 { icon: HandHeart, title: "White Glove Service", description: "Furniture placement, reassembly, and cleanup included.", color: "from-rose-500 to-rose-600" },
-                { icon: Award, title: "WorkSafe BC Certified", description: "Full compliance with workplace safety standards for your peace of mind.", color: "from-primary to-amber-600" }
+                { icon: Award, title: "WSIB Certified", description: "Full compliance with workplace safety standards for your peace of mind.", color: "from-primary to-amber-600" }
               ].map((item, index) => (
                 <Card key={index} className="border-2 hover:border-primary/50 transition-all hover:shadow-lg">
                   <CardContent className="p-6">
@@ -532,10 +532,10 @@ export default function ResidentialMoving() {
             <div className="text-center mb-10">
               <Badge className="bg-primary/20 text-primary border-primary/30 mb-4">Coverage</Badge>
               <h2 className="text-3xl md:text-4xl font-black text-white mb-4">
-                Vancouver Neighborhoods We Serve
+                Ottawa Neighborhoods We Serve
               </h2>
               <p className="text-lg text-white/60">
-                Comprehensive coverage across Metro Vancouver
+                Comprehensive coverage across the National Capital Region
               </p>
             </div>
 
@@ -643,7 +643,7 @@ export default function ResidentialMoving() {
             </h2>
             
             <p className="text-xl text-[#1A2332]/80 mb-8 max-w-2xl mx-auto">
-              Join 10,000+ Vancouver families who trusted us with their move. Get your personalized quote in under 1 hour.
+              Join 10,000+ Ottawa families who trusted us with their move. Get your personalized quote in under 1 hour.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -653,10 +653,10 @@ export default function ResidentialMoving() {
                   <ArrowRight className="h-5 w-5 ml-2" />
                 </Button>
               </Link>
-              <a href="tel:604-616-6066">
+              <a href="tel:613-555-1234">
                 <Button size="lg" variant="outline" className="border-2 border-[#1A2332] text-[#1A2332] hover:bg-[#1A2332] hover:text-white text-lg font-bold px-10 py-7" data-testid="button-cta-call">
                   <Phone className="h-5 w-5 mr-2" />
-                  604-616-6066
+                  613-555-1234
                 </Button>
               </a>
             </div>

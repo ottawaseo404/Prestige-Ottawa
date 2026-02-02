@@ -49,24 +49,24 @@ export default function LongDistanceMoving() {
   const schemaData = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": "Long Distance Moving Services Vancouver",
+    "name": "Long Distance Moving Services Ottawa",
     "provider": {
       "@type": "MovingCompany",
-      "name": "Prestige Moving Vancouver",
+      "name": "Prestige Moving Ottawa",
       "address": {
         "@type": "PostalAddress",
-        "addressLocality": "Vancouver",
-        "addressRegion": "BC",
+        "addressLocality": "Ottawa",
+        "addressRegion": "ON",
         "addressCountry": "CA"
       },
-      "telephone": "604-616-6066",
+      "telephone": "613-555-1234",
       "priceRange": "$$"
     },
     "areaServed": {
       "@type": "Country",
       "name": "Canada"
     },
-    "description": "Professional coast-to-coast moving services from Vancouver to anywhere in Canada."
+    "description": "Professional coast-to-coast moving services from Ottawa to anywhere in Canada."
   };
 
   const moveSizes = ["Studio", "1 Bedroom", "2 Bedroom", "3 Bedroom", "4+ Bedroom"];
@@ -109,14 +109,14 @@ export default function LongDistanceMoving() {
   return (
     <>
       <Helmet>
-        <title>Coast to Coast Moving Services | Long Distance Movers Vancouver | Prestige Moving</title>
-        <meta name="description" content="Professional coast-to-coast moving services from Vancouver. Moving to Toronto, Calgary, Montreal, or anywhere in Canada? Experienced long distance movers with full insurance and GPS tracking." />
-        <meta name="keywords" content="coast to coast moving, long distance moving Vancouver, cross-Canada movers, Vancouver to Toronto movers, interprovincial moving" />
-        <meta property="og:title" content="Coast to Coast Moving Services | Prestige Moving Vancouver" />
-        <meta property="og:description" content="Professional long distance moving from Vancouver to anywhere in Canada. Full insurance, GPS tracking." />
+        <title>Coast to Coast Moving Services | Long Distance Movers Ottawa | Prestige Moving</title>
+        <meta name="description" content="Professional coast-to-coast moving services from Ottawa. Moving to Toronto, Calgary, Montreal, or anywhere in Canada? Experienced long distance movers with full insurance and GPS tracking." />
+        <meta name="keywords" content="coast to coast moving, long distance moving Ottawa, cross-Canada movers, Ottawa to Toronto movers, interprovincial moving" />
+        <meta property="og:title" content="Coast to Coast Moving Services | Prestige Moving Ottawa" />
+        <meta property="og:description" content="Professional long distance moving from Ottawa to anywhere in Canada. Full insurance, GPS tracking." />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://vancouver.prestigemoving.ca/og-image.png" />
-        <link rel="canonical" href="https://vancouver.prestigemoving.ca/services/long-distance-moving" />
+        <meta property="og:image" content="https://ottawa.prestigemoving.ca/og-image.png" />
+        <link rel="canonical" href="https://ottawa.prestigemoving.ca/services/long-distance-moving" />
         <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
       </Helmet>
 
@@ -142,7 +142,7 @@ export default function LongDistanceMoving() {
                   <MapPin className="h-5 w-5 text-primary" />
                 </div>
                 <div>
-                  <p className="text-white/60 text-sm">From Vancouver to</p>
+                  <p className="text-white/60 text-sm">From Ottawa to</p>
                   <p className="text-white font-bold">{destinations[selectedDestination].city}</p>
                 </div>
               </div>
@@ -179,7 +179,7 @@ export default function LongDistanceMoving() {
               </h1>
 
               <p className="text-xl md:text-2xl text-white/80 mb-8 leading-relaxed">
-                From Vancouver to anywhere in Canada. We've delivered <span className="text-primary font-semibold">3,000+ families</span> safely across provinces with full insurance and real-time tracking.
+                From Ottawa to anywhere in Canada. We've delivered <span className="text-primary font-semibold">3,000+ families</span> safely across provinces with full insurance and real-time tracking.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
@@ -189,10 +189,10 @@ export default function LongDistanceMoving() {
                     <ArrowRight className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </Link>
-                <a href="tel:604-616-6066">
+                <a href="tel:613-555-1234">
                   <Button size="lg" variant="outline" className="text-lg font-bold px-8 py-7 border-2 border-white/40 text-white hover:bg-white/10 backdrop-blur-sm" data-testid="button-hero-call">
                     <Phone className="h-5 w-5 mr-2" />
-                    604-616-6066
+                    613-555-1234
                   </Button>
                 </a>
               </div>
@@ -223,13 +223,13 @@ export default function LongDistanceMoving() {
                 </h2>
                 <div className="prose prose-lg max-w-none text-muted-foreground">
                   <p>
-                    <strong>Long distance moving</strong> is fundamentally different from local relocations. When you're moving across provinces—whether from <strong>Vancouver to Calgary</strong>, <strong>Vancouver to Toronto</strong>, or anywhere across Canada—you need a moving company with the expertise, equipment, and logistics network to ensure your belongings arrive safely and on time.
+                    <strong>Long distance moving</strong> is fundamentally different from local relocations. When you're moving across provinces—whether from <strong>Ottawa to Toronto</strong>, <strong>Ottawa to Montreal</strong>, or anywhere across Canada—you need a moving company with the expertise, equipment, and logistics network to ensure your belongings arrive safely and on time.
                   </p>
                   <p>
-                    At Prestige Moving Vancouver, we specialize in <strong>cross-Canada relocations</strong> with a proven track record of over 3,000 successful long distance moves. Our dedicated long-haul fleet features climate-controlled trucks equipped with GPS tracking, so you always know exactly where your belongings are during transit.
+                    At Prestige Moving Ottawa, we specialize in <strong>cross-Canada relocations</strong> with a proven track record of over 3,000 successful long distance moves. Our dedicated long-haul fleet features climate-controlled trucks equipped with GPS tracking, so you always know exactly where your belongings are during transit.
                   </p>
                   <p>
-                    What sets our <strong>long distance moving service</strong> apart is our commitment to accountability. Unlike other movers who hand off your shipment multiple times between warehouses, we use a <strong>direct delivery model</strong>—the same truck and crew that loads your belongings in Vancouver delivers them to your new home. This minimizes handling, reduces the risk of damage, and ensures faster delivery times.
+                    What sets our <strong>long distance moving service</strong> apart is our commitment to accountability. Unlike other movers who hand off your shipment multiple times between warehouses, we use a <strong>direct delivery model</strong>—the same truck and crew that loads your belongings in Ottawa delivers them to your new home. This minimizes handling, reduces the risk of damage, and ensures faster delivery times.
                   </p>
                 </div>
               </div>
@@ -264,20 +264,20 @@ export default function LongDistanceMoving() {
                 <div>
                   <h3 className="text-2xl font-bold text-white mb-4">Provincial & Cross-Country Moves</h3>
                   <p className="text-white/70 mb-4">
-                    Whether you're relocating within British Columbia or moving across the country, our long distance moving services are designed for reliability and peace of mind:
+                    Whether you're relocating within Ontario or moving across the country, our long distance moving services are designed for reliability and peace of mind:
                   </p>
                   <ul className="space-y-2 text-white/70">
                     <li className="flex items-start gap-2">
                       <CheckCircle2 className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                      <span><strong className="text-white">Vancouver to Alberta moves</strong> — Calgary and Edmonton relocations via the Trans-Canada Highway</span>
+                      <span><strong className="text-white">Ottawa to Ontario moves</strong> — Toronto, Hamilton, and London relocations via Highway 401</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle2 className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                      <span><strong className="text-white">BC Interior moves</strong> — Kelowna, Kamloops, Prince George, and throughout British Columbia</span>
+                      <span><strong className="text-white">Quebec moves</strong> — Montreal, Quebec City, Gatineau, and throughout Quebec</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle2 className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                      <span><strong className="text-white">Coast-to-coast relocations</strong> — Toronto, Montreal, Halifax, and all major Canadian cities</span>
+                      <span><strong className="text-white">Coast-to-coast relocations</strong> — Vancouver, Calgary, Halifax, and all major Canadian cities</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle2 className="h-5 w-5 text-primary shrink-0 mt-0.5" />
@@ -453,7 +453,7 @@ export default function LongDistanceMoving() {
                 Canada-Wide Service
               </h2>
               <p className="text-xl text-muted-foreground">
-                Distance comparison from Vancouver
+                Distance comparison from Ottawa
               </p>
             </div>
 
@@ -517,7 +517,7 @@ export default function LongDistanceMoving() {
               </h2>
               <div className="prose prose-lg max-w-none text-muted-foreground mb-8">
                 <p>
-                  Planning a move from Vancouver to Calgary, Toronto, or anywhere across Canada? Prestige Moving Vancouver is your trusted partner for <strong>long distance and cross-country relocations</strong>. With over 15 years of experience moving families and businesses across provincial borders, we've perfected the art of safe, timely, and stress-free interstate moving.
+                  Planning a move from Ottawa to Toronto, Montreal, or anywhere across Canada? Prestige Moving Ottawa is your trusted partner for <strong>long distance and cross-country relocations</strong>. With over 15 years of experience moving families and businesses across provincial borders, we've perfected the art of safe, timely, and stress-free interstate moving.
                 </p>
                 <p>
                   What makes us different from other long distance movers? Our <strong>real-time GPS tracking</strong> lets you follow your belongings every step of the way. Combined with dedicated moving coordinators, comprehensive transit insurance, and guaranteed delivery dates, we take the uncertainty out of long-haul moves. Whether you're relocating for work, family, or a fresh start, we treat your belongings with the care they deserve.
@@ -534,7 +534,7 @@ export default function LongDistanceMoving() {
                   <div className="p-4 bg-white rounded-xl border hover:border-primary hover:shadow-md transition-all group">
                     <Home className="h-6 w-6 text-primary mb-2" />
                     <h4 className="font-semibold text-foreground group-hover:text-primary transition-colors">Residential Moving</h4>
-                    <p className="text-sm text-muted-foreground">Local Vancouver home moving</p>
+                    <p className="text-sm text-muted-foreground">Local Ottawa home moving</p>
                   </div>
                 </Link>
                 <Link href="/services/commercial-moving">
@@ -605,10 +605,10 @@ export default function LongDistanceMoving() {
                   <ArrowRight className="h-5 w-5 ml-2" />
                 </Button>
               </Link>
-              <a href="tel:604-616-6066">
+              <a href="tel:613-555-1234">
                 <Button size="lg" variant="outline" className="border-2 border-[#1A2332] text-[#1A2332] hover:bg-[#1A2332] hover:text-white text-lg font-bold px-10 py-7" data-testid="button-cta-call">
                   <Phone className="h-5 w-5 mr-2" />
-                  604-616-6066
+                  613-555-1234
                 </Button>
               </a>
             </div>

@@ -1,4 +1,4 @@
-# Prestige Moving Vancouver - Design Guidelines
+# Prestige Moving Ottawa - Design Guidelines
 
 ## Design Approach
 **Reference-Based Design** drawing from premium service platforms:
@@ -71,7 +71,7 @@
 
 **Hero Section**:
 - Full-bleed image background
-- Centered headline: "Vancouver's Premium Moving Service"
+- Centered headline: "Ottawa's Premium Moving Service"
 - Subheadline emphasizing trust/speed
 - Primary CTA: "Get Instant Quote" (gold button, large)
 - Secondary CTA: "Book Now" (outlined white)

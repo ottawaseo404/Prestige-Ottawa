@@ -83,7 +83,7 @@ export default function StudentMoving() {
     } catch (error: any) {
       toast({
         title: "Submission Failed",
-        description: error.message || "Please try again or call us directly at 604-616-6066",
+        description: error.message || "Please try again or call us directly at 613-555-1234",
         variant: "destructive",
       });
     } finally {
@@ -94,17 +94,17 @@ export default function StudentMoving() {
   const schemaData = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": "Student Moving Services Vancouver",
+    "name": "Student Moving Services Ottawa",
     "provider": {
       "@type": "MovingCompany",
-      "name": "Prestige Moving Vancouver",
+      "name": "Prestige Moving Ottawa",
       "address": {
         "@type": "PostalAddress",
-        "addressLocality": "Vancouver",
-        "addressRegion": "BC",
+        "addressLocality": "Ottawa",
+        "addressRegion": "ON",
         "addressCountry": "CA"
       },
-      "telephone": "604-616-6066",
+      "telephone": "613-555-1234",
       "priceRange": "$",
       "aggregateRating": {
         "@type": "AggregateRating",
@@ -113,13 +113,13 @@ export default function StudentMoving() {
       }
     },
     "areaServed": [
-      { "@type": "City", "name": "Vancouver" },
-      { "@type": "City", "name": "Burnaby" },
-      { "@type": "City", "name": "Richmond" },
-      { "@type": "City", "name": "New Westminster" },
-      { "@type": "City", "name": "North Vancouver" }
+      { "@type": "City", "name": "Ottawa" },
+      { "@type": "City", "name": "Kanata" },
+      { "@type": "City", "name": "Orleans" },
+      { "@type": "City", "name": "Nepean" },
+      { "@type": "City", "name": "Gatineau" }
     ],
-    "description": "Affordable student moving services in Vancouver. 15% student discount for UBC, SFU, BCIT, and Langara students. Dorm and apartment moves with professional care."
+    "description": "Affordable student moving services in Ottawa. 15% student discount for uOttawa, Carleton, and Algonquin students. Dorm and apartment moves with professional care."
   };
 
   const faqData = {
@@ -136,10 +136,10 @@ export default function StudentMoving() {
       },
       {
         "@type": "Question",
-        "name": "Do you move students from UBC residence?",
+        "name": "Do you move students from uOttawa residence?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes! We specialize in UBC moves from Place Vanier, Totem Park, Marine Drive, and all other residences. We're familiar with loading zones and building protocols."
+          "text": "Yes! We specialize in uOttawa moves from 90U, Rideau, Henderson, and all other residences. We're familiar with loading zones and building protocols."
         }
       },
       {
@@ -163,18 +163,18 @@ export default function StudentMoving() {
         "name": "Do you help with international student moves?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Absolutely! We help international students arriving and leaving Vancouver, with storage solutions for semester breaks."
+          "text": "Absolutely! We help international students arriving and leaving Ottawa, with storage solutions for semester breaks."
         }
       }
     ]
   };
 
   const testimonials = [
-    { name: "Priya K.", location: "UBC", text: "Best student moving service! They moved my entire dorm room to my new apartment in Kitsilano in just 2 hours. Super affordable with the student discount!", rating: 5, date: "2 weeks ago" },
-    { name: "Marcus T.", location: "SFU", text: "These guys understand student budgets. Fast, careful, and my furniture arrived without a scratch. Highly recommend for any student move!", rating: 5, date: "1 month ago" },
-    { name: "Emma L.", location: "BCIT", text: "Moving from residence was stressful but Prestige made it easy. They knew exactly where to park and how to use the elevators. Very professional!", rating: 5, date: "3 weeks ago" },
-    { name: "Jason W.", location: "Langara", text: "My roommates and I all moved together and got a group discount. Saved so much money! They handled our gaming setups with extra care.", rating: 5, date: "1 week ago" },
-    { name: "Sofia R.", location: "Douglas College", text: "As an international student, I was worried about moving. The team was so helpful and patient. They even helped with furniture assembly!", rating: 5, date: "2 months ago" }
+    { name: "Priya K.", location: "uOttawa", text: "Best student moving service! They moved my entire dorm room to my new apartment in Sandy Hill in just 2 hours. Super affordable with the student discount!", rating: 5, date: "2 weeks ago" },
+    { name: "Marcus T.", location: "Carleton", text: "These guys understand student budgets. Fast, careful, and my furniture arrived without a scratch. Highly recommend for any student move!", rating: 5, date: "1 month ago" },
+    { name: "Emma L.", location: "Algonquin", text: "Moving from residence was stressful but Prestige made it easy. They knew exactly where to park and how to use the elevators. Very professional!", rating: 5, date: "3 weeks ago" },
+    { name: "Jason W.", location: "La Cité", text: "My roommates and I all moved together and got a group discount. Saved so much money! They handled our gaming setups with extra care.", rating: 5, date: "1 week ago" },
+    { name: "Sofia R.", location: "St. Paul University", text: "As an international student, I was worried about moving. The team was so helpful and patient. They even helped with furniture assembly!", rating: 5, date: "2 months ago" }
   ];
 
   const serviceTypes = [
@@ -193,8 +193,8 @@ export default function StudentMoving() {
     {
       title: "Cross-City Moves",
       icon: Truck,
-      description: "Moving anywhere in Metro Vancouver",
-      features: ["UBC to Downtown", "SFU to Burnaby", "Between campuses", "Any Vancouver area"]
+      description: "Moving anywhere in Greater Ottawa",
+      features: ["uOttawa to Downtown", "Carleton to Kanata", "Between campuses", "Any Ottawa area"]
     },
     {
       title: "Storage Options",
@@ -205,14 +205,14 @@ export default function StudentMoving() {
   ];
 
   const campuses = [
-    { name: "UBC", full: "University of British Columbia", areas: "Point Grey, Wesbrook Village" },
-    { name: "SFU", full: "Simon Fraser University", areas: "Burnaby Mountain, Surrey" },
-    { name: "BCIT", full: "BC Institute of Technology", areas: "Burnaby, Downtown" },
-    { name: "Langara", full: "Langara College", areas: "Vancouver South" },
-    { name: "Douglas", full: "Douglas College", areas: "New Westminster, Coquitlam" },
-    { name: "Capilano", full: "Capilano University", areas: "North Vancouver" },
-    { name: "KPU", full: "Kwantlen Polytechnic", areas: "Surrey, Richmond" },
-    { name: "Emily Carr", full: "Emily Carr University", areas: "Great Northern Way" },
+    { name: "uOttawa", full: "University of Ottawa", areas: "Sandy Hill, Byward Market" },
+    { name: "Carleton", full: "Carleton University", areas: "Old Ottawa South, The Glebe" },
+    { name: "Algonquin", full: "Algonquin College", areas: "Nepean, Barrhaven" },
+    { name: "La Cité", full: "La Cité collégiale", areas: "Orleans, Vanier" },
+    { name: "St. Paul", full: "Saint Paul University", areas: "Sandy Hill" },
+    { name: "Dominican", full: "Dominican University College", areas: "Centretown" },
+    { name: "Willis", full: "Willis College", areas: "Downtown Ottawa" },
+    { name: "Cégep", full: "Cégep Heritage College", areas: "Gatineau" },
   ];
 
   const faqs = [
@@ -221,8 +221,8 @@ export default function StudentMoving() {
       answer: "Students with valid ID receive 15% off our regular rates. Additional discounts are available for group bookings (multiple students moving on the same day) and mid-month moves when demand is lower. Ask about our semester-end specials!"
     },
     {
-      question: "Do you move students from UBC residence?",
-      answer: "Yes! We specialize in UBC moves from all residences including Place Vanier, Totem Park, Marine Drive, Thunderbird, Ponderosa, and Walter Gage. We're familiar with all loading zones, elevator booking requirements, and building protocols."
+      question: "Do you move students from uOttawa residence?",
+      answer: "Yes! We specialize in uOttawa moves from all residences including 90U, Rideau, Henderson, Marchand, Stanton, and Thompson. We're familiar with all loading zones, elevator booking requirements, and building protocols."
     },
     {
       question: "Can you move me on short notice?",
@@ -234,7 +234,7 @@ export default function StudentMoving() {
     },
     {
       question: "Can you help with international student moves?",
-      answer: "Absolutely! We help international students both arriving to Vancouver and leaving at the end of their studies. We can also connect you with storage solutions if you're traveling between semesters."
+      answer: "Absolutely! We help international students both arriving to Ottawa and leaving at the end of their studies. We can also connect you with storage solutions if you're traveling between semesters."
     }
   ];
 
@@ -248,20 +248,20 @@ export default function StudentMoving() {
   return (
     <>
       <Helmet>
-        <title>Student Moving Services Vancouver | 15% Discount UBC, SFU, BCIT Movers | Prestige Moving</title>
-        <meta name="description" content="Affordable student moving services in Vancouver. 15% student discount for UBC, SFU, BCIT, Langara students. Dorm and apartment moves starting at $199. WorkSafe BC certified. Get your free quote!" />
-        <meta name="keywords" content="student moving Vancouver, UBC movers, SFU moving service, BCIT student movers, affordable student moving, dorm moving Vancouver, student discount movers, Langara moving, Douglas College movers, Capilano moving" />
-        <meta property="og:title" content="Student Moving Services Vancouver | 15% Student Discount | Prestige Moving" />
-        <meta property="og:description" content="Affordable student moving in Vancouver. 15% discount for university students. Mini-moves from $199. Professional, budget-friendly service for dorms and apartments." />
+        <title>Student Moving Services Ottawa | 15% Discount uOttawa, Carleton, Algonquin Movers | Prestige Moving</title>
+        <meta name="description" content="Affordable student moving services in Ottawa. 15% student discount for uOttawa, Carleton, Algonquin students. Dorm and apartment moves starting at $199. WSIB certified. Get your free quote!" />
+        <meta name="keywords" content="student moving Ottawa, uOttawa movers, Carleton moving service, Algonquin student movers, affordable student moving, dorm moving Ottawa, student discount movers, La Cité moving, St. Paul University movers" />
+        <meta property="og:title" content="Student Moving Services Ottawa | 15% Student Discount | Prestige Moving" />
+        <meta property="og:description" content="Affordable student moving in Ottawa. 15% discount for university students. Mini-moves from $199. Professional, budget-friendly service for dorms and apartments." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://vancouver.prestigemoving.ca/services/student-moving" />
-        <meta property="og:image" content="https://vancouver.prestigemoving.ca/og-image.png" />
-        <meta property="og:site_name" content="Prestige Moving Vancouver" />
+        <meta property="og:url" content="https://ottawa.prestigemoving.ca/services/student-moving" />
+        <meta property="og:image" content="https://ottawa.prestigemoving.ca/og-image.png" />
+        <meta property="og:site_name" content="Prestige Moving Ottawa" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Student Moving Services Vancouver | Prestige Moving" />
+        <meta name="twitter:title" content="Student Moving Services Ottawa | Prestige Moving" />
         <meta name="twitter:description" content="15% student discount on moving services. Dorms, apartments, cross-city moves." />
-        <meta name="twitter:image" content="https://vancouver.prestigemoving.ca/og-image.png" />
-        <link rel="canonical" href="https://vancouver.prestigemoving.ca/services/student-moving" />
+        <meta name="twitter:image" content="https://ottawa.prestigemoving.ca/og-image.png" />
+        <link rel="canonical" href="https://ottawa.prestigemoving.ca/services/student-moving" />
         <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
         <script type="application/ld+json">{JSON.stringify(faqData)}</script>
       </Helmet>
@@ -302,7 +302,7 @@ export default function StudentMoving() {
               </h1>
 
               <p className="text-xl md:text-2xl text-white/80 mb-8 leading-relaxed">
-                Budget-friendly moving for <span className="text-primary font-semibold">UBC, SFU, BCIT, Langara</span> and all Vancouver students. Mini-moves from $199.
+                Budget-friendly moving for <span className="text-primary font-semibold">uOttawa, Carleton, Algonquin</span> and all Ottawa students. Mini-moves from $199.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
@@ -312,10 +312,10 @@ export default function StudentMoving() {
                     <ArrowRight className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </Link>
-                <a href="tel:604-616-6066">
+                <a href="tel:613-555-1234">
                   <Button size="lg" variant="outline" className="text-lg font-bold px-8 py-7 border-2 border-white/40 text-white hover:bg-white/10 backdrop-blur-sm" data-testid="button-hero-call">
                     <Phone className="h-5 w-5 mr-2" />
-                    604-616-6066
+                    613-555-1234
                   </Button>
                 </a>
               </div>
@@ -361,17 +361,17 @@ export default function StudentMoving() {
               <div>
                 <Badge className="bg-primary/10 text-primary mb-4">About Our Service</Badge>
                 <h2 className="text-3xl md:text-4xl font-black text-foreground mb-6">
-                  Vancouver's Trusted Student Moving Experts
+                  Ottawa's Trusted Student Moving Experts
                 </h2>
                 <div className="space-y-4 text-muted-foreground">
                   <p>
-                    Moving as a student shouldn't break the bank. <strong>Prestige Moving Vancouver</strong> offers specialized student moving services designed for tight budgets and busy schedules. Whether you're moving from a UBC dorm to an off-campus apartment, or relocating between cities for school, we've got you covered.
+                    Moving as a student shouldn't break the bank. <strong>Prestige Moving Ottawa</strong> offers specialized student moving services designed for tight budgets and busy schedules. Whether you're moving from a uOttawa dorm to an off-campus apartment, or relocating between cities for school, we've got you covered.
                   </p>
                   <p>
-                    Our team knows every campus in the Lower Mainland - from UBC's tricky loading zones to SFU's mountain roads. We're familiar with residence move-out procedures, building protocols, and can work around your exam schedule.
+                    Our team knows every campus in the National Capital Region - from uOttawa's Sandy Hill loading zones to Carleton's campus roads. We're familiar with residence move-out procedures, building protocols, and can work around your exam schedule.
                   </p>
                   <p>
-                    As a <strong>WorkSafe BC certified moving company</strong>, your belongings are fully protected. Show your student ID and receive 15% off your move, plus ask about group discounts when roommates book together!
+                    As a <strong>WSIB certified moving company</strong>, your belongings are fully protected. Show your student ID and receive 15% off your move, plus ask about group discounts when roommates book together!
                   </p>
                 </div>
                 <div className="mt-8">
@@ -502,7 +502,7 @@ export default function StudentMoving() {
                 Why Students Choose Prestige Moving
               </h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Trusted by thousands of Vancouver students for affordable, hassle-free moves
+                Trusted by thousands of Ottawa students for affordable, hassle-free moves
               </p>
             </div>
 
@@ -512,7 +512,7 @@ export default function StudentMoving() {
                 { icon: Users, title: "Group Booking Savings", description: "Moving with roommates? Book together and save even more with our group discounts.", color: "from-blue-500 to-blue-600" },
                 { icon: Clock, title: "Flexible Scheduling", description: "We work around your classes, exams, and semester end dates. Even last-minute moves!", color: "from-violet-500 to-violet-600" },
                 { icon: ThumbsUp, title: "Campus Experts", description: "We know every campus loading zone, elevator protocol, and building procedure.", color: "from-amber-500 to-amber-600" },
-                { icon: Shield, title: "Fully Insured", description: "WorkSafe BC certified. Your electronics, furniture, and belongings are protected.", color: "from-rose-500 to-rose-600" },
+                { icon: Shield, title: "Fully Insured", description: "WSIB certified. Your electronics, furniture, and belongings are protected.", color: "from-rose-500 to-rose-600" },
                 { icon: Zap, title: "Quick Turnarounds", description: "Same-day quotes and fast moves - perfect for tight checkout deadlines.", color: "from-primary to-amber-600" }
               ].map((item, index) => (
                 <Card key={index} className="border-2 hover:border-primary/50 transition-all hover:shadow-lg" data-testid={`card-why-${item.title.toLowerCase().replace(/\s+/g, '-')}`}>
@@ -538,7 +538,7 @@ export default function StudentMoving() {
                 Campus Areas We Serve
               </h2>
               <p className="text-lg text-white/60">
-                Expert movers for every school in Metro Vancouver
+                Expert movers for every school in National Capital Region
               </p>
             </div>
 
@@ -695,7 +695,7 @@ export default function StudentMoving() {
                   <CardContent className="p-6">
                     <Home className="h-8 w-8 text-primary mb-4" />
                     <h3 className="font-bold text-lg mb-2">Residential Moving</h3>
-                    <p className="text-muted-foreground">Full home moving services across Vancouver</p>
+                    <p className="text-muted-foreground">Full home moving services across Ottawa</p>
                   </CardContent>
                 </Card>
               </Link>
@@ -775,7 +775,7 @@ export default function StudentMoving() {
                   </li>
                   <li className="flex items-center gap-3 text-white">
                     <CheckCircle2 className="h-5 w-5 text-primary" />
-                    <span>WorkSafe BC certified</span>
+                    <span>WSIB certified</span>
                   </li>
                 </ul>
               </div>
@@ -905,7 +905,7 @@ export default function StudentMoving() {
             </h2>
             
             <p className="text-xl text-[#1A2332]/80 mb-8 max-w-2xl mx-auto">
-              Join 5,000+ Vancouver students who trusted us with their move. Get your personalized quote in under 1 hour.
+              Join 5,000+ Ottawa students who trusted us with their move. Get your personalized quote in under 1 hour.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -915,10 +915,10 @@ export default function StudentMoving() {
                   <ArrowRight className="h-5 w-5 ml-2" />
                 </Button>
               </Link>
-              <a href="tel:604-616-6066">
+              <a href="tel:613-555-1234">
                 <Button size="lg" variant="outline" className="border-2 border-[#1A2332] text-[#1A2332] hover:bg-[#1A2332] hover:text-white text-lg font-bold px-10 py-7" data-testid="button-cta-call">
                   <Phone className="h-5 w-5 mr-2" />
-                  604-616-6066
+                  613-555-1234
                 </Button>
               </a>
             </div>

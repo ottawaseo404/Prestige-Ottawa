@@ -16,7 +16,7 @@ import { useState } from "react";
 import logoUrl from "@assets/originalonglogo_1763689606978.png";
 
 const reviews = [
-  { text: "Best movers in Vancouver, hands down!", author: "Mike R." },
+  { text: "Best movers in Ottawa, hands down!", author: "Mike R." },
   { text: "Fast, friendly, and affordable. Loved it!", author: "Lisa T." },
   { text: "Outstanding service from start to finish!", author: "David K." },
   { text: "Professional team, zero stress. Highly recommend!", author: "Sarah M." },
@@ -80,7 +80,7 @@ export function SharedNavigation() {
             <div className="flex items-center gap-6">
               <div className="flex items-center gap-2 text-gray-600 text-sm">
                 <MapPin className="h-4 w-4" />
-                <span>Vancouver & Area</span>
+                <span>Ottawa & Area</span>
               </div>
               <a href="tel:604-616-6066" className="flex items-center gap-2 text-gray-600 text-sm hover:text-primary transition-colors font-semibold">
                 <Phone className="h-4 w-4" />
@@ -291,7 +291,7 @@ export function SharedNavigation() {
                   {/* Location */}
                   <div className="flex items-center gap-3 p-3 text-white/70">
                     <MapPin className="h-5 w-5 text-primary flex-shrink-0" />
-                    <span className="text-sm">Serving Vancouver & Area</span>
+                    <span className="text-sm">Serving Ottawa & Area</span>
                   </div>
 
                   {/* CTA Button */}

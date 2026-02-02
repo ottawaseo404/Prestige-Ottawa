@@ -15,7 +15,7 @@ export function SharedFooter() {
             <div className="md:col-span-1">
               <img src={logoUrl} alt="Prestige Moving" className="h-12 w-auto mb-6" />
               <p className="text-white/70 text-sm leading-relaxed">
-                Vancouver's trusted moving company providing professional residential and commercial moving services.
+                Ottawa's trusted moving company providing professional residential and commercial moving services.
               </p>
               {/* WorkSafe BC Badge */}
               <div className="mt-6">
@@ -56,14 +56,14 @@ export function SharedFooter() {
             <div>
               <h4 className="font-bold text-lg mb-4">Contact Us</h4>
               <div className="space-y-3 text-sm text-white/70">
-                <p>Vancouver, BC</p>
+                <p>Ottawa, ON</p>
                 <a href="tel:604-616-6066" className="flex items-center gap-2 hover:text-primary transition-colors">
                   <Phone className="h-4 w-4" />
                   604-616-6066
                 </a>
-                <a href="mailto:vancouver@prestigemoving.ca" className="flex items-center gap-2 hover:text-primary transition-colors">
+                <a href="mailto:ottawa@prestigemoving.ca" className="flex items-center gap-2 hover:text-primary transition-colors">
                   <Mail className="h-4 w-4" />
-                  vancouver@prestigemoving.ca
+                  ottawa@prestigemoving.ca
                 </a>
               </div>
               <div className="mt-6">
@@ -85,7 +85,7 @@ export function SharedFooter() {
               <span>Fully Licensed & Insured</span>
             </div>
             <div className="flex flex-col md:flex-row items-center gap-4 text-sm text-white/50">
-              <p>&copy; {currentYear} Prestige Moving Vancouver. All rights reserved.</p>
+              <p>&copy; {currentYear} Prestige Moving Ottawa. All rights reserved.</p>
               <span className="hidden md:inline">•</span>
               <p>
                 Website by{" "}

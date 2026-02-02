@@ -35,12 +35,12 @@ Do not repeat my request. Make it a long article of at least 2000 words. Do not 
 
 All outputs will be in English. Write the article as long as possible, at least 1500 words. Make the headings bold and follow the h tags.
 
-The article should be about moving services in Vancouver, BC, Canada, focusing on Prestige Moving Vancouver. Do NOT include any internal links or markdown links to service pages.
+The article should be about moving services in Ottawa, Ontario, Canada, focusing on Prestige Moving Ottawa. Do NOT include any internal links or markdown links to service pages.
 
 Company info:
-- Name: Prestige Moving Vancouver
+- Name: Prestige Moving Ottawa
 - Phone: 604-616-6066
-- Location: Vancouver, BC, Canada
+- Location: Ottawa, Ontario, Canada
 - Years in business: 15+
 - Completed moves: 10,000+
 - Google rating: 5.0 stars`;
@@ -118,7 +118,7 @@ export async function generateFeaturedImage(title: string): Promise<string> {
   return limit(() =>
     pRetry(
       async () => {
-        const prompt = `Professional, high-quality hero image for a moving company blog post titled "${title}". Modern, clean design with warm colors. Show professional movers, moving trucks, or a beautiful Vancouver cityscape. Photorealistic style, no text overlays.`;
+        const prompt = `Professional, high-quality hero image for a moving company blog post titled "${title}". Modern, clean design with warm colors. Show professional movers, moving trucks, or a beautiful Ottawa cityscape. Photorealistic style, no text overlays.`;
 
         const response = await openai.images.generate({
           model: "gpt-image-1",
@@ -156,13 +156,13 @@ export async function generateBlogIdeas(count: number = 5): Promise<string[]> {
           messages: [
             {
               role: "system",
-              content: "You are an SEO expert for a moving company in Vancouver, BC. Generate blog post ideas that will rank well in Google and attract potential customers."
+              content: "You are an SEO expert for a moving company in Ottawa, Ontario. Generate blog post ideas that will rank well in Google and attract potential customers."
             },
             {
               role: "user",
-              content: `Generate ${count} unique blog post title ideas for a Vancouver moving company. Focus on:
+              content: `Generate ${count} unique blog post title ideas for an Ottawa moving company. Focus on:
 - Moving tips and guides
-- Vancouver-specific content (neighborhoods, regulations)
+- Ottawa-specific content (neighborhoods, regulations)
 - Seasonal moving advice
 - Cost saving tips
 - Specialty moving topics

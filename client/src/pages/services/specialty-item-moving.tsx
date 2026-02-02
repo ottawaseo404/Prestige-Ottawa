@@ -54,17 +54,17 @@ export default function SpecialtyItemMoving() {
   const schemaData = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": "Specialty Item Moving Services Vancouver",
+    "name": "Specialty Item Moving Services Ottawa",
     "provider": {
       "@type": "MovingCompany",
-      "name": "Prestige Moving Vancouver",
+      "name": "Prestige Moving Ottawa",
       "address": {
         "@type": "PostalAddress",
-        "addressLocality": "Vancouver",
-        "addressRegion": "BC",
+        "addressLocality": "Ottawa",
+        "addressRegion": "ON",
         "addressCountry": "CA"
       },
-      "telephone": "604-616-6066",
+      "telephone": "613-555-1234",
       "priceRange": "$$",
       "aggregateRating": {
         "@type": "AggregateRating",
@@ -73,15 +73,15 @@ export default function SpecialtyItemMoving() {
       }
     },
     "areaServed": [
-      { "@type": "City", "name": "Vancouver" },
-      { "@type": "City", "name": "Burnaby" },
-      { "@type": "City", "name": "Richmond" },
-      { "@type": "City", "name": "North Vancouver" },
-      { "@type": "City", "name": "West Vancouver" },
-      { "@type": "City", "name": "Coquitlam" },
-      { "@type": "City", "name": "Surrey" }
+      { "@type": "City", "name": "Ottawa" },
+      { "@type": "City", "name": "Kanata" },
+      { "@type": "City", "name": "Orleans" },
+      { "@type": "City", "name": "Nepean" },
+      { "@type": "City", "name": "Barrhaven" },
+      { "@type": "City", "name": "Gloucester" },
+      { "@type": "City", "name": "Gatineau" }
     ],
-    "description": "Professional specialty item moving services in Vancouver. Expert handling of hot tubs, pool tables, gym equipment, medical equipment, safes, and oversized items. WorkSafe BC certified with specialized equipment."
+    "description": "Professional specialty item moving services in Ottawa. Expert handling of hot tubs, pool tables, gym equipment, medical equipment, safes, and oversized items. WSIB certified with specialized equipment."
   };
 
   const faqData = {
@@ -90,10 +90,10 @@ export default function SpecialtyItemMoving() {
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "How do you move a hot tub safely in Vancouver?",
+        "name": "How do you move a hot tub safely in Ottawa?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "We drain and disconnect the hot tub, secure all components, use specialized lifting equipment and dollies, and can arrange crane services for difficult access locations. Our WorkSafe BC certified crew is trained specifically in hot tub moving procedures."
+          "text": "We drain and disconnect the hot tub, secure all components, use specialized lifting equipment and dollies, and can arrange crane services for difficult access locations. Our WSIB certified crew is trained specifically in hot tub moving procedures."
         }
       },
       {
@@ -106,7 +106,7 @@ export default function SpecialtyItemMoving() {
       },
       {
         "@type": "Question",
-        "name": "What gym equipment do you move in Vancouver?",
+        "name": "What gym equipment do you move in Ottawa?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "We move all types of fitness equipment including treadmills, ellipticals, rowing machines, weight machines, free weights, squat racks, cable systems, and complete home gym setups. We handle both residential and commercial gym equipment."
@@ -122,7 +122,7 @@ export default function SpecialtyItemMoving() {
       },
       {
         "@type": "Question",
-        "name": "How do you move heavy safes in Vancouver?",
+        "name": "How do you move heavy safes in Ottawa?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "We use specialized equipment including safe dollies, stair climbers, and rigging equipment for heavy safes. Our team is trained in proper weight distribution and can move safes up to 2,000+ lbs safely."
@@ -134,7 +134,7 @@ export default function SpecialtyItemMoving() {
   const testimonials = [
     { 
       name: "Robert K.", 
-      location: "West Vancouver", 
+      location: "Rockcliffe Park", 
       text: "Incredible job moving our 800lb hot tub from the backyard to our new home. They had specialized equipment and got it done in under 3 hours!", 
       rating: 5, 
       date: "2 weeks ago",
@@ -142,7 +142,7 @@ export default function SpecialtyItemMoving() {
     },
     { 
       name: "Angela M.", 
-      location: "Burnaby", 
+      location: "Kanata", 
       text: "Our 9' slate pool table was moved perfectly. They disassembled it, transported it carefully, and reassembled with professional leveling. Plays like new!", 
       rating: 5, 
       date: "1 month ago",
@@ -150,7 +150,7 @@ export default function SpecialtyItemMoving() {
     },
     { 
       name: "Jason T.", 
-      location: "North Vancouver", 
+      location: "Orleans", 
       text: "Moved my entire home gym including a commercial treadmill and cable machine. These guys know how to handle heavy fitness equipment.", 
       rating: 5, 
       date: "3 weeks ago",
@@ -158,7 +158,7 @@ export default function SpecialtyItemMoving() {
     },
     { 
       name: "Dr. Linda W.", 
-      location: "Vancouver", 
+      location: "Ottawa", 
       text: "They relocated our medical clinic equipment including exam tables and sensitive diagnostic machines. Professional, careful, and on schedule.", 
       rating: 5, 
       date: "1 week ago",
@@ -166,7 +166,7 @@ export default function SpecialtyItemMoving() {
     },
     { 
       name: "Mark S.", 
-      location: "Richmond", 
+      location: "Nepean", 
       text: "Moved a 1,500lb gun safe from my basement up stairs and into a new location. Incredible skill and equipment. Highly recommend for heavy items!", 
       rating: 5, 
       date: "2 months ago",
@@ -204,7 +204,7 @@ export default function SpecialtyItemMoving() {
   const faqs = [
     {
       question: "How do you move a hot tub safely?",
-      answer: "We follow a comprehensive hot tub moving process: professional disconnection of electrical and plumbing, complete draining and prep, use of specialized lifting equipment like hot tub dollies and moving straps, protective padding during transport, and crane services for difficult access locations. Our WorkSafe BC certified crew is specifically trained in hot tub moving procedures to ensure safe transport."
+      answer: "We follow a comprehensive hot tub moving process: professional disconnection of electrical and plumbing, complete draining and prep, use of specialized lifting equipment like hot tub dollies and moving straps, protective padding during transport, and crane services for difficult access locations. Our WSIB certified crew is specifically trained in hot tub moving procedures to ensure safe transport."
     },
     {
       question: "Can you move and reassemble a pool table?",
@@ -225,9 +225,9 @@ export default function SpecialtyItemMoving() {
   ];
 
   const neighborhoods = [
-    "Downtown", "Kitsilano", "Yaletown", "Coal Harbour", "West End",
-    "North Vancouver", "West Vancouver", "Burnaby", "Richmond", 
-    "Coquitlam", "Surrey", "New Westminster", "Port Moody", "Delta", "Langley"
+    "Centretown", "The Glebe", "Westboro", "Hintonburg", "Sandy Hill",
+    "Orleans", "Kanata", "Nepean", "Barrhaven", 
+    "Gloucester", "Rockcliffe Park", "New Edinburgh", "Alta Vista", "Manotick", "Gatineau"
   ];
 
   useEffect(() => {
@@ -240,19 +240,19 @@ export default function SpecialtyItemMoving() {
   return (
     <>
       <Helmet>
-        <title>Specialty Item Moving Vancouver BC | Hot Tub, Pool Table, Gym & Medical Equipment Movers | Prestige Moving</title>
-        <meta name="description" content="Professional specialty item moving in Vancouver BC. Hot tubs, pool tables, gym equipment, medical equipment, safes. WorkSafe BC certified, specialized equipment. Get your free quote today!" />
-        <meta name="keywords" content="specialty item moving Vancouver, hot tub movers BC, pool table moving Vancouver, gym equipment movers, medical equipment moving, safe movers Vancouver, heavy item moving, oversized item relocation" />
-        <meta property="og:title" content="Specialty Item Moving Vancouver | Hot Tubs, Pool Tables, Gym & Medical Equipment | Prestige Moving" />
-        <meta property="og:description" content="Vancouver's trusted specialty item movers. From hot tubs and pool tables to gym and medical equipment. WorkSafe BC certified, specialized equipment, expert handling." />
+        <title>Specialty Item Moving Ottawa ON | Hot Tub, Pool Table, Gym & Medical Equipment Movers | Prestige Moving</title>
+        <meta name="description" content="Professional specialty item moving in Ottawa ON. Hot tubs, pool tables, gym equipment, medical equipment, safes. WSIB certified, specialized equipment. Get your free quote today!" />
+        <meta name="keywords" content="specialty item moving Ottawa, hot tub movers ON, pool table moving Ottawa, gym equipment movers, medical equipment moving, safe movers Ottawa, heavy item moving, oversized item relocation" />
+        <meta property="og:title" content="Specialty Item Moving Ottawa | Hot Tubs, Pool Tables, Gym & Medical Equipment | Prestige Moving" />
+        <meta property="og:description" content="Ottawa's trusted specialty item movers. From hot tubs and pool tables to gym and medical equipment. WSIB certified, specialized equipment, expert handling." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://vancouver.prestigemoving.ca/services/specialty-item-moving" />
-        <meta property="og:image" content="https://vancouver.prestigemoving.ca/og-image.png" />
+        <meta property="og:url" content="https://ottawa.prestigemoving.ca/services/specialty-item-moving" />
+        <meta property="og:image" content="https://ottawa.prestigemoving.ca/og-image.png" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Specialty Item Moving Vancouver | Prestige Moving" />
-        <meta name="twitter:description" content="Expert hot tub, pool table, gym & medical equipment movers. WorkSafe BC certified." />
-        <meta name="twitter:image" content="https://vancouver.prestigemoving.ca/og-image.png" />
-        <link rel="canonical" href="https://vancouver.prestigemoving.ca/services/specialty-item-moving" />
+        <meta name="twitter:title" content="Specialty Item Moving Ottawa | Prestige Moving" />
+        <meta name="twitter:description" content="Expert hot tub, pool table, gym & medical equipment movers. WSIB certified." />
+        <meta name="twitter:image" content="https://ottawa.prestigemoving.ca/og-image.png" />
+        <link rel="canonical" href="https://ottawa.prestigemoving.ca/services/specialty-item-moving" />
         <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
         <script type="application/ld+json">{JSON.stringify(faqData)}</script>
       </Helmet>
@@ -288,12 +288,12 @@ export default function SpecialtyItemMoving() {
               </div>
 
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-6 leading-[1.1]" data-testid="heading-hero">
-                Vancouver's<br />
+                Ottawa's<br />
                 <span className="text-primary">Heavy Item Experts</span>
               </h1>
 
               <p className="text-xl md:text-2xl text-white/80 mb-8 leading-relaxed" data-testid="text-hero-description">
-                From hot tubs and pool tables to gym equipment and safes, we've safely moved <span className="text-primary font-semibold">2,000+ specialty items</span> across Metro Vancouver.
+                From hot tubs and pool tables to gym equipment and safes, we've safely moved <span className="text-primary font-semibold">2,000+ specialty items</span> across the National Capital Region.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
@@ -303,10 +303,10 @@ export default function SpecialtyItemMoving() {
                     <ArrowRight className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </Link>
-                <a href="tel:604-616-6066">
+                <a href="tel:613-555-1234">
                   <Button size="lg" variant="outline" className="text-lg font-bold px-8 py-7 border-2 border-white/40 text-white hover:bg-white/10 backdrop-blur-sm" data-testid="button-hero-call">
                     <Phone className="h-5 w-5 mr-2" />
-                    604-616-6066
+                    613-555-1234
                   </Button>
                 </a>
               </div>
@@ -352,17 +352,17 @@ export default function SpecialtyItemMoving() {
               <div>
                 <Badge className="bg-primary/10 text-primary mb-4">About Our Service</Badge>
                 <h2 className="text-3xl md:text-4xl font-black text-foreground mb-6" data-testid="heading-about">
-                  Vancouver's Premier Specialty Item Movers
+                  Ottawa's Premier Specialty Item Movers
                 </h2>
                 <div className="space-y-4 text-muted-foreground">
                   <p>
-                    When standard moving services aren't enough, <strong>Prestige Moving Vancouver</strong> delivers the specialized expertise your unique items require. Our trained specialists have the equipment and know-how to safely transport items that other movers won't touch.
+                    When standard moving services aren't enough, <strong>Prestige Moving Ottawa</strong> delivers the specialized expertise your unique items require. Our trained specialists have the equipment and know-how to safely transport items that other movers won't touch.
                   </p>
                   <p>
-                    From <strong>hot tub relocation</strong> and pool table moving to gym equipment transport and medical equipment handling, we've built our reputation on successfully moving the items that matter most to Vancouver families and businesses.
+                    From <strong>hot tub relocation</strong> and pool table moving to gym equipment transport and medical equipment handling, we've built our reputation on successfully moving the items that matter most to Ottawa families and businesses.
                   </p>
                   <p>
-                    As a <strong>WorkSafe BC certified moving company</strong>, we prioritize safety for both our team and your valuable belongings. Our movers are fully insured and trained on specialized equipment handling procedures.
+                    As a <strong>WSIB certified moving company</strong>, we prioritize safety for both our team and your valuable belongings. Our movers are fully insured and trained on specialized equipment handling procedures.
                   </p>
                 </div>
                 <div className="mt-8">
@@ -510,7 +510,7 @@ export default function SpecialtyItemMoving() {
                 { icon: Shield, title: "Full Insurance Coverage", description: "Complete protection for high-value specialty items from pickup to delivery", color: "from-emerald-500 to-emerald-600" },
                 { icon: Timer, title: "Efficient Process", description: "Pre-move assessments, access planning, and streamlined execution", color: "from-violet-500 to-violet-600" },
                 { icon: ThumbsUp, title: "Damage-Free Guarantee", description: "Proven techniques to protect both your items and property during the move", color: "from-rose-500 to-rose-600" },
-                { icon: Award, title: "WorkSafe BC Certified", description: "Full compliance with workplace safety standards for lifting heavy items", color: "from-primary to-amber-600" }
+                { icon: Award, title: "WSIB Certified", description: "Full compliance with workplace safety standards for lifting heavy items", color: "from-primary to-amber-600" }
               ].map((item, index) => (
                 <Card key={index} className="border-2 hover:border-primary/50 transition-all hover:shadow-lg" data-testid={`card-expert-${index}`}>
                   <CardContent className="p-6">
@@ -652,10 +652,10 @@ export default function SpecialtyItemMoving() {
             <div className="text-center mb-10">
               <Badge className="bg-primary/20 text-primary border-primary/30 mb-4">Coverage</Badge>
               <h2 className="text-3xl md:text-4xl font-black text-white mb-4" data-testid="heading-service-areas">
-                Vancouver Areas We Serve
+                Ottawa Areas We Serve
               </h2>
               <p className="text-lg text-white/60">
-                Specialty item moving across Metro Vancouver and the Lower Mainland
+                Specialty item moving across National Capital Region and the Greater Ottawa Area
               </p>
             </div>
 
@@ -774,10 +774,10 @@ export default function SpecialtyItemMoving() {
                   <ArrowRight className="h-5 w-5 ml-2" />
                 </Button>
               </Link>
-              <a href="tel:604-616-6066">
+              <a href="tel:613-555-1234">
                 <Button size="lg" variant="outline" className="border-2 border-[#1A2332] text-[#1A2332] hover:bg-[#1A2332] hover:text-white text-lg font-bold px-10 py-7" data-testid="button-cta-call">
                   <Phone className="h-5 w-5 mr-2" />
-                  604-616-6066
+                  613-555-1234
                 </Button>
               </a>
             </div>

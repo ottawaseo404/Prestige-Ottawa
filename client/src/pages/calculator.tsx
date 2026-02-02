@@ -292,17 +292,17 @@ export default function Calculator() {
   return (
     <>
       <Helmet>
-        <title>Moving Calculator | Free Inventory Estimator | Prestige Moving Vancouver</title>
-        <meta name="description" content="Calculate your moving costs with our free inventory calculator. Add items room by room for an accurate moving estimate in Vancouver. Get instant pricing!" />
-        <meta name="keywords" content="moving calculator Vancouver, moving cost estimator, furniture inventory calculator, moving estimate BC, free moving quote calculator" />
+        <title>Moving Calculator | Free Inventory Estimator | Prestige Moving Ottawa</title>
+        <meta name="description" content="Calculate your moving costs with our free inventory calculator. Add items room by room for an accurate moving estimate in Ottawa. Get instant pricing!" />
+        <meta name="keywords" content="moving calculator Ottawa, moving cost estimator, furniture inventory calculator, moving estimate ON, free moving quote calculator" />
         <meta name="robots" content="index, follow" />
-        <meta property="og:title" content="Free Moving Calculator | Prestige Moving Vancouver" />
-        <meta property="og:description" content="Calculate your moving costs instantly. Room-by-room inventory for accurate Vancouver moving estimates." />
+        <meta property="og:title" content="Free Moving Calculator | Prestige Moving Ottawa" />
+        <meta property="og:description" content="Calculate your moving costs instantly. Room-by-room inventory for accurate Ottawa moving estimates." />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://vancouver.prestigemoving.ca/og-image.png" />
+        <meta property="og:image" content="https://ottawa.prestigemoving.ca/og-image.png" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content="https://vancouver.prestigemoving.ca/og-image.png" />
-        <link rel="canonical" href="https://vancouver.prestigemoving.ca/calculator" />
+        <meta name="twitter:image" content="https://ottawa.prestigemoving.ca/og-image.png" />
+        <link rel="canonical" href="https://ottawa.prestigemoving.ca/calculator" />
       </Helmet>
 
       <div className="min-h-screen bg-background">
@@ -505,8 +505,8 @@ export default function Calculator() {
                           <Phone className="h-5 w-5 text-primary" />
                           <div>
                             <div className="text-sm text-muted-foreground">Questions? Call us</div>
-                            <a href="tel:604-616-6066" className="font-bold text-lg hover:text-primary">
-                              604-616-6066
+                            <a href="tel:613-555-1234" className="font-bold text-lg hover:text-primary">
+                              613-555-1234
                             </a>
                           </div>
                         </div>
@@ -687,10 +687,10 @@ export default function Calculator() {
                   Schedule Free Consultation
                 </Button>
               </Link>
-              <a href="tel:604-616-6066">
+              <a href="tel:613-555-1234">
                 <Button size="lg" variant="outline" className="font-bold px-8">
                   <Phone className="h-5 w-5 mr-2" />
-                  604-616-6066
+                  613-555-1234
                 </Button>
               </a>
             </div>

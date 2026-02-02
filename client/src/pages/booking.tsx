@@ -45,13 +45,13 @@ export default function Booking() {
       moveSize: "",
       serviceType: "Moving",
       originStreet: "",
-      originCity: "Vancouver",
-      originProvince: "BC",
+      originCity: "Ottawa",
+      originProvince: "ON",
       originPostalCode: "",
       originStairs: 0,
       destinationStreet: "",
-      destinationCity: "Vancouver",
-      destinationProvince: "BC",
+      destinationCity: "Ottawa",
+      destinationProvince: "ON",
       destinationPostalCode: "",
       destinationStairs: 0,
       packageType: "Premium",
@@ -144,17 +144,17 @@ export default function Booking() {
   const bookingSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": "Book Your Move - Prestige Moving Vancouver",
+    "name": "Book Your Move - Prestige Moving Ottawa",
     "provider": {
       "@type": "MovingCompany",
-      "name": "Prestige Moving Vancouver",
-      "telephone": "604-616-6066"
+      "name": "Prestige Moving Ottawa",
+      "telephone": "613-555-1234"
     },
     "areaServed": {
       "@type": "City",
-      "name": "Vancouver"
+      "name": "Ottawa"
     },
-    "description": "Book your professional move with Prestige Moving Vancouver. Easy online booking, instant quotes, and reliable service."
+    "description": "Book your professional move with Prestige Moving Ottawa. Easy online booking, instant quotes, and reliable service."
   };
 
   const stepLabels = ['Move Details', 'From', 'To', 'Contact', 'Review'];
@@ -162,17 +162,17 @@ export default function Booking() {
   return (
     <>
       <Helmet>
-        <title>Get a Free Quote | Moving Quote Vancouver | Prestige Moving</title>
-        <meta name="description" content="Get your free moving quote in minutes. Vancouver's top-rated movers. Residential, commercial, long-distance moves. WorkSafe BC certified, 5-star rated. Call 604-616-6066!" />
-        <meta name="keywords" content="book moving Vancouver, moving quote Vancouver, hire movers BC, schedule move Vancouver, online moving booking, Vancouver mover estimate" />
+        <title>Get a Free Quote | Moving Quote Ottawa | Prestige Moving</title>
+        <meta name="description" content="Get your free moving quote in minutes. Ottawa's top-rated movers. Residential, commercial, long-distance moves. WSIB certified, 5-star rated. Call 613-555-1234!" />
+        <meta name="keywords" content="book moving Ottawa, moving quote Ottawa, hire movers ON, schedule move Ottawa, online moving booking, Ottawa mover estimate" />
         <meta name="robots" content="index, follow" />
-        <meta property="og:title" content="Get a Free Quote | Prestige Moving Vancouver" />
-        <meta property="og:description" content="Get your free moving quote online. Easy process, fast response, trusted Vancouver movers." />
+        <meta property="og:title" content="Get a Free Quote | Prestige Moving Ottawa" />
+        <meta property="og:description" content="Get your free moving quote online. Easy process, fast response, trusted Ottawa movers." />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://vancouver.prestigemoving.ca/og-image.png" />
+        <meta property="og:image" content="https://ottawa.prestigemoving.ca/og-image.png" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content="https://vancouver.prestigemoving.ca/og-image.png" />
-        <link rel="canonical" href="https://vancouver.prestigemoving.ca/book" />
+        <meta name="twitter:image" content="https://ottawa.prestigemoving.ca/og-image.png" />
+        <link rel="canonical" href="https://ottawa.prestigemoving.ca/book" />
         <script type="application/ld+json">{JSON.stringify(bookingSchema)}</script>
       </Helmet>
 
@@ -357,7 +357,7 @@ export default function Booking() {
                           <FormItem>
                             <FormLabel>City *</FormLabel>
                             <FormControl>
-                              <Input className="h-12" placeholder="Vancouver" {...field} data-testid="input-origin-city" />
+                              <Input className="h-12" placeholder="Ottawa" {...field} data-testid="input-origin-city" />
                             </FormControl>
                             <FormMessage />
                           </FormItem>
@@ -371,7 +371,7 @@ export default function Booking() {
                           <FormItem>
                             <FormLabel>Province *</FormLabel>
                             <FormControl>
-                              <Input className="h-12" placeholder="BC" {...field} data-testid="input-origin-province" />
+                              <Input className="h-12" placeholder="ON" {...field} data-testid="input-origin-province" />
                             </FormControl>
                             <FormMessage />
                           </FormItem>
@@ -387,7 +387,7 @@ export default function Booking() {
                           <FormItem>
                             <FormLabel>Postal Code *</FormLabel>
                             <FormControl>
-                              <Input className="h-12" placeholder="V6B 1A1" {...field} data-testid="input-origin-postal" />
+                              <Input className="h-12" placeholder="K1A 0A1" {...field} data-testid="input-origin-postal" />
                             </FormControl>
                             <FormMessage />
                           </FormItem>
@@ -447,7 +447,7 @@ export default function Booking() {
                           <FormItem>
                             <FormLabel>City *</FormLabel>
                             <FormControl>
-                              <Input className="h-12" placeholder="Vancouver" {...field} data-testid="input-destination-city" />
+                              <Input className="h-12" placeholder="Ottawa" {...field} data-testid="input-destination-city" />
                             </FormControl>
                             <FormMessage />
                           </FormItem>
@@ -461,7 +461,7 @@ export default function Booking() {
                           <FormItem>
                             <FormLabel>Province *</FormLabel>
                             <FormControl>
-                              <Input className="h-12" placeholder="BC" {...field} data-testid="input-destination-province" />
+                              <Input className="h-12" placeholder="ON" {...field} data-testid="input-destination-province" />
                             </FormControl>
                             <FormMessage />
                           </FormItem>
@@ -477,7 +477,7 @@ export default function Booking() {
                           <FormItem>
                             <FormLabel>Postal Code *</FormLabel>
                             <FormControl>
-                              <Input className="h-12" placeholder="V6B 2A2" {...field} data-testid="input-destination-postal" />
+                              <Input className="h-12" placeholder="K2P 2A2" {...field} data-testid="input-destination-postal" />
                             </FormControl>
                             <FormMessage />
                           </FormItem>

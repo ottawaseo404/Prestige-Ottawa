@@ -618,7 +618,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
         stairFlights
       } = req.body;
 
-      const systemPrompt = `You are a professional moving cost estimator for Prestige Moving Vancouver. 
+      const systemPrompt = `You are a professional moving cost estimator for Prestige Moving Ottawa. 
       
 Our pricing structure:
 - Premium Package: $155/hour (2 movers + 16-20ft truck), 3 hour minimum + $155 travel fee
@@ -629,7 +629,7 @@ Additional costs:
 - Stairs: Add $25-50 per flight
 - Packing services: Add $50-150 depending on home size
 - Special items (piano, hot tub, pool table): $100-400 each
-- Long distance (outside Metro Vancouver): Add $1.50-2.50/km
+- Long distance (outside Metro Ottawa): Add $1.50-2.50/km
 
 Estimate realistic hours based on home size:
 - Studio/1BR: 2-4 hours
@@ -651,8 +651,8 @@ Provide estimates in JSON format with these fields:
       const userMessage = `Please estimate the moving cost for:
 - Move type: ${moveType || 'Residential'}
 - Home size: ${homeSize || 'Not specified'}
-- From: ${originCity || 'Vancouver area'}
-- To: ${destinationCity || 'Vancouver area'}
+- From: ${originCity || 'Ottawa area'}
+- To: ${destinationCity || 'Ottawa area'}
 - Move date: ${moveDate || 'Not specified'}
 - Special items: ${hasSpecialItems ? specialItems : 'None'}
 - Packing needed: ${needsPacking ? 'Yes' : 'No'}
@@ -1175,7 +1175,7 @@ Provide a detailed cost estimate in JSON format.`;
 
       const defaultCategories = [
         { name: "Moving Tips", slug: "moving-tips", description: "Helpful tips and guides for your move" },
-        { name: "Vancouver Guide", slug: "vancouver-guide", description: "Vancouver neighborhoods and local moving info" },
+        { name: "Ottawa Guide", slug: "ottawa-guide", description: "Ottawa neighborhoods and local moving info" },
         { name: "Packing & Organization", slug: "packing-organization", description: "Packing tips and organization strategies" },
         { name: "Moving Checklist", slug: "moving-checklist", description: "Checklists and timelines for moving" },
         { name: "Cost Saving", slug: "cost-saving", description: "Ways to save money on your move" },

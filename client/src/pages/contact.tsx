@@ -51,16 +51,16 @@ export default function Contact() {
   return (
     <>
       <Helmet>
-        <title>Contact Us | Prestige Moving Vancouver | Get a Free Quote</title>
-        <meta name="description" content="Contact Prestige Moving Vancouver for a free moving quote. Call 604-616-6066 or fill out our contact form. Available 7 days a week for all your moving needs." />
-        <meta name="keywords" content="contact movers Vancouver, moving quote Vancouver, Vancouver moving company phone, Prestige Moving contact" />
-        <meta property="og:title" content="Contact Prestige Moving Vancouver" />
-        <meta property="og:description" content="Get in touch with Vancouver's most trusted moving company. Free quotes, 7-day availability. Call 604-616-6066." />
+        <title>Contact Us | Prestige Moving Ottawa | Get a Free Quote</title>
+        <meta name="description" content="Contact Prestige Moving Ottawa for a free moving quote. Call 613-555-1234 or fill out our contact form. Available 7 days a week for all your moving needs." />
+        <meta name="keywords" content="contact movers Ottawa, moving quote Ottawa, Ottawa moving company phone, Prestige Moving contact" />
+        <meta property="og:title" content="Contact Prestige Moving Ottawa" />
+        <meta property="og:description" content="Get in touch with Ottawa's most trusted moving company. Free quotes, 7-day availability. Call 613-555-1234." />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://vancouver.prestigemoving.ca/og-image.png" />
+        <meta property="og:image" content="https://ottawa.prestigemoving.ca/og-image.png" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content="https://vancouver.prestigemoving.ca/og-image.png" />
-        <link rel="canonical" href="https://vancouver.prestigemoving.ca/contact" />
+        <meta name="twitter:image" content="https://ottawa.prestigemoving.ca/og-image.png" />
+        <link rel="canonical" href="https://ottawa.prestigemoving.ca/contact" />
       </Helmet>
 
       <div className="min-h-screen bg-background">
@@ -77,7 +77,7 @@ export default function Contact() {
               Contact <span className="text-primary">Prestige Moving</span>
             </h1>
             <p className="text-xl text-white/80 max-w-2xl mx-auto">
-              Ready to start your move? Get in touch with Vancouver's most trusted moving company. We're here to help 7 days a week.
+              Ready to start your move? Get in touch with Ottawa's most trusted moving company. We're here to help 7 days a week.
             </p>
           </div>
         </section>
@@ -92,7 +92,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <div className="font-bold">Call Us</div>
-                  <a href="tel:604-616-6066" className="hover:underline">604-616-6066</a>
+                  <a href="tel:613-555-1234" className="hover:underline">613-555-1234</a>
                 </div>
               </div>
               <div className="flex items-center justify-center gap-3 text-[#1A2332]">
@@ -101,7 +101,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <div className="font-bold">Email Us</div>
-                  <a href="mailto:vancouver@prestigemoving.ca" className="hover:underline">vancouver@prestigemoving.ca</a>
+                  <a href="mailto:ottawa@prestigemoving.ca" className="hover:underline">ottawa@prestigemoving.ca</a>
                 </div>
               </div>
               <div className="flex items-center justify-center gap-3 text-[#1A2332]">
@@ -110,7 +110,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <div className="font-bold">Location</div>
-                  <span>Vancouver & Area</span>
+                  <span>Ottawa & Area</span>
                 </div>
               </div>
               <div className="flex items-center justify-center gap-3 text-[#1A2332]">
@@ -157,7 +157,7 @@ export default function Contact() {
                           id="phone"
                           name="phone"
                           type="tel"
-                          placeholder="604-XXX-XXXX"
+                          placeholder="613-XXX-XXXX"
                           value={formData.phone}
                           onChange={handleChange}
                           required
@@ -238,7 +238,7 @@ export default function Contact() {
                 <div>
                   <h2 className="text-2xl font-bold mb-4">Why Contact Prestige Moving?</h2>
                   <p className="text-muted-foreground mb-6">
-                    Whether you're planning a local move across Vancouver or a long-distance relocation across Canada, our team is ready to provide you with exceptional service and a stress-free moving experience.
+                    Whether you're planning a local move across Ottawa or a long-distance relocation across Canada, our team is ready to provide you with exceptional service and a stress-free moving experience.
                   </p>
                 </div>
 
@@ -255,7 +255,7 @@ export default function Contact() {
                     <p className="text-white/80 italic mb-4">
                       "Prestige Moving made our cross-city move incredibly easy. The team was professional, efficient, and took great care of all our belongings. Highly recommend!"
                     </p>
-                    <p className="text-primary font-semibold">— Sarah M., Vancouver</p>
+                    <p className="text-primary font-semibold">— Sarah M., Ottawa</p>
                   </CardContent>
                 </Card>
 
@@ -276,10 +276,10 @@ export default function Contact() {
                 <div className="bg-gradient-to-r from-primary to-amber-500 rounded-xl p-6 text-[#1A2332]">
                   <h3 className="text-xl font-bold mb-2">Prefer to Talk?</h3>
                   <p className="mb-4">Our friendly team is standing by to answer your questions and provide instant quotes.</p>
-                  <a href="tel:604-616-6066">
+                  <a href="tel:613-555-1234">
                     <Button variant="secondary" size="lg" className="bg-[#1A2332] text-white hover:bg-[#2a3a52] font-bold">
                       <Phone className="h-5 w-5 mr-2" />
-                      Call 604-616-6066
+                      Call 613-555-1234
                     </Button>
                   </a>
                 </div>
@@ -287,7 +287,7 @@ export default function Contact() {
                 <div>
                   <h3 className="text-xl font-bold mb-4">Service Areas</h3>
                   <div className="flex flex-wrap gap-2">
-                    {["Vancouver", "Burnaby", "Richmond", "North Vancouver", "West Vancouver", "Coquitlam", "Surrey", "New Westminster", "Delta", "Langley"].map((area) => (
+                    {["Ottawa", "Kanata", "Orleans", "Nepean", "Barrhaven", "Gloucester", "Gatineau", "Stittsville", "Manotick", "Rockland"].map((area) => (
                       <Badge key={area} variant="outline" className="text-sm">
                         {area}
                       </Badge>

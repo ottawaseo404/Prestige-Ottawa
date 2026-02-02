@@ -82,7 +82,7 @@ export default function MovingSupplies() {
     } catch (error: any) {
       toast({
         title: "Submission Failed",
-        description: error.message || "Please try again or call us directly at 604-616-6066",
+        description: error.message || "Please try again or call us directly at 613-555-1234",
         variant: "destructive",
       });
     } finally {
@@ -93,17 +93,17 @@ export default function MovingSupplies() {
   const schemaData = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": "Moving Supplies Delivery Vancouver",
+    "name": "Moving Supplies Delivery Ottawa",
     "provider": {
       "@type": "MovingCompany",
-      "name": "Prestige Moving Vancouver",
+      "name": "Prestige Moving Ottawa",
       "address": {
         "@type": "PostalAddress",
-        "addressLocality": "Vancouver",
-        "addressRegion": "BC",
+        "addressLocality": "Ottawa",
+        "addressRegion": "ON",
         "addressCountry": "CA"
       },
-      "telephone": "604-616-6066",
+      "telephone": "613-555-1234",
       "priceRange": "$",
       "aggregateRating": {
         "@type": "AggregateRating",
@@ -112,15 +112,15 @@ export default function MovingSupplies() {
       }
     },
     "areaServed": [
-      { "@type": "City", "name": "Vancouver" },
-      { "@type": "City", "name": "Burnaby" },
-      { "@type": "City", "name": "Richmond" },
-      { "@type": "City", "name": "North Vancouver" },
-      { "@type": "City", "name": "Surrey" },
-      { "@type": "City", "name": "Coquitlam" },
-      { "@type": "City", "name": "New Westminster" }
+      { "@type": "City", "name": "Ottawa" },
+      { "@type": "City", "name": "Kanata" },
+      { "@type": "City", "name": "Orleans" },
+      { "@type": "City", "name": "Nepean" },
+      { "@type": "City", "name": "Barrhaven" },
+      { "@type": "City", "name": "Gloucester" },
+      { "@type": "City", "name": "Gatineau" }
     ],
-    "description": "Moving supplies delivery service in Vancouver. Professional-grade boxes, packing materials, tape, and protective supplies delivered to your door. Same-day delivery available."
+    "description": "Moving supplies delivery service in Ottawa. Professional-grade boxes, packing materials, tape, and protective supplies delivered to your door. Same-day delivery available."
   };
 
   const faqData = {
@@ -132,7 +132,7 @@ export default function MovingSupplies() {
         "name": "Do you offer same-day delivery for moving supplies?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes! Order by noon and we can deliver your moving supplies the same day throughout Greater Vancouver, Burnaby, Richmond, Surrey, and surrounding areas."
+          "text": "Yes! Order by noon and we can deliver your moving supplies the same day throughout Greater Ottawa, Kanata, Orleans, Nepean, and surrounding areas."
         }
       },
       {
@@ -171,11 +171,11 @@ export default function MovingSupplies() {
   };
 
   const testimonials = [
-    { name: "Amanda W.", location: "Kitsilano", text: "Ordered supplies for my condo move and they arrived the same day! Great quality boxes that held up perfectly. The wardrobe boxes saved me so much time.", rating: 5, date: "1 week ago" },
-    { name: "Kevin P.", location: "Burnaby", text: "The 2-bedroom pack had everything I needed. Bubble wrap, tape, markers - all professional grade. Saved me multiple trips to the store.", rating: 5, date: "2 weeks ago" },
-    { name: "Rachel S.", location: "North Vancouver", text: "Love that they buy back unused supplies! I returned 8 boxes after my move and got a refund. Eco-friendly and wallet-friendly!", rating: 5, date: "3 weeks ago" },
-    { name: "Marcus T.", location: "Richmond", text: "The specialty dish pack boxes were a lifesaver. Every piece of china arrived without a scratch. Worth every penny for the peace of mind.", rating: 5, date: "1 month ago" },
-    { name: "Linda H.", location: "Coquitlam", text: "Used Prestige for supplies and their full moving service. The consistency in quality from supplies to service is impressive. Highly recommend!", rating: 5, date: "2 months ago" }
+    { name: "Amanda W.", location: "Westboro", text: "Ordered supplies for my condo move and they arrived the same day! Great quality boxes that held up perfectly. The wardrobe boxes saved me so much time.", rating: 5, date: "1 week ago" },
+    { name: "Kevin P.", location: "Kanata", text: "The 2-bedroom pack had everything I needed. Bubble wrap, tape, markers - all professional grade. Saved me multiple trips to the store.", rating: 5, date: "2 weeks ago" },
+    { name: "Rachel S.", location: "Orleans", text: "Love that they buy back unused supplies! I returned 8 boxes after my move and got a refund. Eco-friendly and wallet-friendly!", rating: 5, date: "3 weeks ago" },
+    { name: "Marcus T.", location: "Nepean", text: "The specialty dish pack boxes were a lifesaver. Every piece of china arrived without a scratch. Worth every penny for the peace of mind.", rating: 5, date: "1 month ago" },
+    { name: "Linda H.", location: "Barrhaven", text: "Used Prestige for supplies and their full moving service. The consistency in quality from supplies to service is impressive. Highly recommend!", rating: 5, date: "2 months ago" }
   ];
 
   const supplyCategories = [
@@ -208,7 +208,7 @@ export default function MovingSupplies() {
   const faqs = [
     {
       question: "Do you offer same-day delivery for moving supplies?",
-      answer: "Yes! Order by noon and we can deliver your moving supplies the same day throughout Greater Vancouver, Burnaby, Richmond, Surrey, and surrounding areas. We understand that moving timelines can be tight, so we prioritize fast delivery."
+      answer: "Yes! Order by noon and we can deliver your moving supplies the same day throughout Greater Ottawa, Kanata, Orleans, Nepean, and surrounding areas. We understand that moving timelines can be tight, so we prioritize fast delivery."
     },
     {
       question: "What moving supplies do you offer?",
@@ -260,9 +260,9 @@ export default function MovingSupplies() {
   ];
 
   const neighborhoods = [
-    "Downtown", "Kitsilano", "Yaletown", "Coal Harbour", "West End",
-    "Mount Pleasant", "Commercial Drive", "Kerrisdale", "Point Grey",
-    "UBC", "Burnaby", "Richmond", "North Van", "West Van", "Surrey"
+    "Centretown", "The Glebe", "Westboro", "Hintonburg", "Sandy Hill",
+    "Old Ottawa South", "Wellington West", "New Edinburgh", "Rockcliffe Park",
+    "Kanata", "Orleans", "Nepean", "Barrhaven", "Gloucester", "Gatineau"
   ];
 
   useEffect(() => {
@@ -275,20 +275,20 @@ export default function MovingSupplies() {
   return (
     <>
       <Helmet>
-        <title>Moving Supplies Delivery Vancouver BC | Boxes, Packing Materials | Prestige Moving</title>
-        <meta name="description" content="Moving supplies delivered to your door in Vancouver BC. Professional-grade boxes, bubble wrap, packing paper, tape, and specialty materials. Same-day delivery available. Order online or call 604-616-6066!" />
-        <meta name="keywords" content="moving supplies Vancouver, moving boxes delivery, packing materials BC, bubble wrap Vancouver, moving tape delivery, cardboard boxes Vancouver, wardrobe boxes, packing supplies delivery" />
-        <meta property="og:title" content="Moving Supplies Delivery Vancouver | Boxes & Packing Materials | Prestige Moving" />
-        <meta property="og:description" content="Professional moving supplies delivered to your door in Vancouver. Same-day delivery on boxes, bubble wrap, tape, and packing materials. Free returns on unused supplies!" />
+        <title>Moving Supplies Delivery Ottawa ON | Boxes, Packing Materials | Prestige Moving</title>
+        <meta name="description" content="Moving supplies delivered to your door in Ottawa ON. Professional-grade boxes, bubble wrap, packing paper, tape, and specialty materials. Same-day delivery available. Order online or call 613-555-1234!" />
+        <meta name="keywords" content="moving supplies Ottawa, moving boxes delivery, packing materials ON, bubble wrap Ottawa, moving tape delivery, cardboard boxes Ottawa, wardrobe boxes, packing supplies delivery" />
+        <meta property="og:title" content="Moving Supplies Delivery Ottawa | Boxes & Packing Materials | Prestige Moving" />
+        <meta property="og:description" content="Professional moving supplies delivered to your door in Ottawa. Same-day delivery on boxes, bubble wrap, tape, and packing materials. Free returns on unused supplies!" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://vancouver.prestigemoving.ca/services/moving-supplies" />
-        <meta property="og:image" content="https://vancouver.prestigemoving.ca/og-image.png" />
-        <meta property="og:site_name" content="Prestige Moving Vancouver" />
+        <meta property="og:url" content="https://ottawa.prestigemoving.ca/services/moving-supplies" />
+        <meta property="og:image" content="https://ottawa.prestigemoving.ca/og-image.png" />
+        <meta property="og:site_name" content="Prestige Moving Ottawa" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Moving Supplies Delivery Vancouver | Prestige Moving" />
-        <meta name="twitter:description" content="Professional moving supplies delivered to your door. Same-day delivery available in Greater Vancouver." />
-        <meta name="twitter:image" content="https://vancouver.prestigemoving.ca/og-image.png" />
-        <link rel="canonical" href="https://vancouver.prestigemoving.ca/services/moving-supplies" />
+        <meta name="twitter:title" content="Moving Supplies Delivery Ottawa | Prestige Moving" />
+        <meta name="twitter:description" content="Professional moving supplies delivered to your door. Same-day delivery available in Greater Ottawa." />
+        <meta name="twitter:image" content="https://ottawa.prestigemoving.ca/og-image.png" />
+        <link rel="canonical" href="https://ottawa.prestigemoving.ca/services/moving-supplies" />
         <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
         <script type="application/ld+json">{JSON.stringify(faqData)}</script>
       </Helmet>
@@ -329,7 +329,7 @@ export default function MovingSupplies() {
               </h1>
 
               <p className="text-xl md:text-2xl text-white/80 mb-8 leading-relaxed" data-testid="text-hero-description">
-                Professional-grade boxes, packing materials, and protective supplies delivered right to your door. <span className="text-primary font-semibold">Same-day delivery</span> available in Greater Vancouver.
+                Professional-grade boxes, packing materials, and protective supplies delivered right to your door. <span className="text-primary font-semibold">Same-day delivery</span> available in Greater Ottawa.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
@@ -339,10 +339,10 @@ export default function MovingSupplies() {
                     <ArrowRight className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </Link>
-                <a href="tel:604-616-6066">
+                <a href="tel:613-555-1234">
                   <Button size="lg" variant="outline" className="text-lg font-bold px-8 py-7 border-2 border-white/40 text-white hover:bg-white/10 backdrop-blur-sm" data-testid="button-hero-call">
                     <Phone className="h-5 w-5 mr-2" />
-                    604-616-6066
+                    613-555-1234
                   </Button>
                 </a>
               </div>
@@ -388,11 +388,11 @@ export default function MovingSupplies() {
               <div>
                 <Badge className="bg-primary/10 text-primary mb-4">About Our Supplies</Badge>
                 <h2 className="text-3xl md:text-4xl font-black text-foreground mb-6" data-testid="heading-about">
-                  Vancouver's Premier Moving Supply Delivery
+                  Ottawa's Premier Moving Supply Delivery
                 </h2>
                 <div className="space-y-4 text-muted-foreground">
                   <p>
-                    Planning a DIY move or need to supplement your moving day supplies? <strong>Prestige Moving Vancouver</strong> delivers professional-grade moving supplies right to your door throughout Greater Vancouver and the Lower Mainland.
+                    Planning a DIY move or need to supplement your moving day supplies? <strong>Prestige Moving Ottawa</strong> delivers professional-grade moving supplies right to your door throughout Greater Ottawa and the National Capital Region.
                   </p>
                   <p>
                     Our supplies are the same high-quality materials our professional movers use daily. From heavy-duty boxes to specialty protection for fragile items, we have everything you need for a successful move.
@@ -567,7 +567,7 @@ export default function MovingSupplies() {
 
             <div className="mt-10 text-center">
               <p className="text-muted-foreground mb-4">Need a custom package? We can create one just for you!</p>
-              <a href="tel:604-616-6066">
+              <a href="tel:613-555-1234">
                 <Button variant="outline" size="lg" data-testid="button-custom-package">
                   <Phone className="h-5 w-5 mr-2" />
                   Call for Custom Quote
@@ -589,7 +589,7 @@ export default function MovingSupplies() {
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
-                { icon: Truck, title: "Same-Day Delivery", description: "Order by noon and receive your supplies the same day in Greater Vancouver", color: "from-amber-500 to-amber-600" },
+                { icon: Truck, title: "Same-Day Delivery", description: "Order by noon and receive your supplies the same day in Greater Ottawa", color: "from-amber-500 to-amber-600" },
                 { icon: Award, title: "Professional Grade", description: "The same quality materials our professional movers use daily", color: "from-blue-500 to-blue-600" },
                 { icon: Recycle, title: "Eco-Friendly", description: "Recycled cardboard boxes with our buyback program for sustainability", color: "from-emerald-500 to-emerald-600" },
                 { icon: Timer, title: "Free Returns", description: "Return unused, unopened supplies within 14 days for a full refund", color: "from-violet-500 to-violet-600" },
@@ -697,10 +697,10 @@ export default function MovingSupplies() {
             <div className="text-center mb-10">
               <Badge className="bg-primary/20 text-primary border-primary/30 mb-4">Delivery Coverage</Badge>
               <h2 className="text-3xl md:text-4xl font-black text-white mb-4" data-testid="heading-service-areas">
-                Vancouver Areas We Deliver To
+                Ottawa Areas We Deliver To
               </h2>
               <p className="text-lg text-white/60">
-                Same-day delivery available throughout Metro Vancouver
+                Same-day delivery available throughout National Capital Region
               </p>
             </div>
 
@@ -719,7 +719,7 @@ export default function MovingSupplies() {
 
             <div className="text-center mt-8">
               <p className="text-white/60 text-sm">
-                Don't see your area? We deliver to all of Greater Vancouver, Lower Mainland, and Fraser Valley!
+                Don't see your area? We deliver to all of Greater Ottawa, Greater Ottawa Area, and Fraser Valley!
               </p>
             </div>
           </div>
@@ -786,7 +786,7 @@ export default function MovingSupplies() {
                   <CardContent className="p-6">
                     <Home className="h-8 w-8 text-primary mb-4" />
                     <h3 className="font-bold text-lg mb-2">Residential Moving</h3>
-                    <p className="text-muted-foreground">Full-service home moving across Vancouver</p>
+                    <p className="text-muted-foreground">Full-service home moving across Ottawa</p>
                   </CardContent>
                 </Card>
               </Link>
@@ -982,10 +982,10 @@ export default function MovingSupplies() {
                   <ArrowRight className="h-5 w-5 ml-2" />
                 </Button>
               </Link>
-              <a href="tel:604-616-6066">
+              <a href="tel:613-555-1234">
                 <Button size="lg" variant="outline" className="border-2 border-[#1A2332] text-[#1A2332] hover:bg-[#1A2332] hover:text-white text-lg font-bold px-10 py-7" data-testid="button-cta-call">
                   <Phone className="h-5 w-5 mr-2" />
-                  604-616-6066
+                  613-555-1234
                 </Button>
               </a>
             </div>

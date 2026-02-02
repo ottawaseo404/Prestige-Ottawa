@@ -84,7 +84,7 @@ export default function MilitaryMoving() {
     } catch (error: any) {
       toast({
         title: "Submission Failed",
-        description: error.message || "Please try again or call us directly at 604-616-6066",
+        description: error.message || "Please try again or call us directly at 613-555-1234",
         variant: "destructive",
       });
     } finally {
@@ -95,17 +95,17 @@ export default function MilitaryMoving() {
   const schemaData = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": "Military Moving Services Vancouver",
+    "name": "Military Moving Services Ottawa",
     "provider": {
       "@type": "MovingCompany",
-      "name": "Prestige Moving Vancouver",
+      "name": "Prestige Moving Ottawa",
       "address": {
         "@type": "PostalAddress",
-        "addressLocality": "Vancouver",
-        "addressRegion": "BC",
+        "addressLocality": "Ottawa",
+        "addressRegion": "ON",
         "addressCountry": "CA"
       },
-      "telephone": "604-616-6066",
+      "telephone": "613-555-1234",
       "priceRange": "$$",
       "aggregateRating": {
         "@type": "AggregateRating",
@@ -114,12 +114,12 @@ export default function MilitaryMoving() {
       }
     },
     "areaServed": [
-      { "@type": "MilitaryBase", "name": "CFB Esquimalt" },
-      { "@type": "MilitaryBase", "name": "CFB Comox" },
-      { "@type": "City", "name": "Vancouver" },
-      { "@type": "City", "name": "Victoria" }
+      { "@type": "MilitaryBase", "name": "CFB Ottawa" },
+      { "@type": "MilitaryBase", "name": "CFB Petawawa" },
+      { "@type": "City", "name": "Ottawa" },
+      { "@type": "City", "name": "Gatineau" }
     ],
-    "description": "Professional military moving services in Vancouver and Vancouver Island. PCS moves, OCONUS relocations, CAF-approved movers. WorkSafe BC certified with military discounts."
+    "description": "Professional military moving services in Ottawa and the National Capital Region. PCS moves, OCONUS relocations, CAF-approved movers. WSIB certified with military discounts."
   };
 
   const faqData = {
@@ -139,7 +139,7 @@ export default function MilitaryMoving() {
         "name": "What military bases do you serve?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "We serve all major military installations in British Columbia including CFB Esquimalt, CFB Comox, RCAF bases, and can coordinate cross-country moves to any Canadian military base."
+          "text": "We serve all major military installations in Ontario including CFB Ottawa, CFB Petawawa, RCAF bases, and can coordinate cross-country moves to any Canadian military base."
         }
       },
       {
@@ -170,11 +170,11 @@ export default function MilitaryMoving() {
   };
 
   const testimonials = [
-    { name: "Sgt. Michael T.", location: "CFB Esquimalt", text: "Incredible service during our PCS move. They understood our tight timeline and handled everything professionally. All documentation was perfect for reimbursement.", rating: 5, date: "2 weeks ago" },
-    { name: "CPO Sarah M.", location: "CFB Comox", text: "Best military move we've ever had. The team was punctual, respectful, and took great care of our belongings. They even worked around my husband's deployment schedule.", rating: 5, date: "1 month ago" },
-    { name: "Capt. James R.", location: "Victoria", text: "Third PCS move with Prestige and they never disappoint. Professional documentation, careful handling, and they understand military families. Highly recommend!", rating: 5, date: "3 weeks ago" },
-    { name: "WO David L.", location: "CFB Esquimalt", text: "Outstanding service for our OCONUS move. They coordinated everything seamlessly and provided all the weight tickets we needed. True professionals.", rating: 5, date: "1 week ago" },
-    { name: "Lt. Jennifer K.", location: "Vancouver", text: "Made our last-minute move stress-free when orders changed suddenly. They accommodated us within 48 hours and stored our items until housing was ready.", rating: 5, date: "2 months ago" }
+    { name: "Sgt. Michael T.", location: "CFB Ottawa", text: "Incredible service during our PCS move. They understood our tight timeline and handled everything professionally. All documentation was perfect for reimbursement.", rating: 5, date: "2 weeks ago" },
+    { name: "CPO Sarah M.", location: "CFB Petawawa", text: "Best military move we've ever had. The team was punctual, respectful, and took great care of our belongings. They even worked around my husband's deployment schedule.", rating: 5, date: "1 month ago" },
+    { name: "Capt. James R.", location: "Gatineau", text: "Third PCS move with Prestige and they never disappoint. Professional documentation, careful handling, and they understand military families. Highly recommend!", rating: 5, date: "3 weeks ago" },
+    { name: "WO David L.", location: "CFB Ottawa", text: "Outstanding service for our OCONUS move. They coordinated everything seamlessly and provided all the weight tickets we needed. True professionals.", rating: 5, date: "1 week ago" },
+    { name: "Lt. Jennifer K.", location: "Ottawa", text: "Made our last-minute move stress-free when orders changed suddenly. They accommodated us within 48 hours and stored our items until housing was ready.", rating: 5, date: "2 months ago" }
   ];
 
   const serviceTypes = [
@@ -194,7 +194,7 @@ export default function MilitaryMoving() {
       title: "Base Relocations",
       icon: MapPin,
       description: "Moves between military installations across Canada",
-      features: ["CFB Esquimalt", "CFB Comox", "Cross-country moves", "Housing coordination"]
+      features: ["CFB Ottawa", "CFB Petawawa", "Cross-country moves", "Housing coordination"]
     },
     {
       title: "Military Storage",
@@ -205,9 +205,9 @@ export default function MilitaryMoving() {
   ];
 
   const militaryBases = [
-    "CFB Esquimalt", "CFB Comox", "HMCS Naden", "Work Point Barracks",
-    "CFB Chilliwack", "19 Wing Comox", "MARPAC HQ", "Colwood",
-    "Belmont Park", "Rocky Point", "Albert Head", "Nanoose Bay"
+    "CFB Ottawa", "CFB Petawawa", "NDHQ Carling", "DND Headquarters",
+    "Uplands Base", "Connaught Ranges", "CFSU Ottawa", "Gatineau",
+    "Canadian Forces Base Trenton", "CFB Kingston", "CFB Montreal", "CFB Valcartier"
   ];
 
   const faqs = [
@@ -217,7 +217,7 @@ export default function MilitaryMoving() {
     },
     {
       question: "What military bases do you serve?",
-      answer: "We serve all major military installations in British Columbia including CFB Esquimalt, CFB Comox, 19 Wing Comox, MARPAC headquarters, and can coordinate cross-country moves to any Canadian military base. We have experience with moves to and from bases across Canada including CFB Edmonton, CFB Petawawa, CFB Valcartier, and more."
+      answer: "We serve all major military installations in Ontario including CFB Ottawa, CFB Petawawa, NDHQ Carling, DND Headquarters, and can coordinate cross-country moves to any Canadian military base. We have experience with moves to and from bases across Canada including CFB Edmonton, CFB Esquimalt, CFB Valcartier, and more."
     },
     {
       question: "Do you offer military discounts?",
@@ -243,19 +243,19 @@ export default function MilitaryMoving() {
   return (
     <>
       <Helmet>
-        <title>Military Moving Services Vancouver | CAF PCS Movers | Prestige Moving</title>
-        <meta name="description" content="Professional military moving services in Vancouver and Vancouver Island. WorkSafe BC certified, CAF-experienced movers. PCS moves, OCONUS relocations, military discounts. Get your free quote!" />
-        <meta name="keywords" content="military moving Vancouver, PCS movers BC, CAF moving service, military base relocation, armed forces movers Vancouver, CFB Esquimalt movers, CFB Comox moving, OCONUS moves BC" />
-        <meta property="og:title" content="Military Moving Services Vancouver | CAF PCS Movers | Prestige Moving" />
-        <meta property="og:description" content="Vancouver's trusted military movers. PCS moves, base relocations, understanding of CAF timelines and requirements. Military discounts available." />
+        <title>Military Moving Services Ottawa | CAF PCS Movers | Prestige Moving</title>
+        <meta name="description" content="Professional military moving services in Ottawa and the National Capital Region. WSIB certified, CAF-experienced movers. PCS moves, OCONUS relocations, military discounts. Get your free quote!" />
+        <meta name="keywords" content="military moving Ottawa, PCS movers ON, CAF moving service, military base relocation, armed forces movers Ottawa, CFB Ottawa movers, CFB Petawawa moving, OCONUS moves ON" />
+        <meta property="og:title" content="Military Moving Services Ottawa | CAF PCS Movers | Prestige Moving" />
+        <meta property="og:description" content="Ottawa's trusted military movers. PCS moves, base relocations, understanding of CAF timelines and requirements. Military discounts available." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://vancouver.prestigemoving.ca/services/military-moving" />
-        <meta property="og:image" content="https://vancouver.prestigemoving.ca/og-image.png" />
+        <meta property="og:url" content="https://ottawa.prestigemoving.ca/services/military-moving" />
+        <meta property="og:image" content="https://ottawa.prestigemoving.ca/og-image.png" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Military Moving Services Vancouver | Prestige Moving" />
+        <meta name="twitter:title" content="Military Moving Services Ottawa | Prestige Moving" />
         <meta name="twitter:description" content="Professional military moving. PCS moves, base relocations, understanding of military timelines and requirements." />
-        <meta name="twitter:image" content="https://vancouver.prestigemoving.ca/og-image.png" />
-        <link rel="canonical" href="https://vancouver.prestigemoving.ca/services/military-moving" />
+        <meta name="twitter:image" content="https://ottawa.prestigemoving.ca/og-image.png" />
+        <link rel="canonical" href="https://ottawa.prestigemoving.ca/services/military-moving" />
         <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
         <script type="application/ld+json">{JSON.stringify(faqData)}</script>
       </Helmet>
@@ -306,10 +306,10 @@ export default function MilitaryMoving() {
                     <ArrowRight className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </Link>
-                <a href="tel:604-616-6066">
+                <a href="tel:613-555-1234">
                   <Button size="lg" variant="outline" className="text-lg font-bold px-8 py-7 border-2 border-white/40 text-white hover:bg-white/10 backdrop-blur-sm" data-testid="button-hero-call">
                     <Phone className="h-5 w-5 mr-2" />
-                    604-616-6066
+                    613-555-1234
                   </Button>
                 </a>
               </div>
@@ -355,17 +355,17 @@ export default function MilitaryMoving() {
               <div>
                 <Badge className="bg-primary/10 text-primary mb-4">About Our Service</Badge>
                 <h2 className="text-3xl md:text-4xl font-black text-foreground mb-6">
-                  Vancouver's Premier Military Moving Company
+                  Ottawa's Premier Military Moving Company
                 </h2>
                 <div className="space-y-4 text-muted-foreground">
                   <p>
-                    When duty calls, <strong>Prestige Moving Vancouver</strong> answers. We specialize in <strong>military relocations</strong> for Canadian Armed Forces members stationed in British Columbia, from CFB Esquimalt to CFB Comox and everywhere in between.
+                    When duty calls, <strong>Prestige Moving Ottawa</strong> answers. We specialize in <strong>military relocations</strong> for Canadian Armed Forces members stationed in Ontario, from CFB Ottawa to CFB Petawawa and everywhere in between.
                   </p>
                   <p>
-                    Our team understands the unique challenges of PCS moves—tight timelines, changing orders, and specific documentation requirements. We've earned our reputation as the go-to <strong>CAF-experienced movers</strong> in the Vancouver area.
+                    Our team understands the unique challenges of PCS moves—tight timelines, changing orders, and specific documentation requirements. We've earned our reputation as the go-to <strong>CAF-experienced movers</strong> in the Ottawa area.
                   </p>
                   <p>
-                    As a <strong>WorkSafe BC certified moving company</strong>, we maintain the highest standards of professionalism. Every move includes detailed weight documentation, proper inventory sheets, and all paperwork needed for reimbursement claims.
+                    As a <strong>WSIB certified moving company</strong>, we maintain the highest standards of professionalism. Every move includes detailed weight documentation, proper inventory sheets, and all paperwork needed for reimbursement claims.
                   </p>
                 </div>
                 <div className="mt-8">
@@ -381,7 +381,7 @@ export default function MilitaryMoving() {
               <div className="relative rounded-2xl overflow-hidden h-[400px]">
                 <img 
                   src={residentialImage}
-                  alt="Prestige Moving military movers in Vancouver"
+                  alt="Prestige Moving military movers in Ottawa"
                   className="absolute inset-0 w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#1A2332]/60 to-transparent" />
@@ -425,7 +425,7 @@ export default function MilitaryMoving() {
                 { title: "Complete Documentation", description: "All weight tickets and paperwork for reimbursement claims", icon: FileCheck },
                 { title: "Priority Service", description: "Fast-track scheduling for urgent PCS moves", icon: Zap },
                 { title: "Deployment Storage", description: "Secure storage solutions during overseas assignments", icon: Warehouse },
-                { title: "WorkSafe BC Certified", description: "Full compliance with BC workplace safety standards", icon: Shield }
+                { title: "WSIB Certified", description: "Full compliance with Ontario workplace safety standards", icon: Shield }
               ].map((item, index) => (
                 <Card key={index} className="border-2 hover:border-primary/50 transition-colors" data-testid={`benefit-card-${index}`}>
                   <CardContent className="p-6">
@@ -533,7 +533,7 @@ export default function MilitaryMoving() {
                 { icon: Clock, title: "Timeline Flexibility", description: "We adapt to changing orders and deployment schedules", color: "from-emerald-500 to-emerald-600" },
                 { icon: ThumbsUp, title: "Transparent Pricing", description: "No hidden fees. Military discount applied automatically.", color: "from-violet-500 to-violet-600" },
                 { icon: HandHeart, title: "White Glove Service", description: "Professional handling of all belongings, including specialty items", color: "from-rose-500 to-rose-600" },
-                { icon: Award, title: "WorkSafe BC Certified", description: "Full compliance and insurance for your peace of mind", color: "from-primary to-amber-600" }
+                { icon: Award, title: "WSIB Certified", description: "Full compliance and insurance for your peace of mind", color: "from-primary to-amber-600" }
               ].map((item, index) => (
                 <Card key={index} className="border-2 hover:border-primary/50 transition-all hover:shadow-lg" data-testid={`why-choose-card-${index}`}>
                   <CardContent className="p-6">
@@ -737,7 +737,7 @@ export default function MilitaryMoving() {
                   <CardContent className="p-6">
                     <Home className="h-8 w-8 text-primary mb-4" />
                     <h3 className="font-bold text-lg mb-2">Residential Moving</h3>
-                    <p className="text-muted-foreground">Complete home moving services across Vancouver</p>
+                    <p className="text-muted-foreground">Complete home moving services across Ottawa</p>
                   </CardContent>
                 </Card>
               </Link>
@@ -796,9 +796,9 @@ export default function MilitaryMoving() {
                   </div>
                 </div>
                 <div className="mt-8">
-                  <a href="tel:604-616-6066" className="inline-flex items-center gap-2 text-lg font-semibold text-primary hover:text-primary/80">
+                  <a href="tel:613-555-1234" className="inline-flex items-center gap-2 text-lg font-semibold text-primary hover:text-primary/80">
                     <Phone className="h-5 w-5" />
-                    604-616-6066
+                    613-555-1234
                   </a>
                 </div>
               </div>
@@ -925,10 +925,10 @@ export default function MilitaryMoving() {
                   <ArrowRight className="h-5 w-5 ml-2" />
                 </Button>
               </Link>
-              <a href="tel:604-616-6066">
+              <a href="tel:613-555-1234">
                 <Button size="lg" variant="outline" className="border-2 border-[#1A2332] text-[#1A2332] hover:bg-[#1A2332] hover:text-white text-lg font-bold px-10 py-7" data-testid="button-cta-call">
                   <Phone className="h-5 w-5 mr-2" />
-                  604-616-6066
+                  613-555-1234
                 </Button>
               </a>
             </div>

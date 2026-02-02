@@ -49,30 +49,30 @@ import { Link } from "wouter";
 import type { BlogPost, BlogCategory } from "@shared/schema";
 
 const SEO_BLOG_TITLES = [
-  "10 Essential Moving Tips for Vancouver Residents",
-  "How to Choose the Best Moving Company in Vancouver",
-  "Complete Guide to Moving to Vancouver in 2025",
-  "Vancouver Neighbourhood Moving Guide: Best Areas to Live",
-  "How Much Does Moving Cost in Vancouver? Complete Price Guide",
-  "Stress-Free Moving Checklist for Vancouver Families",
-  "Best Time to Move in Vancouver: Seasonal Moving Guide",
+  "10 Essential Moving Tips for Ottawa Residents",
+  "How to Choose the Best Moving Company in Ottawa",
+  "Complete Guide to Moving to Ottawa in 2025",
+  "Ottawa Neighbourhood Moving Guide: Best Areas to Live",
+  "How Much Does Moving Cost in Ottawa? Complete Price Guide",
+  "Stress-Free Moving Checklist for Ottawa Families",
+  "Best Time to Move in Ottawa: Seasonal Moving Guide",
   "How to Pack Like a Pro: Expert Moving Tips",
-  "Vancouver Condo Moving Tips: High-Rise Relocation Guide",
-  "Long Distance Moving from Vancouver: What You Need to Know",
-  "Senior Moving Guide: Compassionate Relocation in Vancouver",
-  "Student Moving Tips for Vancouver Universities",
-  "Office Relocation Vancouver: Minimize Business Downtime",
+  "Ottawa Condo Moving Tips: High-Rise Relocation Guide",
+  "Long Distance Moving from Ottawa: What You Need to Know",
+  "Senior Moving Guide: Compassionate Relocation in Ottawa",
+  "Student Moving Tips for Ottawa Universities",
+  "Office Relocation Ottawa: Minimize Business Downtime",
   "How to Move Your Piano Safely: Professional Tips",
-  "Vancouver Storage Solutions: When You Need Extra Space",
-  "Moving with Pets in Vancouver: Complete Care Guide",
+  "Ottawa Storage Solutions: When You Need Extra Space",
+  "Moving with Pets in Ottawa: Complete Care Guide",
   "Eco-Friendly Moving Tips for Sustainable Relocations",
-  "Downsizing in Vancouver: Smart Moving Strategies",
-  "Cross-Canada Moving Guide: BC to Ontario Relocation",
-  "Last-Minute Moving Tips: Quick Vancouver Relocations",
+  "Downsizing in Ottawa: Smart Moving Strategies",
+  "Cross-Canada Moving Guide: Ontario to BC Relocation",
+  "Last-Minute Moving Tips: Quick Ottawa Relocations",
   "How to Protect Furniture During Your Move",
-  "Moving Insurance in Vancouver: What Coverage Do You Need?",
-  "Winter Moving in Vancouver: Cold Weather Tips",
-  "Moving on a Budget: Affordable Vancouver Relocation",
+  "Moving Insurance in Ottawa: What Coverage Do You Need?",
+  "Winter Moving in Ottawa: Cold Weather Tips",
+  "Moving on a Budget: Affordable Ottawa Relocation",
   "How to Unpack Efficiently After Your Move",
 ];
 
@@ -507,7 +507,7 @@ export default function AdminBlog() {
                 </Button>
               </div>
               <Input
-                placeholder="e.g., 10 Tips for Moving to Vancouver"
+                placeholder="e.g., 10 Tips for Moving to Ottawa"
                 value={aiTopic}
                 onChange={(e) => setAiTopic(e.target.value)}
                 data-testid="input-ai-topic"

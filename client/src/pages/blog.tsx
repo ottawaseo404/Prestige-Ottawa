@@ -46,17 +46,17 @@ export default function Blog() {
   return (
     <>
       <Helmet>
-        <title>Moving Tips & Guides | Prestige Moving Vancouver Blog</title>
+        <title>Moving Tips & Guides | Prestige Moving Ottawa Blog</title>
         <meta 
           name="description" 
-          content="Expert moving tips, guides, and advice from Vancouver's premier moving company. Learn how to save money, pack efficiently, and make your move stress-free." 
+          content="Expert moving tips, guides, and advice from Ottawa's premier moving company. Learn how to save money, pack efficiently, and make your move stress-free." 
         />
-        <meta name="keywords" content="moving tips, Vancouver moving, packing guides, moving advice, relocation tips" />
-        <link rel="canonical" href="https://vancouver.prestigemoving.ca/blog" />
-        <meta property="og:title" content="Moving Tips & Guides | Prestige Moving Vancouver Blog" />
-        <meta property="og:description" content="Expert moving tips, guides, and advice from Vancouver's premier moving company." />
+        <meta name="keywords" content="moving tips, Ottawa moving, packing guides, moving advice, relocation tips" />
+        <link rel="canonical" href="https://ottawa.prestigemoving.ca/blog" />
+        <meta property="og:title" content="Moving Tips & Guides | Prestige Moving Ottawa Blog" />
+        <meta property="og:description" content="Expert moving tips, guides, and advice from Ottawa's premier moving company." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://vancouver.prestigemoving.ca/blog" />
+        <meta property="og:url" content="https://ottawa.prestigemoving.ca/blog" />
       </Helmet>
 
       <SharedNavigation />
@@ -76,7 +76,7 @@ export default function Blog() {
               Moving Tips & Guides
             </h1>
             <p className="text-xl text-gray-300 max-w-2xl">
-              Expert advice from Vancouver's most trusted moving company. Learn how to make your move stress-free.
+              Expert advice from Ottawa's most trusted moving company. Learn how to make your move stress-free.
             </p>
           </div>
         </section>
@@ -252,7 +252,7 @@ export default function Blog() {
           <section className="mt-16 bg-[#1A2332] rounded-2xl p-8 lg:p-12 text-center text-white">
             <h2 className="text-3xl font-bold mb-4">Ready to Move?</h2>
             <p className="text-gray-300 mb-6 max-w-xl mx-auto">
-              Get a free quote from Vancouver's most trusted moving company. We're here to make your move stress-free.
+              Get a free quote from Ottawa's most trusted moving company. We're here to make your move stress-free.
             </p>
             <div className="flex gap-4 justify-center flex-wrap">
               <Link href="/book">
@@ -261,9 +261,9 @@ export default function Blog() {
                   <ArrowRight className="h-4 w-4 ml-2" />
                 </Button>
               </Link>
-              <a href="tel:604-616-6066">
+              <a href="tel:613-555-1234">
                 <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
-                  Call 604-616-6066
+                  Call 613-555-1234
                 </Button>
               </a>
             </div>

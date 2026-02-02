@@ -82,7 +82,7 @@ export default function AntiqueMoving() {
     } catch (error: any) {
       toast({
         title: "Submission Failed",
-        description: error.message || "Please try again or call us directly at 604-616-6066",
+        description: error.message || "Please try again or call us directly at 613-555-1234",
         variant: "destructive",
       });
     } finally {
@@ -93,17 +93,17 @@ export default function AntiqueMoving() {
   const schemaData = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": "Antique Moving Services Vancouver",
+    "name": "Antique Moving Services Ottawa",
     "provider": {
       "@type": "MovingCompany",
-      "name": "Prestige Moving Vancouver",
+      "name": "Prestige Moving Ottawa",
       "address": {
         "@type": "PostalAddress",
-        "addressLocality": "Vancouver",
-        "addressRegion": "BC",
+        "addressLocality": "Ottawa",
+        "addressRegion": "ON",
         "addressCountry": "CA"
       },
-      "telephone": "604-616-6066",
+      "telephone": "613-555-1234",
       "priceRange": "$$",
       "aggregateRating": {
         "@type": "AggregateRating",
@@ -112,15 +112,15 @@ export default function AntiqueMoving() {
       }
     },
     "areaServed": [
-      { "@type": "City", "name": "Vancouver" },
-      { "@type": "City", "name": "Burnaby" },
-      { "@type": "City", "name": "Richmond" },
-      { "@type": "City", "name": "North Vancouver" },
-      { "@type": "City", "name": "West Vancouver" },
-      { "@type": "City", "name": "Coquitlam" },
-      { "@type": "City", "name": "Surrey" }
+      { "@type": "City", "name": "Ottawa" },
+      { "@type": "City", "name": "Kanata" },
+      { "@type": "City", "name": "Orleans" },
+      { "@type": "City", "name": "Nepean" },
+      { "@type": "City", "name": "Barrhaven" },
+      { "@type": "City", "name": "Gloucester" },
+      { "@type": "City", "name": "Gatineau" }
     ],
-    "description": "Professional antique moving services in Vancouver. Specialists in handling valuable antiques, heirlooms, and collectibles with museum-quality care, climate-controlled transport, and full insurance."
+    "description": "Professional antique moving services in Ottawa. Specialists in handling valuable antiques, heirlooms, and collectibles with museum-quality care, climate-controlled transport, and full insurance."
   };
 
   const faqData = {
@@ -173,35 +173,35 @@ export default function AntiqueMoving() {
   const testimonials = [
     { 
       name: "Margaret W.", 
-      location: "Shaughnessy", 
+      location: "Rockcliffe Park", 
       text: "They moved my grandmother's Victorian furniture collection with extraordinary care. Every piece arrived in perfect condition. The white-glove service exceeded my expectations!", 
       rating: 5, 
       date: "2 weeks ago" 
     },
     { 
       name: "Robert K.", 
-      location: "West Vancouver", 
+      location: "The Glebe", 
       text: "Outstanding handling of our antique grandfather clock and 18th-century armoire. The team understood the historical significance and treated everything with museum-level care.", 
       rating: 5, 
       date: "1 month ago" 
     },
     { 
       name: "Elizabeth C.", 
-      location: "Point Grey", 
+      location: "Westboro", 
       text: "Moved our entire estate including rare paintings and delicate porcelain. The custom crating and climate-controlled transport gave us complete peace of mind.", 
       rating: 5, 
       date: "3 weeks ago" 
     },
     { 
       name: "James H.", 
-      location: "Kerrisdale", 
+      location: "New Edinburgh", 
       text: "Professional team who knew exactly how to handle our collection of antique Chinese ceramics. Detailed condition reports and proper insurance made all the difference.", 
       rating: 5, 
       date: "1 week ago" 
     },
     { 
       name: "Victoria M.", 
-      location: "Kitsilano", 
+      location: "Alta Vista", 
       text: "Trusted them with my late mother's antique furniture and precious artwork. The care and respect they showed was remarkable. Highly recommend for any valuable items.", 
       rating: 5, 
       date: "2 months ago" 
@@ -236,9 +236,9 @@ export default function AntiqueMoving() {
   ];
 
   const neighborhoods = [
-    "Shaughnessy", "West Vancouver", "Point Grey", "Kerrisdale", "Dunbar",
-    "Kitsilano", "Yaletown", "Coal Harbour", "Downtown", "North Vancouver",
-    "Burnaby", "Richmond", "White Rock", "UBC", "British Properties"
+    "Rockcliffe Park", "The Glebe", "Westboro", "New Edinburgh", "Alta Vista",
+    "Centretown", "Hintonburg", "Wellington West", "Sandy Hill", "Orleans",
+    "Kanata", "Nepean", "Barrhaven", "Manotick", "Gatineau"
   ];
 
   const faqs = [
@@ -274,20 +274,20 @@ export default function AntiqueMoving() {
   return (
     <>
       <Helmet>
-        <title>Antique Moving Services Vancouver BC | Heirloom & Collectible Movers | Prestige Moving</title>
-        <meta name="description" content="Professional antique moving services in Vancouver BC. Museum-quality care for valuable antiques, heirlooms & collectibles. WorkSafe BC certified, fully insured, climate-controlled transport. Get your free quote today!" />
-        <meta name="keywords" content="antique moving Vancouver, heirloom movers BC, collectible moving service, valuable furniture moving, antique transport Vancouver, Victorian furniture moving, art moving Vancouver, grandfather clock movers, estate moving BC" />
-        <meta property="og:title" content="Antique Moving Services Vancouver | Museum-Quality Care | Prestige Moving" />
-        <meta property="og:description" content="Vancouver's trusted antique movers. White-glove service for valuable antiques, heirlooms & collectibles. Climate-controlled transport, full insurance coverage." />
+        <title>Antique Moving Services Ottawa ON | Heirloom & Collectible Movers | Prestige Moving</title>
+        <meta name="description" content="Professional antique moving services in Ottawa ON. Museum-quality care for valuable antiques, heirlooms & collectibles. WSIB certified, fully insured, climate-controlled transport. Get your free quote today!" />
+        <meta name="keywords" content="antique moving Ottawa, heirloom movers ON, collectible moving service, valuable furniture moving, antique transport Ottawa, Victorian furniture moving, art moving Ottawa, grandfather clock movers, estate moving ON" />
+        <meta property="og:title" content="Antique Moving Services Ottawa | Museum-Quality Care | Prestige Moving" />
+        <meta property="og:description" content="Ottawa's trusted antique movers. White-glove service for valuable antiques, heirlooms & collectibles. Climate-controlled transport, full insurance coverage." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://vancouver.prestigemoving.ca/services/antique-moving" />
-        <meta property="og:image" content="https://vancouver.prestigemoving.ca/og-image.png" />
-        <meta property="og:site_name" content="Prestige Moving Vancouver" />
+        <meta property="og:url" content="https://ottawa.prestigemoving.ca/services/antique-moving" />
+        <meta property="og:image" content="https://ottawa.prestigemoving.ca/og-image.png" />
+        <meta property="og:site_name" content="Prestige Moving Ottawa" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Antique Moving Services Vancouver | Prestige Moving" />
+        <meta name="twitter:title" content="Antique Moving Services Ottawa | Prestige Moving" />
         <meta name="twitter:description" content="Museum-quality care for your valuable antiques. White-glove service, climate-controlled transport, full insurance." />
-        <meta name="twitter:image" content="https://vancouver.prestigemoving.ca/og-image.png" />
-        <link rel="canonical" href="https://vancouver.prestigemoving.ca/services/antique-moving" />
+        <meta name="twitter:image" content="https://ottawa.prestigemoving.ca/og-image.png" />
+        <link rel="canonical" href="https://ottawa.prestigemoving.ca/services/antique-moving" />
         <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
         <script type="application/ld+json">{JSON.stringify(faqData)}</script>
       </Helmet>
@@ -323,12 +323,12 @@ export default function AntiqueMoving() {
               </div>
 
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-6 leading-[1.1]">
-                Vancouver's<br />
+                Ottawa's<br />
                 <span className="text-primary">Antique Moving Experts</span>
               </h1>
 
               <p className="text-xl md:text-2xl text-white/80 mb-8 leading-relaxed">
-                Your antiques and heirlooms deserve museum-quality care. We've safely moved <span className="text-primary font-semibold">2,500+ irreplaceable pieces</span> across Vancouver.
+                Your antiques and heirlooms deserve museum-quality care. We've safely moved <span className="text-primary font-semibold">2,500+ irreplaceable pieces</span> across Ottawa.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
@@ -338,10 +338,10 @@ export default function AntiqueMoving() {
                     <ArrowRight className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </Link>
-                <a href="tel:604-616-6066">
+                <a href="tel:613-555-1234">
                   <Button size="lg" variant="outline" className="text-lg font-bold px-8 py-7 border-2 border-white/40 text-white hover:bg-white/10 backdrop-blur-sm" data-testid="button-hero-call">
                     <Phone className="h-5 w-5 mr-2" />
-                    604-616-6066
+                    613-555-1234
                   </Button>
                 </a>
               </div>
@@ -387,17 +387,17 @@ export default function AntiqueMoving() {
               <div>
                 <Badge className="bg-primary/10 text-primary mb-4">About Our Service</Badge>
                 <h2 className="text-3xl md:text-4xl font-black text-foreground mb-6">
-                  Vancouver's Premier Antique Moving Specialists
+                  Ottawa's Premier Antique Moving Specialists
                 </h2>
                 <div className="space-y-4 text-muted-foreground">
                   <p>
-                    Your precious heirlooms deserve the utmost care during relocation. <strong>Prestige Moving Vancouver</strong> has been helping collectors and estates safely transport irreplaceable antiques since 2009, earning a reputation as the most trusted antique movers in Metro Vancouver.
+                    Your precious heirlooms deserve the utmost care during relocation. <strong>Prestige Moving Ottawa</strong> has been helping collectors and estates safely transport irreplaceable antiques since 2009, earning a reputation as the most trusted antique movers in the National Capital Region.
                   </p>
                   <p>
                     Our trained specialists understand the unique requirements of <strong>antique furniture, fine art, porcelain collections, and valuable heirlooms</strong>. We use museum-quality techniques including acid-free materials, custom crating, and climate-controlled transport.
                   </p>
                   <p>
-                    As a <strong>WorkSafe BC certified moving company</strong>, we prioritize safety and professionalism. Our comprehensive insurance coverage and detailed condition reports provide complete peace of mind for your valuable collection.
+                    As a <strong>WSIB certified moving company</strong>, we prioritize safety and professionalism. Our comprehensive insurance coverage and detailed condition reports provide complete peace of mind for your valuable collection.
                   </p>
                 </div>
                 <div className="mt-8">
@@ -567,7 +567,7 @@ export default function AntiqueMoving() {
                 { icon: Clock, title: "Climate Control", description: "Temperature and humidity-controlled transport for sensitive materials", color: "from-emerald-500 to-emerald-600" },
                 { icon: Camera, title: "Condition Reports", description: "Detailed photo documentation before and after every move", color: "from-violet-500 to-violet-600" },
                 { icon: HandHeart, title: "White Glove Service", description: "Museum-quality packing, crating, and careful placement at destination", color: "from-rose-500 to-rose-600" },
-                { icon: Award, title: "WorkSafe BC Certified", description: "Full compliance with workplace safety standards for your peace of mind", color: "from-primary to-amber-600" }
+                { icon: Award, title: "WSIB Certified", description: "Full compliance with workplace safety standards for your peace of mind", color: "from-primary to-amber-600" }
               ].map((item, index) => (
                 <Card key={index} className="border-2 hover:border-primary/50 transition-all hover:shadow-lg" data-testid={`card-why-${index}`}>
                   <CardContent className="p-6">
@@ -670,10 +670,10 @@ export default function AntiqueMoving() {
             <div className="text-center mb-10">
               <Badge className="bg-primary/20 text-primary border-primary/30 mb-4">Coverage</Badge>
               <h2 className="text-3xl md:text-4xl font-black text-white mb-4">
-                Vancouver Neighborhoods We Serve
+                Ottawa Neighborhoods We Serve
               </h2>
               <p className="text-lg text-white/60">
-                Antique moving services across Metro Vancouver's finest neighborhoods
+                Antique moving services across National Capital Region's finest neighborhoods
               </p>
             </div>
 
@@ -747,7 +747,7 @@ export default function AntiqueMoving() {
                   <CardContent className="p-6">
                     <Home className="h-8 w-8 text-primary mb-4" />
                     <h3 className="font-bold text-lg mb-2">Residential Moving</h3>
-                    <p className="text-muted-foreground">Complete home relocation services across Vancouver</p>
+                    <p className="text-muted-foreground">Complete home relocation services across Ottawa</p>
                   </CardContent>
                 </Card>
               </Link>
@@ -827,7 +827,7 @@ export default function AntiqueMoving() {
                   </li>
                   <li className="flex items-center gap-3 text-gray-200">
                     <CheckCircle2 className="h-5 w-5 text-primary" />
-                    <span>WorkSafe BC certified team</span>
+                    <span>WSIB certified team</span>
                   </li>
                 </ul>
               </div>
@@ -942,7 +942,7 @@ export default function AntiqueMoving() {
             </h2>
             
             <p className="text-xl text-[#1A2332]/80 mb-8 max-w-2xl mx-auto">
-              Join hundreds of Vancouver collectors who trusted us with their irreplaceable antiques. Get your personalized quote in under 1 hour.
+              Join hundreds of Ottawa collectors who trusted us with their irreplaceable antiques. Get your personalized quote in under 1 hour.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -952,10 +952,10 @@ export default function AntiqueMoving() {
                   <ArrowRight className="h-5 w-5 ml-2" />
                 </Button>
               </Link>
-              <a href="tel:604-616-6066">
+              <a href="tel:613-555-1234">
                 <Button size="lg" variant="outline" className="border-2 border-[#1A2332] text-[#1A2332] hover:bg-[#1A2332] hover:text-white text-lg font-bold px-10 py-7" data-testid="button-cta-call">
                   <Phone className="h-5 w-5 mr-2" />
-                  604-616-6066
+                  613-555-1234
                 </Button>
               </a>
             </div>

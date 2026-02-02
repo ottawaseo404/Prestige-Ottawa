@@ -86,7 +86,7 @@ export default function StorageSolutions() {
     } catch (error: any) {
       toast({
         title: "Submission Failed",
-        description: error.message || "Please try again or call us directly at 604-616-6066",
+        description: error.message || "Please try again or call us directly at 613-555-1234",
         variant: "destructive",
       });
     } finally {
@@ -97,17 +97,17 @@ export default function StorageSolutions() {
   const schemaData = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": "Storage Solutions Vancouver",
+    "name": "Storage Solutions Ottawa",
     "provider": {
       "@type": "MovingCompany",
-      "name": "Prestige Moving Vancouver",
+      "name": "Prestige Moving Ottawa",
       "address": {
         "@type": "PostalAddress",
-        "addressLocality": "Vancouver",
-        "addressRegion": "BC",
+        "addressLocality": "Ottawa",
+        "addressRegion": "ON",
         "addressCountry": "CA"
       },
-      "telephone": "604-616-6066",
+      "telephone": "613-555-1234",
       "priceRange": "$$",
       "aggregateRating": {
         "@type": "AggregateRating",
@@ -116,15 +116,15 @@ export default function StorageSolutions() {
       }
     },
     "areaServed": [
-      { "@type": "City", "name": "Vancouver" },
-      { "@type": "City", "name": "Burnaby" },
-      { "@type": "City", "name": "Richmond" },
-      { "@type": "City", "name": "North Vancouver" },
-      { "@type": "City", "name": "West Vancouver" },
-      { "@type": "City", "name": "Coquitlam" },
-      { "@type": "City", "name": "Surrey" }
+      { "@type": "City", "name": "Ottawa" },
+      { "@type": "City", "name": "Gatineau" },
+      { "@type": "City", "name": "Kanata" },
+      { "@type": "City", "name": "Orleans" },
+      { "@type": "City", "name": "Nepean" },
+      { "@type": "City", "name": "Barrhaven" },
+      { "@type": "City", "name": "Gloucester" }
     ],
-    "description": "Secure climate-controlled storage solutions in Vancouver. Short-term and long-term storage with 24/7 security, flexible terms, and WorkSafe BC certified."
+    "description": "Secure climate-controlled storage solutions in Ottawa. Short-term and long-term storage with 24/7 security, flexible terms, and WSIB certified."
   };
 
   const faqData = {
@@ -168,7 +168,7 @@ export default function StorageSolutions() {
         "name": "Is my storage insured?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes, all items in our care are covered by our comprehensive WorkSafe BC insurance. We also offer additional valuation coverage options for high-value items."
+          "text": "Yes, all items in our care are covered by our comprehensive WSIB insurance. We also offer additional valuation coverage options for high-value items."
         }
       }
     ]
@@ -177,14 +177,14 @@ export default function StorageSolutions() {
   const testimonials = [
     { 
       name: "Robert H.", 
-      location: "Burnaby", 
+      location: "Orleans", 
       text: "Needed storage during my condo renovation. Prestige picked up everything, stored it for 3 months, and delivered it all back in perfect condition. Incredibly convenient!", 
       rating: 5, 
       date: "2 weeks ago" 
     },
     { 
       name: "Amanda C.", 
-      location: "North Vancouver", 
+      location: "Kanata", 
       text: "The climate-controlled storage saved my vintage wine collection during our extended travel. Temperature and humidity perfectly maintained. Worth every penny!", 
       rating: 5, 
       date: "1 month ago" 
@@ -198,14 +198,14 @@ export default function StorageSolutions() {
     },
     { 
       name: "Patricia M.", 
-      location: "Kitsilano", 
+      location: "Westboro", 
       text: "Stored my grandmother's antique furniture while downsizing. The team handled everything with such care. The items came back exactly as they left!", 
       rating: 5, 
       date: "1 week ago" 
     },
     { 
       name: "James L.", 
-      location: "Richmond", 
+      location: "Nepean", 
       text: "Used their short-term storage between selling our house and moving into the new one. Seamless experience from pickup to delivery. Highly recommend!", 
       rating: 5, 
       date: "2 months ago" 
@@ -258,14 +258,14 @@ export default function StorageSolutions() {
     },
     {
       question: "Is my storage insured?",
-      answer: "Yes, all items in our care are covered by our comprehensive WorkSafe BC insurance. We also offer additional valuation coverage options for high-value items. You'll receive a detailed inventory list and can add your own insurance policy if desired."
+      answer: "Yes, all items in our care are covered by our comprehensive WSIB insurance. We also offer additional valuation coverage options for high-value items. You'll receive a detailed inventory list and can add your own insurance policy if desired."
     }
   ];
 
   const neighborhoods = [
-    "Downtown", "Kitsilano", "Yaletown", "Coal Harbour", "West End",
-    "Mount Pleasant", "Commercial Drive", "Kerrisdale", "Point Grey", 
-    "UBC", "Burnaby", "Richmond", "North Vancouver", "West Vancouver", "Coquitlam"
+    "Downtown", "Westboro", "The Glebe", "Byward Market", "Sandy Hill",
+    "Centretown", "Hintonburg", "Kanata", "Orleans", 
+    "Nepean", "Barrhaven", "Alta Vista", "Rockcliffe Park", "New Edinburgh", "Gatineau"
   ];
 
   const getStorageRecommendation = (sqft: number) => {
@@ -286,20 +286,20 @@ export default function StorageSolutions() {
   return (
     <>
       <Helmet>
-        <title>Storage Solutions Vancouver BC | Climate-Controlled Storage | Prestige Moving</title>
-        <meta name="description" content="Secure storage solutions in Vancouver BC. Climate-controlled units, 24/7 security, WorkSafe BC certified. Short-term and long-term storage with free pickup and delivery. Get your free quote!" />
-        <meta name="keywords" content="storage solutions Vancouver, moving storage BC, climate controlled storage, secure storage Vancouver, short term storage, long term storage, business storage Vancouver" />
-        <meta property="og:title" content="Storage Solutions Vancouver | Climate-Controlled & Secure | Prestige Moving" />
-        <meta property="og:description" content="Secure, climate-controlled storage in Vancouver. 24/7 security, flexible terms, professional handling, full WorkSafe BC insurance. Perfect for moving transitions." />
+        <title>Storage Solutions Ottawa ON | Climate-Controlled Storage | Prestige Moving</title>
+        <meta name="description" content="Secure storage solutions in Ottawa ON. Climate-controlled units, 24/7 security, WSIB certified. Short-term and long-term storage with free pickup and delivery. Get your free quote!" />
+        <meta name="keywords" content="storage solutions Ottawa, moving storage ON, climate controlled storage, secure storage Ottawa, short term storage, long term storage, business storage Ottawa" />
+        <meta property="og:title" content="Storage Solutions Ottawa | Climate-Controlled & Secure | Prestige Moving" />
+        <meta property="og:description" content="Secure, climate-controlled storage in Ottawa. 24/7 security, flexible terms, professional handling, full WSIB insurance. Perfect for moving transitions." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://vancouver.prestigemoving.ca/services/storage-solutions" />
-        <meta property="og:image" content="https://vancouver.prestigemoving.ca/og-image.png" />
-        <meta property="og:site_name" content="Prestige Moving Vancouver" />
+        <meta property="og:url" content="https://ottawa.prestigemoving.ca/services/storage-solutions" />
+        <meta property="og:image" content="https://ottawa.prestigemoving.ca/og-image.png" />
+        <meta property="og:site_name" content="Prestige Moving Ottawa" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Storage Solutions Vancouver | Prestige Moving" />
-        <meta name="twitter:description" content="Secure, climate-controlled storage in Vancouver. Flexible terms, professional handling, full insurance." />
-        <meta name="twitter:image" content="https://vancouver.prestigemoving.ca/og-image.png" />
-        <link rel="canonical" href="https://vancouver.prestigemoving.ca/services/storage-solutions" />
+        <meta name="twitter:title" content="Storage Solutions Ottawa | Prestige Moving" />
+        <meta name="twitter:description" content="Secure, climate-controlled storage in Ottawa. Flexible terms, professional handling, full insurance." />
+        <meta name="twitter:image" content="https://ottawa.prestigemoving.ca/og-image.png" />
+        <link rel="canonical" href="https://ottawa.prestigemoving.ca/services/storage-solutions" />
         <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
         <script type="application/ld+json">{JSON.stringify(faqData)}</script>
       </Helmet>
@@ -335,7 +335,7 @@ export default function StorageSolutions() {
               </div>
 
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-6 leading-[1.1]">
-                Vancouver's<br />
+                Ottawa's<br />
                 <span className="text-primary">Secure Storage</span>
               </h1>
 
@@ -350,10 +350,10 @@ export default function StorageSolutions() {
                     <ArrowRight className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </Link>
-                <a href="tel:604-616-6066">
+                <a href="tel:613-555-1234">
                   <Button size="lg" variant="outline" className="text-lg font-bold px-8 py-7 border-2 border-white/40 text-white hover:bg-white/10 backdrop-blur-sm" data-testid="button-hero-call">
                     <Phone className="h-5 w-5 mr-2" />
-                    604-616-6066
+                    613-555-1234
                   </Button>
                 </a>
               </div>
@@ -557,7 +557,7 @@ export default function StorageSolutions() {
                 { title: "Climate-Controlled", description: "Temperature and humidity regulated year-round", icon: Thermometer },
                 { title: "24/7 Security", description: "Video surveillance, alarms, and controlled access", icon: Lock },
                 { title: "Pickup & Delivery", description: "We come to you - no trips to storage facilities", icon: Truck },
-                { title: "Full Insurance", description: "WorkSafe BC coverage protects your belongings", icon: Shield },
+                { title: "Full Insurance", description: "WSIB coverage protects your belongings", icon: Shield },
                 { title: "Flexible Terms", description: "Day, week, month, or year - no long-term commitment", icon: Calendar },
                 { title: "Professional Inventory", description: "Detailed tracking of all stored items", icon: Package }
               ].map((item, index) => (
@@ -665,7 +665,7 @@ export default function StorageSolutions() {
                 Storage Pickup & Delivery Areas
               </h2>
               <p className="text-lg text-white/60">
-                Full-service storage available across Metro Vancouver
+                Full-service storage available across National Capital Region
               </p>
             </div>
 
@@ -739,7 +739,7 @@ export default function StorageSolutions() {
                   <CardContent className="p-6">
                     <Home className="h-8 w-8 text-primary mb-4" />
                     <h3 className="font-bold text-lg mb-2">Residential Moving</h3>
-                    <p className="text-muted-foreground">Complete home moving services across Vancouver</p>
+                    <p className="text-muted-foreground">Complete home moving services across Ottawa</p>
                   </CardContent>
                 </Card>
               </Link>
@@ -820,10 +820,10 @@ export default function StorageSolutions() {
                   <ArrowRight className="h-5 w-5 ml-2" />
                 </Button>
               </Link>
-              <a href="tel:604-616-6066">
+              <a href="tel:613-555-1234">
                 <Button size="lg" variant="outline" className="border-2 border-[#1A2332] text-[#1A2332] hover:bg-[#1A2332] hover:text-white text-lg font-bold px-10 py-7" data-testid="button-cta-call">
                   <Phone className="h-5 w-5 mr-2" />
-                  604-616-6066
+                  613-555-1234
                 </Button>
               </a>
             </div>

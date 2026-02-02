@@ -63,9 +63,9 @@ export default function Home() {
   const reviewsList = [
     { name: "Theresa Hendricks", initial: "T", color: "#9C27B0", time: "1 month ago", text: "We had a great experience with Prestige Moving! Nick and Steve were excellent — friendly, quick, and super accommodating with our last-minute requests." },
     { name: "Christine Mattesz", initial: "C", color: "#00897B", time: "1 month ago", text: "My parents were finally ready to downsize and move out of the house they called home for the last 37 years. To say they were anxious is an understatement." },
-    { name: "Martin Vass", initial: "M", color: "#FB8C00", time: "1 month ago", text: "I hired prestige moving to do a long distance move for me from Ottawa to Vancouver! They did an amazing job! Packed up all my stuff perfectly." },
+    { name: "Martin Vass", initial: "M", color: "#FB8C00", time: "1 month ago", text: "I hired prestige moving to do a long distance move for me from Toronto to Ottawa! They did an amazing job! Packed up all my stuff perfectly." },
     { name: "Sarah Mitchell", initial: "S", color: "#E91E63", time: "2 months ago", text: "Absolutely fantastic service from start to finish. The team arrived on time, worked efficiently, and handled all our furniture with extreme care." },
-    { name: "James Peterson", initial: "J", color: "#3F51B5", time: "2 months ago", text: "Best moving company in Vancouver! Fair pricing, no hidden fees. The movers were professional and treated our belongings like their own." },
+    { name: "James Peterson", initial: "J", color: "#3F51B5", time: "2 months ago", text: "Best moving company in Ottawa! Fair pricing, no hidden fees. The movers were professional and treated our belongings like their own." },
     { name: "Emily Chen", initial: "E", color: "#009688", time: "3 months ago", text: "Prestige Moving made our office relocation seamless. Minimal downtime and everything was set up exactly where we needed it. Highly recommend!" },
     { name: "David Wong", initial: "D", color: "#673AB7", time: "1 month ago", text: "Outstanding service! The crew was punctual, professional, and took great care of all our belongings. Would definitely use again." },
     { name: "Lisa Thompson", initial: "L", color: "#FF5722", time: "2 weeks ago", text: "Moved my entire 4-bedroom house without a single scratch. These guys know what they're doing. Top-notch service!" },
@@ -73,8 +73,8 @@ export default function Home() {
     { name: "Jennifer Lee", initial: "J", color: "#4CAF50", time: "1 month ago", text: "I was nervous about my piano move but Prestige handled it perfectly. Specialized equipment and careful handling. Thank you!" },
     { name: "Robert Kim", initial: "R", color: "#795548", time: "2 months ago", text: "Excellent value for money. Competitive pricing and superior service. The team went above and beyond expectations." },
     { name: "Amanda Garcia", initial: "A", color: "#607D8B", time: "1 week ago", text: "Quick, efficient, and friendly. My condo move was done in half the time I expected. Highly recommend Prestige Moving!" },
-    { name: "Kevin Patel", initial: "K", color: "#FF9800", time: "3 weeks ago", text: "Third time using Prestige and they never disappoint. Consistent quality service every single time. The best in Vancouver!" },
-    { name: "Stephanie Williams", initial: "S", color: "#9E9E9E", time: "2 months ago", text: "Moved from Vancouver to Kelowna. Long distance but no issues at all. Everything arrived safely and on schedule." },
+    { name: "Kevin Patel", initial: "K", color: "#FF9800", time: "3 weeks ago", text: "Third time using Prestige and they never disappoint. Consistent quality service every single time. The best in Ottawa!" },
+    { name: "Stephanie Williams", initial: "S", color: "#9E9E9E", time: "2 months ago", text: "Moved from Ottawa to Toronto. Long distance but no issues at all. Everything arrived safely and on schedule." },
     { name: "Andrew Taylor", initial: "A", color: "#00BCD4", time: "1 month ago", text: "The packing service was incredible. Every item wrapped carefully and labeled. Made unpacking so much easier!" },
     { name: "Nicole Anderson", initial: "N", color: "#8BC34A", time: "4 weeks ago", text: "As a senior moving to a smaller place, I was worried. The team was patient, kind, and handled everything with care." },
     { name: "Brian Martinez", initial: "B", color: "#CDDC39", time: "2 weeks ago", text: "Office move completed over the weekend with zero downtime. Back to business Monday morning. Impressive!" },
@@ -88,7 +88,7 @@ export default function Home() {
     { name: "Jason Harris", initial: "J", color: "#795548", time: "4 weeks ago", text: "Moved from a 3rd floor walk-up. No elevator, lots of stairs. They didn't complain once. Amazing work ethic!" },
     { name: "Rebecca Young", initial: "R", color: "#607D8B", time: "2 weeks ago", text: "Storage solutions were perfect for our renovation. Climate controlled and secure. Peace of mind!" },
     { name: "Patrick King", initial: "P", color: "#FF9800", time: "1 month ago", text: "Commercial move for our retail store. They even helped with the display setup. Above and beyond!" },
-    { name: "Laura Scott", initial: "L", color: "#00BCD4", time: "3 weeks ago", text: "Cross-country move from Toronto to Vancouver. Long haul but everything arrived in perfect condition." },
+    { name: "Laura Scott", initial: "L", color: "#00BCD4", time: "3 weeks ago", text: "Cross-country move from Ottawa to Vancouver. Long haul but everything arrived in perfect condition." },
     { name: "Ryan Adams", initial: "R", color: "#8BC34A", time: "2 months ago", text: "The quote was accurate and there were no surprise fees. Honest and transparent pricing. Refreshing!" },
     { name: "Megan Turner", initial: "M", color: "#673AB7", time: "1 month ago", text: "Art collection moved with white glove service. They understood the value and handled with extreme care." },
     { name: "Eric Phillips", initial: "E", color: "#2196F3", time: "2 weeks ago", text: "Fast response to my quote request and even faster on moving day. Efficient operation all around." },
@@ -175,7 +175,7 @@ export default function Home() {
   };
 
   const googleReviews = [
-    { text: "Best movers in Vancouver, hands down!", author: "Mike R.", rating: 5 },
+    { text: "Best movers in Ottawa, hands down!", author: "Mike R.", rating: 5 },
     { text: "Fast, friendly, and affordable. Loved it!", author: "Lisa T.", rating: 5 },
     { text: "Outstanding service from start to finish!", author: "David K.", rating: 5 },
     { text: "Professional team, zero stress. Highly recommend!", author: "Sarah M.", rating: 5 },
@@ -237,17 +237,17 @@ export default function Home() {
     {
       text: "Prestige Moving made our cross-city move absolutely seamless. The team was professional, careful with our belongings, and finished ahead of schedule. Highly recommend!",
       author: "Sarah M.",
-      location: "Vancouver to Burnaby"
+      location: "Ottawa to Kanata"
     },
     {
       text: "Best moving experience we've ever had. Fair pricing, no hidden fees, and the movers treated our furniture like it was their own. Will definitely use again.",
       author: "Michael T.",
-      location: "Downtown Vancouver"
+      location: "Downtown Ottawa"
     },
     {
       text: "From packing to unpacking, Prestige handled everything with care. Their attention to detail and professionalism exceeded our expectations. 5 stars!",
       author: "Jennifer L.",
-      location: "North Vancouver"
+      location: "Orleans"
     }
   ];
 
@@ -270,24 +270,24 @@ export default function Home() {
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "MovingCompany",
-    "name": "Prestige Moving Vancouver",
-    "alternateName": ["Vancouver Movers", "Moving Company Vancouver", "Best Movers Vancouver", "Top Movers Vancouver", "Vancouver Moving Company"],
-    "image": "https://vancouver.prestigemoving.ca/logo.png",
-    "description": "Prestige Moving Vancouver - The best Vancouver movers you can trust. We are the top moving company Vancouver relies on for residential, commercial, and long-distance moves. Best movers Vancouver with 337 five-star Google reviews. Top movers Vancouver - WorkSafe BC certified, fully insured. Vancouver moving company serving all of Greater Vancouver.",
-    "url": "https://vancouver.prestigemoving.ca",
+    "name": "Prestige Moving Ottawa",
+    "alternateName": ["Ottawa Movers", "Moving Company Ottawa", "Best Movers Ottawa", "Top Movers Ottawa", "Ottawa Moving Company"],
+    "image": "https://ottawa.prestigemoving.ca/logo.png",
+    "description": "Prestige Moving Ottawa - The best Ottawa movers you can trust. We are the top moving company Ottawa relies on for residential, commercial, and long-distance moves. Best movers Ottawa with 337 five-star Google reviews. Top movers Ottawa - WSIB certified, fully insured. Ottawa moving company serving all of Greater Ottawa.",
+    "url": "https://ottawa.prestigemoving.ca",
     "telephone": "604-616-6066",
-    "email": "vancouver@prestigemoving.ca",
+    "email": "ottawa@prestigemoving.ca",
     "address": {
       "@type": "PostalAddress",
-      "addressLocality": "Vancouver",
-      "addressRegion": "BC",
-      "postalCode": "V6B 1A1",
+      "addressLocality": "Ottawa",
+      "addressRegion": "ON",
+      "postalCode": "K1A 0A1",
       "addressCountry": "CA"
     },
     "geo": {
       "@type": "GeoCoordinates",
-      "latitude": 49.2827,
-      "longitude": -123.1207
+      "latitude": 45.4215,
+      "longitude": -75.6972
     },
     "openingHours": "Mo-Su 08:00-20:00",
     "priceRange": "$$",
@@ -299,33 +299,33 @@ export default function Home() {
       "worstRating": "1"
     },
     "areaServed": [
-      { "@type": "City", "name": "Vancouver" },
-      { "@type": "City", "name": "North Vancouver" },
-      { "@type": "City", "name": "West Vancouver" },
-      { "@type": "City", "name": "Burnaby" },
-      { "@type": "City", "name": "Richmond" },
-      { "@type": "City", "name": "Surrey" },
-      { "@type": "City", "name": "Coquitlam" },
-      { "@type": "City", "name": "Port Coquitlam" },
-      { "@type": "City", "name": "Port Moody" },
-      { "@type": "City", "name": "New Westminster" },
-      { "@type": "City", "name": "Delta" },
-      { "@type": "City", "name": "Langley" },
-      { "@type": "City", "name": "Maple Ridge" },
-      { "@type": "City", "name": "White Rock" },
-      { "@type": "AdministrativeArea", "name": "Greater Vancouver" },
-      { "@type": "AdministrativeArea", "name": "Metro Vancouver" },
-      { "@type": "AdministrativeArea", "name": "Lower Mainland" }
+      { "@type": "City", "name": "Ottawa" },
+      { "@type": "City", "name": "Kanata" },
+      { "@type": "City", "name": "Orleans" },
+      { "@type": "City", "name": "Nepean" },
+      { "@type": "City", "name": "Barrhaven" },
+      { "@type": "City", "name": "Gloucester" },
+      { "@type": "City", "name": "Gatineau" },
+      { "@type": "City", "name": "Stittsville" },
+      { "@type": "City", "name": "Rockland" },
+      { "@type": "City", "name": "Manotick" },
+      { "@type": "City", "name": "Kemptville" },
+      { "@type": "City", "name": "Carleton Place" },
+      { "@type": "City", "name": "Almonte" },
+      { "@type": "City", "name": "Perth" },
+      { "@type": "AdministrativeArea", "name": "Greater Ottawa" },
+      { "@type": "AdministrativeArea", "name": "National Capital Region" },
+      { "@type": "AdministrativeArea", "name": "Ottawa-Gatineau" }
     ],
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
-      "name": "Vancouver Moving Services",
+      "name": "Ottawa Moving Services",
       "itemListElement": [
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Residential Moving Vancouver" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Commercial Moving Vancouver" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Residential Moving Ottawa" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Commercial Moving Ottawa" } },
         { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Long Distance Moving" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "North Vancouver Movers" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Greater Vancouver Movers" } }
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Kanata Movers" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Greater Ottawa Movers" } }
       ]
     },
     "sameAs": [
@@ -339,17 +339,17 @@ export default function Home() {
   const localBusinessSchema = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "name": "Prestige Moving Vancouver",
-    "image": "https://vancouver.prestigemoving.ca/logo.png",
-    "@id": "https://vancouver.prestigemoving.ca",
-    "url": "https://vancouver.prestigemoving.ca",
+    "name": "Prestige Moving Ottawa",
+    "image": "https://ottawa.prestigemoving.ca/logo.png",
+    "@id": "https://ottawa.prestigemoving.ca",
+    "url": "https://ottawa.prestigemoving.ca",
     "telephone": "604-616-6066",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Vancouver",
-      "addressLocality": "Vancouver",
-      "addressRegion": "BC",
-      "postalCode": "V6B 1A1",
+      "streetAddress": "Ottawa",
+      "addressLocality": "Ottawa",
+      "addressRegion": "ON",
+      "postalCode": "K1A 0A1",
       "addressCountry": "CA"
     },
     "priceRange": "$$"
@@ -359,33 +359,33 @@ export default function Home() {
     <>
       <Helmet>
         <meta name="google-site-verification" content="qCldQT0CrqE6wxeHt9aTvmBl_fvb9c0qdu1Abn_SSn8" />
-        <title>Vancouver Movers | Moving Company Vancouver | Best Movers Vancouver | Prestige Moving Vancouver</title>
-        <meta name="description" content="Looking for Vancouver movers? Prestige Moving Vancouver is the top moving company Vancouver trusts. Best movers Vancouver with 337 five-star reviews. Top movers Vancouver for residential, commercial & long-distance moves. Vancouver moving company - WorkSafe BC certified, fully insured. Free estimates - Call 604-616-6066!" />
-        <meta name="keywords" content="vancouver movers, moving company vancouver, best movers vancouver, top movers vancouver, vancouver moving company, movers vancouver, movers in vancouver, vancouver bc movers, professional movers vancouver, local movers vancouver, affordable movers vancouver, residential movers vancouver, commercial movers vancouver, long distance movers vancouver, north vancouver movers, burnaby movers, richmond movers, surrey movers, coquitlam movers, greater vancouver movers" />
+        <title>Ottawa Movers | Moving Company Ottawa | Best Movers Ottawa | Prestige Moving Ottawa</title>
+        <meta name="description" content="Looking for Ottawa movers? Prestige Moving Ottawa is the top moving company Ottawa trusts. Best movers Ottawa with 337 five-star reviews. Top movers Ottawa for residential, commercial & long-distance moves. Ottawa moving company - WSIB certified, fully insured. Free estimates - Call 604-616-6066!" />
+        <meta name="keywords" content="ottawa movers, moving company ottawa, best movers ottawa, top movers ottawa, ottawa moving company, movers ottawa, movers in ottawa, ottawa ontario movers, professional movers ottawa, local movers ottawa, affordable movers ottawa, residential movers ottawa, commercial movers ottawa, long distance movers ottawa, kanata movers, orleans movers, nepean movers, barrhaven movers, gatineau movers, greater ottawa movers" />
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-        <meta name="author" content="Prestige Moving Vancouver" />
-        <meta name="publisher" content="Prestige Moving Vancouver" />
-        <meta property="og:title" content="Prestige Moving Vancouver | Best Vancouver Movers | Top Moving Company Vancouver" />
-        <meta property="og:description" content="Prestige Moving Vancouver - The best movers Vancouver has to offer! Top-rated Vancouver moving company with 337 five-star Google reviews. Vancouver movers for residential, commercial & long-distance moves. WorkSafe BC certified. Get your free quote today!" />
+        <meta name="author" content="Prestige Moving Ottawa" />
+        <meta name="publisher" content="Prestige Moving Ottawa" />
+        <meta property="og:title" content="Prestige Moving Ottawa | Best Ottawa Movers | Top Moving Company Ottawa" />
+        <meta property="og:description" content="Prestige Moving Ottawa - The best movers Ottawa has to offer! Top-rated Ottawa moving company with 337 five-star Google reviews. Ottawa movers for residential, commercial & long-distance moves. WSIB certified. Get your free quote today!" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://vancouver.prestigemoving.ca" />
-        <meta property="og:site_name" content="Prestige Moving Vancouver" />
+        <meta property="og:url" content="https://ottawa.prestigemoving.ca" />
+        <meta property="og:site_name" content="Prestige Moving Ottawa" />
         <meta property="og:locale" content="en_CA" />
-        <meta property="og:image" content="https://vancouver.prestigemoving.ca/og-image.png" />
+        <meta property="og:image" content="https://ottawa.prestigemoving.ca/og-image.png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content="Prestige Moving Vancouver - Best Vancouver Movers" />
+        <meta property="og:image:alt" content="Prestige Moving Ottawa - Best Ottawa Movers" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@PrestigeMoving" />
-        <meta name="twitter:title" content="Prestige Moving Vancouver | Best Vancouver Movers" />
-        <meta name="twitter:description" content="Top movers Vancouver trusts! Prestige Moving Vancouver is the best moving company Vancouver. 337 five-star reviews, WorkSafe BC certified. Vancouver movers for all your moving needs. Free quote!" />
-        <meta name="twitter:image" content="https://vancouver.prestigemoving.ca/og-image.png" />
-        <meta name="twitter:image:alt" content="Prestige Moving Vancouver - Top Vancouver Moving Company" />
-        <link rel="canonical" href="https://vancouver.prestigemoving.ca" />
-        <meta name="geo.region" content="CA-BC" />
-        <meta name="geo.placename" content="Vancouver" />
-        <meta name="geo.position" content="49.2827;-123.1207" />
-        <meta name="ICBM" content="49.2827, -123.1207" />
+        <meta name="twitter:title" content="Prestige Moving Ottawa | Best Ottawa Movers" />
+        <meta name="twitter:description" content="Top movers Ottawa trusts! Prestige Moving Ottawa is the best moving company Ottawa. 337 five-star reviews, WSIB certified. Ottawa movers for all your moving needs. Free quote!" />
+        <meta name="twitter:image" content="https://ottawa.prestigemoving.ca/og-image.png" />
+        <meta name="twitter:image:alt" content="Prestige Moving Ottawa - Top Ottawa Moving Company" />
+        <link rel="canonical" href="https://ottawa.prestigemoving.ca" />
+        <meta name="geo.region" content="CA-ON" />
+        <meta name="geo.placename" content="Ottawa" />
+        <meta name="geo.position" content="45.4215;-75.6972" />
+        <meta name="ICBM" content="45.4215, -75.6972" />
         <script type="application/ld+json">{JSON.stringify(organizationSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(localBusinessSchema)}</script>
       </Helmet>
@@ -425,7 +425,7 @@ export default function Home() {
               <div className="flex items-center gap-6">
                 <a href="#locations" className="flex items-center gap-2 text-gray-600 text-sm hover:text-primary transition-colors" data-testid="topbar-locations">
                   <MapPin className="h-4 w-4" />
-                  <span>Vancouver & Area</span>
+                  <span>Ottawa & Area</span>
                 </a>
                 <a href="tel:604-616-6066" className="flex items-center gap-2 text-gray-600 text-sm hover:text-primary transition-colors font-semibold" data-testid="topbar-phone">
                   <Phone className="h-4 w-4" />
@@ -628,7 +628,7 @@ export default function Home() {
                     {/* Location */}
                     <div className="flex items-center gap-3 p-3 text-white/70">
                       <MapPin className="h-5 w-5 text-primary flex-shrink-0" />
-                      <span className="text-sm">Serving Vancouver & Area</span>
+                      <span className="text-sm">Serving Ottawa & Area</span>
                     </div>
 
                     {/* CTA Button */}
@@ -738,16 +738,16 @@ export default function Home() {
 
               <div className="inline-flex items-center gap-2 bg-primary/20 border border-primary/40 rounded-full px-4 py-2 mb-6" data-testid="badge-experience">
                 <Award className="h-5 w-5 text-primary" />
-                <span className="text-primary font-semibold text-sm md:text-base">#1 Movers in Vancouver & Greater Vancouver</span>
+                <span className="text-primary font-semibold text-sm md:text-base">#1 Movers in Ottawa & Greater Ottawa</span>
               </div>
               
               <h1 className="text-4xl sm:text-5xl md:text-6xl font-black text-white mb-6 leading-tight tracking-tight">
-                Vancouver Movers<br />
+                Ottawa Movers<br />
                 <span className="text-primary">You Can Trust</span>
               </h1>
               
               <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed">
-                Over 10,000 successful moves across Greater Vancouver. Professional movers in Vancouver, North Vancouver, Burnaby, Richmond & beyond. Transparent pricing, complete peace of mind.
+                Over 10,000 successful moves across Greater Ottawa. Professional movers in Ottawa, Kanata, Orleans, Nepean & beyond. Transparent pricing, complete peace of mind.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-3">
@@ -1241,13 +1241,13 @@ export default function Home() {
           <div className="text-center mb-16">
             <Badge className="bg-[#1A2332] text-white mb-4 px-4 py-1.5">
               <Sparkles className="h-4 w-4 mr-2" />
-              Greater Vancouver's Top-Rated Moving Company
+              Greater Ottawa's Top-Rated Moving Company
             </Badge>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-[#1A2332] mb-6">
-              Professional <span className="text-primary">Movers in Vancouver</span>
+              Professional <span className="text-primary">Movers in Ottawa</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Looking for <strong className="text-[#1A2332]">movers Vancouver</strong> residents trust? Prestige Moving provides professional moving services across Greater Vancouver, North Vancouver, Burnaby, Richmond, and all of Metro Vancouver. Full-service <strong className="text-[#1A2332]">Vancouver movers</strong> for residential and commercial relocations.
+              Looking for <strong className="text-[#1A2332]">movers Ottawa</strong> residents trust? Prestige Moving provides professional moving services across Greater Ottawa, Kanata, Orleans, Nepean, and all of the National Capital Region. Full-service <strong className="text-[#1A2332]">Ottawa movers</strong> for residential and commercial relocations.
             </p>
           </div>
 
@@ -1388,38 +1388,38 @@ export default function Home() {
             </Link>
           </div>
 
-          {/* SEO Content Section - Vancouver Movers */}
+          {/* SEO Content Section - Ottawa Movers */}
           <div className="mt-20 border-t border-gray-200 pt-16">
             <div className="grid lg:grid-cols-2 gap-12 items-start">
               <div>
                 <h3 className="text-2xl md:text-3xl font-bold text-[#1A2332] mb-6">
-                  Why Choose Prestige as Your Vancouver Movers?
+                  Why Choose Prestige as Your Ottawa Movers?
                 </h3>
                 <div className="prose prose-lg max-w-none text-gray-600">
                   <p>
-                    When searching for <strong>Vancouver movers</strong> you can trust, Prestige Moving stands out as the premier choice for residential and commercial relocations. With over 15 years of experience serving the Greater Vancouver Area, we've built our reputation on reliability, professionalism, and exceptional customer care.
+                    When searching for <strong>Ottawa movers</strong> you can trust, Prestige Moving stands out as the premier choice for residential and commercial relocations. With over 15 years of experience serving the Greater Ottawa Area, we've built our reputation on reliability, professionalism, and exceptional customer care.
                   </p>
                   <p>
-                    Our team of <strong>professional movers in Vancouver</strong> handles everything from small apartment moves in downtown Vancouver to large family home relocations in the suburbs. Whether you're moving within Vancouver, relocating to Burnaby, Richmond, North Vancouver, or anywhere across British Columbia, our experienced crews ensure your belongings arrive safely and on time.
+                    Our team of <strong>professional movers in Ottawa</strong> handles everything from small apartment moves in downtown Ottawa to large family home relocations in the suburbs. Whether you're moving within Ottawa, relocating to Kanata, Orleans, Nepean, or anywhere across Ontario, our experienced crews ensure your belongings arrive safely and on time.
                   </p>
                   <p>
-                    As a locally-owned <strong>Vancouver moving company</strong>, we understand the unique challenges of moving in our city—from navigating narrow downtown streets to coordinating elevator bookings in high-rise buildings. We handle all the logistics so you can focus on settling into your new home.
+                    As a locally-owned <strong>Ottawa moving company</strong>, we understand the unique challenges of moving in our city—from navigating narrow downtown streets to coordinating elevator bookings in high-rise buildings. We handle all the logistics so you can focus on settling into your new home.
                   </p>
                 </div>
               </div>
               <div>
                 <h3 className="text-2xl md:text-3xl font-bold text-[#1A2332] mb-6">
-                  Full-Service Moving Solutions in Vancouver
+                  Full-Service Moving Solutions in Ottawa
                 </h3>
                 <div className="prose prose-lg max-w-none text-gray-600">
                   <p>
-                    Our comprehensive <strong>moving services in Vancouver</strong> include professional packing, secure loading, careful transportation, and efficient unpacking at your destination. We use high-quality packing materials and industry-leading techniques to protect your furniture, electronics, and cherished belongings.
+                    Our comprehensive <strong>moving services in Ottawa</strong> include professional packing, secure loading, careful transportation, and efficient unpacking at your destination. We use high-quality packing materials and industry-leading techniques to protect your furniture, electronics, and cherished belongings.
                   </p>
                   <p>
-                    What sets us apart from other <strong>Vancouver movers</strong> is our commitment to transparency and customer satisfaction. We provide detailed, upfront quotes with no hidden fees, and our WorkSafe BC certified team treats every item with the care it deserves. From antiques and pianos to office equipment and hot tubs, we have the expertise to move it all.
+                    What sets us apart from other <strong>Ottawa movers</strong> is our commitment to transparency and customer satisfaction. We provide detailed, upfront quotes with no hidden fees, and our WSIB certified team treats every item with the care it deserves. From antiques and pianos to office equipment and hot tubs, we have the expertise to move it all.
                   </p>
                   <p>
-                    Need <strong>affordable movers in Vancouver</strong>? We offer competitive rates without compromising on quality. Our flexible scheduling includes evening and weekend moves to accommodate your busy lifestyle, and we're available for last-minute relocations when you need us most.
+                    Need <strong>affordable movers in Ottawa</strong>? We offer competitive rates without compromising on quality. Our flexible scheduling includes evening and weekend moves to accommodate your busy lifestyle, and we're available for last-minute relocations when you need us most.
                   </p>
                 </div>
               </div>
@@ -1428,18 +1428,18 @@ export default function Home() {
             {/* Service Areas */}
             <div className="mt-12 bg-[#1A2332] rounded-3xl p-8 md:p-12">
               <h3 className="text-2xl md:text-3xl font-bold text-white mb-6 text-center">
-                Areas We Serve as Vancouver's Trusted Movers
+                Areas We Serve as Ottawa's Trusted Movers
               </h3>
               <p className="text-white/70 text-center max-w-3xl mx-auto mb-8">
-                Our <strong className="text-white">Vancouver moving company</strong> provides professional moving services throughout the Lower Mainland and beyond. We regularly serve the following communities:
+                Our <strong className="text-white">Ottawa moving company</strong> provides professional moving services throughout the National Capital Region and beyond. We regularly serve the following communities:
               </p>
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 text-center">
                 {[
-                  "Downtown Vancouver", "Kitsilano", "Yaletown", "West End",
-                  "North Vancouver", "West Vancouver", "Burnaby", "Richmond",
-                  "Coquitlam", "Surrey", "New Westminster", "Port Moody",
-                  "Langley", "Delta", "White Rock", "Maple Ridge",
-                  "Port Coquitlam", "Abbotsford"
+                  "Downtown Ottawa", "Centretown", "The Glebe", "Westboro",
+                  "Kanata", "Orleans", "Nepean", "Barrhaven",
+                  "Gloucester", "Stittsville", "Manotick", "Rockland",
+                  "Gatineau", "Hull", "Aylmer", "Chelsea",
+                  "Kemptville", "Carleton Place"
                 ].map((area) => (
                   <div key={area} className="bg-white/10 rounded-xl px-4 py-3 text-white/90 text-sm font-medium hover:bg-white/20 transition-colors">
                     {area}
@@ -1448,7 +1448,7 @@ export default function Home() {
               </div>
               <div className="text-center mt-8">
                 <p className="text-white/60 text-sm">
-                  Don't see your area? We service all of British Columbia including long-distance moves across Canada.
+                  Don't see your area? We service all of Ontario including long-distance moves across Canada.
                 </p>
               </div>
             </div>
@@ -1459,25 +1459,25 @@ export default function Home() {
                 <div className="h-12 w-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
                   <TruckIcon className="h-6 w-6 text-primary" />
                 </div>
-                <h4 className="text-lg font-bold text-[#1A2332] mb-3">Local Vancouver Movers</h4>
+                <h4 className="text-lg font-bold text-[#1A2332] mb-3">Local Ottawa Movers</h4>
                 <p className="text-gray-600 text-sm">
-                  For local moves within Vancouver and the Lower Mainland, our teams provide same-day service with hourly rates starting at competitive prices. We know the city inside and out, ensuring efficient routes and timely delivery.
+                  For local moves within Ottawa and the National Capital Region, our teams provide same-day service with hourly rates starting at competitive prices. We know the city inside and out, ensuring efficient routes and timely delivery.
                 </p>
               </div>
               <div className="bg-gray-50 rounded-2xl p-6">
                 <div className="h-12 w-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
                   <MapPin className="h-6 w-6 text-primary" />
                 </div>
-                <h4 className="text-lg font-bold text-[#1A2332] mb-3">Long Distance Moving from Vancouver</h4>
+                <h4 className="text-lg font-bold text-[#1A2332] mb-3">Long Distance Moving from Ottawa</h4>
                 <p className="text-gray-600 text-sm">
-                  Moving out of Vancouver? Our long-distance moving services connect you to destinations across British Columbia, Alberta, and all of Canada. GPS tracking keeps you informed every step of the way.
+                  Moving out of Ottawa? Our long-distance moving services connect you to destinations across Ontario, Quebec, and all of Canada. GPS tracking keeps you informed every step of the way.
                 </p>
               </div>
               <div className="bg-gray-50 rounded-2xl p-6">
                 <div className="h-12 w-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
                   <Building2 className="h-6 w-6 text-primary" />
                 </div>
-                <h4 className="text-lg font-bold text-[#1A2332] mb-3">Commercial Movers Vancouver</h4>
+                <h4 className="text-lg font-bold text-[#1A2332] mb-3">Commercial Movers Ottawa</h4>
                 <p className="text-gray-600 text-sm">
                   Office relocations require precision and minimal downtime. Our commercial moving team specializes in after-hours and weekend moves, IT equipment handling, and complete project management.
                 </p>
@@ -1496,10 +1496,10 @@ export default function Home() {
                 About Prestige Moving
               </Badge>
               <h2 className="text-4xl md:text-5xl font-black text-white mb-6">
-                Greater Vancouver Movers You Can Trust
+                Greater Ottawa Movers You Can Trust
               </h2>
               <p className="text-lg text-white/70 mb-8 leading-relaxed">
-                As the top-rated <strong className="text-white">movers in Vancouver</strong>, Prestige Moving has been helping families and businesses relocate with care and professionalism. Our team of <strong className="text-white">Vancouver movers</strong> owns our fleet of trucks and treats every move as if it were their own. Serving Greater Vancouver, North Vancouver, and all of Metro Vancouver.
+                As the top-rated <strong className="text-white">movers in Ottawa</strong>, Prestige Moving has been helping families and businesses relocate with care and professionalism. Our team of <strong className="text-white">Ottawa movers</strong> owns our fleet of trucks and treats every move as if it were their own. Serving Greater Ottawa, Kanata, and all of the National Capital Region.
               </p>
               
               <div className="space-y-4 mb-8">
@@ -1508,7 +1508,7 @@ export default function Home() {
                   "Fully bonded, licensed, and insured",
                   "BBB A+ rating with proven track record",
                   "Professional packing and unpacking services",
-                  "Secure storage facilities available in Vancouver",
+                  "Secure storage facilities available in Ottawa",
                   "Our own fleet of trucks for reliable service"
                 ].map((item, index) => (
                   <div key={index} className="flex items-start gap-3" data-testid={`about-feature-${index}`}>

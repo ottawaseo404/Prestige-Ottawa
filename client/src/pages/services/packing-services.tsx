@@ -29,17 +29,17 @@ export default function PackingServices() {
   const schemaData = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": "Professional Packing Services Vancouver",
+    "name": "Professional Packing Services Ottawa",
     "provider": {
       "@type": "MovingCompany",
-      "name": "Prestige Moving Vancouver",
+      "name": "Prestige Moving Ottawa",
       "address": {
         "@type": "PostalAddress",
-        "addressLocality": "Vancouver",
-        "addressRegion": "BC",
+        "addressLocality": "Ottawa",
+        "addressRegion": "ON",
         "addressCountry": "CA"
       },
-      "telephone": "604-616-6066",
+      "telephone": "613-555-1234",
       "priceRange": "$$",
       "aggregateRating": {
         "@type": "AggregateRating",
@@ -48,22 +48,22 @@ export default function PackingServices() {
       }
     },
     "areaServed": [
-      { "@type": "City", "name": "Vancouver" },
-      { "@type": "City", "name": "Burnaby" },
-      { "@type": "City", "name": "Richmond" },
-      { "@type": "City", "name": "North Vancouver" },
-      { "@type": "City", "name": "West Vancouver" },
-      { "@type": "City", "name": "Coquitlam" },
-      { "@type": "City", "name": "Surrey" }
+      { "@type": "City", "name": "Ottawa" },
+      { "@type": "City", "name": "Gatineau" },
+      { "@type": "City", "name": "Kanata" },
+      { "@type": "City", "name": "Orleans" },
+      { "@type": "City", "name": "Nepean" },
+      { "@type": "City", "name": "Barrhaven" },
+      { "@type": "City", "name": "Gloucester" }
     ],
-    "description": "Expert packing services in Vancouver. Full-service packing, fragile item protection, and quality materials included. Professional packers for stress-free moves."
+    "description": "Expert packing services in Ottawa. Full-service packing, fragile item protection, and quality materials included. Professional packers for stress-free moves."
   };
 
   const testimonials = [
-    { name: "Amanda R.", location: "Kitsilano", text: "The packing team was incredible! They wrapped every dish, glass, and picture frame with such care. Not a single item was damaged. Worth every penny!", rating: 5, date: "1 week ago" },
-    { name: "Kevin M.", location: "West Vancouver", text: "We had a last-minute move and they packed our entire 4-bedroom house in just one day. Professional, organized, and everything arrived perfectly.", rating: 5, date: "2 weeks ago" },
-    { name: "Susan L.", location: "Burnaby", text: "I was nervous about my grandmother's antique china collection. The team used custom packing and it all arrived without a scratch. Highly recommend!", rating: 5, date: "3 weeks ago" },
-    { name: "James T.", location: "North Vancouver", text: "Best packing service in Vancouver! They labeled every box by room and contents. Unpacking was so much easier. The materials they use are top quality.", rating: 5, date: "1 month ago" },
+    { name: "Amanda R.", location: "Westboro", text: "The packing team was incredible! They wrapped every dish, glass, and picture frame with such care. Not a single item was damaged. Worth every penny!", rating: 5, date: "1 week ago" },
+    { name: "Kevin M.", location: "Kanata", text: "We had a last-minute move and they packed our entire 4-bedroom house in just one day. Professional, organized, and everything arrived perfectly.", rating: 5, date: "2 weeks ago" },
+    { name: "Susan L.", location: "Orleans", text: "I was nervous about my grandmother's antique china collection. The team used custom packing and it all arrived without a scratch. Highly recommend!", rating: 5, date: "3 weeks ago" },
+    { name: "James T.", location: "Nepean", text: "Best packing service in Ottawa! They labeled every box by room and contents. Unpacking was so much easier. The materials they use are top quality.", rating: 5, date: "1 month ago" },
     { name: "Michelle K.", location: "Downtown", text: "Their fragile item specialists packed my wine collection and artwork beautifully. Custom crating for my paintings was impressive. Five stars!", rating: 5, date: "2 months ago" }
   ];
 
@@ -95,9 +95,9 @@ export default function PackingServices() {
   ];
 
   const neighborhoods = [
-    "Downtown", "Kitsilano", "Yaletown", "Coal Harbour", "West End",
-    "Mount Pleasant", "Commercial Drive", "Kerrisdale", "Point Grey",
-    "UBC", "Shaughnessy", "Dunbar", "Marpole", "South Cambie", "Gastown"
+    "Downtown", "Westboro", "The Glebe", "Byward Market", "Sandy Hill",
+    "Centretown", "Hintonburg", "Kanata", "Orleans",
+    "Nepean", "Barrhaven", "Alta Vista", "Rockcliffe Park", "New Edinburgh", "Little Italy"
   ];
 
   const faqItems = [
@@ -119,7 +119,7 @@ export default function PackingServices() {
     },
     {
       question: "What happens if something gets damaged during packing?",
-      answer: "As a WorkSafe BC certified company, we carry full liability insurance. In the rare event of damage, our claims process is straightforward and we work quickly to resolve any issues. Our careful packing techniques mean damage claims are extremely rare - our track record speaks for itself."
+      answer: "As a WSIB certified company, we carry full liability insurance. In the rare event of damage, our claims process is straightforward and we work quickly to resolve any issues. Our careful packing techniques mean damage claims are extremely rare - our track record speaks for itself."
     }
   ];
 
@@ -133,20 +133,20 @@ export default function PackingServices() {
   return (
     <>
       <Helmet>
-        <title>Professional Packing Services Vancouver BC | Expert Packers | Prestige Moving</title>
-        <meta name="description" content="Expert packing services in Vancouver BC. Full-service packing, fragile item protection, quality materials included. WorkSafe BC certified. Save time and ensure safe transport. Free quote!" />
-        <meta name="keywords" content="packing services Vancouver, professional packers BC, moving packing service, fragile item packing, full service packing, Vancouver packers, Burnaby packing service, Richmond packing company" />
-        <meta property="og:title" content="Professional Packing Services Vancouver | Prestige Moving" />
-        <meta property="og:description" content="Vancouver's trusted packing specialists. Expert packers, quality materials, fragile item handling. WorkSafe BC certified for your peace of mind." />
+        <title>Professional Packing Services Ottawa ON | Expert Packers | Prestige Moving</title>
+        <meta name="description" content="Expert packing services in Ottawa ON. Full-service packing, fragile item protection, quality materials included. WSIB certified. Save time and ensure safe transport. Free quote!" />
+        <meta name="keywords" content="packing services Ottawa, professional packers ON, moving packing service, fragile item packing, full service packing, Ottawa packers, Kanata packing service, Orleans packing company" />
+        <meta property="og:title" content="Professional Packing Services Ottawa | Prestige Moving" />
+        <meta property="og:description" content="Ottawa's trusted packing specialists. Expert packers, quality materials, fragile item handling. WSIB certified for your peace of mind." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://vancouver.prestigemoving.ca/services/packing-services" />
-        <meta property="og:image" content="https://vancouver.prestigemoving.ca/og-image.png" />
-        <meta property="og:site_name" content="Prestige Moving Vancouver" />
+        <meta property="og:url" content="https://ottawa.prestigemoving.ca/services/packing-services" />
+        <meta property="og:image" content="https://ottawa.prestigemoving.ca/og-image.png" />
+        <meta property="og:site_name" content="Prestige Moving Ottawa" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Professional Packing Services Vancouver | Prestige Moving" />
-        <meta name="twitter:description" content="Expert packing services with premium materials. Fragile item specialists. WorkSafe BC certified." />
-        <meta name="twitter:image" content="https://vancouver.prestigemoving.ca/og-image.png" />
-        <link rel="canonical" href="https://vancouver.prestigemoving.ca/services/packing-services" />
+        <meta name="twitter:title" content="Professional Packing Services Ottawa | Prestige Moving" />
+        <meta name="twitter:description" content="Expert packing services with premium materials. Fragile item specialists. WSIB certified." />
+        <meta name="twitter:image" content="https://ottawa.prestigemoving.ca/og-image.png" />
+        <link rel="canonical" href="https://ottawa.prestigemoving.ca/services/packing-services" />
         <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
       </Helmet>
 
@@ -180,12 +180,12 @@ export default function PackingServices() {
               </div>
 
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-6 leading-[1.1]">
-                Vancouver's<br />
+                Ottawa's<br />
                 <span className="text-primary">#1 Packing Experts</span>
               </h1>
 
               <p className="text-xl md:text-2xl text-white/80 mb-8 leading-relaxed">
-                Let our expert team handle the packing while you focus on your move. We've safely packed <span className="text-primary font-semibold">10,000+ Vancouver homes</span>.
+                Let our expert team handle the packing while you focus on your move. We've safely packed <span className="text-primary font-semibold">10,000+ Ottawa homes</span>.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
@@ -195,10 +195,10 @@ export default function PackingServices() {
                     <ArrowRight className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </Link>
-                <a href="tel:604-616-6066">
+                <a href="tel:613-555-1234">
                   <Button size="lg" variant="outline" className="text-lg font-bold px-8 py-7 border-2 border-white/40 text-white hover:bg-white/10 backdrop-blur-sm" data-testid="button-hero-call">
                     <Phone className="h-5 w-5 mr-2" />
-                    604-616-6066
+                    613-555-1234
                   </Button>
                 </a>
               </div>
@@ -244,17 +244,17 @@ export default function PackingServices() {
               <div>
                 <Badge className="bg-primary/10 text-primary mb-4">About Our Service</Badge>
                 <h2 className="text-3xl md:text-4xl font-black text-foreground mb-6">
-                  Vancouver's Premier Packing Company
+                  Ottawa's Premier Packing Company
                 </h2>
                 <div className="space-y-4 text-muted-foreground">
                   <p>
-                    Moving to a new home in Vancouver, Burnaby, Richmond, or anywhere in the Lower Mainland? <strong>Prestige Moving Vancouver</strong> offers professional packing services that save you time, stress, and ensure your belongings arrive safely.
+                    Moving to a new home in Ottawa, Kanata, Orleans, or anywhere in the National Capital Region? <strong>Prestige Moving Ottawa</strong> offers professional packing services that save you time, stress, and ensure your belongings arrive safely.
                   </p>
                   <p>
                     Our expert packers bring years of experience and use only premium materials - from double-walled boxes to custom crating for artwork. Whether you need full-service packing or just help with fragile items, we've got you covered.
                   </p>
                   <p>
-                    As a <strong>WorkSafe BC certified moving company</strong>, we prioritize the safety of both our team and your belongings. All materials are included in our transparent pricing - no hidden fees or surprises.
+                    As a <strong>WSIB certified moving company</strong>, we prioritize the safety of both our team and your belongings. All materials are included in our transparent pricing - no hidden fees or surprises.
                   </p>
                 </div>
                 <div className="mt-8">
@@ -270,7 +270,7 @@ export default function PackingServices() {
               <div className="relative rounded-2xl overflow-hidden h-[400px]">
                 <img 
                   src={packingImage}
-                  alt="Prestige Moving professional packers in Vancouver"
+                  alt="Prestige Moving professional packers in Ottawa"
                   className="absolute inset-0 w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#1A2332]/60 to-transparent" />
@@ -314,7 +314,7 @@ export default function PackingServices() {
                 { title: "Furniture Blankets", description: "Thick padding to prevent scratches and dents", icon: Frame },
                 { title: "Custom Crating", description: "Specialty protection for artwork and antiques", icon: Sparkles },
                 { title: "Detailed Labeling", description: "Room-by-room organization for easy unpacking", icon: CheckCircle2 },
-                { title: "WorkSafe BC Certified", description: "Full compliance with safety standards", icon: Award }
+                { title: "WSIB Certified", description: "Full compliance with safety standards", icon: Award }
               ].map((item, index) => (
                 <Card key={index} className="border-2 hover:border-primary/50 transition-colors" data-testid={`card-included-${index}`}>
                   <CardContent className="p-6">
@@ -422,7 +422,7 @@ export default function PackingServices() {
                 { icon: Clock, title: "Same-Day Service", description: "Need packing done fast? We offer same-day and next-day availability.", color: "from-emerald-500 to-emerald-600" },
                 { icon: ThumbsUp, title: "All Materials Included", description: "Boxes, bubble wrap, tape, and specialty materials - all covered.", color: "from-violet-500 to-violet-600" },
                 { icon: HandHeart, title: "Fragile Item Specialists", description: "Custom packing for artwork, antiques, china, and valuables.", color: "from-rose-500 to-rose-600" },
-                { icon: Award, title: "WorkSafe BC Certified", description: "Full compliance with workplace safety standards for your peace of mind.", color: "from-primary to-amber-600" }
+                { icon: Award, title: "WSIB Certified", description: "Full compliance with workplace safety standards for your peace of mind.", color: "from-primary to-amber-600" }
               ].map((item, index) => (
                 <Card key={index} className="border-2 hover:border-primary/50 transition-all hover:shadow-lg" data-testid={`card-why-${index}`}>
                   <CardContent className="p-6">
@@ -525,10 +525,10 @@ export default function PackingServices() {
             <div className="text-center mb-10">
               <Badge className="bg-primary/20 text-primary border-primary/30 mb-4">Coverage</Badge>
               <h2 className="text-3xl md:text-4xl font-black text-white mb-4">
-                Vancouver Neighborhoods We Serve
+                Ottawa Neighborhoods We Serve
               </h2>
               <p className="text-lg text-white/60">
-                Professional packing services across Metro Vancouver
+                Professional packing services across the National Capital Region
               </p>
             </div>
 
@@ -598,7 +598,7 @@ export default function PackingServices() {
                   <CardContent className="p-6">
                     <Home className="h-8 w-8 text-primary mb-4" />
                     <h3 className="font-bold text-lg mb-2">Residential Moving</h3>
-                    <p className="text-muted-foreground">Complete home moving services across Vancouver</p>
+                    <p className="text-muted-foreground">Complete home moving services across Ottawa</p>
                   </CardContent>
                 </Card>
               </Link>
@@ -669,7 +669,7 @@ export default function PackingServices() {
             </h2>
             
             <p className="text-xl text-[#1A2332]/80 mb-8 max-w-2xl mx-auto">
-              Join 10,000+ Vancouver families who trusted our expert packers. Get your personalized quote in under 1 hour.
+              Join 10,000+ Ottawa families who trusted our expert packers. Get your personalized quote in under 1 hour.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -679,10 +679,10 @@ export default function PackingServices() {
                   <ArrowRight className="h-5 w-5 ml-2" />
                 </Button>
               </Link>
-              <a href="tel:604-616-6066">
+              <a href="tel:613-555-1234">
                 <Button size="lg" variant="outline" className="border-2 border-[#1A2332] text-[#1A2332] hover:bg-[#1A2332] hover:text-white text-lg font-bold px-10 py-7" data-testid="button-cta-call">
                   <Phone className="h-5 w-5 mr-2" />
-                  604-616-6066
+                  613-555-1234
                 </Button>
               </a>
             </div>
