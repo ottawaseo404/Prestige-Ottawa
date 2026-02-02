@@ -27,10 +27,9 @@ export function WorkSafeBadge({ size = "md", showLabel = true, className = "" }:
 
   return (
     <div className={`flex items-center gap-2 ${className}`}>
-      <div className={`bg-[#F37021] rounded ${s.container} flex items-center`}>
-        <span className={`font-bold text-white ${s.text} tracking-tight`}>WORK</span>
-        <span className={`font-bold text-[#1A2332] bg-white ${s.innerPadding} ${s.text} tracking-tight`}>SAFE</span>
-        <span className={`font-bold text-white ${s.text} tracking-tight`}>BC</span>
+      <div className={`bg-[#0066CC] rounded ${s.container} flex items-center`}>
+        <span className={`font-bold text-white ${s.text} tracking-tight`}>WSIB</span>
+        <span className={`font-bold text-[#0066CC] bg-white ${s.innerPadding} ${s.text} tracking-tight`}>INSURED</span>
       </div>
       {showLabel && <span className="text-white/60 text-xs">Certified</span>}
     </div>
@@ -59,10 +58,9 @@ export function WorkSafeBadgeInline({ size = "md", className = "" }: Omit<WorkSa
   const s = sizeClasses[size];
 
   return (
-    <div className={`bg-[#F37021] rounded ${s.container} flex items-center ${className}`}>
-      <span className={`font-bold text-white ${s.text} tracking-tight`}>WORK</span>
-      <span className={`font-bold text-[#1A2332] bg-white ${s.innerPadding} ${s.text} tracking-tight`}>SAFE</span>
-      <span className={`font-bold text-white ${s.text} tracking-tight`}>BC</span>
+    <div className={`bg-[#0066CC] rounded ${s.container} flex items-center ${className}`}>
+      <span className={`font-bold text-white ${s.text} tracking-tight`}>WSIB</span>
+      <span className={`font-bold text-[#0066CC] bg-white ${s.innerPadding} ${s.text} tracking-tight`}>INSURED</span>
     </div>
   );
 }
