@@ -14,7 +14,7 @@ import {
   Home as HomeIcon, Building2, MapPin, Menu, Warehouse, GraduationCap, 
   Heart, Music, Crown, Dumbbell, Box, Medal, ArrowRight, Star, 
   Quote, Users, ThumbsUp, ChevronLeft, ChevronRight, Truck, Headphones,
-  Mail, Calendar, Calculator, Sparkles, Lock, FileText
+  Mail, Calendar, Calculator, Sparkles, Lock, FileText, DollarSign
 } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import {
@@ -1387,6 +1387,251 @@ export default function Home() {
                 <ArrowRight className="h-5 w-5 ml-2" />
               </Button>
             </Link>
+          </div>
+
+          {/* Pricing Packages Section */}
+          <div className="mt-20 border-t border-gray-200 pt-16">
+            <div className="text-center mb-12">
+              <Badge className="bg-primary text-[#1A2332] mb-4 px-4 py-1.5">
+                <DollarSign className="h-4 w-4 mr-2" />
+                Transparent Pricing
+              </Badge>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-[#1A2332] mb-4">
+                Moving Packages
+              </h2>
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                Choose the perfect package for your move. All packages include professional movers, moving truck, and full protection for your belongings.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+              {/* Premium Package */}
+              <div className="relative bg-white rounded-3xl border-2 border-gray-200 p-8 hover:border-primary/50 hover:shadow-xl transition-all duration-300" data-testid="pricing-premium">
+                <div className="absolute -top-4 left-6">
+                  <span className="bg-gray-100 text-gray-600 text-xs font-bold px-3 py-1 rounded-full">01</span>
+                </div>
+                <div className="mb-6">
+                  <h3 className="text-2xl font-black text-[#1A2332] mb-2">PREMIUM PACKAGE</h3>
+                  <div className="flex items-baseline gap-1 mb-1">
+                    <span className="text-3xl font-black text-primary">$155</span>
+                    <span className="text-gray-600">/hr</span>
+                  </div>
+                  <p className="text-sm text-gray-500 font-medium">Minimum 3 hours + $155 travel fee within Ottawa</p>
+                </div>
+                
+                <div className="mb-6 p-3 bg-primary/10 rounded-xl">
+                  <p className="text-sm font-semibold text-[#1A2332]">
+                    <span className="mr-2">🏠</span>
+                    Ideal for: Bachelor apartments, 1-2 bedroom moves
+                  </p>
+                </div>
+
+                <div className="mb-6">
+                  <p className="text-sm font-bold text-[#1A2332] mb-3 flex items-center gap-2">
+                    <Package className="h-4 w-4 text-primary" />
+                    Includes:
+                  </p>
+                  <ul className="space-y-2 text-sm text-gray-600">
+                    <li className="flex items-start gap-2">
+                      <span className="text-gray-400">—</span>
+                      2 Professional Movers
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-gray-400">—</span>
+                      16ft – 20ft Moving Truck
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-gray-400">—</span>
+                      Wrapping all furniture with tape and blankets
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-gray-400">—</span>
+                      Shrink-wrapping couches for protection
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-gray-400">—</span>
+                      Covering mattresses with brand-new plastic bags
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-gray-400">—</span>
+                      Protective padding for floors and stair railings
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-gray-400">—</span>
+                      Disassembly and reassembly of basic furniture
+                    </li>
+                  </ul>
+                </div>
+
+                <p className="text-xs text-gray-500 mb-6 p-3 bg-gray-50 rounded-lg">
+                  <span className="text-primary">⭐</span> Need extra help? Add an additional mover for $50/hr and an extra $50 travel fee.
+                </p>
+
+                <Link href="/book">
+                  <Button variant="outline" className="w-full font-bold" data-testid="button-book-premium">
+                    BOOK YOUR MOVE
+                  </Button>
+                </Link>
+              </div>
+
+              {/* Deluxe Package - Featured */}
+              <div className="relative bg-[#1A2332] rounded-3xl p-8 shadow-2xl transform md:-translate-y-4" data-testid="pricing-deluxe">
+                <div className="absolute -top-4 left-6">
+                  <span className="bg-primary text-[#1A2332] text-xs font-bold px-3 py-1 rounded-full">02</span>
+                </div>
+                <div className="absolute -top-4 right-6">
+                  <span className="bg-primary text-[#1A2332] text-xs font-bold px-3 py-1 rounded-full flex items-center gap-1">
+                    <Star className="h-3 w-3 fill-current" />
+                    POPULAR
+                  </span>
+                </div>
+                <div className="mb-6">
+                  <h3 className="text-2xl font-black text-white mb-2">DELUXE PACKAGE</h3>
+                  <div className="flex items-baseline gap-1 mb-1">
+                    <span className="text-3xl font-black text-primary">$195</span>
+                    <span className="text-white/70">/hr</span>
+                  </div>
+                  <p className="text-sm text-white/60 font-medium">Minimum 3 hours + $195 travel fee within Ottawa</p>
+                </div>
+                
+                <div className="mb-6 p-3 bg-primary/20 rounded-xl">
+                  <p className="text-sm font-semibold text-white">
+                    <span className="mr-2">🏡</span>
+                    Ideal for: 2-3 bedroom moves
+                  </p>
+                </div>
+
+                <div className="mb-6">
+                  <p className="text-sm font-bold text-white mb-3 flex items-center gap-2">
+                    <Package className="h-4 w-4 text-primary" />
+                    Includes:
+                  </p>
+                  <ul className="space-y-2 text-sm text-white/80">
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary">—</span>
+                      3 Professional Movers
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary">—</span>
+                      26ft Moving Truck
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary">—</span>
+                      Wrapping all furniture with tape and blankets
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary">—</span>
+                      Shrink-wrapping couches for added protection
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary">—</span>
+                      Covering mattresses with brand-new plastic bags
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary">—</span>
+                      Protective padding for floors and stair railings
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary">—</span>
+                      Disassembly and reassembly of basic furniture
+                    </li>
+                  </ul>
+                </div>
+
+                <p className="text-xs text-white/60 mb-6 p-3 bg-white/10 rounded-lg">
+                  The Deluxe Package is designed for medium-sized moves, ensuring every piece of furniture is carefully wrapped, transported, and reassembled with precision.
+                </p>
+
+                <Link href="/book">
+                  <Button className="w-full font-bold shadow-lg shadow-primary/30" data-testid="button-book-deluxe">
+                    BOOK YOUR MOVE
+                  </Button>
+                </Link>
+              </div>
+
+              {/* Diamond Package */}
+              <div className="relative bg-white rounded-3xl border-2 border-gray-200 p-8 hover:border-primary/50 hover:shadow-xl transition-all duration-300" data-testid="pricing-diamond">
+                <div className="absolute -top-4 left-6">
+                  <span className="bg-gray-100 text-gray-600 text-xs font-bold px-3 py-1 rounded-full">03</span>
+                </div>
+                <div className="mb-6">
+                  <h3 className="text-2xl font-black text-[#1A2332] mb-2">DIAMOND PACKAGE</h3>
+                  <div className="flex items-baseline gap-1 mb-1">
+                    <span className="text-3xl font-black text-primary">$315</span>
+                    <span className="text-gray-600">/hr</span>
+                  </div>
+                  <p className="text-sm text-gray-500 font-medium">Minimum 3 hours + $315 travel fee within Ottawa</p>
+                </div>
+                
+                <div className="mb-6 p-3 bg-primary/10 rounded-xl">
+                  <p className="text-sm font-semibold text-[#1A2332]">
+                    <span className="mr-2">🏰</span>
+                    Ideal for: Large homes (3-5 bedrooms)
+                  </p>
+                </div>
+
+                <div className="mb-6">
+                  <p className="text-sm font-bold text-[#1A2332] mb-3 flex items-center gap-2">
+                    <Package className="h-4 w-4 text-primary" />
+                    Includes:
+                  </p>
+                  <ul className="space-y-2 text-sm text-gray-600">
+                    <li className="flex items-start gap-2">
+                      <span className="text-gray-400">—</span>
+                      4 Professional Movers
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-gray-400">—</span>
+                      2 Moving Trucks
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-gray-400">—</span>
+                      Wrapping all furniture with tape and blankets
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-gray-400">—</span>
+                      Shrink-wrapping couches for extra protection
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-gray-400">—</span>
+                      Covering mattresses with brand-new plastic bags
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-gray-400">—</span>
+                      Protective padding for floors and stair railings
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-gray-400">—</span>
+                      Disassembly and reassembly of all necessary furniture
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-gray-400">—</span>
+                      Extra tape and additional shrink wrap included
+                    </li>
+                  </ul>
+                </div>
+
+                <p className="text-xs text-gray-500 mb-6 p-3 bg-gray-50 rounded-lg">
+                  For those with larger moves, the Diamond Package provides top-tier service with additional movers and trucks to ensure an efficient relocation.
+                </p>
+
+                <Link href="/book">
+                  <Button variant="outline" className="w-full font-bold" data-testid="button-book-diamond">
+                    BOOK YOUR MOVE
+                  </Button>
+                </Link>
+              </div>
+            </div>
+
+            {/* Pricing Note */}
+            <div className="mt-10 text-center">
+              <p className="text-gray-500 text-sm">
+                All prices are subject to change based on specific move requirements. 
+                <Link href="/book" className="text-primary font-semibold hover:underline ml-1">
+                  Get a personalized quote
+                </Link>
+              </p>
+            </div>
           </div>
 
           {/* SEO Content Section - Ottawa Movers */}
