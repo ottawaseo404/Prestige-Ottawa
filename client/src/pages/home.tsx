@@ -40,7 +40,7 @@ import longDistanceImage from "@assets/longdistance moving_1764348335754.jpg";
 import packingImage from "@assets/IMG_5767_1764348259855.jpeg";
 import { packageTypes, type PackageType } from "@shared/schema";
 import { SharedFooter } from "@/components/shared-footer";
-import ottawaDroneVideo from "@/assets/videos/ottawa-drone.mp4";
+// Hero video path (referenced directly to avoid Vite import issues with MP4)
 
 export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -54,8 +54,8 @@ export default function Home() {
   const [reviewIndex, setReviewIndex] = useState(0);
   const [heroVideoIndex, setHeroVideoIndex] = useState(0);
   
-  // Use Ottawa drone video as primary hero video
-  const heroVideos = [ottawaDroneVideo];
+  // Use custom hero video
+  const heroVideos = ["/attached_assets/IMG_5332_1770072644600.MP4"];
   const autoRotate = false;
   const rotationInterval = 8000;
   const heroLoading = false;
