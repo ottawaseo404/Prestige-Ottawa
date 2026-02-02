@@ -212,12 +212,16 @@ export default function BlogPostPage() {
 
         <div className="container mx-auto px-4 max-w-4xl py-12">
           {/* Featured Image */}
-          {post.featuredImage && (
+          {post.featuredImage && !post.featuredImage.startsWith('data:') && (
             <div className="-mt-24 mb-8 relative z-10">
               <img
                 src={post.featuredImage}
                 alt={post.featuredImageAlt || post.title}
                 className="w-full aspect-video object-cover rounded-xl shadow-xl"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.parentElement!.style.display = 'none';
+                }}
               />
             </div>
           )}
@@ -287,12 +291,17 @@ export default function BlogPostPage() {
                 {getRelatedPosts().map((relatedPost) => (
                   <Link key={relatedPost.id} href={`/blog/${relatedPost.slug}`}>
                     <Card className="overflow-hidden hover-elevate cursor-pointer h-full">
-                      {relatedPost.featuredImage ? (
-                        <div className="aspect-video">
+                      {relatedPost.featuredImage && !relatedPost.featuredImage.startsWith('data:') ? (
+                        <div className="aspect-video relative">
                           <img
                             src={relatedPost.featuredImage}
                             alt={relatedPost.featuredImageAlt || relatedPost.title}
                             className="w-full h-full object-cover"
+                            onError={(e) => {
+                              const target = e.target as HTMLImageElement;
+                              target.style.display = 'none';
+                              target.parentElement!.classList.add('bg-gradient-to-br', 'from-[#1A2332]', 'to-[#2A3342]');
+                            }}
                           />
                         </div>
                       ) : (

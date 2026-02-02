@@ -42,6 +42,70 @@ export async function registerRoutes(app: Express): Promise<Server> {
     res.json({ status: "ok" });
   });
 
+  // Dynamic sitemap with all blog posts
+  app.get("/sitemap.xml", async (req, res) => {
+    try {
+      const posts = await storage.getPublishedBlogPosts();
+      const baseUrl = "https://vancouver.prestigemoving.ca";
+      const today = new Date().toISOString().split('T')[0];
+      
+      const staticPages = [
+        { loc: "/", changefreq: "daily", priority: "1.0" },
+        { loc: "/blog", changefreq: "daily", priority: "0.9" },
+        { loc: "/book", changefreq: "monthly", priority: "0.9" },
+        { loc: "/calculator", changefreq: "monthly", priority: "0.8" },
+        { loc: "/contact", changefreq: "monthly", priority: "0.9" },
+        { loc: "/services/residential-moving", changefreq: "monthly", priority: "0.9" },
+        { loc: "/services/commercial-moving", changefreq: "monthly", priority: "0.9" },
+        { loc: "/services/long-distance-moving", changefreq: "monthly", priority: "0.9" },
+        { loc: "/services/packing-services", changefreq: "monthly", priority: "0.8" },
+        { loc: "/services/moving-supplies", changefreq: "monthly", priority: "0.7" },
+        { loc: "/services/student-moving", changefreq: "monthly", priority: "0.8" },
+        { loc: "/services/storage-solutions", changefreq: "monthly", priority: "0.8" },
+        { loc: "/services/specialty-item-moving", changefreq: "monthly", priority: "0.8" },
+        { loc: "/services/antique-moving", changefreq: "monthly", priority: "0.8" },
+        { loc: "/services/piano-moving", changefreq: "monthly", priority: "0.8" },
+        { loc: "/services/senior-moving", changefreq: "monthly", priority: "0.8" },
+        { loc: "/services/military-moving", changefreq: "monthly", priority: "0.8" },
+      ];
+
+      let xml = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">`;
+
+      // Add static pages
+      for (const page of staticPages) {
+        xml += `
+  <url>
+    <loc>${baseUrl}${page.loc}</loc>
+    <changefreq>${page.changefreq}</changefreq>
+    <priority>${page.priority}</priority>
+  </url>`;
+      }
+
+      // Add blog posts
+      for (const post of posts) {
+        const lastmod = post.updatedAt || post.publishedAt || post.createdAt;
+        const dateStr = new Date(lastmod).toISOString().split('T')[0];
+        xml += `
+  <url>
+    <loc>${baseUrl}/blog/${post.slug}</loc>
+    <lastmod>${dateStr}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>`;
+      }
+
+      xml += `
+</urlset>`;
+
+      res.set("Content-Type", "application/xml");
+      res.send(xml);
+    } catch (error) {
+      console.error("Error generating sitemap:", error);
+      res.status(500).send("Error generating sitemap");
+    }
+  });
+
   // Admin authentication routes
   app.post("/api/admin/login", (req: any, res) => {
     const { username, password } = req.body;

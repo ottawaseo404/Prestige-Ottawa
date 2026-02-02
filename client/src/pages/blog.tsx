@@ -130,12 +130,20 @@ export default function Blog() {
                   <Link href={`/blog/${featuredPost.slug}`}>
                     <Card className="overflow-hidden hover-elevate cursor-pointer" data-testid="card-featured-post">
                       <div className="grid lg:grid-cols-2">
-                        {featuredPost.featuredImage ? (
-                          <div className="aspect-video lg:aspect-auto">
+                        {featuredPost.featuredImage && !featuredPost.featuredImage.startsWith('data:') ? (
+                          <div className="aspect-video lg:aspect-auto relative">
                             <img
                               src={featuredPost.featuredImage}
                               alt={featuredPost.featuredImageAlt || featuredPost.title}
                               className="w-full h-full object-cover"
+                              onError={(e) => {
+                                const target = e.target as HTMLImageElement;
+                                target.style.display = 'none';
+                                target.parentElement!.classList.add('bg-gradient-to-br', 'from-[#1A2332]', 'to-[#2A3342]', 'flex', 'items-center', 'justify-center');
+                                const icon = document.createElement('div');
+                                icon.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#C5A572]/30"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>';
+                                target.parentElement!.appendChild(icon);
+                              }}
                             />
                           </div>
                         ) : (
@@ -187,12 +195,20 @@ export default function Blog() {
                     {otherPosts.map((post) => (
                       <Link key={post.id} href={`/blog/${post.slug}`}>
                         <Card className="overflow-hidden hover-elevate cursor-pointer h-full" data-testid={`card-post-${post.id}`}>
-                          {post.featuredImage ? (
-                            <div className="aspect-video">
+                          {post.featuredImage && !post.featuredImage.startsWith('data:') ? (
+                            <div className="aspect-video relative">
                               <img
                                 src={post.featuredImage}
                                 alt={post.featuredImageAlt || post.title}
                                 className="w-full h-full object-cover"
+                                onError={(e) => {
+                                  const target = e.target as HTMLImageElement;
+                                  target.style.display = 'none';
+                                  target.parentElement!.classList.add('bg-gradient-to-br', 'from-[#1A2332]', 'to-[#2A3342]', 'flex', 'items-center', 'justify-center');
+                                  const icon = document.createElement('div');
+                                  icon.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#C5A572]/30"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>';
+                                  target.parentElement!.appendChild(icon);
+                                }}
                               />
                             </div>
                           ) : (
