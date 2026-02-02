@@ -400,7 +400,7 @@ export default function Home() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between items-center h-9">
               {/* Social Media Icons */}
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-3 ml-20">
                 <a 
                   href="https://www.facebook.com/prestigemoving.ca/" 
                   target="_blank" 
