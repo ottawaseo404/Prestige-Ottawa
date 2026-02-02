@@ -60,59 +60,53 @@ export default function Home() {
   const rotationInterval = 8000;
   const heroLoading = false;
 
-  // Google Reviews data - 50 reviews
-  const reviewsList = [
-    { name: "Theresa Hendricks", initial: "T", color: "#9C27B0", time: "1 month ago", text: "We had a great experience with Prestige Moving! Nick and Steve were excellent — friendly, quick, and super accommodating with our last-minute requests." },
-    { name: "Christine Mattesz", initial: "C", color: "#00897B", time: "1 month ago", text: "My parents were finally ready to downsize and move out of the house they called home for the last 37 years. To say they were anxious is an understatement." },
-    { name: "Martin Vass", initial: "M", color: "#FB8C00", time: "1 month ago", text: "I hired prestige moving to do a long distance move for me from Toronto to Ottawa! They did an amazing job! Packed up all my stuff perfectly." },
-    { name: "Sarah Mitchell", initial: "S", color: "#E91E63", time: "2 months ago", text: "Absolutely fantastic service from start to finish. The team arrived on time, worked efficiently, and handled all our furniture with extreme care." },
-    { name: "James Peterson", initial: "J", color: "#3F51B5", time: "2 months ago", text: "Best moving company in Ottawa! Fair pricing, no hidden fees. The movers were professional and treated our belongings like their own." },
-    { name: "Emily Chen", initial: "E", color: "#009688", time: "3 months ago", text: "Prestige Moving made our office relocation seamless. Minimal downtime and everything was set up exactly where we needed it. Highly recommend!" },
-    { name: "David Wong", initial: "D", color: "#673AB7", time: "1 month ago", text: "Outstanding service! The crew was punctual, professional, and took great care of all our belongings. Would definitely use again." },
-    { name: "Lisa Thompson", initial: "L", color: "#FF5722", time: "2 weeks ago", text: "Moved my entire 4-bedroom house without a single scratch. These guys know what they're doing. Top-notch service!" },
-    { name: "Michael Brown", initial: "M", color: "#2196F3", time: "3 weeks ago", text: "From the initial quote to the final box, everything was handled professionally. Great communication throughout the process." },
-    { name: "Jennifer Lee", initial: "J", color: "#4CAF50", time: "1 month ago", text: "I was nervous about my piano move but Prestige handled it perfectly. Specialized equipment and careful handling. Thank you!" },
-    { name: "Robert Kim", initial: "R", color: "#795548", time: "2 months ago", text: "Excellent value for money. Competitive pricing and superior service. The team went above and beyond expectations." },
-    { name: "Amanda Garcia", initial: "A", color: "#607D8B", time: "1 week ago", text: "Quick, efficient, and friendly. My condo move was done in half the time I expected. Highly recommend Prestige Moving!" },
-    { name: "Kevin Patel", initial: "K", color: "#FF9800", time: "3 weeks ago", text: "Third time using Prestige and they never disappoint. Consistent quality service every single time. The best in Ottawa!" },
-    { name: "Stephanie Williams", initial: "S", color: "#9E9E9E", time: "2 months ago", text: "Moved from Ottawa to Toronto. Long distance but no issues at all. Everything arrived safely and on schedule." },
-    { name: "Andrew Taylor", initial: "A", color: "#00BCD4", time: "1 month ago", text: "The packing service was incredible. Every item wrapped carefully and labeled. Made unpacking so much easier!" },
-    { name: "Nicole Anderson", initial: "N", color: "#8BC34A", time: "4 weeks ago", text: "As a senior moving to a smaller place, I was worried. The team was patient, kind, and handled everything with care." },
-    { name: "Brian Martinez", initial: "B", color: "#CDDC39", time: "2 weeks ago", text: "Office move completed over the weekend with zero downtime. Back to business Monday morning. Impressive!" },
-    { name: "Rachel White", initial: "R", color: "#FFC107", time: "1 month ago", text: "Hot tub moved without any problems! I was impressed by their specialized equipment and expertise." },
-    { name: "Steven Johnson", initial: "S", color: "#03A9F4", time: "3 months ago", text: "Moved my antique furniture collection. They treated each piece like it was their own. Very grateful!" },
-    { name: "Karen Davis", initial: "K", color: "#E91E63", time: "2 weeks ago", text: "Student move on a budget and they were so affordable! Great service doesn't have to be expensive." },
-    { name: "Christopher Lee", initial: "C", color: "#9C27B0", time: "1 month ago", text: "Military relocation handled smoothly. They understood the tight timeline and delivered perfectly." },
-    { name: "Michelle Robinson", initial: "M", color: "#3F51B5", time: "3 weeks ago", text: "Pool table moved to the new house. Precise and professional. These guys really know their stuff!" },
-    { name: "Daniel Clark", initial: "D", color: "#009688", time: "2 months ago", text: "Gym equipment is heavy and awkward but they moved it all without any issues. Strong team!" },
-    { name: "Ashley Moore", initial: "A", color: "#FF5722", time: "1 week ago", text: "Last minute move and they accommodated us. Flexible, professional, and reasonably priced." },
-    { name: "Jason Harris", initial: "J", color: "#795548", time: "4 weeks ago", text: "Moved from a 3rd floor walk-up. No elevator, lots of stairs. They didn't complain once. Amazing work ethic!" },
-    { name: "Rebecca Young", initial: "R", color: "#607D8B", time: "2 weeks ago", text: "Storage solutions were perfect for our renovation. Climate controlled and secure. Peace of mind!" },
-    { name: "Patrick King", initial: "P", color: "#FF9800", time: "1 month ago", text: "Commercial move for our retail store. They even helped with the display setup. Above and beyond!" },
-    { name: "Laura Scott", initial: "L", color: "#00BCD4", time: "3 weeks ago", text: "Cross-country move from Ottawa to Vancouver. Long haul but everything arrived in perfect condition." },
-    { name: "Ryan Adams", initial: "R", color: "#8BC34A", time: "2 months ago", text: "The quote was accurate and there were no surprise fees. Honest and transparent pricing. Refreshing!" },
-    { name: "Megan Turner", initial: "M", color: "#673AB7", time: "1 month ago", text: "Art collection moved with white glove service. They understood the value and handled with extreme care." },
-    { name: "Eric Phillips", initial: "E", color: "#2196F3", time: "2 weeks ago", text: "Fast response to my quote request and even faster on moving day. Efficient operation all around." },
-    { name: "Samantha Campbell", initial: "S", color: "#4CAF50", time: "3 weeks ago", text: "Downsizing after retirement. They helped with everything including donation drop-offs. So thoughtful!" },
-    { name: "Brandon Wright", initial: "B", color: "#CDDC39", time: "1 month ago", text: "Heavy safe moved to the basement. They had the right equipment and expertise. Impressed!" },
-    { name: "Heather Barnes", initial: "H", color: "#FFC107", time: "2 months ago", text: "Piano moving specialists indeed! My grand piano made it safely to the new home. Thank you!" },
-    { name: "Tyler Mitchell", initial: "T", color: "#03A9F4", time: "4 weeks ago", text: "University move-in was a breeze. Quick, affordable, and the movers were super friendly!" },
-    { name: "Courtney Evans", initial: "C", color: "#E91E63", time: "1 week ago", text: "Emergency move due to flooding. They came same day and saved us. Forever grateful!" },
-    { name: "Justin Ramirez", initial: "J", color: "#9C27B0", time: "2 weeks ago", text: "Medical equipment moved carefully and professionally. They understood the sensitivity. Great team!" },
-    { name: "Tiffany Nelson", initial: "T", color: "#3F51B5", time: "3 weeks ago", text: "Estate move handled with compassion and care. During a difficult time, they made it easier." },
-    { name: "Derek Collins", initial: "D", color: "#009688", time: "1 month ago", text: "Restaurant equipment and furniture moved overnight. Ready for business the next morning!" },
-    { name: "Brittany Stewart", initial: "B", color: "#FF5722", time: "2 months ago", text: "Wine collection moved with temperature control consideration. They really think of everything!" },
-    { name: "Aaron Morris", initial: "A", color: "#795548", time: "1 week ago", text: "Fragile items all arrived safely. Great packing materials and careful handling. Five stars!" },
-    { name: "Danielle Rogers", initial: "D", color: "#607D8B", time: "4 weeks ago", text: "Split move between two locations. Coordinated perfectly with no mix-ups. Impressive organization!" },
-    { name: "Nathan Reed", initial: "N", color: "#FF9800", time: "2 weeks ago", text: "Home gym equipment moved to the garage. Heavy stuff but they made it look easy!" },
-    { name: "Melissa Cook", initial: "M", color: "#00BCD4", time: "3 weeks ago", text: "Rental property turnover move. Quick and efficient. Great for landlords!" },
-    { name: "Sean Bailey", initial: "S", color: "#8BC34A", time: "1 month ago", text: "Moving supplies delivered the day before. Boxes, tape, everything we needed. Convenient service!" },
-    { name: "Vanessa Cooper", initial: "V", color: "#673AB7", time: "2 months ago", text: "Senior community move. Patient and understanding with my mother. Such kind young men!" },
-    { name: "Gregory Howard", initial: "G", color: "#2196F3", time: "1 week ago", text: "Warehouse relocation completed on time and under budget. Professional project management!" },
-    { name: "Christina Ward", initial: "C", color: "#4CAF50", time: "3 weeks ago", text: "Moving during pregnancy was stressful but they took all the burden. So helpful and considerate!" },
-    { name: "Mark Sanders", initial: "M", color: "#CDDC39", time: "2 weeks ago", text: "Best moving experience in 10 years of moving around for work. Finally found my go-to movers!" },
-    { name: "Angela Price", initial: "A", color: "#FFC107", time: "1 month ago", text: "Excellent communication from booking to delivery. Always knew where my stuff was. Peace of mind!" },
-  ];
+  // Fetch real Google reviews
+  const { data: googleReviewsData } = useQuery<{
+    name: string;
+    rating: number;
+    totalReviews: number;
+    reviews: Array<{
+      name: string;
+      profilePhoto?: string;
+      rating: number;
+      time: string;
+      text: string;
+    }>;
+  }>({
+    queryKey: ['/api/reviews'],
+    staleTime: 1000 * 60 * 60, // Cache for 1 hour
+  });
+
+  // Generate color from name for avatar background
+  const getColorFromName = (name: string) => {
+    const colors = ["#9C27B0", "#00897B", "#FB8C00", "#E91E63", "#3F51B5", "#009688", "#673AB7", "#FF5722", "#2196F3", "#4CAF50"];
+    let hash = 0;
+    for (let i = 0; i < name.length; i++) {
+      hash = name.charCodeAt(i) + ((hash << 5) - hash);
+    }
+    return colors[Math.abs(hash) % colors.length];
+  };
+
+  // Transform Google reviews to our format, with fallback data
+  const reviewsList = googleReviewsData?.reviews?.length 
+    ? googleReviewsData.reviews.map(review => ({
+        name: review.name,
+        initial: review.name.charAt(0).toUpperCase(),
+        color: getColorFromName(review.name),
+        time: review.time,
+        text: review.text,
+        profilePhoto: review.profilePhoto,
+        rating: review.rating
+      }))
+    : [
+        { name: "Theresa Hendricks", initial: "T", color: "#9C27B0", time: "1 month ago", text: "We had a great experience with Prestige Moving! Nick and Steve were excellent — friendly, quick, and super accommodating with our last-minute requests." },
+        { name: "Christine Mattesz", initial: "C", color: "#00897B", time: "1 month ago", text: "My parents were finally ready to downsize and move out of the house they called home for the last 37 years. To say they were anxious is an understatement." },
+        { name: "Martin Vass", initial: "M", color: "#FB8C00", time: "1 month ago", text: "I hired prestige moving to do a long distance move for me from Toronto to Ottawa! They did an amazing job! Packed up all my stuff perfectly." },
+      ];
+  
+  // Get real review count or fallback
+  const totalReviewCount = googleReviewsData?.totalReviews || 337;
+  const averageRating = googleReviewsData?.rating || 5.0;
   const [, setLocation] = useLocation();
   const { toast } = useToast();
   
@@ -766,7 +760,7 @@ export default function Home() {
                       <Star key={i} className="h-4 w-4 text-yellow-400 fill-yellow-400" />
                     ))}
                   </div>
-                  <span className="text-white font-semibold text-sm">349 Reviews</span>
+                  <span className="text-white font-semibold text-sm">{totalReviewCount} Reviews</span>
                 </div>
               </div>
               
@@ -1040,7 +1034,7 @@ export default function Home() {
                 ))}
               </div>
               <div className="text-sm text-gray-600 mb-3">
-                Based on <span className="font-semibold">337 reviews</span>
+                Based on <span className="font-semibold">{totalReviewCount} reviews</span>
               </div>
               <div className="flex items-center justify-center gap-2">
                 <svg className="h-7 w-auto" viewBox="0 0 272 92" xmlns="http://www.w3.org/2000/svg">
@@ -1064,7 +1058,7 @@ export default function Home() {
                   ))}
                 </div>
                 <div className="text-sm text-gray-600 mb-3">
-                  Based on <span className="font-semibold">337 reviews</span>
+                  Based on <span className="font-semibold">{totalReviewCount} reviews</span>
                 </div>
                 <div className="flex items-center justify-center lg:justify-start gap-2">
                   <svg className="h-7 w-auto" viewBox="0 0 272 92" xmlns="http://www.w3.org/2000/svg">
@@ -1900,7 +1894,7 @@ export default function Home() {
                 <Star key={i} className="h-6 w-6 text-primary fill-primary" />
               ))}
             </div>
-            <p className="text-white/70">Based on 500+ Google Reviews</p>
+            <p className="text-white/70">Based on {totalReviewCount}+ Google Reviews</p>
           </div>
 
           <div className="relative">

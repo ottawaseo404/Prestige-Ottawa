@@ -42,6 +42,48 @@ export async function registerRoutes(app: Express): Promise<Server> {
     res.json({ status: "ok" });
   });
 
+  // Google Places API - Fetch real reviews
+  app.get("/api/reviews", async (req, res) => {
+    try {
+      const apiKey = process.env.GOOGLE_PLACES_API_KEY;
+      if (!apiKey) {
+        return res.status(500).json({ error: "Google Places API key not configured" });
+      }
+
+      // Prestige Moving Ottawa Place ID from Google Maps
+      const placeId = "ChIJv0yMR2b9zUwR3GcG1gULj6I";
+      
+      // Fetch place details with reviews
+      const response = await fetch(
+        `https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeId}&fields=name,rating,user_ratings_total,reviews&key=${apiKey}`
+      );
+      
+      const data = await response.json();
+      
+      if (data.status !== "OK") {
+        console.error("Google Places API error:", data.status, data.error_message);
+        return res.status(500).json({ error: "Failed to fetch reviews", details: data.status });
+      }
+
+      const result = data.result;
+      res.json({
+        name: result.name,
+        rating: result.rating,
+        totalReviews: result.user_ratings_total,
+        reviews: (result.reviews || []).map((review: any) => ({
+          name: review.author_name,
+          profilePhoto: review.profile_photo_url,
+          rating: review.rating,
+          time: review.relative_time_description,
+          text: review.text
+        }))
+      });
+    } catch (error) {
+      console.error("Error fetching Google reviews:", error);
+      res.status(500).json({ error: "Failed to fetch reviews" });
+    }
+  });
+
   // Dynamic sitemap with all blog posts
   app.get("/sitemap.xml", async (req, res) => {
     try {
