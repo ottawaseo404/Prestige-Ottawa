@@ -1203,6 +1203,29 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Google Maps Location */}
+      <section className="py-12 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">Find Us</h2>
+            <p className="text-gray-600">Proudly serving Ottawa and surrounding areas</p>
+          </div>
+          <div className="rounded-2xl overflow-hidden shadow-lg border border-gray-200">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d702922.5965262149!2d-76.93469902187496!3d45.3445228!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4ccdfd66478c4cbf%3A0xa28f0b05d60667dc!2sPrestige%20Moving%20Inc%20%7C%20Ottawa%20Long%20Distance%20Movers!5e1!3m2!1sen!2sca!4v1770075294840!5m2!1sen!2sca" 
+              width="100%" 
+              height="400" 
+              style={{ border: 0 }} 
+              allowFullScreen 
+              loading="lazy" 
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Prestige Moving Ottawa Location"
+              className="w-full"
+            />
+          </div>
+        </div>
+      </section>
+
       {/* AI Calculator CTA */}
       <section className="py-12 bg-gradient-to-r from-[#1A2332] via-[#2a3a52] to-[#1A2332] relative overflow-hidden">
         <div className="absolute inset-0 opacity-20">
