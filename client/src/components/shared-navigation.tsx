@@ -209,16 +209,6 @@ export function SharedNavigation() {
               </NavigationMenuList>
             </NavigationMenu>
 
-            <button 
-              onClick={() => handleNavClick("/blog")}
-              className="group/item relative flex items-center gap-2 px-4 py-2.5 text-white/90 font-medium tracking-wide text-sm uppercase transition-all duration-300 hover:text-white"
-              data-testid="nav-blog"
-            >
-              <FileText className="h-4 w-4 transition-transform duration-300 group-hover/item:scale-110" />
-              <span>Blog</span>
-              <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-primary rounded-full transition-all duration-300 group-hover/item:w-4/5 group-hover/item:shadow-[0_0_10px_rgba(197,165,114,0.8),0_0_20px_rgba(197,165,114,0.4)]" />
-            </button>
-
             <Link href="/book">
               <Button variant="default" size="lg" className="font-bold shadow-lg" data-testid="button-get-quote">
                 FREE ESTIMATE
@@ -267,17 +257,6 @@ export function SharedNavigation() {
                     >
                       <Mail className="h-5 w-5 text-primary flex-shrink-0" />
                       <span className="font-medium text-white">Contact Us</span>
-                    </button>
-                    <button
-                      onClick={() => {
-                        handleNavClick("/blog");
-                        setMobileMenuOpen(false);
-                      }}
-                      className="flex items-center gap-3 p-3 rounded-md hover:bg-white/10 cursor-pointer w-full text-left"
-                      data-testid="mobile-nav-blog"
-                    >
-                      <FileText className="h-5 w-5 text-primary flex-shrink-0" />
-                      <span className="font-medium text-white">Moving Blog</span>
                     </button>
                     <a
                       href="tel:613-600-4000"

@@ -36,11 +36,6 @@ const menuItems = [
     icon: Video,
   },
   {
-    title: "Blog",
-    url: "/admin/blog",
-    icon: FileText,
-  },
-  {
     title: "Analytics",
     url: "/admin/analytics",
     icon: BarChart3,

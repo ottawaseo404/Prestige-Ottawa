@@ -38,12 +38,8 @@ import AdminSmartMoving from "@/pages/admin/smartmoving";
 import AdminPackages from "@/pages/admin/packages";
 import AdminHeroVideos from "@/pages/admin/hero-videos";
 import AdminLogin from "@/pages/admin-login";
-import AdminBlog from "@/pages/admin/blog";
-import AdminBlogEditor from "@/pages/admin/blog-editor";
 import Calculator from "@/pages/calculator";
 import Contact from "@/pages/contact";
-import Blog from "@/pages/blog";
-import BlogPost from "@/pages/blog-post";
 import { useAdminAuth } from "@/hooks/use-admin-auth";
 import { useAnalytics } from "@/hooks/use-analytics";
 import { Button } from "@/components/ui/button";
@@ -119,8 +115,6 @@ function Router() {
       <Route path="/book" component={Booking} />
       <Route path="/calculator" component={Calculator} />
       <Route path="/contact" component={Contact} />
-      <Route path="/blog" component={Blog} />
-      <Route path="/blog/:slug" component={BlogPost} />
       
       {/* Service Pages */}
       <Route path="/services/residential-moving" component={ResidentialMoving} />
@@ -182,28 +176,6 @@ function Router() {
           </ProtectedAdminLayout>
         )}
       </Route>
-      <Route path="/admin/blog">
-        {() => (
-          <ProtectedAdminLayout>
-            <AdminBlog />
-          </ProtectedAdminLayout>
-        )}
-      </Route>
-      <Route path="/admin/blog/new">
-        {() => (
-          <ProtectedAdminLayout>
-            <AdminBlogEditor />
-          </ProtectedAdminLayout>
-        )}
-      </Route>
-      <Route path="/admin/blog/edit/:id">
-        {() => (
-          <ProtectedAdminLayout>
-            <AdminBlogEditor />
-          </ProtectedAdminLayout>
-        )}
-      </Route>
-
       {/* Fallback to 404 */}
       <Route component={NotFound} />
     </Switch>
