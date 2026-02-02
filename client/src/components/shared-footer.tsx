@@ -94,11 +94,9 @@ export function SharedFooter() {
               <span>•</span>
               <span>Fully Licensed & Insured</span>
             </div>
-            <div className="flex flex-col md:flex-row items-center gap-4 text-sm text-white/50">
-              <p>&copy; {currentYear} Prestige Moving Ottawa. All rights reserved.</p>
-              <span className="hidden md:inline">•</span>
+            <div className="text-sm text-white/50">
               <p>
-                Website by{" "}
+                Copyright © {currentYear} PrestigeMoving.ca – Website Designed by{" "}
                 <a 
                   href="https://ottawaseo.com" 
                   target="_blank" 
