@@ -1412,8 +1412,17 @@ export default function Home() {
             </Link>
           </div>
 
-          {/* Specialty Services Grid */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-8 gap-4">
+        </div>
+      </section>
+
+      {/* Specialty Services Section - Dark Background */}
+      <section className="py-16 bg-[#1A2332]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <h3 className="text-2xl md:text-3xl font-bold text-white mb-3">Specialty Moving Services</h3>
+            <p className="text-white/60">Expert handling for all your unique moving needs</p>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-4">
             {[
               { title: "Moving Supplies", icon: Box, href: "/services/moving-supplies", desc: "Boxes & materials" },
               { title: "Student Moving", icon: GraduationCap, href: "/services/student-moving", desc: "Budget-friendly" },
@@ -1425,46 +1434,64 @@ export default function Home() {
               { title: "Military Moving", icon: Medal, href: "/services/military-moving", desc: "PCS relocations" },
             ].map((service) => (
               <Link key={service.href} href={service.href}>
-                <div className="group bg-white border border-gray-200 rounded-2xl p-4 h-[130px] flex flex-col justify-between hover:border-primary hover:shadow-lg transition-all duration-300 cursor-pointer" data-testid={`service-card-${service.title.toLowerCase().replace(/\s+/g, '-')}`}>
-                  <div className="h-10 w-10 bg-primary/10 rounded-xl flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                    <service.icon className="h-5 w-5 text-primary" />
+                <div className="group bg-white/5 border border-white/10 rounded-2xl p-4 h-[120px] flex flex-col items-center justify-center text-center hover:bg-white/10 hover:border-primary/50 transition-all duration-300 cursor-pointer" data-testid={`service-card-${service.title.toLowerCase().replace(/\s+/g, '-')}`}>
+                  <div className="h-12 w-12 bg-primary/20 rounded-xl flex items-center justify-center group-hover:bg-primary/30 transition-colors mb-3">
+                    <service.icon className="h-6 w-6 text-primary" />
                   </div>
-                  <div>
-                    <h4 className="font-bold text-[#1A2332] text-sm leading-tight">{service.title}</h4>
-                    <p className="text-gray-500 text-xs mt-1">{service.desc}</p>
-                  </div>
+                  <h4 className="font-bold text-white text-xs leading-tight">{service.title}</h4>
                 </div>
               </Link>
             ))}
           </div>
+        </div>
+      </section>
 
-          {/* View All Services Link */}
-          <div className="mt-12 text-center">
-            <p className="text-gray-600 mb-4">Looking for something specific? We handle all types of moves.</p>
+      {/* CTA Section - Gradient Background */}
+      <section className="py-20 bg-gradient-to-r from-primary via-amber-500 to-primary relative overflow-hidden">
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(0,0,0,0.15) 1px, transparent 0)', backgroundSize: '24px 24px' }} />
+        </div>
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-[#1A2332] mb-4">
+            Ready to Move?
+          </h2>
+          <p className="text-xl text-[#1A2332]/80 mb-8 max-w-2xl mx-auto">
+            Get your free, no-obligation quote in minutes. We handle all types of moves across Ottawa and beyond.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/book">
-              <Button size="lg" className="font-bold text-lg px-10 shadow-lg shadow-primary/30" data-testid="button-get-quote-services">
-                Get Free Quote
+              <Button size="lg" className="bg-[#1A2332] text-white hover:bg-[#1A2332]/90 font-bold text-lg px-10 py-6 shadow-2xl" data-testid="button-get-quote-services">
+                Get Your Free Quote
                 <ArrowRight className="h-5 w-5 ml-2" />
               </Button>
             </Link>
+            <a href="tel:613-600-4000">
+              <Button size="lg" variant="outline" className="border-2 border-[#1A2332] text-[#1A2332] hover:bg-[#1A2332] hover:text-white font-bold text-lg px-10 py-6" data-testid="button-call-cta">
+                <Phone className="h-5 w-5 mr-2" />
+                (613) 600-4000
+              </Button>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Pricing Packages Section - Light Background */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <Badge className="bg-primary text-[#1A2332] mb-4 px-4 py-1.5">
+              <DollarSign className="h-4 w-4 mr-2" />
+              Transparent Pricing
+            </Badge>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-[#1A2332] mb-4">
+              Moving Packages
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Choose the perfect package for your move. All packages include professional movers, moving truck, and full protection for your belongings.
+            </p>
           </div>
 
-          {/* Pricing Packages Section */}
-          <div className="mt-20 border-t border-gray-200 pt-16">
-            <div className="text-center mb-12">
-              <Badge className="bg-primary text-[#1A2332] mb-4 px-4 py-1.5">
-                <DollarSign className="h-4 w-4 mr-2" />
-                Transparent Pricing
-              </Badge>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-[#1A2332] mb-4">
-                Moving Packages
-              </h2>
-              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                Choose the perfect package for your move. All packages include professional movers, moving truck, and full protection for your belongings.
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+          <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
               {/* Premium Package */}
               <div className="relative bg-white rounded-3xl border-2 border-gray-200 p-8 hover:border-primary/50 hover:shadow-xl transition-all duration-300" data-testid="pricing-premium">
                 <div className="absolute -top-4 left-6">
@@ -1683,15 +1710,14 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Pricing Note */}
-            <div className="mt-10 text-center">
-              <p className="text-gray-500 text-sm">
-                All prices are subject to change based on specific move requirements. 
-                <Link href="/book" className="text-primary font-semibold hover:underline ml-1">
-                  Get a personalized quote
-                </Link>
-              </p>
-            </div>
+          {/* Pricing Note */}
+          <div className="mt-10 text-center">
+            <p className="text-gray-500 text-sm">
+              All prices are subject to change based on specific move requirements. 
+              <Link href="/book" className="text-primary font-semibold hover:underline ml-1">
+                Get a personalized quote
+              </Link>
+            </p>
           </div>
 
           {/* SEO Content Section - Ottawa Movers */}
