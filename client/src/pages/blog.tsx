@@ -261,9 +261,9 @@ export default function Blog() {
                   <ArrowRight className="h-4 w-4 ml-2" />
                 </Button>
               </Link>
-              <a href="tel:613-555-1234">
+              <a href="tel:613-600-4000">
                 <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
-                  Call 613-555-1234
+                  Call (613) 600-4000
                 </Button>
               </a>
             </div>

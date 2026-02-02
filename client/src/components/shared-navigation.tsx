@@ -82,9 +82,9 @@ export function SharedNavigation() {
                 <MapPin className="h-4 w-4" />
                 <span>Ottawa & Area</span>
               </div>
-              <a href="tel:604-616-6066" className="flex items-center gap-2 text-gray-600 text-sm hover:text-primary transition-colors font-semibold">
+              <a href="tel:613-600-4000" className="flex items-center gap-2 text-gray-600 text-sm hover:text-primary transition-colors font-semibold">
                 <Phone className="h-4 w-4" />
-                <span>604-616-6066</span>
+                <span>(613) 600-4000</span>
               </a>
               <Link href="/contact" className="flex items-center gap-2 text-gray-600 text-sm hover:text-primary transition-colors font-semibold">
                 <Mail className="h-4 w-4" />
@@ -205,7 +205,7 @@ export function SharedNavigation() {
           </div>
 
           <div className="lg:hidden flex items-center gap-2">
-            <a href="tel:604-616-6066" className="p-2 text-white" data-testid="link-phone-mobile">
+            <a href="tel:613-600-4000" className="p-2 text-white" data-testid="link-phone-mobile">
               <Phone className="h-5 w-5" />
             </a>
             <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
@@ -252,12 +252,12 @@ export function SharedNavigation() {
                       <span className="font-medium text-white">Moving Blog</span>
                     </button>
                     <a
-                      href="tel:604-616-6066"
+                      href="tel:613-600-4000"
                       className="flex items-center gap-3 p-3 rounded-md hover:bg-white/10 cursor-pointer w-full text-left"
                       data-testid="mobile-nav-phone"
                     >
                       <Phone className="h-5 w-5 text-primary flex-shrink-0" />
-                      <span className="font-medium text-white">604-616-6066</span>
+                      <span className="font-medium text-white">(613) 600-4000</span>
                     </a>
                   </div>
 

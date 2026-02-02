@@ -275,13 +275,14 @@ export default function Home() {
     "image": "https://ottawa.prestigemoving.ca/logo.png",
     "description": "Prestige Moving Ottawa - The best Ottawa movers you can trust. We are the top moving company Ottawa relies on for residential, commercial, and long-distance moves. Best movers Ottawa with 337 five-star Google reviews. Top movers Ottawa - WSIB certified, fully insured. Ottawa moving company serving all of Greater Ottawa.",
     "url": "https://ottawa.prestigemoving.ca",
-    "telephone": "604-616-6066",
+    "telephone": "(613) 600-4000",
     "email": "ottawa@prestigemoving.ca",
     "address": {
       "@type": "PostalAddress",
+      "streetAddress": "50 Colonnade Rd Unit 200B",
       "addressLocality": "Ottawa",
       "addressRegion": "ON",
-      "postalCode": "K1A 0A1",
+      "postalCode": "K2E 7J6",
       "addressCountry": "CA"
     },
     "geo": {
@@ -294,7 +295,7 @@ export default function Home() {
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "5.0",
-      "reviewCount": "337",
+      "reviewCount": "349",
       "bestRating": "5",
       "worstRating": "1"
     },
@@ -343,7 +344,7 @@ export default function Home() {
     "image": "https://ottawa.prestigemoving.ca/logo.png",
     "@id": "https://ottawa.prestigemoving.ca",
     "url": "https://ottawa.prestigemoving.ca",
-    "telephone": "604-616-6066",
+    "telephone": "(613) 600-4000",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Ottawa",
@@ -360,7 +361,7 @@ export default function Home() {
       <Helmet>
         <meta name="google-site-verification" content="qCldQT0CrqE6wxeHt9aTvmBl_fvb9c0qdu1Abn_SSn8" />
         <title>Ottawa Movers | Moving Company Ottawa | Best Movers Ottawa | Prestige Moving Ottawa</title>
-        <meta name="description" content="Looking for Ottawa movers? Prestige Moving Ottawa is the top moving company Ottawa trusts. Best movers Ottawa with 337 five-star reviews. Top movers Ottawa for residential, commercial & long-distance moves. Ottawa moving company - WSIB certified, fully insured. Free estimates - Call 604-616-6066!" />
+        <meta name="description" content="Looking for Ottawa movers? Prestige Moving Ottawa is the top moving company Ottawa trusts. Best movers Ottawa with 337 five-star reviews. Top movers Ottawa for residential, commercial & long-distance moves. Ottawa moving company - WSIB certified, fully insured. Free estimates - Call (613) 600-4000!" />
         <meta name="keywords" content="ottawa movers, moving company ottawa, best movers ottawa, top movers ottawa, ottawa moving company, movers ottawa, movers in ottawa, ottawa ontario movers, professional movers ottawa, local movers ottawa, affordable movers ottawa, residential movers ottawa, commercial movers ottawa, long distance movers ottawa, kanata movers, orleans movers, nepean movers, barrhaven movers, gatineau movers, greater ottawa movers" />
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
         <meta name="author" content="Prestige Moving Ottawa" />
@@ -427,9 +428,9 @@ export default function Home() {
                   <MapPin className="h-4 w-4" />
                   <span>Ottawa & Area</span>
                 </a>
-                <a href="tel:604-616-6066" className="flex items-center gap-2 text-gray-600 text-sm hover:text-primary transition-colors font-semibold" data-testid="topbar-phone">
+                <a href="tel:(613) 600-4000" className="flex items-center gap-2 text-gray-600 text-sm hover:text-primary transition-colors font-semibold" data-testid="topbar-phone">
                   <Phone className="h-4 w-4" />
-                  <span>604-616-6066</span>
+                  <span>(613) 600-4000</span>
                 </a>
                 <Link href="/contact" className="flex items-center gap-2 text-gray-600 text-sm hover:text-primary transition-colors font-semibold" data-testid="topbar-contact">
                   <Mail className="h-4 w-4" />
@@ -553,7 +554,7 @@ export default function Home() {
             </div>
 
             <div className="lg:hidden flex items-center gap-2">
-              <a href="tel:604-616-6066" className="p-2 text-white" data-testid="link-phone-mobile">
+              <a href="tel:(613) 600-4000" className="p-2 text-white" data-testid="link-phone-mobile">
                 <Phone className="h-5 w-5" />
               </a>
               <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
@@ -589,12 +590,12 @@ export default function Home() {
                         <span className="font-medium text-white">Contact Us</span>
                       </button>
                       <a
-                        href="tel:604-616-6066"
+                        href="tel:(613) 600-4000"
                         className="flex items-center gap-3 p-3 rounded-md hover:bg-white/10 cursor-pointer w-full text-left"
                         data-testid="mobile-nav-phone"
                       >
                         <Phone className="h-5 w-5 text-primary flex-shrink-0" />
-                        <span className="font-medium text-white">604-616-6066</span>
+                        <span className="font-medium text-white">(613) 600-4000</span>
                       </a>
                     </div>
 
@@ -764,7 +765,7 @@ export default function Home() {
                     <span className="absolute inset-0 bg-gradient-to-r from-primary via-amber-500 to-primary bg-[length:200%_100%] opacity-0 group-hover:opacity-100 group-hover:animate-shimmer transition-opacity duration-300" />
                   </Button>
                 </Link>
-                <a href="tel:604-616-6066">
+                <a href="tel:(613) 600-4000">
                   <Button 
                     size="default" 
                     variant="outline" 
@@ -1781,10 +1782,10 @@ export default function Home() {
                     <ArrowRight className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </Link>
-                <a href="tel:604-616-6066">
+                <a href="tel:(613) 600-4000">
                   <Button size="lg" variant="outline" className="text-lg font-bold px-10 py-7 border-2 border-white/30 text-white hover:bg-white/10 hover:border-white/50 backdrop-blur-sm" data-testid="button-cta-call">
                     <Phone className="h-5 w-5 mr-2" />
-                    604-616-6066
+                    (613) 600-4000
                   </Button>
                 </a>
               </div>

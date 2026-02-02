@@ -52,10 +52,10 @@ export default function Contact() {
     <>
       <Helmet>
         <title>Contact Us | Prestige Moving Ottawa | Get a Free Quote</title>
-        <meta name="description" content="Contact Prestige Moving Ottawa for a free moving quote. Call 613-555-1234 or fill out our contact form. Available 7 days a week for all your moving needs." />
+        <meta name="description" content="Contact Prestige Moving Ottawa for a free moving quote. Call (613) 600-4000 or fill out our contact form. Available 7 days a week for all your moving needs." />
         <meta name="keywords" content="contact movers Ottawa, moving quote Ottawa, Ottawa moving company phone, Prestige Moving contact" />
         <meta property="og:title" content="Contact Prestige Moving Ottawa" />
-        <meta property="og:description" content="Get in touch with Ottawa's most trusted moving company. Free quotes, 7-day availability. Call 613-555-1234." />
+        <meta property="og:description" content="Get in touch with Ottawa's most trusted moving company. Free quotes, 7-day availability. Call (613) 600-4000." />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://ottawa.prestigemoving.ca/og-image.png" />
         <meta name="twitter:card" content="summary_large_image" />
@@ -92,7 +92,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <div className="font-bold">Call Us</div>
-                  <a href="tel:613-555-1234" className="hover:underline">613-555-1234</a>
+                  <a href="tel:613-600-4000" className="hover:underline">(613) 600-4000</a>
                 </div>
               </div>
               <div className="flex items-center justify-center gap-3 text-[#1A2332]">
@@ -276,10 +276,10 @@ export default function Contact() {
                 <div className="bg-gradient-to-r from-primary to-amber-500 rounded-xl p-6 text-[#1A2332]">
                   <h3 className="text-xl font-bold mb-2">Prefer to Talk?</h3>
                   <p className="mb-4">Our friendly team is standing by to answer your questions and provide instant quotes.</p>
-                  <a href="tel:613-555-1234">
+                  <a href="tel:613-600-4000">
                     <Button variant="secondary" size="lg" className="bg-[#1A2332] text-white hover:bg-[#2a3a52] font-bold">
                       <Phone className="h-5 w-5 mr-2" />
-                      Call 613-555-1234
+                      Call (613) 600-4000
                     </Button>
                   </a>
                 </div>

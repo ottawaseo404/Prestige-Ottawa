@@ -505,8 +505,8 @@ export default function Calculator() {
                           <Phone className="h-5 w-5 text-primary" />
                           <div>
                             <div className="text-sm text-muted-foreground">Questions? Call us</div>
-                            <a href="tel:613-555-1234" className="font-bold text-lg hover:text-primary">
-                              613-555-1234
+                            <a href="tel:613-600-4000" className="font-bold text-lg hover:text-primary">
+                              (613) 600-4000
                             </a>
                           </div>
                         </div>
@@ -687,10 +687,10 @@ export default function Calculator() {
                   Schedule Free Consultation
                 </Button>
               </Link>
-              <a href="tel:613-555-1234">
+              <a href="tel:613-600-4000">
                 <Button size="lg" variant="outline" className="font-bold px-8">
                   <Phone className="h-5 w-5 mr-2" />
-                  613-555-1234
+                  (613) 600-4000
                 </Button>
               </a>
             </div>

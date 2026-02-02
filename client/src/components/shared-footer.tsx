@@ -56,14 +56,24 @@ export function SharedFooter() {
             <div>
               <h4 className="font-bold text-lg mb-4">Contact Us</h4>
               <div className="space-y-3 text-sm text-white/70">
-                <p>Ottawa, ON</p>
-                <a href="tel:604-616-6066" className="flex items-center gap-2 hover:text-primary transition-colors">
+                <p>50 Colonnade Rd Unit 200B</p>
+                <p>Ottawa, ON K2E 7J6</p>
+                <a href="tel:613-600-4000" className="flex items-center gap-2 hover:text-primary transition-colors">
                   <Phone className="h-4 w-4" />
-                  604-616-6066
+                  (613) 600-4000
                 </a>
                 <a href="mailto:ottawa@prestigemoving.ca" className="flex items-center gap-2 hover:text-primary transition-colors">
                   <Mail className="h-4 w-4" />
                   ottawa@prestigemoving.ca
+                </a>
+                <a 
+                  href="https://maps.app.goo.gl/B5nz46epY0vxEkHQY" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors"
+                  data-testid="link-google-business"
+                >
+                  View on Google Maps
                 </a>
               </div>
               <div className="mt-6">
@@ -78,9 +88,9 @@ export function SharedFooter() {
           
           <div className="border-t border-white/10 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="flex items-center gap-6 text-sm text-white/50">
-              <span>WorkSafe BC Certified</span>
+              <span>WSIB Certified</span>
               <span>•</span>
-              <span>BBB A+ Rating</span>
+              <span>5.0 Stars on Google (349 Reviews)</span>
               <span>•</span>
               <span>Fully Licensed & Insured</span>
             </div>

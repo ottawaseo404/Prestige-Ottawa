@@ -39,11 +39,12 @@ The article should be about moving services in Ottawa, Ontario, Canada, focusing
 
 Company info:
 - Name: Prestige Moving Ottawa
-- Phone: 604-616-6066
+- Phone: (613) 600-4000
+- Address: 50 Colonnade Rd Unit 200B, Ottawa, ON K2E 7J6
 - Location: Ottawa, Ontario, Canada
 - Years in business: 15+
 - Completed moves: 10,000+
-- Google rating: 5.0 stars`;
+- Google rating: 5.0 stars with 349 reviews`;
 
 export interface GeneratedBlogContent {
   title: string;

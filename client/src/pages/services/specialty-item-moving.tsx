@@ -60,11 +60,13 @@ export default function SpecialtyItemMoving() {
       "name": "Prestige Moving Ottawa",
       "address": {
         "@type": "PostalAddress",
+        "streetAddress": "50 Colonnade Rd Unit 200B",
+        "postalCode": "K2E 7J6",
         "addressLocality": "Ottawa",
         "addressRegion": "ON",
         "addressCountry": "CA"
       },
-      "telephone": "613-555-1234",
+      "telephone": "(613) 600-4000",
       "priceRange": "$$",
       "aggregateRating": {
         "@type": "AggregateRating",
@@ -303,10 +305,10 @@ export default function SpecialtyItemMoving() {
                     <ArrowRight className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </Link>
-                <a href="tel:613-555-1234">
+                <a href="tel:613-600-4000">
                   <Button size="lg" variant="outline" className="text-lg font-bold px-8 py-7 border-2 border-white/40 text-white hover:bg-white/10 backdrop-blur-sm" data-testid="button-hero-call">
                     <Phone className="h-5 w-5 mr-2" />
-                    613-555-1234
+                    (613) 600-4000
                   </Button>
                 </a>
               </div>
@@ -774,10 +776,10 @@ export default function SpecialtyItemMoving() {
                   <ArrowRight className="h-5 w-5 ml-2" />
                 </Button>
               </Link>
-              <a href="tel:613-555-1234">
+              <a href="tel:613-600-4000">
                 <Button size="lg" variant="outline" className="border-2 border-[#1A2332] text-[#1A2332] hover:bg-[#1A2332] hover:text-white text-lg font-bold px-10 py-7" data-testid="button-cta-call">
                   <Phone className="h-5 w-5 mr-2" />
-                  613-555-1234
+                  (613) 600-4000
                 </Button>
               </a>
             </div>

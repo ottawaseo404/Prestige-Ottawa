@@ -148,7 +148,7 @@ export default function Booking() {
     "provider": {
       "@type": "MovingCompany",
       "name": "Prestige Moving Ottawa",
-      "telephone": "613-555-1234"
+      "telephone": "(613) 600-4000"
     },
     "areaServed": {
       "@type": "City",
@@ -163,7 +163,7 @@ export default function Booking() {
     <>
       <Helmet>
         <title>Get a Free Quote | Moving Quote Ottawa | Prestige Moving</title>
-        <meta name="description" content="Get your free moving quote in minutes. Ottawa's top-rated movers. Residential, commercial, long-distance moves. WSIB certified, 5-star rated. Call 613-555-1234!" />
+        <meta name="description" content="Get your free moving quote in minutes. Ottawa's top-rated movers. Residential, commercial, long-distance moves. WSIB certified, 5-star rated. Call (613) 600-4000!" />
         <meta name="keywords" content="book moving Ottawa, moving quote Ottawa, hire movers ON, schedule move Ottawa, online moving booking, Ottawa mover estimate" />
         <meta name="robots" content="index, follow" />
         <meta property="og:title" content="Get a Free Quote | Prestige Moving Ottawa" />
