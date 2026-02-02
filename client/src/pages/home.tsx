@@ -40,6 +40,7 @@ import longDistanceImage from "@assets/longdistance moving_1764348335754.jpg";
 import packingImage from "@assets/IMG_5767_1764348259855.jpeg";
 import { packageTypes, type PackageType } from "@shared/schema";
 import { SharedFooter } from "@/components/shared-footer";
+import ottawaDroneVideo from "@/assets/videos/ottawa-drone.mp4";
 
 export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -53,11 +54,11 @@ export default function Home() {
   const [reviewIndex, setReviewIndex] = useState(0);
   const [heroVideoIndex, setHeroVideoIndex] = useState(0);
   
-  // Fetch hero videos from admin database (only BC Ferry videos configured)
-  const { videoUrls, autoRotate, rotationInterval, isLoading: heroLoading } = useHeroVideo("home");
-  
-  // Use videos from admin database only
-  const heroVideos = videoUrls;
+  // Use Ottawa drone video as primary hero video
+  const heroVideos = [ottawaDroneVideo];
+  const autoRotate = false;
+  const rotationInterval = 8000;
+  const heroLoading = false;
 
   // Google Reviews data - 50 reviews
   const reviewsList = [
@@ -465,7 +466,7 @@ export default function Home() {
               <img 
                 src={logoUrl} 
                 alt="Prestige Moving" 
-                className="h-24 w-auto cursor-pointer transition-all duration-300 hover:scale-105 hover:drop-shadow-[0_0_15px_rgba(197,165,114,0.5)]" 
+                className="h-16 object-contain cursor-pointer transition-all duration-300 hover:scale-105 hover:drop-shadow-[0_0_15px_rgba(197,165,114,0.5)]" 
                 data-testid="img-logo" 
               />
             </Link>

@@ -131,7 +131,7 @@ export function SharedNavigation() {
             <img 
               src={logoUrl} 
               alt="Prestige Moving" 
-              className="h-20 w-auto object-contain cursor-pointer transition-all duration-300 hover:scale-105 hover:drop-shadow-[0_0_15px_rgba(197,165,114,0.5)]" 
+              className="h-16 object-contain cursor-pointer transition-all duration-300 hover:scale-105 hover:drop-shadow-[0_0_15px_rgba(197,165,114,0.5)]" 
               data-testid="img-logo" 
             />
           </Link>
