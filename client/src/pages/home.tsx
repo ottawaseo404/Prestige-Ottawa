@@ -14,7 +14,7 @@ import {
   Home as HomeIcon, Building2, MapPin, Menu, Warehouse, GraduationCap, 
   Heart, Music, Crown, Dumbbell, Box, Medal, ArrowRight, Star, 
   Quote, Users, ThumbsUp, ChevronLeft, ChevronRight, Truck, Headphones,
-  Mail, Calendar, Calculator, Sparkles, Lock
+  Mail, Calendar, Calculator, Sparkles, Lock, FileText
 } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import {
@@ -528,6 +528,16 @@ export default function Home() {
                   </NavigationMenuItem>
                 </NavigationMenuList>
               </NavigationMenu>
+
+              <button 
+                onClick={() => handleNavClick("/blog")}
+                className="group/item relative flex items-center gap-2 px-4 py-2.5 text-white/90 font-medium tracking-wide text-sm uppercase transition-all duration-300 hover:text-white"
+                data-testid="nav-blog"
+              >
+                <FileText className="h-4 w-4 transition-transform duration-300 group-hover/item:scale-110" />
+                <span>Blog</span>
+                <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-primary rounded-full transition-all duration-300 group-hover/item:w-4/5 group-hover/item:shadow-[0_0_10px_rgba(197,165,114,0.8),0_0_20px_rgba(197,165,114,0.4)]" />
+              </button>
 
               <Link href="/book">
                 <Button variant="default" size="lg" className="font-bold shadow-lg" data-testid="button-get-quote">
