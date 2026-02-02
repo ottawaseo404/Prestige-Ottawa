@@ -1113,7 +1113,7 @@ export default function Home() {
                         </div>
                       </div>
                     </div>
-                    <p className="text-gray-700 leading-relaxed">{reviewsList[reviewIndex].text}</p>
+                    <p className="text-sm text-gray-700 line-clamp-3">{reviewsList[reviewIndex].text}</p>
                   </div>
                   {/* Mobile Navigation */}
                   <div className="flex items-center justify-center gap-4">
@@ -1194,7 +1194,7 @@ export default function Home() {
                                 </div>
                               </div>
                             </div>
-                            <p className="text-gray-700 leading-relaxed">{review.text}</p>
+                            <p className="text-sm text-gray-700 line-clamp-3">{review.text}</p>
                           </div>
                         );
                       })}
