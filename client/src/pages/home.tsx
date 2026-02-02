@@ -462,7 +462,7 @@ export default function Home() {
         <nav className="bg-[#1A2332] border-b border-primary/20 shadow-lg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-28 gap-6">
-            <Link href="/" data-testid="link-logo">
+            <Link href="/" data-testid="link-logo" className="flex-shrink-0">
               <img 
                 src={logoUrl} 
                 alt="Prestige Moving" 
