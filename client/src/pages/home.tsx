@@ -754,43 +754,86 @@ export default function Home() {
                 </a>
               </div>
 
-              <div className="inline-flex items-center gap-2 bg-primary/20 border border-primary/40 rounded-full px-4 py-2 mb-6" data-testid="badge-experience">
-                <Award className="h-5 w-5 text-primary" />
-                <span className="text-primary font-semibold text-sm md:text-base">#1 Movers in Ottawa & Greater Ottawa</span>
+              {/* Trust Badges Row */}
+              <div className="flex flex-wrap items-center gap-3 mb-6">
+                <div className="inline-flex items-center gap-2 bg-primary/20 border border-primary/40 rounded-full px-4 py-2 animate-pulse" data-testid="badge-experience">
+                  <Award className="h-5 w-5 text-primary" />
+                  <span className="text-primary font-bold text-sm md:text-base">#1 Rated Movers in Ottawa</span>
+                </div>
+                <div className="inline-flex items-center gap-2 bg-white/10 border border-white/30 rounded-full px-4 py-2">
+                  <div className="flex gap-0.5">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="h-4 w-4 text-yellow-400 fill-yellow-400" />
+                    ))}
+                  </div>
+                  <span className="text-white font-semibold text-sm">349 Reviews</span>
+                </div>
               </div>
               
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-black text-white mb-6 leading-tight tracking-tight">
-                Ottawa Movers<br />
-                <span className="text-primary">You Can Trust</span>
+              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-white mb-4 leading-[0.95] tracking-tight">
+                <span className="block">Ottawa's</span>
+                <span className="block text-primary drop-shadow-[0_0_30px_rgba(197,165,114,0.5)]">#1 Moving</span>
+                <span className="block">Company</span>
               </h1>
               
-              <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed">
-                Over 10,000 successful moves across Greater Ottawa. Professional movers in Ottawa, Kanata, Orleans, Nepean & beyond. Transparent pricing, complete peace of mind.
+              <p className="text-xl md:text-2xl text-white/90 mb-6 leading-relaxed max-w-xl font-medium">
+                <span className="text-primary font-bold">10,000+</span> successful moves. Professional, reliable, and trusted by families across Ottawa.
               </p>
+
+              {/* Quick Stats */}
+              <div className="flex flex-wrap gap-6 mb-8">
+                <div className="flex items-center gap-2">
+                  <div className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center">
+                    <Shield className="h-5 w-5 text-primary" />
+                  </div>
+                  <div>
+                    <p className="text-white font-bold text-sm">WSIB Insured</p>
+                    <p className="text-white/60 text-xs">Full Coverage</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center">
+                    <Clock className="h-5 w-5 text-primary" />
+                  </div>
+                  <div>
+                    <p className="text-white font-bold text-sm">Same Day</p>
+                    <p className="text-white/60 text-xs">Quotes Available</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center">
+                    <TruckIcon className="h-5 w-5 text-primary" />
+                  </div>
+                  <div>
+                    <p className="text-white font-bold text-sm">Our Fleet</p>
+                    <p className="text-white/60 text-xs">No Rentals</p>
+                  </div>
+                </div>
+              </div>
               
-              <div className="flex flex-col sm:flex-row gap-3">
+              <div className="flex flex-col sm:flex-row gap-4">
                 <Link href="/book">
                   <Button 
-                    size="default" 
-                    className="group relative overflow-hidden text-sm font-semibold px-6 py-2.5 shadow-lg hover:shadow-primary/40 hover:shadow-xl transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] w-full sm:w-auto" 
+                    size="lg" 
+                    className="group relative overflow-hidden text-lg font-bold px-10 py-6 shadow-2xl shadow-primary/50 hover:shadow-primary/70 hover:shadow-2xl transition-all duration-300 hover:scale-105 active:scale-[0.98] w-full sm:w-auto" 
                     data-testid="button-hero-quote"
                   >
-                    <span className="relative z-10 flex items-center gap-2">
-                      Get Free Quote
-                      <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                    <span className="relative z-10 flex items-center gap-3">
+                      Get Your Free Quote
+                      <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-2" />
                     </span>
                     <span className="absolute inset-0 bg-gradient-to-r from-primary via-amber-500 to-primary bg-[length:200%_100%] opacity-0 group-hover:opacity-100 group-hover:animate-shimmer transition-opacity duration-300" />
                   </Button>
                 </Link>
-                <a href="tel:(613) 600-4000">
+                <a href="tel:613-600-4000">
                   <Button 
-                    size="default" 
+                    size="lg" 
                     variant="outline" 
-                    className="group text-sm font-semibold px-6 py-2.5 border border-white/40 text-white backdrop-blur-sm hover:bg-white/10 hover:border-white hover:shadow-lg hover:shadow-white/10 transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] w-full sm:w-auto" 
+                    className="group text-lg font-bold px-10 py-6 border-2 border-white text-white backdrop-blur-md bg-white/10 hover:bg-white hover:text-[#1A2332] hover:shadow-2xl hover:shadow-white/30 transition-all duration-300 hover:scale-105 active:scale-[0.98] w-full sm:w-auto" 
                     data-testid="button-hero-call"
                   >
-                    <Phone className="h-4 w-4 mr-2 transition-transform duration-300 group-hover:rotate-12" />
-                    Call Now
+                    <Phone className="h-5 w-5 mr-3 transition-transform duration-300 group-hover:rotate-12 group-hover:scale-110" />
+                    (613) 600-4000
                   </Button>
                 </a>
               </div>
