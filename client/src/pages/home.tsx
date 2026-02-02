@@ -449,10 +449,10 @@ export default function Home() {
                   <Mail className="h-3.5 w-3.5" />
                   <span>Ottawa@prestigemoving.ca</span>
                 </a>
-                <div className="flex items-center gap-2 text-[#1A2332] text-sm font-medium" data-testid="topbar-address">
+                <a href="https://maps.app.goo.gl/5grQGZ18k1GrxuEj7" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-[#1A2332] text-sm font-medium hover:text-white transition-colors" data-testid="topbar-address">
                   <MapPin className="h-3.5 w-3.5" />
                   <span>50 Colonnade Rd unit 200B, Ottawa, ON K2E 7J6</span>
-                </div>
+                </a>
               </div>
             </div>
           </div>
