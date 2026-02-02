@@ -1256,14 +1256,14 @@ export default function Home() {
               </div>
             </div>
 
-            {/* WorkSafe BC Certified */}
-            <div className="group relative bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-6 text-center hover:bg-white/10 hover:border-[#F37021]/50 transition-all duration-300 cursor-pointer hover:scale-105 hover:shadow-xl hover:shadow-[#F37021]/20" data-testid="badge-worksafe">
-              <div className="absolute inset-0 bg-gradient-to-br from-[#F37021]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl" />
+            {/* WSIB Ontario Certified */}
+            <div className="group relative bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-6 text-center hover:bg-white/10 hover:border-[#0066CC]/50 transition-all duration-300 cursor-pointer hover:scale-105 hover:shadow-xl hover:shadow-[#0066CC]/20" data-testid="badge-wsib">
+              <div className="absolute inset-0 bg-gradient-to-br from-[#0066CC]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl" />
               <div className="relative">
-                <div className="h-20 w-20 mx-auto mb-4 bg-gradient-to-br from-[#F37021] to-orange-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-[#F37021]/30 transition-shadow -rotate-3 group-hover:rotate-0">
+                <div className="h-20 w-20 mx-auto mb-4 bg-gradient-to-br from-[#0066CC] to-blue-700 rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-[#0066CC]/30 transition-shadow -rotate-3 group-hover:rotate-0">
                   <Shield className="h-10 w-10 text-white" />
                 </div>
-                <h3 className="text-lg font-bold text-white mb-1">WorkSafe BC</h3>
+                <h3 className="text-lg font-bold text-white mb-1">WSIB Ontario</h3>
                 <p className="text-sm text-white/50">Certified & Insured</p>
               </div>
             </div>
