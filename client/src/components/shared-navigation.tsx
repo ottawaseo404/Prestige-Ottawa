@@ -11,6 +11,7 @@ import {
   Phone, Home as HomeIcon, Building2, MapPin, Menu, Warehouse, GraduationCap, 
   Heart, Music, Crown, Dumbbell, Box, Medal, Package, Truck, Star, Mail, Lock, FileText
 } from "lucide-react";
+import { SiFacebook, SiInstagram, SiLinkedin, SiYoutube } from "react-icons/si";
 import { Link, useLocation } from "wouter";
 import { useState } from "react";
 import logoUrl from "@assets/originalonglogo_1763689606978.png";
@@ -60,36 +61,63 @@ export function SharedNavigation() {
   return (
     <div className="sticky top-0 z-50">
       {/* Top Contact Bar */}
-      <div className="bg-white border-b border-gray-200 hidden md:block">
+      <div className="bg-primary hidden md:block">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-10">
-            {/* Reviews */}
-            <div className="flex items-center gap-2 overflow-hidden">
-              <div className="flex items-center gap-1">
-                <Star className="h-3.5 w-3.5 text-yellow-500 fill-yellow-500" />
-                <Star className="h-3.5 w-3.5 text-yellow-500 fill-yellow-500" />
-                <Star className="h-3.5 w-3.5 text-yellow-500 fill-yellow-500" />
-                <Star className="h-3.5 w-3.5 text-yellow-500 fill-yellow-500" />
-                <Star className="h-3.5 w-3.5 text-yellow-500 fill-yellow-500" />
-              </div>
-              <span className="text-sm text-gray-600 italic">"{reviews[reviewIndex % reviews.length].text}"</span>
-              <span className="text-sm text-gray-500">— {reviews[reviewIndex % reviews.length].author}</span>
+          <div className="flex justify-between items-center h-9">
+            {/* Social Media Icons */}
+            <div className="flex items-center gap-3">
+              <a 
+                href="https://www.facebook.com/prestigemoving.ca/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-[#1A2332] hover:text-white transition-colors"
+                data-testid="link-facebook"
+              >
+                <SiFacebook className="h-4 w-4" />
+              </a>
+              <a 
+                href="https://www.instagram.com/movingprestige/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-[#1A2332] hover:text-white transition-colors"
+                data-testid="link-instagram"
+              >
+                <SiInstagram className="h-4 w-4" />
+              </a>
+              <a 
+                href="https://www.linkedin.com/in/prestige-moving-inc-824520287" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-[#1A2332] hover:text-white transition-colors"
+                data-testid="link-linkedin"
+              >
+                <SiLinkedin className="h-4 w-4" />
+              </a>
+              <a 
+                href="https://youtu.be/IScekjNSOh8" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-[#1A2332] hover:text-white transition-colors"
+                data-testid="link-youtube"
+              >
+                <SiYoutube className="h-4 w-4" />
+              </a>
             </div>
 
             {/* Contact Info */}
             <div className="flex items-center gap-6">
-              <div className="flex items-center gap-2 text-gray-600 text-sm">
-                <MapPin className="h-4 w-4" />
-                <span>Ottawa & Area</span>
-              </div>
-              <a href="tel:613-600-4000" className="flex items-center gap-2 text-gray-600 text-sm hover:text-primary transition-colors font-semibold">
-                <Phone className="h-4 w-4" />
-                <span>(613) 600-4000</span>
+              <a href="tel:613-600-4000" className="flex items-center gap-2 text-[#1A2332] text-sm hover:text-white transition-colors font-medium">
+                <Phone className="h-3.5 w-3.5" />
+                <span>613-600-4000</span>
               </a>
-              <Link href="/contact" className="flex items-center gap-2 text-gray-600 text-sm hover:text-primary transition-colors font-semibold">
-                <Mail className="h-4 w-4" />
-                <span>Contact Us</span>
-              </Link>
+              <a href="mailto:Ottawa@prestigemoving.ca" className="flex items-center gap-2 text-[#1A2332] text-sm hover:text-white transition-colors font-medium">
+                <Mail className="h-3.5 w-3.5" />
+                <span>Ottawa@prestigemoving.ca</span>
+              </a>
+              <div className="flex items-center gap-2 text-[#1A2332] text-sm font-medium">
+                <MapPin className="h-3.5 w-3.5" />
+                <span>50 Colonnade Rd unit 200B, Ottawa, ON K2E 7J6</span>
+              </div>
             </div>
           </div>
         </div>
