@@ -14,7 +14,7 @@ import {
 import { SiFacebook, SiInstagram, SiLinkedin, SiYoutube } from "react-icons/si";
 import { Link, useLocation } from "wouter";
 import { useState } from "react";
-import logoUrl from "@assets/originalonglogo_1763689606978.png";
+import logoUrl from "@assets/transparentlogo_1770071884904.png";
 
 const reviews = [
   { text: "Best movers in Ottawa, hands down!", author: "Mike R." },

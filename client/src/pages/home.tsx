@@ -32,7 +32,7 @@ import type { MovingPackage } from "@shared/schema";
 import { useToast } from "@/hooks/use-toast";
 import { Helmet } from "react-helmet";
 import { SiFacebook, SiInstagram, SiLinkedin, SiYoutube } from "react-icons/si";
-import logoUrl from "@assets/originalonglogo_1763689606978.png";
+import logoUrl from "@assets/transparentlogo_1770071884904.png";
 import { useHeroVideo } from "@/hooks/use-hero-video";
 import residentialImage from "@assets/truck1_1764291781341.jpeg";
 import commercialImage from "@assets/commercial_1764347548715.jpeg";
