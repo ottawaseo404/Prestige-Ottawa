@@ -1021,6 +1021,75 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Moving Solutions Section */}
+      <section className="relative z-20 py-16 md:py-20 bg-white" data-testid="section-solutions">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 bg-primary/10 rounded-full px-4 py-2 mb-6">
+              <HomeIcon className="h-5 w-5 text-primary" />
+              <span className="text-primary font-semibold text-sm uppercase tracking-wide">Our Services</span>
+            </div>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#1A2332] mb-4">
+              Residential and Commercial <span className="text-primary">Moving Solutions</span>
+            </h2>
+            <p className="text-xl text-gray-600 mb-2">Local and Long Distance Moving</p>
+          </div>
+          
+          <div className="bg-gradient-to-br from-[#1A2332] to-[#2A3A4A] rounded-2xl p-8 md:p-12 shadow-2xl">
+            <div className="grid lg:grid-cols-2 gap-8 items-center">
+              <div>
+                <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
+                  Choose the Right Moving Package for You
+                </h3>
+                <p className="text-white/80 text-lg leading-relaxed mb-6">
+                  At Prestige Moving, we offer tailored packages to suit different moving needs, ensuring a smooth and stress-free experience. Select from our Premium, Deluxe, or Diamond packages, each designed with professional movers, high-quality packing materials, and efficient service.
+                </p>
+                <div className="flex flex-wrap gap-4">
+                  <Link href="/book">
+                    <Button size="lg" className="font-bold shadow-lg" data-testid="button-solutions-quote">
+                      Get Your Free Quote
+                      <ArrowRight className="ml-2 h-5 w-5" />
+                    </Button>
+                  </Link>
+                  <Link href="/services">
+                    <Button size="lg" variant="outline" className="font-bold text-white border-white/30 hover:bg-white/10" data-testid="button-solutions-services">
+                      View All Services
+                    </Button>
+                  </Link>
+                </div>
+              </div>
+              
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105">
+                  <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <Star className="h-6 w-6 text-primary" />
+                  </div>
+                  <h4 className="text-white font-bold text-lg mb-1">Premium</h4>
+                  <p className="text-white/70 text-sm">2 Movers + Truck</p>
+                </div>
+                <div className="bg-primary/20 backdrop-blur-sm rounded-xl p-6 text-center border border-primary/40 hover:bg-primary/30 transition-all duration-300 hover:scale-105 relative">
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-[#1A2332] text-xs font-bold px-3 py-1 rounded-full">
+                    POPULAR
+                  </div>
+                  <div className="w-12 h-12 bg-primary/30 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <Award className="h-6 w-6 text-primary" />
+                  </div>
+                  <h4 className="text-white font-bold text-lg mb-1">Deluxe</h4>
+                  <p className="text-white/70 text-sm">3 Movers + 26ft Truck</p>
+                </div>
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105">
+                  <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <Crown className="h-6 w-6 text-primary" />
+                  </div>
+                  <h4 className="text-white font-bold text-lg mb-1">Diamond</h4>
+                  <p className="text-white/70 text-sm">4 Movers + 2 Trucks</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Google Reviews Section - Modern Design */}
       <section className="relative z-20 py-16 bg-gradient-to-b from-gray-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
