@@ -1419,6 +1419,21 @@ Provide a detailed cost estimate in JSON format.`;
     }
   });
 
+  // WordPress Service Pages Import endpoint
+  app.post("/api/admin/import-services", requireAdmin, async (req, res) => {
+    try {
+      console.log("[Admin] Starting service pages import...");
+      const result = await importServicePages();
+      res.json({
+        message: "Service pages import completed",
+        ...result
+      });
+    } catch (error: any) {
+      console.error("Error importing service pages:", error);
+      res.status(500).json({ message: "Failed to import service pages", error: error.message });
+    }
+  });
+
   // ============== Service Pages Routes ==============
   
   // Public: Get all active service pages
