@@ -117,8 +117,7 @@ function Router() {
       <Route path="/book" component={Booking} />
       <Route path="/calculator" component={Calculator} />
       <Route path="/contact" component={Contact} />
-      <Route path="/blog" component={Blog} />
-      <Route path="/blog/:slug" component={BlogPost} />
+      <Route path="/theblog" component={Blog} />
       
       {/* Service Pages */}
       <Route path="/services/residential-moving" component={ResidentialMoving} />
