@@ -1921,64 +1921,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      <section className="py-20 md:py-28 bg-[#1A2332]">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
-              What Our Clients Say
-            </h2>
-            <div className="flex items-center justify-center gap-1 mb-2">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} className="h-6 w-6 text-primary fill-primary" />
-              ))}
-            </div>
-            <p className="text-white/70">Based on {totalReviewCount}+ Google Reviews</p>
-          </div>
-
-          <div className="relative">
-            <div className="bg-white/5 border border-white/10 rounded-2xl p-8 md:p-12">
-              <Quote className="h-12 w-12 text-primary mb-6" />
-              <p className="text-xl md:text-2xl text-white leading-relaxed mb-8" data-testid="testimonial-text">
-                "{testimonials[testimonialIndex].text}"
-              </p>
-              <div className="flex items-center justify-between">
-                <div>
-                  <div className="font-bold text-white text-lg" data-testid="testimonial-author">
-                    {testimonials[testimonialIndex].author}
-                  </div>
-                  <div className="text-white/60">
-                    {testimonials[testimonialIndex].location}
-                  </div>
-                </div>
-                <div className="flex gap-2" role="group" aria-label="Testimonial navigation">
-                  <Button 
-                    variant="outline" 
-                    size="icon" 
-                    onClick={prevTestimonial}
-                    className="border-white/20 text-white hover:bg-white/10"
-                    data-testid="button-testimonial-prev"
-                    aria-label="Previous testimonial"
-                  >
-                    <ChevronLeft className="h-5 w-5" />
-                  </Button>
-                  <Button 
-                    variant="outline" 
-                    size="icon" 
-                    onClick={nextTestimonial}
-                    className="border-white/20 text-white hover:bg-white/10"
-                    data-testid="button-testimonial-next"
-                    aria-label="Next testimonial"
-                  >
-                    <ChevronRight className="h-5 w-5" />
-                  </Button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Why Choose Us Section */}
       <section className="py-20 md:py-28 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
