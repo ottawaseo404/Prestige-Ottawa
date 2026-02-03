@@ -1210,6 +1210,99 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Trust Badges Section - Modern & Interactive */}
+      <section className="py-16 bg-gradient-to-b from-[#1A2332] to-[#2a3a52]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <Badge className="bg-primary/20 text-primary border-primary/30 mb-4">Why Choose Us</Badge>
+            <h2 className="text-3xl md:text-4xl font-black text-white mb-2">
+              Your Trusted Moving Partners
+            </h2>
+            <p className="text-white/60">Industry-leading certifications and customer satisfaction</p>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {/* BBB A+ */}
+            <div className="group relative bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-6 text-center hover:bg-white/10 hover:border-primary/50 transition-all duration-300 cursor-pointer hover:scale-105 hover:shadow-xl hover:shadow-primary/20" data-testid="badge-bbb">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl" />
+              <div className="relative">
+                <div className="h-20 w-20 mx-auto mb-4 bg-gradient-to-br from-amber-400 to-amber-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-amber-500/30 transition-shadow rotate-3 group-hover:rotate-0">
+                  <Award className="h-10 w-10 text-white" />
+                </div>
+                <h3 className="text-lg font-bold text-white mb-1">BBB A+ Rating</h3>
+                <p className="text-sm text-white/50">Accredited Business</p>
+              </div>
+            </div>
+
+            {/* WSIB Ontario Certified */}
+            <div className="group relative bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-6 text-center hover:bg-white/10 hover:border-[#0066CC]/50 transition-all duration-300 cursor-pointer hover:scale-105 hover:shadow-xl hover:shadow-[#0066CC]/20" data-testid="badge-wsib">
+              <div className="absolute inset-0 bg-gradient-to-br from-[#0066CC]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl" />
+              <div className="relative">
+                <div className="h-20 w-20 mx-auto mb-4 bg-gradient-to-br from-[#0066CC] to-blue-700 rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-[#0066CC]/30 transition-shadow -rotate-3 group-hover:rotate-0">
+                  <Shield className="h-10 w-10 text-white" />
+                </div>
+                <h3 className="text-lg font-bold text-white mb-1">WSIB Ontario</h3>
+                <p className="text-sm text-white/50">Certified & Insured</p>
+              </div>
+            </div>
+
+            {/* 5-Star Google */}
+            <div className="group relative bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-6 text-center hover:bg-white/10 hover:border-primary/50 transition-all duration-300 cursor-pointer hover:scale-105 hover:shadow-xl hover:shadow-primary/20" data-testid="badge-google">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl" />
+              <div className="relative">
+                <div className="h-20 w-20 mx-auto mb-4 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-yellow-500/30 transition-shadow rotate-3 group-hover:rotate-0">
+                  <Star className="h-10 w-10 text-white fill-white" />
+                </div>
+                <h3 className="text-lg font-bold text-white mb-1">5-Star Google</h3>
+                <p className="text-sm text-white/50">500+ Happy Customers</p>
+              </div>
+            </div>
+
+            {/* Fully Licensed */}
+            <div className="group relative bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-6 text-center hover:bg-white/10 hover:border-primary/50 transition-all duration-300 cursor-pointer hover:scale-105 hover:shadow-xl hover:shadow-primary/20" data-testid="badge-licensed">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl" />
+              <div className="relative">
+                <div className="h-20 w-20 mx-auto mb-4 bg-gradient-to-br from-blue-400 to-blue-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-blue-500/30 transition-shadow -rotate-3 group-hover:rotate-0">
+                  <CheckCircle2 className="h-10 w-10 text-white" />
+                </div>
+                <h3 className="text-lg font-bold text-white mb-1">Fully Licensed</h3>
+                <p className="text-sm text-white/50">Professional & Legal</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Specialty Services Section - Dark Background */}
+      <section className="py-16 bg-[#1A2332]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <h3 className="text-2xl md:text-3xl font-bold text-white mb-3">Specialty Moving Services</h3>
+            <p className="text-white/60">Expert handling for all your unique moving needs</p>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-4">
+            {[
+              { title: "Moving Supplies", icon: Box, href: "/services/moving-supplies", desc: "Boxes & materials" },
+              { title: "Student Moving", icon: GraduationCap, href: "/services/student-moving", desc: "Budget-friendly" },
+              { title: "Storage", icon: Warehouse, href: "/services/storage-solutions", desc: "Secure facilities" },
+              { title: "Specialty Items", icon: Dumbbell, href: "/services/specialty-item-moving", desc: "Hot tubs & more" },
+              { title: "Antiques", icon: Crown, href: "/services/antique-moving", desc: "Careful handling" },
+              { title: "Piano Moving", icon: Music, href: "/services/piano-moving", desc: "Specialized transport" },
+              { title: "Senior Moving", icon: Heart, href: "/services/senior-moving", desc: "Compassionate care" },
+              { title: "Military Moving", icon: Medal, href: "/services/military-moving", desc: "PCS relocations" },
+            ].map((service) => (
+              <Link key={service.href} href={service.href}>
+                <div className="group bg-white/5 border border-white/10 rounded-2xl p-4 h-[120px] flex flex-col items-center justify-center text-center hover:bg-white/10 hover:border-primary/50 transition-all duration-300 cursor-pointer" data-testid={`service-card-${service.title.toLowerCase().replace(/\s+/g, '-')}`}>
+                  <div className="h-12 w-12 bg-primary/20 rounded-xl flex items-center justify-center group-hover:bg-primary/30 transition-colors mb-3">
+                    <service.icon className="h-6 w-6 text-primary" />
+                  </div>
+                  <h4 className="font-bold text-white text-xs leading-tight">{service.title}</h4>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Google Reviews Section - Modern Design */}
       <section className="relative z-20 py-16 bg-gradient-to-b from-gray-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1444,99 +1537,6 @@ export default function Home() {
                 <ArrowRight className="h-5 w-5 ml-2" />
               </Button>
             </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Trust Badges Section - Modern & Interactive */}
-      <section className="py-16 bg-gradient-to-b from-[#1A2332] to-[#2a3a52]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <Badge className="bg-primary/20 text-primary border-primary/30 mb-4">Why Choose Us</Badge>
-            <h2 className="text-3xl md:text-4xl font-black text-white mb-2">
-              Your Trusted Moving Partners
-            </h2>
-            <p className="text-white/60">Industry-leading certifications and customer satisfaction</p>
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {/* BBB A+ */}
-            <div className="group relative bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-6 text-center hover:bg-white/10 hover:border-primary/50 transition-all duration-300 cursor-pointer hover:scale-105 hover:shadow-xl hover:shadow-primary/20" data-testid="badge-bbb">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl" />
-              <div className="relative">
-                <div className="h-20 w-20 mx-auto mb-4 bg-gradient-to-br from-amber-400 to-amber-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-amber-500/30 transition-shadow rotate-3 group-hover:rotate-0">
-                  <Award className="h-10 w-10 text-white" />
-                </div>
-                <h3 className="text-lg font-bold text-white mb-1">BBB A+ Rating</h3>
-                <p className="text-sm text-white/50">Accredited Business</p>
-              </div>
-            </div>
-
-            {/* WSIB Ontario Certified */}
-            <div className="group relative bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-6 text-center hover:bg-white/10 hover:border-[#0066CC]/50 transition-all duration-300 cursor-pointer hover:scale-105 hover:shadow-xl hover:shadow-[#0066CC]/20" data-testid="badge-wsib">
-              <div className="absolute inset-0 bg-gradient-to-br from-[#0066CC]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl" />
-              <div className="relative">
-                <div className="h-20 w-20 mx-auto mb-4 bg-gradient-to-br from-[#0066CC] to-blue-700 rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-[#0066CC]/30 transition-shadow -rotate-3 group-hover:rotate-0">
-                  <Shield className="h-10 w-10 text-white" />
-                </div>
-                <h3 className="text-lg font-bold text-white mb-1">WSIB Ontario</h3>
-                <p className="text-sm text-white/50">Certified & Insured</p>
-              </div>
-            </div>
-
-            {/* 5-Star Google */}
-            <div className="group relative bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-6 text-center hover:bg-white/10 hover:border-primary/50 transition-all duration-300 cursor-pointer hover:scale-105 hover:shadow-xl hover:shadow-primary/20" data-testid="badge-google">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl" />
-              <div className="relative">
-                <div className="h-20 w-20 mx-auto mb-4 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-yellow-500/30 transition-shadow rotate-3 group-hover:rotate-0">
-                  <Star className="h-10 w-10 text-white fill-white" />
-                </div>
-                <h3 className="text-lg font-bold text-white mb-1">5-Star Google</h3>
-                <p className="text-sm text-white/50">500+ Happy Customers</p>
-              </div>
-            </div>
-
-            {/* Fully Licensed */}
-            <div className="group relative bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-6 text-center hover:bg-white/10 hover:border-primary/50 transition-all duration-300 cursor-pointer hover:scale-105 hover:shadow-xl hover:shadow-primary/20" data-testid="badge-licensed">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl" />
-              <div className="relative">
-                <div className="h-20 w-20 mx-auto mb-4 bg-gradient-to-br from-blue-400 to-blue-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-blue-500/30 transition-shadow -rotate-3 group-hover:rotate-0">
-                  <CheckCircle2 className="h-10 w-10 text-white" />
-                </div>
-                <h3 className="text-lg font-bold text-white mb-1">Fully Licensed</h3>
-                <p className="text-sm text-white/50">Professional & Legal</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Specialty Services Section - Dark Background */}
-      <section className="py-16 bg-[#1A2332]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10">
-            <h3 className="text-2xl md:text-3xl font-bold text-white mb-3">Specialty Moving Services</h3>
-            <p className="text-white/60">Expert handling for all your unique moving needs</p>
-          </div>
-          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-4">
-            {[
-              { title: "Moving Supplies", icon: Box, href: "/services/moving-supplies", desc: "Boxes & materials" },
-              { title: "Student Moving", icon: GraduationCap, href: "/services/student-moving", desc: "Budget-friendly" },
-              { title: "Storage", icon: Warehouse, href: "/services/storage-solutions", desc: "Secure facilities" },
-              { title: "Specialty Items", icon: Dumbbell, href: "/services/specialty-item-moving", desc: "Hot tubs & more" },
-              { title: "Antiques", icon: Crown, href: "/services/antique-moving", desc: "Careful handling" },
-              { title: "Piano Moving", icon: Music, href: "/services/piano-moving", desc: "Specialized transport" },
-              { title: "Senior Moving", icon: Heart, href: "/services/senior-moving", desc: "Compassionate care" },
-              { title: "Military Moving", icon: Medal, href: "/services/military-moving", desc: "PCS relocations" },
-            ].map((service) => (
-              <Link key={service.href} href={service.href}>
-                <div className="group bg-white/5 border border-white/10 rounded-2xl p-4 h-[120px] flex flex-col items-center justify-center text-center hover:bg-white/10 hover:border-primary/50 transition-all duration-300 cursor-pointer" data-testid={`service-card-${service.title.toLowerCase().replace(/\s+/g, '-')}`}>
-                  <div className="h-12 w-12 bg-primary/20 rounded-xl flex items-center justify-center group-hover:bg-primary/30 transition-colors mb-3">
-                    <service.icon className="h-6 w-6 text-primary" />
-                  </div>
-                  <h4 className="font-bold text-white text-xs leading-tight">{service.title}</h4>
-                </div>
-              </Link>
-            ))}
           </div>
         </div>
       </section>
