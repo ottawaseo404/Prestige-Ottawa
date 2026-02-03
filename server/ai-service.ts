@@ -25,17 +25,22 @@ function isRateLimitError(error: any): boolean {
 }
 
 // SEO-optimized blog post generation prompt
-const SEO_BLOG_PROMPT = `I only want you to answer in English. I want you to act as a very competent SEO and senior copywriter who speaks and writes fluent English. You should definitely use Markdown language when creating headings, that is, the main title should be created with h1 and subheadings with h2, h3, h4. Write the text as long as possible, at least 1500 words.
+const SEO_BLOG_PROMPT = `You are a senior SEO copywriter for Prestige Moving Ottawa, a professional moving company. Write comprehensive, SEO-optimized blog posts in English using Markdown formatting (h1 for title, h2/h3/h4 for subheadings).
 
-Write content that can outrank other websites. Don't tell me that there are many factors that affect good search rankings. I know that content quality is just one of them and here it is your job to write the best quality content possible.
+CRITICAL RULES:
+1. ONLY write about Ottawa, Ontario and surrounding areas (Orleans, Barrhaven, Kanata, Nepean, Stittsville, Bells Corners, Centretown, Hintonburg, Westboro, The Glebe, Rockcliffe Park, Sandy Hill, Gatineau, Carp, Manotick, Kemptville)
+2. NEVER mention Calgary, Toronto, Vancouver, Montreal, or any non-Ottawa locations
+3. Write at least 1500-2000 words with detailed, actionable content
+4. Use keyword-rich subheadings naturally throughout
+5. Include local Ottawa references (Parliament Hill, Rideau Canal, ByWard Market, local weather, etc.)
+6. No internal links or markdown links
+7. Mention Prestige Moving Ottawa naturally 2-3 times
+8. Include a clear call-to-action mentioning the phone number
 
-Write a long, fully markdown-formatted article in English that can rank in Google for the given keywords. The article should be rich and comprehensive, with very detailed paragraphs, with a lot of detail.
-
-Do not repeat my request. Make it a long article of at least 2000 words. Do not remind me what I asked you for. Do not apologize. Don't refer to yourself. Don't use generic filler sentences anymore. Use useful subheadings with keyword-rich titles. Get to the point fully and accurately. Don't explain what happened and why, just give me your best possible article.
-
-All outputs will be in English. Write the article as long as possible, at least 1500 words. Make the headings bold and follow the h tags.
-
-The article should be about moving services in Ottawa, Ontario, Canada, focusing on Prestige Moving Ottawa. Do NOT include any internal links or markdown links to service pages.
+Target keywords to incorporate naturally:
+- Primary: "Ottawa movers", "moving company Ottawa", "Prestige Moving"
+- Secondary: Neighborhood-specific terms, "long distance moving Ottawa", "commercial movers Ottawa"
+- Long-tail: "how much do movers cost in Ottawa", "best moving company Ottawa"
 
 Company info:
 - Name: Prestige Moving Ottawa
@@ -44,7 +49,8 @@ Company info:
 - Location: Ottawa, Ontario, Canada
 - Years in business: 15+
 - Completed moves: 10,000+
-- Google rating: 5.0 stars with 349 reviews`;
+- Google rating: 5.0 stars with 349 reviews
+- Services: Residential, Commercial, Long-distance, Piano, Packing, Storage`;
 
 export interface GeneratedBlogContent {
   title: string;
@@ -162,16 +168,32 @@ export async function generateBlogIdeas(count: number = 5): Promise<string[]> {
           messages: [
             {
               role: "system",
-              content: "You are an SEO expert for a moving company in Ottawa, Ontario. Generate blog post ideas that will rank well in Google and attract potential customers."
+              content: `You are an SEO expert for Prestige Moving, a professional moving company based in Ottawa, Ontario. Generate blog post ideas that will rank well in Google and attract potential customers searching for moving services in Ottawa and surrounding areas.
+
+Focus ONLY on Ottawa and these surrounding areas:
+- Ottawa neighborhoods: Centretown, Hintonburg, Westboro, The Glebe, Sandy Hill, Rockcliffe Park, New Edinburgh, Alta Vista, Barrhaven, Kanata, Nepean, Orleans, Gloucester, Vanier
+- Surrounding towns: Stittsville, Bells Corners, Carp, Manotick, Kemptville, Almonte, Carleton Place, Arnprior, Gatineau (Quebec side)
+
+NEVER generate content about other cities like Calgary, Toronto, Vancouver, or Montreal - ONLY Ottawa and its surrounding areas.`
             },
             {
               role: "user",
-              content: `Generate ${count} unique blog post title ideas for an Ottawa moving company. Focus on:
-- Moving tips and guides
-- Ottawa-specific content (neighborhoods, regulations)
-- Seasonal moving advice
-- Cost saving tips
-- Specialty moving topics
+              content: `Generate ${count} unique blog post title ideas. Each title MUST include "Ottawa" or an Ottawa-area neighborhood/town name. Focus on:
+
+1. NEIGHBORHOOD GUIDES (40%): "[Neighborhood] Movers: [Specific Challenge] & Tips"
+   Examples: "Barrhaven Movers: Family Home Relocations & School-Year Timing"
+   
+2. COST & PRICING (20%): How much moving costs in Ottawa, budget tips, pricing explained
+   Examples: "How Much Do Ottawa Movers Charge in 2025? Complete Pricing Guide"
+   
+3. MOVING TIPS (20%): Packing guides, checklists, preparation for Ottawa moves
+   Examples: "Ottawa Winter Moving Tips: Protecting Your Belongings in -20°C Weather"
+   
+4. SPECIALTY MOVES (10%): Piano, antiques, office, condo, long-distance from Ottawa
+   Examples: "Piano Movers in Ottawa: Costs, Insurance & What to Expect"
+   
+5. SEASONAL/SITUATIONAL (10%): Peak season, holiday moves, last-minute moves in Ottawa
+   Examples: "Last-Minute Movers in Ottawa: Same-Day & Emergency Moving Services"
 
 Return as JSON: { "ideas": ["title1", "title2", ...] }`
             }
