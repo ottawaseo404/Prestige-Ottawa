@@ -8,6 +8,8 @@ import OpenAI from "openai";
 import { generateBlogPost, generateFeaturedImage, generateBlogIdeas } from "./ai-service";
 import { triggerManualGeneration } from "./blog-scheduler";
 import { runImport } from "./wordpress-import";
+import { importServicePages } from "./service-pages-import";
+import { insertServicePageSchema } from "@shared/schema";
 
 // Helper functions for user agent parsing
 function getBrowser(userAgent: string): string {
@@ -1414,6 +1416,87 @@ Provide a detailed cost estimate in JSON format.`;
     } catch (error: any) {
       console.error("Error importing WordPress content:", error);
       res.status(500).json({ message: "Failed to import WordPress content", error: error.message });
+    }
+  });
+
+  // ============== Service Pages Routes ==============
+  
+  // Public: Get all active service pages
+  app.get("/api/services", async (req, res) => {
+    try {
+      const pages = await storage.getActiveServicePages();
+      res.json(pages);
+    } catch (error: any) {
+      console.error("Error fetching service pages:", error);
+      res.status(500).json({ message: "Failed to fetch service pages" });
+    }
+  });
+
+  // Public: Get service page by slug
+  app.get("/api/services/:slug", async (req, res) => {
+    try {
+      const page = await storage.getServicePageBySlug(req.params.slug);
+      if (!page || !page.isActive) {
+        return res.status(404).json({ message: "Service page not found" });
+      }
+      res.json(page);
+    } catch (error: any) {
+      console.error("Error fetching service page:", error);
+      res.status(500).json({ message: "Failed to fetch service page" });
+    }
+  });
+
+  // Admin: Get all service pages (including inactive)
+  app.get("/api/admin/services", requireAdmin, async (req, res) => {
+    try {
+      const pages = await storage.getAllServicePages();
+      res.json(pages);
+    } catch (error: any) {
+      console.error("Error fetching service pages:", error);
+      res.status(500).json({ message: "Failed to fetch service pages" });
+    }
+  });
+
+  // Admin: Import service pages from WordPress XML
+  app.post("/api/admin/import-service-pages", requireAdmin, async (req, res) => {
+    try {
+      console.log("[Admin] Starting service pages import...");
+      const result = await importServicePages();
+      res.json({
+        message: "Service pages import completed",
+        ...result
+      });
+    } catch (error: any) {
+      console.error("Error importing service pages:", error);
+      res.status(500).json({ message: "Failed to import service pages", error: error.message });
+    }
+  });
+
+  // Admin: Update service page
+  app.patch("/api/admin/services/:id", requireAdmin, async (req, res) => {
+    try {
+      const page = await storage.updateServicePage(req.params.id, req.body);
+      if (!page) {
+        return res.status(404).json({ message: "Service page not found" });
+      }
+      res.json(page);
+    } catch (error: any) {
+      console.error("Error updating service page:", error);
+      res.status(500).json({ message: "Failed to update service page" });
+    }
+  });
+
+  // Admin: Delete service page
+  app.delete("/api/admin/services/:id", requireAdmin, async (req, res) => {
+    try {
+      const deleted = await storage.deleteServicePage(req.params.id);
+      if (!deleted) {
+        return res.status(404).json({ message: "Service page not found" });
+      }
+      res.json({ message: "Service page deleted" });
+    } catch (error: any) {
+      console.error("Error deleting service page:", error);
+      res.status(500).json({ message: "Failed to delete service page" });
     }
   });
 

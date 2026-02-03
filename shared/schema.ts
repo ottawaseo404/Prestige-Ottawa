@@ -377,6 +377,32 @@ export const insertHeroVideoSchema = createInsertSchema(heroVideos).omit({
 export type InsertHeroVideo = z.infer<typeof insertHeroVideoSchema>;
 export type HeroVideo = typeof heroVideos.$inferSelect;
 
+// Service Pages table (imported from WordPress)
+export const servicePages = pgTable("service_pages", {
+  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+  title: text("title").notNull(),
+  slug: text("slug").notNull().unique(),
+  content: text("content").notNull(),
+  excerpt: text("excerpt"),
+  featuredImage: text("featured_image"),
+  metaTitle: text("meta_title"),
+  metaDescription: text("meta_description"),
+  keywords: text("keywords").array(),
+  isActive: boolean("is_active").notNull().default(true),
+  sortOrder: integer("sort_order").notNull().default(0),
+  createdAt: timestamp("created_at").notNull().default(sql`now()`),
+  updatedAt: timestamp("updated_at").notNull().default(sql`now()`),
+});
+
+export const insertServicePageSchema = createInsertSchema(servicePages).omit({
+  id: true,
+  createdAt: true,
+  updatedAt: true,
+});
+
+export type InsertServicePage = z.infer<typeof insertServicePageSchema>;
+export type ServicePage = typeof servicePages.$inferSelect;
+
 // Available video assets for admin selection
 export const availableVideos = [
   { path: "/attached_assets/generated_videos/bc_ferry_crossing_burrard_inlet.mp4", name: "BC Ferry Crossing Burrard Inlet" },

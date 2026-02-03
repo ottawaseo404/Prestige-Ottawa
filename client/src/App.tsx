@@ -31,6 +31,7 @@ import AntiqueMoving from "@/pages/services/antique-moving";
 import SpecialtyItemMoving from "@/pages/services/specialty-item-moving";
 import MovingSupplies from "@/pages/services/moving-supplies";
 import MilitaryMoving from "@/pages/services/military-moving";
+import DynamicServicePage from "@/pages/dynamic-service";
 import AdminDashboard from "@/pages/admin/dashboard";
 import AdminBookings from "@/pages/admin/bookings";
 import AdminAnalytics from "@/pages/admin-analytics";
@@ -133,6 +134,9 @@ function Router() {
       <Route path="/services/specialty-item-moving" component={SpecialtyItemMoving} />
       <Route path="/services/moving-supplies" component={MovingSupplies} />
       <Route path="/services/military-moving" component={MilitaryMoving} />
+      
+      {/* Dynamic Service Pages (WordPress imported) */}
+      <Route path="/services/:slug" component={DynamicServicePage} />
       
       {/* Admin Login */}
       <Route path="/login" component={AdminLogin} />

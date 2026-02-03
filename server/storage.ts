@@ -5,7 +5,8 @@ import {
   type MovingPackage, type InsertMovingPackage, movingPackages,
   type BlogPost, type InsertBlogPost, blogPosts,
   type BlogCategory, type InsertBlogCategory, blogCategories,
-  type HeroVideo, type InsertHeroVideo, heroVideos
+  type HeroVideo, type InsertHeroVideo, heroVideos,
+  type ServicePage, type InsertServicePage, servicePages
 } from "@shared/schema";
 import { drizzle } from "drizzle-orm/neon-serverless";
 import { Pool, neonConfig } from "@neondatabase/serverless";
@@ -72,6 +73,15 @@ export interface IStorage {
   createHeroVideo(heroVideo: InsertHeroVideo): Promise<HeroVideo>;
   updateHeroVideo(id: string, heroVideo: Partial<InsertHeroVideo>): Promise<HeroVideo | undefined>;
   deleteHeroVideo(id: string): Promise<boolean>;
+  
+  // Service Page operations
+  getAllServicePages(): Promise<ServicePage[]>;
+  getActiveServicePages(): Promise<ServicePage[]>;
+  getServicePage(id: string): Promise<ServicePage | undefined>;
+  getServicePageBySlug(slug: string): Promise<ServicePage | undefined>;
+  createServicePage(page: InsertServicePage): Promise<ServicePage>;
+  updateServicePage(id: string, page: Partial<InsertServicePage>): Promise<ServicePage | undefined>;
+  deleteServicePage(id: string): Promise<boolean>;
 }
 
 export class DbStorage implements IStorage {
@@ -453,6 +463,48 @@ export class DbStorage implements IStorage {
 
   async deleteHeroVideo(id: string): Promise<boolean> {
     const result = await this.db.delete(heroVideos).where(eq(heroVideos.id, id)).returning();
+    return result.length > 0;
+  }
+
+  // Service Page operations
+  async getAllServicePages(): Promise<ServicePage[]> {
+    return await this.db.select().from(servicePages).orderBy(asc(servicePages.sortOrder));
+  }
+
+  async getActiveServicePages(): Promise<ServicePage[]> {
+    return await this.db
+      .select()
+      .from(servicePages)
+      .where(eq(servicePages.isActive, true))
+      .orderBy(asc(servicePages.sortOrder));
+  }
+
+  async getServicePage(id: string): Promise<ServicePage | undefined> {
+    const result = await this.db.select().from(servicePages).where(eq(servicePages.id, id));
+    return result[0];
+  }
+
+  async getServicePageBySlug(slug: string): Promise<ServicePage | undefined> {
+    const result = await this.db.select().from(servicePages).where(eq(servicePages.slug, slug));
+    return result[0];
+  }
+
+  async createServicePage(page: InsertServicePage): Promise<ServicePage> {
+    const result = await this.db.insert(servicePages).values(page).returning();
+    return result[0];
+  }
+
+  async updateServicePage(id: string, page: Partial<InsertServicePage>): Promise<ServicePage | undefined> {
+    const result = await this.db
+      .update(servicePages)
+      .set({ ...page, updatedAt: new Date() })
+      .where(eq(servicePages.id, id))
+      .returning();
+    return result[0];
+  }
+
+  async deleteServicePage(id: string): Promise<boolean> {
+    const result = await this.db.delete(servicePages).where(eq(servicePages.id, id)).returning();
     return result.length > 0;
   }
 }
