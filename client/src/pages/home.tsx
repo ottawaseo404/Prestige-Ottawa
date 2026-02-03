@@ -772,7 +772,7 @@ export default function Home() {
                         <Star key={i} className="h-4 w-4 text-yellow-400 fill-yellow-400" />
                       ))}
                     </div>
-                    <span className="text-white font-semibold text-sm">350+ Google Reviews</span>
+                    <span className="text-white font-semibold text-sm">350+ Reviews</span>
                   </a>
                 </div>
                 
