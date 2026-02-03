@@ -1,16 +1,50 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useMutation } from "@tanstack/react-query";
 import { Skeleton } from "@/components/ui/skeleton";
-import { TruckIcon, Users, DollarSign, Calendar, CheckCircle, Clock, AlertCircle } from "lucide-react";
+import { TruckIcon, Users, DollarSign, Calendar, CheckCircle, Clock, AlertCircle, FileText, Upload, Loader2 } from "lucide-react";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { format } from "date-fns";
 import type { Booking } from "@shared/schema";
+import { apiRequest, queryClient } from "@/lib/queryClient";
+import { useToast } from "@/hooks/use-toast";
 
 export default function AdminDashboard() {
+  const { toast } = useToast();
+  
   const { data: bookings, isLoading } = useQuery<Booking[]>({
     queryKey: ["/api/bookings"],
+  });
+  
+  const { data: blogPosts } = useQuery<any[]>({
+    queryKey: ["/api/blog/posts"],
+    queryFn: async () => {
+      const response = await fetch("/api/blog/posts");
+      if (!response.ok) return [];
+      return response.json();
+    }
+  });
+  
+  const importWordPressMutation = useMutation({
+    mutationFn: async () => {
+      const response = await apiRequest("POST", "/api/admin/import-wordpress");
+      return response.json();
+    },
+    onSuccess: (data) => {
+      toast({
+        title: "Import Complete",
+        description: `Imported ${data.postsImported || 0} blog posts successfully!`,
+      });
+      queryClient.invalidateQueries({ queryKey: ["/api/blog/posts"] });
+    },
+    onError: (error: any) => {
+      toast({
+        title: "Import Failed",
+        description: error.message || "Failed to import WordPress content",
+        variant: "destructive",
+      });
+    }
   });
 
   const stats = {
@@ -114,6 +148,40 @@ export default function AdminDashboard() {
           </CardContent>
         </Card>
       </div>
+
+      {/* Quick Actions - Blog Import */}
+      {(blogPosts?.length === 0 || !blogPosts) && (
+        <Card className="border-amber-200 bg-amber-50 dark:bg-amber-950/20 dark:border-amber-800">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <FileText className="h-5 w-5 text-amber-600" />
+              Import Blog Content
+            </CardTitle>
+            <CardDescription>
+              Your blog has no posts. Import WordPress blog content to populate your blog with 370+ SEO-optimized articles.
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <Button 
+              onClick={() => importWordPressMutation.mutate()}
+              disabled={importWordPressMutation.isPending}
+              data-testid="button-import-wordpress"
+            >
+              {importWordPressMutation.isPending ? (
+                <>
+                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                  Importing... (this may take a few minutes)
+                </>
+              ) : (
+                <>
+                  <Upload className="mr-2 h-4 w-4" />
+                  Import WordPress Blogs
+                </>
+              )}
+            </Button>
+          </CardContent>
+        </Card>
+      )}
 
       {/* Recent Bookings */}
       <Card>
