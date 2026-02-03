@@ -32,6 +32,7 @@ import SpecialtyItemMoving from "@/pages/services/specialty-item-moving";
 import MovingSupplies from "@/pages/services/moving-supplies";
 import MilitaryMoving from "@/pages/services/military-moving";
 import DynamicServicePage from "@/pages/dynamic-service";
+import Services from "@/pages/services";
 import AdminDashboard from "@/pages/admin/dashboard";
 import AdminBookings from "@/pages/admin/bookings";
 import AdminAnalytics from "@/pages/admin-analytics";
@@ -120,6 +121,9 @@ function Router() {
       <Route path="/contact" component={Contact} />
       <Route path="/blog" component={Blog} />
       <Route path="/blog/:slug" component={BlogPost} />
+      
+      {/* Services Listing Page */}
+      <Route path="/services" component={Services} />
       
       {/* Service Pages */}
       <Route path="/services/residential-moving" component={ResidentialMoving} />
