@@ -47,6 +47,7 @@ export function SharedFooter() {
               </div>
               <h4 className="font-bold text-lg mb-4 mt-8">Resources</h4>
               <div className="space-y-2 text-sm text-white/70">
+                <Link href="/blog" className="block hover:text-primary transition-colors">Moving Tips Blog</Link>
                 <Link href="/calculator" className="block hover:text-primary transition-colors">Moving Calculator</Link>
                 <Link href="/contact" className="block hover:text-primary transition-colors">Contact Us</Link>
               </div>

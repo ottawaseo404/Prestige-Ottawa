@@ -7,6 +7,7 @@ import { fromZodError } from "zod-validation-error";
 import OpenAI from "openai";
 import { generateBlogPost, generateFeaturedImage, generateBlogIdeas } from "./ai-service";
 import { triggerManualGeneration } from "./blog-scheduler";
+import { runImport } from "./wordpress-import";
 
 // Helper functions for user agent parsing
 function getBrowser(userAgent: string): string {
@@ -1398,6 +1399,21 @@ Provide a detailed cost estimate in JSON format.`;
     } catch (error: any) {
       console.error("Error initializing hero videos:", error);
       res.status(500).json({ message: "Failed to initialize hero videos" });
+    }
+  });
+
+  // WordPress Import endpoint
+  app.post("/api/admin/import-wordpress", requireAdmin, async (req, res) => {
+    try {
+      console.log("[Admin] Starting WordPress import...");
+      const result = await runImport();
+      res.json({
+        message: "WordPress import completed",
+        ...result
+      });
+    } catch (error: any) {
+      console.error("Error importing WordPress content:", error);
+      res.status(500).json({ message: "Failed to import WordPress content", error: error.message });
     }
   });
 

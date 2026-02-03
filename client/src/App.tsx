@@ -40,6 +40,8 @@ import AdminHeroVideos from "@/pages/admin/hero-videos";
 import AdminLogin from "@/pages/admin-login";
 import Calculator from "@/pages/calculator";
 import Contact from "@/pages/contact";
+import Blog from "@/pages/blog";
+import BlogPost from "@/pages/blog-post";
 import { useAdminAuth } from "@/hooks/use-admin-auth";
 import { useAnalytics } from "@/hooks/use-analytics";
 import { Button } from "@/components/ui/button";
@@ -115,6 +117,8 @@ function Router() {
       <Route path="/book" component={Booking} />
       <Route path="/calculator" component={Calculator} />
       <Route path="/contact" component={Contact} />
+      <Route path="/blog" component={Blog} />
+      <Route path="/blog/:slug" component={BlogPost} />
       
       {/* Service Pages */}
       <Route path="/services/residential-moving" component={ResidentialMoving} />
