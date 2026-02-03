@@ -1508,35 +1508,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CTA Section - Gradient Background */}
-      <section className="py-20 bg-gradient-to-r from-primary via-amber-500 to-primary relative overflow-hidden">
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(0,0,0,0.15) 1px, transparent 0)', backgroundSize: '24px 24px' }} />
-        </div>
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-[#1A2332] mb-4">
-            Ready to Move?
-          </h2>
-          <p className="text-xl text-[#1A2332]/80 mb-8 max-w-2xl mx-auto">
-            Get your free, no-obligation quote in minutes. We handle all types of moves across Ottawa and beyond.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/book">
-              <Button size="lg" className="bg-[#1A2332] text-white hover:bg-[#1A2332]/90 font-bold text-lg px-10 py-6 shadow-2xl" data-testid="button-get-quote-services">
-                Get Your Free Quote
-                <ArrowRight className="h-5 w-5 ml-2" />
-              </Button>
-            </Link>
-            <a href="tel:613-600-4000">
-              <Button size="lg" variant="outline" className="border-2 border-[#1A2332] text-[#1A2332] hover:bg-[#1A2332] hover:text-white font-bold text-lg px-10 py-6" data-testid="button-call-cta">
-                <Phone className="h-5 w-5 mr-2" />
-                (613) 600-4000
-              </Button>
-            </a>
-          </div>
-        </div>
-      </section>
-
       {/* Pricing Packages Section - Light Background */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
