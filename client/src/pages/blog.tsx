@@ -61,7 +61,7 @@ export default function Blog() {
           ) : (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {publishedPosts.map((post) => (
-                <Link key={post.id} href={`/${post.slug}`}>
+                <Link key={post.id} href={`/blog/${post.slug}`}>
                   <Card className="overflow-hidden h-full hover:shadow-xl transition-shadow cursor-pointer group">
                     {post.featuredImage && (
                       <div className="h-48 overflow-hidden">

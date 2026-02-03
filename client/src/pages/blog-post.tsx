@@ -54,7 +54,7 @@ export default function BlogPost() {
         <SharedNavigation />
         <div className="pt-32 pb-16 text-center">
           <h1 className="text-2xl font-bold text-gray-900 mb-4">Post Not Found</h1>
-          <Link href="/theblog">
+          <Link href="/blog">
             <Button>
               <ArrowLeft className="h-4 w-4 mr-2" />
               Back to Blog
