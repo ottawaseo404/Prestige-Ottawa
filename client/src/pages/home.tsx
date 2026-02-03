@@ -1021,6 +1021,126 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Our Moving Services - Modern Bento Grid */}
+      <section className="py-20 md:py-28 bg-gradient-to-b from-gray-50 to-white overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Section Header */}
+          <div className="text-center mb-16">
+            <Badge className="bg-[#1A2332] text-white mb-4 px-4 py-1.5">
+              <Sparkles className="h-4 w-4 mr-2" />
+              Greater Ottawa's Top-Rated Moving Company
+            </Badge>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-[#1A2332] mb-6">
+              Professional <span className="text-primary">Movers in Ottawa</span>
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Looking for <strong className="text-[#1A2332]">movers Ottawa</strong> residents trust? Prestige Moving provides professional moving services across Greater Ottawa, Kanata, Orleans, Nepean, and all of the National Capital Region. Full-service <strong className="text-[#1A2332]">Ottawa movers</strong> for residential and commercial relocations.
+            </p>
+          </div>
+
+          {/* Featured Services - Equal Size Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            
+            {/* Residential Moving */}
+            <Link href="/services/residential-moving">
+              <div className="group relative h-[320px] rounded-3xl overflow-hidden cursor-pointer shadow-xl hover:shadow-2xl transition-all duration-500" data-testid="service-card-residential">
+                <img 
+                  src={residentialImage} 
+                  alt="Residential Moving Services" 
+                  className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#1A2332] via-[#1A2332]/60 to-transparent" />
+                <div className="absolute inset-0 p-6 flex flex-col justify-end">
+                  <Badge className="bg-primary text-[#1A2332] font-bold mb-3 w-fit shadow-lg">
+                    <Star className="h-3 w-3 mr-1 fill-current" />
+                    Most Popular
+                  </Badge>
+                  <h3 className="text-2xl md:text-3xl font-black text-white mb-2">Residential Moving</h3>
+                  <p className="text-white/80 text-sm mb-3">Apartments, condos, and houses — handled with care</p>
+                  <div className="flex items-center gap-2 text-primary font-bold text-sm">
+                    <span>Learn More</span>
+                    <ArrowRight className="h-4 w-4 group-hover:translate-x-2 transition-transform" />
+                  </div>
+                </div>
+              </div>
+            </Link>
+
+            {/* Commercial Moving */}
+            <Link href="/services/commercial-moving">
+              <div className="group relative h-[320px] rounded-3xl overflow-hidden cursor-pointer shadow-xl hover:shadow-2xl transition-all duration-500" data-testid="service-card-commercial">
+                <img 
+                  src={commercialImage} 
+                  alt="Commercial Moving Services" 
+                  className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#1A2332] via-[#1A2332]/60 to-transparent" />
+                <div className="absolute inset-0 p-6 flex flex-col justify-end">
+                  <Badge className="bg-[#C5A572] text-white font-bold mb-3 w-fit shadow-lg">
+                    <Building2 className="h-3 w-3 mr-1" />
+                    Business
+                  </Badge>
+                  <h3 className="text-2xl md:text-3xl font-black text-white mb-2">Commercial Moving</h3>
+                  <p className="text-white/80 text-sm mb-3">Office relocations and business moves — minimal downtime</p>
+                  <div className="flex items-center gap-2 text-primary font-bold text-sm">
+                    <span>Learn More</span>
+                    <ArrowRight className="h-4 w-4 group-hover:translate-x-2 transition-transform" />
+                  </div>
+                </div>
+              </div>
+            </Link>
+
+            {/* Long Distance Moving */}
+            <Link href="/services/long-distance-moving">
+              <div className="group relative h-[320px] rounded-3xl overflow-hidden cursor-pointer shadow-xl hover:shadow-2xl transition-all duration-500" data-testid="service-card-long-distance">
+                <img 
+                  src={longDistanceImage} 
+                  alt="Long Distance Moving Services" 
+                  className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#1A2332] via-[#1A2332]/60 to-transparent" />
+                <div className="absolute inset-0 p-6 flex flex-col justify-end">
+                  <Badge className="bg-[#C5A572] text-white font-bold mb-3 w-fit shadow-lg">
+                    <MapPin className="h-3 w-3 mr-1" />
+                    Cross-Canada
+                  </Badge>
+                  <h3 className="text-2xl md:text-3xl font-black text-white mb-2">Long Distance Moving</h3>
+                  <p className="text-white/80 text-sm mb-3">Coast-to-coast across Canada — reliable delivery</p>
+                  <div className="flex items-center gap-2 text-primary font-bold text-sm">
+                    <span>Learn More</span>
+                    <ArrowRight className="h-4 w-4 group-hover:translate-x-2 transition-transform" />
+                  </div>
+                </div>
+              </div>
+            </Link>
+
+            {/* Packing Services */}
+            <Link href="/services/packing-services">
+              <div className="group relative h-[320px] rounded-3xl overflow-hidden cursor-pointer shadow-xl hover:shadow-2xl transition-all duration-500" data-testid="service-card-packing">
+                <img 
+                  src={packingImage} 
+                  alt="Professional Packing Services" 
+                  className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#1A2332] via-[#1A2332]/60 to-transparent" />
+                <div className="absolute inset-0 p-6 flex flex-col justify-end">
+                  <Badge className="bg-[#C5A572] text-white font-bold mb-3 w-fit shadow-lg">
+                    <Package className="h-3 w-3 mr-1" />
+                    Full-Service
+                  </Badge>
+                  <h3 className="text-2xl md:text-3xl font-black text-white mb-2">Packing Services</h3>
+                  <p className="text-white/80 text-sm mb-3">Professional packing with quality materials included</p>
+                  <div className="flex items-center gap-2 text-primary font-bold text-sm">
+                    <span>Learn More</span>
+                    <ArrowRight className="h-4 w-4 group-hover:translate-x-2 transition-transform" />
+                  </div>
+                </div>
+              </div>
+            </Link>
+          </div>
+
+        </div>
+      </section>
+
       {/* Moving Solutions Section */}
       <section className="relative z-20 py-16 md:py-20 bg-white" data-testid="section-solutions">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1387,126 +1507,6 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Our Moving Services - Modern Bento Grid */}
-      <section className="py-20 md:py-28 bg-gradient-to-b from-gray-50 to-white overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Section Header */}
-          <div className="text-center mb-16">
-            <Badge className="bg-[#1A2332] text-white mb-4 px-4 py-1.5">
-              <Sparkles className="h-4 w-4 mr-2" />
-              Greater Ottawa's Top-Rated Moving Company
-            </Badge>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-[#1A2332] mb-6">
-              Professional <span className="text-primary">Movers in Ottawa</span>
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Looking for <strong className="text-[#1A2332]">movers Ottawa</strong> residents trust? Prestige Moving provides professional moving services across Greater Ottawa, Kanata, Orleans, Nepean, and all of the National Capital Region. Full-service <strong className="text-[#1A2332]">Ottawa movers</strong> for residential and commercial relocations.
-            </p>
-          </div>
-
-          {/* Featured Services - Equal Size Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-            
-            {/* Residential Moving */}
-            <Link href="/services/residential-moving">
-              <div className="group relative h-[320px] rounded-3xl overflow-hidden cursor-pointer shadow-xl hover:shadow-2xl transition-all duration-500" data-testid="service-card-residential">
-                <img 
-                  src={residentialImage} 
-                  alt="Residential Moving Services" 
-                  className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#1A2332] via-[#1A2332]/60 to-transparent" />
-                <div className="absolute inset-0 p-6 flex flex-col justify-end">
-                  <Badge className="bg-primary text-[#1A2332] font-bold mb-3 w-fit shadow-lg">
-                    <Star className="h-3 w-3 mr-1 fill-current" />
-                    Most Popular
-                  </Badge>
-                  <h3 className="text-2xl md:text-3xl font-black text-white mb-2">Residential Moving</h3>
-                  <p className="text-white/80 text-sm mb-3">Apartments, condos, and houses — handled with care</p>
-                  <div className="flex items-center gap-2 text-primary font-bold text-sm">
-                    <span>Learn More</span>
-                    <ArrowRight className="h-4 w-4 group-hover:translate-x-2 transition-transform" />
-                  </div>
-                </div>
-              </div>
-            </Link>
-
-            {/* Commercial Moving */}
-            <Link href="/services/commercial-moving">
-              <div className="group relative h-[320px] rounded-3xl overflow-hidden cursor-pointer shadow-xl hover:shadow-2xl transition-all duration-500" data-testid="service-card-commercial">
-                <img 
-                  src={commercialImage} 
-                  alt="Commercial Moving Services" 
-                  className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#1A2332] via-[#1A2332]/60 to-transparent" />
-                <div className="absolute inset-0 p-6 flex flex-col justify-end">
-                  <Badge className="bg-[#C5A572] text-white font-bold mb-3 w-fit shadow-lg">
-                    <Building2 className="h-3 w-3 mr-1" />
-                    Business
-                  </Badge>
-                  <h3 className="text-2xl md:text-3xl font-black text-white mb-2">Commercial Moving</h3>
-                  <p className="text-white/80 text-sm mb-3">Office relocations and business moves — minimal downtime</p>
-                  <div className="flex items-center gap-2 text-primary font-bold text-sm">
-                    <span>Learn More</span>
-                    <ArrowRight className="h-4 w-4 group-hover:translate-x-2 transition-transform" />
-                  </div>
-                </div>
-              </div>
-            </Link>
-
-            {/* Long Distance Moving */}
-            <Link href="/services/long-distance-moving">
-              <div className="group relative h-[320px] rounded-3xl overflow-hidden cursor-pointer shadow-xl hover:shadow-2xl transition-all duration-500" data-testid="service-card-long-distance">
-                <img 
-                  src={longDistanceImage} 
-                  alt="Long Distance Moving Services" 
-                  className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#1A2332] via-[#1A2332]/60 to-transparent" />
-                <div className="absolute inset-0 p-6 flex flex-col justify-end">
-                  <Badge className="bg-[#C5A572] text-white font-bold mb-3 w-fit shadow-lg">
-                    <MapPin className="h-3 w-3 mr-1" />
-                    Cross-Canada
-                  </Badge>
-                  <h3 className="text-2xl md:text-3xl font-black text-white mb-2">Long Distance Moving</h3>
-                  <p className="text-white/80 text-sm mb-3">Coast-to-coast across Canada — reliable delivery</p>
-                  <div className="flex items-center gap-2 text-primary font-bold text-sm">
-                    <span>Learn More</span>
-                    <ArrowRight className="h-4 w-4 group-hover:translate-x-2 transition-transform" />
-                  </div>
-                </div>
-              </div>
-            </Link>
-
-            {/* Packing Services */}
-            <Link href="/services/packing-services">
-              <div className="group relative h-[320px] rounded-3xl overflow-hidden cursor-pointer shadow-xl hover:shadow-2xl transition-all duration-500" data-testid="service-card-packing">
-                <img 
-                  src={packingImage} 
-                  alt="Professional Packing Services" 
-                  className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#1A2332] via-[#1A2332]/60 to-transparent" />
-                <div className="absolute inset-0 p-6 flex flex-col justify-end">
-                  <Badge className="bg-[#C5A572] text-white font-bold mb-3 w-fit shadow-lg">
-                    <Package className="h-3 w-3 mr-1" />
-                    Full-Service
-                  </Badge>
-                  <h3 className="text-2xl md:text-3xl font-black text-white mb-2">Packing Services</h3>
-                  <p className="text-white/80 text-sm mb-3">Professional packing with quality materials included</p>
-                  <div className="flex items-center gap-2 text-primary font-bold text-sm">
-                    <span>Learn More</span>
-                    <ArrowRight className="h-4 w-4 group-hover:translate-x-2 transition-transform" />
-                  </div>
-                </div>
-              </div>
-            </Link>
-          </div>
-
         </div>
       </section>
 
