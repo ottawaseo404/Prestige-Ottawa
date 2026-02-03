@@ -1454,60 +1454,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Specialty Services Section - Dark Background */}
-      <section className="py-16 bg-[#1A2332]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10">
-            <h3 className="text-2xl md:text-3xl font-bold text-white mb-3">Specialty Moving Services</h3>
-            <p className="text-white/60">Expert handling for all your unique moving needs</p>
-          </div>
-          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-4">
-            {[
-              { title: "Moving Supplies", icon: Box, href: "/services/moving-supplies", desc: "Boxes & materials" },
-              { title: "Student Moving", icon: GraduationCap, href: "/services/student-moving", desc: "Budget-friendly" },
-              { title: "Storage", icon: Warehouse, href: "/services/storage-solutions", desc: "Secure facilities" },
-              { title: "Specialty Items", icon: Dumbbell, href: "/services/specialty-item-moving", desc: "Hot tubs & more" },
-              { title: "Antiques", icon: Crown, href: "/services/antique-moving", desc: "Careful handling" },
-              { title: "Piano Moving", icon: Music, href: "/services/piano-moving", desc: "Specialized transport" },
-              { title: "Senior Moving", icon: Heart, href: "/services/senior-moving", desc: "Compassionate care" },
-              { title: "Military Moving", icon: Medal, href: "/services/military-moving", desc: "PCS relocations" },
-            ].map((service) => (
-              <Link key={service.href} href={service.href}>
-                <div className="group bg-white/5 border border-white/10 rounded-2xl p-4 h-[120px] flex flex-col items-center justify-center text-center hover:bg-white/10 hover:border-primary/50 transition-all duration-300 cursor-pointer" data-testid={`service-card-${service.title.toLowerCase().replace(/\s+/g, '-')}`}>
-                  <div className="h-12 w-12 bg-primary/20 rounded-xl flex items-center justify-center group-hover:bg-primary/30 transition-colors mb-3">
-                    <service.icon className="h-6 w-6 text-primary" />
-                  </div>
-                  <h4 className="font-bold text-white text-xs leading-tight">{service.title}</h4>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Google Maps Location */}
-      <section className="py-12 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8">
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">Find Us</h2>
-            <p className="text-gray-600">Proudly serving Ottawa and surrounding areas</p>
-          </div>
-          <div className="rounded-2xl overflow-hidden shadow-lg border border-gray-200">
-            <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d702922.5965262149!2d-76.93469902187496!3d45.3445228!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4ccdfd66478c4cbf%3A0xa28f0b05d60667dc!2sPrestige%20Moving%20Inc%20%7C%20Ottawa%20Long%20Distance%20Movers!5e1!3m2!1sen!2sca!4v1770075294840!5m2!1sen!2sca" 
-              width="100%" 
-              height="400" 
-              style={{ border: 0 }} 
-              allowFullScreen 
-              loading="lazy" 
-              referrerPolicy="no-referrer-when-downgrade"
-              title="Prestige Moving Ottawa Location"
-              className="w-full"
-            />
-          </div>
-        </div>
-      </section>
-
       {/* Pricing Packages Section - Light Background */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1848,6 +1794,60 @@ export default function Home() {
                 </p>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Specialty Services Section - Dark Background */}
+      <section className="py-16 bg-[#1A2332]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <h3 className="text-2xl md:text-3xl font-bold text-white mb-3">Specialty Moving Services</h3>
+            <p className="text-white/60">Expert handling for all your unique moving needs</p>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-4">
+            {[
+              { title: "Moving Supplies", icon: Box, href: "/services/moving-supplies", desc: "Boxes & materials" },
+              { title: "Student Moving", icon: GraduationCap, href: "/services/student-moving", desc: "Budget-friendly" },
+              { title: "Storage", icon: Warehouse, href: "/services/storage-solutions", desc: "Secure facilities" },
+              { title: "Specialty Items", icon: Dumbbell, href: "/services/specialty-item-moving", desc: "Hot tubs & more" },
+              { title: "Antiques", icon: Crown, href: "/services/antique-moving", desc: "Careful handling" },
+              { title: "Piano Moving", icon: Music, href: "/services/piano-moving", desc: "Specialized transport" },
+              { title: "Senior Moving", icon: Heart, href: "/services/senior-moving", desc: "Compassionate care" },
+              { title: "Military Moving", icon: Medal, href: "/services/military-moving", desc: "PCS relocations" },
+            ].map((service) => (
+              <Link key={service.href} href={service.href}>
+                <div className="group bg-white/5 border border-white/10 rounded-2xl p-4 h-[120px] flex flex-col items-center justify-center text-center hover:bg-white/10 hover:border-primary/50 transition-all duration-300 cursor-pointer" data-testid={`service-card-${service.title.toLowerCase().replace(/\s+/g, '-')}`}>
+                  <div className="h-12 w-12 bg-primary/20 rounded-xl flex items-center justify-center group-hover:bg-primary/30 transition-colors mb-3">
+                    <service.icon className="h-6 w-6 text-primary" />
+                  </div>
+                  <h4 className="font-bold text-white text-xs leading-tight">{service.title}</h4>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Google Maps Location */}
+      <section className="py-12 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">Find Us</h2>
+            <p className="text-gray-600">Proudly serving Ottawa and surrounding areas</p>
+          </div>
+          <div className="rounded-2xl overflow-hidden shadow-lg border border-gray-200">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d702922.5965262149!2d-76.93469902187496!3d45.3445228!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4ccdfd66478c4cbf%3A0xa28f0b05d60667dc!2sPrestige%20Moving%20Inc%20%7C%20Ottawa%20Long%20Distance%20Movers!5e1!3m2!1sen!2sca!4v1770075294840!5m2!1sen!2sca" 
+              width="100%" 
+              height="400" 
+              style={{ border: 0 }} 
+              allowFullScreen 
+              loading="lazy" 
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Prestige Moving Ottawa Location"
+              className="w-full"
+            />
           </div>
         </div>
       </section>
