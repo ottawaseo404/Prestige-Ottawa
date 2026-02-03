@@ -1508,39 +1508,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* AI Calculator CTA */}
-      <section className="py-12 bg-gradient-to-r from-[#1A2332] via-[#2a3a52] to-[#1A2332] relative overflow-hidden">
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute top-10 left-20 w-64 h-64 bg-primary/40 rounded-full blur-3xl" />
-          <div className="absolute bottom-5 right-10 w-80 h-80 bg-blue-500/30 rounded-full blur-3xl" />
-        </div>
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-            <div className="flex items-center gap-6">
-              <div className="h-20 w-20 bg-gradient-to-br from-primary to-amber-600 rounded-2xl flex items-center justify-center shadow-lg shadow-primary/30">
-                <Calculator className="h-10 w-10 text-white" />
-              </div>
-              <div>
-                <div className="flex items-center gap-2 mb-1">
-                  <Badge className="bg-primary/20 text-primary border-primary/30">
-                    <Sparkles className="h-3 w-3 mr-1" />
-                    AI-Powered
-                  </Badge>
-                </div>
-                <h2 className="text-2xl md:text-3xl font-black text-white">Moving Cost Calculator</h2>
-                <p className="text-white/60">Get an instant, AI-powered estimate for your move</p>
-              </div>
-            </div>
-            <Link href="/calculator">
-              <Button size="lg" className="text-lg font-bold px-8 py-6 shadow-xl" data-testid="button-calculator-cta">
-                Try Free Calculator
-                <ArrowRight className="h-5 w-5 ml-2" />
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </section>
-
       {/* CTA Section - Gradient Background */}
       <section className="py-20 bg-gradient-to-r from-primary via-amber-500 to-primary relative overflow-hidden">
         <div className="absolute inset-0 opacity-20">
