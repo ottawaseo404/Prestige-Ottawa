@@ -1930,7 +1930,7 @@ export default function Home() {
                     </div>
                     <div className="bg-white/10 backdrop-blur-sm border border-white/10 rounded-xl p-6 text-center hover:bg-white/15 transition-all duration-300 group" data-testid="about-stat-4">
                       <ThumbsUp className="h-10 w-10 text-primary mx-auto mb-3 group-hover:scale-110 transition-transform" />
-                      <div className="text-3xl font-black text-white">99%</div>
+                      <div className="text-3xl font-black text-white">100%</div>
                       <div className="text-sm text-white/60">Satisfaction Rate</div>
                     </div>
                   </div>
