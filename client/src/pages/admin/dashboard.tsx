@@ -26,6 +26,15 @@ export default function AdminDashboard() {
     }
   });
   
+  const { data: servicePages } = useQuery<any[]>({
+    queryKey: ["/api/services"],
+    queryFn: async () => {
+      const response = await fetch("/api/services");
+      if (!response.ok) return [];
+      return response.json();
+    }
+  });
+
   const importWordPressMutation = useMutation({
     mutationFn: async () => {
       const response = await apiRequest("POST", "/api/admin/import-wordpress");
@@ -42,6 +51,27 @@ export default function AdminDashboard() {
       toast({
         title: "Import Failed",
         description: error.message || "Failed to import WordPress content",
+        variant: "destructive",
+      });
+    }
+  });
+
+  const importServicesMutation = useMutation({
+    mutationFn: async () => {
+      const response = await apiRequest("POST", "/api/admin/import-services");
+      return response.json();
+    },
+    onSuccess: (data) => {
+      toast({
+        title: "Import Complete",
+        description: `Imported ${data.imported || 0} service pages successfully!`,
+      });
+      queryClient.invalidateQueries({ queryKey: ["/api/services"] });
+    },
+    onError: (error: any) => {
+      toast({
+        title: "Import Failed",
+        description: error.message || "Failed to import service pages",
         variant: "destructive",
       });
     }
@@ -149,39 +179,76 @@ export default function AdminDashboard() {
         </Card>
       </div>
 
-      {/* Quick Actions - Blog Import */}
-      {(blogPosts?.length === 0 || !blogPosts) && (
-        <Card className="border-amber-200 bg-amber-50 dark:bg-amber-950/20 dark:border-amber-800">
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <FileText className="h-5 w-5 text-amber-600" />
-              Import Blog Content
-            </CardTitle>
-            <CardDescription>
-              Your blog has no posts. Import WordPress blog content to populate your blog with 370+ SEO-optimized articles.
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <Button 
-              onClick={() => importWordPressMutation.mutate()}
-              disabled={importWordPressMutation.isPending}
-              data-testid="button-import-wordpress"
-            >
-              {importWordPressMutation.isPending ? (
-                <>
-                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                  Importing... (this may take a few minutes)
-                </>
-              ) : (
-                <>
-                  <Upload className="mr-2 h-4 w-4" />
-                  Import WordPress Blogs
-                </>
-              )}
-            </Button>
-          </CardContent>
-        </Card>
-      )}
+      {/* Content Management */}
+      <Card>
+        <CardHeader>
+          <CardTitle className="flex items-center gap-2">
+            <FileText className="h-5 w-5 text-primary" />
+            Content Management
+          </CardTitle>
+          <CardDescription>
+            Import WordPress content or manage your blog and service pages
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="grid gap-4 md:grid-cols-2">
+            <div className="p-4 rounded-lg border bg-muted/30">
+              <div className="flex items-center justify-between mb-2">
+                <h3 className="font-medium">Blog Posts</h3>
+                <Badge variant="secondary">{blogPosts?.length || 0} posts</Badge>
+              </div>
+              <p className="text-sm text-muted-foreground mb-3">
+                Import 370+ SEO-optimized blog articles from WordPress
+              </p>
+              <Button 
+                onClick={() => importWordPressMutation.mutate()}
+                disabled={importWordPressMutation.isPending}
+                size="sm"
+                data-testid="button-import-wordpress"
+              >
+                {importWordPressMutation.isPending ? (
+                  <>
+                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                    Importing...
+                  </>
+                ) : (
+                  <>
+                    <Upload className="mr-2 h-4 w-4" />
+                    Import Blog Posts
+                  </>
+                )}
+              </Button>
+            </div>
+            <div className="p-4 rounded-lg border bg-muted/30">
+              <div className="flex items-center justify-between mb-2">
+                <h3 className="font-medium">Service Pages</h3>
+                <Badge variant="secondary">{servicePages?.length || 0} pages</Badge>
+              </div>
+              <p className="text-sm text-muted-foreground mb-3">
+                Import 9 detailed service pages from WordPress
+              </p>
+              <Button 
+                onClick={() => importServicesMutation.mutate()}
+                disabled={importServicesMutation.isPending}
+                size="sm"
+                data-testid="button-import-services"
+              >
+                {importServicesMutation.isPending ? (
+                  <>
+                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                    Importing...
+                  </>
+                ) : (
+                  <>
+                    <Upload className="mr-2 h-4 w-4" />
+                    Import Service Pages
+                  </>
+                )}
+              </Button>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
 
       {/* Recent Bookings */}
       <Card>
