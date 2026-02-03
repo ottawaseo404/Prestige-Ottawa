@@ -1026,10 +1026,17 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
           <div className="text-center mb-16">
-            <Badge className="bg-[#1A2332] text-white mb-4 px-4 py-1.5">
-              <Sparkles className="h-4 w-4 mr-2" />
-              Greater Ottawa's Top-Rated Moving Company
-            </Badge>
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/20 via-primary/10 to-primary/20 border border-primary/30 rounded-full px-5 py-2.5 mb-6 shadow-lg shadow-primary/10 backdrop-blur-sm">
+              <div className="flex items-center justify-center w-6 h-6 bg-primary rounded-full">
+                <Sparkles className="h-3.5 w-3.5 text-[#1A2332]" />
+              </div>
+              <span className="text-sm font-semibold text-[#1A2332]">Greater Ottawa's Top-Rated Moving Company</span>
+              <div className="flex gap-0.5">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="h-3 w-3 fill-primary text-primary" />
+                ))}
+              </div>
+            </div>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-[#1A2332] mb-6">
               Professional <span className="text-primary">Movers in Ottawa</span>
             </h2>
