@@ -1857,7 +1857,7 @@ export default function Home() {
             </div>
             <div className="rounded-2xl overflow-hidden shadow-lg border border-gray-200">
               <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d702922.5965262149!2d-76.93469902187496!3d45.3445228!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4ccdfd66478c4cbf%3A0xa28f0b05d60667dc!2sPrestige%20Moving%20Inc%20%7C%20Ottawa%20Long%20Distance%20Movers!5e1!3m2!1sen!2sca!4v1770075294840!5m2!1sen!2sca" 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1500!2d-75.7369214!3d45.3445228!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4ccdfd66478c4cbf%3A0xa28f0b05d60667dc!2sPrestige%20Moving%20Inc%20%7C%20Ottawa%20Long%20Distance%20Movers!5e1!3m2!1sen!2sca!4v1770075294840!5m2!1sen!2sca" 
                 width="100%" 
                 height="400" 
                 style={{ border: 0 }} 
