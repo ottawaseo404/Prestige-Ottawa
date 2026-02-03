@@ -9,8 +9,8 @@ import {
 import { Link } from "wouter";
 import { useQuery } from "@tanstack/react-query";
 import { Helmet } from "react-helmet";
+import { SharedHeader } from "@/components/shared-header";
 import { SharedFooter } from "@/components/shared-footer";
-import logoUrl from "@assets/transparentlogo_1770071884904.png";
 
 interface ServicePage {
   id: string;
@@ -121,29 +121,7 @@ export default function Services() {
       </Helmet>
 
       <div className="min-h-screen bg-background">
-        {/* Header */}
-        <header className="sticky top-0 z-50 w-full border-b bg-[#1A2332]/95 backdrop-blur supports-[backdrop-filter]:bg-[#1A2332]/90">
-          <div className="container mx-auto px-4">
-            <div className="flex h-20 items-center justify-between">
-              <Link href="/">
-                <div className="flex items-center gap-3 cursor-pointer">
-                  <img src={logoUrl} alt="Prestige Moving" className="h-16 w-auto" />
-                </div>
-              </Link>
-              <div className="flex items-center gap-4">
-                <a href="tel:+16135550123" className="hidden md:flex items-center gap-2 text-white">
-                  <Phone className="h-4 w-4 text-[#C5A572]" />
-                  <span className="font-semibold">(613) 555-0123</span>
-                </a>
-                <Link href="/book">
-                  <Button className="bg-[#C5A572] hover:bg-[#B8956A] text-white" data-testid="button-header-quote">
-                    Get Free Quote
-                  </Button>
-                </Link>
-              </div>
-            </div>
-          </div>
-        </header>
+        <SharedHeader />
 
         {/* Hero Section */}
         <section className="bg-gradient-to-br from-[#1A2332] to-[#2A3342] text-white py-16 md:py-24">
