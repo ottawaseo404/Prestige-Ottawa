@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { SharedNavigation } from "@/components/shared-navigation";
 import { SharedFooter } from "@/components/shared-footer";
+import { Helmet } from "react-helmet";
 
 interface BlogPost {
   id: number;
@@ -26,6 +27,16 @@ export default function Blog() {
 
   return (
     <div className="min-h-screen bg-background">
+      <Helmet>
+        <title>Moving Tips & Blog | Prestige Moving Ottawa</title>
+        <meta name="description" content="Expert moving tips, packing guides, and helpful advice from Ottawa's trusted movers. Learn how to plan your move, protect your belongings, and save money on your next relocation." />
+        <meta name="keywords" content="moving tips, packing guide, Ottawa moving blog, relocation advice, moving checklist, how to move" />
+        <link rel="canonical" href="https://ottawa.prestigemoving.ca/blog" />
+        <meta property="og:title" content="Moving Tips & Blog | Prestige Moving Ottawa" />
+        <meta property="og:description" content="Expert moving tips and helpful advice from Ottawa's trusted movers." />
+        <meta property="og:url" content="https://ottawa.prestigemoving.ca/blog" />
+        <meta property="og:type" content="website" />
+      </Helmet>
       <SharedNavigation />
       
       <section className="pt-32 pb-16 bg-gradient-to-b from-[#1A2332] to-[#2a3a52]">
