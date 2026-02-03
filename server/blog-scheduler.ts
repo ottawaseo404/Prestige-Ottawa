@@ -4,7 +4,7 @@ import { nanoid } from "nanoid";
 import fs from "fs";
 import path from "path";
 
-const BLOGS_PER_DAY = 2;
+const BLOGS_PER_DAY = 1;
 let isGenerating = false;
 
 export async function generateDailyBlogs(): Promise<void> {
@@ -29,20 +29,50 @@ export async function generateDailyBlogs(): Promise<void> {
         console.log(`[Blog Scheduler] Content generated for: "${blogContent.title}"`);
 
         let featuredImagePath = "";
+        let inlineImagePath = "";
+        
         try {
           console.log(`[Blog Scheduler] Generating featured image...`);
-          const imageBase64 = await generateFeaturedImage(blogContent.title);
+          const imageBase64 = await generateFeaturedImage(blogContent.title, "featured");
           
           const imageBuffer = Buffer.from(imageBase64.replace(/^data:image\/\w+;base64,/, ""), "base64");
-          const imageName = `blog-${blogContent.slug}-${nanoid(6)}.png`;
-          const imagePath = path.join(process.cwd(), "client", "public", imageName);
+          const imageName = `blog-${blogContent.slug}-featured-${nanoid(6)}.png`;
+          const imagePath = path.join(process.cwd(), "client", "public", "blog-images", imageName);
+          
+          if (!fs.existsSync(path.dirname(imagePath))) {
+            fs.mkdirSync(path.dirname(imagePath), { recursive: true });
+          }
           
           fs.writeFileSync(imagePath, imageBuffer);
-          featuredImagePath = `/${imageName}`;
-          console.log(`[Blog Scheduler] Image saved: ${featuredImagePath}`);
+          featuredImagePath = `/blog-images/${imageName}`;
+          console.log(`[Blog Scheduler] Featured image saved: ${featuredImagePath}`);
         } catch (imageError) {
-          console.error(`[Blog Scheduler] Image generation failed:`, imageError);
+          console.error(`[Blog Scheduler] Featured image generation failed:`, imageError);
           featuredImagePath = "/og-image.png";
+        }
+
+        try {
+          console.log(`[Blog Scheduler] Generating inline content image...`);
+          const inlineBase64 = await generateFeaturedImage(blogContent.title, "inline");
+          
+          const inlineBuffer = Buffer.from(inlineBase64.replace(/^data:image\/\w+;base64,/, ""), "base64");
+          const inlineName = `blog-${blogContent.slug}-inline-${nanoid(6)}.png`;
+          const inlinePath = path.join(process.cwd(), "client", "public", "blog-images", inlineName);
+          
+          fs.writeFileSync(inlinePath, inlineBuffer);
+          inlineImagePath = `/blog-images/${inlineName}`;
+          console.log(`[Blog Scheduler] Inline image saved: ${inlineImagePath}`);
+        } catch (inlineError) {
+          console.error(`[Blog Scheduler] Inline image generation failed:`, inlineError);
+        }
+
+        let finalContent = blogContent.content;
+        if (inlineImagePath) {
+          const paragraphs = finalContent.split('\n\n');
+          const insertIndex = Math.min(3, Math.floor(paragraphs.length / 3));
+          const imageHtml = `\n\n<figure class="my-8"><img src="${inlineImagePath}" alt="${blogContent.title} - Moving in Ottawa" class="w-full rounded-lg shadow-lg" /><figcaption class="text-center text-sm text-muted-foreground mt-2">Professional moving services in Ottawa</figcaption></figure>\n\n`;
+          paragraphs.splice(insertIndex, 0, imageHtml);
+          finalContent = paragraphs.join('\n\n');
         }
 
         const existingPost = await storage.getBlogPostBySlug(blogContent.slug);
@@ -55,7 +85,7 @@ export async function generateDailyBlogs(): Promise<void> {
           title: blogContent.title,
           slug: blogContent.slug,
           excerpt: blogContent.excerpt,
-          content: blogContent.content,
+          content: finalContent,
           featuredImage: featuredImagePath,
           featuredImageAlt: `Featured image for ${blogContent.title}`,
           metaTitle: blogContent.metaTitle,
@@ -71,9 +101,6 @@ export async function generateDailyBlogs(): Promise<void> {
 
         console.log(`[Blog Scheduler] Blog post created: "${blogContent.title}"`);
 
-        if (i < BLOGS_PER_DAY - 1) {
-          await new Promise(resolve => setTimeout(resolve, 5000));
-        }
       } catch (blogError) {
         console.error(`[Blog Scheduler] Failed to generate blog for topic "${topic}":`, blogError);
       }
@@ -88,9 +115,7 @@ export async function generateDailyBlogs(): Promise<void> {
 }
 
 export function startBlogScheduler(): void {
-  const TWENTY_FOUR_HOURS = 24 * 60 * 60 * 1000;
-  
-  console.log("[Blog Scheduler] Scheduler started. Will generate 2 blogs every 24 hours.");
+  console.log("[Blog Scheduler] Scheduler started. Will generate 1 blog daily with AI images.");
   
   setInterval(() => {
     const now = new Date();

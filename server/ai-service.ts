@@ -115,11 +115,17 @@ Return your response in the following JSON format:
   );
 }
 
-export async function generateFeaturedImage(title: string): Promise<string> {
+export async function generateFeaturedImage(title: string, type: "featured" | "inline" = "featured"): Promise<string> {
   return limit(() =>
     pRetry(
       async () => {
-        const prompt = `Professional, high-quality hero image for a moving company blog post titled "${title}". Modern, clean design with warm colors. Show professional movers, moving trucks, or a beautiful Ottawa cityscape. Photorealistic style, no text overlays.`;
+        let prompt: string;
+        
+        if (type === "featured") {
+          prompt = `Professional, high-quality hero image for a moving company blog post titled "${title}". Modern, clean design with warm colors. Show professional movers in uniform, a moving truck, or a beautiful Ottawa cityscape with Parliament buildings. Photorealistic style, no text overlays, 16:9 aspect ratio composition.`;
+        } else {
+          prompt = `Illustrative photo for a moving company blog article about "${title}". Show a relevant scene: happy family moving into new home, professional movers carefully handling furniture, organized moving boxes with labels, or a cozy Ottawa neighborhood. Warm, inviting atmosphere, photorealistic style, no text overlays.`;
+        }
 
         const response = await openai.images.generate({
           model: "gpt-image-1",
@@ -132,7 +138,6 @@ export async function generateFeaturedImage(title: string): Promise<string> {
           throw new Error("No image generated");
         }
 
-        // Return as base64 data URL
         return `data:image/png;base64,${base64}`;
       },
       {
