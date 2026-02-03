@@ -1864,9 +1864,9 @@ export default function Home() {
                 {[
                   "Downtown Ottawa", "Centretown", "The Glebe", "Westboro",
                   "Kanata", "Orleans", "Nepean", "Barrhaven",
-                  "Gloucester", "Stittsville", "Manotick", "Rockland",
-                  "Gatineau", "Hull", "Aylmer", "Chelsea",
-                  "Kemptville", "Carleton Place"
+                  "Gloucester", "Stittsville", "Manotick", "Greely",
+                  "Rockland", "Gatineau", "Hull", "Aylmer",
+                  "Chelsea", "Kemptville", "Carleton Place"
                 ].map((area) => (
                   <div key={area} className="bg-white/10 rounded-xl px-4 py-3 text-white/90 text-sm font-medium hover:bg-white/20 transition-colors">
                     {area}
