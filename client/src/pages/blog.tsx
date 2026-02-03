@@ -19,10 +19,10 @@ interface BlogPost {
 
 export default function Blog() {
   const { data: posts, isLoading } = useQuery<BlogPost[]>({
-    queryKey: ["/api/blog"],
+    queryKey: ["/api/blog/posts"],
   });
 
-  const publishedPosts = posts?.filter(post => post.published) || [];
+  const publishedPosts = posts || [];
 
   return (
     <div className="min-h-screen bg-background">
