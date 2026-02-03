@@ -1053,7 +1053,7 @@ export default function Home() {
                 Professional <span className="text-primary">Movers in Ottawa</span>
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Looking for <strong className="text-[#1A2332]">movers Ottawa</strong> residents trust? Prestige Moving provides professional moving services across Greater Ottawa, Kanata, Orleans, Nepean, and all of the National Capital Region. Full-service <strong className="text-[#1A2332]">Ottawa movers</strong> for residential and commercial relocations.
+                At <strong className="text-[#1A2332]">Prestige Moving</strong>, we deliver an unmatched moving experience with top-of-the-line quality that sets us apart from the competition. Our <strong className="text-[#1A2332]">Ottawa movers</strong> provide white-glove service across Greater Ottawa, Kanata, Orleans, Nepean, and the entire National Capital Region—because your belongings deserve nothing less than prestige.
               </p>
             </div>
 
