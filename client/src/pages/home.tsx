@@ -749,7 +749,7 @@ export default function Home() {
               </div>
 
               {/* Trust Badges Row */}
-              <div className="flex flex-wrap items-center gap-3 mb-6">
+              <div className="inline-flex items-center gap-3 mb-6">
                 <div className="relative inline-flex items-center gap-2 bg-gradient-to-r from-primary/30 via-primary/20 to-primary/30 border-2 border-primary/60 rounded-full px-5 py-2.5 shadow-[0_0_20px_rgba(197,165,114,0.4)] hover:shadow-[0_0_30px_rgba(197,165,114,0.6)] transition-all duration-500" data-testid="badge-experience">
                   <div className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/30 to-primary/0 rounded-full animate-[shimmer_2s_ease-in-out_infinite]" />
                   <Award className="h-5 w-5 text-primary relative z-10 animate-[pulse_2s_ease-in-out_infinite]" />
