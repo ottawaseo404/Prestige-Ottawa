@@ -24,33 +24,47 @@ function isRateLimitError(error: any): boolean {
   );
 }
 
-// SEO-optimized blog post generation prompt
-const SEO_BLOG_PROMPT = `You are a senior SEO copywriter for Prestige Moving Ottawa, a professional moving company. Write comprehensive, SEO-optimized blog posts in English using Markdown formatting (h1 for title, h2/h3/h4 for subheadings).
+// SEO-optimized blog post generation prompt - WordPress-style HTML output
+const SEO_BLOG_PROMPT = `You are a senior SEO copywriter for Prestige Moving Ottawa. Write professional, SEO-optimized blog posts using clean HTML formatting (NOT Markdown).
+
+OUTPUT FORMAT - Use proper HTML tags:
+- Use <h2> for main section headings (NOT ## or **)
+- Use <h3> for subsections
+- Use <p> for paragraphs
+- Use <strong> for bold text (NOT **)
+- Use <ul><li> for bullet lists (NOT - or *)
+- Use <ol><li> for numbered lists
+- Use <hr class="wp-block-separator has-alpha-channel-opacity"/> between major sections
+- Add WordPress block classes: <h2 class="wp-block-heading">
+
+EXAMPLE CORRECT FORMAT:
+<p>Moving to a new home in Ottawa can be exciting...</p>
+
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+
+<h2 class="wp-block-heading"><strong>Why Choose Professional Ottawa Movers</strong></h2>
+
+<p>When relocating in the Ottawa area, professional movers offer several advantages:</p>
+
+<ul>
+<li><strong>Experience:</strong> Years of handling Ottawa's unique challenges</li>
+<li><strong>Equipment:</strong> Professional tools for safe transport</li>
+</ul>
 
 CRITICAL RULES:
-1. ONLY write about Ottawa, Ontario and surrounding areas (Orleans, Barrhaven, Kanata, Nepean, Stittsville, Bells Corners, Centretown, Hintonburg, Westboro, The Glebe, Rockcliffe Park, Sandy Hill, Gatineau, Carp, Manotick, Kemptville)
+1. ONLY write about Ottawa, Ontario and surrounding areas (Orleans, Barrhaven, Kanata, Nepean, Stittsville, Bells Corners, Centretown, Hintonburg, Westboro, The Glebe, Rockcliffe Park, Sandy Hill, Gatineau)
 2. NEVER mention Calgary, Toronto, Vancouver, Montreal, or any non-Ottawa locations
-3. Write at least 1500-2000 words with detailed, actionable content
+3. Write 1500-2000 words with detailed, actionable content
 4. Use keyword-rich subheadings naturally throughout
-5. Include local Ottawa references (Parliament Hill, Rideau Canal, ByWard Market, local weather, etc.)
-6. No internal links or markdown links
-7. Mention Prestige Moving Ottawa naturally 2-3 times
-8. Include a clear call-to-action mentioning the phone number
-
-Target keywords to incorporate naturally:
-- Primary: "Ottawa movers", "moving company Ottawa", "Prestige Moving"
-- Secondary: Neighborhood-specific terms, "long distance moving Ottawa", "commercial movers Ottawa"
-- Long-tail: "how much do movers cost in Ottawa", "best moving company Ottawa"
+5. Include local Ottawa references (Parliament Hill, Rideau Canal, ByWard Market, etc.)
+6. Mention Prestige Moving Ottawa naturally 2-3 times
+7. Include a call-to-action with phone number (613) 600-4000
 
 Company info:
 - Name: Prestige Moving Ottawa
 - Phone: (613) 600-4000
 - Address: 50 Colonnade Rd Unit 200B, Ottawa, ON K2E 7J6
-- Location: Ottawa, Ontario, Canada
-- Years in business: 15+
-- Completed moves: 10,000+
-- Google rating: 5.0 stars with 349 reviews
-- Services: Residential, Commercial, Long-distance, Piano, Packing, Storage`;
+- Google rating: 5.0 stars with 349 reviews`;
 
 export interface GeneratedBlogContent {
   title: string;
@@ -76,11 +90,13 @@ export async function generateBlogPost(topic: string): Promise<GeneratedBlogCont
             {
               role: "user",
               content: `Write an SEO-optimized article about: "${topic}"
+
+IMPORTANT: Output content as clean HTML (NOT Markdown). Use <h2>, <h3>, <p>, <strong>, <ul>, <li> tags.
               
 Return your response in the following JSON format:
 {
   "title": "The main H1 title of the article",
-  "content": "The full markdown content of the article (2000+ words)",
+  "content": "The full HTML content of the article (2000+ words) using proper HTML tags like <h2>, <p>, <strong>, <ul>, <li>. NO markdown syntax.",
   "excerpt": "A 2-3 sentence summary for the blog listing page",
   "metaTitle": "SEO meta title (50-60 characters)",
   "metaDescription": "SEO meta description (150-160 characters)",
