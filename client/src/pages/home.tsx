@@ -1497,15 +1497,22 @@ export default function Home() {
             </div>
 
             <div className="text-center mb-12">
-              <Badge className="bg-primary text-[#1A2332] mb-4 px-4 py-1.5">
-                <DollarSign className="h-4 w-4 mr-2" />
-                Transparent Pricing
-              </Badge>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-[#1A2332] mb-4">
-                Moving Packages
+              {/* Enhanced Badge with Glow */}
+              <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary via-primary to-primary/90 text-[#1A2332] px-6 py-2.5 rounded-full mb-6 shadow-lg shadow-primary/30 relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer"></div>
+                <DollarSign className="h-5 w-5 relative z-10" />
+                <span className="font-bold text-sm relative z-10">Transparent Pricing</span>
+              </div>
+              
+              {/* Enhanced Title with Gradient */}
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6">
+                <span className="bg-gradient-to-r from-[#1A2332] via-[#2a3a4d] to-[#1A2332] bg-clip-text text-transparent">Moving</span>{" "}
+                <span className="bg-gradient-to-r from-primary via-yellow-500 to-primary bg-clip-text text-transparent">Packages</span>
               </h2>
-              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                Choose the perfect package for your move. All packages include professional movers, moving truck, and full protection for your belongings.
+              
+              {/* Enhanced Description */}
+              <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+                Choose the <strong className="text-[#1A2332]">perfect package</strong> for your move. All packages include professional movers, moving truck, and <strong className="text-primary">full protection</strong> for your belongings.
               </p>
             </div>
 
