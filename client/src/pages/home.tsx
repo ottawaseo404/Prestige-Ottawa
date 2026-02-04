@@ -1036,6 +1036,21 @@ export default function Home() {
         {/* Our Moving Services - Modern Bento Grid */}
         <section className="py-20 md:py-28 bg-gradient-to-b from-gray-50 to-white overflow-hidden">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            {/* Parliament Hill Truck Image */}
+            <div className="mb-12 max-w-3xl mx-auto">
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-primary/20 via-primary/10 to-primary/20 p-1.5">
+                <div className="relative rounded-xl overflow-hidden">
+                  <img 
+                    src="/images/prestige-parliament.png"
+                    alt="Prestige Moving truck in front of Parliament Hill, Ottawa"
+                    className="w-full h-auto object-cover"
+                    data-testid="image-parliament-truck"
+                  />
+                </div>
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-primary/50 via-primary/30 to-primary/50 rounded-2xl -z-10 blur-md"></div>
+              </div>
+            </div>
+
             {/* Section Header */}
             <div className="text-center mb-16">
               <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/20 via-primary/10 to-primary/20 border border-primary/30 rounded-full px-5 py-2.5 mb-6 shadow-lg shadow-primary/10 backdrop-blur-sm">
