@@ -45,7 +45,6 @@ import { Helmet } from "react-helmet";
 import { SharedNavigation } from "@/components/shared-navigation";
 import { SharedFooter } from "@/components/shared-footer";
 import { WorkSafeBadge } from "@/components/worksafe-badge";
-import specialtyVideo from "@assets/generated_videos/specialty_item_moving_hot_tub.mp4";
 
 export default function SpecialtyItemMoving() {
   const [activeTestimonial, setActiveTestimonial] = useState(0);
@@ -264,16 +263,12 @@ export default function SpecialtyItemMoving() {
 
         {/* Hero Section */}
         <section className="relative min-h-[85vh] flex items-center overflow-hidden">
-          <video 
-            autoPlay 
-            loop 
-            muted 
-            playsInline
+          <img 
+            src="/images/prestige-trucks.webp"
+            alt="Prestige Moving fleet of trucks"
             className="absolute inset-0 w-full h-full object-cover"
-            data-testid="hero-video-specialty"
-          >
-            <source src={specialtyVideo} type="video/mp4" />
-          </video>
+            data-testid="hero-image-specialty"
+          />
           <div className="absolute inset-0 bg-gradient-to-r from-[#1A2332] via-[#1A2332]/90 to-[#1A2332]/40" />
 
           <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16">
