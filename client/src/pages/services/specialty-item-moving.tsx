@@ -263,12 +263,16 @@ export default function SpecialtyItemMoving() {
 
         {/* Hero Section */}
         <section className="relative min-h-[85vh] flex items-center overflow-hidden">
-          <img 
-            src="/images/prestige-trucks.webp"
-            alt="Prestige Moving fleet of trucks"
+          <video 
+            autoPlay 
+            loop 
+            muted 
+            playsInline
             className="absolute inset-0 w-full h-full object-cover"
-            data-testid="hero-image-specialty"
-          />
+            data-testid="hero-video-specialty"
+          >
+            <source src="/videos/specialty-item-hero.mp4" type="video/mp4" />
+          </video>
           <div className="absolute inset-0 bg-gradient-to-r from-[#1A2332] via-[#1A2332]/90 to-[#1A2332]/40" />
 
           <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16">
