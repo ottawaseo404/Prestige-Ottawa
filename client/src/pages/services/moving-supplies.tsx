@@ -50,7 +50,6 @@ import { SharedFooter } from "@/components/shared-footer";
 import { WorkSafeBadge } from "@/components/worksafe-badge";
 import { useToast } from "@/hooks/use-toast";
 import { apiRequest } from "@/lib/queryClient";
-import movingSuppliesVideo from "@assets/generated_videos/moving_supplies_delivery_vancouver.mp4";
 
 export default function MovingSupplies() {
   const { toast } = useToast();
@@ -308,7 +307,7 @@ export default function MovingSupplies() {
             className="absolute inset-0 w-full h-full object-cover"
             data-testid="video-hero"
           >
-            <source src={movingSuppliesVideo} type="video/mp4" />
+            <source src="/videos/moving-supplies-hero.mp4" type="video/mp4" />
           </video>
           <div className="absolute inset-0 bg-gradient-to-r from-[#1A2332] via-[#1A2332]/90 to-[#1A2332]/40" />
           
