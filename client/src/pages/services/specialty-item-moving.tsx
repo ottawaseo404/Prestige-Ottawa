@@ -284,9 +284,8 @@ export default function SpecialtyItemMoving() {
                 </Badge>
               </div>
 
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-6 leading-[1.1]" data-testid="heading-hero">
-                Ottawa's<br />
-                <span className="text-primary">Heavy Item Experts</span>
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-black text-white mb-6 leading-[1.1]" data-testid="heading-hero">
+                Ottawa's <span className="text-primary">Heavy Item Experts</span>
               </h1>
 
               <p className="text-xl md:text-2xl text-white/80 mb-8 leading-relaxed" data-testid="text-hero-description">
