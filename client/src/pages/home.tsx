@@ -1041,8 +1041,8 @@ export default function Home() {
               <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-primary/20 via-primary/10 to-primary/20 p-1.5">
                 <div className="relative rounded-xl overflow-hidden">
                   <img 
-                    src="/images/prestige-parliament.png"
-                    alt="Prestige Moving truck in front of Parliament Hill, Ottawa"
+                    src="/images/prestige-fleet.webp"
+                    alt="Prestige Moving fleet of trucks"
                     className="w-full h-auto object-cover"
                     data-testid="image-parliament-truck"
                   />
