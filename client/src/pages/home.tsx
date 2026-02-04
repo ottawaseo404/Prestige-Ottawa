@@ -1037,7 +1037,7 @@ export default function Home() {
         <section className="py-20 md:py-28 bg-gradient-to-b from-gray-50 to-white overflow-hidden">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* Hero Video */}
-            <div className="mb-12 max-w-4xl mx-auto">
+            <div className="mb-12 max-w-xl mx-auto">
               <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-primary/10 via-transparent to-primary/5 p-1.5">
                 <div className="relative rounded-xl overflow-hidden bg-[#1A2332]">
                   <video 
