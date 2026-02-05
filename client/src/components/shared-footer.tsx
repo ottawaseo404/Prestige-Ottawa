@@ -86,27 +86,52 @@ export function SharedFooter() {
             </div>
           </div>
           
-          <div className="border-t border-white/10 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-            <div className="flex items-center gap-6 text-sm text-white/50">
-              <span>WSIB Certified</span>
-              <span>•</span>
-              <span>5.0 Stars on Google (349 Reviews)</span>
-              <span>•</span>
-              <span>Fully Licensed & Insured</span>
+          <div className="border-t border-white/10 mt-12 pt-8">
+            <div className="flex flex-col md:flex-row items-center md:items-start gap-6 mb-6">
+              <div className="flex-shrink-0 flex items-center justify-center w-16 h-16 rounded-full border-2 border-white/30">
+                <div className="text-center leading-tight">
+                  <svg viewBox="0 0 50 50" className="w-14 h-14" aria-label="Canadian Owned and Operated">
+                    <circle cx="25" cy="25" r="23" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-white/40" />
+                    <path d="M 25 8 C 25 8 28 14 25 18 C 22 14 25 8 25 8 Z M 25 18 L 21 15 L 18 18 L 19 14 L 15 12 L 20 12 L 25 18 Z M 25 18 L 29 15 L 32 18 L 31 14 L 35 12 L 30 12 L 25 18 Z" fill="currentColor" className="text-white/70" />
+                    <path id="topArc" d="M 8 25 A 17 17 0 0 1 42 25" fill="none" />
+                    <text className="fill-white/60" style={{ fontSize: '5.5px', letterSpacing: '1px' }}>
+                      <textPath href="#topArc" startOffset="50%" textAnchor="middle">CANADIAN OWNED</textPath>
+                    </text>
+                    <path id="bottomArc" d="M 8 25 A 17 17 0 0 0 42 25" fill="none" />
+                    <text className="fill-white/60" style={{ fontSize: '5.5px', letterSpacing: '1px' }}>
+                      <textPath href="#bottomArc" startOffset="50%" textAnchor="middle">&amp; OPERATED</textPath>
+                    </text>
+                  </svg>
+                </div>
+              </div>
+              <div className="text-center md:text-left text-sm text-white/60 space-y-1">
+                <p>Copyright {currentYear} Prestige Moving / Canada.</p>
+                <p>50 Colonnade Rd Unit 200B, Ottawa, ON K2E 7J6</p>
+                <p>Prestige Moving locations are Canadian owned and operated.</p>
+              </div>
             </div>
-            <div className="text-sm text-white/50">
-              <p>
-                Copyright © {currentYear} PrestigeMoving.ca – Website Designed by{" "}
-                <a 
-                  href="https://ottawaseo.com" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-primary hover:text-primary/80 transition-colors"
-                  data-testid="link-ottawa-seo"
-                >
-                  Ottawa SEO Inc.
-                </a>
-              </p>
+
+            <div className="border-t border-white/10 pt-6 flex flex-col sm:flex-row justify-between items-center gap-4">
+              <div className="flex flex-wrap items-center justify-center sm:justify-start gap-x-4 gap-y-1 text-xs text-white/40">
+                <span>Prestige Moving Inc.</span>
+                <span>CVOR 208-105-148</span>
+                <span>WSIB Certified</span>
+                <span>Fully Licensed & Insured</span>
+              </div>
+              <div className="text-xs text-white/40">
+                <p>
+                  Website Designed by{" "}
+                  <a 
+                    href="https://ottawaseo.com" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-primary hover:text-primary/80 transition-colors"
+                    data-testid="link-ottawa-seo"
+                  >
+                    Ottawa SEO Inc.
+                  </a>
+                </p>
+              </div>
             </div>
           </div>
         </div>
