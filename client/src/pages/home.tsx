@@ -1053,14 +1053,15 @@ export default function Home() {
 
             {/* Section Header */}
             <div className="text-center mb-16">
-              <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/20 via-primary/10 to-primary/20 border border-primary/30 rounded-full px-5 py-2.5 mb-6 shadow-lg shadow-primary/10 backdrop-blur-sm">
-                <div className="flex items-center justify-center w-6 h-6 bg-primary rounded-full">
-                  <Sparkles className="h-3.5 w-3.5 text-[#1A2332]" />
+              <div className="relative inline-flex flex-col sm:flex-row items-center gap-2 sm:gap-3 bg-gradient-to-br from-primary/25 via-primary/15 to-primary/25 border border-primary/40 rounded-2xl sm:rounded-full px-4 sm:px-6 py-3 sm:py-3 mb-6 shadow-xl shadow-primary/20 backdrop-blur-sm overflow-hidden group">
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+                <div className="flex items-center justify-center w-10 h-10 sm:w-8 sm:h-8 bg-gradient-to-br from-primary to-primary/80 rounded-full shadow-lg shadow-primary/30">
+                  <Sparkles className="h-5 w-5 sm:h-4 sm:w-4 text-[#1A2332]" />
                 </div>
-                <span className="text-sm font-semibold text-[#1A2332]">Greater Ottawa's Top-Rated Moving Company</span>
-                <div className="flex gap-0.5">
+                <span className="text-base sm:text-sm font-bold text-[#1A2332] text-center sm:text-left">Greater Ottawa's Top-Rated Moving Company</span>
+                <div className="flex gap-1 sm:gap-0.5">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-3 w-3 fill-primary text-primary" />
+                    <Star key={i} className="h-4 w-4 sm:h-3.5 sm:w-3.5 fill-primary text-primary drop-shadow-sm" />
                   ))}
                 </div>
               </div>
