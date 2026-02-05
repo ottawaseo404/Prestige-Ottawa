@@ -38,6 +38,12 @@ import residentialImage from "@assets/truck1_1764291781341.jpeg";
 import commercialImage from "@assets/commercial_1764347548715.jpeg";
 import longDistanceImage from "@assets/longdistance moving_1764348335754.jpg";
 import packingImage from "@assets/IMG_5767_1764348259855.jpeg";
+import whyTransparentPricingImg from "@assets/why-transparent-pricing.png";
+import whyFullyInsuredImg from "@assets/why-fully-insured.png";
+import whyOnTimeImg from "@assets/why-on-time.png";
+import whyProfessionalTeamImg from "@assets/why-professional-team.png";
+import whyModernFleetImg from "@assets/why-modern-fleet.png";
+import whySupportImg from "@assets/why-support.png";
 import { packageTypes, type PackageType } from "@shared/schema";
 import { SharedFooter } from "@/components/shared-footer";
 // Hero video path (referenced directly to avoid Vite import issues with MP4)
@@ -1984,33 +1990,48 @@ export default function Home() {
         </section>
 
         {/* Why Choose Us Section */}
-        <section className="py-20 md:py-28 bg-background">
+        <section className="py-20 md:py-28 bg-gradient-to-b from-background via-background to-muted/30">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
+              <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 rounded-full px-4 py-1.5 mb-4">
+                <Sparkles className="h-3.5 w-3.5 text-primary" />
+                <span className="text-xs font-semibold text-primary uppercase tracking-wider">The Prestige Difference</span>
+              </div>
               <h2 className="text-4xl md:text-5xl font-black text-foreground mb-4">
                 Why Choose Prestige Moving
               </h2>
-              <p className="text-xl text-muted-foreground">
-                The difference is in the details
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                The difference is in the details — here's what sets us apart from every other moving company in Ottawa
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
-                { icon: CheckCircle2, title: "Transparent Pricing", description: "No hidden fees or surprise charges. Get a detailed quote upfront that covers everything." },
-                { icon: Shield, title: "Fully Insured", description: "Licensed and insured. Your belongings are protected throughout the entire move." },
-                { icon: Clock, title: "On-Time Guarantee", description: "We arrive when promised. Your time is valuable, and we respect that." },
-                { icon: Users, title: "Professional Team", description: "Trained, background-checked movers who treat your belongings like their own." },
-                { icon: Truck, title: "Modern Fleet", description: "Well-maintained trucks equipped with the latest moving equipment and tools." },
-                { icon: Headphones, title: "24/7 Support", description: "Questions? Our customer service team is always here to help you." }
+                { image: whyTransparentPricingImg, title: "Transparent Pricing", description: "No hidden fees or surprise charges. Get a detailed quote upfront that covers everything.", stat: "100%", statLabel: "Upfront" },
+                { image: whyFullyInsuredImg, title: "Fully Insured", description: "Licensed and insured. Your belongings are protected throughout the entire move.", stat: "$2M+", statLabel: "Coverage" },
+                { image: whyOnTimeImg, title: "On-Time Guarantee", description: "We arrive when promised. Your time is valuable, and we respect that.", stat: "99%", statLabel: "On Time" },
+                { image: whyProfessionalTeamImg, title: "Professional Team", description: "Trained, background-checked movers who treat your belongings like their own.", stat: "50+", statLabel: "Experts" },
+                { image: whyModernFleetImg, title: "Modern Fleet", description: "Well-maintained trucks equipped with the latest moving equipment and tools.", stat: "20+", statLabel: "Vehicles" },
+                { image: whySupportImg, title: "24/7 Support", description: "Questions? Our customer service team is always here to help you.", stat: "24/7", statLabel: "Available" }
               ].map((item, index) => (
-                <div key={index} className="text-center p-6" data-testid={`why-choose-${index}`}>
-                  <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-6">
-                    <item.icon className="h-8 w-8 text-primary" />
+                <Card key={index} className="group relative overflow-visible border-border/50 hover:border-primary/30 transition-all duration-500 hover:shadow-xl hover:shadow-primary/5" data-testid={`why-choose-${index}`}>
+                  <div className="p-6 text-center">
+                    <div className="relative w-24 h-24 mx-auto mb-5">
+                      <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-primary/5 rounded-2xl rotate-6 group-hover:rotate-12 transition-transform duration-500" />
+                      <img
+                        src={item.image}
+                        alt={item.title}
+                        className="relative w-full h-full object-contain rounded-2xl group-hover:scale-110 transition-transform duration-500"
+                      />
+                    </div>
+                    <div className="inline-flex items-center gap-1.5 bg-primary/10 rounded-full px-3 py-1 mb-3">
+                      <span className="text-sm font-black text-primary">{item.stat}</span>
+                      <span className="text-xs text-primary/70">{item.statLabel}</span>
+                    </div>
+                    <h3 className="text-lg font-bold text-foreground mb-2">{item.title}</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{item.description}</p>
                   </div>
-                  <h3 className="text-xl font-bold text-foreground mb-3">{item.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed">{item.description}</p>
-                </div>
+                </Card>
               ))}
             </div>
           </div>
