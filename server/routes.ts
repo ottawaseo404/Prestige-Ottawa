@@ -4,6 +4,7 @@ import { storage } from "./storage";
 import { insertBookingSchema, type SmartMovingLead, packageTypes, insertMovingPackageSchema, insertBlogPostSchema, insertBlogCategorySchema, insertHeroVideoSchema, availableVideos, heroVideoPages } from "@shared/schema";
 import { z } from "zod";
 import { fromZodError } from "zod-validation-error";
+import { Resend } from "resend";
 import OpenAI from "openai";
 import { generateBlogPost, generateFeaturedImage, generateBlogIdeas } from "./ai-service";
 import { triggerManualGeneration } from "./blog-scheduler";
@@ -344,6 +345,90 @@ export async function registerRoutes(app: Express): Promise<Server> {
     school: z.string().optional(),
     pianoType: z.string().optional(),
     itemType: z.string().optional(),
+  });
+
+  app.post("/api/contact", async (req, res) => {
+    try {
+      const contactSchema = z.object({
+        name: z.string().min(1, "Name is required"),
+        email: z.string().email("Valid email is required"),
+        phone: z.string().min(1, "Phone is required"),
+        subject: z.string().optional(),
+        message: z.string().min(1, "Message is required"),
+      });
+
+      const validatedData = contactSchema.parse(req.body);
+
+      const resendApiKey = process.env.RESEND_API_KEY;
+      if (!resendApiKey) {
+        console.error("RESEND_API_KEY not configured");
+        return res.status(500).json({ message: "Email service not configured" });
+      }
+
+      const resend = new Resend(resendApiKey);
+
+      const subjectMap: Record<string, string> = {
+        quote: "Request a Quote",
+        residential: "Residential Moving",
+        commercial: "Commercial Moving",
+        "long-distance": "Long Distance Moving",
+        packing: "Packing Services",
+        storage: "Storage Solutions",
+        general: "General Inquiry",
+        feedback: "Feedback",
+      };
+
+      const subjectLabel = validatedData.subject ? subjectMap[validatedData.subject] || validatedData.subject : "General Inquiry";
+
+      await resend.emails.send({
+        from: "Prestige Moving Website <onboarding@resend.dev>",
+        to: ["ottawa@prestigemoving.ca"],
+        subject: `New Contact Form: ${subjectLabel} — from ${validatedData.name}`,
+        html: `
+          <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+            <div style="background-color: #1A2332; padding: 20px; text-align: center;">
+              <h1 style="color: #C5A572; margin: 0;">New Contact Form Submission</h1>
+            </div>
+            <div style="padding: 20px; background-color: #f9f9f9;">
+              <table style="width: 100%; border-collapse: collapse;">
+                <tr>
+                  <td style="padding: 10px; font-weight: bold; border-bottom: 1px solid #eee; width: 120px;">Name:</td>
+                  <td style="padding: 10px; border-bottom: 1px solid #eee;">${validatedData.name}</td>
+                </tr>
+                <tr>
+                  <td style="padding: 10px; font-weight: bold; border-bottom: 1px solid #eee;">Email:</td>
+                  <td style="padding: 10px; border-bottom: 1px solid #eee;"><a href="mailto:${validatedData.email}">${validatedData.email}</a></td>
+                </tr>
+                <tr>
+                  <td style="padding: 10px; font-weight: bold; border-bottom: 1px solid #eee;">Phone:</td>
+                  <td style="padding: 10px; border-bottom: 1px solid #eee;"><a href="tel:${validatedData.phone}">${validatedData.phone}</a></td>
+                </tr>
+                <tr>
+                  <td style="padding: 10px; font-weight: bold; border-bottom: 1px solid #eee;">Subject:</td>
+                  <td style="padding: 10px; border-bottom: 1px solid #eee;">${subjectLabel}</td>
+                </tr>
+                <tr>
+                  <td style="padding: 10px; font-weight: bold; vertical-align: top;">Message:</td>
+                  <td style="padding: 10px;">${validatedData.message.replace(/\n/g, '<br>')}</td>
+                </tr>
+              </table>
+            </div>
+            <div style="background-color: #1A2332; padding: 15px; text-align: center;">
+              <p style="color: #C5A572; margin: 0; font-size: 12px;">Prestige Moving Ottawa — (613) 600-4000</p>
+            </div>
+          </div>
+        `,
+      });
+
+      console.log("Contact form email sent successfully via Resend");
+      res.json({ success: true, message: "Message sent successfully!" });
+    } catch (error: any) {
+      console.error("Contact form error:", error);
+      if (error instanceof z.ZodError) {
+        return res.status(400).json({ message: fromZodError(error).message });
+      }
+      res.status(500).json({ message: "Failed to send message. Please try again." });
+    }
   });
 
   app.post("/api/quote-request", async (req, res) => {
