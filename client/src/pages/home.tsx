@@ -127,6 +127,7 @@ export default function Home() {
     moveSize: ""
   });
   const [heroFormSubmitted, setHeroFormSubmitted] = useState(false);
+  const [pricingType, setPricingType] = useState<"residential" | "commercial">("residential");
 
   // Quote form mutation
   const quoteMutation = useMutation({
@@ -1637,9 +1638,37 @@ export default function Home() {
               </h2>
               
               {/* Enhanced Description */}
-              <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+              <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed mb-8">
                 Choose the <strong className="text-[#1A2332]">perfect package</strong> for your move. All packages include professional movers, moving truck, and <strong className="text-primary">full protection</strong> for your belongings.
               </p>
+
+              {/* Residential / Commercial Toggle */}
+              <div className="inline-flex items-center bg-gray-100 rounded-full p-1.5 gap-1" data-testid="pricing-toggle">
+                <button
+                  onClick={() => setPricingType("residential")}
+                  className={`flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-bold transition-all duration-300 ${
+                    pricingType === "residential"
+                      ? "bg-[#1A2332] text-white shadow-lg"
+                      : "text-gray-500 hover:text-gray-700"
+                  }`}
+                  data-testid="toggle-residential"
+                >
+                  <HomeIcon className="h-4 w-4" />
+                  Residential
+                </button>
+                <button
+                  onClick={() => setPricingType("commercial")}
+                  className={`flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-bold transition-all duration-300 ${
+                    pricingType === "commercial"
+                      ? "bg-[#1A2332] text-white shadow-lg"
+                      : "text-gray-500 hover:text-gray-700"
+                  }`}
+                  data-testid="toggle-commercial"
+                >
+                  <Building2 className="h-4 w-4" />
+                  Commercial
+                </button>
+              </div>
             </div>
 
             <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
@@ -1651,16 +1680,18 @@ export default function Home() {
                   <div className="mb-6">
                     <h3 className="text-2xl font-black text-[#1A2332] mb-2">PREMIUM PACKAGE</h3>
                     <div className="flex items-baseline gap-1 mb-1">
-                      <span className="text-3xl font-black text-primary">$155</span>
+                      <span className="text-3xl font-black text-primary">${pricingType === "residential" ? "155" : "165"}</span>
                       <span className="text-gray-600">/hr</span>
                     </div>
-                    <p className="text-sm text-gray-500 font-medium">Minimum 3 hours + $155 travel fee within Ottawa</p>
+                    <p className="text-sm text-gray-500 font-medium">Minimum 3 hours + ${pricingType === "residential" ? "155" : "165"} travel fee within Ottawa</p>
                   </div>
                   
                   <div className="mb-6 p-3 bg-primary/10 rounded-xl">
                     <p className="text-sm font-semibold text-[#1A2332]">
-                      <span className="mr-2">🏠</span>
-                      Ideal for: Bachelor apartments, 1-2 bedroom moves
+                      <HomeIcon className="h-4 w-4 inline mr-2 text-primary" />
+                      {pricingType === "residential" 
+                        ? "Ideal for: Bachelor apartments, 1-2 bedroom moves" 
+                        : "Ideal for: Small offices, retail spaces"}
                     </p>
                   </div>
 
@@ -1702,7 +1733,7 @@ export default function Home() {
                   </div>
 
                   <p className="text-xs text-gray-500 mb-6 p-3 bg-gray-50 rounded-lg">
-                    <span className="text-primary">⭐</span> Need extra help? Add an additional mover for $50/hr and an extra $50 travel fee.
+                    <Star className="h-3 w-3 inline text-primary mr-1" /> Need extra help? Add an additional mover for $50/hr and an extra $50 travel fee.
                   </p>
 
                   <Link href="/book">
@@ -1726,16 +1757,18 @@ export default function Home() {
                   <div className="mb-6">
                     <h3 className="text-2xl font-black text-white mb-2">DELUXE PACKAGE</h3>
                     <div className="flex items-baseline gap-1 mb-1">
-                      <span className="text-3xl font-black text-primary">$195</span>
+                      <span className="text-3xl font-black text-primary">${pricingType === "residential" ? "195" : "205"}</span>
                       <span className="text-white/70">/hr</span>
                     </div>
-                    <p className="text-sm text-white/60 font-medium">Minimum 3 hours + $195 travel fee within Ottawa</p>
+                    <p className="text-sm text-white/60 font-medium">Minimum 3 hours + ${pricingType === "residential" ? "195" : "205"} travel fee within Ottawa</p>
                   </div>
                   
                   <div className="mb-6 p-3 bg-primary/20 rounded-xl">
                     <p className="text-sm font-semibold text-white">
-                      <span className="mr-2">🏡</span>
-                      Ideal for: 2-3 bedroom moves
+                      <Building2 className="h-4 w-4 inline mr-2 text-primary" />
+                      {pricingType === "residential"
+                        ? "Ideal for: 2-3 bedroom moves"
+                        : "Ideal for: Mid-size offices, warehouses"}
                     </p>
                   </div>
 
@@ -1795,16 +1828,18 @@ export default function Home() {
                   <div className="mb-6">
                     <h3 className="text-2xl font-black text-[#1A2332] mb-2">DIAMOND PACKAGE</h3>
                     <div className="flex items-baseline gap-1 mb-1">
-                      <span className="text-3xl font-black text-primary">$315</span>
+                      <span className="text-3xl font-black text-primary">${pricingType === "residential" ? "315" : "325"}</span>
                       <span className="text-gray-600">/hr</span>
                     </div>
-                    <p className="text-sm text-gray-500 font-medium">Minimum 3 hours + $315 travel fee within Ottawa</p>
+                    <p className="text-sm text-gray-500 font-medium">Minimum 3 hours + ${pricingType === "residential" ? "315" : "325"} travel fee within Ottawa</p>
                   </div>
                   
                   <div className="mb-6 p-3 bg-primary/10 rounded-xl">
                     <p className="text-sm font-semibold text-[#1A2332]">
-                      <span className="mr-2">🏰</span>
-                      Ideal for: Large homes (3-5 bedrooms)
+                      <Crown className="h-4 w-4 inline mr-2 text-primary" />
+                      {pricingType === "residential"
+                        ? "Ideal for: Large homes (3-5 bedrooms)"
+                        : "Ideal for: Large offices, full relocations"}
                     </p>
                   </div>
 
