@@ -450,8 +450,145 @@ export default function ResidentialMoving() {
           </div>
         </section>
 
-        {/* Testimonials */}
+        {/* Residential Pricing Packages */}
         <section className="py-16 md:py-20 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <Badge className="bg-primary/10 text-primary mb-4">Transparent Pricing</Badge>
+              <h2 className="text-3xl md:text-4xl font-black text-foreground mb-4">
+                Residential Moving Packages
+              </h2>
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                Simple, honest pricing with no hidden fees. Every package includes professional movers, a moving truck, and full furniture protection.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+              {/* Premium */}
+              <Card className="border-2 hover:border-primary/50 transition-all hover:shadow-lg relative" data-testid="residential-pricing-premium">
+                <div className="absolute -top-3 left-6">
+                  <Badge className="bg-gray-100 text-gray-600 no-default-hover-elevate no-default-active-elevate">01</Badge>
+                </div>
+                <CardContent className="p-8 pt-10">
+                  <h3 className="text-xl font-black text-foreground mb-2">PREMIUM PACKAGE</h3>
+                  <div className="flex items-baseline gap-1 mb-1">
+                    <span className="text-3xl font-black text-primary">$155</span>
+                    <span className="text-muted-foreground">/hr</span>
+                  </div>
+                  <p className="text-sm text-muted-foreground mb-4">Minimum 3 hours + $155 travel fee</p>
+                  
+                  <div className="p-3 bg-primary/10 rounded-xl mb-5">
+                    <p className="text-sm font-semibold text-foreground">
+                      <Home className="h-4 w-4 inline mr-2 text-primary" />
+                      Ideal for: Bachelor, 1-2 bedroom moves
+                    </p>
+                  </div>
+
+                  <ul className="space-y-2 text-sm text-muted-foreground mb-6">
+                    <li className="flex items-start gap-2"><CheckCircle2 className="h-4 w-4 text-primary shrink-0 mt-0.5" /> 2 Professional Movers</li>
+                    <li className="flex items-start gap-2"><CheckCircle2 className="h-4 w-4 text-primary shrink-0 mt-0.5" /> 16ft – 20ft Moving Truck</li>
+                    <li className="flex items-start gap-2"><CheckCircle2 className="h-4 w-4 text-primary shrink-0 mt-0.5" /> Full furniture wrapping & protection</li>
+                    <li className="flex items-start gap-2"><CheckCircle2 className="h-4 w-4 text-primary shrink-0 mt-0.5" /> Floor & railing protection</li>
+                    <li className="flex items-start gap-2"><CheckCircle2 className="h-4 w-4 text-primary shrink-0 mt-0.5" /> Basic disassembly & reassembly</li>
+                  </ul>
+
+                  <Link href="/book">
+                    <Button variant="outline" className="w-full font-bold" data-testid="button-residential-book-premium">
+                      GET A QUOTE
+                    </Button>
+                  </Link>
+                </CardContent>
+              </Card>
+
+              {/* Deluxe - Featured */}
+              <div className="relative bg-[#1A2332] rounded-md p-8 pt-10 shadow-2xl md:-translate-y-4" data-testid="residential-pricing-deluxe">
+                <div className="absolute -top-3 left-6">
+                  <Badge className="bg-primary text-[#1A2332] no-default-hover-elevate no-default-active-elevate">02</Badge>
+                </div>
+                <div className="absolute -top-3 right-6">
+                  <Badge className="bg-primary text-[#1A2332] no-default-hover-elevate no-default-active-elevate">
+                    <Star className="h-3 w-3 fill-current mr-1" />
+                    POPULAR
+                  </Badge>
+                </div>
+                <h3 className="text-xl font-black text-white mb-2">DELUXE PACKAGE</h3>
+                <div className="flex items-baseline gap-1 mb-1">
+                  <span className="text-3xl font-black text-primary">$195</span>
+                  <span className="text-white/70">/hr</span>
+                </div>
+                <p className="text-sm text-white/60 mb-4">Minimum 3 hours + $195 travel fee</p>
+                
+                <div className="p-3 bg-primary/20 rounded-xl mb-5">
+                  <p className="text-sm font-semibold text-white">
+                    <Home className="h-4 w-4 inline mr-2 text-primary" />
+                    Ideal for: 2-3 bedroom moves
+                  </p>
+                </div>
+
+                <ul className="space-y-2 text-sm text-white/80 mb-6">
+                  <li className="flex items-start gap-2"><CheckCircle2 className="h-4 w-4 text-primary shrink-0 mt-0.5" /> 3 Professional Movers</li>
+                  <li className="flex items-start gap-2"><CheckCircle2 className="h-4 w-4 text-primary shrink-0 mt-0.5" /> 26ft Moving Truck</li>
+                  <li className="flex items-start gap-2"><CheckCircle2 className="h-4 w-4 text-primary shrink-0 mt-0.5" /> Full furniture wrapping & protection</li>
+                  <li className="flex items-start gap-2"><CheckCircle2 className="h-4 w-4 text-primary shrink-0 mt-0.5" /> Floor & railing protection</li>
+                  <li className="flex items-start gap-2"><CheckCircle2 className="h-4 w-4 text-primary shrink-0 mt-0.5" /> Basic disassembly & reassembly</li>
+                </ul>
+
+                <Link href="/book">
+                  <Button className="w-full font-bold shadow-lg shadow-primary/30" data-testid="button-residential-book-deluxe">
+                    GET A QUOTE
+                  </Button>
+                </Link>
+              </div>
+
+              {/* Diamond */}
+              <Card className="border-2 hover:border-primary/50 transition-all hover:shadow-lg relative" data-testid="residential-pricing-diamond">
+                <div className="absolute -top-3 left-6">
+                  <Badge className="bg-gray-100 text-gray-600 no-default-hover-elevate no-default-active-elevate">03</Badge>
+                </div>
+                <CardContent className="p-8 pt-10">
+                  <h3 className="text-xl font-black text-foreground mb-2">DIAMOND PACKAGE</h3>
+                  <div className="flex items-baseline gap-1 mb-1">
+                    <span className="text-3xl font-black text-primary">$315</span>
+                    <span className="text-muted-foreground">/hr</span>
+                  </div>
+                  <p className="text-sm text-muted-foreground mb-4">Minimum 3 hours + $315 travel fee</p>
+                  
+                  <div className="p-3 bg-primary/10 rounded-xl mb-5">
+                    <p className="text-sm font-semibold text-foreground">
+                      <Home className="h-4 w-4 inline mr-2 text-primary" />
+                      Ideal for: Large homes (3-5 bedrooms)
+                    </p>
+                  </div>
+
+                  <ul className="space-y-2 text-sm text-muted-foreground mb-6">
+                    <li className="flex items-start gap-2"><CheckCircle2 className="h-4 w-4 text-primary shrink-0 mt-0.5" /> 4 Professional Movers</li>
+                    <li className="flex items-start gap-2"><CheckCircle2 className="h-4 w-4 text-primary shrink-0 mt-0.5" /> 2 Moving Trucks</li>
+                    <li className="flex items-start gap-2"><CheckCircle2 className="h-4 w-4 text-primary shrink-0 mt-0.5" /> Full furniture wrapping & protection</li>
+                    <li className="flex items-start gap-2"><CheckCircle2 className="h-4 w-4 text-primary shrink-0 mt-0.5" /> Floor & railing protection</li>
+                    <li className="flex items-start gap-2"><CheckCircle2 className="h-4 w-4 text-primary shrink-0 mt-0.5" /> Full disassembly & reassembly</li>
+                    <li className="flex items-start gap-2"><CheckCircle2 className="h-4 w-4 text-primary shrink-0 mt-0.5" /> Extra tape & shrink wrap included</li>
+                  </ul>
+
+                  <Link href="/book">
+                    <Button variant="outline" className="w-full font-bold" data-testid="button-residential-book-diamond">
+                      GET A QUOTE
+                    </Button>
+                  </Link>
+                </CardContent>
+              </Card>
+            </div>
+
+            <p className="text-center text-muted-foreground text-sm mt-8">
+              All prices are subject to change based on specific move requirements.{" "}
+              <Link href="/book" className="text-primary font-semibold hover:underline">
+                Get a personalized quote
+              </Link>
+            </p>
+          </div>
+        </section>
+
+        {/* Testimonials */}
+        <section className="py-16 md:py-20 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <Badge className="bg-primary/10 text-primary mb-4">Reviews</Badge>
