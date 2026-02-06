@@ -556,18 +556,6 @@ export default function Home() {
                   <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-primary rounded-full transition-all duration-300 group-hover/item:w-4/5 group-hover/item:shadow-[0_0_10px_rgba(197,165,114,0.8),0_0_20px_rgba(197,165,114,0.4)]" />
                 </button>
 
-                <a
-                  href="https://vancouver.prestigemoving.ca"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group/van relative flex items-center gap-2 px-4 py-2.5 text-white/90 font-medium tracking-wide text-sm uppercase transition-all duration-300 hover:text-white"
-                  data-testid="nav-vancouver"
-                >
-                  <MapPin className="h-4 w-4 transition-transform duration-300 group-hover/van:scale-110" />
-                  <span>Vancouver</span>
-                  <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-primary rounded-full transition-all duration-300 group-hover/van:w-4/5 group-hover/van:shadow-[0_0_10px_rgba(197,165,114,0.8),0_0_20px_rgba(197,165,114,0.4)]" />
-                </a>
-
                 <Link href="/book">
                   <Button variant="default" size="lg" className="font-bold shadow-lg" data-testid="button-get-quote">
                     FREE ESTIMATE
@@ -660,16 +648,6 @@ export default function Home() {
                           <MapPin className="h-5 w-5 text-primary flex-shrink-0" />
                           <span className="text-sm">Serving Ottawa & Area</span>
                         </div>
-                        <a
-                          href="https://vancouver.prestigemoving.ca"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center gap-3 p-3 rounded-md hover:bg-white/10 cursor-pointer w-full text-left"
-                          data-testid="mobile-nav-vancouver"
-                        >
-                          <MapPin className="h-5 w-5 text-primary flex-shrink-0" />
-                          <span className="font-medium text-white">Vancouver Location</span>
-                        </a>
                       </div>
 
                       {/* CTA Button */}
@@ -774,6 +752,16 @@ export default function Home() {
                     aria-label="Subscribe on YouTube"
                   >
                     <SiYoutube className="h-4 w-4 text-white group-hover:text-[#1A2332] transition-colors" />
+                  </a>
+                  <a
+                    href="https://vancouver.prestigemoving.ca"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 text-xs font-semibold text-white uppercase tracking-wider hover:bg-primary hover:border-primary hover:text-[#1A2332] transition-all duration-300"
+                    data-testid="link-vancouver-hero"
+                  >
+                    <MapPin className="h-3.5 w-3.5" />
+                    Vancouver
                   </a>
                 </div>
 
