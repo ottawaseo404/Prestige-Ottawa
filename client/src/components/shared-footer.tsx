@@ -1,6 +1,6 @@
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
-import { Phone, Mail } from "lucide-react";
+import { Phone, Mail, MapPin } from "lucide-react";
 import logoUrl from "@assets/originalonglogo_1763689606978.png";
 import { WorkSafeBadge } from "@/components/worksafe-badge";
 
@@ -56,6 +56,10 @@ export function SharedFooter() {
             <div>
               <h4 className="font-bold text-lg mb-4">Contact Us</h4>
               <div className="space-y-3 text-sm text-white/70">
+                <div className="flex items-center gap-2 text-white font-semibold mb-1">
+                  <MapPin className="h-4 w-4 text-primary" />
+                  Ottawa
+                </div>
                 <p>50 Colonnade Rd Unit 200B</p>
                 <p>Ottawa, ON K2E 7J6</p>
                 <a href="tel:613-600-4000" className="flex items-center gap-2 hover:text-primary transition-colors">
@@ -71,7 +75,32 @@ export function SharedFooter() {
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors"
-                  data-testid="link-google-business"
+                  data-testid="link-google-business-ottawa"
+                >
+                  View on Google Maps
+                </a>
+              </div>
+              <div className="border-t border-white/10 mt-5 pt-5 space-y-3 text-sm text-white/70">
+                <div className="flex items-center gap-2 text-white font-semibold mb-1">
+                  <MapPin className="h-4 w-4 text-primary" />
+                  Vancouver
+                </div>
+                <p>4385 Canada Wy</p>
+                <p>Burnaby, BC V5G 1J3</p>
+                <a href="tel:604-260-0425" className="flex items-center gap-2 hover:text-primary transition-colors">
+                  <Phone className="h-4 w-4" />
+                  (604) 260-0425
+                </a>
+                <a href="mailto:vancouver@prestigemoving.ca" className="flex items-center gap-2 hover:text-primary transition-colors">
+                  <Mail className="h-4 w-4" />
+                  vancouver@prestigemoving.ca
+                </a>
+                <a 
+                  href="https://maps.google.com/?q=4385+Canada+Wy+Burnaby+BC+V5G+1J3" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors"
+                  data-testid="link-google-business-vancouver"
                 >
                   View on Google Maps
                 </a>
