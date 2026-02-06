@@ -87,9 +87,9 @@ export function SharedFooter() {
                 </div>
                 <p>4385 Canada Wy</p>
                 <p>Burnaby, BC V5G 1J3</p>
-                <a href="tel:604-260-0425" className="flex items-center gap-2 hover:text-primary transition-colors">
+                <a href="tel:604-616-6066" className="flex items-center gap-2 hover:text-primary transition-colors">
                   <Phone className="h-4 w-4" />
-                  (604) 260-0425
+                  (604) 616-6066
                 </a>
                 <a href="mailto:vancouver@prestigemoving.ca" className="flex items-center gap-2 hover:text-primary transition-colors">
                   <Mail className="h-4 w-4" />

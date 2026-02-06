@@ -1144,9 +1144,9 @@ export default function Home() {
                     </div>
                     <p className="text-sm text-white/60 mb-4">4385 Canada Wy, Burnaby, BC V5G 1J3</p>
                     <div className="flex flex-wrap items-center gap-2">
-                      <a href="tel:604-398-4000" className="inline-flex items-center gap-1.5 bg-primary/15 text-primary rounded-full px-3 py-1.5 text-xs font-semibold hover:bg-primary/25 transition-colors" data-testid="link-vancouver-phone">
+                      <a href="tel:604-616-6066" className="inline-flex items-center gap-1.5 bg-primary/15 text-primary rounded-full px-3 py-1.5 text-xs font-semibold hover:bg-primary/25 transition-colors" data-testid="link-vancouver-phone">
                         <Phone className="h-3 w-3" />
-                        (604) 398-4000
+                        (604) 616-6066
                       </a>
                       <a href="mailto:vancouver@prestigemoving.ca" className="inline-flex items-center gap-1.5 bg-primary/15 text-primary rounded-full px-3 py-1.5 text-xs font-semibold hover:bg-primary/25 transition-colors" data-testid="link-vancouver-email">
                         <Mail className="h-3 w-3" />
