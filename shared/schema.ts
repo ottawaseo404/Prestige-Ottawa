@@ -172,7 +172,7 @@ export type SmartMovingLead = {
   FirstName: string;
   LastName: string;
   Email?: string;
-  Phone?: string;
+  PhoneNumber?: string;
   MoveDate?: string;
   ServiceType?: string;
   MoveSize?: string;
