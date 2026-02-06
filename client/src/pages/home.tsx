@@ -757,10 +757,10 @@ export default function Home() {
                     href="https://vancouver.prestigemoving.ca"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 text-xs font-semibold text-white uppercase tracking-wider hover:bg-primary hover:border-primary hover:text-[#1A2332] transition-all duration-300"
+                    className="inline-flex items-center gap-2.5 bg-primary/20 backdrop-blur-sm border-2 border-primary/60 rounded-full px-5 py-2.5 text-sm font-bold text-primary uppercase tracking-wider hover:bg-primary hover:border-primary hover:text-[#1A2332] transition-all duration-300 shadow-[0_0_15px_rgba(197,165,114,0.3)] hover:shadow-[0_0_25px_rgba(197,165,114,0.5)]"
                     data-testid="link-vancouver-hero"
                   >
-                    <MapPin className="h-3.5 w-3.5" />
+                    <MapPin className="h-4 w-4" />
                     Vancouver
                   </a>
                 </div>
