@@ -725,6 +725,243 @@ export default function CommercialMoving() {
           </div>
         </section>
 
+        {/* Commercial Pricing Packages */}
+        <section className="py-20 bg-gray-50" data-testid="commercial-pricing">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary via-primary to-primary/90 text-[#1A2332] px-6 py-2.5 rounded-full mb-6 shadow-lg shadow-primary/30 relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer"></div>
+                <DollarSign className="h-5 w-5 relative z-10" />
+                <span className="font-bold text-sm relative z-10">Commercial Rates</span>
+              </div>
+              
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6">
+                <span className="bg-gradient-to-r from-[#1A2332] via-[#2a3a4d] to-[#1A2332] bg-clip-text text-transparent">Commercial</span>{" "}
+                <span className="bg-gradient-to-r from-primary via-yellow-500 to-primary bg-clip-text text-transparent">Packages</span>
+              </h2>
+              
+              <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+                Tailored for <strong className="text-[#1A2332]">business relocations</strong>. All packages include professional movers, commercial trucks, and <strong className="text-primary">full protection</strong> for your office equipment.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+              {/* Premium Package */}
+              <div className="relative bg-white rounded-3xl border-2 border-gray-200 p-8 hover:border-primary/50 hover:shadow-xl transition-all duration-300" data-testid="commercial-pricing-premium">
+                <div className="absolute -top-4 left-6">
+                  <span className="bg-gray-100 text-gray-600 text-xs font-bold px-3 py-1 rounded-full">01</span>
+                </div>
+                <div className="mb-6">
+                  <h3 className="text-2xl font-black text-[#1A2332] mb-2">PREMIUM PACKAGE</h3>
+                  <div className="flex items-baseline gap-1 mb-1">
+                    <span className="text-3xl font-black text-primary">$165</span>
+                    <span className="text-gray-600">/hr</span>
+                  </div>
+                  <p className="text-sm text-gray-500 font-medium">Minimum 3 hours + $165 travel fee</p>
+                </div>
+                
+                <div className="mb-6 p-3 bg-primary/10 rounded-xl">
+                  <p className="text-sm font-semibold text-[#1A2332]">
+                    <Building2 className="h-4 w-4 inline mr-2 text-primary" />
+                    Ideal for: Small offices, startups, single-suite moves
+                  </p>
+                </div>
+
+                <div className="mb-6">
+                  <p className="text-sm font-bold text-[#1A2332] mb-3 flex items-center gap-2">
+                    <Package className="h-4 w-4 text-primary" />
+                    Includes:
+                  </p>
+                  <ul className="space-y-2 text-sm text-gray-600">
+                    <li className="flex items-start gap-2">
+                      <span className="text-gray-400">—</span>
+                      2 Professional Movers
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-gray-400">—</span>
+                      16ft – 20ft Moving Truck
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-gray-400">—</span>
+                      Wrapping all furniture with tape and blankets
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-gray-400">—</span>
+                      Shrink-wrapping couches for protection
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-gray-400">—</span>
+                      Covering mattresses with brand-new plastic bags
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-gray-400">—</span>
+                      Protective padding for floors and stair railings
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-gray-400">—</span>
+                      Disassembly and reassembly of basic furniture
+                    </li>
+                  </ul>
+                </div>
+
+                <p className="text-xs text-gray-500 mb-6 p-3 bg-gray-50 rounded-lg">
+                  Need extra help? Add an additional mover for $50/hr and an extra $50 travel fee.
+                </p>
+
+                <Link href="/book">
+                  <Button variant="outline" className="w-full font-bold" data-testid="button-book-commercial-premium">
+                    BOOK YOUR MOVE
+                  </Button>
+                </Link>
+              </div>
+
+              {/* Deluxe Package - Featured */}
+              <div className="relative bg-[#1A2332] rounded-3xl p-8 shadow-2xl transform md:-translate-y-4" data-testid="commercial-pricing-deluxe">
+                <div className="absolute -top-4 left-6">
+                  <span className="bg-primary text-[#1A2332] text-xs font-bold px-3 py-1 rounded-full">02</span>
+                </div>
+                <div className="absolute -top-4 right-6">
+                  <span className="bg-primary text-[#1A2332] text-xs font-bold px-3 py-1 rounded-full flex items-center gap-1">
+                    <Star className="h-3 w-3 fill-current" />
+                    POPULAR
+                  </span>
+                </div>
+                <div className="mb-6">
+                  <h3 className="text-2xl font-black text-white mb-2">DELUXE PACKAGE</h3>
+                  <div className="flex items-baseline gap-1 mb-1">
+                    <span className="text-3xl font-black text-primary">$205</span>
+                    <span className="text-white/70">/hr</span>
+                  </div>
+                  <p className="text-sm text-white/60 font-medium">Minimum 3 hours + $205 travel fee</p>
+                </div>
+                
+                <div className="mb-6 p-3 bg-primary/20 rounded-xl">
+                  <p className="text-sm font-semibold text-white">
+                    <Building2 className="h-4 w-4 inline mr-2 text-primary" />
+                    Ideal for: Mid-size offices, multi-room relocations
+                  </p>
+                </div>
+
+                <div className="mb-6">
+                  <p className="text-sm font-bold text-white mb-3 flex items-center gap-2">
+                    <Package className="h-4 w-4 text-primary" />
+                    Includes:
+                  </p>
+                  <ul className="space-y-2 text-sm text-white/80">
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary">—</span>
+                      3 Professional Movers
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary">—</span>
+                      26ft Moving Truck
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary">—</span>
+                      Wrapping all furniture with tape and blankets
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary">—</span>
+                      Shrink-wrapping couches for added protection
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary">—</span>
+                      Covering mattresses with brand-new plastic bags
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary">—</span>
+                      Protective padding for floors and stair railings
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary">—</span>
+                      Disassembly and reassembly of basic furniture
+                    </li>
+                  </ul>
+                </div>
+
+                <p className="text-xs text-white/60 mb-6 p-3 bg-white/10 rounded-lg">
+                  The Deluxe Package is designed for medium-sized office moves, ensuring every piece of furniture and equipment is carefully handled.
+                </p>
+
+                <Link href="/book">
+                  <Button className="w-full font-bold shadow-lg shadow-primary/30" data-testid="button-book-commercial-deluxe">
+                    BOOK YOUR MOVE
+                  </Button>
+                </Link>
+              </div>
+
+              {/* Diamond Package */}
+              <div className="relative bg-white rounded-3xl border-2 border-gray-200 p-8 hover:border-primary/50 hover:shadow-xl transition-all duration-300" data-testid="commercial-pricing-diamond">
+                <div className="absolute -top-4 left-6">
+                  <span className="bg-gray-100 text-gray-600 text-xs font-bold px-3 py-1 rounded-full">03</span>
+                </div>
+                <div className="mb-6">
+                  <h3 className="text-2xl font-black text-[#1A2332] mb-2">DIAMOND PACKAGE</h3>
+                  <div className="flex items-baseline gap-1 mb-1">
+                    <span className="text-3xl font-black text-primary">$325</span>
+                    <span className="text-gray-600">/hr</span>
+                  </div>
+                  <p className="text-sm text-gray-500 font-medium">Minimum 3 hours + $325 travel fee</p>
+                </div>
+                
+                <div className="mb-6 p-3 bg-primary/10 rounded-xl">
+                  <p className="text-sm font-semibold text-[#1A2332]">
+                    <Building2 className="h-4 w-4 inline mr-2 text-primary" />
+                    Ideal for: Large offices, full-floor relocations
+                  </p>
+                </div>
+
+                <div className="mb-6">
+                  <p className="text-sm font-bold text-[#1A2332] mb-3 flex items-center gap-2">
+                    <Package className="h-4 w-4 text-primary" />
+                    Includes:
+                  </p>
+                  <ul className="space-y-2 text-sm text-gray-600">
+                    <li className="flex items-start gap-2">
+                      <span className="text-gray-400">—</span>
+                      4 Professional Movers
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-gray-400">—</span>
+                      2 Moving Trucks
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-gray-400">—</span>
+                      Wrapping all furniture with tape and blankets
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-gray-400">—</span>
+                      Shrink-wrapping couches for extra protection
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-gray-400">—</span>
+                      Covering mattresses with brand-new plastic bags
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-gray-400">—</span>
+                      Protective padding for floors and stair railings
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-gray-400">—</span>
+                      Disassembly and reassembly of basic furniture
+                    </li>
+                  </ul>
+                </div>
+
+                <p className="text-xs text-gray-500 mb-6 p-3 bg-gray-50 rounded-lg">
+                  Our most comprehensive package for large-scale commercial relocations requiring maximum manpower and truck capacity.
+                </p>
+
+                <Link href="/book">
+                  <Button variant="outline" className="w-full font-bold" data-testid="button-book-commercial-diamond">
+                    BOOK YOUR MOVE
+                  </Button>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Industries We Serve & Related Services */}
         <section className="py-20 md:py-28 bg-gradient-to-b from-white to-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
