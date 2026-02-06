@@ -1622,26 +1622,6 @@ export default function Home() {
         {/* Pricing Packages Section - Light Background */}
         <section className="py-20 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            {/* Hero Video */}
-            <div className="mb-12 max-w-xl mx-auto">
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-primary/10 via-transparent to-primary/5 p-1.5">
-                <div className="relative rounded-xl overflow-hidden bg-[#1A2332]">
-                  <video 
-                    autoPlay 
-                    loop 
-                    muted 
-                    playsInline
-                    className="w-full h-auto object-cover"
-                    data-testid="hero-video"
-                  >
-                    <source src="/videos/prestige-hero.mp4" type="video/mp4" />
-                  </video>
-                  <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-xl pointer-events-none"></div>
-                </div>
-                <div className="absolute -inset-0.5 bg-gradient-to-r from-primary/40 via-primary/20 to-primary/40 rounded-2xl -z-10 blur-sm"></div>
-              </div>
-            </div>
-
             <div className="text-center mb-12">
               {/* Enhanced Badge with Glow */}
               <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary via-primary to-primary/90 text-[#1A2332] px-6 py-2.5 rounded-full mb-6 shadow-lg shadow-primary/30 relative overflow-hidden">
