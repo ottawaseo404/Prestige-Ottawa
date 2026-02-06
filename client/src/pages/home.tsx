@@ -766,7 +766,7 @@ export default function Home() {
                 </div>
 
                 {/* Trust Badges Row */}
-                <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-3 mb-6">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-3 mb-6">
                   <div className="relative inline-flex items-center gap-2 bg-gradient-to-r from-primary/30 via-primary/20 to-primary/30 border-2 border-primary/60 rounded-full px-4 sm:px-5 py-2 sm:py-2.5 shadow-[0_0_20px_rgba(197,165,114,0.4)] hover:shadow-[0_0_30px_rgba(197,165,114,0.6)] transition-all duration-500" data-testid="badge-experience">
                     <div className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/30 to-primary/0 rounded-full animate-[shimmer_2s_ease-in-out_infinite]" />
                     <Award className="h-4 w-4 sm:h-5 sm:w-5 text-primary relative z-10 animate-[pulse_2s_ease-in-out_infinite]" />
@@ -794,13 +794,13 @@ export default function Home() {
                   </a>
                 </div>
                 
-                <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-white mb-4 leading-[0.95] tracking-tight">
+                <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-white mb-4 leading-[0.95] tracking-tight text-left">
                   <span className="block">Ottawa's</span>
                   <span className="block text-primary drop-shadow-[0_0_30px_rgba(197,165,114,0.5)]">#1 Moving</span>
                   <span className="block">Company</span>
                 </h1>
                 
-                <p className="text-xl md:text-2xl text-white/90 mb-6 leading-relaxed max-w-xl font-medium">
+                <p className="text-xl md:text-2xl text-white/90 mb-6 leading-relaxed max-w-xl font-medium text-left">
                   <span className="text-primary font-bold">10,000+</span> successful moves. Professional, reliable, and trusted by families across Ottawa.
                 </p>
 
