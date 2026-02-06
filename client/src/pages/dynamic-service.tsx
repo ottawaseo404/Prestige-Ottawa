@@ -77,11 +77,11 @@ export default function DynamicServicePage() {
         <title>{page.metaTitle || page.title} | Prestige Moving Ottawa</title>
         <meta name="description" content={page.metaDescription || page.excerpt} />
         {page.keywords && <meta name="keywords" content={page.keywords.join(", ")} />}
-        <link rel="canonical" href={`https://ottawa.prestigemoving.ca/services/${page.slug}`} />
+        <link rel="canonical" href={`https://prestigemoving.ca/services/${page.slug}`} />
         <meta property="og:title" content={page.metaTitle || page.title} />
         <meta property="og:description" content={page.metaDescription || page.excerpt} />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content={`https://ottawa.prestigemoving.ca/services/${page.slug}`} />
+        <meta property="og:url" content={`https://prestigemoving.ca/services/${page.slug}`} />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",

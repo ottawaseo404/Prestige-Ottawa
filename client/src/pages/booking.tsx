@@ -169,10 +169,10 @@ export default function Booking() {
         <meta property="og:title" content="Get a Free Quote | Prestige Moving Ottawa" />
         <meta property="og:description" content="Get your free moving quote online. Easy process, fast response, trusted Ottawa movers." />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://ottawa.prestigemoving.ca/og-image.png" />
+        <meta property="og:image" content="https://prestigemoving.ca/og-image.png" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content="https://ottawa.prestigemoving.ca/og-image.png" />
-        <link rel="canonical" href="https://ottawa.prestigemoving.ca/book" />
+        <meta name="twitter:image" content="https://prestigemoving.ca/og-image.png" />
+        <link rel="canonical" href="https://prestigemoving.ca/book" />
         <script type="application/ld+json">{JSON.stringify(bookingSchema)}</script>
       </Helmet>
 

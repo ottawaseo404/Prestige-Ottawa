@@ -117,8 +117,8 @@ export default function LongDistanceMoving() {
         <meta property="og:title" content="Coast to Coast Moving Services | Prestige Moving Ottawa" />
         <meta property="og:description" content="Professional long distance moving from Ottawa to anywhere in Canada. Full insurance, GPS tracking." />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://ottawa.prestigemoving.ca/og-image.png" />
-        <link rel="canonical" href="https://ottawa.prestigemoving.ca/services/long-distance-moving" />
+        <meta property="og:image" content="https://prestigemoving.ca/og-image.png" />
+        <link rel="canonical" href="https://prestigemoving.ca/services/long-distance-moving" />
         <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
       </Helmet>
 

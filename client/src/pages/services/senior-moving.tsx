@@ -281,12 +281,12 @@ export default function SeniorMoving() {
         <meta property="og:title" content="Senior Moving Services Ottawa | Compassionate Elderly Relocation | Prestige Moving" />
         <meta property="og:description" content="Ottawa's trusted senior moving specialists. Compassionate downsizing help, retirement community moves, and assisted living relocations. Patient, professional service for your loved ones." />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://ottawa.prestigemoving.ca/og-image.png" />
+        <meta property="og:image" content="https://prestigemoving.ca/og-image.png" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Senior Moving Services Ottawa | Prestige Moving" />
         <meta name="twitter:description" content="Compassionate senior moving in Ottawa. Specialized care for elderly relocations and downsizing." />
-        <meta name="twitter:image" content="https://ottawa.prestigemoving.ca/og-image.png" />
-        <link rel="canonical" href="https://ottawa.prestigemoving.ca/services/senior-moving" />
+        <meta name="twitter:image" content="https://prestigemoving.ca/og-image.png" />
+        <link rel="canonical" href="https://prestigemoving.ca/services/senior-moving" />
         <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
         <script type="application/ld+json">{JSON.stringify(faqData)}</script>
       </Helmet>

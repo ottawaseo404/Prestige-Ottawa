@@ -294,14 +294,14 @@ export default function StorageSolutions() {
         <meta property="og:title" content="Storage Solutions Ottawa | Climate-Controlled & Secure | Prestige Moving" />
         <meta property="og:description" content="Secure, climate-controlled storage in Ottawa. 24/7 security, flexible terms, professional handling, full WSIB insurance. Perfect for moving transitions." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://ottawa.prestigemoving.ca/services/storage-solutions" />
-        <meta property="og:image" content="https://ottawa.prestigemoving.ca/og-image.png" />
+        <meta property="og:url" content="https://prestigemoving.ca/services/storage-solutions" />
+        <meta property="og:image" content="https://prestigemoving.ca/og-image.png" />
         <meta property="og:site_name" content="Prestige Moving Ottawa" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Storage Solutions Ottawa | Prestige Moving" />
         <meta name="twitter:description" content="Secure, climate-controlled storage in Ottawa. Flexible terms, professional handling, full insurance." />
-        <meta name="twitter:image" content="https://ottawa.prestigemoving.ca/og-image.png" />
-        <link rel="canonical" href="https://ottawa.prestigemoving.ca/services/storage-solutions" />
+        <meta name="twitter:image" content="https://prestigemoving.ca/og-image.png" />
+        <link rel="canonical" href="https://prestigemoving.ca/services/storage-solutions" />
         <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
         <script type="application/ld+json">{JSON.stringify(faqData)}</script>
       </Helmet>

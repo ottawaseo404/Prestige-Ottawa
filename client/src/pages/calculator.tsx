@@ -299,10 +299,10 @@ export default function Calculator() {
         <meta property="og:title" content="Free Moving Calculator | Prestige Moving Ottawa" />
         <meta property="og:description" content="Calculate your moving costs instantly. Room-by-room inventory for accurate Ottawa moving estimates." />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://ottawa.prestigemoving.ca/og-image.png" />
+        <meta property="og:image" content="https://prestigemoving.ca/og-image.png" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content="https://ottawa.prestigemoving.ca/og-image.png" />
-        <link rel="canonical" href="https://ottawa.prestigemoving.ca/calculator" />
+        <meta name="twitter:image" content="https://prestigemoving.ca/og-image.png" />
+        <link rel="canonical" href="https://prestigemoving.ca/calculator" />
       </Helmet>
 
       <div className="min-h-screen bg-background">

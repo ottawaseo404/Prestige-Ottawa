@@ -247,13 +247,13 @@ export default function SpecialtyItemMoving() {
         <meta property="og:title" content="Specialty Item Moving Ottawa | Hot Tubs, Pool Tables, Gym & Medical Equipment | Prestige Moving" />
         <meta property="og:description" content="Ottawa's trusted specialty item movers. From hot tubs and pool tables to gym and medical equipment. WSIB certified, specialized equipment, expert handling." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://ottawa.prestigemoving.ca/services/specialty-item-moving" />
-        <meta property="og:image" content="https://ottawa.prestigemoving.ca/og-image.png" />
+        <meta property="og:url" content="https://prestigemoving.ca/services/specialty-item-moving" />
+        <meta property="og:image" content="https://prestigemoving.ca/og-image.png" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Specialty Item Moving Ottawa | Prestige Moving" />
         <meta name="twitter:description" content="Expert hot tub, pool table, gym & medical equipment movers. WSIB certified." />
-        <meta name="twitter:image" content="https://ottawa.prestigemoving.ca/og-image.png" />
-        <link rel="canonical" href="https://ottawa.prestigemoving.ca/services/specialty-item-moving" />
+        <meta name="twitter:image" content="https://prestigemoving.ca/og-image.png" />
+        <link rel="canonical" href="https://prestigemoving.ca/services/specialty-item-moving" />
         <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
         <script type="application/ld+json">{JSON.stringify(faqData)}</script>
       </Helmet>

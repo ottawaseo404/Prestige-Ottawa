@@ -73,10 +73,10 @@ export default function BlogPost() {
         <title>{post.title} | Prestige Moving Ottawa Blog</title>
         <meta name="description" content={post.metaDescription || post.excerpt} />
         <meta name="keywords" content={post.keywords?.join(", ") || "Ottawa moving, moving tips"} />
-        <link rel="canonical" href={`https://ottawa.prestigemoving.ca/blog/${post.slug}`} />
+        <link rel="canonical" href={`https://prestigemoving.ca/blog/${post.slug}`} />
         <meta property="og:title" content={`${post.title} | Prestige Moving Ottawa`} />
         <meta property="og:description" content={post.metaDescription || post.excerpt} />
-        <meta property="og:url" content={`https://ottawa.prestigemoving.ca/blog/${post.slug}`} />
+        <meta property="og:url" content={`https://prestigemoving.ca/blog/${post.slug}`} />
         <meta property="og:type" content="article" />
         {post.featuredImage && <meta property="og:image" content={post.featuredImage} />}
       </Helmet>

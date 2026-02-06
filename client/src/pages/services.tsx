@@ -117,7 +117,7 @@ export default function Services() {
         <title>Moving Services in Ottawa | Prestige Moving</title>
         <meta name="description" content="Explore our complete range of professional moving services in Ottawa. Residential, commercial, long-distance, packing, storage, and specialty moving solutions." />
         <meta name="keywords" content="Ottawa moving services, residential movers, commercial moving, long distance moving, packing services, storage solutions" />
-        <link rel="canonical" href="https://ottawa.prestigemoving.ca/services" />
+        <link rel="canonical" href="https://prestigemoving.ca/services" />
       </Helmet>
 
       <div className="min-h-screen bg-background">

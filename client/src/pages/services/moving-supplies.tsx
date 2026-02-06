@@ -282,14 +282,14 @@ export default function MovingSupplies() {
         <meta property="og:title" content="Moving Supplies Delivery Ottawa | Boxes & Packing Materials | Prestige Moving" />
         <meta property="og:description" content="Professional moving supplies delivered to your door in Ottawa. Same-day delivery on boxes, bubble wrap, tape, and packing materials. Free returns on unused supplies!" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://ottawa.prestigemoving.ca/services/moving-supplies" />
-        <meta property="og:image" content="https://ottawa.prestigemoving.ca/og-image.png" />
+        <meta property="og:url" content="https://prestigemoving.ca/services/moving-supplies" />
+        <meta property="og:image" content="https://prestigemoving.ca/og-image.png" />
         <meta property="og:site_name" content="Prestige Moving Ottawa" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Moving Supplies Delivery Ottawa | Prestige Moving" />
         <meta name="twitter:description" content="Professional moving supplies delivered to your door. Same-day delivery available in Greater Ottawa." />
-        <meta name="twitter:image" content="https://ottawa.prestigemoving.ca/og-image.png" />
-        <link rel="canonical" href="https://ottawa.prestigemoving.ca/services/moving-supplies" />
+        <meta name="twitter:image" content="https://prestigemoving.ca/og-image.png" />
+        <link rel="canonical" href="https://prestigemoving.ca/services/moving-supplies" />
         <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
         <script type="application/ld+json">{JSON.stringify(faqData)}</script>
       </Helmet>

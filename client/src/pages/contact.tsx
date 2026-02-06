@@ -76,10 +76,10 @@ export default function Contact() {
         <meta property="og:title" content="Contact Prestige Moving Ottawa" />
         <meta property="og:description" content="Get in touch with Ottawa's most trusted moving company. Free quotes, 7-day availability. Call (613) 600-4000." />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://ottawa.prestigemoving.ca/og-image.png" />
+        <meta property="og:image" content="https://prestigemoving.ca/og-image.png" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content="https://ottawa.prestigemoving.ca/og-image.png" />
-        <link rel="canonical" href="https://ottawa.prestigemoving.ca/contact" />
+        <meta name="twitter:image" content="https://prestigemoving.ca/og-image.png" />
+        <link rel="canonical" href="https://prestigemoving.ca/contact" />
       </Helmet>
 
       <div className="min-h-screen bg-background">

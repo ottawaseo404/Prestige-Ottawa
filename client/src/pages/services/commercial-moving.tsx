@@ -157,8 +157,8 @@ export default function CommercialMoving() {
         <meta property="og:title" content="Commercial Moving Services Ottawa | Prestige Moving" />
         <meta property="og:description" content="Ottawa's trusted commercial movers. Office relocations, IT equipment, business moves. Minimal downtime, fully insured." />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://ottawa.prestigemoving.ca/og-image.png" />
-        <link rel="canonical" href="https://ottawa.prestigemoving.ca/services/commercial-moving" />
+        <meta property="og:image" content="https://prestigemoving.ca/og-image.png" />
+        <link rel="canonical" href="https://prestigemoving.ca/services/commercial-moving" />
         <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
       </Helmet>
 

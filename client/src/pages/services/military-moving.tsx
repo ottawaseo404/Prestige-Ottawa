@@ -251,13 +251,13 @@ export default function MilitaryMoving() {
         <meta property="og:title" content="Military Moving Services Ottawa | CAF PCS Movers | Prestige Moving" />
         <meta property="og:description" content="Ottawa's trusted military movers. PCS moves, base relocations, understanding of CAF timelines and requirements. Military discounts available." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://ottawa.prestigemoving.ca/services/military-moving" />
-        <meta property="og:image" content="https://ottawa.prestigemoving.ca/og-image.png" />
+        <meta property="og:url" content="https://prestigemoving.ca/services/military-moving" />
+        <meta property="og:image" content="https://prestigemoving.ca/og-image.png" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Military Moving Services Ottawa | Prestige Moving" />
         <meta name="twitter:description" content="Professional military moving. PCS moves, base relocations, understanding of military timelines and requirements." />
-        <meta name="twitter:image" content="https://ottawa.prestigemoving.ca/og-image.png" />
-        <link rel="canonical" href="https://ottawa.prestigemoving.ca/services/military-moving" />
+        <meta name="twitter:image" content="https://prestigemoving.ca/og-image.png" />
+        <link rel="canonical" href="https://prestigemoving.ca/services/military-moving" />
         <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
         <script type="application/ld+json">{JSON.stringify(faqData)}</script>
       </Helmet>

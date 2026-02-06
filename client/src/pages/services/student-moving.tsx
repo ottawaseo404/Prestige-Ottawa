@@ -256,14 +256,14 @@ export default function StudentMoving() {
         <meta property="og:title" content="Student Moving Services Ottawa | 15% Student Discount | Prestige Moving" />
         <meta property="og:description" content="Affordable student moving in Ottawa. 15% discount for university students. Mini-moves from $199. Professional, budget-friendly service for dorms and apartments." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://ottawa.prestigemoving.ca/services/student-moving" />
-        <meta property="og:image" content="https://ottawa.prestigemoving.ca/og-image.png" />
+        <meta property="og:url" content="https://prestigemoving.ca/services/student-moving" />
+        <meta property="og:image" content="https://prestigemoving.ca/og-image.png" />
         <meta property="og:site_name" content="Prestige Moving Ottawa" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Student Moving Services Ottawa | Prestige Moving" />
         <meta name="twitter:description" content="15% student discount on moving services. Dorms, apartments, cross-city moves." />
-        <meta name="twitter:image" content="https://ottawa.prestigemoving.ca/og-image.png" />
-        <link rel="canonical" href="https://ottawa.prestigemoving.ca/services/student-moving" />
+        <meta name="twitter:image" content="https://prestigemoving.ca/og-image.png" />
+        <link rel="canonical" href="https://prestigemoving.ca/services/student-moving" />
         <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
         <script type="application/ld+json">{JSON.stringify(faqData)}</script>
       </Helmet>

@@ -141,14 +141,14 @@ export default function PackingServices() {
         <meta property="og:title" content="Professional Packing Services Ottawa | Prestige Moving" />
         <meta property="og:description" content="Ottawa's trusted packing specialists. Expert packers, quality materials, fragile item handling. WSIB certified for your peace of mind." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://ottawa.prestigemoving.ca/services/packing-services" />
-        <meta property="og:image" content="https://ottawa.prestigemoving.ca/og-image.png" />
+        <meta property="og:url" content="https://prestigemoving.ca/services/packing-services" />
+        <meta property="og:image" content="https://prestigemoving.ca/og-image.png" />
         <meta property="og:site_name" content="Prestige Moving Ottawa" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Professional Packing Services Ottawa | Prestige Moving" />
         <meta name="twitter:description" content="Expert packing services with premium materials. Fragile item specialists. WSIB certified." />
-        <meta name="twitter:image" content="https://ottawa.prestigemoving.ca/og-image.png" />
-        <link rel="canonical" href="https://ottawa.prestigemoving.ca/services/packing-services" />
+        <meta name="twitter:image" content="https://prestigemoving.ca/og-image.png" />
+        <link rel="canonical" href="https://prestigemoving.ca/services/packing-services" />
         <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
       </Helmet>
 

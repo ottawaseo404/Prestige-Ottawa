@@ -282,14 +282,14 @@ export default function AntiqueMoving() {
         <meta property="og:title" content="Antique Moving Services Ottawa | Museum-Quality Care | Prestige Moving" />
         <meta property="og:description" content="Ottawa's trusted antique movers. White-glove service for valuable antiques, heirlooms & collectibles. Climate-controlled transport, full insurance coverage." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://ottawa.prestigemoving.ca/services/antique-moving" />
-        <meta property="og:image" content="https://ottawa.prestigemoving.ca/og-image.png" />
+        <meta property="og:url" content="https://prestigemoving.ca/services/antique-moving" />
+        <meta property="og:image" content="https://prestigemoving.ca/og-image.png" />
         <meta property="og:site_name" content="Prestige Moving Ottawa" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Antique Moving Services Ottawa | Prestige Moving" />
         <meta name="twitter:description" content="Museum-quality care for your valuable antiques. White-glove service, climate-controlled transport, full insurance." />
-        <meta name="twitter:image" content="https://ottawa.prestigemoving.ca/og-image.png" />
-        <link rel="canonical" href="https://ottawa.prestigemoving.ca/services/antique-moving" />
+        <meta name="twitter:image" content="https://prestigemoving.ca/og-image.png" />
+        <link rel="canonical" href="https://prestigemoving.ca/services/antique-moving" />
         <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
         <script type="application/ld+json">{JSON.stringify(faqData)}</script>
       </Helmet>

@@ -31,10 +31,10 @@ export default function Blog() {
         <title>Moving Tips & Blog | Prestige Moving Ottawa</title>
         <meta name="description" content="Expert moving tips, packing guides, and helpful advice from Ottawa's trusted movers. Learn how to plan your move, protect your belongings, and save money on your next relocation." />
         <meta name="keywords" content="moving tips, packing guide, Ottawa moving blog, relocation advice, moving checklist, how to move" />
-        <link rel="canonical" href="https://ottawa.prestigemoving.ca/blog" />
+        <link rel="canonical" href="https://prestigemoving.ca/blog" />
         <meta property="og:title" content="Moving Tips & Blog | Prestige Moving Ottawa" />
         <meta property="og:description" content="Expert moving tips and helpful advice from Ottawa's trusted movers." />
-        <meta property="og:url" content="https://ottawa.prestigemoving.ca/blog" />
+        <meta property="og:url" content="https://prestigemoving.ca/blog" />
         <meta property="og:type" content="website" />
       </Helmet>
       <SharedNavigation />

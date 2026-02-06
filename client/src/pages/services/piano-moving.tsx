@@ -300,13 +300,13 @@ export default function PianoMoving() {
         <meta property="og:title" content="Piano Moving Services Ottawa | Grand & Upright Piano Specialists | Prestige Moving" />
         <meta property="og:description" content="Ottawa's trusted piano moving experts. WSIB certified, fully insured, climate-controlled transport for all piano types. Free quotes in 1 hour!" />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://ottawa.prestigemoving.ca/og-image.png" />
-        <meta property="og:url" content="https://ottawa.prestigemoving.ca/services/piano-moving" />
+        <meta property="og:image" content="https://prestigemoving.ca/og-image.png" />
+        <meta property="og:url" content="https://prestigemoving.ca/services/piano-moving" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Piano Moving Services Ottawa | Prestige Moving" />
         <meta name="twitter:description" content="Expert piano movers in Ottawa. Grand, baby grand, upright & digital pianos. Fully insured, climate-controlled transport." />
-        <meta name="twitter:image" content="https://ottawa.prestigemoving.ca/og-image.png" />
-        <link rel="canonical" href="https://ottawa.prestigemoving.ca/services/piano-moving" />
+        <meta name="twitter:image" content="https://prestigemoving.ca/og-image.png" />
+        <link rel="canonical" href="https://prestigemoving.ca/services/piano-moving" />
         <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
         <script type="application/ld+json">{JSON.stringify(faqData)}</script>
       </Helmet>

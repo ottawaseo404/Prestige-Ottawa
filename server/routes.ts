@@ -92,7 +92,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   app.get("/sitemap.xml", async (req, res) => {
     try {
       const posts = await storage.getPublishedBlogPosts();
-      const baseUrl = "https://vancouver.prestigemoving.ca";
+      const baseUrl = "https://prestigemoving.ca";
       const today = new Date().toISOString().split('T')[0];
       
       const staticPages = [
