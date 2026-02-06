@@ -149,7 +149,7 @@ export function SharedFooter() {
               </div>
               <div className="text-xs text-white/40">
                 <p>
-                  Website Designed by{" "}
+                  Designed By:{" "}
                   <a 
                     href="https://ottawaseo.com" 
                     target="_blank" 
