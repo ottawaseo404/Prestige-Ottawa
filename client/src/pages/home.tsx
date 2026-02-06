@@ -1102,9 +1102,9 @@ export default function Home() {
                         <Phone className="h-3 w-3" />
                         (613) 600-4000
                       </a>
-                      <a href="mailto:info@prestigemoving.ca" className="inline-flex items-center gap-1.5 bg-primary/15 text-primary rounded-full px-3 py-1.5 text-xs font-semibold hover:bg-primary/25 transition-colors" data-testid="link-ottawa-email">
+                      <a href="mailto:Ottawa@prestigemoving.ca" className="inline-flex items-center gap-1.5 bg-primary/15 text-primary rounded-full px-3 py-1.5 text-xs font-semibold hover:bg-primary/25 transition-colors" data-testid="link-ottawa-email">
                         <Mail className="h-3 w-3" />
-                        info@prestigemoving.ca
+                        Ottawa@prestigemoving.ca
                       </a>
                       <a href="https://maps.app.goo.gl/5grQGZ18k1GrxuEj7" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 bg-white/10 text-white/80 rounded-full px-3 py-1.5 text-xs font-semibold hover:bg-white/20 transition-colors" data-testid="link-ottawa-directions">
                         <ArrowRight className="h-3 w-3" />
