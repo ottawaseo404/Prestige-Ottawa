@@ -774,7 +774,7 @@ export default function Home() {
                     <span className="text-primary font-bold text-xs sm:text-sm md:text-base relative z-10">#1 Rated Movers in Ottawa</span>
                   </div>
                   <a 
-                    href="https://maps.app.goo.gl/VBHEBJHnWt4eTzts8" 
+                    href="https://maps.app.goo.gl/GKvmDPf3vZcTmRRw8" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 sm:gap-2.5 bg-white/10 border border-white/30 rounded-full px-3 sm:px-4 py-1.5 sm:py-2 hover:bg-white/20 hover:border-white/50 transition-all duration-300 cursor-pointer"
@@ -1152,7 +1152,7 @@ export default function Home() {
                         <Mail className="h-3 w-3" />
                         vancouver@prestigemoving.ca
                       </a>
-                      <a href="https://maps.app.goo.gl/VBHEBJHnWt4eTzts8" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 bg-white/10 text-white/80 rounded-full px-3 py-1.5 text-xs font-semibold hover:bg-white/20 transition-colors" data-testid="link-vancouver-directions">
+                      <a href="https://maps.app.goo.gl/GKvmDPf3vZcTmRRw8" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 bg-white/10 text-white/80 rounded-full px-3 py-1.5 text-xs font-semibold hover:bg-white/20 transition-colors" data-testid="link-vancouver-directions">
                         <ArrowRight className="h-3 w-3" />
                         Get Directions
                       </a>
