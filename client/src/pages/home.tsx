@@ -1108,10 +1108,14 @@ export default function Home() {
                       </div>
                     </div>
                     <p className="text-sm text-white/60 mb-4">50 Colonnade Rd Unit 200B, Ottawa, ON K2E 7J6</p>
-                    <div className="flex flex-wrap items-center gap-3">
+                    <div className="flex flex-wrap items-center gap-2">
                       <a href="tel:613-600-4000" className="inline-flex items-center gap-1.5 bg-primary/15 text-primary rounded-full px-3 py-1.5 text-xs font-semibold hover:bg-primary/25 transition-colors" data-testid="link-ottawa-phone">
                         <Phone className="h-3 w-3" />
                         (613) 600-4000
+                      </a>
+                      <a href="mailto:info@prestigemoving.ca" className="inline-flex items-center gap-1.5 bg-primary/15 text-primary rounded-full px-3 py-1.5 text-xs font-semibold hover:bg-primary/25 transition-colors" data-testid="link-ottawa-email">
+                        <Mail className="h-3 w-3" />
+                        info@prestigemoving.ca
                       </a>
                       <a href="https://maps.app.goo.gl/5grQGZ18k1GrxuEj7" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 bg-white/10 text-white/80 rounded-full px-3 py-1.5 text-xs font-semibold hover:bg-white/20 transition-colors" data-testid="link-ottawa-directions">
                         <ArrowRight className="h-3 w-3" />
@@ -1150,10 +1154,14 @@ export default function Home() {
                       </div>
                     </div>
                     <p className="text-sm text-white/60 mb-4">Vancouver, BC — Serving Metro Vancouver & Fraser Valley</p>
-                    <div className="flex flex-wrap items-center gap-3">
-                      <a href="https://vancouver.prestigemoving.ca" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 bg-primary/15 text-primary rounded-full px-3 py-1.5 text-xs font-semibold hover:bg-primary/25 transition-colors" data-testid="link-vancouver-site">
-                        <ArrowRight className="h-3 w-3" />
-                        Visit Website
+                    <div className="flex flex-wrap items-center gap-2">
+                      <a href="tel:604-398-4000" className="inline-flex items-center gap-1.5 bg-primary/15 text-primary rounded-full px-3 py-1.5 text-xs font-semibold hover:bg-primary/25 transition-colors" data-testid="link-vancouver-phone">
+                        <Phone className="h-3 w-3" />
+                        (604) 398-4000
+                      </a>
+                      <a href="mailto:vancouver@prestigemoving.ca" className="inline-flex items-center gap-1.5 bg-primary/15 text-primary rounded-full px-3 py-1.5 text-xs font-semibold hover:bg-primary/25 transition-colors" data-testid="link-vancouver-email">
+                        <Mail className="h-3 w-3" />
+                        vancouver@prestigemoving.ca
                       </a>
                       <a href="https://maps.app.goo.gl/VBHEBJHnWt4eTzts8" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 bg-white/10 text-white/80 rounded-full px-3 py-1.5 text-xs font-semibold hover:bg-white/20 transition-colors" data-testid="link-vancouver-directions">
                         <ArrowRight className="h-3 w-3" />
