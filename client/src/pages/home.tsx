@@ -812,9 +812,9 @@ export default function Home() {
                 </p>
 
                 {/* Quick Stats */}
-                <div className="flex flex-wrap gap-6 mb-8">
+                <div className="grid grid-cols-2 md:flex md:flex-wrap gap-4 md:gap-6 mb-8">
                   <div className="flex items-center gap-2">
-                    <div className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center">
+                    <div className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center flex-shrink-0">
                       <Shield className="h-5 w-5 text-primary" />
                     </div>
                     <div>
@@ -823,7 +823,7 @@ export default function Home() {
                     </div>
                   </div>
                   <div className="flex items-center gap-2">
-                    <div className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center">
+                    <div className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center flex-shrink-0">
                       <Clock className="h-5 w-5 text-primary" />
                     </div>
                     <div>
@@ -832,12 +832,21 @@ export default function Home() {
                     </div>
                   </div>
                   <div className="flex items-center gap-2">
-                    <div className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center">
+                    <div className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center flex-shrink-0">
                       <TruckIcon className="h-5 w-5 text-primary" />
                     </div>
                     <div>
                       <p className="text-white font-bold text-sm">Our Fleet</p>
                       <p className="text-white/60 text-xs">No Rentals</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <div className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center flex-shrink-0">
+                      <DollarSign className="h-5 w-5 text-primary" />
+                    </div>
+                    <div>
+                      <p className="text-white font-bold text-sm">No Hidden Fees</p>
+                      <p className="text-white/60 text-xs">Transparent Pricing</p>
                     </div>
                   </div>
                 </div>
