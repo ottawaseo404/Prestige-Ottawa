@@ -8,6 +8,7 @@ import { SharedFooter } from "@/components/shared-footer";
 import ServiceQuoteForm from "@/components/service-quote-form";
 import { Phone, CheckCircle2, TruckIcon, Shield, Clock, Users, Star, MapPin, ArrowRight, ChevronDown, Award, ThumbsUp, Calendar, Package, Home, Building2, Mail, Heart } from "lucide-react";
 import heroImage from "@assets/images/seo-moving-company-ottawa.png";
+import { SeoKeywordsSection } from "@/components/seo-keywords-section";
 
 export default function MovingCompanyOttawa() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -247,6 +248,8 @@ export default function MovingCompanyOttawa() {
             </div>
           </div>
         </section>
+
+        <SeoKeywordsSection currentPage="/moving-company-ottawa" />
 
         <section className="py-16 bg-[#C5A572]">
           <div className="max-w-4xl mx-auto px-4 text-center">
