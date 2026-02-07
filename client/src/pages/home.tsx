@@ -889,6 +889,12 @@ export default function Home() {
                     </div>
                   ) : (
                     <>
+                      <Link href="/contact">
+                        <Button variant="outline" className="w-full font-bold mb-4 border-primary text-primary" data-testid="button-hero-contact">
+                          <Mail className="h-4 w-4 mr-2" />
+                          Contact Us
+                        </Button>
+                      </Link>
                       <div className="text-center mb-4">
                         <h3 className="text-xl font-bold text-[#1A2332] mb-1">Get Your Free Quote</h3>
                         <p className="text-gray-500 text-xs">We'll contact you within 24 hours</p>
