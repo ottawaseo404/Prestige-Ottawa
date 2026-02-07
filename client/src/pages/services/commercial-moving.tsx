@@ -394,28 +394,28 @@ export default function CommercialMoving() {
               return (
                 <div className="grid lg:grid-cols-2 gap-12 items-center">
                   <div className="relative">
-                    <div className={`bg-gradient-to-br ${industries[activeIndustry].color} rounded-3xl p-8 md:p-12`}>
-                      <ActiveIcon className="h-20 w-20 text-white/30 absolute top-8 right-8" />
-                      <h3 className="text-3xl font-black text-white mb-4">
+                    <div className={`bg-gradient-to-br ${industries[activeIndustry].color} rounded-3xl p-6 sm:p-8 md:p-12`}>
+                      <ActiveIcon className="h-16 w-16 sm:h-20 sm:w-20 text-white/30 absolute top-6 right-6 sm:top-8 sm:right-8" />
+                      <h3 className="text-2xl sm:text-3xl font-black text-white mb-3 sm:mb-4">
                         {industries[activeIndustry].title}
                       </h3>
-                      <p className="text-xl text-white/80 mb-8">
+                      <p className="text-base sm:text-xl text-white/80 mb-6 sm:mb-8">
                         {industries[activeIndustry].description}
                       </p>
 
                       {/* Stats Grid */}
-                      <div className="grid grid-cols-3 gap-4">
-                        <div className="bg-white/20 backdrop-blur rounded-xl p-4 text-center">
-                          <p className="text-2xl font-black text-white">{industries[activeIndustry].stats.moves}</p>
-                          <p className="text-white/70 text-sm">Moves</p>
+                      <div className="grid grid-cols-3 gap-2 sm:gap-4">
+                        <div className="bg-white/20 backdrop-blur rounded-xl p-3 sm:p-4 text-center">
+                          <p className="text-lg sm:text-2xl font-black text-white">{industries[activeIndustry].stats.moves}</p>
+                          <p className="text-white/70 text-xs sm:text-sm">Moves</p>
                         </div>
-                        <div className="bg-white/20 backdrop-blur rounded-xl p-4 text-center">
-                          <p className="text-2xl font-black text-white">{industries[activeIndustry].stats.avgTime}</p>
-                          <p className="text-white/70 text-sm">Avg Time</p>
+                        <div className="bg-white/20 backdrop-blur rounded-xl p-3 sm:p-4 text-center">
+                          <p className="text-lg sm:text-2xl font-black text-white leading-tight">{industries[activeIndustry].stats.avgTime}</p>
+                          <p className="text-white/70 text-xs sm:text-sm">Avg Time</p>
                         </div>
-                        <div className="bg-white/20 backdrop-blur rounded-xl p-4 text-center">
-                          <p className="text-2xl font-black text-white">{industries[activeIndustry].stats.satisfaction}</p>
-                          <p className="text-white/70 text-sm">Satisfaction</p>
+                        <div className="bg-white/20 backdrop-blur rounded-xl p-3 sm:p-4 text-center">
+                          <p className="text-lg sm:text-2xl font-black text-white">{industries[activeIndustry].stats.satisfaction}</p>
+                          <p className="text-white/70 text-xs sm:text-sm">Satisfaction</p>
                         </div>
                       </div>
                     </div>
