@@ -120,6 +120,15 @@ export default function ServiceQuoteForm({ defaultService = "Moving", serviceNam
                   <p className="text-white/50 text-sm">Trusted by thousands of families across Ottawa</p>
                 </div>
               </div>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-[#C5A572]/20 flex items-center justify-center shrink-0">
+                  <TruckIcon className="h-5 w-5 text-[#C5A572]" />
+                </div>
+                <div>
+                  <p className="text-white font-semibold">No Hidden Fees</p>
+                  <p className="text-white/50 text-sm">Transparent pricing — what we quote is what you pay</p>
+                </div>
+              </div>
             </div>
           </div>
 
