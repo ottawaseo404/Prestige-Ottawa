@@ -1,4 +1,3 @@
-import ServiceQuoteForm from "@/components/service-quote-form";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -1129,11 +1128,6 @@ export default function Home() {
                 </div>
               </div>
             </div>
-          </div>
-
-          {/* Mobile Quote Form below stats bar */}
-          <div className="block md:hidden bg-[#1A2332] px-4 pt-6 pb-8">
-            <ServiceQuoteForm defaultService="residential" serviceName="Get Your Free Quote" />
           </div>
         </section>
 
