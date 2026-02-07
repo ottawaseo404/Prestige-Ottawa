@@ -885,7 +885,8 @@ export default function Home() {
                         size="sm"
                         onClick={() => {
                           setHeroFormSubmitted(false);
-                          setHeroFormData({ name: "", phone: "", email: "", movingFrom: "", movingTo: "", moveDate: "", moveSize: "" });
+                          setHeroFormData({ name: "", phone: "", email: "", movingFrom: "", movingTo: "", moveDate: "", moveSize: "", service: "" });
+                          setSelectedDate(undefined);
                         }}
                         className="text-primary hover:text-primary/80"
                         data-testid="button-submit-another"
