@@ -872,7 +872,7 @@ export default function Home() {
 
               {/* Right Side - CTA Quote Box */}
               <div className="hidden lg:block">
-                <div className="bg-white rounded-xl shadow-2xl p-5 max-w-sm ml-auto border border-gray-100 transform hover:scale-[1.02] transition-transform duration-300 relative z-50 isolate">
+                <div className="bg-white rounded-xl shadow-2xl p-5 max-w-sm ml-auto border border-gray-100 relative z-50">
                   {heroFormSubmitted ? (
                     <div className="text-center py-6">
                       <div className="w-14 h-14 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-3 animate-pulse">
