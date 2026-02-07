@@ -11,7 +11,7 @@ export function SharedFooter() {
     <>
       <footer className="bg-[#1A2332] text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-          <div className="grid md:grid-cols-4 gap-12">
+          <div className="grid md:grid-cols-5 gap-10">
             <div className="md:col-span-1">
               <img src={logoUrl} alt="Prestige Moving" className="h-12 w-auto mb-6" />
               <p className="text-white/70 text-sm leading-relaxed">
@@ -50,6 +50,22 @@ export function SharedFooter() {
                 <Link href="/blog" className="block hover:text-primary transition-colors">Moving Tips Blog</Link>
                 <Link href="/calculator" className="block hover:text-primary transition-colors">Moving Calculator</Link>
                 <Link href="/contact" className="block hover:text-primary transition-colors">Contact Us</Link>
+              </div>
+            </div>
+
+            <div>
+              <h4 className="font-bold text-lg mb-4">Ottawa Movers</h4>
+              <div className="space-y-2 text-sm text-white/70">
+                <Link href="/ottawa-movers" className="block hover:text-primary transition-colors">Ottawa Movers</Link>
+                <Link href="/moving-company-ottawa" className="block hover:text-primary transition-colors">Moving Company Ottawa</Link>
+                <Link href="/professional-movers-ottawa" className="block hover:text-primary transition-colors">Professional Movers</Link>
+                <Link href="/best-movers-ottawa" className="block hover:text-primary transition-colors">Best Movers Ottawa</Link>
+                <Link href="/local-movers-ottawa" className="block hover:text-primary transition-colors">Local Movers Ottawa</Link>
+                <Link href="/affordable-movers-ottawa" className="block hover:text-primary transition-colors">Affordable Movers</Link>
+                <Link href="/licensed-movers-ottawa" className="block hover:text-primary transition-colors">Licensed Movers</Link>
+                <Link href="/insured-movers-ottawa" className="block hover:text-primary transition-colors">Insured Movers</Link>
+                <Link href="/residential-movers-ottawa" className="block hover:text-primary transition-colors">Residential Movers</Link>
+                <Link href="/commercial-movers-ottawa" className="block hover:text-primary transition-colors">Commercial Movers</Link>
               </div>
             </div>
             
