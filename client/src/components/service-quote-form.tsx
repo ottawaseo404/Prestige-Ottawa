@@ -233,6 +233,7 @@ export default function ServiceQuoteForm({ defaultService = "Moving", serviceNam
                         <SelectItem value="Antique Moving">Antique Moving</SelectItem>
                         <SelectItem value="Senior Moving">Senior Moving</SelectItem>
                         <SelectItem value="Military Moving">Military Moving</SelectItem>
+                        <SelectItem value="Other">Other</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>

@@ -991,10 +991,15 @@ export default function Home() {
                               <SelectItem value="Commercial Moving">Commercial Moving</SelectItem>
                               <SelectItem value="Long Distance Moving">Long Distance Moving</SelectItem>
                               <SelectItem value="Packing Services">Packing Services</SelectItem>
+                              <SelectItem value="Moving Supplies">Moving Supplies</SelectItem>
+                              <SelectItem value="Student Moving">Student Moving</SelectItem>
                               <SelectItem value="Storage Solutions">Storage Solutions</SelectItem>
                               <SelectItem value="Piano Moving">Piano Moving</SelectItem>
                               <SelectItem value="Specialty Item Moving">Specialty Item Moving</SelectItem>
+                              <SelectItem value="Antique Moving">Antique Moving</SelectItem>
                               <SelectItem value="Senior Moving">Senior Moving</SelectItem>
+                              <SelectItem value="Military Moving">Military Moving</SelectItem>
+                              <SelectItem value="Other">Other</SelectItem>
                             </SelectContent>
                           </Select>
                         </div>
