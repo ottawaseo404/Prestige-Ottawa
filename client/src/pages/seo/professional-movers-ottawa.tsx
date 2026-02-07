@@ -177,7 +177,7 @@ export default function ProfessionalMoversOttawa() {
 
         <section className="py-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold text-[#1A2332] mb-6">What It Means to Hire Professional Movers in Ottawa</h2>
+            <h2 className="text-3xl font-bold text-[#1A2332] mb-6">Prestige Movers in Ottawa</h2>
             <p className="text-gray-600 leading-relaxed mb-6">
               There's a significant difference between hiring someone with a truck and hiring professional movers in Ottawa. When you choose Prestige Moving, you're getting a team of extensively trained, background-checked, WSIB-certified professionals who approach every move with the skill, care, and attention to detail that your belongings deserve. Our professional movers don't just transport items from point A to point B — they protect your investment, respect your property, and deliver an experience that eliminates the stress and uncertainty typically associated with moving day. With 337+ five-star reviews from Ottawa families and businesses, our commitment to professionalism has been validated thousands of times over.
             </p>
