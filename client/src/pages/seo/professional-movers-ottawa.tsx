@@ -152,7 +152,7 @@ export default function ProfessionalMoversOttawa() {
           <img src={heroImage} alt="Professional movers from Prestige Moving carefully handling furniture in Ottawa" className="absolute inset-0 w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-r from-[#1A2332]/90 to-[#1A2332]/70" />
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4" data-testid="text-hero-heading">Professional Movers You Can Trust in Ottawa</h1>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4" data-testid="text-hero-heading">Prestige Movers You Can Trust in Ottawa</h1>
             <p className="text-xl text-white/80 max-w-2xl mb-8">Trained, background-checked, and WSIB certified — our professional moving team delivers expert care for every item you own.</p>
             <div className="flex flex-wrap gap-4">
               <Link href="/book"><Button className="bg-[#C5A572] hover:bg-[#B8956A] text-white border-[#C5A572]" data-testid="button-hero-quote">Get Free Quote</Button></Link>
