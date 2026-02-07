@@ -249,6 +249,8 @@ export default function CommercialMoving() {
           </div>
         </section>
 
+        <ServiceQuoteForm defaultService="Commercial Moving" serviceName="Commercial Moving" />
+
         {/* Comprehensive Commercial Services Explanation - SEO Friendly */}
         <section className="py-20 md:py-28 bg-gradient-to-b from-white to-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1076,8 +1078,6 @@ export default function CommercialMoving() {
             </div>
           </div>
         </section>
-
-        <ServiceQuoteForm defaultService="Commercial Moving" serviceName="Commercial Moving" />
         <SharedFooter />
       </div>
     </>

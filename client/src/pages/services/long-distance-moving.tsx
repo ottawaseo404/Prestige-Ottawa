@@ -215,6 +215,8 @@ export default function LongDistanceMoving() {
           </div>
         </section>
 
+        <ServiceQuoteForm defaultService="Long Distance Moving" serviceName="Long Distance Moving" />
+
         {/* Comprehensive Long Distance Moving Services - SEO Friendly */}
         <section className="py-20 md:py-28 bg-gradient-to-b from-white to-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -617,8 +619,6 @@ export default function LongDistanceMoving() {
             </div>
           </div>
         </section>
-
-        <ServiceQuoteForm defaultService="Long Distance Moving" serviceName="Long Distance Moving" />
         <SharedFooter />
       </div>
     </>

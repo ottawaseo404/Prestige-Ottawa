@@ -187,6 +187,8 @@ export default function ResidentialMoving() {
           </div>
         </section>
 
+        <ServiceQuoteForm defaultService="Residential Moving" serviceName="Residential Moving" />
+
         {/* Stats Bar */}
         <section className="bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-400 py-6">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -802,8 +804,6 @@ export default function ResidentialMoving() {
             </div>
           </div>
         </section>
-
-        <ServiceQuoteForm defaultService="Residential Moving" serviceName="Residential Moving" />
         <SharedFooter />
       </div>
     </>

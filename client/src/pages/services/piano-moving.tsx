@@ -381,6 +381,8 @@ export default function PianoMoving() {
           </div>
         </section>
 
+        <ServiceQuoteForm defaultService="Piano Moving" serviceName="Piano Moving" />
+
         {/* Stats Bar */}
         <section className="bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-400 py-6" data-testid="section-stats">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1023,8 +1025,6 @@ export default function PianoMoving() {
             </div>
           </div>
         </section>
-
-        <ServiceQuoteForm defaultService="Piano Moving" serviceName="Piano Moving" />
         <SharedFooter />
       </div>
     </>

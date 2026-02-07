@@ -364,6 +364,8 @@ export default function MovingSupplies() {
           </div>
         </section>
 
+        <ServiceQuoteForm defaultService="Moving Supplies" serviceName="Moving Supplies" />
+
         {/* Stats Bar */}
         <section className="bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-400 py-6">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -993,8 +995,6 @@ export default function MovingSupplies() {
             </div>
           </div>
         </section>
-
-        <ServiceQuoteForm defaultService="Moving Supplies" serviceName="Moving Supplies" />
         <SharedFooter />
       </div>
     </>
