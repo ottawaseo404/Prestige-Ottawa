@@ -44,6 +44,7 @@ import { Link } from "wouter";
 import { Helmet } from "react-helmet";
 import { SharedNavigation } from "@/components/shared-navigation";
 import { SharedFooter } from "@/components/shared-footer";
+import ServiceQuoteForm from "@/components/service-quote-form";
 import { WorkSafeBadge } from "@/components/worksafe-badge";
 
 export default function SpecialtyItemMoving() {
@@ -784,6 +785,7 @@ export default function SpecialtyItemMoving() {
           </div>
         </section>
 
+        <ServiceQuoteForm defaultService="Specialty Item Moving" serviceName="Specialty Item Moving" />
         <SharedFooter />
       </div>
     </>

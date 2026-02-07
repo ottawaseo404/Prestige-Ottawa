@@ -15,6 +15,7 @@ import { Link } from "wouter";
 import { Helmet } from "react-helmet";
 import { SharedNavigation } from "@/components/shared-navigation";
 import { SharedFooter } from "@/components/shared-footer";
+import ServiceQuoteForm from "@/components/service-quote-form";
 import { useHeroVideo, getDefaultVideoForPage } from "@/hooks/use-hero-video";
 import { WorkSafeBadge } from "@/components/worksafe-badge";
 import commercialImage from "@assets/commercial_truck_night.png";
@@ -1076,6 +1077,7 @@ export default function CommercialMoving() {
           </div>
         </section>
 
+        <ServiceQuoteForm defaultService="Commercial Moving" serviceName="Commercial Moving" />
         <SharedFooter />
       </div>
     </>

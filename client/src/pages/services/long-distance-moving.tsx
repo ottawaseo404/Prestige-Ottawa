@@ -14,6 +14,7 @@ import { Link } from "wouter";
 import { Helmet } from "react-helmet";
 import { SharedNavigation } from "@/components/shared-navigation";
 import { SharedFooter } from "@/components/shared-footer";
+import ServiceQuoteForm from "@/components/service-quote-form";
 import { useHeroVideo, getDefaultVideoForPage } from "@/hooks/use-hero-video";
 import { WorkSafeBadge } from "@/components/worksafe-badge";
 
@@ -617,6 +618,7 @@ export default function LongDistanceMoving() {
           </div>
         </section>
 
+        <ServiceQuoteForm defaultService="Long Distance Moving" serviceName="Long Distance Moving" />
         <SharedFooter />
       </div>
     </>

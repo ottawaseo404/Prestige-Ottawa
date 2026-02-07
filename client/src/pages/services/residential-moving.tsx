@@ -12,6 +12,7 @@ import { Link } from "wouter";
 import { Helmet } from "react-helmet";
 import { SharedNavigation } from "@/components/shared-navigation";
 import { SharedFooter } from "@/components/shared-footer";
+import ServiceQuoteForm from "@/components/service-quote-form";
 import { WorkSafeBadge } from "@/components/worksafe-badge";
 import residentialVideo from "@assets/residential_moving_video.mp4";
 import residentialImage from "@assets/truck1_1764291781341.jpeg";
@@ -802,6 +803,7 @@ export default function ResidentialMoving() {
           </div>
         </section>
 
+        <ServiceQuoteForm defaultService="Residential Moving" serviceName="Residential Moving" />
         <SharedFooter />
       </div>
     </>

@@ -47,6 +47,7 @@ import { Link } from "wouter";
 import { Helmet } from "react-helmet";
 import { SharedNavigation } from "@/components/shared-navigation";
 import { SharedFooter } from "@/components/shared-footer";
+import ServiceQuoteForm from "@/components/service-quote-form";
 import { WorkSafeBadge } from "@/components/worksafe-badge";
 import { useToast } from "@/hooks/use-toast";
 import { apiRequest } from "@/lib/queryClient";
@@ -964,6 +965,7 @@ export default function AntiqueMoving() {
           </div>
         </section>
 
+        <ServiceQuoteForm defaultService="Antique Moving" serviceName="Antique Moving" />
         <SharedFooter />
       </div>
     </>
