@@ -368,7 +368,7 @@ export default function Home() {
     <>
       <Helmet>
         <meta name="google-site-verification" content="qCldQT0CrqE6wxeHt9aTvmBl_fvb9c0qdu1Abn_SSn8" />
-        <title>Ottawa Movers | Moving Company Ottawa | Best Movers Ottawa | Prestige Moving Ottawa</title>
+        <title>Prestige Moving Ottawa - Trusted Local & Long Distance Movers</title>
         <meta name="description" content="Looking for Ottawa movers? Prestige Moving Ottawa is the top moving company Ottawa trusts. Best movers Ottawa with 337 five-star reviews. Top movers Ottawa for residential, commercial & long-distance moves. Ottawa moving company - WSIB certified, fully insured. Free estimates - Call (613) 600-4000!" />
         <meta name="keywords" content="ottawa movers, moving company ottawa, best movers ottawa, top movers ottawa, ottawa moving company, movers ottawa, movers in ottawa, ottawa ontario movers, professional movers ottawa, local movers ottawa, affordable movers ottawa, residential movers ottawa, commercial movers ottawa, long distance movers ottawa, kanata movers, orleans movers, nepean movers, barrhaven movers, gatineau movers, greater ottawa movers" />
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
