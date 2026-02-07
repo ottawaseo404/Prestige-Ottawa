@@ -1,3 +1,4 @@
+import ServiceQuoteForm from "@/components/service-quote-form";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -1130,22 +1131,9 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Mobile CTA below stats bar */}
-          <div className="block md:hidden bg-[#1A2332] px-4 py-6">
-            <Link href="/book" className="block">
-              <Button 
-                size="lg" 
-                className="w-full text-lg font-bold py-6 shadow-xl"
-                data-testid="button-mobile-cta-stats"
-              >
-                Get Your Free Quote
-                <ArrowRight className="h-5 w-5 ml-2" />
-              </Button>
-            </Link>
-            <a href="tel:613-600-4000" className="flex items-center justify-center gap-2 text-white mt-4 font-semibold text-lg">
-              <Phone className="h-5 w-5 text-primary" />
-              (613) 600-4000
-            </a>
+          {/* Mobile Quote Form below stats bar */}
+          <div className="block md:hidden bg-[#1A2332] px-4 pt-6 pb-8">
+            <ServiceQuoteForm defaultService="residential" serviceName="Get Your Free Quote" />
           </div>
         </section>
 
