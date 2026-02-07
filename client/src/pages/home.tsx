@@ -673,7 +673,7 @@ export default function Home() {
         </div>
 
         {/* Hero Section - Full Bleed Dramatic with Video Background Slider */}
-        <section className="relative min-h-[600px] md:min-h-[85vh] flex items-center overflow-hidden pb-32 md:pb-24 bg-[#1A2332]">
+        <section className="relative min-h-[600px] md:min-h-[85vh] flex items-center overflow-x-clip pb-32 md:pb-24 bg-[#1A2332]">
           <div className="absolute inset-0 bg-[#1A2332]">
             {/* Video Background Slider - BC Ferry Videos from Admin Database */}
             {heroVideos.map((video, index) => (
@@ -872,7 +872,7 @@ export default function Home() {
 
               {/* Right Side - CTA Quote Box */}
               <div className="hidden lg:block">
-                <div className="bg-white rounded-xl shadow-2xl p-5 max-w-sm ml-auto border border-gray-100 transform hover:scale-[1.02] transition-transform duration-300">
+                <div className="bg-white rounded-xl shadow-2xl p-5 max-w-sm ml-auto border border-gray-100 transform hover:scale-[1.02] transition-transform duration-300 relative z-50 isolate">
                   {heroFormSubmitted ? (
                     <div className="text-center py-6">
                       <div className="w-14 h-14 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-3 animate-pulse">
