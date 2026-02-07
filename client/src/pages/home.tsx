@@ -24,6 +24,9 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { Calendar as CalendarWidget } from "@/components/ui/calendar";
+import { format } from "date-fns";
 import { Link, useLocation } from "wouter";
 import { useState, useEffect } from "react";
 import { useMutation, useQuery } from "@tanstack/react-query";
@@ -124,8 +127,11 @@ export default function Home() {
     movingFrom: "",
     movingTo: "",
     moveDate: "",
-    moveSize: ""
+    moveSize: "",
+    service: ""
   });
+  const [selectedDate, setSelectedDate] = useState<Date | undefined>(undefined);
+  const [calendarOpen, setCalendarOpen] = useState(false);
   const [heroFormSubmitted, setHeroFormSubmitted] = useState(false);
   const [pricingType, setPricingType] = useState<"residential" | "commercial">("residential");
 
@@ -140,7 +146,7 @@ export default function Home() {
         moveSize: data.moveSize,
         originCity: data.movingFrom,
         destinationCity: data.movingTo,
-        serviceType: "Moving"
+        serviceType: data.service || "Moving"
       });
     },
     onSuccess: () => {
@@ -890,57 +896,69 @@ export default function Home() {
                   ) : (
                     <>
                       <Link href="/contact">
-                        <Button variant="outline" className="w-full font-bold mb-4 border-primary text-primary" data-testid="button-hero-contact">
+                        <Button variant="outline" className="w-full font-bold mb-3 border-primary/30 text-primary" data-testid="button-hero-contact">
                           <Mail className="h-4 w-4 mr-2" />
                           Contact Us
                         </Button>
                       </Link>
+
+                      <div className="relative mb-4">
+                        <div className="absolute inset-0 flex items-center">
+                          <div className="w-full border-t border-gray-200"></div>
+                        </div>
+                        <div className="relative flex justify-center">
+                          <span className="bg-white px-3 text-xs text-gray-400 uppercase tracking-wider">or get a free quote</span>
+                        </div>
+                      </div>
+
                       <div className="text-center mb-4">
-                        <h3 className="text-xl font-bold text-[#1A2332] mb-1">Get Your Free Quote</h3>
-                        <p className="text-gray-500 text-xs">We'll contact you within 24 hours</p>
+                        <h3 className="text-lg font-bold text-[#1A2332] mb-0.5">Get Your Free Quote</h3>
+                        <p className="text-gray-400 text-xs">We'll contact you within 24 hours</p>
                       </div>
                       
-                      <form onSubmit={handleHeroFormSubmit} className="space-y-3">
+                      <form onSubmit={handleHeroFormSubmit} className="space-y-2.5">
                         <div className="relative group">
                           <Users className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400 group-focus-within:text-primary transition-colors" />
                           <Input 
                             type="text" 
-                            placeholder="Your Name" 
-                            className="h-10 pl-10 bg-gray-50/50 border-gray-200 rounded-lg text-sm focus:bg-white focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all"
+                            placeholder="Full Name" 
+                            className="h-10 pl-10 bg-gray-50/80 border-gray-200 rounded-lg text-sm focus:bg-white focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all"
                             value={heroFormData.name}
                             onChange={(e) => setHeroFormData(prev => ({ ...prev, name: e.target.value }))}
                             data-testid="input-hero-name"
                           />
                         </div>
-                        <div className="relative group">
-                          <Phone className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400 group-focus-within:text-primary transition-colors" />
-                          <Input 
-                            type="tel" 
-                            placeholder="Phone Number" 
-                            className="h-10 pl-10 bg-gray-50/50 border-gray-200 rounded-lg text-sm focus:bg-white focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all"
-                            value={heroFormData.phone}
-                            onChange={(e) => setHeroFormData(prev => ({ ...prev, phone: e.target.value }))}
-                            data-testid="input-hero-phone"
-                          />
-                        </div>
-                        <div className="relative group">
-                          <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400 group-focus-within:text-primary transition-colors" />
-                          <Input 
-                            type="email" 
-                            placeholder="Email Address" 
-                            className="h-10 pl-10 bg-gray-50/50 border-gray-200 rounded-lg text-sm focus:bg-white focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all"
-                            value={heroFormData.email}
-                            onChange={(e) => setHeroFormData(prev => ({ ...prev, email: e.target.value }))}
-                            data-testid="input-hero-email"
-                          />
+                        <div className="grid grid-cols-2 gap-2">
+                          <div className="relative group">
+                            <Phone className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400 group-focus-within:text-primary transition-colors" />
+                            <Input 
+                              type="tel" 
+                              placeholder="Phone" 
+                              className="h-10 pl-10 bg-gray-50/80 border-gray-200 rounded-lg text-sm focus:bg-white focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all"
+                              value={heroFormData.phone}
+                              onChange={(e) => setHeroFormData(prev => ({ ...prev, phone: e.target.value }))}
+                              data-testid="input-hero-phone"
+                            />
+                          </div>
+                          <div className="relative group">
+                            <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400 group-focus-within:text-primary transition-colors" />
+                            <Input 
+                              type="email" 
+                              placeholder="Email" 
+                              className="h-10 pl-10 bg-gray-50/80 border-gray-200 rounded-lg text-sm focus:bg-white focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all"
+                              value={heroFormData.email}
+                              onChange={(e) => setHeroFormData(prev => ({ ...prev, email: e.target.value }))}
+                              data-testid="input-hero-email"
+                            />
+                          </div>
                         </div>
                         <div className="grid grid-cols-2 gap-2">
                           <div className="relative group">
                             <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400 group-focus-within:text-primary transition-colors" />
                             <Input 
                               type="text" 
-                              placeholder="From" 
-                              className="h-10 pl-10 bg-gray-50/50 border-gray-200 rounded-lg text-sm focus:bg-white focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all"
+                              placeholder="Moving From" 
+                              className="h-10 pl-10 bg-gray-50/80 border-gray-200 rounded-lg text-sm focus:bg-white focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all"
                               value={heroFormData.movingFrom}
                               onChange={(e) => setHeroFormData(prev => ({ ...prev, movingFrom: e.target.value }))}
                               data-testid="input-hero-from"
@@ -950,13 +968,34 @@ export default function Home() {
                             <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400 group-focus-within:text-primary transition-colors" />
                             <Input 
                               type="text" 
-                              placeholder="To" 
-                              className="h-10 pl-10 bg-gray-50/50 border-gray-200 rounded-lg text-sm focus:bg-white focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all"
+                              placeholder="Moving To" 
+                              className="h-10 pl-10 bg-gray-50/80 border-gray-200 rounded-lg text-sm focus:bg-white focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all"
                               value={heroFormData.movingTo}
                               onChange={(e) => setHeroFormData(prev => ({ ...prev, movingTo: e.target.value }))}
                               data-testid="input-hero-to"
                             />
                           </div>
+                        </div>
+                        <div className="relative">
+                          <TruckIcon className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400 pointer-events-none z-10" />
+                          <Select 
+                            value={heroFormData.service} 
+                            onValueChange={(value) => setHeroFormData(prev => ({ ...prev, service: value }))}
+                          >
+                            <SelectTrigger className="h-10 pl-10 bg-gray-50/80 border-gray-200 rounded-lg text-sm" data-testid="select-hero-service">
+                              <SelectValue placeholder="Select Service" />
+                            </SelectTrigger>
+                            <SelectContent>
+                              <SelectItem value="Residential Moving">Residential Moving</SelectItem>
+                              <SelectItem value="Commercial Moving">Commercial Moving</SelectItem>
+                              <SelectItem value="Long Distance Moving">Long Distance Moving</SelectItem>
+                              <SelectItem value="Packing Services">Packing Services</SelectItem>
+                              <SelectItem value="Storage Solutions">Storage Solutions</SelectItem>
+                              <SelectItem value="Piano Moving">Piano Moving</SelectItem>
+                              <SelectItem value="Specialty Item Moving">Specialty Item Moving</SelectItem>
+                              <SelectItem value="Senior Moving">Senior Moving</SelectItem>
+                            </SelectContent>
+                          </Select>
                         </div>
                         <div className="grid grid-cols-2 gap-2">
                           <div className="relative">
@@ -965,7 +1004,7 @@ export default function Home() {
                               value={heroFormData.moveSize} 
                               onValueChange={(value) => setHeroFormData(prev => ({ ...prev, moveSize: value }))}
                             >
-                              <SelectTrigger className="h-10 pl-10 bg-gray-50/50 border-gray-200 rounded-lg text-sm" data-testid="select-hero-size">
+                              <SelectTrigger className="h-10 pl-10 bg-gray-50/80 border-gray-200 rounded-lg text-sm" data-testid="select-hero-size">
                                 <SelectValue placeholder="Move Size" />
                               </SelectTrigger>
                               <SelectContent>
@@ -978,21 +1017,40 @@ export default function Home() {
                               </SelectContent>
                             </Select>
                           </div>
-                          <div className="relative group">
-                            <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400 group-focus-within:text-primary transition-colors pointer-events-none z-10" />
-                            <Input 
-                              type="date" 
-                              className="h-10 pl-10 bg-gray-50/50 border-gray-200 rounded-lg text-sm focus:bg-white focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all"
-                              value={heroFormData.moveDate}
-                              onChange={(e) => setHeroFormData(prev => ({ ...prev, moveDate: e.target.value }))}
-                              data-testid="input-hero-date"
-                            />
-                          </div>
+                          <Popover open={calendarOpen} onOpenChange={setCalendarOpen}>
+                            <PopoverTrigger asChild>
+                              <button
+                                type="button"
+                                className="h-10 w-full flex items-center gap-2 pl-3 pr-3 bg-gray-50/80 border border-gray-200 rounded-lg text-sm text-left hover:bg-white hover:border-primary transition-all focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/20"
+                                data-testid="input-hero-date"
+                              >
+                                <Calendar className="h-4 w-4 text-gray-400 shrink-0" />
+                                <span className={selectedDate ? "text-foreground" : "text-gray-500"}>
+                                  {selectedDate ? format(selectedDate, "MMM d, yyyy") : "Move Date"}
+                                </span>
+                              </button>
+                            </PopoverTrigger>
+                            <PopoverContent className="w-auto p-0" align="start">
+                              <CalendarWidget
+                                mode="single"
+                                selected={selectedDate}
+                                onSelect={(date) => {
+                                  setSelectedDate(date);
+                                  if (date) {
+                                    setHeroFormData(prev => ({ ...prev, moveDate: format(date, "yyyy-MM-dd") }));
+                                  }
+                                  setCalendarOpen(false);
+                                }}
+                                disabled={(date) => date < new Date()}
+                                initialFocus
+                              />
+                            </PopoverContent>
+                          </Popover>
                         </div>
                         
                         <Button 
                           type="submit" 
-                          className="w-full font-semibold h-11 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 group" 
+                          className="w-full font-bold h-11 rounded-lg shadow-lg shadow-primary/30 transition-all duration-200 group text-base" 
                           disabled={quoteMutation.isPending}
                           data-testid="button-hero-cta-submit"
                         >
@@ -1010,7 +1068,7 @@ export default function Home() {
                         </Button>
                       </form>
 
-                      <div className="mt-4 pt-3 border-t border-gray-100 flex items-center justify-center gap-4 text-[10px] text-gray-400">
+                      <div className="mt-3 pt-3 border-t border-gray-100 flex items-center justify-center gap-4 text-[10px] text-gray-400">
                         <div className="flex items-center gap-1">
                           <Shield className="h-3 w-3 text-primary/70" />
                           <span>Insured</span>
