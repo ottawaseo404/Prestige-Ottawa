@@ -33,6 +33,16 @@ import MovingSupplies from "@/pages/services/moving-supplies";
 import MilitaryMoving from "@/pages/services/military-moving";
 import DynamicServicePage from "@/pages/dynamic-service";
 import Services from "@/pages/services";
+import OttawaMovers from "@/pages/seo/ottawa-movers";
+import MovingCompanyOttawa from "@/pages/seo/moving-company-ottawa";
+import ProfessionalMoversOttawa from "@/pages/seo/professional-movers-ottawa";
+import BestMoversOttawa from "@/pages/seo/best-movers-ottawa";
+import LocalMoversOttawa from "@/pages/seo/local-movers-ottawa";
+import AffordableMoversOttawa from "@/pages/seo/affordable-movers-ottawa";
+import LicensedMoversOttawa from "@/pages/seo/licensed-movers-ottawa";
+import InsuredMoversOttawa from "@/pages/seo/insured-movers-ottawa";
+import ResidentialMoversOttawa from "@/pages/seo/residential-movers-ottawa";
+import CommercialMoversOttawa from "@/pages/seo/commercial-movers-ottawa";
 import AdminDashboard from "@/pages/admin/dashboard";
 import AdminBookings from "@/pages/admin/bookings";
 import AdminAnalytics from "@/pages/admin-analytics";
@@ -141,6 +151,18 @@ function Router() {
       
       {/* Dynamic Service Pages (WordPress imported) */}
       <Route path="/services/:slug" component={DynamicServicePage} />
+      
+      {/* SEO Landing Pages */}
+      <Route path="/ottawa-movers" component={OttawaMovers} />
+      <Route path="/moving-company-ottawa" component={MovingCompanyOttawa} />
+      <Route path="/professional-movers-ottawa" component={ProfessionalMoversOttawa} />
+      <Route path="/best-movers-ottawa" component={BestMoversOttawa} />
+      <Route path="/local-movers-ottawa" component={LocalMoversOttawa} />
+      <Route path="/affordable-movers-ottawa" component={AffordableMoversOttawa} />
+      <Route path="/licensed-movers-ottawa" component={LicensedMoversOttawa} />
+      <Route path="/insured-movers-ottawa" component={InsuredMoversOttawa} />
+      <Route path="/residential-movers-ottawa" component={ResidentialMoversOttawa} />
+      <Route path="/commercial-movers-ottawa" component={CommercialMoversOttawa} />
       
       {/* Admin Login */}
       <Route path="/login" component={AdminLogin} />
