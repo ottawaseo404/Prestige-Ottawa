@@ -467,9 +467,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
         ServiceType: validatedData.serviceType || "Moving",
         MoveSize: validatedData.moveSize || undefined,
         OriginCity: validatedData.originCity || undefined,
-        OriginState: "BC",
         DestinationCity: validatedData.destinationCity || undefined,
-        DestinationState: "BC",
         Notes: notesParts.join('\n'),
       };
 
