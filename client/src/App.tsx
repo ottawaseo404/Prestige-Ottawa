@@ -43,6 +43,7 @@ import LicensedMoversOttawa from "@/pages/seo/licensed-movers-ottawa";
 import InsuredMoversOttawa from "@/pages/seo/insured-movers-ottawa";
 import ResidentialMoversOttawa from "@/pages/seo/residential-movers-ottawa";
 import CommercialMoversOttawa from "@/pages/seo/commercial-movers-ottawa";
+import TorontoSeo from "@/pages/toronto-seo";
 import AdminDashboard from "@/pages/admin/dashboard";
 import AdminBookings from "@/pages/admin/bookings";
 import AdminAnalytics from "@/pages/admin-analytics";
@@ -163,6 +164,7 @@ function Router() {
       <Route path="/insured-movers-ottawa" component={InsuredMoversOttawa} />
       <Route path="/residential-movers-ottawa" component={ResidentialMoversOttawa} />
       <Route path="/commercial-movers-ottawa" component={CommercialMoversOttawa} />
+      <Route path="/toronto-seo" component={TorontoSeo} />
       
       {/* Admin Login */}
       <Route path="/login" component={AdminLogin} />
