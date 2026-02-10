@@ -111,7 +111,7 @@ app.use((req, res, next) => {
   }, () => {
     log(`serving on port ${port}`);
     
-    // Start the daily blog scheduler
-    startBlogScheduler();
+    // Blog scheduler disabled - re-enable when ready
+    // startBlogScheduler();
   });
 })();
