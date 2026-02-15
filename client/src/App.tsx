@@ -53,6 +53,11 @@ import MoversInStittsville from "@/pages/seo/movers-in-stittsville";
 import MoversInWestboro from "@/pages/seo/movers-in-westboro";
 import MoversInAltaVista from "@/pages/seo/movers-in-alta-vista";
 import MoversInRiversideSouth from "@/pages/seo/movers-in-riverside-south";
+import JunkRemovalOttawa from "@/pages/seo/junk-removal-ottawa";
+import FurnitureAssemblyOttawa from "@/pages/seo/furniture-assembly-ottawa";
+import HomeStagingOttawa from "@/pages/seo/home-staging-ottawa";
+import EstateCleanoutOttawa from "@/pages/seo/estate-cleanout-ottawa";
+import CustomCratingOttawa from "@/pages/seo/custom-crating-ottawa";
 import AdminDashboard from "@/pages/admin/dashboard";
 import AdminBookings from "@/pages/admin/bookings";
 import AdminAnalytics from "@/pages/admin-analytics";
@@ -183,6 +188,11 @@ function Router() {
       <Route path="/movers-in-westboro" component={MoversInWestboro} />
       <Route path="/movers-in-alta-vista" component={MoversInAltaVista} />
       <Route path="/movers-in-riverside-south" component={MoversInRiversideSouth} />
+      <Route path="/junk-removal-ottawa" component={JunkRemovalOttawa} />
+      <Route path="/furniture-assembly-ottawa" component={FurnitureAssemblyOttawa} />
+      <Route path="/home-staging-ottawa" component={HomeStagingOttawa} />
+      <Route path="/estate-cleanout-ottawa" component={EstateCleanoutOttawa} />
+      <Route path="/custom-crating-ottawa" component={CustomCratingOttawa} />
       
       {/* Admin Login */}
       <Route path="/login" component={AdminLogin} />

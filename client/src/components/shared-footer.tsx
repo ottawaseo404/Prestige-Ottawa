@@ -44,6 +44,11 @@ export function SharedFooter() {
                 <Link href="/services/specialty-item-moving" className="block hover:text-primary transition-colors">Specialty Items</Link>
                 <Link href="/services/moving-supplies" className="block hover:text-primary transition-colors">Moving Supplies</Link>
                 <Link href="/services/military-moving" className="block hover:text-primary transition-colors">Military Moving</Link>
+                <Link href="/junk-removal-ottawa" className="block hover:text-primary transition-colors">Junk Removal</Link>
+                <Link href="/furniture-assembly-ottawa" className="block hover:text-primary transition-colors">Furniture Assembly</Link>
+                <Link href="/home-staging-ottawa" className="block hover:text-primary transition-colors">Home Staging</Link>
+                <Link href="/estate-cleanout-ottawa" className="block hover:text-primary transition-colors">Estate Cleanout</Link>
+                <Link href="/custom-crating-ottawa" className="block hover:text-primary transition-colors">Custom Crating</Link>
               </div>
               <h4 className="font-bold text-lg mb-4 mt-8">Resources</h4>
               <div className="space-y-2 text-sm text-white/70">
