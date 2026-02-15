@@ -2258,6 +2258,89 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Service Areas & SEO Links Section */}
+        <section className="py-16 md:py-20 bg-gray-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold text-[#1A2332] mb-4">Ottawa's Most Trusted Moving Company</h2>
+              <p className="text-gray-500 max-w-2xl mx-auto">Serving every corner of Ottawa with professional, fully insured moving services. Find movers near you.</p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
+              <div>
+                <h3 className="text-lg font-bold text-[#1A2332] mb-4 flex items-center gap-2">
+                  <TruckIcon className="h-5 w-5 text-[#C5A572]" />
+                  Ottawa Moving Services
+                </h3>
+                <div className="grid grid-cols-2 gap-x-6 gap-y-3">
+                  <Link href="/ottawa-movers" className="text-gray-600 hover:text-[#C5A572] transition-colors text-sm flex items-center gap-1.5" data-testid="link-seo-ottawa-movers">
+                    <ArrowRight className="h-3 w-3 text-[#C5A572] shrink-0" />Ottawa Movers
+                  </Link>
+                  <Link href="/moving-company-ottawa" className="text-gray-600 hover:text-[#C5A572] transition-colors text-sm flex items-center gap-1.5" data-testid="link-seo-moving-company">
+                    <ArrowRight className="h-3 w-3 text-[#C5A572] shrink-0" />Moving Company Ottawa
+                  </Link>
+                  <Link href="/professional-movers-ottawa" className="text-gray-600 hover:text-[#C5A572] transition-colors text-sm flex items-center gap-1.5" data-testid="link-seo-professional-movers">
+                    <ArrowRight className="h-3 w-3 text-[#C5A572] shrink-0" />Professional Movers
+                  </Link>
+                  <Link href="/best-movers-ottawa" className="text-gray-600 hover:text-[#C5A572] transition-colors text-sm flex items-center gap-1.5" data-testid="link-seo-best-movers">
+                    <ArrowRight className="h-3 w-3 text-[#C5A572] shrink-0" />Best Movers Ottawa
+                  </Link>
+                  <Link href="/local-movers-ottawa" className="text-gray-600 hover:text-[#C5A572] transition-colors text-sm flex items-center gap-1.5" data-testid="link-seo-local-movers">
+                    <ArrowRight className="h-3 w-3 text-[#C5A572] shrink-0" />Local Movers Ottawa
+                  </Link>
+                  <Link href="/affordable-movers-ottawa" className="text-gray-600 hover:text-[#C5A572] transition-colors text-sm flex items-center gap-1.5" data-testid="link-seo-affordable-movers">
+                    <ArrowRight className="h-3 w-3 text-[#C5A572] shrink-0" />Affordable Movers
+                  </Link>
+                  <Link href="/licensed-movers-ottawa" className="text-gray-600 hover:text-[#C5A572] transition-colors text-sm flex items-center gap-1.5" data-testid="link-seo-licensed-movers">
+                    <ArrowRight className="h-3 w-3 text-[#C5A572] shrink-0" />Licensed Movers
+                  </Link>
+                  <Link href="/insured-movers-ottawa" className="text-gray-600 hover:text-[#C5A572] transition-colors text-sm flex items-center gap-1.5" data-testid="link-seo-insured-movers">
+                    <ArrowRight className="h-3 w-3 text-[#C5A572] shrink-0" />Insured Movers
+                  </Link>
+                  <Link href="/residential-movers-ottawa" className="text-gray-600 hover:text-[#C5A572] transition-colors text-sm flex items-center gap-1.5" data-testid="link-seo-residential-movers">
+                    <ArrowRight className="h-3 w-3 text-[#C5A572] shrink-0" />Residential Movers
+                  </Link>
+                  <Link href="/commercial-movers-ottawa" className="text-gray-600 hover:text-[#C5A572] transition-colors text-sm flex items-center gap-1.5" data-testid="link-seo-commercial-movers">
+                    <ArrowRight className="h-3 w-3 text-[#C5A572] shrink-0" />Commercial Movers
+                  </Link>
+                </div>
+              </div>
+
+              <div>
+                <h3 className="text-lg font-bold text-[#1A2332] mb-4 flex items-center gap-2">
+                  <MapPin className="h-5 w-5 text-[#C5A572]" />
+                  Neighbourhood Movers
+                </h3>
+                <div className="grid grid-cols-2 gap-x-6 gap-y-3">
+                  <Link href="/movers-in-orleans" className="text-gray-600 hover:text-[#C5A572] transition-colors text-sm flex items-center gap-1.5" data-testid="link-seo-movers-orleans">
+                    <ArrowRight className="h-3 w-3 text-[#C5A572] shrink-0" />Movers in Orleans
+                  </Link>
+                  <Link href="/movers-in-barrhaven" className="text-gray-600 hover:text-[#C5A572] transition-colors text-sm flex items-center gap-1.5" data-testid="link-seo-movers-barrhaven">
+                    <ArrowRight className="h-3 w-3 text-[#C5A572] shrink-0" />Movers in Barrhaven
+                  </Link>
+                  <Link href="/movers-in-nepean" className="text-gray-600 hover:text-[#C5A572] transition-colors text-sm flex items-center gap-1.5" data-testid="link-seo-movers-nepean">
+                    <ArrowRight className="h-3 w-3 text-[#C5A572] shrink-0" />Movers in Nepean
+                  </Link>
+                  <Link href="/movers-in-kanata" className="text-gray-600 hover:text-[#C5A572] transition-colors text-sm flex items-center gap-1.5" data-testid="link-seo-movers-kanata">
+                    <ArrowRight className="h-3 w-3 text-[#C5A572] shrink-0" />Movers in Kanata
+                  </Link>
+                </div>
+                <div className="mt-8 p-5 bg-white rounded-md border border-gray-200">
+                  <div className="flex items-start gap-3">
+                    <div className="w-10 h-10 bg-[#C5A572]/10 rounded-full flex items-center justify-center shrink-0 mt-0.5">
+                      <Phone className="h-5 w-5 text-[#C5A572]" />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-[#1A2332] text-sm">Need movers in your area?</p>
+                      <p className="text-gray-500 text-sm mt-1">Call us at <a href="tel:6136004000" className="text-[#C5A572] font-semibold hover:underline">(613) 600-4000</a> or <Link href="/book" className="text-[#C5A572] font-semibold hover:underline">get a free quote online</Link>.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* CTA Section - Modern Redesign */}
         <section className="relative py-24 md:py-32 overflow-hidden">
           {/* Animated Background */}
