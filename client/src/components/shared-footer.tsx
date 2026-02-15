@@ -73,6 +73,11 @@ export function SharedFooter() {
                 <Link href="/movers-in-barrhaven" className="block hover:text-primary transition-colors">Movers in Barrhaven</Link>
                 <Link href="/movers-in-nepean" className="block hover:text-primary transition-colors">Movers in Nepean</Link>
                 <Link href="/movers-in-kanata" className="block hover:text-primary transition-colors">Movers in Kanata</Link>
+                <Link href="/movers-in-gloucester" className="block hover:text-primary transition-colors">Movers in Gloucester</Link>
+                <Link href="/movers-in-stittsville" className="block hover:text-primary transition-colors">Movers in Stittsville</Link>
+                <Link href="/movers-in-westboro" className="block hover:text-primary transition-colors">Movers in Westboro</Link>
+                <Link href="/movers-in-alta-vista" className="block hover:text-primary transition-colors">Movers in Alta Vista</Link>
+                <Link href="/movers-in-riverside-south" className="block hover:text-primary transition-colors">Movers in Riverside South</Link>
               </div>
             </div>
             

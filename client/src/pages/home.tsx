@@ -2324,6 +2324,21 @@ export default function Home() {
                   <Link href="/movers-in-kanata" className="text-gray-600 hover:text-[#C5A572] transition-colors text-sm flex items-center gap-1.5" data-testid="link-seo-movers-kanata">
                     <ArrowRight className="h-3 w-3 text-[#C5A572] shrink-0" />Movers in Kanata
                   </Link>
+                  <Link href="/movers-in-gloucester" className="text-gray-600 hover:text-[#C5A572] transition-colors text-sm flex items-center gap-1.5" data-testid="link-seo-movers-gloucester">
+                    <ArrowRight className="h-3 w-3 text-[#C5A572] shrink-0" />Movers in Gloucester
+                  </Link>
+                  <Link href="/movers-in-stittsville" className="text-gray-600 hover:text-[#C5A572] transition-colors text-sm flex items-center gap-1.5" data-testid="link-seo-movers-stittsville">
+                    <ArrowRight className="h-3 w-3 text-[#C5A572] shrink-0" />Movers in Stittsville
+                  </Link>
+                  <Link href="/movers-in-westboro" className="text-gray-600 hover:text-[#C5A572] transition-colors text-sm flex items-center gap-1.5" data-testid="link-seo-movers-westboro">
+                    <ArrowRight className="h-3 w-3 text-[#C5A572] shrink-0" />Movers in Westboro
+                  </Link>
+                  <Link href="/movers-in-alta-vista" className="text-gray-600 hover:text-[#C5A572] transition-colors text-sm flex items-center gap-1.5" data-testid="link-seo-movers-altavista">
+                    <ArrowRight className="h-3 w-3 text-[#C5A572] shrink-0" />Movers in Alta Vista
+                  </Link>
+                  <Link href="/movers-in-riverside-south" className="text-gray-600 hover:text-[#C5A572] transition-colors text-sm flex items-center gap-1.5" data-testid="link-seo-movers-riverside-south">
+                    <ArrowRight className="h-3 w-3 text-[#C5A572] shrink-0" />Movers in Riverside South
+                  </Link>
                 </div>
                 <div className="mt-8 p-5 bg-white rounded-md border border-gray-200">
                   <div className="flex items-start gap-3">
