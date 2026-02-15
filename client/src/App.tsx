@@ -48,6 +48,11 @@ import MoversInOrleans from "@/pages/seo/movers-in-orleans";
 import MoversInBarrhaven from "@/pages/seo/movers-in-barrhaven";
 import MoversInNepean from "@/pages/seo/movers-in-nepean";
 import MoversInKanata from "@/pages/seo/movers-in-kanata";
+import MoversInGloucester from "@/pages/seo/movers-in-gloucester";
+import MoversInStittsville from "@/pages/seo/movers-in-stittsville";
+import MoversInWestboro from "@/pages/seo/movers-in-westboro";
+import MoversInAltaVista from "@/pages/seo/movers-in-alta-vista";
+import MoversInRiversideSouth from "@/pages/seo/movers-in-riverside-south";
 import AdminDashboard from "@/pages/admin/dashboard";
 import AdminBookings from "@/pages/admin/bookings";
 import AdminAnalytics from "@/pages/admin-analytics";
@@ -173,6 +178,11 @@ function Router() {
       <Route path="/movers-in-barrhaven" component={MoversInBarrhaven} />
       <Route path="/movers-in-nepean" component={MoversInNepean} />
       <Route path="/movers-in-kanata" component={MoversInKanata} />
+      <Route path="/movers-in-gloucester" component={MoversInGloucester} />
+      <Route path="/movers-in-stittsville" component={MoversInStittsville} />
+      <Route path="/movers-in-westboro" component={MoversInWestboro} />
+      <Route path="/movers-in-alta-vista" component={MoversInAltaVista} />
+      <Route path="/movers-in-riverside-south" component={MoversInRiversideSouth} />
       
       {/* Admin Login */}
       <Route path="/login" component={AdminLogin} />
