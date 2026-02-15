@@ -812,7 +812,7 @@ export default function Home() {
                 </p>
 
                 {/* Quick Stats */}
-                <div className="grid grid-cols-2 md:flex md:flex-wrap gap-4 md:gap-6 mb-8">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-8">
                   <div className="flex items-center gap-2">
                     <div className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center flex-shrink-0">
                       <Shield className="h-5 w-5 text-primary" />
