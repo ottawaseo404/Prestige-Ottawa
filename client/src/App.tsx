@@ -64,6 +64,8 @@ import AdminAnalytics from "@/pages/admin-analytics";
 import AdminSmartMoving from "@/pages/admin/smartmoving";
 import AdminPackages from "@/pages/admin/packages";
 import AdminHeroVideos from "@/pages/admin/hero-videos";
+import AdminBlog from "@/pages/admin/blog";
+import AdminBlogEditor from "@/pages/admin/blog-editor";
 import AdminLogin from "@/pages/admin-login";
 import Calculator from "@/pages/calculator";
 import Contact from "@/pages/contact";
@@ -237,6 +239,27 @@ function Router() {
         {() => (
           <ProtectedAdminLayout>
             <AdminHeroVideos />
+          </ProtectedAdminLayout>
+        )}
+      </Route>
+      <Route path="/admin/blog/new">
+        {() => (
+          <ProtectedAdminLayout>
+            <AdminBlogEditor />
+          </ProtectedAdminLayout>
+        )}
+      </Route>
+      <Route path="/admin/blog/edit/:id">
+        {() => (
+          <ProtectedAdminLayout>
+            <AdminBlogEditor />
+          </ProtectedAdminLayout>
+        )}
+      </Route>
+      <Route path="/admin/blog">
+        {() => (
+          <ProtectedAdminLayout>
+            <AdminBlog />
           </ProtectedAdminLayout>
         )}
       </Route>

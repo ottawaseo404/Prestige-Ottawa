@@ -36,6 +36,11 @@ const menuItems = [
     icon: Video,
   },
   {
+    title: "Blog",
+    url: "/admin/blog",
+    icon: PenTool,
+  },
+  {
     title: "Analytics",
     url: "/admin/analytics",
     icon: BarChart3,
@@ -68,7 +73,7 @@ export function AppSidebar() {
             <SidebarMenu>
               {menuItems.map((item) => (
                 <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton asChild isActive={location === item.url}>
+                  <SidebarMenuButton asChild isActive={location === item.url || (item.url !== "/admin" && location.startsWith(item.url))}>
                     <Link href={item.url}>
                       <item.icon className="h-4 w-4" />
                       <span>{item.title}</span>
