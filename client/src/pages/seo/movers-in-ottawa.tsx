@@ -11,7 +11,7 @@ import {
   Home, Building2, Zap, Heart, ThumbsUp, BadgeCheck, Wrench,
   ClipboardList, Globe, BarChart3
 } from "lucide-react";
-import heroImage from "@assets/images/seo-movers-in-ottawa-hero.png";
+import heroImage from "@assets/prestige-fleet_1771975522124.webp";
 import infographicImage from "@assets/images/seo-movers-in-ottawa-infographic.png";
 import teamImage from "@assets/images/seo-movers-in-ottawa-team.png";
 import { SeoKeywordsSection } from "@/components/seo-keywords-section";
