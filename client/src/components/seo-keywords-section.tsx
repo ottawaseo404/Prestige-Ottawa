@@ -1,6 +1,7 @@
 import { Link } from "wouter";
 
 const seoPages = [
+  { label: "Movers in Ottawa", href: "/movers-in-ottawa" },
   { label: "Ottawa Movers", href: "/ottawa-movers" },
   { label: "Moving Company Ottawa", href: "/moving-company-ottawa" },
   { label: "Professional Movers Ottawa", href: "/professional-movers-ottawa" },
