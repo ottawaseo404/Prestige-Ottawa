@@ -64,8 +64,11 @@ export default function Home() {
   const [heroVideoIndex, setHeroVideoIndex] = useState(0);
   
   // Use custom hero video
-  const heroVideos = ["/attached_assets/residential_moving_video.mp4"];
-  const autoRotate = false;
+  const heroVideos = [
+    "/attached_assets/best-moving-company-in-ottawa_1771979813832.mp4",
+    "/attached_assets/ottawa-top-movers_1771979813833.mp4",
+  ];
+  const autoRotate = true;
   const rotationInterval = 8000;
   const heroLoading = false;
 
