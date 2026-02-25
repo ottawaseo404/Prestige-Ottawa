@@ -68,6 +68,7 @@ import AdminPackages from "@/pages/admin/packages";
 import AdminHeroVideos from "@/pages/admin/hero-videos";
 import AdminBlog from "@/pages/admin/blog";
 import AdminBlogEditor from "@/pages/admin/blog-editor";
+import AdminPages from "@/pages/admin/pages";
 import AdminLogin from "@/pages/admin-login";
 import Calculator from "@/pages/calculator";
 import Contact from "@/pages/contact";
@@ -200,6 +201,14 @@ function Router() {
       <Route path="/estate-cleanout-ottawa" component={EstateCleanoutOttawa} />
       <Route path="/custom-crating-ottawa" component={CustomCratingOttawa} />
       
+      <Route path="/admin/pages">
+        {() => (
+          <ProtectedAdminLayout>
+            <AdminPages />
+          </ProtectedAdminLayout>
+        )}
+      </Route>
+
       {/* Admin Login */}
       <Route path="/login" component={AdminLogin} />
       
