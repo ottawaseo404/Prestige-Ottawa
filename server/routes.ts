@@ -1458,8 +1458,8 @@ Provide a detailed cost estimate in JSON format.`;
       // Default video configurations for each page
       const defaultConfigs: Record<string, string[]> = {
         "home": ["/attached_assets/generated_videos/bc_ferry_sailing_scenic_vancouver_waters.mp4", "/attached_assets/generated_videos/bc_ferry_crossing_burrard_inlet.mp4"],
-        "commercial-moving": ["/attached_assets/commercial_moving_video.mp4", "/attached_assets/generated_videos/commercial_office_moving_scene.mp4"],
-        "long-distance-moving": ["/attached_assets/generated_videos/moving_trucks_bc_mountain_highway.mp4", "/attached_assets/generated_videos/moving_truck_on_scenic_highway.mp4"],
+        "commercial-moving": ["/attached_assets/generated_videos/commercial_office_movers_ottawa.mp4", "/attached_assets/commercial_moving_video.mp4", "/attached_assets/generated_videos/commercial_office_moving_scene.mp4"],
+        "long-distance-moving": ["/attached_assets/generated_videos/white_trucks_canadian_mountains_highway.mp4", "/attached_assets/generated_videos/moving_trucks_bc_mountain_highway.mp4", "/attached_assets/generated_videos/moving_truck_on_scenic_highway.mp4"],
         "piano-moving": ["/attached_assets/generated_videos/grand_piano_professional_moving.mp4"],
         "specialty-item-moving": ["/attached_assets/generated_videos/specialty_item_moving_hot_tub.mp4"],
         "residential-moving": ["/attached_assets/residential_moving_video.mp4", "/attached_assets/generated_videos/vancouver_residential_movers_with_boxes.mp4"],
