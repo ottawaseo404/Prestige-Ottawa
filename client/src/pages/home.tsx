@@ -1132,17 +1132,17 @@ export default function Home() {
         </section>
 
         {/* Our Locations - Google Maps */}
-        <section className="py-16 md:py-24 bg-gradient-to-b from-[#1A2332] to-[#0f1620]">
+        <section className="py-16 md:py-24 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <div className="inline-flex items-center gap-2 bg-primary/15 border border-primary/30 rounded-full px-4 py-1.5 mb-4">
                 <MapPin className="h-3.5 w-3.5 text-primary" />
                 <span className="text-xs font-semibold text-primary uppercase tracking-wider">Our Locations</span>
               </div>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-white mb-3">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-[#1A2332] mb-3">
                 Serving <span className="text-primary">Coast to Coast</span>
               </h2>
-              <p className="text-lg text-white/60 max-w-2xl mx-auto">
+              <p className="text-lg text-gray-500 max-w-2xl mx-auto">
                 Two locations to serve you better — Ottawa and Vancouver
               </p>
             </div>
@@ -1150,7 +1150,7 @@ export default function Home() {
             <div className="grid md:grid-cols-2 gap-6 md:gap-8">
               {/* Ottawa Location */}
               <div className="group" data-testid="location-ottawa">
-                <div className="bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:border-primary/30 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10">
+                <div className="bg-white border border-gray-200 rounded-2xl overflow-hidden hover:border-primary/40 transition-all duration-500 hover:shadow-xl hover:shadow-primary/10">
                   <div className="relative overflow-hidden rounded-t-2xl">
                     <iframe
                       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2804.2124912694585!2d-75.72008751287629!3d45.34452269648421!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4ccdfd66478c4cbf%3A0xa28f0b05d60667dc!2sPrestige%20Moving%20Inc%20%7C%20Ottawa%20Long%20Distance%20Movers!5e0!3m2!1sen!2sca!4v1770408936619!5m2!1sen!2sca"
@@ -1167,15 +1167,15 @@ export default function Home() {
                   </div>
                   <div className="p-5">
                     <div className="flex items-center gap-3 mb-3">
-                      <div className="flex items-center justify-center w-10 h-10 bg-primary/20 rounded-xl">
+                      <div className="flex items-center justify-center w-10 h-10 bg-primary/15 rounded-xl">
                         <MapPin className="h-5 w-5 text-primary" />
                       </div>
                       <div>
-                        <h3 className="text-lg font-bold text-white">Ottawa</h3>
-                        <p className="text-sm text-white/50">Headquarters</p>
+                        <h3 className="text-lg font-bold text-[#1A2332]">Ottawa</h3>
+                        <p className="text-sm text-gray-400">Headquarters</p>
                       </div>
                     </div>
-                    <p className="text-sm text-white/60 mb-4">50 Colonnade Rd Unit 200B, Ottawa, ON K2E 7J6</p>
+                    <p className="text-sm text-gray-500 mb-4">50 Colonnade Rd Unit 200B, Ottawa, ON K2E 7J6</p>
                     <div className="flex flex-wrap items-center gap-2">
                       <a href="tel:613-600-4000" className="inline-flex items-center gap-1.5 bg-primary/15 text-primary rounded-full px-3 py-1.5 text-xs font-semibold hover:bg-primary/25 transition-colors" data-testid="link-ottawa-phone">
                         <Phone className="h-3 w-3" />
@@ -1185,7 +1185,7 @@ export default function Home() {
                         <Mail className="h-3 w-3" />
                         Ottawa@prestigemoving.ca
                       </a>
-                      <a href="https://maps.app.goo.gl/5grQGZ18k1GrxuEj7" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 bg-white/10 text-white/80 rounded-full px-3 py-1.5 text-xs font-semibold hover:bg-white/20 transition-colors" data-testid="link-ottawa-directions">
+                      <a href="https://maps.app.goo.gl/5grQGZ18k1GrxuEj7" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 bg-gray-100 text-gray-600 rounded-full px-3 py-1.5 text-xs font-semibold hover:bg-gray-200 transition-colors" data-testid="link-ottawa-directions">
                         <ArrowRight className="h-3 w-3" />
                         Get Directions
                       </a>
@@ -1196,7 +1196,7 @@ export default function Home() {
 
               {/* Vancouver Location */}
               <div className="group" data-testid="location-vancouver">
-                <div className="bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:border-primary/30 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10">
+                <div className="bg-white border border-gray-200 rounded-2xl overflow-hidden hover:border-primary/40 transition-all duration-500 hover:shadow-xl hover:shadow-primary/10">
                   <div className="relative overflow-hidden rounded-t-2xl">
                     <iframe
                       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2604.13926677419!2d-123.01141771135478!3d49.2548061976165!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x548677617fa0fd25%3A0x5528c843959439c9!2sPrestige%20Moving%20Inc%20%2F%20Movers%20in%20Vancouver!5e0!3m2!1sen!2sca!4v1770409004781!5m2!1sen!2sca"
@@ -1213,15 +1213,15 @@ export default function Home() {
                   </div>
                   <div className="p-5">
                     <div className="flex items-center gap-3 mb-3">
-                      <div className="flex items-center justify-center w-10 h-10 bg-primary/20 rounded-xl">
+                      <div className="flex items-center justify-center w-10 h-10 bg-primary/15 rounded-xl">
                         <MapPin className="h-5 w-5 text-primary" />
                       </div>
                       <div>
-                        <h3 className="text-lg font-bold text-white">Vancouver</h3>
-                        <p className="text-sm text-white/50">West Coast Office</p>
+                        <h3 className="text-lg font-bold text-[#1A2332]">Vancouver</h3>
+                        <p className="text-sm text-gray-400">West Coast Office</p>
                       </div>
                     </div>
-                    <p className="text-sm text-white/60 mb-4">4385 Canada Wy, Burnaby, BC V5G 1J3</p>
+                    <p className="text-sm text-gray-500 mb-4">4385 Canada Wy, Burnaby, BC V5G 1J3</p>
                     <div className="flex flex-wrap items-center gap-2">
                       <a href="tel:604-616-6066" className="inline-flex items-center gap-1.5 bg-primary/15 text-primary rounded-full px-3 py-1.5 text-xs font-semibold hover:bg-primary/25 transition-colors" data-testid="link-vancouver-phone">
                         <Phone className="h-3 w-3" />
@@ -1231,7 +1231,7 @@ export default function Home() {
                         <Mail className="h-3 w-3" />
                         vancouver@prestigemoving.ca
                       </a>
-                      <a href="https://maps.app.goo.gl/GKvmDPf3vZcTmRRw8" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 bg-white/10 text-white/80 rounded-full px-3 py-1.5 text-xs font-semibold hover:bg-white/20 transition-colors" data-testid="link-vancouver-directions">
+                      <a href="https://maps.app.goo.gl/GKvmDPf3vZcTmRRw8" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 bg-gray-100 text-gray-600 rounded-full px-3 py-1.5 text-xs font-semibold hover:bg-gray-200 transition-colors" data-testid="link-vancouver-directions">
                         <ArrowRight className="h-3 w-3" />
                         Get Directions
                       </a>
