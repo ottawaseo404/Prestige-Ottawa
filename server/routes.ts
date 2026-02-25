@@ -6,7 +6,7 @@ import { z } from "zod";
 import { fromZodError } from "zod-validation-error";
 import { Resend } from "resend";
 import OpenAI from "openai";
-import { generateBlogPost, generateFeaturedImage, generateBlogIdeas } from "./ai-service";
+import { generateBlogPost, generateFeaturedImage, generateBlogIdeas, generatePageIdeas } from "./ai-service";
 import { triggerManualGeneration } from "./blog-scheduler";
 import { runImport } from "./wordpress-import";
 import { importServicePages } from "./service-pages-import";
@@ -1193,6 +1193,18 @@ Provide a detailed cost estimate in JSON format.`;
   // ============= AI BLOG GENERATION ROUTES =============
 
   // Generate blog post ideas
+  // Generate page ideas for the Pages Tracker
+  app.post("/api/admin/generate-page-ideas", requireAdmin, async (req, res) => {
+    try {
+      const { category = "All", existingRoutes = [], count = 10 } = req.body;
+      const ideas = await generatePageIdeas(category, existingRoutes, count);
+      res.json({ ideas });
+    } catch (error: any) {
+      console.error("Error generating page ideas:", error);
+      res.status(500).json({ message: "Failed to generate page ideas" });
+    }
+  });
+
   app.post("/api/admin/blog/ai/ideas", requireAdmin, async (req, res) => {
     try {
       const { count = 5 } = req.body;

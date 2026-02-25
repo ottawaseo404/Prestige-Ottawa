@@ -175,6 +175,114 @@ export async function generateFeaturedImage(title: string, type: "featured" | "i
   );
 }
 
+export interface PageIdea {
+  title: string;
+  route: string;
+  category: "SEO Keyword" | "Neighbourhood" | "Service";
+  description: string;
+  targetKeyword: string;
+  district?: string;
+  priority: "High" | "Medium" | "Low";
+}
+
+const OTTAWA_NEIGHBOURHOODS = `
+CENTRAL OTTAWA: ByWard Market, Centretown, Centretown West, Downtown, The Glebe, Golden Triangle, LeBreton Flats, Lower Town, Old Ottawa East, Old Ottawa South, Sandy Hill
+EAST END: Carson Meadows, Castle Heights, Forbes, Lees Avenue, Lindenlea, Manor Park, New Edinburgh, Overbrook, Rockcliffe Park, Vanier, Viscount Alexander Park
+SOUTH END: Airport-Uplands, Alta Vista, Billings Bridge, Confederation Heights, Ellwood, Elmvale Acres, Greenboro, Hawthorne Meadows, Heron Gate, Heron Park, Hunt Club, Hunt Club Park, Riverside Park, Riverview, Mooney's Bay Park, Sheffield Glen, South Keys, Urbandale
+WEST END: Ambleside, Bel-Air Heights, Britannia, Britannia Village, Carlington, Carlingwood, Central Park, Champlain Park, Civic Hospital, Glabar Park, Hampton Park, Highland Park, Hintonburg, Lincoln Heights, McKellar Park, Mechanicsville, Qualicum, Tunney's Pasture, Wellington Village, Westboro, Whitehaven, Woodpark, Woodroffe North
+GLOUCESTER: Beacon Hill, Blackburn Hamlet, Blossom Park, Carlsbad Springs, Carson Grove, Cedardale, Chapel Hill, Convent Glen, Cyrville, Findlay Creek, Gloucester Glen, Orleans, Orléans Village, Pineview, Riverside South, Rothwell Heights, Windsor Park Village
+KANATA: Beaverbrook, Bridlewood, Glen Cairn, Kanata, Kanata Lakes, Kanata West, Katimavik-Hazeldean, Lakeside, Marchwood, Morgan's Grant, South March, Bridlewood, Town Centre Kanata
+NEPEAN: Arlington Woods, Barrhaven, Bayshore, Bells Corners, Borden Farm, Briargreen, Centrepointe, City View, Country Place, Craig Henry, Crystal Beach, Davidson Heights, Fallowfield, Fisher Glen, Fisher Heights, Hillsdale, Jockvale, Knollsbrook, Leslie Park, Longfields, Lynwood Village, Manordale, Meadowlands, Merivale Gardens, Parkwood Hills, Pineglen, Qualicum, Ryan Farm, Skyline, Tanglewood, Trend Village, Twin Elm, Valley Stream, Westcliffe Estates
+CUMBERLAND: Avalon, Bearbrook, Beckett Creek, Chatelaine Village, Cumberland Village, Fallingbrook, French Hill, Navan, Queenswood Heights, Queenswood Village, Vars
+GOULBOURN: Ashton, Dwyer Hill, Munster, Old Stittsville, Richmond, Stittsville, Woodside Acres
+OSGOODE TOWNSHIP: Belmeade, Greely, Kenmore, Metcalfe, Osgoode, Vernon
+RIDEAU: Kars, Manotick, North Gower
+WEST CARLETON: Fitzroy Harbour, Galetta, Kinburn, Constance Bay, Dunrobin, Carp, Corkery, Huntley
+`;
+
+export async function generatePageIdeas(
+  category: "SEO Keyword" | "Neighbourhood" | "Service" | "All",
+  existingRoutes: string[],
+  count: number = 10
+): Promise<PageIdea[]> {
+  return limit(() =>
+    pRetry(
+      async () => {
+        const existingList = existingRoutes.join(", ");
+
+        const systemPrompt = `You are an SEO strategist for Prestige Moving Ottawa, a professional moving company serving Ottawa, Ontario, Canada.
+Your job is to suggest new landing pages that will rank on Google and bring in local moving customers.
+
+COMPANY INFO:
+- Prestige Moving Ottawa | Phone: (613) 600-4000 | Address: 50 Colonnade Rd Unit 200B, Ottawa, ON
+- Services: residential moving, commercial moving, long distance, packing, storage, junk removal, furniture assembly, piano moving, specialty items, senior moving, student moving
+
+OTTAWA NEIGHBOURHOODS & DISTRICTS:
+${OTTAWA_NEIGHBOURHOODS}
+
+EXISTING PAGES (do NOT suggest these routes):
+${existingList}
+
+RULES:
+1. Only suggest pages that do NOT already exist in the existing pages list
+2. All routes must be lowercase, hyphenated, no trailing slash
+3. For Neighbourhood pages: focus on Ottawa neighbourhoods not yet covered
+4. For SEO Keyword pages: target high-intent moving keywords with Ottawa/neighbourhood modifier
+5. For Service pages: suggest niche or specialty service pages
+6. Return ONLY valid JSON
+
+Return JSON in this exact format:
+{
+  "ideas": [
+    {
+      "title": "Page Display Title",
+      "route": "/url-route",
+      "category": "Neighbourhood" | "SEO Keyword" | "Service",
+      "description": "1-sentence description of page purpose and target audience",
+      "targetKeyword": "primary keyword this page targets",
+      "district": "Ottawa district name (only for Neighbourhood pages)",
+      "priority": "High" | "Medium" | "Low"
+    }
+  ]
+}`;
+
+        const categoryInstruction = category === "All"
+          ? `Generate a mix of ${count} total ideas: roughly split between Neighbourhood, SEO Keyword, and Service pages. Focus heavily on Ottawa neighbourhoods not yet covered.`
+          : category === "Neighbourhood"
+          ? `Generate ${count} Neighbourhood pages for Ottawa areas not yet covered. Focus on high-density residential areas, suburbs, and districts with many families. Pick specific neighbourhoods from different districts across Ottawa.`
+          : category === "SEO Keyword"
+          ? `Generate ${count} SEO Keyword pages targeting high-search-volume moving queries in Ottawa. Include variations like "cheap movers ottawa", "same day movers ottawa", "moving company [neighbourhood]", "how much does moving cost ottawa", etc.`
+          : `Generate ${count} Service pages for niche moving services not yet covered. Examples: condo moving, apartment moving, office relocation, last-minute moving, eco-friendly moving, moving with pets, moving insurance Ottawa, etc.`;
+
+        const response = await openai.chat.completions.create({
+          model: AI_MODEL,
+          messages: [
+            { role: "system", content: systemPrompt },
+            { role: "user", content: categoryInstruction }
+          ],
+          max_completion_tokens: 3000,
+          response_format: { type: "json_object" }
+        });
+
+        const content = response.choices[0]?.message?.content;
+        if (!content) throw new Error("No ideas generated");
+
+        const parsed = JSON.parse(content);
+        return (parsed.ideas || []) as PageIdea[];
+      },
+      {
+        retries: 2,
+        minTimeout: 2000,
+        maxTimeout: 20000,
+        factor: 2,
+        onFailedAttempt: (error) => {
+          console.log(`Page idea generation attempt ${error.attemptNumber} failed. ${error.retriesLeft} retries left.`);
+        }
+      }
+    )
+  );
+}
+
 export async function generateBlogIdeas(count: number = 5): Promise<string[]> {
   return limit(() =>
     pRetry(
