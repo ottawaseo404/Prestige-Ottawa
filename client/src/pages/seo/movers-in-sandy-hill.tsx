@@ -155,7 +155,8 @@ export default function MoversInSandyHill() {
         {/* Hero */}
         <section className="relative h-[500px] flex items-center" data-testid="section-hero">
           <img src={heroImage} alt="Professional movers in Sandy Hill Ottawa moving furniture in a Victorian home" className="absolute inset-0 w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#1A2332]/92 to-[#1A2332]/65" />
+          <div className="absolute inset-0 bg-[#1A2332]/70" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#1A2332]/90 to-[#1A2332]/40" />
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
             <div className="inline-flex items-center gap-2 bg-[#C5A572]/20 border border-[#C5A572]/40 rounded-full px-4 py-1.5 mb-5">
               <MapPin className="h-3.5 w-3.5 text-[#C5A572]" />
