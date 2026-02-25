@@ -63,6 +63,7 @@ import EstateCleanoutOttawa from "@/pages/seo/estate-cleanout-ottawa";
 import CustomCratingOttawa from "@/pages/seo/custom-crating-ottawa";
 import MoversInOttawa from "@/pages/seo/movers-in-ottawa";
 import LongDistanceMoversOttawa from "@/pages/seo/long-distance-movers-ottawa";
+import HowMuchDoesMovingCostOttawa from "@/pages/seo/how-much-does-moving-cost-ottawa";
 import AdminDashboard from "@/pages/admin/dashboard";
 import AdminBookings from "@/pages/admin/bookings";
 import AdminAnalytics from "@/pages/admin-analytics";
@@ -200,6 +201,7 @@ function Router() {
       <Route path="/movers-in-riverside-south" component={MoversInRiversideSouth} />
       <Route path="/movers-in-ottawa" component={MoversInOttawa} />
       <Route path="/long-distance-movers-ottawa" component={LongDistanceMoversOttawa} />
+      <Route path="/how-much-does-moving-cost-ottawa" component={HowMuchDoesMovingCostOttawa} />
       <Route path="/junk-removal-ottawa" component={JunkRemovalOttawa} />
       <Route path="/furniture-assembly-ottawa" component={FurnitureAssemblyOttawa} />
       <Route path="/home-staging-ottawa" component={HomeStagingOttawa} />

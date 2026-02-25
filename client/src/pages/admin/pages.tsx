@@ -80,6 +80,7 @@ const ALL_PAGES: SitePage[] = [
   { title: "Movers in Riverside South", route: "/movers-in-riverside-south", category: "Neighbourhood", createdDate: "2026-02-15", description: "Neighbourhood SEO page for Riverside South, Ottawa" },
   { title: "Movers in Sandy Hill", route: "/movers-in-sandy-hill", category: "Neighbourhood", createdDate: "2026-02-25", description: "Neighbourhood SEO page for Sandy Hill, Ottawa (student/uOttawa focus)" },
   { title: "Movers in Rockcliffe Park", route: "/movers-in-rockcliffe-park", category: "Neighbourhood", createdDate: "2026-02-25", description: "Neighbourhood SEO page for Rockcliffe Park (white-glove estate/embassy moves)" },
+  { title: "How Much Does Moving Cost Ottawa", route: "/how-much-does-moving-cost-ottawa", category: "SEO Keyword", createdDate: "2026-02-25", description: "2025 Ottawa moving cost guide with interactive price calculator, pricing tables, and FAQ schema" },
 ];
 
 const CATEGORY_CONFIG: Record<string, { icon: React.ElementType; color: string }> = {
