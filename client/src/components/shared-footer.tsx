@@ -72,6 +72,7 @@ export function SharedFooter() {
                 <Link href="/insured-movers-ottawa" className="block hover:text-primary transition-colors">Insured Movers</Link>
                 <Link href="/residential-movers-ottawa" className="block hover:text-primary transition-colors">Residential Movers</Link>
                 <Link href="/commercial-movers-ottawa" className="block hover:text-primary transition-colors">Commercial Movers</Link>
+                <Link href="/long-distance-movers-ottawa" className="block hover:text-primary transition-colors">Long Distance Movers</Link>
               </div>
               <h4 className="font-bold text-lg mb-4 mt-6">Neighbourhood Movers</h4>
               <div className="space-y-2 text-sm text-white/70">
