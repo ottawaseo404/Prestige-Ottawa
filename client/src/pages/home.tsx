@@ -64,7 +64,7 @@ export default function Home() {
   const [heroVideoIndex, setHeroVideoIndex] = useState(0);
   
   // Use custom hero video
-  const heroVideos = ["/attached_assets/IMG_5332_1770072644600.MP4"];
+  const heroVideos = ["/attached_assets/residential_moving_video.mp4"];
   const autoRotate = false;
   const rotationInterval = 8000;
   const heroLoading = false;
