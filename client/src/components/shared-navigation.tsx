@@ -124,7 +124,7 @@ export function SharedNavigation() {
       </div>
 
       {/* Navigation */}
-      <nav className="bg-[#1A2332] border-b border-primary/20 shadow-lg">
+      <nav className="bg-white border-b border-gray-200 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-28 gap-6">
           <Link href="/" data-testid="link-logo" className="flex-shrink-0">
@@ -142,7 +142,7 @@ export function SharedNavigation() {
                 <NavigationMenuItem>
                   <button 
                     onClick={() => handleNavClick("/services/residential-moving")}
-                    className="group/item relative flex items-center gap-2 px-4 py-2.5 text-white/90 font-medium tracking-wide text-sm uppercase transition-all duration-300 hover:text-white"
+                    className="group/item relative flex items-center gap-2 px-4 py-2.5 text-[#1A2332]/80 font-medium tracking-wide text-sm uppercase transition-all duration-300 hover:text-[#C5A572]"
                     data-testid="nav-residential"
                   >
                     <HomeIcon className="h-4 w-4 transition-transform duration-300 group-hover/item:scale-110" />
@@ -154,7 +154,7 @@ export function SharedNavigation() {
                 <NavigationMenuItem>
                   <button 
                     onClick={() => handleNavClick("/services/commercial-moving")}
-                    className="group/item relative flex items-center gap-2 px-4 py-2.5 text-white/90 font-medium tracking-wide text-sm uppercase transition-all duration-300 hover:text-white"
+                    className="group/item relative flex items-center gap-2 px-4 py-2.5 text-[#1A2332]/80 font-medium tracking-wide text-sm uppercase transition-all duration-300 hover:text-[#C5A572]"
                     data-testid="nav-commercial"
                   >
                     <Building2 className="h-4 w-4 transition-transform duration-300 group-hover/item:scale-110" />
@@ -166,7 +166,7 @@ export function SharedNavigation() {
                 <NavigationMenuItem>
                   <button 
                     onClick={() => handleNavClick("/services/long-distance-moving")}
-                    className="group/item relative flex items-center gap-2 px-4 py-2.5 text-white/90 font-medium tracking-wide text-sm uppercase transition-all duration-300 hover:text-white whitespace-nowrap"
+                    className="group/item relative flex items-center gap-2 px-4 py-2.5 text-[#1A2332]/80 font-medium tracking-wide text-sm uppercase transition-all duration-300 hover:text-[#C5A572] whitespace-nowrap"
                     data-testid="nav-long-distance"
                   >
                     <Truck className="h-4 w-4 flex-shrink-0 transition-transform duration-300 group-hover/item:scale-110" />
@@ -176,7 +176,7 @@ export function SharedNavigation() {
                 </NavigationMenuItem>
 
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger className="group/trigger relative text-white/90 font-medium tracking-wide text-sm uppercase !bg-transparent hover:!bg-transparent hover:text-white data-[state=open]:!bg-transparent data-[state=open]:text-white gap-2 transition-all duration-300" data-testid="nav-services-trigger">
+                  <NavigationMenuTrigger className="group/trigger relative text-[#1A2332]/80 font-medium tracking-wide text-sm uppercase !bg-transparent hover:!bg-transparent hover:text-[#C5A572] data-[state=open]:!bg-transparent data-[state=open]:text-[#C5A572] gap-2 transition-all duration-300" data-testid="nav-services-trigger">
                     <Package className="h-4 w-4 transition-transform duration-300 group-hover/trigger:scale-110" />
                     <span>More Services</span>
                     <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-primary rounded-full transition-all duration-300 group-hover/trigger:w-4/5 group-data-[state=open]/trigger:w-4/5 group-hover/trigger:shadow-[0_0_10px_rgba(197,165,114,0.8),0_0_20px_rgba(197,165,114,0.4)] group-data-[state=open]/trigger:shadow-[0_0_10px_rgba(197,165,114,0.8),0_0_20px_rgba(197,165,114,0.4)]" />
@@ -211,7 +211,7 @@ export function SharedNavigation() {
 
             <button 
               onClick={() => handleNavClick("/blog")}
-              className="group/item relative flex items-center gap-2 px-4 py-2.5 text-white/90 font-medium tracking-wide text-sm uppercase transition-all duration-300 hover:text-white"
+              className="group/item relative flex items-center gap-2 px-4 py-2.5 text-[#1A2332]/80 font-medium tracking-wide text-sm uppercase transition-all duration-300 hover:text-[#C5A572]"
               data-testid="nav-blog"
             >
               <FileText className="h-4 w-4 transition-transform duration-300 group-hover/item:scale-110" />
@@ -226,19 +226,19 @@ export function SharedNavigation() {
             </Link>
             
             <Link href="/admin">
-              <Button variant="ghost" size="icon" className="text-white hover:bg-white/10" data-testid="link-admin-nav">
+              <Button variant="ghost" size="icon" className="text-[#1A2332]/60 hover:bg-gray-100" data-testid="link-admin-nav">
                 <Lock className="h-5 w-5" />
               </Button>
             </Link>
           </div>
 
           <div className="lg:hidden flex items-center gap-2">
-            <a href="tel:613-600-4000" className="p-2 text-white" data-testid="link-phone-mobile">
+            <a href="tel:613-600-4000" className="p-2 text-[#1A2332]" data-testid="link-phone-mobile">
               <Phone className="h-5 w-5" />
             </a>
             <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
               <SheetTrigger asChild>
-                <Button variant="ghost" size="icon" className="text-white hover:bg-white/10" data-testid="button-mobile-menu">
+                <Button variant="ghost" size="icon" className="text-[#1A2332] hover:bg-gray-100" data-testid="button-mobile-menu">
                   <Menu className="h-6 w-6" />
                 </Button>
               </SheetTrigger>
