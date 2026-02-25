@@ -467,12 +467,12 @@ export default function Home() {
           {/* Modern Navigation - Light Theme */}
           <nav className="bg-white border-b border-gray-200 shadow-sm">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex justify-between items-center h-28 gap-6">
-              <Link href="/" data-testid="link-logo" className="flex-shrink-0">
+            <div className="flex justify-between items-center h-36 gap-6">
+              <Link href="/" data-testid="link-logo" className="flex-shrink-0 group/logo">
                 <img 
                   src={logoUrl} 
                   alt="Prestige Moving" 
-                  className="h-24 object-contain cursor-pointer transition-all duration-300 hover:scale-105 hover:drop-shadow-[0_0_15px_rgba(197,165,114,0.5)]" 
+                  className="h-32 object-contain cursor-pointer transition-all duration-500 drop-shadow-[0_0_10px_rgba(197,165,114,0.35)] group-hover/logo:scale-110 group-hover/logo:drop-shadow-[0_0_30px_rgba(197,165,114,0.85),0_0_60px_rgba(197,165,114,0.4)] group-hover/logo:-rotate-1" 
                   data-testid="img-logo" 
                 />
               </Link>
