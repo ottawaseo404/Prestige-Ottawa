@@ -78,6 +78,8 @@ const ALL_PAGES: SitePage[] = [
   { title: "Movers in Westboro", route: "/movers-in-westboro", category: "Neighbourhood", createdDate: "2026-02-15", description: "Neighbourhood SEO page for Westboro, Ottawa" },
   { title: "Movers in Alta Vista", route: "/movers-in-alta-vista", category: "Neighbourhood", createdDate: "2026-02-15", description: "Neighbourhood SEO page for Alta Vista, Ottawa" },
   { title: "Movers in Riverside South", route: "/movers-in-riverside-south", category: "Neighbourhood", createdDate: "2026-02-15", description: "Neighbourhood SEO page for Riverside South, Ottawa" },
+  { title: "Movers in Sandy Hill", route: "/movers-in-sandy-hill", category: "Neighbourhood", createdDate: "2026-02-25", description: "Neighbourhood SEO page for Sandy Hill, Ottawa (student/uOttawa focus)" },
+  { title: "Movers in Rockcliffe Park", route: "/movers-in-rockcliffe-park", category: "Neighbourhood", createdDate: "2026-02-25", description: "Neighbourhood SEO page for Rockcliffe Park (white-glove estate/embassy moves)" },
 ];
 
 const CATEGORY_CONFIG: Record<string, { icon: React.ElementType; color: string }> = {
@@ -122,6 +124,13 @@ export default function AdminPages() {
   const [search, setSearch] = useState("");
   const [dateFilter, setDateFilter] = useState<DateFilter>("all");
   const [categoryFilter, setCategoryFilter] = useState<PageCategory | "All">("All");
+  const [activeTab, setActiveTab] = useState<string>(() => {
+    try { return sessionStorage.getItem("admin-pages-tab") ?? "tracker"; } catch { return "tracker"; }
+  });
+  const handleTabChange = (val: string) => {
+    setActiveTab(val);
+    try { sessionStorage.setItem("admin-pages-tab", val); } catch { /* ignore */ }
+  };
 
   const [aiCategory, setAiCategory] = useState<"All" | "SEO Keyword" | "Neighbourhood" | "Service">("Neighbourhood");
   const [aiCount, setAiCount] = useState("10");
@@ -202,7 +211,7 @@ export default function AdminPages() {
         })}
       </div>
 
-      <Tabs defaultValue="tracker" data-testid="tabs-pages">
+      <Tabs value={activeTab} onValueChange={handleTabChange} data-testid="tabs-pages">
         <TabsList>
           <TabsTrigger value="tracker" data-testid="tab-tracker">
             <FileText className="h-4 w-4 mr-1.5" />

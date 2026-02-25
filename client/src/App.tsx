@@ -52,6 +52,8 @@ import MoversInKanata from "@/pages/seo/movers-in-kanata";
 import MoversInGloucester from "@/pages/seo/movers-in-gloucester";
 import MoversInStittsville from "@/pages/seo/movers-in-stittsville";
 import MoversInWestboro from "@/pages/seo/movers-in-westboro";
+import MoversInSandyHill from "@/pages/seo/movers-in-sandy-hill";
+import MoversInRockcliffePark from "@/pages/seo/movers-in-rockcliffe-park";
 import MoversInAltaVista from "@/pages/seo/movers-in-alta-vista";
 import MoversInRiversideSouth from "@/pages/seo/movers-in-riverside-south";
 import JunkRemovalOttawa from "@/pages/seo/junk-removal-ottawa";
@@ -192,6 +194,8 @@ function Router() {
       <Route path="/movers-in-gloucester" component={MoversInGloucester} />
       <Route path="/movers-in-stittsville" component={MoversInStittsville} />
       <Route path="/movers-in-westboro" component={MoversInWestboro} />
+      <Route path="/movers-in-sandy-hill" component={MoversInSandyHill} />
+      <Route path="/movers-in-rockcliffe-park" component={MoversInRockcliffePark} />
       <Route path="/movers-in-alta-vista" component={MoversInAltaVista} />
       <Route path="/movers-in-riverside-south" component={MoversInRiversideSouth} />
       <Route path="/movers-in-ottawa" component={MoversInOttawa} />

@@ -85,6 +85,8 @@ export function SharedFooter() {
                 <Link href="/movers-in-westboro" className="block hover:text-primary transition-colors">Movers in Westboro</Link>
                 <Link href="/movers-in-alta-vista" className="block hover:text-primary transition-colors">Movers in Alta Vista</Link>
                 <Link href="/movers-in-riverside-south" className="block hover:text-primary transition-colors">Movers in Riverside South</Link>
+                <Link href="/movers-in-sandy-hill" className="block hover:text-primary transition-colors">Movers in Sandy Hill</Link>
+                <Link href="/movers-in-rockcliffe-park" className="block hover:text-primary transition-colors">Movers in Rockcliffe Park</Link>
               </div>
             </div>
             
