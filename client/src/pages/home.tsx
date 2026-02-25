@@ -566,12 +566,6 @@ export default function Home() {
                   <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-primary rounded-full transition-all duration-300 group-hover/item:w-4/5 group-hover/item:shadow-[0_0_10px_rgba(197,165,114,0.8),0_0_20px_rgba(197,165,114,0.4)]" />
                 </button>
 
-                <Link href="/book">
-                  <Button variant="default" size="lg" className="font-bold shadow-lg" data-testid="button-get-quote">
-                    FREE ESTIMATE
-                  </Button>
-                </Link>
-                
                 <Link href="/admin">
                   <Button variant="ghost" size="icon" className="text-[#1A2332]/60 hover:bg-gray-100" data-testid="link-admin-nav">
                     <Lock className="h-5 w-5" />

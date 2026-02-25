@@ -6,6 +6,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
+import { FloatingCTA } from "@/components/floating-cta";
 
 function ScrollToTop() {
   const [location] = useLocation();
@@ -294,6 +295,7 @@ function App() {
         <AnalyticsTracker />
         <ScrollToTop />
         <Toaster />
+        <FloatingCTA />
         <Router />
       </TooltipProvider>
     </QueryClientProvider>
