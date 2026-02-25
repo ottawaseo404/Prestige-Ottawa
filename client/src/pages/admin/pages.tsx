@@ -81,6 +81,10 @@ const ALL_PAGES: SitePage[] = [
   { title: "Movers in Sandy Hill", route: "/movers-in-sandy-hill", category: "Neighbourhood", createdDate: "2026-02-25", description: "Neighbourhood SEO page for Sandy Hill, Ottawa (student/uOttawa focus)" },
   { title: "Movers in Rockcliffe Park", route: "/movers-in-rockcliffe-park", category: "Neighbourhood", createdDate: "2026-02-25", description: "Neighbourhood SEO page for Rockcliffe Park (white-glove estate/embassy moves)" },
   { title: "How Much Does Moving Cost Ottawa", route: "/how-much-does-moving-cost-ottawa", category: "SEO Keyword", createdDate: "2026-02-25", description: "2025 Ottawa moving cost guide with interactive price calculator, pricing tables, and FAQ schema" },
+  { title: "Movers in Hintonburg", route: "/movers-in-hintonburg", category: "Neighbourhood", createdDate: "2026-02-25", description: "West End neighbourhood SEO page — Wellington West, condos, lofts, Victorian homes. Interactive area highlights." },
+  { title: "Movers in Beacon Hill", route: "/movers-in-beacon-hill", category: "Neighbourhood", createdDate: "2026-02-25", description: "East Ottawa neighbourhood SEO page — bungalows, split-levels, senior moving specialists." },
+  { title: "Movers in Manotick", route: "/movers-in-manotick", category: "Neighbourhood", createdDate: "2026-02-25", description: "Rideau Village SEO page — estate homes, waterfront properties, heritage village moving." },
+  { title: "Movers in Orleans Village", route: "/movers-in-orleans-village", category: "Neighbourhood", createdDate: "2026-02-25", description: "East Ottawa bilingual community SEO page — family moves, new builds, bilingual service. Interactive community tabs." },
 ];
 
 const CATEGORY_CONFIG: Record<string, { icon: React.ElementType; color: string }> = {

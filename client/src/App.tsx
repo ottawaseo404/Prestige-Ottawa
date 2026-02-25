@@ -56,6 +56,10 @@ import MoversInSandyHill from "@/pages/seo/movers-in-sandy-hill";
 import MoversInRockcliffePark from "@/pages/seo/movers-in-rockcliffe-park";
 import MoversInAltaVista from "@/pages/seo/movers-in-alta-vista";
 import MoversInRiversideSouth from "@/pages/seo/movers-in-riverside-south";
+import MoversInHintonburg from "@/pages/seo/movers-in-hintonburg";
+import MoversInBeaconHill from "@/pages/seo/movers-in-beacon-hill";
+import MoversInManotick from "@/pages/seo/movers-in-manotick";
+import MoversInOrleansVillage from "@/pages/seo/movers-in-orleans-village";
 import JunkRemovalOttawa from "@/pages/seo/junk-removal-ottawa";
 import FurnitureAssemblyOttawa from "@/pages/seo/furniture-assembly-ottawa";
 import HomeStagingOttawa from "@/pages/seo/home-staging-ottawa";
@@ -199,6 +203,10 @@ function Router() {
       <Route path="/movers-in-rockcliffe-park" component={MoversInRockcliffePark} />
       <Route path="/movers-in-alta-vista" component={MoversInAltaVista} />
       <Route path="/movers-in-riverside-south" component={MoversInRiversideSouth} />
+      <Route path="/movers-in-hintonburg" component={MoversInHintonburg} />
+      <Route path="/movers-in-beacon-hill" component={MoversInBeaconHill} />
+      <Route path="/movers-in-manotick" component={MoversInManotick} />
+      <Route path="/movers-in-orleans-village" component={MoversInOrleansVillage} />
       <Route path="/movers-in-ottawa" component={MoversInOttawa} />
       <Route path="/long-distance-movers-ottawa" component={LongDistanceMoversOttawa} />
       <Route path="/how-much-does-moving-cost-ottawa" component={HowMuchDoesMovingCostOttawa} />
