@@ -32,7 +32,7 @@ export default function MoversInAltaVista() {
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "5.0",
-      "reviewCount": "337"
+      "reviewCount": "350"
     },
     "areaServed": [
       { "@type": "Place", "name": "Alta Vista, Ottawa" },
@@ -43,7 +43,7 @@ export default function MoversInAltaVista() {
       { "@type": "Place", "name": "Playfair Park" },
       { "@type": "Place", "name": "Billings Bridge" }
     ],
-    "description": "Reliable movers in Alta Vista, Ottawa. Serving Canterbury, Faircrest Heights, Elmvale Acres, Heron Park, Playfair Park, Billings Bridge and all Alta Vista communities. WSIB certified, 337+ five-star reviews."
+    "description": "Reliable movers in Alta Vista, Ottawa. Serving Canterbury, Faircrest Heights, Elmvale Acres, Heron Park, Playfair Park, Billings Bridge and all Alta Vista communities. WSIB certified, 350+ five-star reviews."
   };
 
   const faqSchema = {
@@ -94,7 +94,7 @@ export default function MoversInAltaVista() {
   };
 
   const stats = [
-    { icon: Star, value: "337+", label: "Five-Star Reviews" },
+    { icon: Star, value: "350+", label: "Five-Star Reviews" },
     { icon: TruckIcon, value: "10,000+", label: "Successful Moves" },
     { icon: Clock, value: "24hr", label: "Quote Response" },
     { icon: Shield, value: "100%", label: "Fully Insured" }
@@ -134,18 +134,18 @@ export default function MoversInAltaVista() {
     <>
       <Helmet>
         <title>Movers in Alta Vista Ottawa | Reliable Moving Company | Prestige</title>
-        <meta name="description" content="Need movers in Alta Vista? Prestige Moving serves Canterbury, Faircrest Heights, Elmvale Acres & all Alta Vista areas. 337+ five-star reviews, WSIB certified. Call (613) 600-4000 for a free quote." />
+        <meta name="description" content="Need movers in Alta Vista? Prestige Moving serves Canterbury, Faircrest Heights, Elmvale Acres & all Alta Vista areas. 350+ five-star reviews, WSIB certified. Call (613) 600-4000 for a free quote." />
         <meta name="keywords" content="movers in alta vista, alta vista movers, moving company alta vista, alta vista moving services, movers alta vista ottawa, residential movers alta vista, senior movers alta vista" />
         <link rel="canonical" href="https://prestigemoving.ca/movers-in-alta-vista" />
         <meta property="og:title" content="Movers in Alta Vista | Reliable Alta Vista Moving Company | Prestige" />
-        <meta property="og:description" content="Alta Vista's most trusted movers. Mid-century homes, condos, senior moving. WSIB certified, fully insured, 337+ reviews. Free quotes." />
+        <meta property="og:description" content="Alta Vista's most trusted movers. Mid-century homes, condos, senior moving. WSIB certified, fully insured, 350+ reviews. Free quotes." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://prestigemoving.ca/movers-in-alta-vista" />
         <meta property="og:image" content="https://prestigemoving.ca/og-image.png" />
         <meta property="og:locale" content="en_CA" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Movers in Alta Vista | Prestige Moving" />
-        <meta name="twitter:description" content="Trusted movers serving all Alta Vista neighbourhoods. 337+ five-star reviews. Call (613) 600-4000." />
+        <meta name="twitter:description" content="Trusted movers serving all Alta Vista neighbourhoods. 350+ five-star reviews. Call (613) 600-4000." />
         <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
       </Helmet>
@@ -182,7 +182,7 @@ export default function MoversInAltaVista() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl font-bold text-[#1A2332] mb-6">Why Alta Vista Families Trust Our Movers in Alta Vista</h2>
             <p className="text-gray-600 leading-relaxed mb-6">
-              Alta Vista is one of Ottawa's most established and beloved residential neighbourhoods, celebrated for its spacious mid-century homes, mature tree-lined streets, proximity to the Ottawa Hospital General Campus, and strong sense of community. Finding dependable <strong className="text-[#1A2332]">movers in Alta Vista</strong> means partnering with a team that understands the unique character of this neighbourhood — from the large split-level homes of Canterbury to the well-maintained bungalows of Faircrest Heights. Prestige Moving has completed thousands of successful relocations throughout Alta Vista, earning 337+ five-star reviews and a reputation as the area's most trusted moving company.
+              Alta Vista is one of Ottawa's most established and beloved residential neighbourhoods, celebrated for its spacious mid-century homes, mature tree-lined streets, proximity to the Ottawa Hospital General Campus, and strong sense of community. Finding dependable <strong className="text-[#1A2332]">movers in Alta Vista</strong> means partnering with a team that understands the unique character of this neighbourhood — from the large split-level homes of Canterbury to the well-maintained bungalows of Faircrest Heights. Prestige Moving has completed thousands of successful relocations throughout Alta Vista, earning 350+ five-star reviews and a reputation as the area's most trusted moving company.
             </p>
             <p className="text-gray-600 leading-relaxed mb-6">
               What sets Prestige Moving apart as the go-to choice for <strong className="text-[#1A2332]">Alta Vista movers</strong> is our deep local expertise combined with professional-grade service. Our teams know which streets in Canterbury have specific <a href="https://www.ottawa.ca/en/parking-roads-and-travel" target="_blank" rel="noopener noreferrer" className="text-[#C5A572] hover:underline">parking restrictions</a> for larger vehicles, which condo and apartment buildings near Heron Park require advance elevator bookings, and the most efficient routes through Alta Vista to avoid congestion on Smyth Road, Bank Street, and the Hospital Link. Many Alta Vista homes were built in the 1950s and 1960s with generous floor plans, finished basements, and decades of accumulated belongings — our experienced teams handle these larger moves with expertise and care.
@@ -209,7 +209,7 @@ export default function MoversInAltaVista() {
               At Prestige Moving, we believe you deserve to know exactly what your Alta Vista move will cost before we lift a single box. Our detailed quotes break down every cost clearly — labour, truck, materials, travel time — with absolutely no hidden fees. This transparent approach has made us one of the most recommended moving companies in the Alta Vista area. When you call us at <a href="tel:6136004000" className="text-[#C5A572] hover:underline font-semibold">(613) 600-4000</a>, you'll speak with a knowledgeable team member who can provide a quick estimate or schedule an in-home assessment.
             </p>
             <p className="text-gray-600 leading-relaxed mb-6">
-              Every Prestige Moving team member is <a href="https://www.wsib.ca/" target="_blank" rel="noopener noreferrer" className="text-[#C5A572] hover:underline">WSIB certified</a> and fully insured, giving you complete peace of mind throughout your Alta Vista move. Beyond <Link href="/services/residential-moving" className="text-[#C5A572] hover:underline">residential moving</Link>, we handle <Link href="/services/commercial-moving" className="text-[#C5A572] hover:underline">commercial relocations</Link> and <Link href="/services/long-distance-moving" className="text-[#C5A572] hover:underline">long-distance moves</Link>. With 337+ five-star reviews, our commitment to excellence is the reason families across Alta Vista keep choosing Prestige Moving. Contact us at <a href="mailto:Ottawa@prestigemoving.ca" className="text-[#C5A572] hover:underline">Ottawa@prestigemoving.ca</a> for your free quote.
+              Every Prestige Moving team member is <a href="https://www.wsib.ca/" target="_blank" rel="noopener noreferrer" className="text-[#C5A572] hover:underline">WSIB certified</a> and fully insured, giving you complete peace of mind throughout your Alta Vista move. Beyond <Link href="/services/residential-moving" className="text-[#C5A572] hover:underline">residential moving</Link>, we handle <Link href="/services/commercial-moving" className="text-[#C5A572] hover:underline">commercial relocations</Link> and <Link href="/services/long-distance-moving" className="text-[#C5A572] hover:underline">long-distance moves</Link>. With 350+ five-star reviews, our commitment to excellence is the reason families across Alta Vista keep choosing Prestige Moving. Contact us at <a href="mailto:Ottawa@prestigemoving.ca" className="text-[#C5A572] hover:underline">Ottawa@prestigemoving.ca</a> for your free quote.
             </p>
           </div>
         </section>
@@ -260,7 +260,7 @@ export default function MoversInAltaVista() {
         <section className="py-16 bg-[#C5A572]">
           <div className="max-w-4xl mx-auto px-4 text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Ready to Move in Alta Vista?</h2>
-            <p className="text-white/80 text-lg mb-8">Get your free, no-obligation quote today and discover why 337+ families trust Prestige Moving.</p>
+            <p className="text-white/80 text-lg mb-8">Get your free, no-obligation quote today and discover why 350+ families trust Prestige Moving.</p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link href="/book"><Button className="bg-[#1A2332] hover:bg-[#243044] text-white border-[#1A2332]" data-testid="button-cta-quote">Get Free Quote</Button></Link>
               <a href="tel:6136004000"><Button variant="outline" className="text-white border-white/30 backdrop-blur-sm bg-white/10" data-testid="button-cta-call"><Phone className="h-4 w-4 mr-2" />Call (613) 600-4000</Button></a>

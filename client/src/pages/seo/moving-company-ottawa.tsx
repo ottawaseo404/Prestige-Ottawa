@@ -33,7 +33,7 @@ export default function MovingCompanyOttawa() {
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "5.0",
-      "reviewCount": "337"
+      "reviewCount": "350"
     },
     "areaServed": [
       { "@type": "City", "name": "Ottawa" },
@@ -43,7 +43,7 @@ export default function MovingCompanyOttawa() {
       { "@type": "City", "name": "Nepean" },
       { "@type": "City", "name": "Gloucester" }
     ],
-    "description": "Ottawa's premier full-service moving company. Residential, commercial, and long-distance moving. WSIB certified with transparent pricing and 337+ five-star reviews."
+    "description": "Ottawa's premier full-service moving company. Residential, commercial, and long-distance moving. WSIB certified with transparent pricing and 350+ five-star reviews."
   };
 
   const faqSchema = {
@@ -87,14 +87,14 @@ export default function MovingCompanyOttawa() {
         "name": "What sets your moving company apart from others in Ottawa?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Prestige Moving stands out through our combination of WSIB certification, full insurance coverage, 337+ five-star reviews, transparent pricing with no hidden fees, professionally trained crews, modern equipment, and a satisfaction guarantee. We treat every move with the same level of care regardless of size."
+          "text": "Prestige Moving stands out through our combination of WSIB certification, full insurance coverage, 350+ five-star reviews, transparent pricing with no hidden fees, professionally trained crews, modern equipment, and a satisfaction guarantee. We treat every move with the same level of care regardless of size."
         }
       }
     ]
   };
 
   const stats = [
-    { icon: Award, value: "337+", label: "Five-Star Reviews" },
+    { icon: Award, value: "350+", label: "Five-Star Reviews" },
     { icon: Users, value: "50+", label: "Expert Team Members" },
     { icon: TruckIcon, value: "10,000+", label: "Moves Completed" },
     { icon: CheckCircle2, value: "100%", label: "Satisfaction Rate" }
@@ -126,7 +126,7 @@ export default function MovingCompanyOttawa() {
     },
     {
       question: "What sets your moving company apart from others in Ottawa?",
-      answer: "Several factors distinguish Prestige Moving as Ottawa's premier moving company. First, our WSIB certification and comprehensive insurance coverage give you complete peace of mind. Second, our 337+ verified five-star reviews reflect genuine customer satisfaction built over thousands of moves. Third, our transparent pricing model means no hidden fees, surprise surcharges, or bait-and-switch tactics — the quote you receive is the price you pay. Fourth, every crew member undergoes professional training in safe lifting techniques, furniture protection, and customer service. Finally, our modern fleet with air-ride suspension and complete equipment ensures your belongings arrive in perfect condition."
+      answer: "Several factors distinguish Prestige Moving as Ottawa's premier moving company. First, our WSIB certification and comprehensive insurance coverage give you complete peace of mind. Second, our 350+ verified five-star reviews reflect genuine customer satisfaction built over thousands of moves. Third, our transparent pricing model means no hidden fees, surprise surcharges, or bait-and-switch tactics — the quote you receive is the price you pay. Fourth, every crew member undergoes professional training in safe lifting techniques, furniture protection, and customer service. Finally, our modern fleet with air-ride suspension and complete equipment ensures your belongings arrive in perfect condition."
     }
   ];
 
@@ -134,11 +134,11 @@ export default function MovingCompanyOttawa() {
     <>
       <Helmet>
         <title>Moving Company Ottawa | Full-Service Movers | Prestige Moving</title>
-        <meta name="description" content="Looking for a reliable moving company in Ottawa? Prestige Moving offers full-service residential & commercial moving with 337+ five-star reviews. WSIB certified, transparent pricing. Call (613) 600-4000." />
+        <meta name="description" content="Looking for a reliable moving company in Ottawa? Prestige Moving offers full-service residential & commercial moving with 350+ five-star reviews. WSIB certified, transparent pricing. Call (613) 600-4000." />
         <meta name="keywords" content="moving company ottawa, ottawa moving company, moving companies ottawa, full service movers ottawa, best moving company ottawa, moving services ottawa, relocation company ottawa" />
         <link rel="canonical" href="https://prestigemoving.ca/moving-company-ottawa" />
         <meta property="og:title" content="Moving Company Ottawa | Full-Service Movers | Prestige Moving" />
-        <meta property="og:description" content="Ottawa's premier full-service moving company. Residential, commercial, and long-distance moving with 337+ five-star reviews. Get your free quote today." />
+        <meta property="og:description" content="Ottawa's premier full-service moving company. Residential, commercial, and long-distance moving with 350+ five-star reviews. Get your free quote today." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://prestigemoving.ca/moving-company-ottawa" />
         <meta property="og:image" content="https://prestigemoving.ca/og-image.png" />
@@ -179,7 +179,7 @@ export default function MovingCompanyOttawa() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl font-bold text-[#1A2332] mb-6">What Makes a Great Moving Company in Ottawa?</h2>
             <p className="text-gray-600 leading-relaxed mb-6">
-              Finding the right moving company in Ottawa requires more than a quick internet search. A truly great moving company combines professional expertise, reliable equipment, comprehensive insurance, and genuine care for your belongings into a seamless relocation experience. At Prestige Moving, we've spent years building our reputation as Ottawa's most trusted moving company by focusing on exactly these qualities. With over 10,000 successful moves and 337+ five-star reviews, our track record speaks for itself — but it's the personal attention and dedication our team brings to every single job that truly sets us apart from other moving companies in Ottawa.
+              Finding the right moving company in Ottawa requires more than a quick internet search. A truly great moving company combines professional expertise, reliable equipment, comprehensive insurance, and genuine care for your belongings into a seamless relocation experience. At Prestige Moving, we've spent years building our reputation as Ottawa's most trusted moving company by focusing on exactly these qualities. With over 10,000 successful moves and 350+ five-star reviews, our track record speaks for itself — but it's the personal attention and dedication our team brings to every single job that truly sets us apart from other moving companies in Ottawa.
             </p>
             <p className="text-gray-600 leading-relaxed mb-6">
               What separates a mediocre moving company from an exceptional one comes down to the details. Does the company show up on time? Do the movers treat your grandmother's china cabinet with the same care they'd give their own? Is the final bill the same as the quote? At Prestige Moving, the answer to all of these questions is a resounding yes. Our moving company was founded on the principle that every Ottawa family deserves a moving experience that's stress-free, transparent, and professional from start to finish. That commitment is woven into every aspect of our operations, from the initial phone call to the final piece of furniture placed in your new home.

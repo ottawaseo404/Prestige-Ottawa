@@ -33,7 +33,7 @@ export default function EstateCleanoutOttawa() {
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "5.0",
-      "reviewCount": "337"
+      "reviewCount": "350"
     },
     "areaServed": [
       { "@type": "Place", "name": "Ottawa" },
@@ -94,7 +94,7 @@ export default function EstateCleanoutOttawa() {
   };
 
   const stats = [
-    { icon: Star, value: "337+", label: "Five-Star Reviews" },
+    { icon: Star, value: "350+", label: "Five-Star Reviews" },
     { icon: Users, value: "1,000+", label: "Families Helped" },
     { icon: Clock, value: "1-3 Days", label: "Typical Cleanout" },
     { icon: Shield, value: "100%", label: "Fully Insured" }
@@ -201,7 +201,7 @@ export default function EstateCleanoutOttawa() {
               Downsizing is a significant life transition, and our team approaches it with the sensitivity and patience it deserves. Whether a senior is moving from a family home to a smaller apartment, an assisted living facility, or a retirement community, we help them sort through decades of belongings, decide what to keep, and manage the rest. We coordinate closely with our <Link href="/services/senior-moving" className="text-[#C5A572] hover:underline">senior moving service</Link> to provide a seamless experience from cleanout to move-in. Items that won't be coming along can be placed in our <Link href="/services/storage-solutions" className="text-[#C5A572] hover:underline">secure storage</Link> while decisions are made, donated to charities, or removed entirely.
             </p>
             <p className="text-gray-600 leading-relaxed mb-6">
-              Our estate cleanout service also pairs perfectly with our <Link href="/junk-removal-ottawa" className="text-[#C5A572] hover:underline">junk removal service</Link> for properties that need a thorough clearing. We handle sensitive items including personal papers, photographs, and family heirlooms with the utmost respect and discretion. With 337+ five-star reviews and a reputation built on trust, Prestige Moving is Ottawa's most compassionate choice for estate cleanouts. Call us at <a href="tel:6136004000" className="text-[#C5A572] hover:underline font-semibold">(613) 600-4000</a> for a free, confidential consultation.
+              Our estate cleanout service also pairs perfectly with our <Link href="/junk-removal-ottawa" className="text-[#C5A572] hover:underline">junk removal service</Link> for properties that need a thorough clearing. We handle sensitive items including personal papers, photographs, and family heirlooms with the utmost respect and discretion. With 350+ five-star reviews and a reputation built on trust, Prestige Moving is Ottawa's most compassionate choice for estate cleanouts. Call us at <a href="tel:6136004000" className="text-[#C5A572] hover:underline font-semibold">(613) 600-4000</a> for a free, confidential consultation.
             </p>
           </div>
         </section>

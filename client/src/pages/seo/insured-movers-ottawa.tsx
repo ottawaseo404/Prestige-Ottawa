@@ -33,7 +33,7 @@ export default function InsuredMoversOttawa() {
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "5.0",
-      "reviewCount": "337"
+      "reviewCount": "350"
     },
     "areaServed": [
       { "@type": "City", "name": "Ottawa" },
@@ -43,7 +43,7 @@ export default function InsuredMoversOttawa() {
       { "@type": "City", "name": "Nepean" },
       { "@type": "City", "name": "Gloucester" }
     ],
-    "description": "Fully insured movers in Ottawa providing comprehensive protection for your belongings. WSIB certified, liability coverage, and transparent claims process. 337+ five-star reviews."
+    "description": "Fully insured movers in Ottawa providing comprehensive protection for your belongings. WSIB certified, liability coverage, and transparent claims process. 350+ five-star reviews."
   };
 
   const faqSchema = {
@@ -96,7 +96,7 @@ export default function InsuredMoversOttawa() {
   const stats = [
     { icon: Shield, value: "Full", label: "Liability Coverage" },
     { icon: Award, value: "WSIB", label: "Worker Protection" },
-    { icon: Star, value: "337+", label: "Five-Star Reviews" },
+    { icon: Star, value: "350+", label: "Five-Star Reviews" },
     { icon: CheckCircle2, value: "100%", label: "Claims Resolved" }
   ];
 
@@ -114,7 +114,7 @@ export default function InsuredMoversOttawa() {
     },
     {
       question: "What happens if something is damaged during my move?",
-      answer: "While damage is extremely rare given our trained crews and professional handling techniques, we understand that accidents can occasionally occur — and that's precisely why we maintain comprehensive insurance as insured movers in Ottawa. If any item is damaged during your move, our claims process is transparent and straightforward. First, document the damage with photographs as soon as you notice it. Then contact our office at (613) 600-4000 or Ottawa@prestigemoving.ca within 48 hours of your move. Provide a description of the damaged item, its approximate value, and your photos. Our dedicated claims team will review your case, typically acknowledging your claim within 24 hours and reaching a resolution within 5 to 10 business days. Resolution may include professional repair of the item, replacement at fair market value, or financial compensation. We pride ourselves on handling every claim with integrity and fairness — it's one of the reasons our 337+ reviewers across Ottawa, from Nepean to Orleans, trust us with their most valued possessions."
+      answer: "While damage is extremely rare given our trained crews and professional handling techniques, we understand that accidents can occasionally occur — and that's precisely why we maintain comprehensive insurance as insured movers in Ottawa. If any item is damaged during your move, our claims process is transparent and straightforward. First, document the damage with photographs as soon as you notice it. Then contact our office at (613) 600-4000 or Ottawa@prestigemoving.ca within 48 hours of your move. Provide a description of the damaged item, its approximate value, and your photos. Our dedicated claims team will review your case, typically acknowledging your claim within 24 hours and reaching a resolution within 5 to 10 business days. Resolution may include professional repair of the item, replacement at fair market value, or financial compensation. We pride ourselves on handling every claim with integrity and fairness — it's one of the reasons our 350+ reviewers across Ottawa, from Nepean to Orleans, trust us with their most valued possessions."
     },
     {
       question: "Do I need my own moving insurance?",
@@ -134,7 +134,7 @@ export default function InsuredMoversOttawa() {
     <>
       <Helmet>
         <title>Insured Movers Ottawa | Fully Protected Moving | Prestige Moving</title>
-        <meta name="description" content="Choose fully insured movers in Ottawa for complete peace of mind. Prestige Moving carries comprehensive liability, cargo insurance, and WSIB certification. 337+ five-star reviews. Call (613) 600-4000." />
+        <meta name="description" content="Choose fully insured movers in Ottawa for complete peace of mind. Prestige Moving carries comprehensive liability, cargo insurance, and WSIB certification. 350+ five-star reviews. Call (613) 600-4000." />
         <meta name="keywords" content="insured movers ottawa, fully insured moving company ottawa, moving insurance ottawa, insured moving services ottawa, protected movers ottawa, liability covered movers ottawa" />
         <link rel="canonical" href="https://prestigemoving.ca/insured-movers-ottawa" />
         <meta property="og:title" content="Insured Movers Ottawa | Fully Protected Moving | Prestige Moving" />
@@ -182,7 +182,7 @@ export default function InsuredMoversOttawa() {
               Your home contains more than furniture and boxes — it holds a lifetime of memories, irreplaceable heirlooms, and valuable possessions that deserve the highest level of protection during a move. That's why choosing insured movers in Ottawa should be the very first criteria on your selection checklist, not an afterthought. At Prestige Moving, we carry comprehensive insurance coverage that protects your belongings from the moment our crew begins packing until the last item is placed exactly where you want it in your new home. Our insurance portfolio includes commercial general liability, cargo coverage, commercial auto insurance, and WSIB certification — a complete safety net that gives families across Ottawa, from Westboro and Hintonburg to Orleans and Cumberland, the peace of mind they deserve during their relocation.
             </p>
             <p className="text-gray-600 leading-relaxed mb-6">
-              The risks of hiring uninsured or underinsured movers in Ottawa are real and potentially devastating. Without proper cargo insurance, if a mover drops your grandmother's china cabinet while navigating the narrow staircase of your Centretown apartment, you have no recourse for compensation. Without WSIB certification, if a mover injures their back lifting your heavy dresser in your Nepean home, you could be held personally liable for tens of thousands of dollars in medical costs and lost wages. Without commercial liability insurance, if a mover's dolly gouges your hardwood floors or dents your walls, you're left paying for repairs out of your own pocket. Prestige Moving eliminates all of these risks with our comprehensive insurance coverage — it's why 337+ Ottawa families have given us perfect five-star reviews.
+              The risks of hiring uninsured or underinsured movers in Ottawa are real and potentially devastating. Without proper cargo insurance, if a mover drops your grandmother's china cabinet while navigating the narrow staircase of your Centretown apartment, you have no recourse for compensation. Without WSIB certification, if a mover injures their back lifting your heavy dresser in your Nepean home, you could be held personally liable for tens of thousands of dollars in medical costs and lost wages. Without commercial liability insurance, if a mover's dolly gouges your hardwood floors or dents your walls, you're left paying for repairs out of your own pocket. Prestige Moving eliminates all of these risks with our comprehensive insurance coverage — it's why 350+ Ottawa families have given us perfect five-star reviews.
             </p>
 
             <h3 className="text-2xl font-bold text-[#1A2332] mb-4 mt-10">Understanding Our Comprehensive Insurance Coverage</h3>
@@ -197,7 +197,7 @@ export default function InsuredMoversOttawa() {
 
             <h3 className="text-2xl font-bold text-[#1A2332] mb-4 mt-10">Our Transparent, Fair Claims Process</h3>
             <p className="text-gray-600 leading-relaxed mb-6">
-              Even with the most careful handling — and our crews are among the best-trained in Ottawa — the unexpected can occasionally happen. That's why our claims process is designed to be as stress-free as the move itself. At Prestige Moving, we don't hide behind complicated paperwork or delay tactics. When a claim is submitted, we acknowledge it within one business day, investigate promptly, and work to reach a fair resolution typically within 5 to 10 business days. Our approach to claims handling reflects the same integrity and customer-first mentality that has earned us 337+ five-star reviews from families across every Ottawa neighbourhood — from the established communities of Alta Vista and Manor Park to the newer developments in Riverside South, Findlay Creek, and Half Moon Bay. When you choose insured movers in Ottawa, you're choosing the peace of mind that comes from knowing you're fully protected.
+              Even with the most careful handling — and our crews are among the best-trained in Ottawa — the unexpected can occasionally happen. That's why our claims process is designed to be as stress-free as the move itself. At Prestige Moving, we don't hide behind complicated paperwork or delay tactics. When a claim is submitted, we acknowledge it within one business day, investigate promptly, and work to reach a fair resolution typically within 5 to 10 business days. Our approach to claims handling reflects the same integrity and customer-first mentality that has earned us 350+ five-star reviews from families across every Ottawa neighbourhood — from the established communities of Alta Vista and Manor Park to the newer developments in Riverside South, Findlay Creek, and Half Moon Bay. When you choose insured movers in Ottawa, you're choosing the peace of mind that comes from knowing you're fully protected.
             </p>
           </div>
         </section>
@@ -248,7 +248,7 @@ export default function InsuredMoversOttawa() {
         <section className="py-16 bg-[#C5A572]">
           <div className="max-w-4xl mx-auto px-4 text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Move with Complete Peace of Mind</h2>
-            <p className="text-white/80 text-lg mb-8">Fully insured, WSIB certified, and backed by 337+ five-star reviews. Your belongings deserve the best protection in Ottawa.</p>
+            <p className="text-white/80 text-lg mb-8">Fully insured, WSIB certified, and backed by 350+ five-star reviews. Your belongings deserve the best protection in Ottawa.</p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link href="/book"><Button className="bg-[#1A2332] hover:bg-[#243044] text-white border-[#1A2332]" data-testid="button-cta-quote">Get Free Quote</Button></Link>
               <a href="tel:6136004000"><Button variant="outline" className="text-white border-white/30 backdrop-blur-sm bg-white/10" data-testid="button-cta-call"><Phone className="h-4 w-4 mr-2" />Call (613) 600-4000</Button></a>

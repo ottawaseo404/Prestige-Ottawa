@@ -33,7 +33,7 @@ export default function JunkRemovalOttawa() {
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "5.0",
-      "reviewCount": "337"
+      "reviewCount": "350"
     },
     "areaServed": [
       { "@type": "Place", "name": "Ottawa" },
@@ -43,7 +43,7 @@ export default function JunkRemovalOttawa() {
       { "@type": "Place", "name": "Nepean" },
       { "@type": "Place", "name": "Gloucester" }
     ],
-    "description": "Professional junk removal in Ottawa. Same-day service, transparent pricing, eco-friendly disposal. WSIB certified, 337+ five-star reviews."
+    "description": "Professional junk removal in Ottawa. Same-day service, transparent pricing, eco-friendly disposal. WSIB certified, 350+ five-star reviews."
   };
 
   const faqSchema = {
@@ -94,7 +94,7 @@ export default function JunkRemovalOttawa() {
   };
 
   const stats = [
-    { icon: Star, value: "337+", label: "Five-Star Reviews" },
+    { icon: Star, value: "350+", label: "Five-Star Reviews" },
     { icon: TruckIcon, value: "10,000+", label: "Successful Jobs" },
     { icon: Clock, value: "Same Day", label: "Service Available" },
     { icon: Shield, value: "100%", label: "Fully Insured" }
@@ -193,7 +193,7 @@ export default function JunkRemovalOttawa() {
               Our residential junk removal service covers everything you need to clear out your home. We remove old furniture including couches, mattresses, dressers, tables, and chairs. We haul away broken or outdated appliances such as refrigerators, stoves, washers, dryers, and dishwashers. Yard waste, including branches, soil, old fencing, and garden debris, is another specialty. If you're renovating, we handle construction debris such as drywall, lumber, tiles, carpeting, and fixtures. Moving soon? Pair our junk removal with our <Link href="/services/residential-moving" className="text-[#C5A572] hover:underline">residential moving services</Link> for a seamless transition. Need to keep some items temporarily? Our <Link href="/services/storage-solutions" className="text-[#C5A572] hover:underline">storage solutions</Link> provide secure, climate-controlled space while you decide what stays and what goes.
             </p>
             <p className="text-gray-600 leading-relaxed mb-6">
-              We understand that junk removal can feel overwhelming, especially when dealing with years of accumulated belongings. Our compassionate, professional team works efficiently and respectfully, and we always clean up the area after removing your items. Whether it's a single room or an entire house, we approach every job with the same level of care and attention to detail that has earned us 337+ five-star reviews from Ottawa families.
+              We understand that junk removal can feel overwhelming, especially when dealing with years of accumulated belongings. Our compassionate, professional team works efficiently and respectfully, and we always clean up the area after removing your items. Whether it's a single room or an entire house, we approach every job with the same level of care and attention to detail that has earned us 350+ five-star reviews from Ottawa families.
             </p>
 
             <h3 className="text-2xl font-bold text-[#1A2332] mb-4 mt-10">Commercial Junk Removal Ottawa — Keep Your Business Running</h3>

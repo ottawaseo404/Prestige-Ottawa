@@ -33,7 +33,7 @@ export default function CommercialMoversOttawa() {
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "5.0",
-      "reviewCount": "337"
+      "reviewCount": "350"
     },
     "areaServed": [
       { "@type": "City", "name": "Ottawa" },
@@ -43,7 +43,7 @@ export default function CommercialMoversOttawa() {
       { "@type": "City", "name": "Nepean" },
       { "@type": "City", "name": "Gloucester" }
     ],
-    "description": "Ottawa's trusted commercial and office movers. Minimal business downtime, IT equipment handling, after-hours moves, and complete project management. 337+ five-star reviews."
+    "description": "Ottawa's trusted commercial and office movers. Minimal business downtime, IT equipment handling, after-hours moves, and complete project management. 350+ five-star reviews."
   };
 
   const faqSchema = {
@@ -138,7 +138,7 @@ export default function CommercialMoversOttawa() {
         <meta name="keywords" content="commercial movers ottawa, office movers ottawa, business movers ottawa, office relocation ottawa, commercial moving company ottawa, office moving service ottawa, business relocation ottawa" />
         <link rel="canonical" href="https://prestigemoving.ca/commercial-movers-ottawa" />
         <meta property="og:title" content="Commercial Movers Ottawa | Office & Business Relocation | Prestige Moving" />
-        <meta property="og:description" content="Ottawa's trusted commercial movers. Office relocations with minimal downtime, IT equipment handling, and dedicated project management. 337+ five-star reviews." />
+        <meta property="og:description" content="Ottawa's trusted commercial movers. Office relocations with minimal downtime, IT equipment handling, and dedicated project management. 350+ five-star reviews." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://prestigemoving.ca/commercial-movers-ottawa" />
         <meta property="og:image" content="https://prestigemoving.ca/og-image.png" />

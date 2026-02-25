@@ -32,7 +32,7 @@ export default function MoversInGloucester() {
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "5.0",
-      "reviewCount": "337"
+      "reviewCount": "350"
     },
     "areaServed": [
       { "@type": "Place", "name": "Gloucester, Ottawa" },
@@ -44,7 +44,7 @@ export default function MoversInGloucester() {
       { "@type": "Place", "name": "Cardinal Heights" },
       { "@type": "Place", "name": "Leitrim" }
     ],
-    "description": "Trusted movers in Gloucester, Ottawa. Serving Beacon Hill, Blackburn Hamlet, Cyrville, Findlay Creek, Pineview, Cardinal Heights, Leitrim and all Gloucester communities. WSIB certified, 337+ five-star reviews."
+    "description": "Trusted movers in Gloucester, Ottawa. Serving Beacon Hill, Blackburn Hamlet, Cyrville, Findlay Creek, Pineview, Cardinal Heights, Leitrim and all Gloucester communities. WSIB certified, 350+ five-star reviews."
   };
 
   const faqSchema = {
@@ -95,7 +95,7 @@ export default function MoversInGloucester() {
   };
 
   const stats = [
-    { icon: Star, value: "337+", label: "Five-Star Reviews" },
+    { icon: Star, value: "350+", label: "Five-Star Reviews" },
     { icon: TruckIcon, value: "10,000+", label: "Successful Moves" },
     { icon: Clock, value: "24hr", label: "Quote Response" },
     { icon: Shield, value: "100%", label: "Fully Insured" }
@@ -135,18 +135,18 @@ export default function MoversInGloucester() {
     <>
       <Helmet>
         <title>Movers in Gloucester Ottawa | Trusted Moving Company | Prestige</title>
-        <meta name="description" content="Need movers in Gloucester? Prestige Moving serves Beacon Hill, Blackburn Hamlet, Cyrville, Findlay Creek & all Gloucester areas. 337+ five-star reviews, WSIB certified. Call (613) 600-4000 for a free quote." />
+        <meta name="description" content="Need movers in Gloucester? Prestige Moving serves Beacon Hill, Blackburn Hamlet, Cyrville, Findlay Creek & all Gloucester areas. 350+ five-star reviews, WSIB certified. Call (613) 600-4000 for a free quote." />
         <meta name="keywords" content="movers in gloucester, gloucester movers, moving company gloucester, gloucester moving services, movers gloucester ottawa, residential movers gloucester, affordable movers gloucester" />
         <link rel="canonical" href="https://prestigemoving.ca/movers-in-gloucester" />
         <meta property="og:title" content="Movers in Gloucester | Trusted Gloucester Moving Company | Prestige" />
-        <meta property="og:description" content="Gloucester's most trusted movers. Full-service residential and commercial moving. WSIB certified, fully insured, 337+ reviews. Free quotes." />
+        <meta property="og:description" content="Gloucester's most trusted movers. Full-service residential and commercial moving. WSIB certified, fully insured, 350+ reviews. Free quotes." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://prestigemoving.ca/movers-in-gloucester" />
         <meta property="og:image" content="https://prestigemoving.ca/og-image.png" />
         <meta property="og:locale" content="en_CA" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Movers in Gloucester | Prestige Moving" />
-        <meta name="twitter:description" content="Trusted movers serving all Gloucester neighbourhoods. 337+ five-star reviews. Call (613) 600-4000." />
+        <meta name="twitter:description" content="Trusted movers serving all Gloucester neighbourhoods. 350+ five-star reviews. Call (613) 600-4000." />
         <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
       </Helmet>
@@ -183,7 +183,7 @@ export default function MoversInGloucester() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl font-bold text-[#1A2332] mb-6">Why Gloucester Families Choose Our Movers in Gloucester</h2>
             <p className="text-gray-600 leading-relaxed mb-6">
-              Gloucester is one of Ottawa's most diverse and expansive communities, stretching across the east and southeast of the city with a rich mix of established neighbourhoods and thriving new developments. Finding dependable <strong className="text-[#1A2332]">movers in Gloucester</strong> means partnering with a team that understands the area's unique layout, from the mature tree-lined streets of Beacon Hill to the modern subdivisions of Findlay Creek. Prestige Moving has completed thousands of successful relocations throughout Gloucester, earning 337+ five-star reviews and a reputation as the area's most trusted moving company.
+              Gloucester is one of Ottawa's most diverse and expansive communities, stretching across the east and southeast of the city with a rich mix of established neighbourhoods and thriving new developments. Finding dependable <strong className="text-[#1A2332]">movers in Gloucester</strong> means partnering with a team that understands the area's unique layout, from the mature tree-lined streets of Beacon Hill to the modern subdivisions of Findlay Creek. Prestige Moving has completed thousands of successful relocations throughout Gloucester, earning 350+ five-star reviews and a reputation as the area's most trusted moving company.
             </p>
             <p className="text-gray-600 leading-relaxed mb-6">
               What sets Prestige Moving apart as the go-to choice for <strong className="text-[#1A2332]">Gloucester movers</strong> is our deep local expertise combined with professional-grade service. Our teams know which condo buildings in Cyrville require advance elevator bookings, which residential streets in Blackburn Hamlet have specific <a href="https://www.ottawa.ca/en/parking-roads-and-travel" target="_blank" rel="noopener noreferrer" className="text-[#C5A572] hover:underline">parking regulations</a> for moving trucks, and the most efficient routes through Gloucester to avoid peak-hour congestion on Innes Road and Hunt Club Road. This local knowledge translates directly into faster, more efficient moves with fewer delays and a smoother overall experience for your family.
@@ -261,7 +261,7 @@ export default function MoversInGloucester() {
         <section className="py-16 bg-[#C5A572]">
           <div className="max-w-4xl mx-auto px-4 text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Ready to Move in Gloucester?</h2>
-            <p className="text-white/80 text-lg mb-8">Get your free, no-obligation quote today and discover why 337+ families trust Prestige Moving.</p>
+            <p className="text-white/80 text-lg mb-8">Get your free, no-obligation quote today and discover why 350+ families trust Prestige Moving.</p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link href="/book"><Button className="bg-[#1A2332] hover:bg-[#243044] text-white border-[#1A2332]" data-testid="button-cta-quote">Get Free Quote</Button></Link>
               <a href="tel:6136004000"><Button variant="outline" className="text-white border-white/30 backdrop-blur-sm bg-white/10" data-testid="button-cta-call"><Phone className="h-4 w-4 mr-2" />Call (613) 600-4000</Button></a>

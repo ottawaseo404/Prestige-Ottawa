@@ -32,7 +32,7 @@ export default function MoversInStittsville() {
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "5.0",
-      "reviewCount": "337"
+      "reviewCount": "350"
     },
     "areaServed": [
       { "@type": "Place", "name": "Stittsville, Ottawa" },
@@ -43,7 +43,7 @@ export default function MoversInStittsville() {
       { "@type": "Place", "name": "Westridge" },
       { "@type": "Place", "name": "Village Square" }
     ],
-    "description": "Reliable movers in Stittsville, Ottawa. Serving Fernbank, Jackson Trails, Poole Creek, Bradley Commons, Westridge, Village Square and all Stittsville communities. WSIB certified, 337+ five-star reviews."
+    "description": "Reliable movers in Stittsville, Ottawa. Serving Fernbank, Jackson Trails, Poole Creek, Bradley Commons, Westridge, Village Square and all Stittsville communities. WSIB certified, 350+ five-star reviews."
   };
 
   const faqSchema = {
@@ -94,7 +94,7 @@ export default function MoversInStittsville() {
   };
 
   const stats = [
-    { icon: Star, value: "337+", label: "Five-Star Reviews" },
+    { icon: Star, value: "350+", label: "Five-Star Reviews" },
     { icon: TruckIcon, value: "10,000+", label: "Successful Moves" },
     { icon: Clock, value: "24hr", label: "Quote Response" },
     { icon: Shield, value: "100%", label: "Fully Insured" }
@@ -134,18 +134,18 @@ export default function MoversInStittsville() {
     <>
       <Helmet>
         <title>Movers in Stittsville Ottawa | Reliable Moving Company | Prestige</title>
-        <meta name="description" content="Need movers in Stittsville? Prestige Moving serves Fernbank, Jackson Trails, Poole Creek & all Stittsville areas. 337+ five-star reviews, WSIB certified. Call (613) 600-4000 for a free quote." />
+        <meta name="description" content="Need movers in Stittsville? Prestige Moving serves Fernbank, Jackson Trails, Poole Creek & all Stittsville areas. 350+ five-star reviews, WSIB certified. Call (613) 600-4000 for a free quote." />
         <meta name="keywords" content="movers in stittsville, stittsville movers, moving company stittsville, stittsville moving services, movers stittsville ottawa, residential movers stittsville, affordable movers stittsville" />
         <link rel="canonical" href="https://prestigemoving.ca/movers-in-stittsville" />
         <meta property="og:title" content="Movers in Stittsville | Reliable Stittsville Moving Company | Prestige" />
-        <meta property="og:description" content="Stittsville's most trusted movers. Full-service residential and commercial moving. WSIB certified, fully insured, 337+ reviews. Free quotes." />
+        <meta property="og:description" content="Stittsville's most trusted movers. Full-service residential and commercial moving. WSIB certified, fully insured, 350+ reviews. Free quotes." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://prestigemoving.ca/movers-in-stittsville" />
         <meta property="og:image" content="https://prestigemoving.ca/og-image.png" />
         <meta property="og:locale" content="en_CA" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Movers in Stittsville | Prestige Moving" />
-        <meta name="twitter:description" content="Trusted movers serving all Stittsville neighbourhoods. 337+ five-star reviews. Call (613) 600-4000." />
+        <meta name="twitter:description" content="Trusted movers serving all Stittsville neighbourhoods. 350+ five-star reviews. Call (613) 600-4000." />
         <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
       </Helmet>
@@ -182,7 +182,7 @@ export default function MoversInStittsville() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl font-bold text-[#1A2332] mb-6">Why Stittsville Residents Trust Our Movers in Stittsville</h2>
             <p className="text-gray-600 leading-relaxed mb-6">
-              Stittsville has transformed from a quiet village into one of Ottawa's most sought-after suburban communities, with beautiful new developments, excellent schools, and a charming main street. With this growth comes a constant demand for reliable, professional <strong className="text-[#1A2332]">movers in Stittsville</strong>. Whether you're a young family moving into one of the stunning new homes in Fernbank, a couple downsizing from a house near Village Square, or a business relocating along Hazeldean Road, Prestige Moving delivers the white-glove service and transparent pricing that has earned us 337+ five-star reviews from satisfied customers across west Ottawa.
+              Stittsville has transformed from a quiet village into one of Ottawa's most sought-after suburban communities, with beautiful new developments, excellent schools, and a charming main street. With this growth comes a constant demand for reliable, professional <strong className="text-[#1A2332]">movers in Stittsville</strong>. Whether you're a young family moving into one of the stunning new homes in Fernbank, a couple downsizing from a house near Village Square, or a business relocating along Hazeldean Road, Prestige Moving delivers the white-glove service and transparent pricing that has earned us 350+ five-star reviews from satisfied customers across west Ottawa.
             </p>
             <p className="text-gray-600 leading-relaxed mb-6">
               What makes Prestige Moving the preferred choice for <strong className="text-[#1A2332]">Stittsville movers</strong> is our combination of local expertise and professional-grade service. Our teams know Stittsville intimately — from the winding crescents of Jackson Trails to the family-friendly streets of Bradley Commons and Poole Creek. We understand which <a href="https://www.ottawa.ca/en/parking-roads-and-travel" target="_blank" rel="noopener noreferrer" className="text-[#C5A572] hover:underline">parking regulations</a> apply to moving trucks in different areas, which townhouse complexes require advance booking for loading zones, and the best times to navigate Stittsville's main corridors without delay.
@@ -260,7 +260,7 @@ export default function MoversInStittsville() {
         <section className="py-16 bg-[#C5A572]">
           <div className="max-w-4xl mx-auto px-4 text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Ready to Move in Stittsville?</h2>
-            <p className="text-white/80 text-lg mb-8">Get your free, no-obligation quote today and discover why 337+ families trust Prestige Moving.</p>
+            <p className="text-white/80 text-lg mb-8">Get your free, no-obligation quote today and discover why 350+ families trust Prestige Moving.</p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link href="/book"><Button className="bg-[#1A2332] hover:bg-[#243044] text-white border-[#1A2332]" data-testid="button-cta-quote">Get Free Quote</Button></Link>
               <a href="tel:6136004000"><Button variant="outline" className="text-white border-white/30 backdrop-blur-sm bg-white/10" data-testid="button-cta-call"><Phone className="h-4 w-4 mr-2" />Call (613) 600-4000</Button></a>

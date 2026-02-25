@@ -32,7 +32,7 @@ export default function MoversInBarrhaven() {
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "5.0",
-      "reviewCount": "337"
+      "reviewCount": "350"
     },
     "areaServed": [
       { "@type": "Place", "name": "Barrhaven, Ottawa" },
@@ -42,7 +42,7 @@ export default function MoversInBarrhaven() {
       { "@type": "Place", "name": "Chapman Mills" },
       { "@type": "Place", "name": "Riverside South" }
     ],
-    "description": "Top-rated movers in Barrhaven, Ottawa. Serving Half Moon Bay, Stonebridge, Longfields, Chapman Mills and all Barrhaven communities. WSIB certified, 337+ five-star reviews."
+    "description": "Top-rated movers in Barrhaven, Ottawa. Serving Half Moon Bay, Stonebridge, Longfields, Chapman Mills and all Barrhaven communities. WSIB certified, 350+ five-star reviews."
   };
 
   const faqSchema = {
@@ -93,7 +93,7 @@ export default function MoversInBarrhaven() {
   };
 
   const stats = [
-    { icon: Star, value: "337+", label: "Five-Star Reviews" },
+    { icon: Star, value: "350+", label: "Five-Star Reviews" },
     { icon: TruckIcon, value: "10,000+", label: "Successful Moves" },
     { icon: Clock, value: "24hr", label: "Quote Response" },
     { icon: Shield, value: "100%", label: "Fully Insured" }
@@ -133,18 +133,18 @@ export default function MoversInBarrhaven() {
     <>
       <Helmet>
         <title>Movers in Barrhaven Ottawa | Top-Rated Moving Company | Prestige</title>
-        <meta name="description" content="Need movers in Barrhaven? Prestige Moving serves Half Moon Bay, Stonebridge, Longfields & all Barrhaven areas. 337+ five-star reviews, WSIB certified. Call (613) 600-4000 for a free quote." />
+        <meta name="description" content="Need movers in Barrhaven? Prestige Moving serves Half Moon Bay, Stonebridge, Longfields & all Barrhaven areas. 350+ five-star reviews, WSIB certified. Call (613) 600-4000 for a free quote." />
         <meta name="keywords" content="movers in barrhaven, barrhaven movers, moving company barrhaven, barrhaven moving services, movers barrhaven ottawa, residential movers barrhaven, affordable movers barrhaven" />
         <link rel="canonical" href="https://prestigemoving.ca/movers-in-barrhaven" />
         <meta property="og:title" content="Movers in Barrhaven | Top-Rated Barrhaven Moving Company" />
-        <meta property="og:description" content="Barrhaven's most trusted movers. Full-service residential and commercial moving. WSIB certified, fully insured, 337+ reviews. Free quotes." />
+        <meta property="og:description" content="Barrhaven's most trusted movers. Full-service residential and commercial moving. WSIB certified, fully insured, 350+ reviews. Free quotes." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://prestigemoving.ca/movers-in-barrhaven" />
         <meta property="og:image" content="https://prestigemoving.ca/og-image.png" />
         <meta property="og:locale" content="en_CA" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Movers in Barrhaven | Prestige Moving" />
-        <meta name="twitter:description" content="Trusted movers serving all Barrhaven neighbourhoods. 337+ five-star reviews. Call (613) 600-4000." />
+        <meta name="twitter:description" content="Trusted movers serving all Barrhaven neighbourhoods. 350+ five-star reviews. Call (613) 600-4000." />
         <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
       </Helmet>
@@ -181,7 +181,7 @@ export default function MoversInBarrhaven() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl font-bold text-[#1A2332] mb-6">Why Barrhaven Families Trust Our Movers in Barrhaven</h2>
             <p className="text-gray-600 leading-relaxed mb-6">
-              Barrhaven is one of Ottawa's fastest-growing communities, and with rapid growth comes a constant demand for reliable, professional <strong className="text-[#1A2332]">movers in Barrhaven</strong>. Whether you're a young family moving into one of the beautiful new homes in Half Moon Bay, a couple upgrading from a condo in Longfields to a larger house in Stonebridge, or a growing business relocating within the Barrhaven Town Centre, Prestige Moving delivers the white-glove service and transparent pricing that has earned us 337+ five-star reviews from satisfied customers across south Ottawa.
+              Barrhaven is one of Ottawa's fastest-growing communities, and with rapid growth comes a constant demand for reliable, professional <strong className="text-[#1A2332]">movers in Barrhaven</strong>. Whether you're a young family moving into one of the beautiful new homes in Half Moon Bay, a couple upgrading from a condo in Longfields to a larger house in Stonebridge, or a growing business relocating within the Barrhaven Town Centre, Prestige Moving delivers the white-glove service and transparent pricing that has earned us 350+ five-star reviews from satisfied customers across south Ottawa.
             </p>
             <p className="text-gray-600 leading-relaxed mb-6">
               What makes Prestige Moving the preferred choice for <strong className="text-[#1A2332]">Barrhaven movers</strong> is our combination of local expertise and professional-grade service. Our teams know Barrhaven's unique layout intimately — from the winding crescents of Chapman Mills to the busy commercial corridors along Strandherd Drive and Greenbank Road. We understand which <a href="https://www.ottawa.ca/en/parking-roads-and-travel" target="_blank" rel="noopener noreferrer" className="text-[#C5A572] hover:underline">parking regulations</a> apply to moving trucks in different areas, which condo and townhouse complexes require advance booking for elevators and loading zones, and the best times of day to navigate Barrhaven's main arteries without delay.
@@ -208,7 +208,7 @@ export default function MoversInBarrhaven() {
               At Prestige Moving, we believe you deserve to know exactly what your Barrhaven move will cost before we lift a single box. Our detailed quotes break down every cost clearly — labour, truck, materials, travel time — with absolutely no hidden fees. This transparent approach has made us one of the most recommended moving companies in south Ottawa. When you call us at <a href="tel:6136004000" className="text-[#C5A572] hover:underline font-semibold">(613) 600-4000</a>, you'll speak with a knowledgeable team member who can provide a quick estimate or schedule an in-home assessment for a more detailed quote.
             </p>
             <p className="text-gray-600 leading-relaxed mb-6">
-              Every Prestige Moving team member is <a href="https://www.wsib.ca/" target="_blank" rel="noopener noreferrer" className="text-[#C5A572] hover:underline">WSIB certified</a> and fully insured, giving you complete peace of mind throughout your Barrhaven move. We also offer a satisfaction guarantee — if anything doesn't meet your expectations, we'll make it right. With 337+ five-star reviews and counting, our commitment to excellence is the reason families across Barrhaven and south Ottawa keep choosing Prestige Moving for their most important relocations.
+              Every Prestige Moving team member is <a href="https://www.wsib.ca/" target="_blank" rel="noopener noreferrer" className="text-[#C5A572] hover:underline">WSIB certified</a> and fully insured, giving you complete peace of mind throughout your Barrhaven move. We also offer a satisfaction guarantee — if anything doesn't meet your expectations, we'll make it right. With 350+ five-star reviews and counting, our commitment to excellence is the reason families across Barrhaven and south Ottawa keep choosing Prestige Moving for their most important relocations.
             </p>
           </div>
         </section>
@@ -259,7 +259,7 @@ export default function MoversInBarrhaven() {
         <section className="py-16 bg-[#C5A572]">
           <div className="max-w-4xl mx-auto px-4 text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Ready to Move in Barrhaven?</h2>
-            <p className="text-white/80 text-lg mb-8">Get your free, no-obligation quote today and discover why 337+ families trust Prestige Moving.</p>
+            <p className="text-white/80 text-lg mb-8">Get your free, no-obligation quote today and discover why 350+ families trust Prestige Moving.</p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link href="/book"><Button className="bg-[#1A2332] hover:bg-[#243044] text-white border-[#1A2332]" data-testid="button-cta-quote">Get Free Quote</Button></Link>
               <a href="tel:6136004000"><Button variant="outline" className="text-white border-white/30 backdrop-blur-sm bg-white/10" data-testid="button-cta-call"><Phone className="h-4 w-4 mr-2" />Call (613) 600-4000</Button></a>

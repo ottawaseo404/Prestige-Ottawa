@@ -33,7 +33,7 @@ export default function ResidentialMoversOttawa() {
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "5.0",
-      "reviewCount": "337"
+      "reviewCount": "350"
     },
     "areaServed": [
       { "@type": "City", "name": "Ottawa" },
@@ -43,7 +43,7 @@ export default function ResidentialMoversOttawa() {
       { "@type": "City", "name": "Nepean" },
       { "@type": "City", "name": "Gloucester" }
     ],
-    "description": "Expert residential movers in Ottawa specializing in apartments, condos, and houses. Professional packing, furniture protection, and family-friendly service. 337+ five-star reviews."
+    "description": "Expert residential movers in Ottawa specializing in apartments, condos, and houses. Professional packing, furniture protection, and family-friendly service. 350+ five-star reviews."
   };
 
   const faqSchema = {
@@ -97,7 +97,7 @@ export default function ResidentialMoversOttawa() {
     { icon: Home, value: "5,000+", label: "Homes Moved" },
     { icon: Star, value: "5.0", label: "Star Rating" },
     { icon: Shield, value: "100%", label: "Insured" },
-    { icon: Heart, value: "337+", label: "Happy Families" }
+    { icon: Heart, value: "350+", label: "Happy Families" }
   ];
 
   const processSteps = [
@@ -114,7 +114,7 @@ export default function ResidentialMoversOttawa() {
     },
     {
       question: "Do you offer packing services?",
-      answer: "Yes, Prestige Moving offers comprehensive packing services designed to make your residential move in Ottawa completely stress-free. Our full-service packing option means our trained team arrives before moving day and professionally packs every item in your home using high-quality materials — boxes, bubble wrap, packing paper, foam sheets, wardrobe boxes for clothing, dish packs for kitchen items, and custom wrapping for artwork and mirrors. For families who prefer to handle some of the packing themselves, we offer a partial packing service where you pack the straightforward items like clothing and books, while our experts handle the specialty items — fine china, crystal glassware, electronics, antiques, and anything fragile or awkwardly shaped. We also sell and deliver packing supplies directly to your door anywhere in Ottawa, from Nepean to Gloucester, so you have everything you need. Our packing team works efficiently while taking the time to ensure every item is properly protected — it's this attention to detail that has earned us 337+ five-star reviews from residential customers across the city."
+      answer: "Yes, Prestige Moving offers comprehensive packing services designed to make your residential move in Ottawa completely stress-free. Our full-service packing option means our trained team arrives before moving day and professionally packs every item in your home using high-quality materials — boxes, bubble wrap, packing paper, foam sheets, wardrobe boxes for clothing, dish packs for kitchen items, and custom wrapping for artwork and mirrors. For families who prefer to handle some of the packing themselves, we offer a partial packing service where you pack the straightforward items like clothing and books, while our experts handle the specialty items — fine china, crystal glassware, electronics, antiques, and anything fragile or awkwardly shaped. We also sell and deliver packing supplies directly to your door anywhere in Ottawa, from Nepean to Gloucester, so you have everything you need. Our packing team works efficiently while taking the time to ensure every item is properly protected — it's this attention to detail that has earned us 350+ five-star reviews from residential customers across the city."
     },
     {
       question: "How do you protect my furniture during a residential move?",
@@ -134,11 +134,11 @@ export default function ResidentialMoversOttawa() {
     <>
       <Helmet>
         <title>Residential Movers Ottawa | Home Moving Experts | Prestige Moving</title>
-        <meta name="description" content="Ottawa's expert residential movers for apartments, condos, and houses. Professional packing, furniture protection, and family-friendly service. 337+ five-star reviews. Call (613) 600-4000." />
+        <meta name="description" content="Ottawa's expert residential movers for apartments, condos, and houses. Professional packing, furniture protection, and family-friendly service. 350+ five-star reviews. Call (613) 600-4000." />
         <meta name="keywords" content="residential movers ottawa, home movers ottawa, house movers ottawa, apartment movers ottawa, condo movers ottawa, residential moving company ottawa, home moving service ottawa" />
         <link rel="canonical" href="https://prestigemoving.ca/residential-movers-ottawa" />
         <meta property="og:title" content="Residential Movers Ottawa | Home Moving Experts | Prestige Moving" />
-        <meta property="og:description" content="Expert residential movers in Ottawa specializing in apartments, condos, and houses. Professional packing, furniture protection, 337+ five-star reviews." />
+        <meta property="og:description" content="Expert residential movers in Ottawa specializing in apartments, condos, and houses. Professional packing, furniture protection, 350+ five-star reviews." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://prestigemoving.ca/residential-movers-ottawa" />
         <meta property="og:image" content="https://prestigemoving.ca/og-image.png" />
@@ -179,7 +179,7 @@ export default function ResidentialMoversOttawa() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl font-bold text-[#1A2332] mb-6">Ottawa's Most Trusted Residential Moving Experts</h2>
             <p className="text-gray-600 leading-relaxed mb-6">
-              Moving to a new home is one of life's most exciting milestones — but it can also be one of the most stressful. That's where experienced residential movers in Ottawa make all the difference. At Prestige Moving, we've built our reputation as Ottawa's premier residential moving company by treating every home move with the same level of professionalism, care, and attention to detail, whether we're relocating a student from a bachelor apartment in Sandy Hill or moving a family of six from a four-bedroom home in Barrhaven. With over 5,000 successful residential moves across every Ottawa neighbourhood and 337+ verified five-star reviews, we understand that your home contains more than furniture and boxes — it holds your family's memories, treasured possessions, and the foundation of your daily life. Our residential movers in Ottawa treat everything accordingly.
+              Moving to a new home is one of life's most exciting milestones — but it can also be one of the most stressful. That's where experienced residential movers in Ottawa make all the difference. At Prestige Moving, we've built our reputation as Ottawa's premier residential moving company by treating every home move with the same level of professionalism, care, and attention to detail, whether we're relocating a student from a bachelor apartment in Sandy Hill or moving a family of six from a four-bedroom home in Barrhaven. With over 5,000 successful residential moves across every Ottawa neighbourhood and 350+ verified five-star reviews, we understand that your home contains more than furniture and boxes — it holds your family's memories, treasured possessions, and the foundation of your daily life. Our residential movers in Ottawa treat everything accordingly.
             </p>
             <p className="text-gray-600 leading-relaxed mb-6">
               What sets Prestige Moving apart from other residential movers in Ottawa is our comprehensive approach to every home move. We don't just show up with a truck — we plan, prepare, protect, and execute your move with military precision and genuine care. Our pre-move consultation ensures we understand the specific requirements of your home, from the narrow hallways of a Hintonburg rowhouse to the multiple flights of stairs in a Centretown walk-up. Our trained crews arrive with all the equipment, materials, and expertise needed to handle every item in your home safely. And our post-move setup service means we don't just dump boxes in your new home — we place furniture exactly where you want it, reassemble beds and tables, and make sure you can start living comfortably in your new space the moment we leave.

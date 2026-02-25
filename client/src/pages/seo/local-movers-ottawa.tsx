@@ -33,7 +33,7 @@ export default function LocalMoversOttawa() {
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "5.0",
-      "reviewCount": "337"
+      "reviewCount": "350"
     },
     "areaServed": [
       { "@type": "City", "name": "Ottawa" },
@@ -97,7 +97,7 @@ export default function LocalMoversOttawa() {
   const stats = [
     { icon: MapPin, value: "40+", label: "Ottawa Neighbourhoods" },
     { icon: Clock, value: "Same-Day", label: "Service Available" },
-    { icon: Star, value: "337+", label: "Five-Star Reviews" },
+    { icon: Star, value: "350+", label: "Five-Star Reviews" },
     { icon: TruckIcon, value: "10,000+", label: "Local Moves Done" }
   ];
 
@@ -135,11 +135,11 @@ export default function LocalMoversOttawa() {
     <>
       <Helmet>
         <title>Local Movers Ottawa | Same-Day Moving Services | Prestige Moving</title>
-        <meta name="description" content="Need local movers in Ottawa? Prestige Moving offers same-day local moving services across 40+ Ottawa neighbourhoods. Affordable, fast, and reliable with 337+ five-star reviews. Call (613) 600-4000." />
+        <meta name="description" content="Need local movers in Ottawa? Prestige Moving offers same-day local moving services across 40+ Ottawa neighbourhoods. Affordable, fast, and reliable with 350+ five-star reviews. Call (613) 600-4000." />
         <meta name="keywords" content="local movers ottawa, local moving company ottawa, same day movers ottawa, ottawa local movers, affordable local movers ottawa, neighbourhood movers ottawa, short distance movers ottawa" />
         <link rel="canonical" href="https://prestigemoving.ca/local-movers-ottawa" />
         <meta property="og:title" content="Local Movers Ottawa | Same-Day Moving Services | Prestige Moving" />
-        <meta property="og:description" content="Ottawa's trusted local movers serving 40+ neighbourhoods. Same-day service available. Affordable rates, transparent pricing, 337+ five-star reviews." />
+        <meta property="og:description" content="Ottawa's trusted local movers serving 40+ neighbourhoods. Same-day service available. Affordable rates, transparent pricing, 350+ five-star reviews." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://prestigemoving.ca/local-movers-ottawa" />
         <meta property="og:image" content="https://prestigemoving.ca/og-image.png" />
@@ -183,7 +183,7 @@ export default function LocalMoversOttawa() {
               When you're moving within Ottawa, hiring local movers who truly know the city makes all the difference. Prestige Moving isn't just a moving company that happens to operate in Ottawa — we're deeply embedded in this community, with intimate knowledge of every neighbourhood, route, and building that shapes how local moves unfold. Our local movers know that moving out of a third-floor walk-up in Sandy Hill requires different preparation than a ground-level townhouse in Barrhaven. They know which streets in Centretown have parking restrictions on specific days, which high-rises in Downtown Ottawa require loading dock reservations 48 hours in advance, and which routes through Kanata avoid the worst congestion during rush hour. This local expertise translates directly into faster, smoother, and more efficient moves for you.
             </p>
             <p className="text-gray-600 leading-relaxed mb-6">
-              As Ottawa's most trusted local movers, we've built our reputation one neighbourhood at a time. With over 10,000 successful local moves and 337+ five-star reviews, families across every corner of the city — from the charming shops of Westboro and the heritage character of The Glebe, to the growing communities of Riverside South and the established suburbs of Nepean and Gloucester — have trusted us with their most important belongings. Our local movers understand that a short-distance move deserves the same level of care, protection, and professionalism as a long-distance relocation. Whether you're moving one block or across town, your belongings receive our full attention and protection.
+              As Ottawa's most trusted local movers, we've built our reputation one neighbourhood at a time. With over 10,000 successful local moves and 350+ five-star reviews, families across every corner of the city — from the charming shops of Westboro and the heritage character of The Glebe, to the growing communities of Riverside South and the established suburbs of Nepean and Gloucester — have trusted us with their most important belongings. Our local movers understand that a short-distance move deserves the same level of care, protection, and professionalism as a long-distance relocation. Whether you're moving one block or across town, your belongings receive our full attention and protection.
             </p>
 
             <h3 className="text-2xl font-bold text-[#1A2332] mb-4 mt-10">Same-Day Local Moving When You Need It Most</h3>

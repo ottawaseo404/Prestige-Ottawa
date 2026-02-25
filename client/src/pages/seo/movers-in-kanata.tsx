@@ -32,7 +32,7 @@ export default function MoversInKanata() {
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "5.0",
-      "reviewCount": "337"
+      "reviewCount": "350"
     },
     "areaServed": [
       { "@type": "Place", "name": "Kanata, Ottawa" },
@@ -42,7 +42,7 @@ export default function MoversInKanata() {
       { "@type": "Place", "name": "Morgan's Grant" },
       { "@type": "Place", "name": "Stittsville" }
     ],
-    "description": "Top-rated movers in Kanata, Ottawa. Serving Kanata North, Kanata South, Bridlewood, Morgan's Grant, Stittsville and all Kanata communities. WSIB certified, 337+ five-star reviews."
+    "description": "Top-rated movers in Kanata, Ottawa. Serving Kanata North, Kanata South, Bridlewood, Morgan's Grant, Stittsville and all Kanata communities. WSIB certified, 350+ five-star reviews."
   };
 
   const faqSchema = {
@@ -93,7 +93,7 @@ export default function MoversInKanata() {
   };
 
   const stats = [
-    { icon: Star, value: "337+", label: "Five-Star Reviews" },
+    { icon: Star, value: "350+", label: "Five-Star Reviews" },
     { icon: TruckIcon, value: "10,000+", label: "Successful Moves" },
     { icon: Clock, value: "24hr", label: "Quote Response" },
     { icon: Shield, value: "100%", label: "Fully Insured" }
@@ -133,18 +133,18 @@ export default function MoversInKanata() {
     <>
       <Helmet>
         <title>Movers in Kanata Ottawa | Top-Rated Moving Company | Prestige</title>
-        <meta name="description" content="Need movers in Kanata? Prestige Moving serves Kanata North, Bridlewood, Morgan's Grant & all Kanata communities. 337+ five-star reviews, WSIB certified. Call (613) 600-4000 for a free quote." />
+        <meta name="description" content="Need movers in Kanata? Prestige Moving serves Kanata North, Bridlewood, Morgan's Grant & all Kanata communities. 350+ five-star reviews, WSIB certified. Call (613) 600-4000 for a free quote." />
         <meta name="keywords" content="movers in kanata, kanata movers, moving company kanata, kanata moving services, movers kanata ottawa, residential movers kanata, commercial movers kanata, affordable movers kanata" />
         <link rel="canonical" href="https://prestigemoving.ca/movers-in-kanata" />
         <meta property="og:title" content="Movers in Kanata | Top-Rated Kanata Moving Company | Prestige" />
-        <meta property="og:description" content="Kanata's most trusted movers with 337+ five-star reviews. Full-service residential and commercial moving. WSIB certified, fully insured. Free quotes." />
+        <meta property="og:description" content="Kanata's most trusted movers with 350+ five-star reviews. Full-service residential and commercial moving. WSIB certified, fully insured. Free quotes." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://prestigemoving.ca/movers-in-kanata" />
         <meta property="og:image" content="https://prestigemoving.ca/og-image.png" />
         <meta property="og:locale" content="en_CA" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Movers in Kanata | Prestige Moving" />
-        <meta name="twitter:description" content="Trusted movers serving all Kanata neighbourhoods. 337+ five-star reviews. Call (613) 600-4000." />
+        <meta name="twitter:description" content="Trusted movers serving all Kanata neighbourhoods. 350+ five-star reviews. Call (613) 600-4000." />
         <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
       </Helmet>
@@ -181,7 +181,7 @@ export default function MoversInKanata() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl font-bold text-[#1A2332] mb-6">Why Kanata Residents Choose Our Movers in Kanata</h2>
             <p className="text-gray-600 leading-relaxed mb-6">
-              Kanata has grown from a quiet suburban community into one of Ottawa's most dynamic and sought-after places to live, work, and raise a family. As Kanata continues to expand with new residential developments, tech companies, and commercial spaces, the demand for experienced, reliable <strong className="text-[#1A2332]">movers in Kanata</strong> has never been higher. Prestige Moving has been serving Kanata families and businesses for years, building a reputation as the area's most trusted moving company with over 337 five-star reviews and more than 10,000 successful relocations across the National Capital Region.
+              Kanata has grown from a quiet suburban community into one of Ottawa's most dynamic and sought-after places to live, work, and raise a family. As Kanata continues to expand with new residential developments, tech companies, and commercial spaces, the demand for experienced, reliable <strong className="text-[#1A2332]">movers in Kanata</strong> has never been higher. Prestige Moving has been serving Kanata families and businesses for years, building a reputation as the area's most trusted moving company with over 350 five-star reviews and more than 10,000 successful relocations across the National Capital Region.
             </p>
             <p className="text-gray-600 leading-relaxed mb-6">
               What makes us the preferred <strong className="text-[#1A2332]">Kanata movers</strong> is our combination of deep local knowledge and professional-grade service. We understand the distinct characteristics of each Kanata neighbourhood — from the executive homes in Morgan's Grant and Kanata Lakes to the family-friendly streets of Bridlewood and Beaverbrook, and the tech-driven commercial spaces along <a href="https://www.kanatanorthbia.ca/" target="_blank" rel="noopener noreferrer" className="text-[#C5A572] hover:underline">Kanata North's technology corridor</a>. Our teams arrive knowing the best access points, parking considerations, and building-specific requirements for every type of property in Kanata.
@@ -259,7 +259,7 @@ export default function MoversInKanata() {
         <section className="py-16 bg-[#C5A572]">
           <div className="max-w-4xl mx-auto px-4 text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Ready to Move in Kanata?</h2>
-            <p className="text-white/80 text-lg mb-8">Get your free, no-obligation quote and experience why 337+ families gave us five stars.</p>
+            <p className="text-white/80 text-lg mb-8">Get your free, no-obligation quote and experience why 350+ families gave us five stars.</p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link href="/book"><Button className="bg-[#1A2332] hover:bg-[#243044] text-white border-[#1A2332]" data-testid="button-cta-quote">Get Free Quote</Button></Link>
               <a href="tel:6136004000"><Button variant="outline" className="text-white border-white/30 backdrop-blur-sm bg-white/10" data-testid="button-cta-call"><Phone className="h-4 w-4 mr-2" />Call (613) 600-4000</Button></a>

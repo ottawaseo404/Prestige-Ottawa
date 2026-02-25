@@ -32,7 +32,7 @@ export default function MoversInNepean() {
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "5.0",
-      "reviewCount": "337"
+      "reviewCount": "350"
     },
     "areaServed": [
       { "@type": "Place", "name": "Nepean, Ottawa" },
@@ -42,7 +42,7 @@ export default function MoversInNepean() {
       { "@type": "Place", "name": "Craig Henry" },
       { "@type": "Place", "name": "Merivale" }
     ],
-    "description": "Reliable movers in Nepean, Ottawa. Serving Bells Corners, Centrepointe, Craig Henry, Merivale and all Nepean communities. WSIB certified, 337+ five-star reviews."
+    "description": "Reliable movers in Nepean, Ottawa. Serving Bells Corners, Centrepointe, Craig Henry, Merivale and all Nepean communities. WSIB certified, 350+ five-star reviews."
   };
 
   const faqSchema = {
@@ -93,7 +93,7 @@ export default function MoversInNepean() {
   };
 
   const stats = [
-    { icon: Star, value: "337+", label: "Five-Star Reviews" },
+    { icon: Star, value: "350+", label: "Five-Star Reviews" },
     { icon: TruckIcon, value: "10,000+", label: "Successful Moves" },
     { icon: Clock, value: "24hr", label: "Quote Response" },
     { icon: Shield, value: "100%", label: "Fully Insured" }
@@ -133,18 +133,18 @@ export default function MoversInNepean() {
     <>
       <Helmet>
         <title>Movers in Nepean Ottawa | Reliable Local Moving Company | Prestige</title>
-        <meta name="description" content="Searching for movers in Nepean? Prestige Moving serves Bells Corners, Centrepointe, Craig Henry & all Nepean areas. 337+ five-star reviews, WSIB certified. Call (613) 600-4000 for your free quote." />
+        <meta name="description" content="Searching for movers in Nepean? Prestige Moving serves Bells Corners, Centrepointe, Craig Henry & all Nepean areas. 350+ five-star reviews, WSIB certified. Call (613) 600-4000 for your free quote." />
         <meta name="keywords" content="movers in nepean, nepean movers, moving company nepean, nepean moving services, movers nepean ottawa, residential movers nepean, affordable movers nepean, best movers nepean" />
         <link rel="canonical" href="https://prestigemoving.ca/movers-in-nepean" />
         <meta property="og:title" content="Movers in Nepean | Reliable Nepean Moving Company | Prestige" />
-        <meta property="og:description" content="Nepean's most trusted movers with 337+ five-star reviews. Full-service residential and commercial moving. WSIB certified, fully insured. Free quotes." />
+        <meta property="og:description" content="Nepean's most trusted movers with 350+ five-star reviews. Full-service residential and commercial moving. WSIB certified, fully insured. Free quotes." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://prestigemoving.ca/movers-in-nepean" />
         <meta property="og:image" content="https://prestigemoving.ca/og-image.png" />
         <meta property="og:locale" content="en_CA" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Movers in Nepean | Prestige Moving" />
-        <meta name="twitter:description" content="Trusted movers serving all Nepean neighbourhoods. 337+ five-star reviews. Call (613) 600-4000." />
+        <meta name="twitter:description" content="Trusted movers serving all Nepean neighbourhoods. 350+ five-star reviews. Call (613) 600-4000." />
         <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
       </Helmet>
@@ -181,7 +181,7 @@ export default function MoversInNepean() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl font-bold text-[#1A2332] mb-6">Why Nepean Residents Rely on Our Movers in Nepean</h2>
             <p className="text-gray-600 leading-relaxed mb-6">
-              Nepean is a diverse, established community in west Ottawa with a rich mix of residential neighbourhoods, commercial areas, and green spaces. Finding trustworthy <strong className="text-[#1A2332]">movers in Nepean</strong> who understand the unique character of this area requires a company with deep local expertise and a proven track record. That's exactly what Prestige Moving delivers — with over 337 five-star reviews and 10,000+ successful relocations, we are the most trusted name in Nepean moving services. From heritage homes in Bells Corners to modern condos along Merivale Road, our team handles every type of property with professional care and attention.
+              Nepean is a diverse, established community in west Ottawa with a rich mix of residential neighbourhoods, commercial areas, and green spaces. Finding trustworthy <strong className="text-[#1A2332]">movers in Nepean</strong> who understand the unique character of this area requires a company with deep local expertise and a proven track record. That's exactly what Prestige Moving delivers — with over 350 five-star reviews and 10,000+ successful relocations, we are the most trusted name in Nepean moving services. From heritage homes in Bells Corners to modern condos along Merivale Road, our team handles every type of property with professional care and attention.
             </p>
             <p className="text-gray-600 leading-relaxed mb-6">
               What distinguishes Prestige Moving from other <strong className="text-[#1A2332]">Nepean movers</strong> is the quality of our people and our process. Every team member undergoes comprehensive training in furniture protection, proper lifting techniques, and customer service. We don't hire day labourers or subcontract your move — the team that shows up at your Nepean doorstep is our team, fully <a href="https://www.wsib.ca/" target="_blank" rel="noopener noreferrer" className="text-[#C5A572] hover:underline">WSIB certified</a>, professionally uniformed, and equipped with all the tools and materials needed to execute a flawless relocation.
@@ -256,7 +256,7 @@ export default function MoversInNepean() {
         <section className="py-16 bg-[#C5A572]">
           <div className="max-w-4xl mx-auto px-4 text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Ready to Move in Nepean?</h2>
-            <p className="text-white/80 text-lg mb-8">Get your free, no-obligation quote and join 337+ families who gave us five stars.</p>
+            <p className="text-white/80 text-lg mb-8">Get your free, no-obligation quote and join 350+ families who gave us five stars.</p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link href="/book"><Button className="bg-[#1A2332] hover:bg-[#243044] text-white border-[#1A2332]" data-testid="button-cta-quote">Get Free Quote</Button></Link>
               <a href="tel:6136004000"><Button variant="outline" className="text-white border-white/30 backdrop-blur-sm bg-white/10" data-testid="button-cta-call"><Phone className="h-4 w-4 mr-2" />Call (613) 600-4000</Button></a>

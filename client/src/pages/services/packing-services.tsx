@@ -289,7 +289,7 @@ export default function PackingServices() {
                       ))}
                     </div>
                     <div className="text-white">
-                      <div className="font-bold">337+ Reviews</div>
+                      <div className="font-bold">350+ Reviews</div>
                       <div className="text-sm text-white/70">5-Star Rated on Google</div>
                     </div>
                   </div>
@@ -457,7 +457,7 @@ export default function PackingServices() {
                     <Star key={i} className="h-5 w-5 fill-primary text-primary" />
                   ))}
                 </div>
-                <span>Based on 337+ Google Reviews</span>
+                <span>Based on 350+ Google Reviews</span>
               </div>
             </div>
 

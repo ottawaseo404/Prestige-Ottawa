@@ -33,7 +33,7 @@ export default function BestMoversOttawa() {
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "5.0",
-      "reviewCount": "337"
+      "reviewCount": "350"
     },
     "areaServed": [
       { "@type": "City", "name": "Ottawa" },
@@ -43,7 +43,7 @@ export default function BestMoversOttawa() {
       { "@type": "City", "name": "Nepean" },
       { "@type": "City", "name": "Gloucester" }
     ],
-    "description": "Rated the best movers in Ottawa with 337+ five-star reviews. Award-winning moving services with satisfaction guarantee. WSIB certified and fully insured."
+    "description": "Rated the best movers in Ottawa with 350+ five-star reviews. Award-winning moving services with satisfaction guarantee. WSIB certified and fully insured."
   };
 
   const faqSchema = {
@@ -55,7 +55,7 @@ export default function BestMoversOttawa() {
         "name": "Why are you rated the best movers in Ottawa?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Prestige Moving is rated the best movers in Ottawa based on 337+ verified five-star reviews, WSIB certification, comprehensive insurance, transparent pricing, trained professional crews, and a satisfaction guarantee. Our consistent quality across thousands of moves has earned us this reputation."
+          "text": "Prestige Moving is rated the best movers in Ottawa based on 350+ verified five-star reviews, WSIB certification, comprehensive insurance, transparent pricing, trained professional crews, and a satisfaction guarantee. Our consistent quality across thousands of moves has earned us this reputation."
         }
       },
       {
@@ -63,7 +63,7 @@ export default function BestMoversOttawa() {
         "name": "How many reviews does Prestige Moving have?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Prestige Moving has over 337 verified five-star reviews across Google, Facebook, and other review platforms. Our average rating is 5.0 out of 5 stars, reflecting consistent excellence across all types of moves in Ottawa."
+          "text": "Prestige Moving has over 350 verified five-star reviews across Google, Facebook, and other review platforms. Our average rating is 5.0 out of 5 stars, reflecting consistent excellence across all types of moves in Ottawa."
         }
       },
       {
@@ -95,7 +95,7 @@ export default function BestMoversOttawa() {
 
   const stats = [
     { icon: Star, value: "5.0", label: "Average Star Rating" },
-    { icon: ThumbsUp, value: "337+", label: "Five-Star Reviews" },
+    { icon: ThumbsUp, value: "350+", label: "Five-Star Reviews" },
     { icon: Award, value: "#1", label: "Rated in Ottawa" },
     { icon: Heart, value: "99%", label: "Would Recommend" }
   ];
@@ -104,17 +104,17 @@ export default function BestMoversOttawa() {
     { icon: Phone, title: "Get Your Quote", description: "Reach out online or call (613) 600-4000. We respond within hours with a detailed, honest estimate." },
     { icon: Calendar, title: "Confirm Your Date", description: "Lock in your preferred moving date with flexible scheduling options that suit your timeline." },
     { icon: TruckIcon, title: "Five-Star Service", description: "Our top-rated crew arrives on time, treats your belongings like their own, and delivers an exceptional experience." },
-    { icon: Star, title: "Share Your Experience", description: "Join 337+ happy customers who've shared their five-star experiences with the best movers in Ottawa." }
+    { icon: Star, title: "Share Your Experience", description: "Join 350+ happy customers who've shared their five-star experiences with the best movers in Ottawa." }
   ];
 
   const faqs = [
     {
       question: "Why are you rated the best movers in Ottawa?",
-      answer: "Our rating as the best movers in Ottawa is backed by 337+ verified five-star reviews from real customers across Google, Facebook, and other trusted review platforms. This reputation has been built through years of consistent excellence across every type of move — from studio apartments in Centretown to large family homes in Kanata and Barrhaven. What makes us the best is our combination of WSIB-certified, background-checked professional crews, transparent pricing with zero hidden fees, comprehensive insurance coverage, modern equipment, and a genuine satisfaction guarantee. We don't just claim to be the best movers in Ottawa — our customers confirm it with their reviews."
+      answer: "Our rating as the best movers in Ottawa is backed by 350+ verified five-star reviews from real customers across Google, Facebook, and other trusted review platforms. This reputation has been built through years of consistent excellence across every type of move — from studio apartments in Centretown to large family homes in Kanata and Barrhaven. What makes us the best is our combination of WSIB-certified, background-checked professional crews, transparent pricing with zero hidden fees, comprehensive insurance coverage, modern equipment, and a genuine satisfaction guarantee. We don't just claim to be the best movers in Ottawa — our customers confirm it with their reviews."
     },
     {
       question: "How many reviews does Prestige Moving have?",
-      answer: "Prestige Moving has accumulated over 337 verified five-star reviews across major platforms including Google Business Profile, Facebook, and independent review sites. Our average rating stands at a perfect 5.0 out of 5 stars, which is exceptional in the moving industry where even good companies typically average 4.2-4.5 stars. Each review represents a real customer who experienced our service firsthand — from families moving within Ottawa neighbourhoods like Westboro, The Glebe, and Orleans, to businesses relocating offices in Downtown Ottawa. We're proud that our consistent quality has earned such overwhelming positive feedback."
+      answer: "Prestige Moving has accumulated over 350 verified five-star reviews across major platforms including Google Business Profile, Facebook, and independent review sites. Our average rating stands at a perfect 5.0 out of 5 stars, which is exceptional in the moving industry where even good companies typically average 4.2-4.5 stars. Each review represents a real customer who experienced our service firsthand — from families moving within Ottawa neighbourhoods like Westboro, The Glebe, and Orleans, to businesses relocating offices in Downtown Ottawa. We're proud that our consistent quality has earned such overwhelming positive feedback."
     },
     {
       question: "Do you offer a satisfaction guarantee?",
@@ -122,11 +122,11 @@ export default function BestMoversOttawa() {
     },
     {
       question: "How do you handle complaints?",
-      answer: "While complaints are exceptionally rare given our 5.0-star average across 337+ reviews, we take every customer concern with the utmost seriousness. If a customer contacts us with an issue, our dedicated customer service team responds within 24 hours. We investigate the situation thoroughly, communicate openly with the customer throughout the process, and work to reach a resolution that ensures their complete satisfaction. For any claims related to damaged items, we have a straightforward, fair claims process backed by our comprehensive insurance coverage. Our commitment to accountability is one of the reasons Ottawa families consistently rate us as the best movers in the city."
+      answer: "While complaints are exceptionally rare given our 5.0-star average across 350+ reviews, we take every customer concern with the utmost seriousness. If a customer contacts us with an issue, our dedicated customer service team responds within 24 hours. We investigate the situation thoroughly, communicate openly with the customer throughout the process, and work to reach a resolution that ensures their complete satisfaction. For any claims related to damaged items, we have a straightforward, fair claims process backed by our comprehensive insurance coverage. Our commitment to accountability is one of the reasons Ottawa families consistently rate us as the best movers in the city."
     },
     {
       question: "What do your reviews say about Prestige Moving?",
-      answer: "Our reviews paint a consistent picture of excellence across every aspect of the moving experience. The most common themes in our 337+ five-star reviews include: exceptional punctuality — customers repeatedly praise our crews for arriving exactly on time or even early; careful handling — reviewers frequently note how our movers treated their belongings with genuine care, wrapping and protecting everything meticulously; friendly professionalism — our team's courteous, respectful attitude is mentioned in nearly every review; transparent pricing — customers appreciate that their final bill matched their quote with no surprises; and stress-free experiences — many reviewers describe their move as the easiest they've ever had. Customers from across Ottawa — Nepean, Gloucester, Sandy Hill, Hintonburg, and beyond — consistently recommend us as the best movers they've worked with."
+      answer: "Our reviews paint a consistent picture of excellence across every aspect of the moving experience. The most common themes in our 350+ five-star reviews include: exceptional punctuality — customers repeatedly praise our crews for arriving exactly on time or even early; careful handling — reviewers frequently note how our movers treated their belongings with genuine care, wrapping and protecting everything meticulously; friendly professionalism — our team's courteous, respectful attitude is mentioned in nearly every review; transparent pricing — customers appreciate that their final bill matched their quote with no surprises; and stress-free experiences — many reviewers describe their move as the easiest they've ever had. Customers from across Ottawa — Nepean, Gloucester, Sandy Hill, Hintonburg, and beyond — consistently recommend us as the best movers they've worked with."
     }
   ];
 
@@ -134,11 +134,11 @@ export default function BestMoversOttawa() {
     <>
       <Helmet>
         <title>Best Movers Ottawa | Top-Rated Moving Services | Prestige Moving</title>
-        <meta name="description" content="Looking for the best movers in Ottawa? Prestige Moving is rated #1 with 337+ five-star reviews. WSIB certified, fully insured, satisfaction guaranteed. Call (613) 600-4000 for a free quote." />
+        <meta name="description" content="Looking for the best movers in Ottawa? Prestige Moving is rated #1 with 350+ five-star reviews. WSIB certified, fully insured, satisfaction guaranteed. Call (613) 600-4000 for a free quote." />
         <meta name="keywords" content="best movers ottawa, top rated movers ottawa, best moving company ottawa, highest rated movers ottawa, ottawa best movers, top movers ottawa, recommended movers ottawa" />
         <link rel="canonical" href="https://prestigemoving.ca/best-movers-ottawa" />
         <meta property="og:title" content="Best Movers Ottawa | Top-Rated Moving Services | Prestige Moving" />
-        <meta property="og:description" content="Rated #1 movers in Ottawa with 337+ five-star reviews. Experience the best moving service with our satisfaction guarantee. Get your free quote today." />
+        <meta property="og:description" content="Rated #1 movers in Ottawa with 350+ five-star reviews. Experience the best moving service with our satisfaction guarantee. Get your free quote today." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://prestigemoving.ca/best-movers-ottawa" />
         <meta property="og:image" content="https://prestigemoving.ca/og-image.png" />
@@ -153,7 +153,7 @@ export default function BestMoversOttawa() {
           <div className="absolute inset-0 bg-gradient-to-r from-[#1A2332]/90 to-[#1A2332]/70" />
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4" data-testid="text-hero-heading">Why We're Rated the Best Movers in Ottawa</h1>
-            <p className="text-xl text-white/80 max-w-2xl mb-8">337+ five-star reviews, a perfect 5.0 rating, and thousands of successful moves — discover why Ottawa families choose Prestige Moving.</p>
+            <p className="text-xl text-white/80 max-w-2xl mb-8">350+ five-star reviews, a perfect 5.0 rating, and thousands of successful moves — discover why Ottawa families choose Prestige Moving.</p>
             <div className="flex flex-wrap gap-4">
               <Link href="/book"><Button className="bg-[#C5A572] hover:bg-[#B8956A] text-white border-[#C5A572]" data-testid="button-hero-quote">Get Free Quote</Button></Link>
               <a href="tel:6136004000"><Button variant="outline" className="text-white border-white/30 backdrop-blur-sm bg-white/10" data-testid="button-hero-call"><Phone className="h-4 w-4 mr-2" />Call (613) 600-4000</Button></a>
@@ -179,18 +179,18 @@ export default function BestMoversOttawa() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl font-bold text-[#1A2332] mb-6">What Makes the Best Movers in Ottawa?</h2>
             <p className="text-gray-600 leading-relaxed mb-6">
-              When Ottawa residents search for the best movers in the city, they're looking for more than just a truck and some muscle. The best movers combine professional expertise, transparent business practices, genuine care for customers, and a proven track record of excellence that's backed by real reviews from real people. At Prestige Moving, we've earned the distinction of being rated the best movers in Ottawa through 337+ verified five-star reviews, a perfect 5.0-star average rating, and a commitment to delivering an exceptional experience on every single move. Whether you're relocating from a cozy apartment in The Glebe to a family home in Barrhaven, or moving your office from Downtown Ottawa to a new space in Kanata, our team consistently delivers the calibre of service that has made us the most recommended movers in the National Capital Region.
+              When Ottawa residents search for the best movers in the city, they're looking for more than just a truck and some muscle. The best movers combine professional expertise, transparent business practices, genuine care for customers, and a proven track record of excellence that's backed by real reviews from real people. At Prestige Moving, we've earned the distinction of being rated the best movers in Ottawa through 350+ verified five-star reviews, a perfect 5.0-star average rating, and a commitment to delivering an exceptional experience on every single move. Whether you're relocating from a cozy apartment in The Glebe to a family home in Barrhaven, or moving your office from Downtown Ottawa to a new space in Kanata, our team consistently delivers the calibre of service that has made us the most recommended movers in the National Capital Region.
             </p>
             <p className="text-gray-600 leading-relaxed mb-6">
               Being rated the best movers in Ottawa isn't something we take lightly. It's a distinction that requires daily commitment to excellence from every member of our team. From the moment you call for a quote to the final box placed in your new home, every interaction is designed to exceed your expectations. Our transparent pricing eliminates the anxiety of surprise charges, our WSIB certification and comprehensive insurance give you complete peace of mind, and our trained, background-checked crews deliver the careful, efficient service that has earned us more five-star reviews than any other moving company in Ottawa.
             </p>
 
-            <h3 className="text-2xl font-bold text-[#1A2332] mb-4 mt-10">337+ Five-Star Reviews: What Our Customers Say</h3>
+            <h3 className="text-2xl font-bold text-[#1A2332] mb-4 mt-10">350+ Five-Star Reviews: What Our Customers Say</h3>
             <p className="text-gray-600 leading-relaxed mb-6">
-              Numbers tell a powerful story, and with 337+ verified five-star reviews, ours speaks volumes. But beyond the star count, it's the words our customers use that truly illustrate why Prestige Moving is rated the best movers in Ottawa. Reviewers consistently highlight how our crews arrived on time or even early, treated their belongings with exceptional care, communicated clearly throughout the process, and completed the move faster than expected. Families from Nepean describe how our movers carefully handled heirloom furniture, while customers in Orleans praise the efficiency with which we managed their three-storey home move. Business owners in Downtown Ottawa note how our commercial moving team minimized their office downtime, and seniors in Rockcliffe Park share how our compassionate crew made their downsizing transition stress-free.
+              Numbers tell a powerful story, and with 350+ verified five-star reviews, ours speaks volumes. But beyond the star count, it's the words our customers use that truly illustrate why Prestige Moving is rated the best movers in Ottawa. Reviewers consistently highlight how our crews arrived on time or even early, treated their belongings with exceptional care, communicated clearly throughout the process, and completed the move faster than expected. Families from Nepean describe how our movers carefully handled heirloom furniture, while customers in Orleans praise the efficiency with which we managed their three-storey home move. Business owners in Downtown Ottawa note how our commercial moving team minimized their office downtime, and seniors in Rockcliffe Park share how our compassionate crew made their downsizing transition stress-free.
             </p>
             <p className="text-gray-600 leading-relaxed mb-6">
-              What's particularly notable about our reviews is their consistency. Unlike some moving companies that have a mix of glowing and critical reviews, Prestige Moving maintains a 5.0-star average — meaning virtually every customer rates us at the highest level. This kind of consistency doesn't happen by accident. It's the result of a company culture built around customer satisfaction, professional standards, and the belief that every customer deserves the same outstanding experience regardless of the size or complexity of their move. When you see 337+ reviews all saying the same thing — "the best movers in Ottawa" — you can trust that you'll receive that same level of service.
+              What's particularly notable about our reviews is their consistency. Unlike some moving companies that have a mix of glowing and critical reviews, Prestige Moving maintains a 5.0-star average — meaning virtually every customer rates us at the highest level. This kind of consistency doesn't happen by accident. It's the result of a company culture built around customer satisfaction, professional standards, and the belief that every customer deserves the same outstanding experience regardless of the size or complexity of their move. When you see 350+ reviews all saying the same thing — "the best movers in Ottawa" — you can trust that you'll receive that same level of service.
             </p>
 
             <h3 className="text-2xl font-bold text-[#1A2332] mb-4 mt-10">How to Choose the Best Movers: A Comparison Guide</h3>
@@ -198,7 +198,7 @@ export default function BestMoversOttawa() {
               Choosing the best movers in Ottawa requires evaluating several key criteria, and we encourage potential customers to do their homework. Here's what separates the best from the rest: First, look at review volume and quality — a company with hundreds of five-star reviews demonstrates consistent performance, not a one-time lucky move. Second, verify licensing and insurance — the best movers carry WSIB certification and comprehensive liability coverage. Third, demand transparent pricing — the best movers in Ottawa provide detailed quotes with no hidden fees, fuel surcharges, or surprise stair charges. Fourth, evaluate the team's professionalism — background checks, training programs, and uniformed crews indicate a company that invests in its people. Fifth, ask about equipment — modern trucks with air-ride suspension, professional-grade dollies, and comprehensive protection materials show a commitment to quality.
             </p>
             <p className="text-gray-600 leading-relaxed mb-6">
-              When you evaluate Prestige Moving against these criteria, you'll understand why we consistently rank as the best movers in Ottawa. Our 337+ five-star reviews (5.0 average) far exceed the industry standard. Our WSIB certification and full insurance coverage are always current and verifiable. Our pricing is the most transparent in Ottawa — what we quote is what you pay, period. Every crew member is background-checked, professionally trained, and arrives in a clean Prestige Moving uniform. And our fleet of modern, well-maintained trucks equipped with air-ride suspension represents one of the finest in the region. We invite you to compare us with any other moving company in Ottawa — we're confident in the result.
+              When you evaluate Prestige Moving against these criteria, you'll understand why we consistently rank as the best movers in Ottawa. Our 350+ five-star reviews (5.0 average) far exceed the industry standard. Our WSIB certification and full insurance coverage are always current and verifiable. Our pricing is the most transparent in Ottawa — what we quote is what you pay, period. Every crew member is background-checked, professionally trained, and arrives in a clean Prestige Moving uniform. And our fleet of modern, well-maintained trucks equipped with air-ride suspension represents one of the finest in the region. We invite you to compare us with any other moving company in Ottawa — we're confident in the result.
             </p>
 
             <h3 className="text-2xl font-bold text-[#1A2332] mb-4 mt-10">Our Satisfaction Guarantee: Backing Our Reputation</h3>
@@ -254,7 +254,7 @@ export default function BestMoversOttawa() {
         <section className="py-16 bg-[#C5A572]">
           <div className="max-w-4xl mx-auto px-4 text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Experience Why We're Rated #1 in Ottawa</h2>
-            <p className="text-white/80 text-lg mb-8">Join 337+ five-star reviewers who agree — Prestige Moving is the best choice for your next move.</p>
+            <p className="text-white/80 text-lg mb-8">Join 350+ five-star reviewers who agree — Prestige Moving is the best choice for your next move.</p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link href="/book"><Button className="bg-[#1A2332] hover:bg-[#243044] text-white border-[#1A2332]" data-testid="button-cta-quote">Get Free Quote</Button></Link>
               <a href="tel:6136004000"><Button variant="outline" className="text-white border-white/30 backdrop-blur-sm bg-white/10" data-testid="button-cta-call"><Phone className="h-4 w-4 mr-2" />Call (613) 600-4000</Button></a>

@@ -33,7 +33,7 @@ export default function CustomCratingOttawa() {
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "5.0",
-      "reviewCount": "337"
+      "reviewCount": "350"
     },
     "areaServed": [
       { "@type": "Place", "name": "Ottawa" },
@@ -94,7 +94,7 @@ export default function CustomCratingOttawa() {
   };
 
   const stats = [
-    { icon: Star, value: "337+", label: "Five-Star Reviews" },
+    { icon: Star, value: "350+", label: "Five-Star Reviews" },
     { icon: Shield, value: "Zero", label: "Damage Claims" },
     { icon: Clock, value: "24-48hr", label: "Turnaround" },
     { icon: Package, value: "100%", label: "Fully Insured" }

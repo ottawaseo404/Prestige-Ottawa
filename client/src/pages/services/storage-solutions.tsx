@@ -115,7 +115,7 @@ export default function StorageSolutions() {
       "aggregateRating": {
         "@type": "AggregateRating",
         "ratingValue": "5.0",
-        "reviewCount": "337"
+        "reviewCount": "350"
       }
     },
     "areaServed": [
@@ -594,7 +594,7 @@ export default function StorageSolutions() {
                     <Star key={i} className="h-5 w-5 fill-primary text-primary" />
                   ))}
                 </div>
-                <span>Based on 337+ Google Reviews</span>
+                <span>Based on 350+ Google Reviews</span>
               </div>
             </div>
 

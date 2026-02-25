@@ -39,7 +39,7 @@ export default function MoversInOttawa() {
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "5.0",
-      "reviewCount": "337"
+      "reviewCount": "350"
     },
     "areaServed": [
       { "@type": "Place", "name": "Ottawa, Ontario" },
@@ -56,7 +56,7 @@ export default function MoversInOttawa() {
       { "@type": "Place", "name": "Hintonburg" },
       { "@type": "Place", "name": "Vanier" }
     ],
-    "description": "Ottawa's #1 rated moving company. Prestige Moving has completed 10,000+ moves across Ottawa with 337+ five-star reviews. WSIB certified, fully insured, transparent pricing. Residential, commercial, and long-distance movers serving all Ottawa neighbourhoods."
+    "description": "Ottawa's #1 rated moving company. Prestige Moving has completed 10,000+ moves across Ottawa with 350+ five-star reviews. WSIB certified, fully insured, transparent pricing. Residential, commercial, and long-distance movers serving all Ottawa neighbourhoods."
   };
 
   const faqSchema = {
@@ -116,7 +116,7 @@ export default function MoversInOttawa() {
         "name": "What makes Prestige Moving the best movers in Ottawa?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Prestige Moving stands apart with 337+ five-star reviews, 10,000+ completed Ottawa moves, WSIB certification, fully insured teams, a modern truck fleet with air-ride suspension, transparent no-hidden-fee pricing, and a satisfaction guarantee. Our movers are background-checked, professionally trained, and fully uniformed — delivering a premium moving experience every time."
+          "text": "Prestige Moving stands apart with 350+ five-star reviews, 10,000+ completed Ottawa moves, WSIB certification, fully insured teams, a modern truck fleet with air-ride suspension, transparent no-hidden-fee pricing, and a satisfaction guarantee. Our movers are background-checked, professionally trained, and fully uniformed — delivering a premium moving experience every time."
         }
       },
       {
@@ -147,7 +147,7 @@ export default function MoversInOttawa() {
   };
 
   const stats = [
-    { icon: Star, value: "337+", label: "Five-Star Reviews", sub: "Google & Trusted" },
+    { icon: Star, value: "350+", label: "Five-Star Reviews", sub: "Google & Trusted" },
     { icon: TruckIcon, value: "10,000+", label: "Successful Moves", sub: "Across Ottawa" },
     { icon: Clock, value: "15+", label: "Years Experience", sub: "In Ottawa" },
     { icon: Users, value: "50+", label: "Pro Movers", sub: "WSIB Certified" },
@@ -163,8 +163,8 @@ export default function MoversInOttawa() {
     },
     {
       icon: Star,
-      title: "337+ Five-Star Reviews",
-      description: "Our track record speaks for itself. With over 337 five-star reviews from Ottawa homeowners, condo owners, and businesses, Prestige Moving has earned a reputation as Ottawa's most trusted moving company."
+      title: "350+ Five-Star Reviews",
+      description: "Our track record speaks for itself. With over 350 five-star reviews from Ottawa homeowners, condo owners, and businesses, Prestige Moving has earned a reputation as Ottawa's most trusted moving company."
     },
     {
       icon: TruckIcon,
@@ -249,7 +249,7 @@ export default function MoversInOttawa() {
     },
     {
       question: "What makes Prestige Moving the best movers in Ottawa?",
-      answer: "Prestige Moving has earned its position as Ottawa's most trusted moving company through consistent five-star service over 15+ years. Our differentiators include: 337+ five-star Google reviews from Ottawa clients; 10,000+ successfully completed local and long-distance moves; a team of 50+ professional, background-checked, WSIB-certified movers; a modern fleet of air-ride suspension trucks fully equipped with protective materials; transparent, no-hidden-fee pricing on every quote; and a comprehensive satisfaction guarantee. We treat every Ottawa move — whether a studio apartment or a six-bedroom executive home — with the same level of professionalism and care."
+      answer: "Prestige Moving has earned its position as Ottawa's most trusted moving company through consistent five-star service over 15+ years. Our differentiators include: 350+ five-star Google reviews from Ottawa clients; 10,000+ successfully completed local and long-distance moves; a team of 50+ professional, background-checked, WSIB-certified movers; a modern fleet of air-ride suspension trucks fully equipped with protective materials; transparent, no-hidden-fee pricing on every quote; and a comprehensive satisfaction guarantee. We treat every Ottawa move — whether a studio apartment or a six-bedroom executive home — with the same level of professionalism and care."
     },
     {
       question: "Do you move condos and apartments in Ottawa?",
@@ -269,18 +269,18 @@ export default function MoversInOttawa() {
     <>
       <Helmet>
         <title>Movers in Ottawa | #1 Rated Ottawa Moving Company | Prestige</title>
-        <meta name="description" content="Looking for movers in Ottawa? Prestige Moving is Ottawa's #1 rated moving company with 337+ five-star reviews and 10,000+ completed moves. WSIB certified, fully insured, transparent pricing. Call (613) 600-4000 for a free quote." />
+        <meta name="description" content="Looking for movers in Ottawa? Prestige Moving is Ottawa's #1 rated moving company with 350+ five-star reviews and 10,000+ completed moves. WSIB certified, fully insured, transparent pricing. Call (613) 600-4000 for a free quote." />
         <meta name="keywords" content="movers in ottawa, ottawa movers, moving company ottawa, best movers ottawa, professional movers ottawa, local movers ottawa, affordable movers ottawa, residential movers ottawa, commercial movers ottawa, ottawa moving company" />
         <link rel="canonical" href="https://prestigemoving.ca/movers-in-ottawa" />
         <meta property="og:title" content="Movers in Ottawa | #1 Rated Ottawa Moving Company | Prestige Moving" />
-        <meta property="og:description" content="Ottawa's most trusted movers. 337+ five-star reviews, 10,000+ moves completed, WSIB certified. Full-service residential and commercial moving across all Ottawa neighbourhoods. Free quotes." />
+        <meta property="og:description" content="Ottawa's most trusted movers. 350+ five-star reviews, 10,000+ moves completed, WSIB certified. Full-service residential and commercial moving across all Ottawa neighbourhoods. Free quotes." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://prestigemoving.ca/movers-in-ottawa" />
         <meta property="og:image" content="https://prestigemoving.ca/og-image.png" />
         <meta property="og:locale" content="en_CA" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Movers in Ottawa | Prestige Moving - #1 Rated" />
-        <meta name="twitter:description" content="Ottawa's #1 rated movers. 337+ five-star reviews. WSIB certified. Call (613) 600-4000 for a free quote." />
+        <meta name="twitter:description" content="Ottawa's #1 rated movers. 350+ five-star reviews. WSIB certified. Call (613) 600-4000 for a free quote." />
         <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
       </Helmet>
@@ -301,7 +301,7 @@ export default function MoversInOttawa() {
             <div className="max-w-2xl">
               <div className="inline-flex items-center gap-2 bg-[#C5A572]/20 border border-[#C5A572]/40 rounded-full px-4 py-1.5 mb-5">
                 <Star className="h-4 w-4 text-[#C5A572] fill-[#C5A572]" />
-                <span className="text-[#C5A572] text-sm font-medium">#1 Rated Movers in Ottawa — 337+ Five-Star Reviews</span>
+                <span className="text-[#C5A572] text-sm font-medium">#1 Rated Movers in Ottawa — 350+ Five-Star Reviews</span>
               </div>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 leading-tight" data-testid="text-hero-heading">
                 Ottawa's Most Trusted<br />
@@ -357,7 +357,7 @@ export default function MoversInOttawa() {
                   When you search for <strong className="text-[#1A2332]">movers in Ottawa</strong>, you deserve more than a truck and some muscle. You deserve a team of professionals who treat your home like their own — who show up on time, communicate clearly, handle every item with care, and deliver a stress-free experience from the first phone call to the last box unpacked. That's the Prestige Moving difference.
                 </p>
                 <p className="text-gray-600 leading-relaxed mb-6">
-                  Founded by Ottawa locals who understand the unique challenges of moving in Canada's capital — harsh winters, high-rise condos, suburban cul-de-sacs, heritage buildings, and everything in between — Prestige Moving has become the most trusted name in Ottawa relocations. With over 15 years serving the community, 10,000+ successful moves completed, and 337+ five-star reviews, our reputation is built on results, not promises.
+                  Founded by Ottawa locals who understand the unique challenges of moving in Canada's capital — harsh winters, high-rise condos, suburban cul-de-sacs, heritage buildings, and everything in between — Prestige Moving has become the most trusted name in Ottawa relocations. With over 15 years serving the community, 10,000+ successful moves completed, and 350+ five-star reviews, our reputation is built on results, not promises.
                 </p>
                 <p className="text-gray-600 leading-relaxed mb-6">
                   Our <strong className="text-[#1A2332]">Ottawa moving teams</strong> are background-checked, professionally trained, and WSIB certified. Every move is covered by comprehensive commercial liability insurance. Our pricing is fully transparent — no hidden fees, no surprise charges, no bait-and-switch tactics. We quote it, we do it, we guarantee it.
@@ -423,7 +423,7 @@ export default function MoversInOttawa() {
               />
               <div className="grid grid-cols-2 gap-6">
                 {[
-                  { value: "337+", label: "Five-Star Reviews", desc: "Across Google, HomeStars, and Trusted Partners", icon: Star },
+                  { value: "350+", label: "Five-Star Reviews", desc: "Across Google, HomeStars, and Trusted Partners", icon: Star },
                   { value: "10,000+", label: "Ottawa Moves Completed", desc: "Local, long-distance, residential, commercial", icon: TruckIcon },
                   { value: "15+", label: "Years Serving Ottawa", desc: "Deep local expertise in every neighbourhood", icon: Clock },
                   { value: "50+", label: "Professional Movers", desc: "Background-checked and WSIB certified", icon: Users },
@@ -643,7 +643,7 @@ export default function MoversInOttawa() {
               </h2>
               <div className="flex items-center justify-center gap-2 mb-4">
                 {[1,2,3,4,5].map(s => <Star key={s} className="h-6 w-6 text-[#C5A572] fill-[#C5A572]" />)}
-                <span className="text-gray-600 font-medium ml-2">5.0 — 337+ Reviews</span>
+                <span className="text-gray-600 font-medium ml-2">5.0 — 350+ Reviews</span>
               </div>
             </div>
             <div className="grid md:grid-cols-3 gap-6">
@@ -750,7 +750,7 @@ export default function MoversInOttawa() {
               Join 10,000+ Ottawa families who chose Prestige Moving. Get your free, transparent quote today — no obligation, no pressure.
             </p>
             <div className="flex flex-wrap gap-3 justify-center mb-8">
-              {["Fast Response", "Fully Insured & WSIB", "337+ Five-Star Reviews", "No Hidden Fees"].map((t, i) => (
+              {["Fast Response", "Fully Insured & WSIB", "350+ Five-Star Reviews", "No Hidden Fees"].map((t, i) => (
                 <span key={i} className="inline-flex items-center gap-1.5 bg-white/20 rounded-full px-4 py-1.5 text-white text-sm">
                   <CheckCircle2 className="h-4 w-4" />{t}
                 </span>

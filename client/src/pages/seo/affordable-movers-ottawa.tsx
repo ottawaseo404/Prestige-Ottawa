@@ -33,7 +33,7 @@ export default function AffordableMoversOttawa() {
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "5.0",
-      "reviewCount": "337"
+      "reviewCount": "350"
     },
     "areaServed": [
       { "@type": "City", "name": "Ottawa" },
@@ -63,7 +63,7 @@ export default function AffordableMoversOttawa() {
         "name": "Are cheap movers reliable?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Not all cheap movers are reliable, which is why it's important to choose affordable movers who are also licensed, insured, and well-reviewed. Prestige Moving offers budget-friendly rates backed by WSIB certification, comprehensive insurance, and 337+ five-star reviews. We prove that affordable doesn't have to mean low quality."
+          "text": "Not all cheap movers are reliable, which is why it's important to choose affordable movers who are also licensed, insured, and well-reviewed. Prestige Moving offers budget-friendly rates backed by WSIB certification, comprehensive insurance, and 350+ five-star reviews. We prove that affordable doesn't have to mean low quality."
         }
       },
       {
@@ -95,7 +95,7 @@ export default function AffordableMoversOttawa() {
 
   const stats = [
     { icon: ThumbsUp, value: "$0", label: "Hidden Fees" },
-    { icon: Star, value: "337+", label: "Five-Star Reviews" },
+    { icon: Star, value: "350+", label: "Five-Star Reviews" },
     { icon: Shield, value: "100%", label: "Insured Moves" },
     { icon: Clock, value: "24hr", label: "Quote Response" }
   ];
@@ -114,7 +114,7 @@ export default function AffordableMoversOttawa() {
     },
     {
       question: "Are cheap movers reliable?",
-      answer: "This is one of the most important questions to ask when searching for affordable movers in Ottawa. The truth is, not all cheap movers are reliable — some cut corners on insurance, hire untrained workers, or add hidden charges that make the final bill much higher than the initial quote. That's why it's crucial to choose affordable movers who are also fully licensed, comprehensively insured, and backed by genuine customer reviews. At Prestige Moving, we've built our reputation on proving that affordable and reliable can coexist. With WSIB certification, full liability insurance, 337+ verified five-star reviews, and trained professional crews, we deliver premium-quality moving service at budget-friendly prices. Our customers across Ottawa — from Sandy Hill to Kanata, Gloucester to Stittsville — consistently confirm that you don't have to sacrifice quality to get an affordable move."
+      answer: "This is one of the most important questions to ask when searching for affordable movers in Ottawa. The truth is, not all cheap movers are reliable — some cut corners on insurance, hire untrained workers, or add hidden charges that make the final bill much higher than the initial quote. That's why it's crucial to choose affordable movers who are also fully licensed, comprehensively insured, and backed by genuine customer reviews. At Prestige Moving, we've built our reputation on proving that affordable and reliable can coexist. With WSIB certification, full liability insurance, 350+ verified five-star reviews, and trained professional crews, we deliver premium-quality moving service at budget-friendly prices. Our customers across Ottawa — from Sandy Hill to Kanata, Gloucester to Stittsville — consistently confirm that you don't have to sacrifice quality to get an affordable move."
     },
     {
       question: "Do you offer discounts for students or seniors?",
@@ -138,7 +138,7 @@ export default function AffordableMoversOttawa() {
         <meta name="keywords" content="affordable movers ottawa, cheap movers ottawa, budget movers ottawa, low cost movers ottawa, affordable moving company ottawa, cheap moving services ottawa, budget friendly movers ottawa" />
         <link rel="canonical" href="https://prestigemoving.ca/affordable-movers-ottawa" />
         <meta property="og:title" content="Affordable Movers Ottawa | Budget-Friendly Moving | Prestige Moving" />
-        <meta property="og:description" content="Budget-friendly moving services in Ottawa with transparent pricing. No hidden fees, fully insured, 337+ five-star reviews. Get your free quote today." />
+        <meta property="og:description" content="Budget-friendly moving services in Ottawa with transparent pricing. No hidden fees, fully insured, 350+ five-star reviews. Get your free quote today." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://prestigemoving.ca/affordable-movers-ottawa" />
         <meta property="og:image" content="https://prestigemoving.ca/og-image.png" />
@@ -179,7 +179,7 @@ export default function AffordableMoversOttawa() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl font-bold text-[#1A2332] mb-6">Why Choose Affordable Movers in Ottawa Who Don't Cut Corners</h2>
             <p className="text-gray-600 leading-relaxed mb-6">
-              Finding affordable movers in Ottawa can feel like navigating a minefield. Every company claims to offer the lowest prices, but many hide the true cost behind fuel surcharges, stair fees, long-carry charges, and other surprise add-ons that inflate your final bill well beyond the initial quote. At Prestige Moving, we believe affordable moving should mean exactly what it says — professional, reliable service at a price that respects your budget, with complete transparency from the first phone call to the final box placed in your new home. Our commitment to honest, upfront pricing has earned us 337+ five-star reviews from families, students, and professionals across Ottawa, from the charming streets of The Glebe and Old Ottawa South to the growing communities of Findlay Creek and Riverside South.
+              Finding affordable movers in Ottawa can feel like navigating a minefield. Every company claims to offer the lowest prices, but many hide the true cost behind fuel surcharges, stair fees, long-carry charges, and other surprise add-ons that inflate your final bill well beyond the initial quote. At Prestige Moving, we believe affordable moving should mean exactly what it says — professional, reliable service at a price that respects your budget, with complete transparency from the first phone call to the final box placed in your new home. Our commitment to honest, upfront pricing has earned us 350+ five-star reviews from families, students, and professionals across Ottawa, from the charming streets of The Glebe and Old Ottawa South to the growing communities of Findlay Creek and Riverside South.
             </p>
             <p className="text-gray-600 leading-relaxed mb-6">
               What makes Prestige Moving the top choice for affordable movers in Ottawa is our unique combination of competitive rates and uncompromising quality. We don't cut corners to offer low prices — we operate efficiently. Our experienced crews know how to pack a truck strategically, protecting your belongings while maximizing space. Our well-maintained fleet reduces breakdown delays. Our streamlined booking process eliminates unnecessary administrative overhead. These operational efficiencies translate directly into savings we pass on to you, making us genuinely affordable movers in Ottawa who deliver the same premium service that clients in Westboro, Hintonburg, and Rockcliffe Park have come to expect from a top-rated moving company.

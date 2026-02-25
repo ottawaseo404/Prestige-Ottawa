@@ -32,7 +32,7 @@ export default function MoversInRiversideSouth() {
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "5.0",
-      "reviewCount": "337"
+      "reviewCount": "350"
     },
     "areaServed": [
       { "@type": "Place", "name": "Riverside South, Ottawa" },
@@ -41,7 +41,7 @@ export default function MoversInRiversideSouth() {
       { "@type": "Place", "name": "Wateridge Village" },
       { "@type": "Place", "name": "Manotick border" }
     ],
-    "description": "Expert movers in Riverside South, Ottawa. Serving Blossom Park, Honey Gables, Wateridge Village, Manotick border and all Riverside South communities. WSIB certified, 337+ five-star reviews."
+    "description": "Expert movers in Riverside South, Ottawa. Serving Blossom Park, Honey Gables, Wateridge Village, Manotick border and all Riverside South communities. WSIB certified, 350+ five-star reviews."
   };
 
   const faqSchema = {
@@ -92,7 +92,7 @@ export default function MoversInRiversideSouth() {
   };
 
   const stats = [
-    { icon: Star, value: "337+", label: "Five-Star Reviews" },
+    { icon: Star, value: "350+", label: "Five-Star Reviews" },
     { icon: TruckIcon, value: "10,000+", label: "Successful Moves" },
     { icon: Clock, value: "24hr", label: "Quote Response" },
     { icon: Shield, value: "100%", label: "Fully Insured" }
@@ -132,18 +132,18 @@ export default function MoversInRiversideSouth() {
     <>
       <Helmet>
         <title>Movers in Riverside South Ottawa | Moving Company | Prestige</title>
-        <meta name="description" content="Need movers in Riverside South? Prestige Moving serves Blossom Park, Honey Gables, Wateridge Village & all Riverside South areas. 337+ five-star reviews, WSIB certified. Call (613) 600-4000." />
+        <meta name="description" content="Need movers in Riverside South? Prestige Moving serves Blossom Park, Honey Gables, Wateridge Village & all Riverside South areas. 350+ five-star reviews, WSIB certified. Call (613) 600-4000." />
         <meta name="keywords" content="movers in riverside south, riverside south movers, moving company riverside south, riverside south moving services, movers riverside south ottawa, residential movers riverside south" />
         <link rel="canonical" href="https://prestigemoving.ca/movers-in-riverside-south" />
         <meta property="og:title" content="Movers in Riverside South | Expert Moving Company | Prestige" />
-        <meta property="og:description" content="Riverside South's most trusted movers. Full-service residential moving for new developments and established homes. WSIB certified, 337+ reviews. Free quotes." />
+        <meta property="og:description" content="Riverside South's most trusted movers. Full-service residential moving for new developments and established homes. WSIB certified, 350+ reviews. Free quotes." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://prestigemoving.ca/movers-in-riverside-south" />
         <meta property="og:image" content="https://prestigemoving.ca/og-image.png" />
         <meta property="og:locale" content="en_CA" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Movers in Riverside South | Prestige Moving" />
-        <meta name="twitter:description" content="Trusted movers serving all Riverside South neighbourhoods. 337+ five-star reviews. Call (613) 600-4000." />
+        <meta name="twitter:description" content="Trusted movers serving all Riverside South neighbourhoods. 350+ five-star reviews. Call (613) 600-4000." />
         <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
       </Helmet>
@@ -180,7 +180,7 @@ export default function MoversInRiversideSouth() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl font-bold text-[#1A2332] mb-6">Why Riverside South Families Trust Our Movers in Riverside South</h2>
             <p className="text-gray-600 leading-relaxed mb-6">
-              Riverside South is one of Ottawa's fastest-growing communities, experiencing rapid residential development with beautiful new homes, modern amenities, and a family-friendly atmosphere. This explosive growth means a constant demand for reliable, professional <strong className="text-[#1A2332]">movers in Riverside South</strong>. Whether you're a young family moving into a brand-new home along Earl Armstrong Road, a couple relocating from Blossom Park to a larger property in Honey Gables, or moving from nearby <Link href="/movers-in-barrhaven" className="text-[#C5A572] hover:underline">Barrhaven</Link> to take advantage of Riverside South's exciting new developments, Prestige Moving delivers the five-star service and transparent pricing that has earned us 337+ glowing reviews from satisfied customers across south Ottawa.
+              Riverside South is one of Ottawa's fastest-growing communities, experiencing rapid residential development with beautiful new homes, modern amenities, and a family-friendly atmosphere. This explosive growth means a constant demand for reliable, professional <strong className="text-[#1A2332]">movers in Riverside South</strong>. Whether you're a young family moving into a brand-new home along Earl Armstrong Road, a couple relocating from Blossom Park to a larger property in Honey Gables, or moving from nearby <Link href="/movers-in-barrhaven" className="text-[#C5A572] hover:underline">Barrhaven</Link> to take advantage of Riverside South's exciting new developments, Prestige Moving delivers the five-star service and transparent pricing that has earned us 350+ glowing reviews from satisfied customers across south Ottawa.
             </p>
             <p className="text-gray-600 leading-relaxed mb-6">
               What makes Prestige Moving the preferred choice for <strong className="text-[#1A2332]">Riverside South movers</strong> is our combination of local expertise and professional-grade service. Our teams know Riverside South's evolving landscape intimately — from the newest subdivisions along Limebank Road to the established streets of Blossom Park and the communities bordering Manotick. We understand which new developments may have construction-related access challenges, which <a href="https://www.ottawa.ca/en/parking-roads-and-travel" target="_blank" rel="noopener noreferrer" className="text-[#C5A572] hover:underline">roads and intersections</a> are impacted by ongoing infrastructure projects, and the best routes to navigate the area efficiently.
@@ -207,7 +207,7 @@ export default function MoversInRiversideSouth() {
               At Prestige Moving, we believe you deserve to know exactly what your Riverside South move will cost before we lift a single box. Our detailed quotes break down every cost clearly — labour, truck, materials, travel time — with absolutely no hidden fees. This transparent approach has made us one of the most recommended moving companies in south Ottawa. When you call us at <a href="tel:6136004000" className="text-[#C5A572] hover:underline font-semibold">(613) 600-4000</a>, you'll speak with a knowledgeable team member who can provide a quick estimate or schedule an in-home assessment for a more detailed quote.
             </p>
             <p className="text-gray-600 leading-relaxed mb-6">
-              Every Prestige Moving team member is <a href="https://www.wsib.ca/" target="_blank" rel="noopener noreferrer" className="text-[#C5A572] hover:underline">WSIB certified</a> and fully insured, giving you complete peace of mind throughout your Riverside South move. Beyond <Link href="/services/residential-moving" className="text-[#C5A572] hover:underline">residential moving</Link>, we handle <Link href="/services/commercial-moving" className="text-[#C5A572] hover:underline">commercial relocations</Link>, <Link href="/services/senior-moving" className="text-[#C5A572] hover:underline">senior moves</Link>, and <Link href="/services/long-distance-moving" className="text-[#C5A572] hover:underline">long-distance relocations</Link>. With 337+ five-star reviews, our commitment to excellence speaks for itself. Contact us at <a href="mailto:Ottawa@prestigemoving.ca" className="text-[#C5A572] hover:underline">Ottawa@prestigemoving.ca</a> for your free, no-obligation moving quote.
+              Every Prestige Moving team member is <a href="https://www.wsib.ca/" target="_blank" rel="noopener noreferrer" className="text-[#C5A572] hover:underline">WSIB certified</a> and fully insured, giving you complete peace of mind throughout your Riverside South move. Beyond <Link href="/services/residential-moving" className="text-[#C5A572] hover:underline">residential moving</Link>, we handle <Link href="/services/commercial-moving" className="text-[#C5A572] hover:underline">commercial relocations</Link>, <Link href="/services/senior-moving" className="text-[#C5A572] hover:underline">senior moves</Link>, and <Link href="/services/long-distance-moving" className="text-[#C5A572] hover:underline">long-distance relocations</Link>. With 350+ five-star reviews, our commitment to excellence speaks for itself. Contact us at <a href="mailto:Ottawa@prestigemoving.ca" className="text-[#C5A572] hover:underline">Ottawa@prestigemoving.ca</a> for your free, no-obligation moving quote.
             </p>
           </div>
         </section>
@@ -258,7 +258,7 @@ export default function MoversInRiversideSouth() {
         <section className="py-16 bg-[#C5A572]">
           <div className="max-w-4xl mx-auto px-4 text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Ready to Move in Riverside South?</h2>
-            <p className="text-white/80 text-lg mb-8">Get your free, no-obligation quote today and discover why 337+ families trust Prestige Moving.</p>
+            <p className="text-white/80 text-lg mb-8">Get your free, no-obligation quote today and discover why 350+ families trust Prestige Moving.</p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link href="/book"><Button className="bg-[#1A2332] hover:bg-[#243044] text-white border-[#1A2332]" data-testid="button-cta-quote">Get Free Quote</Button></Link>
               <a href="tel:6136004000"><Button variant="outline" className="text-white border-white/30 backdrop-blur-sm bg-white/10" data-testid="button-cta-call"><Phone className="h-4 w-4 mr-2" />Call (613) 600-4000</Button></a>

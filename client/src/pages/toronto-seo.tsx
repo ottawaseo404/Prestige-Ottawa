@@ -182,7 +182,7 @@ export default function TorontoSeo() {
               </p>
 
               <p className="text-lg leading-relaxed">
-                Whether you're a growing tech company like <a href="https://torontoseo.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary/80 font-semibold transition-colors" data-testid="link-toronto-seo-inline-final">Toronto SEO</a> planning a long-distance commercial relocation, or a family moving across town, Prestige Moving brings the same level of professionalism, care, and reliability to every single move. With 337+ five-star reviews, WSIB certification, fully insured teams, and a fleet of company-owned trucks, we're Ottawa's most trusted name in moving — and we're ready to help you with your next move, wherever it takes you.
+                Whether you're a growing tech company like <a href="https://torontoseo.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary/80 font-semibold transition-colors" data-testid="link-toronto-seo-inline-final">Toronto SEO</a> planning a long-distance commercial relocation, or a family moving across town, Prestige Moving brings the same level of professionalism, care, and reliability to every single move. With 350+ five-star reviews, WSIB certification, fully insured teams, and a fleet of company-owned trucks, we're Ottawa's most trusted name in moving — and we're ready to help you with your next move, wherever it takes you.
               </p>
             </div>
           </div>
@@ -281,7 +281,7 @@ export default function TorontoSeo() {
                 { icon: TruckIcon, title: "Company-Owned Fleet", desc: "No rental trucks. Our well-maintained fleet ensures reliability, cleanliness, and the right vehicle for every job." },
                 { icon: Users, title: "Experienced Commercial Movers", desc: "Our teams specialize in office and commercial relocations with expertise in IT coordination, furniture systems, and supply logistics." },
                 { icon: Clock, title: "Minimal Business Downtime", desc: "We plan every move to minimize disruption. Toronto SEO was back online within hours of arriving at their new location." },
-                { icon: Star, title: "337+ Five-Star Reviews", desc: "Our reputation speaks for itself. Hundreds of satisfied clients — from families to Fortune 500 companies — trust Prestige Moving." },
+                { icon: Star, title: "350+ Five-Star Reviews", desc: "Our reputation speaks for itself. Hundreds of satisfied clients — from families to Fortune 500 companies — trust Prestige Moving." },
                 { icon: CheckCircle2, title: "Transparent, No-Surprise Pricing", desc: "Detailed quotes with no hidden fees. You'll know exactly what to expect before moving day arrives." },
               ].map((item, i) => (
                 <Card key={i} data-testid={`card-trust-${i}`}>

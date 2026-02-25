@@ -32,7 +32,7 @@ export default function MoversInWestboro() {
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "5.0",
-      "reviewCount": "337"
+      "reviewCount": "350"
     },
     "areaServed": [
       { "@type": "Place", "name": "Westboro, Ottawa" },
@@ -43,7 +43,7 @@ export default function MoversInWestboro() {
       { "@type": "Place", "name": "Tunney's Pasture" },
       { "@type": "Place", "name": "Kitchissippi" }
     ],
-    "description": "Top-rated movers in Westboro, Ottawa. Serving Westboro Village, Hintonburg, Mechanicsville, Island Park, Tunney's Pasture, Kitchissippi and all Westboro communities. WSIB certified, 337+ five-star reviews."
+    "description": "Top-rated movers in Westboro, Ottawa. Serving Westboro Village, Hintonburg, Mechanicsville, Island Park, Tunney's Pasture, Kitchissippi and all Westboro communities. WSIB certified, 350+ five-star reviews."
   };
 
   const faqSchema = {
@@ -94,7 +94,7 @@ export default function MoversInWestboro() {
   };
 
   const stats = [
-    { icon: Star, value: "337+", label: "Five-Star Reviews" },
+    { icon: Star, value: "350+", label: "Five-Star Reviews" },
     { icon: TruckIcon, value: "10,000+", label: "Successful Moves" },
     { icon: Clock, value: "24hr", label: "Quote Response" },
     { icon: Shield, value: "100%", label: "Fully Insured" }
@@ -134,18 +134,18 @@ export default function MoversInWestboro() {
     <>
       <Helmet>
         <title>Movers in Westboro Ottawa | Top-Rated Moving Company | Prestige</title>
-        <meta name="description" content="Need movers in Westboro? Prestige Moving serves Westboro Village, Hintonburg, Mechanicsville & all Kitchissippi areas. 337+ five-star reviews, WSIB certified. Call (613) 600-4000 for a free quote." />
+        <meta name="description" content="Need movers in Westboro? Prestige Moving serves Westboro Village, Hintonburg, Mechanicsville & all Kitchissippi areas. 350+ five-star reviews, WSIB certified. Call (613) 600-4000 for a free quote." />
         <meta name="keywords" content="movers in westboro, westboro movers, moving company westboro, westboro moving services, movers westboro ottawa, residential movers westboro, condo movers westboro, heritage home movers westboro" />
         <link rel="canonical" href="https://prestigemoving.ca/movers-in-westboro" />
         <meta property="og:title" content="Movers in Westboro | Top-Rated Westboro Moving Company | Prestige" />
-        <meta property="og:description" content="Westboro's most trusted movers. Heritage homes, condos, full-service moving. WSIB certified, fully insured, 337+ reviews. Free quotes." />
+        <meta property="og:description" content="Westboro's most trusted movers. Heritage homes, condos, full-service moving. WSIB certified, fully insured, 350+ reviews. Free quotes." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://prestigemoving.ca/movers-in-westboro" />
         <meta property="og:image" content="https://prestigemoving.ca/og-image.png" />
         <meta property="og:locale" content="en_CA" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Movers in Westboro | Prestige Moving" />
-        <meta name="twitter:description" content="Trusted movers serving all Westboro neighbourhoods. 337+ five-star reviews. Call (613) 600-4000." />
+        <meta name="twitter:description" content="Trusted movers serving all Westboro neighbourhoods. 350+ five-star reviews. Call (613) 600-4000." />
         <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
       </Helmet>
@@ -182,7 +182,7 @@ export default function MoversInWestboro() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl font-bold text-[#1A2332] mb-6">Why Westboro Residents Choose Our Movers in Westboro</h2>
             <p className="text-gray-600 leading-relaxed mb-6">
-              Westboro is one of Ottawa's most vibrant and desirable urban neighbourhoods, known for its trendy shops along Richmond Road, beautiful Westboro Beach on the Ottawa River, charming heritage homes, and a thriving arts and food scene. Finding dependable <strong className="text-[#1A2332]">movers in Westboro</strong> means partnering with a team that understands the unique character of this community — from navigating narrow residential streets lined with mature trees to carefully moving furniture through the tight doorways of century-old homes. Prestige Moving has earned 337+ five-star reviews by delivering exactly this kind of thoughtful, expert service to Westboro families.
+              Westboro is one of Ottawa's most vibrant and desirable urban neighbourhoods, known for its trendy shops along Richmond Road, beautiful Westboro Beach on the Ottawa River, charming heritage homes, and a thriving arts and food scene. Finding dependable <strong className="text-[#1A2332]">movers in Westboro</strong> means partnering with a team that understands the unique character of this community — from navigating narrow residential streets lined with mature trees to carefully moving furniture through the tight doorways of century-old homes. Prestige Moving has earned 350+ five-star reviews by delivering exactly this kind of thoughtful, expert service to Westboro families.
             </p>
             <p className="text-gray-600 leading-relaxed mb-6">
               What makes Prestige Moving the preferred choice for <strong className="text-[#1A2332]">Westboro movers</strong> is our ability to handle the neighbourhood's diverse housing stock with equal expertise. Whether you're moving out of a modern condo near Tunney's Pasture, relocating from a heritage home in Westboro Village, or transitioning between apartments in Hintonburg, our professionally trained team brings the right equipment, techniques, and local knowledge to ensure a seamless experience. We understand which buildings require <a href="https://www.ottawa.ca/en/parking-roads-and-travel" target="_blank" rel="noopener noreferrer" className="text-[#C5A572] hover:underline">elevator reservations and loading dock bookings</a>, and we coordinate all logistics with building management before your move day.
@@ -260,7 +260,7 @@ export default function MoversInWestboro() {
         <section className="py-16 bg-[#C5A572]">
           <div className="max-w-4xl mx-auto px-4 text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Ready to Move in Westboro?</h2>
-            <p className="text-white/80 text-lg mb-8">Get your free, no-obligation quote today and discover why 337+ families trust Prestige Moving.</p>
+            <p className="text-white/80 text-lg mb-8">Get your free, no-obligation quote today and discover why 350+ families trust Prestige Moving.</p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link href="/book"><Button className="bg-[#1A2332] hover:bg-[#243044] text-white border-[#1A2332]" data-testid="button-cta-quote">Get Free Quote</Button></Link>
               <a href="tel:6136004000"><Button variant="outline" className="text-white border-white/30 backdrop-blur-sm bg-white/10" data-testid="button-cta-call"><Phone className="h-4 w-4 mr-2" />Call (613) 600-4000</Button></a>

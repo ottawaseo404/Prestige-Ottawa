@@ -33,7 +33,7 @@ export default function LicensedMoversOttawa() {
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "5.0",
-      "reviewCount": "337"
+      "reviewCount": "350"
     },
     "areaServed": [
       { "@type": "City", "name": "Ottawa" },
@@ -43,7 +43,7 @@ export default function LicensedMoversOttawa() {
       { "@type": "City", "name": "Nepean" },
       { "@type": "City", "name": "Gloucester" }
     ],
-    "description": "Licensed and certified movers in Ottawa. WSIB certified, fully registered, compliant with all Ontario regulations. 337+ five-star reviews."
+    "description": "Licensed and certified movers in Ottawa. WSIB certified, fully registered, compliant with all Ontario regulations. 350+ five-star reviews."
   };
 
   const faqSchema = {
@@ -96,7 +96,7 @@ export default function LicensedMoversOttawa() {
   const stats = [
     { icon: Shield, value: "WSIB", label: "Certified Company" },
     { icon: Award, value: "100%", label: "Fully Licensed" },
-    { icon: Star, value: "337+", label: "Five-Star Reviews" },
+    { icon: Star, value: "350+", label: "Five-Star Reviews" },
     { icon: CheckCircle2, value: "15+", label: "Years Experience" }
   ];
 
@@ -122,7 +122,7 @@ export default function LicensedMoversOttawa() {
     },
     {
       question: "How can I verify a mover's license in Ottawa?",
-      answer: "Verifying a moving company's credentials before hiring them is one of the most important steps you can take to protect yourself during a move in Ottawa. Here's how to check: First, request their WSIB clearance certificate number and verify it on the WSIB Ontario website — this confirms their workers' compensation coverage is active. Second, check their business registration through the Ontario Business Registry or ServiceOntario. Third, ask for their Certificate of Insurance and verify it directly with their insurance provider — reputable licensed movers in Ottawa like Prestige Moving will happily provide this documentation. Fourth, check the Better Business Bureau for any complaints or disputes. Fifth, read their Google reviews — companies with hundreds of genuine positive reviews, like our 337+ five-star reviews, demonstrate a track record of legitimate, professional service. At Prestige Moving, we believe in complete transparency. We proactively share all our licensing and certification documentation with customers throughout Ottawa, whether they're in Hintonburg, Rockcliffe Park, or Riverside South."
+      answer: "Verifying a moving company's credentials before hiring them is one of the most important steps you can take to protect yourself during a move in Ottawa. Here's how to check: First, request their WSIB clearance certificate number and verify it on the WSIB Ontario website — this confirms their workers' compensation coverage is active. Second, check their business registration through the Ontario Business Registry or ServiceOntario. Third, ask for their Certificate of Insurance and verify it directly with their insurance provider — reputable licensed movers in Ottawa like Prestige Moving will happily provide this documentation. Fourth, check the Better Business Bureau for any complaints or disputes. Fifth, read their Google reviews — companies with hundreds of genuine positive reviews, like our 350+ five-star reviews, demonstrate a track record of legitimate, professional service. At Prestige Moving, we believe in complete transparency. We proactively share all our licensing and certification documentation with customers throughout Ottawa, whether they're in Hintonburg, Rockcliffe Park, or Riverside South."
     },
     {
       question: "Why should I choose licensed movers over unlicensed ones?",
@@ -134,11 +134,11 @@ export default function LicensedMoversOttawa() {
     <>
       <Helmet>
         <title>Licensed Movers Ottawa | Certified Moving Company | Prestige Moving</title>
-        <meta name="description" content="Choose licensed movers in Ottawa for a protected, worry-free move. Prestige Moving is WSIB certified, fully insured, and registered. 337+ five-star reviews. Call (613) 600-4000." />
+        <meta name="description" content="Choose licensed movers in Ottawa for a protected, worry-free move. Prestige Moving is WSIB certified, fully insured, and registered. 350+ five-star reviews. Call (613) 600-4000." />
         <meta name="keywords" content="licensed movers ottawa, certified movers ottawa, registered moving company ottawa, WSIB certified movers ottawa, licensed moving company ottawa, insured licensed movers ottawa" />
         <link rel="canonical" href="https://prestigemoving.ca/licensed-movers-ottawa" />
         <meta property="og:title" content="Licensed Movers Ottawa | Certified Moving Company | Prestige Moving" />
-        <meta property="og:description" content="Fully licensed and WSIB certified movers in Ottawa. Regulatory compliance, comprehensive insurance, 337+ five-star reviews. Your move is fully protected." />
+        <meta property="og:description" content="Fully licensed and WSIB certified movers in Ottawa. Regulatory compliance, comprehensive insurance, 350+ five-star reviews. Your move is fully protected." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://prestigemoving.ca/licensed-movers-ottawa" />
         <meta property="og:image" content="https://prestigemoving.ca/og-image.png" />
@@ -182,7 +182,7 @@ export default function LicensedMoversOttawa() {
               Hiring licensed movers in Ottawa isn't just about checking a box — it's about protecting yourself, your family, and everything you own during one of life's most significant transitions. The moving industry in Ontario, like many service industries, includes both legitimate, licensed operators and unlicensed individuals operating out of the back of rented vans. While unlicensed operators may advertise slightly lower rates, they expose you to substantial financial and legal risks that far outweigh any short-term savings. At Prestige Moving, we've maintained every required license, certification, and insurance policy since our founding, and we consider our regulatory compliance to be a cornerstone of the trust that Ottawa families — from Kanata to Orleans, Barrhaven to Centretown — place in us every day.
             </p>
             <p className="text-gray-600 leading-relaxed mb-6">
-              Licensed movers in Ottawa are accountable to a framework of regulations designed specifically to protect consumers. This includes Ontario's Consumer Protection Act, which governs how moving contracts must be written, what cancellation rights you have, and what remedies are available if something goes wrong. Licensed movers carry comprehensive insurance that covers your belongings from the moment they're loaded onto the truck until they're safely placed in your new home. They maintain WSIB certification that protects you from personal liability if a worker is injured on your property. And they operate commercial vehicles that meet all provincial safety and inspection standards. At Prestige Moving, we don't just meet these requirements — we exceed them, which is why we've earned 337+ five-star reviews from homeowners across every Ottawa neighbourhood.
+              Licensed movers in Ottawa are accountable to a framework of regulations designed specifically to protect consumers. This includes Ontario's Consumer Protection Act, which governs how moving contracts must be written, what cancellation rights you have, and what remedies are available if something goes wrong. Licensed movers carry comprehensive insurance that covers your belongings from the moment they're loaded onto the truck until they're safely placed in your new home. They maintain WSIB certification that protects you from personal liability if a worker is injured on your property. And they operate commercial vehicles that meet all provincial safety and inspection standards. At Prestige Moving, we don't just meet these requirements — we exceed them, which is why we've earned 350+ five-star reviews from homeowners across every Ottawa neighbourhood.
             </p>
 
             <h3 className="text-2xl font-bold text-[#1A2332] mb-4 mt-10">Our Comprehensive Licensing & Certification</h3>

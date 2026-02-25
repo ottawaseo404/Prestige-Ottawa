@@ -109,7 +109,7 @@ export default function SeniorMoving() {
       "aggregateRating": {
         "@type": "AggregateRating",
         "ratingValue": "5.0",
-        "reviewCount": "337"
+        "reviewCount": "350"
       }
     },
     "areaServed": [
@@ -429,7 +429,7 @@ export default function SeniorMoving() {
                       ))}
                     </div>
                     <div className="text-left">
-                      <div className="font-bold">337+ Reviews</div>
+                      <div className="font-bold">350+ Reviews</div>
                       <div className="text-sm text-muted-foreground">5-Star Rated</div>
                     </div>
                   </div>
@@ -571,7 +571,7 @@ export default function SeniorMoving() {
                     <Star key={i} className="h-5 w-5 fill-primary text-primary" />
                   ))}
                 </div>
-                <span>Based on 337+ Google Reviews</span>
+                <span>Based on 350+ Google Reviews</span>
               </div>
             </div>
 

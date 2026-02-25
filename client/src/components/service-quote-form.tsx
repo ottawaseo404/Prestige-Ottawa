@@ -116,7 +116,7 @@ export default function ServiceQuoteForm({ defaultService = "Moving", serviceNam
                   <Star className="h-5 w-5 text-[#C5A572]" />
                 </div>
                 <div>
-                  <p className="text-white font-semibold">337+ Five-Star Reviews</p>
+                  <p className="text-white font-semibold">350+ Five-Star Reviews</p>
                   <p className="text-white/50 text-sm">Trusted by thousands of families across Ottawa</p>
                 </div>
               </div>

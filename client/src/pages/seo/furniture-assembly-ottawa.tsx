@@ -33,7 +33,7 @@ export default function FurnitureAssemblyOttawa() {
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "5.0",
-      "reviewCount": "337"
+      "reviewCount": "350"
     },
     "areaServed": [
       { "@type": "Place", "name": "Ottawa" },
@@ -94,7 +94,7 @@ export default function FurnitureAssemblyOttawa() {
   };
 
   const stats = [
-    { icon: Star, value: "337+", label: "Five-Star Reviews" },
+    { icon: Star, value: "350+", label: "Five-Star Reviews" },
     { icon: Wrench, value: "5,000+", label: "Items Assembled" },
     { icon: Clock, value: "Fast", label: "Same-Week Service" },
     { icon: Shield, value: "100%", label: "Fully Insured" }
@@ -201,7 +201,7 @@ export default function FurnitureAssemblyOttawa() {
               Setting up a new office or refreshing your existing workspace? Our <strong className="text-[#1A2332]">furniture assembly Ottawa</strong> team specializes in commercial projects of all sizes. We assemble workstations, cubicle systems, conference tables, executive desks, reception counters, filing cabinets, and ergonomic seating. For businesses relocating, we coordinate furniture assembly with our <Link href="/services/commercial-moving" className="text-[#C5A572] hover:underline">commercial moving services</Link> to get your team settled quickly. We work after hours and on weekends to minimize disruption to your operations, and we can handle large-scale office setups involving dozens or even hundreds of workstations.
             </p>
             <p className="text-gray-600 leading-relaxed mb-6">
-              Quality and reliability define our furniture assembly service. Every piece is inspected after assembly to ensure stability, proper alignment, and smooth operation of all moving parts. We clean up all packaging materials and dispose of them responsibly. With 337+ five-star reviews, transparent pricing, and a commitment to getting it right the first time, Prestige Moving is Ottawa's trusted choice for professional furniture assembly. Call us at <a href="tel:6136004000" className="text-[#C5A572] hover:underline font-semibold">(613) 600-4000</a> for your free estimate.
+              Quality and reliability define our furniture assembly service. Every piece is inspected after assembly to ensure stability, proper alignment, and smooth operation of all moving parts. We clean up all packaging materials and dispose of them responsibly. With 350+ five-star reviews, transparent pricing, and a commitment to getting it right the first time, Prestige Moving is Ottawa's trusted choice for professional furniture assembly. Call us at <a href="tel:6136004000" className="text-[#C5A572] hover:underline font-semibold">(613) 600-4000</a> for your free estimate.
             </p>
           </div>
         </section>

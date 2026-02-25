@@ -84,7 +84,7 @@ const FAQS = [
   },
   {
     q: "What makes Prestige Moving different from other long distance movers?",
-    a: "Three things: we own our fleet (no broker or third-party handoffs), we provide binding written estimates (no surprise charges), and we assign a dedicated move coordinator who stays with you from booking to delivery. We also have 337+ five-star Google reviews and a BBB A+ rating — proof of consistent service across thousands of moves."
+    a: "Three things: we own our fleet (no broker or third-party handoffs), we provide binding written estimates (no surprise charges), and we assign a dedicated move coordinator who stays with you from booking to delivery. We also have 350+ five-star Google reviews and a BBB A+ rating — proof of consistent service across thousands of moves."
   },
 ];
 
@@ -121,7 +121,7 @@ export default function LongDistanceMoversOttawa() {
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "5.0",
-      "reviewCount": "337"
+      "reviewCount": "350"
     },
     "areaServed": ROUTES.map(r => ({ "@type": "Place", "name": `${r.city}, ${r.province}` })),
     "description": "Ottawa's top-rated long distance moving company. Prestige Moving provides professional cross-Canada moving services from Ottawa to Toronto, Montreal, Vancouver, Calgary, and every province. Binding estimates, dedicated trucks, full insurance coverage.",
@@ -196,7 +196,7 @@ export default function LongDistanceMoversOttawa() {
                   { icon: Shield, text: "Binding written estimates" },
                   { icon: TruckIcon, text: "Dedicated trucks — no shared loads" },
                   { icon: CheckCircle2, text: "WSIB certified & fully insured" },
-                  { icon: Star, text: "337+ five-star reviews" },
+                  { icon: Star, text: "350+ five-star reviews" },
                 ].map((item, i) => (
                   <div key={i} className="flex items-center gap-2.5">
                     <item.icon className="h-4 w-4 text-primary shrink-0" />
@@ -226,7 +226,7 @@ export default function LongDistanceMoversOttawa() {
               {[
                 { icon: TruckIcon, stat: "10,000+", label: "Long Distance Moves Completed" },
                 { icon: Globe, stat: "10", label: "Provinces Served Coast to Coast" },
-                { icon: Star, stat: "5.0 ★", label: "Google Rating — 337+ Reviews" },
+                { icon: Star, stat: "5.0 ★", label: "Google Rating — 350+ Reviews" },
                 { icon: Shield, stat: "100%", label: "Binding Estimates — No Surprises" },
                 { icon: Clock, stat: "15+", label: "Years Moving Canadians" },
                 { icon: Award, stat: "BBB A+", label: "Accredited Business Rating" },
@@ -667,7 +667,7 @@ export default function LongDistanceMoversOttawa() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             {[
-              { icon: Star, stat: "5.0 ★", label: "Google Rating", sub: "337+ verified reviews" },
+              { icon: Star, stat: "5.0 ★", label: "Google Rating", sub: "350+ verified reviews" },
               { icon: Shield, stat: "BBB A+", label: "Accredited Business", sub: "Verified since 2010" },
               { icon: TruckIcon, stat: "10,000+", label: "Long Distance Moves", sub: "Across Canada" },
               { icon: CheckCircle2, stat: "100%", label: "Binding Estimates", sub: "No surprise charges" },

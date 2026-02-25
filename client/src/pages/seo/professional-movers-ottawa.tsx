@@ -33,7 +33,7 @@ export default function ProfessionalMoversOttawa() {
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "5.0",
-      "reviewCount": "337"
+      "reviewCount": "350"
     },
     "areaServed": [
       { "@type": "City", "name": "Ottawa" },
@@ -96,7 +96,7 @@ export default function ProfessionalMoversOttawa() {
   const stats = [
     { icon: Users, value: "50+", label: "Trained Professionals" },
     { icon: Shield, value: "100%", label: "Background Checked" },
-    { icon: Star, value: "337+", label: "Five-Star Reviews" },
+    { icon: Star, value: "350+", label: "Five-Star Reviews" },
     { icon: Award, value: "WSIB", label: "Certified & Insured" }
   ];
 
@@ -138,7 +138,7 @@ export default function ProfessionalMoversOttawa() {
         <meta name="keywords" content="professional movers ottawa, professional moving services ottawa, expert movers ottawa, trained movers ottawa, insured movers ottawa, certified movers ottawa, reliable movers ottawa" />
         <link rel="canonical" href="https://prestigemoving.ca/professional-movers-ottawa" />
         <meta property="og:title" content="Professional Movers Ottawa | Expert Moving Services | Prestige Moving" />
-        <meta property="og:description" content="Ottawa's most professional moving team. Trained, background-checked, WSIB certified crews with 337+ five-star reviews. Expert handling guaranteed." />
+        <meta property="og:description" content="Ottawa's most professional moving team. Trained, background-checked, WSIB certified crews with 350+ five-star reviews. Expert handling guaranteed." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://prestigemoving.ca/professional-movers-ottawa" />
         <meta property="og:image" content="https://prestigemoving.ca/og-image.png" />
@@ -179,7 +179,7 @@ export default function ProfessionalMoversOttawa() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl font-bold text-[#1A2332] mb-6">Prestige Movers in Ottawa</h2>
             <p className="text-gray-600 leading-relaxed mb-6">
-              There's a significant difference between hiring someone with a truck and hiring professional movers in Ottawa. When you choose Prestige Moving, you're getting a team of extensively trained, background-checked, WSIB-certified professionals who approach every move with the skill, care, and attention to detail that your belongings deserve. Our professional movers don't just transport items from point A to point B — they protect your investment, respect your property, and deliver an experience that eliminates the stress and uncertainty typically associated with moving day. With 337+ five-star reviews from Ottawa families and businesses, our commitment to professionalism has been validated thousands of times over.
+              There's a significant difference between hiring someone with a truck and hiring professional movers in Ottawa. When you choose Prestige Moving, you're getting a team of extensively trained, background-checked, WSIB-certified professionals who approach every move with the skill, care, and attention to detail that your belongings deserve. Our professional movers don't just transport items from point A to point B — they protect your investment, respect your property, and deliver an experience that eliminates the stress and uncertainty typically associated with moving day. With 350+ five-star reviews from Ottawa families and businesses, our commitment to professionalism has been validated thousands of times over.
             </p>
             <p className="text-gray-600 leading-relaxed mb-6">
               Professionalism in the moving industry starts with the people you send into someone's home. At Prestige Moving, every team member goes through a rigorous vetting process that includes criminal background checks, reference verification, physical fitness assessments, and a supervised probationary period working alongside our most experienced crew leaders. Only about one in ten applicants meets our standards — and that selectivity shows in the quality of service our customers receive. When our professional movers arrive at your door in Westboro, The Glebe, Downtown Ottawa, or any neighbourhood in between, you can be confident that you're in the hands of skilled, trustworthy individuals who take genuine pride in their work.

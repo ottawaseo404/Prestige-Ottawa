@@ -33,7 +33,7 @@ export default function HomeStagingOttawa() {
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "5.0",
-      "reviewCount": "337"
+      "reviewCount": "350"
     },
     "areaServed": [
       { "@type": "Place", "name": "Ottawa" },
@@ -94,7 +94,7 @@ export default function HomeStagingOttawa() {
   };
 
   const stats = [
-    { icon: Star, value: "337+", label: "Five-Star Reviews" },
+    { icon: Star, value: "350+", label: "Five-Star Reviews" },
     { icon: Home, value: "500+", label: "Homes Staged" },
     { icon: Clock, value: "73%", label: "Faster Sales" },
     { icon: Shield, value: "100%", label: "Fully Insured" }

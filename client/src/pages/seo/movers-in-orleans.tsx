@@ -32,7 +32,7 @@ export default function MoversInOrleans() {
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "5.0",
-      "reviewCount": "337"
+      "reviewCount": "350"
     },
     "areaServed": [
       { "@type": "Place", "name": "Orleans, Ottawa" },
@@ -42,7 +42,7 @@ export default function MoversInOrleans() {
       { "@type": "Place", "name": "Convent Glen" },
       { "@type": "Place", "name": "Springridge" }
     ],
-    "description": "Trusted movers in Orleans, Ottawa. Full-service residential and commercial moving for Avalon, Fallingbrook, Chapel Hill, and all Orleans communities. WSIB certified, 337+ five-star reviews."
+    "description": "Trusted movers in Orleans, Ottawa. Full-service residential and commercial moving for Avalon, Fallingbrook, Chapel Hill, and all Orleans communities. WSIB certified, 350+ five-star reviews."
   };
 
   const faqSchema = {
@@ -93,7 +93,7 @@ export default function MoversInOrleans() {
   };
 
   const stats = [
-    { icon: Star, value: "337+", label: "Five-Star Reviews" },
+    { icon: Star, value: "350+", label: "Five-Star Reviews" },
     { icon: TruckIcon, value: "10,000+", label: "Successful Moves" },
     { icon: Clock, value: "24hr", label: "Quote Response" },
     { icon: Shield, value: "100%", label: "Fully Insured" }
@@ -133,18 +133,18 @@ export default function MoversInOrleans() {
     <>
       <Helmet>
         <title>Movers in Orleans Ottawa | Trusted Local Moving Company | Prestige</title>
-        <meta name="description" content="Looking for reliable movers in Orleans? Prestige Moving serves Avalon, Fallingbrook, Chapel Hill & all Orleans communities. 337+ five-star reviews, WSIB certified, fully insured. Call (613) 600-4000." />
+        <meta name="description" content="Looking for reliable movers in Orleans? Prestige Moving serves Avalon, Fallingbrook, Chapel Hill & all Orleans communities. 350+ five-star reviews, WSIB certified, fully insured. Call (613) 600-4000." />
         <meta name="keywords" content="movers in orleans, orleans movers, moving company orleans, orleans moving services, movers orleans ottawa, residential movers orleans, affordable movers orleans, best movers orleans" />
         <link rel="canonical" href="https://prestigemoving.ca/movers-in-orleans" />
         <meta property="og:title" content="Movers in Orleans | Trusted Orleans Moving Company | Prestige" />
-        <meta property="og:description" content="Orleans' most trusted movers with 337+ five-star reviews. Full-service residential and commercial moving. WSIB certified, fully insured. Free quotes." />
+        <meta property="og:description" content="Orleans' most trusted movers with 350+ five-star reviews. Full-service residential and commercial moving. WSIB certified, fully insured. Free quotes." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://prestigemoving.ca/movers-in-orleans" />
         <meta property="og:image" content="https://prestigemoving.ca/og-image.png" />
         <meta property="og:locale" content="en_CA" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Movers in Orleans | Prestige Moving" />
-        <meta name="twitter:description" content="Trusted movers serving all Orleans neighbourhoods. 337+ five-star reviews. Call (613) 600-4000." />
+        <meta name="twitter:description" content="Trusted movers serving all Orleans neighbourhoods. 350+ five-star reviews. Call (613) 600-4000." />
         <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
       </Helmet>
@@ -185,7 +185,7 @@ export default function MoversInOrleans() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl font-bold text-[#1A2332] mb-6">Why Orleans Residents Choose Our Movers in Orleans</h2>
             <p className="text-gray-600 leading-relaxed mb-6">
-              When it comes to finding dependable <strong className="text-[#1A2332]">movers in Orleans</strong>, families and businesses across east Ottawa consistently turn to Prestige Moving. With over 337 verified five-star reviews and more than 10,000 successful relocations completed, we've built a reputation as Orleans' most trusted moving company. Whether you're upgrading from an apartment in Avalon to a larger family home in Fallingbrook, downsizing from a house in Chapel Hill, or relocating your growing business in the Orleans Town Centre area, our professionally trained team delivers a seamless, stress-free experience every time.
+              When it comes to finding dependable <strong className="text-[#1A2332]">movers in Orleans</strong>, families and businesses across east Ottawa consistently turn to Prestige Moving. With over 350 verified five-star reviews and more than 10,000 successful relocations completed, we've built a reputation as Orleans' most trusted moving company. Whether you're upgrading from an apartment in Avalon to a larger family home in Fallingbrook, downsizing from a house in Chapel Hill, or relocating your growing business in the Orleans Town Centre area, our professionally trained team delivers a seamless, stress-free experience every time.
             </p>
             <p className="text-gray-600 leading-relaxed mb-6">
               Orleans is one of Ottawa's largest and most vibrant suburban communities, home to over 100,000 residents across dozens of distinct neighbourhoods. From the established streets of Convent Glen and Queenswood Heights to the modern developments in Avalon and Cardinal Creek, each area presents unique moving considerations that only a local, experienced team can navigate effectively. Our <strong className="text-[#1A2332]">Orleans movers</strong> know the community inside and out — we understand which condo buildings require <a href="https://www.ottawa.ca/en/parking-roads-and-travel" target="_blank" rel="noopener noreferrer" className="text-[#C5A572] hover:underline">elevator bookings and loading dock reservations</a>, which residential streets have parking restrictions during certain hours, and the most efficient routes to avoid congestion on Innes Road and St. Joseph Boulevard during peak traffic.
@@ -212,7 +212,7 @@ export default function MoversInOrleans() {
               What truly sets Prestige Moving apart from other <strong className="text-[#1A2332]">movers in Orleans</strong> is our commitment to transparency, professionalism, and genuine care. When you request a quote, you receive a detailed breakdown of every cost — there are no hidden fees, no surprise surcharges, and no last-minute additions. The price we quote is the price you pay. This honest, upfront approach is a key reason why so many Orleans families recommend us to their friends, neighbours, and colleagues.
             </p>
             <p className="text-gray-600 leading-relaxed mb-6">
-              Every member of our Orleans moving team is <a href="https://www.wsib.ca/" target="_blank" rel="noopener noreferrer" className="text-[#C5A572] hover:underline">WSIB certified</a> and undergoes extensive training in proper lifting techniques, furniture protection, and customer service. We carry comprehensive commercial liability insurance, and we offer additional valuation coverage for high-value items. Our satisfaction guarantee means that if anything doesn't meet your expectations, we'll make it right — no questions asked. With 337+ five-star reviews from real customers, our track record speaks for itself.
+              Every member of our Orleans moving team is <a href="https://www.wsib.ca/" target="_blank" rel="noopener noreferrer" className="text-[#C5A572] hover:underline">WSIB certified</a> and undergoes extensive training in proper lifting techniques, furniture protection, and customer service. We carry comprehensive commercial liability insurance, and we offer additional valuation coverage for high-value items. Our satisfaction guarantee means that if anything doesn't meet your expectations, we'll make it right — no questions asked. With 350+ five-star reviews from real customers, our track record speaks for itself.
             </p>
 
             <h3 className="text-2xl font-bold text-[#1A2332] mb-4 mt-10">Residential and Commercial Orleans Movers You Can Trust</h3>
@@ -274,7 +274,7 @@ export default function MoversInOrleans() {
         <section className="py-16 bg-[#C5A572]">
           <div className="max-w-4xl mx-auto px-4 text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Ready to Move in Orleans?</h2>
-            <p className="text-white/80 text-lg mb-8">Get your free, no-obligation quote today and see why 337+ families gave us five stars.</p>
+            <p className="text-white/80 text-lg mb-8">Get your free, no-obligation quote today and see why 350+ families gave us five stars.</p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link href="/book"><Button className="bg-[#1A2332] hover:bg-[#243044] text-white border-[#1A2332]" data-testid="button-cta-quote">Get Free Quote</Button></Link>
               <a href="tel:6136004000"><Button variant="outline" className="text-white border-white/30 backdrop-blur-sm bg-white/10" data-testid="button-cta-call"><Phone className="h-4 w-4 mr-2" />Call (613) 600-4000</Button></a>
