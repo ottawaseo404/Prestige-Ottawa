@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { useLocation } from "wouter";
 import { useMutation } from "@tanstack/react-query";
-import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
+import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -35,8 +36,6 @@ export function FloatingCTA() {
   const [open, setOpen] = useState(false);
   const [form, setForm] = useState<QuoteForm>(EMPTY);
   const [submitted, setSubmitted] = useState(false);
-
-  if (location.startsWith("/admin") || location === "/login") return null;
 
   const set = (field: keyof QuoteForm) => (e: React.ChangeEvent<HTMLInputElement>) =>
     setForm(prev => ({ ...prev, [field]: e.target.value }));
@@ -83,6 +82,8 @@ export function FloatingCTA() {
     setTimeout(() => { setForm(EMPTY); setSubmitted(false); }, 300);
   };
 
+  if (location.startsWith("/admin") || location === "/login") return null;
+
   return (
     <>
       {/* Floating button */}
@@ -99,6 +100,7 @@ export function FloatingCTA() {
       {/* Quote modal */}
       <Dialog open={open} onOpenChange={handleClose}>
         <DialogContent className="p-0 gap-0 max-w-md w-full sm:rounded-2xl overflow-hidden border-0 shadow-2xl" data-testid="modal-quote">
+          <VisuallyHidden><DialogTitle>Get Your Free Moving Estimate</DialogTitle></VisuallyHidden>
           {submitted ? (
             <div className="flex flex-col items-center justify-center px-8 py-14 text-center gap-4" data-testid="success-state">
               <div className="h-16 w-16 rounded-full bg-green-100 flex items-center justify-center">
