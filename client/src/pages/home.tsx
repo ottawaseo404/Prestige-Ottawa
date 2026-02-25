@@ -1585,13 +1585,13 @@ export default function Home() {
               <p className="text-xl text-gray-600 mb-2">Local and Long Distance Moving</p>
             </div>
             
-            <div className="bg-gradient-to-br from-[#1A2332] to-[#2A3A4A] rounded-2xl p-8 md:p-12 shadow-2xl">
+            <div className="bg-gray-50 border border-gray-200 rounded-2xl p-8 md:p-12 shadow-sm">
               <div className="grid lg:grid-cols-2 gap-8 items-center">
                 <div>
-                  <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
+                  <h3 className="text-2xl md:text-3xl font-bold text-[#1A2332] mb-4">
                     Choose the Right Moving Package for You
                   </h3>
-                  <p className="text-white/80 text-lg leading-relaxed mb-6">
+                  <p className="text-gray-600 text-lg leading-relaxed mb-6">
                     At Prestige Moving, we offer tailored packages to suit different moving needs, ensuring a smooth and stress-free experience. Select from our Premium, Deluxe, or Diamond packages, each designed with professional movers, high-quality packing materials, and efficient service.
                   </p>
                   <div className="flex flex-wrap gap-4">
@@ -1602,7 +1602,7 @@ export default function Home() {
                       </Button>
                     </Link>
                     <Link href="/services">
-                      <Button size="lg" variant="outline" className="font-bold text-white border-white/30 hover:bg-white/10" data-testid="button-solutions-services">
+                      <Button size="lg" variant="outline" className="font-bold" data-testid="button-solutions-services">
                         View All Services
                       </Button>
                     </Link>
@@ -1610,29 +1610,29 @@ export default function Home() {
                 </div>
                 
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                  <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105">
-                    <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <div className="bg-white rounded-xl p-6 text-center border border-gray-200 hover:border-primary/40 hover:shadow-md transition-all duration-300 hover:scale-105">
+                    <div className="w-12 h-12 bg-primary/15 rounded-full flex items-center justify-center mx-auto mb-3">
                       <Star className="h-6 w-6 text-primary" />
                     </div>
-                    <h4 className="text-white font-bold text-lg mb-1">Premium</h4>
-                    <p className="text-white/70 text-sm">2 Movers + Truck</p>
+                    <h4 className="text-[#1A2332] font-bold text-lg mb-1">Premium</h4>
+                    <p className="text-gray-500 text-sm">2 Movers + Truck</p>
                   </div>
-                  <div className="bg-primary/20 backdrop-blur-sm rounded-xl p-6 text-center border border-primary/40 hover:bg-primary/30 transition-all duration-300 hover:scale-105 relative">
+                  <div className="bg-white rounded-xl p-6 text-center border-2 border-primary/50 hover:shadow-md transition-all duration-300 hover:scale-105 relative">
                     <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-[#1A2332] text-xs font-bold px-3 py-1 rounded-full">
                       POPULAR
                     </div>
-                    <div className="w-12 h-12 bg-primary/30 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <div className="w-12 h-12 bg-primary/15 rounded-full flex items-center justify-center mx-auto mb-3">
                       <Award className="h-6 w-6 text-primary" />
                     </div>
-                    <h4 className="text-white font-bold text-lg mb-1">Deluxe</h4>
-                    <p className="text-white/70 text-sm">3 Movers + 26ft Truck</p>
+                    <h4 className="text-[#1A2332] font-bold text-lg mb-1">Deluxe</h4>
+                    <p className="text-gray-500 text-sm">3 Movers + 26ft Truck</p>
                   </div>
-                  <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105">
-                    <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <div className="bg-white rounded-xl p-6 text-center border border-gray-200 hover:border-primary/40 hover:shadow-md transition-all duration-300 hover:scale-105">
+                    <div className="w-12 h-12 bg-primary/15 rounded-full flex items-center justify-center mx-auto mb-3">
                       <Crown className="h-6 w-6 text-primary" />
                     </div>
-                    <h4 className="text-white font-bold text-lg mb-1">Diamond</h4>
-                    <p className="text-white/70 text-sm">4 Movers + 2 Trucks</p>
+                    <h4 className="text-[#1A2332] font-bold text-lg mb-1">Diamond</h4>
+                    <p className="text-gray-500 text-sm">4 Movers + 2 Trucks</p>
                   </div>
                 </div>
               </div>
@@ -1641,61 +1641,57 @@ export default function Home() {
         </section>
 
         {/* Trust Badges Section - Modern & Interactive */}
-        <section className="py-16 bg-gradient-to-b from-[#1A2332] to-[#2a3a52]">
+        <section className="py-16 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <Badge className="bg-primary/20 text-primary border-primary/30 mb-4">Why Choose Us</Badge>
-              <h2 className="text-3xl md:text-4xl font-black text-white mb-2">
+              <h2 className="text-3xl md:text-4xl font-black text-[#1A2332] mb-2">
                 Your Trusted Moving Partners
               </h2>
-              <p className="text-white/60">Industry-leading certifications and customer satisfaction</p>
+              <p className="text-gray-500">Industry-leading certifications and customer satisfaction</p>
             </div>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {/* BBB A+ */}
-              <div className="group relative bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-6 text-center hover:bg-white/10 hover:border-primary/50 transition-all duration-300 cursor-pointer hover:scale-105 hover:shadow-xl hover:shadow-primary/20" data-testid="badge-bbb">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl" />
+              <div className="group relative bg-white border border-gray-200 rounded-2xl p-6 text-center hover:border-primary/40 transition-all duration-300 cursor-pointer hover:scale-105 hover:shadow-xl hover:shadow-primary/10" data-testid="badge-bbb">
                 <div className="relative">
                   <div className="h-20 w-20 mx-auto mb-4 bg-gradient-to-br from-amber-400 to-amber-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-amber-500/30 transition-shadow rotate-3 group-hover:rotate-0">
                     <Award className="h-10 w-10 text-white" />
                   </div>
-                  <h3 className="text-lg font-bold text-white mb-1">BBB A+ Rating</h3>
-                  <p className="text-sm text-white/50">Accredited Business</p>
+                  <h3 className="text-lg font-bold text-[#1A2332] mb-1">BBB A+ Rating</h3>
+                  <p className="text-sm text-gray-500">Accredited Business</p>
                 </div>
               </div>
 
               {/* WSIB Ontario Certified */}
-              <div className="group relative bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-6 text-center hover:bg-white/10 hover:border-[#0066CC]/50 transition-all duration-300 cursor-pointer hover:scale-105 hover:shadow-xl hover:shadow-[#0066CC]/20" data-testid="badge-wsib">
-                <div className="absolute inset-0 bg-gradient-to-br from-[#0066CC]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl" />
+              <div className="group relative bg-white border border-gray-200 rounded-2xl p-6 text-center hover:border-blue-400/50 transition-all duration-300 cursor-pointer hover:scale-105 hover:shadow-xl hover:shadow-blue-500/10" data-testid="badge-wsib">
                 <div className="relative">
                   <div className="h-20 w-20 mx-auto mb-4 bg-gradient-to-br from-[#0066CC] to-blue-700 rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-[#0066CC]/30 transition-shadow -rotate-3 group-hover:rotate-0">
                     <Shield className="h-10 w-10 text-white" />
                   </div>
-                  <h3 className="text-lg font-bold text-white mb-1">WSIB Ontario</h3>
-                  <p className="text-sm text-white/50">Certified & Insured</p>
+                  <h3 className="text-lg font-bold text-[#1A2332] mb-1">WSIB Ontario</h3>
+                  <p className="text-sm text-gray-500">Certified & Insured</p>
                 </div>
               </div>
 
               {/* 5-Star Google */}
-              <div className="group relative bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-6 text-center hover:bg-white/10 hover:border-primary/50 transition-all duration-300 cursor-pointer hover:scale-105 hover:shadow-xl hover:shadow-primary/20" data-testid="badge-google">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl" />
+              <div className="group relative bg-white border border-gray-200 rounded-2xl p-6 text-center hover:border-primary/40 transition-all duration-300 cursor-pointer hover:scale-105 hover:shadow-xl hover:shadow-primary/10" data-testid="badge-google">
                 <div className="relative">
                   <div className="h-20 w-20 mx-auto mb-4 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-yellow-500/30 transition-shadow rotate-3 group-hover:rotate-0">
                     <Star className="h-10 w-10 text-white fill-white" />
                   </div>
-                  <h3 className="text-lg font-bold text-white mb-1">5-Star Google</h3>
-                  <p className="text-sm text-white/50">500+ Happy Customers</p>
+                  <h3 className="text-lg font-bold text-[#1A2332] mb-1">5-Star Google</h3>
+                  <p className="text-sm text-gray-500">500+ Happy Customers</p>
                 </div>
               </div>
 
               {/* Fully Licensed */}
-              <div className="group relative bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-6 text-center hover:bg-white/10 hover:border-primary/50 transition-all duration-300 cursor-pointer hover:scale-105 hover:shadow-xl hover:shadow-primary/20" data-testid="badge-licensed">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl" />
+              <div className="group relative bg-white border border-gray-200 rounded-2xl p-6 text-center hover:border-primary/40 transition-all duration-300 cursor-pointer hover:scale-105 hover:shadow-xl hover:shadow-primary/10" data-testid="badge-licensed">
                 <div className="relative">
                   <div className="h-20 w-20 mx-auto mb-4 bg-gradient-to-br from-blue-400 to-blue-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-blue-500/30 transition-shadow -rotate-3 group-hover:rotate-0">
                     <CheckCircle2 className="h-10 w-10 text-white" />
                   </div>
-                  <h3 className="text-lg font-bold text-white mb-1">Fully Licensed</h3>
-                  <p className="text-sm text-white/50">Professional & Legal</p>
+                  <h3 className="text-lg font-bold text-[#1A2332] mb-1">Fully Licensed</h3>
+                  <p className="text-sm text-gray-500">Professional & Legal</p>
                 </div>
               </div>
             </div>
@@ -2026,12 +2022,12 @@ export default function Home() {
               </div>
 
               {/* Service Areas */}
-              <div className="mt-12 bg-[#1A2332] rounded-3xl p-8 md:p-12">
-                <h3 className="text-2xl md:text-3xl font-bold text-white mb-6 text-center">
+              <div className="mt-12 bg-gray-50 border border-gray-200 rounded-3xl p-8 md:p-12">
+                <h3 className="text-2xl md:text-3xl font-bold text-[#1A2332] mb-6 text-center">
                   Areas We Serve as Ottawa's Trusted Movers
                 </h3>
-                <p className="text-white/70 text-center max-w-3xl mx-auto mb-8">
-                  Our <strong className="text-white">Ottawa moving company</strong> provides professional moving services throughout the National Capital Region and beyond. We regularly serve the following communities:
+                <p className="text-gray-600 text-center max-w-3xl mx-auto mb-8">
+                  Our <strong className="text-[#1A2332]">Ottawa moving company</strong> provides professional moving services throughout the National Capital Region and beyond. We regularly serve the following communities:
                 </p>
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 text-center">
                   {[
@@ -2041,13 +2037,13 @@ export default function Home() {
                     "Rockland", "Gatineau", "Hull", "Aylmer",
                     "Chelsea", "Kemptville", "Carleton Place"
                   ].map((area) => (
-                    <div key={area} className="bg-white/10 rounded-xl px-4 py-3 text-white/90 text-sm font-medium hover:bg-white/20 transition-colors">
+                    <div key={area} className="bg-white border border-gray-200 rounded-xl px-4 py-3 text-[#1A2332] text-sm font-medium hover:border-primary/40 hover:shadow-sm transition-all">
                       {area}
                     </div>
                   ))}
                 </div>
                 <div className="text-center mt-8">
-                  <p className="text-white/60 text-sm">
+                  <p className="text-gray-500 text-sm">
                     Don't see your area? We service all of Ontario including long-distance moves across Canada.
                   </p>
                 </div>
@@ -2087,12 +2083,12 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Specialty Services Section - Dark Background */}
-        <section className="py-16 bg-[#1A2332]">
+        {/* Specialty Services Section */}
+        <section className="py-16 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-10">
-              <h3 className="text-2xl md:text-3xl font-bold text-white mb-3">Specialty Moving Services</h3>
-              <p className="text-white/60">Expert handling for all your unique moving needs</p>
+              <h3 className="text-2xl md:text-3xl font-bold text-[#1A2332] mb-3">Specialty Moving Services</h3>
+              <p className="text-gray-500">Expert handling for all your unique moving needs</p>
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-4">
               {[
@@ -2106,11 +2102,11 @@ export default function Home() {
                 { title: "Military Moving", icon: Medal, href: "/services/military-moving", desc: "PCS relocations" },
               ].map((service) => (
                 <Link key={service.href} href={service.href}>
-                  <div className="group bg-white/5 border border-white/10 rounded-2xl p-4 h-[120px] flex flex-col items-center justify-center text-center hover:bg-white/10 hover:border-primary/50 transition-all duration-300 cursor-pointer" data-testid={`service-card-${service.title.toLowerCase().replace(/\s+/g, '-')}`}>
-                    <div className="h-12 w-12 bg-primary/20 rounded-xl flex items-center justify-center group-hover:bg-primary/30 transition-colors mb-3">
+                  <div className="group bg-white border border-gray-200 rounded-2xl p-4 h-[120px] flex flex-col items-center justify-center text-center hover:border-primary/40 hover:shadow-md transition-all duration-300 cursor-pointer" data-testid={`service-card-${service.title.toLowerCase().replace(/\s+/g, '-')}`}>
+                    <div className="h-12 w-12 bg-primary/15 rounded-xl flex items-center justify-center group-hover:bg-primary/25 transition-colors mb-3">
                       <service.icon className="h-6 w-6 text-primary" />
                     </div>
-                    <h4 className="font-bold text-white text-xs leading-tight">{service.title}</h4>
+                    <h4 className="font-bold text-[#1A2332] text-xs leading-tight">{service.title}</h4>
                   </div>
                 </Link>
               ))}
@@ -2142,18 +2138,18 @@ export default function Home() {
         </section>
 
         {/* About Company Section */}
-        <section className="py-20 md:py-28 bg-[#1A2332]">
+        <section className="py-20 md:py-28 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
                 <Badge className="mb-4 bg-primary/20 text-primary border-primary/40" data-testid="badge-about">
                   About Prestige Moving
                 </Badge>
-                <h2 className="text-4xl md:text-5xl font-black text-white mb-6">
+                <h2 className="text-4xl md:text-5xl font-black text-[#1A2332] mb-6">
                   Greater Ottawa Movers You Can Trust
                 </h2>
-                <p className="text-lg text-white/70 mb-8 leading-relaxed">
-                  As the top-rated <strong className="text-white">movers in Ottawa</strong>, Prestige Moving has been helping families and businesses relocate with care and professionalism. Our team of <strong className="text-white">Ottawa movers</strong> owns our fleet of trucks and treats every move as if it were their own. Serving Greater Ottawa, Kanata, and all of the National Capital Region.
+                <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+                  As the top-rated <strong className="text-[#1A2332]">movers in Ottawa</strong>, Prestige Moving has been helping families and businesses relocate with care and professionalism. Our team of <strong className="text-[#1A2332]">Ottawa movers</strong> owns our fleet of trucks and treats every move as if it were their own. Serving Greater Ottawa, Kanata, and all of the National Capital Region.
                 </p>
                 
                 <div className="space-y-4 mb-8">
@@ -2167,7 +2163,7 @@ export default function Home() {
                   ].map((item, index) => (
                     <div key={index} className="flex items-start gap-3" data-testid={`about-feature-${index}`}>
                       <CheckCircle2 className="h-6 w-6 text-primary shrink-0 mt-0.5" />
-                      <span className="text-white font-medium">{item}</span>
+                      <span className="text-[#1A2332] font-medium">{item}</span>
                     </div>
                   ))}
                 </div>
@@ -2181,27 +2177,27 @@ export default function Home() {
               </div>
 
               <div className="relative">
-                <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 lg:p-12">
+                <div className="bg-gray-50 border border-gray-200 rounded-2xl p-8 lg:p-12">
                   <div className="grid grid-cols-2 gap-6">
-                    <div className="bg-white/10 backdrop-blur-sm border border-white/10 rounded-xl p-6 text-center hover:bg-white/15 transition-all duration-300 group" data-testid="about-stat-1">
+                    <div className="bg-white border border-gray-200 rounded-xl p-6 text-center hover:border-primary/40 hover:shadow-md transition-all duration-300 group" data-testid="about-stat-1">
                       <Truck className="h-10 w-10 text-primary mx-auto mb-3 group-hover:scale-110 transition-transform" />
-                      <div className="text-3xl font-black text-white">15+</div>
-                      <div className="text-sm text-white/60">Moving Trucks</div>
+                      <div className="text-3xl font-black text-[#1A2332]">15+</div>
+                      <div className="text-sm text-gray-500">Moving Trucks</div>
                     </div>
-                    <div className="bg-white/10 backdrop-blur-sm border border-white/10 rounded-xl p-6 text-center hover:bg-white/15 transition-all duration-300 group" data-testid="about-stat-2">
+                    <div className="bg-white border border-gray-200 rounded-xl p-6 text-center hover:border-primary/40 hover:shadow-md transition-all duration-300 group" data-testid="about-stat-2">
                       <Users className="h-10 w-10 text-primary mx-auto mb-3 group-hover:scale-110 transition-transform" />
-                      <div className="text-3xl font-black text-white">50+</div>
-                      <div className="text-sm text-white/60">Team Members</div>
+                      <div className="text-3xl font-black text-[#1A2332]">50+</div>
+                      <div className="text-sm text-gray-500">Team Members</div>
                     </div>
-                    <div className="bg-white/10 backdrop-blur-sm border border-white/10 rounded-xl p-6 text-center hover:bg-white/15 transition-all duration-300 group" data-testid="about-stat-3">
+                    <div className="bg-white border border-gray-200 rounded-xl p-6 text-center hover:border-primary/40 hover:shadow-md transition-all duration-300 group" data-testid="about-stat-3">
                       <Clock className="h-10 w-10 text-primary mx-auto mb-3 group-hover:scale-110 transition-transform" />
-                      <div className="text-3xl font-black text-white">15</div>
-                      <div className="text-sm text-white/60">Years Experience</div>
+                      <div className="text-3xl font-black text-[#1A2332]">15</div>
+                      <div className="text-sm text-gray-500">Years Experience</div>
                     </div>
-                    <div className="bg-white/10 backdrop-blur-sm border border-white/10 rounded-xl p-6 text-center hover:bg-white/15 transition-all duration-300 group" data-testid="about-stat-4">
+                    <div className="bg-white border border-gray-200 rounded-xl p-6 text-center hover:border-primary/40 hover:shadow-md transition-all duration-300 group" data-testid="about-stat-4">
                       <ThumbsUp className="h-10 w-10 text-primary mx-auto mb-3 group-hover:scale-110 transition-transform" />
-                      <div className="text-3xl font-black text-white">100%</div>
-                      <div className="text-sm text-white/60">Satisfaction Rate</div>
+                      <div className="text-3xl font-black text-[#1A2332]">100%</div>
+                      <div className="text-sm text-gray-500">Satisfaction Rate</div>
                     </div>
                   </div>
                 </div>
@@ -2356,51 +2352,41 @@ export default function Home() {
           </div>
         </section>
 
-        {/* CTA Section - Modern Redesign */}
-        <section className="relative py-24 md:py-32 overflow-hidden">
-          {/* Animated Background */}
-          <div className="absolute inset-0 bg-gradient-to-br from-[#1A2332] via-[#2a3a52] to-[#1A2332]">
-            {/* Decorative Elements */}
-            <div className="absolute top-0 left-0 w-96 h-96 bg-primary/20 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
-            <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-primary/10 rounded-full blur-3xl translate-x-1/4 translate-y-1/4" />
-            <div className="absolute top-1/2 left-1/2 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
-            
-            {/* Subtle Grid Pattern */}
-            <div className="absolute inset-0 opacity-5" style={{ 
-              backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)',
-              backgroundSize: '40px 40px'
-            }} />
-          </div>
+        {/* CTA Section */}
+        <section className="relative py-24 md:py-32 overflow-hidden bg-white">
+          {/* Decorative gold blobs */}
+          <div className="absolute top-0 left-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
+          <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-primary/8 rounded-full blur-3xl translate-x-1/4 translate-y-1/4 pointer-events-none" />
 
           <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               {/* Left Side - Content */}
               <div className="text-center lg:text-left">
-                <div className="inline-flex items-center gap-2 bg-primary/20 border border-primary/40 rounded-full px-4 py-2 mb-6">
+                <div className="inline-flex items-center gap-2 bg-primary/15 border border-primary/30 rounded-full px-4 py-2 mb-6">
                   <Sparkles className="h-4 w-4 text-primary" />
                   <span className="text-primary font-semibold text-sm">Free No-Obligation Quote</span>
                 </div>
                 
-                <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 leading-tight">
+                <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-[#1A2332] mb-6 leading-tight">
                   Ready to Make<br />
                   <span className="text-primary inline-block mt-2">Your Move?</span>
                 </h2>
                 
-                <p className="text-xl text-white/70 mb-8 max-w-lg mx-auto lg:mx-0">
+                <p className="text-xl text-gray-600 mb-8 max-w-lg mx-auto lg:mx-0">
                   Join over 10,000 happy customers who trusted us with their moves. Get your personalized quote in minutes.
                 </p>
 
                 {/* Trust Indicators */}
                 <div className="flex flex-wrap justify-center lg:justify-start gap-6 mb-8">
-                  <div className="flex items-center gap-2 text-white/80">
+                  <div className="flex items-center gap-2 text-gray-700">
                     <CheckCircle2 className="h-5 w-5 text-primary" />
                     <span className="text-sm font-medium">No Hidden Fees</span>
                   </div>
-                  <div className="flex items-center gap-2 text-white/80">
+                  <div className="flex items-center gap-2 text-gray-700">
                     <CheckCircle2 className="h-5 w-5 text-primary" />
                     <span className="text-sm font-medium">Fully Insured</span>
                   </div>
-                  <div className="flex items-center gap-2 text-white/80">
+                  <div className="flex items-center gap-2 text-gray-700">
                     <CheckCircle2 className="h-5 w-5 text-primary" />
                     <span className="text-sm font-medium">Same-Day Response</span>
                   </div>
@@ -2415,7 +2401,7 @@ export default function Home() {
                     </Button>
                   </Link>
                   <a href="tel:(613) 600-4000">
-                    <Button size="lg" variant="outline" className="text-lg font-bold px-10 py-7 border-2 border-white/30 text-white hover:bg-white/10 hover:border-white/50 backdrop-blur-sm" data-testid="button-cta-call">
+                    <Button size="lg" variant="outline" className="text-lg font-bold px-10 py-7" data-testid="button-cta-call">
                       <Phone className="h-5 w-5 mr-2" />
                       (613) 600-4000
                     </Button>
@@ -2426,63 +2412,62 @@ export default function Home() {
               {/* Right Side - Interactive Stats Card */}
               <div className="hidden lg:block">
                 <div className="relative">
-                  {/* Glowing effect behind card */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/40 to-primary/10 rounded-3xl blur-2xl transform scale-105" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-primary/5 rounded-3xl blur-2xl transform scale-105" />
                   
-                  <div className="relative bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-8 shadow-2xl">
+                  <div className="relative bg-white border border-gray-200 rounded-3xl p-8 shadow-xl">
                     <div className="text-center mb-8">
                       <div className="inline-flex items-center justify-center w-16 h-16 bg-primary rounded-2xl mb-4 shadow-lg">
                         <TruckIcon className="h-8 w-8 text-[#1A2332]" />
                       </div>
-                      <h3 className="text-2xl font-bold text-white mb-2">Why Choose Us?</h3>
-                      <p className="text-white/60 text-sm">Trusted by thousands of families</p>
+                      <h3 className="text-2xl font-bold text-[#1A2332] mb-2">Why Choose Us?</h3>
+                      <p className="text-gray-500 text-sm">Trusted by thousands of families</p>
                     </div>
 
                     {/* Animated Stats */}
                     <div className="space-y-4">
-                      <div className="group p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-all duration-300 cursor-default">
+                      <div className="group p-4 bg-gray-50 border border-gray-200 rounded-xl hover:border-primary/40 hover:shadow-sm transition-all duration-300 cursor-default">
                         <div className="flex items-center justify-between">
                           <div className="flex items-center gap-3">
-                            <div className="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center">
+                            <div className="w-10 h-10 bg-primary/15 rounded-lg flex items-center justify-center">
                               <Users className="h-5 w-5 text-primary" />
                             </div>
-                            <span className="text-white font-medium">Happy Customers</span>
+                            <span className="text-[#1A2332] font-medium">Happy Customers</span>
                           </div>
                           <span className="text-2xl font-black text-primary group-hover:scale-110 transition-transform">10,000+</span>
                         </div>
                       </div>
 
-                      <div className="group p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-all duration-300 cursor-default">
+                      <div className="group p-4 bg-gray-50 border border-gray-200 rounded-xl hover:border-primary/40 hover:shadow-sm transition-all duration-300 cursor-default">
                         <div className="flex items-center justify-between">
                           <div className="flex items-center gap-3">
-                            <div className="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center">
+                            <div className="w-10 h-10 bg-primary/15 rounded-lg flex items-center justify-center">
                               <Star className="h-5 w-5 text-primary fill-primary" />
                             </div>
-                            <span className="text-white font-medium">Google Rating</span>
+                            <span className="text-[#1A2332] font-medium">Google Rating</span>
                           </div>
                           <span className="text-2xl font-black text-primary group-hover:scale-110 transition-transform">5.0</span>
                         </div>
                       </div>
 
-                      <div className="group p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-all duration-300 cursor-default">
+                      <div className="group p-4 bg-gray-50 border border-gray-200 rounded-xl hover:border-primary/40 hover:shadow-sm transition-all duration-300 cursor-default">
                         <div className="flex items-center justify-between">
                           <div className="flex items-center gap-3">
-                            <div className="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center">
+                            <div className="w-10 h-10 bg-primary/15 rounded-lg flex items-center justify-center">
                               <Clock className="h-5 w-5 text-primary" />
                             </div>
-                            <span className="text-white font-medium">Years Experience</span>
+                            <span className="text-[#1A2332] font-medium">Years Experience</span>
                           </div>
                           <span className="text-2xl font-black text-primary group-hover:scale-110 transition-transform">15+</span>
                         </div>
                       </div>
 
-                      <div className="group p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-all duration-300 cursor-default">
+                      <div className="group p-4 bg-gray-50 border border-gray-200 rounded-xl hover:border-primary/40 hover:shadow-sm transition-all duration-300 cursor-default">
                         <div className="flex items-center justify-between">
                           <div className="flex items-center gap-3">
-                            <div className="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center">
+                            <div className="w-10 h-10 bg-primary/15 rounded-lg flex items-center justify-center">
                               <Shield className="h-5 w-5 text-primary" />
                             </div>
-                            <span className="text-white font-medium">Satisfaction Rate</span>
+                            <span className="text-[#1A2332] font-medium">Satisfaction Rate</span>
                           </div>
                           <span className="text-2xl font-black text-primary group-hover:scale-110 transition-transform">100%</span>
                         </div>
@@ -2490,8 +2475,8 @@ export default function Home() {
                     </div>
 
                     {/* Bottom Badge */}
-                    <div className="mt-6 pt-6 border-t border-white/10 text-center">
-                      <div className="inline-flex items-center gap-2 text-white/60 text-sm">
+                    <div className="mt-6 pt-6 border-t border-gray-200 text-center">
+                      <div className="inline-flex items-center gap-2 text-gray-500 text-sm">
                         <Award className="h-4 w-4 text-primary" />
                         <span>BBB A+ Rated • Fully Insured • Licensed</span>
                       </div>
