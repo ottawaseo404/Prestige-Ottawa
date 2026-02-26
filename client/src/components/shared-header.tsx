@@ -81,14 +81,14 @@ export function SharedHeader() {
         <div className="absolute bottom-0 left-0 right-0 h-[2px]" style={{ background: "linear-gradient(90deg, transparent 0%, #C5A572 30%, #D4B483 50%, #C5A572 70%, transparent 100%)" }} />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-24 gap-4">
+          <div className="flex justify-between items-center h-28 gap-4">
 
             {/* Logo */}
             <Link href="/" data-testid="link-logo" className="flex-shrink-0 group/logo">
               <img
                 src={logoUrl}
                 alt="Prestige Moving"
-                className="h-20 object-contain cursor-pointer transition-all duration-500 group-hover/logo:scale-105"
+                className="h-28 object-contain cursor-pointer transition-all duration-500 group-hover/logo:scale-105"
                 data-testid="img-logo"
               />
             </Link>
