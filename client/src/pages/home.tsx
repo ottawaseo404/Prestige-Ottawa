@@ -1261,10 +1261,10 @@ export default function Home() {
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-[#1A2332] mb-6">
                 Prestige <span className="text-primary">Moving in Ottawa</span>
               </h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-4">
+              <p className="text-xl text-gray-600 max-w-5xl mx-auto mb-4">
                 At <strong className="text-[#1A2332]">Prestige Moving</strong>, we deliver an unmatched moving experience with top-of-the-line quality that sets us apart from the competition. Our <strong className="text-[#1A2332]">Ottawa movers</strong> provide white-glove service across Greater Ottawa, Kanata, Orleans, Nepean, Barrhaven, Gloucester, and the entire National Capital Region — because your belongings deserve nothing less than prestige.
               </p>
-              <p className="text-lg text-gray-500 max-w-3xl mx-auto">
+              <p className="text-lg text-gray-500 max-w-5xl mx-auto">
                 Whether you're moving into your first apartment in Centretown, upgrading to a family home in Barrhaven, or relocating your business in the downtown core, our <strong className="text-[#1A2332]">professional movers</strong> handle every detail with care. From expert packing and furniture disassembly to safe transport and setup at your new location, we take the stress out of moving day so you can focus on what matters most. With <strong className="text-[#1A2332]">350+ five-star reviews</strong>, fully insured teams, and transparent pricing with no hidden fees, it's no wonder thousands of Ottawa families trust Prestige Moving for their most important moves.
               </p>
             </div>
