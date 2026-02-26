@@ -96,7 +96,7 @@ export function SharedNavigation() {
                     <button
                       onClick={() => handleNavClick("/services/residential-moving")}
                       data-testid="nav-residential"
-                      className={`group/item flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold tracking-widest uppercase transition-all duration-300 whitespace-nowrap ${isActive("/services/residential-moving") ? "bg-[#C5A572] text-white" : "text-[#1A2332]/70 hover:text-[#1A2332] hover:bg-[#C5A572]/10"}`}
+                      className={`group/item flex items-center gap-2 px-4 py-2 rounded-full text-sm font-bold tracking-widest uppercase transition-all duration-300 whitespace-nowrap ${isActive("/services/residential-moving") ? "bg-[#C5A572] text-white" : "text-[#1A2332]/70 hover:text-[#1A2332] hover:bg-[#C5A572]/10"}`}
                       style={isActive("/services/residential-moving") ? { boxShadow: "0 0 15px rgba(197,165,114,0.4)" } : undefined}
                     >
                       <HomeIcon className="h-3.5 w-3.5 flex-shrink-0 text-[#C5A572] transition-transform duration-300 group-hover/item:scale-110" />
@@ -109,7 +109,7 @@ export function SharedNavigation() {
                     <button
                       onClick={() => handleNavClick("/services/commercial-moving")}
                       data-testid="nav-commercial"
-                      className={`group/item flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold tracking-widest uppercase transition-all duration-300 whitespace-nowrap ${isActive("/services/commercial-moving") ? "bg-[#C5A572] text-white" : "text-[#1A2332]/70 hover:text-[#1A2332] hover:bg-[#C5A572]/10"}`}
+                      className={`group/item flex items-center gap-2 px-4 py-2 rounded-full text-sm font-bold tracking-widest uppercase transition-all duration-300 whitespace-nowrap ${isActive("/services/commercial-moving") ? "bg-[#C5A572] text-white" : "text-[#1A2332]/70 hover:text-[#1A2332] hover:bg-[#C5A572]/10"}`}
                       style={isActive("/services/commercial-moving") ? { boxShadow: "0 0 15px rgba(197,165,114,0.4)" } : undefined}
                     >
                       <Building2 className="h-3.5 w-3.5 flex-shrink-0 text-[#C5A572] transition-transform duration-300 group-hover/item:scale-110" />
@@ -122,7 +122,7 @@ export function SharedNavigation() {
                     <button
                       onClick={() => handleNavClick("/services/long-distance-moving")}
                       data-testid="nav-long-distance"
-                      className={`group/item flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold tracking-widest uppercase transition-all duration-300 whitespace-nowrap ${isActive("/services/long-distance-moving") ? "bg-[#C5A572] text-white" : "text-[#1A2332]/70 hover:text-[#1A2332] hover:bg-[#C5A572]/10"}`}
+                      className={`group/item flex items-center gap-2 px-4 py-2 rounded-full text-sm font-bold tracking-widest uppercase transition-all duration-300 whitespace-nowrap ${isActive("/services/long-distance-moving") ? "bg-[#C5A572] text-white" : "text-[#1A2332]/70 hover:text-[#1A2332] hover:bg-[#C5A572]/10"}`}
                       style={isActive("/services/long-distance-moving") ? { boxShadow: "0 0 15px rgba(197,165,114,0.4)" } : undefined}
                     >
                       <Truck className="h-3.5 w-3.5 flex-shrink-0 text-[#C5A572] transition-transform duration-300 group-hover/item:scale-110" />
@@ -134,7 +134,7 @@ export function SharedNavigation() {
                   <NavigationMenuItem>
                     <NavigationMenuTrigger
                       data-testid="nav-services-trigger"
-                      className="group/trigger flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold tracking-widest uppercase transition-all duration-300 text-[#1A2332]/70 hover:text-[#1A2332] hover:bg-[#C5A572]/10 !bg-transparent data-[state=open]:!bg-[#C5A572]/10 data-[state=open]:text-[#1A2332] [&>svg]:hidden"
+                      className="group/trigger flex items-center gap-2 px-4 py-2 rounded-full text-sm font-bold tracking-widest uppercase transition-all duration-300 text-[#1A2332]/70 hover:text-[#1A2332] hover:bg-[#C5A572]/10 !bg-transparent data-[state=open]:!bg-[#C5A572]/10 data-[state=open]:text-[#1A2332] [&>svg]:hidden"
                     >
                       <Package className="h-3.5 w-3.5 text-[#C5A572] transition-transform duration-300 group-hover/trigger:scale-110" />
                       <span>More Services</span>
@@ -182,7 +182,7 @@ export function SharedNavigation() {
               <button
                 onClick={() => handleNavClick("/blog")}
                 data-testid="nav-blog"
-                className={`group/item flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold tracking-widest uppercase transition-all duration-300 ${isActive("/blog") ? "bg-[#C5A572] text-white" : "text-[#1A2332]/70 hover:text-[#1A2332] hover:bg-[#C5A572]/10"}`}
+                className={`group/item flex items-center gap-2 px-4 py-2 rounded-full text-sm font-bold tracking-widest uppercase transition-all duration-300 ${isActive("/blog") ? "bg-[#C5A572] text-white" : "text-[#1A2332]/70 hover:text-[#1A2332] hover:bg-[#C5A572]/10"}`}
                 style={isActive("/blog") ? { boxShadow: "0 0 15px rgba(197,165,114,0.4)" } : undefined}
               >
                 <FileText className="h-3.5 w-3.5 text-[#C5A572] transition-transform duration-300 group-hover/item:scale-110" />
@@ -196,7 +196,7 @@ export function SharedNavigation() {
               <Link href="/book">
                 <button
                   data-testid="button-get-quote"
-                  className="relative flex items-center gap-2 px-5 py-2.5 rounded-full font-bold text-xs tracking-widest uppercase overflow-hidden group/cta transition-all duration-300"
+                  className="relative flex items-center gap-2 px-5 py-2.5 rounded-full font-bold text-sm tracking-widest uppercase overflow-hidden group/cta transition-all duration-300"
                   style={{
                     background: "linear-gradient(135deg, #1A2332 0%, #243047 100%)",
                     color: "#C5A572",
@@ -206,7 +206,7 @@ export function SharedNavigation() {
                   <span className="relative z-10 whitespace-nowrap">Free Estimate</span>
                   <ChevronRight className="h-3.5 w-3.5 relative z-10 transition-transform duration-300 group-hover/cta:translate-x-0.5" />
                   <span className="absolute inset-0 opacity-0 group-hover/cta:opacity-100 transition-opacity duration-300" style={{ background: "linear-gradient(135deg, #C5A572 0%, #D4B483 100%)" }} />
-                  <span className="absolute inset-0 opacity-0 group-hover/cta:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-2 text-[#1A2332] font-bold text-xs tracking-widest uppercase">
+                  <span className="absolute inset-0 opacity-0 group-hover/cta:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-2 text-[#1A2332] font-bold text-sm tracking-widest uppercase">
                     Free Estimate <ChevronRight className="h-3.5 w-3.5" />
                   </span>
                 </button>
