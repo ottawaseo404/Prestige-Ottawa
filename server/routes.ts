@@ -1373,6 +1373,23 @@ Provide a detailed cost estimate in JSON format.`;
     }
   });
 
+  // Regenerate featured image for a single blog post
+  app.post("/api/admin/blog/:id/generate-image", requireAdmin, async (req, res) => {
+    try {
+      const post = await storage.getBlogPost(parseInt(req.params.id));
+      if (!post) return res.status(404).json({ message: "Post not found" });
+      const base64 = await generateFeaturedImage(post.title, "featured");
+      await storage.updateBlogPost(post.id, {
+        featuredImage: base64,
+        featuredImageAlt: `${post.title} - Prestige Moving Ottawa`,
+      });
+      res.json({ success: true, featuredImage: base64 });
+    } catch (error: any) {
+      console.error("Error generating image for post:", error);
+      res.status(500).json({ message: "Failed to generate image" });
+    }
+  });
+
   // Trigger manual blog generation (generates 2 blogs with AI images)
   app.post("/api/admin/blog/ai/generate-daily", requireAdmin, async (req, res) => {
     try {

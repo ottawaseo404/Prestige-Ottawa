@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useQuery, useMutation } from "@tanstack/react-query";
 import { Skeleton } from "@/components/ui/skeleton";
-import { Plus, Search, Trash2, Edit, Eye, FileText, Sparkles, Loader2, MoreHorizontal, ImageOff } from "lucide-react";
+import { Plus, Search, Trash2, Edit, Eye, FileText, Sparkles, Loader2, MoreHorizontal, ImageOff, ImagePlus } from "lucide-react";
 import { Link } from "wouter";
 import { format } from "date-fns";
 import type { BlogPost } from "@shared/schema";
@@ -33,6 +33,7 @@ export default function AdminBlog() {
   const [searchQuery, setSearchQuery] = useState("");
   const [statusFilter, setStatusFilter] = useState<string>("all");
   const [deletePostId, setDeletePostId] = useState<string | null>(null);
+  const [generatingImageIds, setGeneratingImageIds] = useState<Set<string>>(new Set());
 
   const { data: posts, isLoading } = useQuery<BlogPost[]>({
     queryKey: ["/api/admin/blog/posts"],
@@ -83,6 +84,24 @@ export default function AdminBlog() {
       toast({ title: "Fix Failed", description: error.message || "Failed to fix broken images.", variant: "destructive" });
     },
   });
+
+  const generateImageForPost = async (postId: string, postTitle: string) => {
+    setGeneratingImageIds(prev => new Set(prev).add(postId));
+    try {
+      const res = await apiRequest("POST", `/api/admin/blog/${postId}/generate-image`);
+      const data = await res.json();
+      if (data.success) {
+        toast({ title: "Image Generated", description: `New featured image created for "${postTitle}".` });
+        queryClient.invalidateQueries({ queryKey: ["/api/admin/blog/posts"] });
+      } else {
+        throw new Error(data.message || "Failed");
+      }
+    } catch (error: any) {
+      toast({ title: "Generation Failed", description: error.message || "Failed to generate image.", variant: "destructive" });
+    } finally {
+      setGeneratingImageIds(prev => { const s = new Set(prev); s.delete(postId); return s; });
+    }
+  };
 
   const filteredPosts = posts?.filter((post) => {
     const matchesSearch = !searchQuery || 
@@ -284,6 +303,17 @@ export default function AdminBlog() {
                           </DropdownMenuItem>
                         </Link>
                       )}
+                      <DropdownMenuItem
+                        onClick={() => generateImageForPost(post.id, post.title)}
+                        disabled={generatingImageIds.has(post.id)}
+                        data-testid={`button-generate-image-${post.id}`}
+                      >
+                        {generatingImageIds.has(post.id)
+                          ? <Loader2 className="h-4 w-4 mr-2 animate-spin" />
+                          : <ImagePlus className="h-4 w-4 mr-2" />
+                        }
+                        {generatingImageIds.has(post.id) ? "Generating..." : "Generate Image"}
+                      </DropdownMenuItem>
                       <DropdownMenuItem
                         className="text-destructive"
                         onClick={() => setDeletePostId(post.id)}
