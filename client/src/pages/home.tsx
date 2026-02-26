@@ -848,7 +848,7 @@ export default function Home() {
                 </div>
 
                 {/* Vancouver location link */}
-                <div className="mt-4">
+                <div className="mt-8">
                   <a
                     href="https://vancouver.prestigemoving.ca"
                     target="_blank"
@@ -857,7 +857,7 @@ export default function Home() {
                     data-testid="link-vancouver-hero"
                   >
                     <MapPin className="h-4 w-4" />
-                    Vancouver
+                    Vancouver Moving — Click Here
                   </a>
                 </div>
               </div>
