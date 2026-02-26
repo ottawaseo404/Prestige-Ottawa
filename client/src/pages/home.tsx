@@ -405,267 +405,268 @@ export default function Home() {
         {/* Sticky Header Container */}
         <div className="sticky top-0 z-50">
           {/* Top Contact Bar */}
-          <div className="bg-primary hidden md:block">
+          <div className="hidden md:block" style={{ background: "linear-gradient(90deg, #1A2332 0%, #243047 50%, #1A2332 100%)", borderBottom: "1px solid rgba(197,165,114,0.2)" }}>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="flex justify-between items-center h-9">
-                {/* Social Media Icons */}
-                <div className="flex items-center gap-3 ml-10">
-                  <a 
-                    href="https://www.facebook.com/prestigemoving.ca/" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="text-[#1A2332] hover:text-white transition-colors"
-                    data-testid="link-facebook"
-                  >
-                    <SiFacebook className="h-4 w-4" />
-                  </a>
-                  <a 
-                    href="https://www.instagram.com/movingprestige/" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="text-[#1A2332] hover:text-white transition-colors"
-                    data-testid="link-instagram"
-                  >
-                    <SiInstagram className="h-4 w-4" />
-                  </a>
-                  <a 
-                    href="https://www.linkedin.com/in/prestige-moving-inc-824520287" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="text-[#1A2332] hover:text-white transition-colors"
-                    data-testid="link-linkedin"
-                  >
-                    <SiLinkedin className="h-4 w-4" />
-                  </a>
-                  <a 
-                    href="https://youtu.be/IScekjNSOh8" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="text-[#1A2332] hover:text-white transition-colors"
-                    data-testid="link-youtube"
-                  >
-                    <SiYoutube className="h-4 w-4" />
-                  </a>
+                <div className="flex items-center gap-1">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="h-3 w-3 fill-[#C5A572] text-[#C5A572]" />
+                  ))}
+                  <span className="text-[#C5A572]/80 text-xs ml-2 font-medium tracking-wider">5.0 Google Rating · 10,000+ Moves</span>
                 </div>
-
-                {/* Contact Info */}
                 <div className="flex items-center gap-6">
-                  <a href="tel:613-600-4000" className="flex items-center gap-2 text-[#1A2332] text-sm hover:text-white transition-colors font-medium" data-testid="topbar-phone">
-                    <Phone className="h-3.5 w-3.5" />
+                  <a href="tel:613-600-4000" className="flex items-center gap-2 text-white/70 text-xs hover:text-[#C5A572] transition-colors font-medium tracking-wide" data-testid="topbar-phone">
+                    <Phone className="h-3 w-3" />
                     <span>613-600-4000</span>
                   </a>
-                  <a href="mailto:Ottawa@prestigemoving.ca" className="flex items-center gap-2 text-[#1A2332] text-sm hover:text-white transition-colors font-medium" data-testid="topbar-email">
-                    <Mail className="h-3.5 w-3.5" />
+                  <a href="mailto:Ottawa@prestigemoving.ca" className="flex items-center gap-2 text-white/70 text-xs hover:text-[#C5A572] transition-colors font-medium tracking-wide" data-testid="topbar-email">
+                    <Mail className="h-3 w-3" />
                     <span>Ottawa@prestigemoving.ca</span>
                   </a>
-                  <a href="https://maps.app.goo.gl/5grQGZ18k1GrxuEj7" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-[#1A2332] text-sm font-medium hover:text-white transition-colors" data-testid="topbar-address">
-                    <MapPin className="h-3.5 w-3.5" />
-                    <span>50 Colonnade Rd unit 200B, Ottawa, ON K2E 7J6</span>
+                  <a href="https://maps.app.goo.gl/5grQGZ18k1GrxuEj7" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-white/70 text-xs font-medium hover:text-[#C5A572] transition-colors tracking-wide" data-testid="topbar-address">
+                    <MapPin className="h-3 w-3" />
+                    <span>Ottawa, ON</span>
                   </a>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Modern Navigation - Light Theme */}
-          <nav className="bg-white border-b border-gray-200 shadow-sm">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex justify-between items-center h-36 gap-6">
-              <Link href="/" data-testid="link-logo" className="flex-shrink-0 group/logo">
-                <img 
-                  src={logoUrl} 
-                  alt="Prestige Moving" 
-                  className="h-32 object-contain cursor-pointer transition-all duration-500 drop-shadow-[0_0_10px_rgba(197,165,114,0.35)] group-hover/logo:scale-110 group-hover/logo:drop-shadow-[0_0_30px_rgba(197,165,114,0.85),0_0_60px_rgba(197,165,114,0.4)] group-hover/logo:-rotate-1" 
-                  data-testid="img-logo" 
-                />
-              </Link>
+          {/* Main Navigation */}
+          <nav
+            style={{
+              background: "linear-gradient(180deg, #0F1924 0%, #1A2332 100%)",
+              boxShadow: "0 4px 30px rgba(0,0,0,0.5), 0 1px 0 rgba(197,165,114,0.15)"
+            }}
+          >
+            {/* Animated shimmer bottom border */}
+            <div
+              className="absolute left-0 right-0 h-[1.5px]"
+              style={{
+                background: "linear-gradient(90deg, transparent 0%, rgba(197,165,114,0.15) 20%, rgba(197,165,114,0.7) 50%, rgba(197,165,114,0.15) 80%, transparent 100%)"
+              }}
+            />
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="flex justify-between items-center h-24 gap-4">
 
-              <div className="hidden lg:flex items-center gap-2">
-                <NavigationMenu delayDuration={0}>
-                  <NavigationMenuList className="gap-1">
-                    {/* Residential */}
-                    <NavigationMenuItem>
-                      <button 
-                        onClick={() => handleNavClick("/services/residential-moving")}
-                        className="group/item relative flex items-center gap-2 px-4 py-2.5 text-[#1A2332]/80 font-medium tracking-wide text-sm uppercase transition-all duration-300 hover:text-[#C5A572]"
-                        data-testid="nav-residential"
-                      >
-                        <HomeIcon className="h-4 w-4 transition-transform duration-300 group-hover/item:scale-110" />
-                        <span>Residential</span>
-                        <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-primary rounded-full transition-all duration-300 group-hover/item:w-4/5 group-hover/item:shadow-[0_0_10px_rgba(197,165,114,0.8),0_0_20px_rgba(197,165,114,0.4)]" />
-                      </button>
-                    </NavigationMenuItem>
-
-                    {/* Commercial */}
-                    <NavigationMenuItem>
-                      <button 
-                        onClick={() => handleNavClick("/services/commercial-moving")}
-                        className="group/item relative flex items-center gap-2 px-4 py-2.5 text-[#1A2332]/80 font-medium tracking-wide text-sm uppercase transition-all duration-300 hover:text-[#C5A572]"
-                        data-testid="nav-commercial"
-                      >
-                        <Building2 className="h-4 w-4 transition-transform duration-300 group-hover/item:scale-110" />
-                        <span>Commercial</span>
-                        <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-primary rounded-full transition-all duration-300 group-hover/item:w-4/5 group-hover/item:shadow-[0_0_10px_rgba(197,165,114,0.8),0_0_20px_rgba(197,165,114,0.4)]" />
-                      </button>
-                    </NavigationMenuItem>
-
-                    {/* Long Distance */}
-                    <NavigationMenuItem>
-                      <button 
-                        onClick={() => handleNavClick("/services/long-distance-moving")}
-                        className="group/item relative flex items-center gap-2 px-4 py-2.5 text-[#1A2332]/80 font-medium tracking-wide text-sm uppercase transition-all duration-300 hover:text-[#C5A572] whitespace-nowrap"
-                        data-testid="nav-long-distance"
-                      >
-                        <Truck className="h-4 w-4 flex-shrink-0 transition-transform duration-300 group-hover/item:scale-110" />
-                        <span>Long Distance</span>
-                        <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-primary rounded-full transition-all duration-300 group-hover/item:w-4/5 group-hover/item:shadow-[0_0_10px_rgba(197,165,114,0.8),0_0_20px_rgba(197,165,114,0.4)]" />
-                      </button>
-                    </NavigationMenuItem>
-
-                    {/* More Services Dropdown */}
-                    <NavigationMenuItem>
-                      <NavigationMenuTrigger className="group/trigger relative text-[#1A2332]/80 font-medium tracking-wide text-sm uppercase !bg-transparent hover:!bg-transparent hover:text-[#C5A572] data-[state=open]:!bg-transparent data-[state=open]:text-[#C5A572] gap-2 transition-all duration-300" data-testid="nav-services-trigger">
-                        <Package className="h-4 w-4 transition-transform duration-300 group-hover/trigger:scale-110" />
-                        <span>More Services</span>
-                        <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-primary rounded-full transition-all duration-300 group-hover/trigger:w-4/5 group-data-[state=open]/trigger:w-4/5 group-hover/trigger:shadow-[0_0_10px_rgba(197,165,114,0.8),0_0_20px_rgba(197,165,114,0.4)] group-data-[state=open]/trigger:shadow-[0_0_10px_rgba(197,165,114,0.8),0_0_20px_rgba(197,165,114,0.4)]" />
-                      </NavigationMenuTrigger>
-                      <NavigationMenuContent>
-                        <div className="w-[400px] p-4 bg-background">
-                          <div className="space-y-1">
-                            {services.filter(s => 
-                              !['Residential Moving', 'Commercial Moving', 'Long Distance Moving'].includes(s.title)
-                            ).map((service) => (
-                              <button
-                                key={service.href}
-                                onClick={() => handleNavClick(service.href)}
-                                className="group/item relative flex items-center gap-3 p-3 rounded-md cursor-pointer w-full text-left transition-all duration-300 hover:bg-primary/5"
-                                data-testid={`nav-service-${service.title.toLowerCase().replace(/\s+/g, '-')}`}
-                              >
-                                <service.icon className="h-5 w-5 text-primary flex-shrink-0 transition-transform duration-300 group-hover/item:scale-110" />
-                                <div className="flex-1">
-                                  <div className="font-medium text-sm group-hover/item:text-primary transition-colors duration-300">{service.title}</div>
-                                  <div className="text-xs text-muted-foreground">{service.description}</div>
-                                </div>
-                                <span className="absolute bottom-1 left-3 right-3 h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent rounded-full scale-x-0 group-hover/item:scale-x-100 transition-transform duration-300 origin-center shadow-[0_0_8px_rgba(197,165,114,0.6)]" />
-                              </button>
-                            ))}
-                          </div>
-                        </div>
-                      </NavigationMenuContent>
-                    </NavigationMenuItem>
-                  </NavigationMenuList>
-                </NavigationMenu>
-
-                <button 
-                  onClick={() => handleNavClick("/blog")}
-                  className="group/item relative flex items-center gap-2 px-4 py-2.5 text-[#1A2332]/80 font-medium tracking-wide text-sm uppercase transition-all duration-300 hover:text-[#C5A572]"
-                  data-testid="nav-blog"
-                >
-                  <FileText className="h-4 w-4 transition-transform duration-300 group-hover/item:scale-110" />
-                  <span>Blog</span>
-                  <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-primary rounded-full transition-all duration-300 group-hover/item:w-4/5 group-hover/item:shadow-[0_0_10px_rgba(197,165,114,0.8),0_0_20px_rgba(197,165,114,0.4)]" />
-                </button>
-
-                <Link href="/admin">
-                  <Button variant="ghost" size="icon" className="text-[#1A2332]/60 hover:bg-gray-100" data-testid="link-admin-nav">
-                    <Lock className="h-5 w-5" />
-                  </Button>
+                {/* Logo */}
+                <Link href="/" data-testid="link-logo" className="flex-shrink-0 group/logo">
+                  <img
+                    src={logoUrl}
+                    alt="Prestige Moving"
+                    className="h-20 object-contain cursor-pointer transition-all duration-500 group-hover/logo:scale-105"
+                    style={{ filter: "drop-shadow(0 0 12px rgba(197,165,114,0.3))" }}
+                    data-testid="img-logo"
+                  />
                 </Link>
-              </div>
 
-              <div className="lg:hidden flex items-center gap-2">
-                <a href="tel:(613) 600-4000" className="p-2 text-[#1A2332]" data-testid="link-phone-mobile">
-                  <Phone className="h-5 w-5" />
-                </a>
-                <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
-                  <SheetTrigger asChild>
-                    <Button variant="ghost" size="icon" className="text-[#1A2332] hover:bg-gray-100" data-testid="button-mobile-menu">
-                      <Menu className="h-6 w-6" />
+                {/* Desktop Nav */}
+                <div className="hidden lg:flex items-center gap-1">
+                  <NavigationMenu delayDuration={0}>
+                    <NavigationMenuList className="gap-0.5">
+
+                      {/* Residential */}
+                      <NavigationMenuItem>
+                        <button
+                          onClick={() => handleNavClick("/services/residential-moving")}
+                          className="group/item flex items-center gap-2.5 px-4 py-2 rounded-full text-xs font-bold tracking-widest uppercase transition-all duration-300 text-white/70 hover:text-[#C5A572] hover:bg-[#C5A572]/10"
+                          data-testid="nav-residential"
+                        >
+                          <HomeIcon className="h-3.5 w-3.5 flex-shrink-0 transition-all duration-300 group-hover/item:text-[#C5A572] group-hover/item:scale-110" />
+                          <span>Residential</span>
+                        </button>
+                      </NavigationMenuItem>
+
+                      {/* Commercial */}
+                      <NavigationMenuItem>
+                        <button
+                          onClick={() => handleNavClick("/services/commercial-moving")}
+                          className="group/item flex items-center gap-2.5 px-4 py-2 rounded-full text-xs font-bold tracking-widest uppercase transition-all duration-300 text-white/70 hover:text-[#C5A572] hover:bg-[#C5A572]/10"
+                          data-testid="nav-commercial"
+                        >
+                          <Building2 className="h-3.5 w-3.5 flex-shrink-0 transition-all duration-300 group-hover/item:text-[#C5A572] group-hover/item:scale-110" />
+                          <span>Commercial</span>
+                        </button>
+                      </NavigationMenuItem>
+
+                      {/* Long Distance */}
+                      <NavigationMenuItem>
+                        <button
+                          onClick={() => handleNavClick("/services/long-distance-moving")}
+                          className="group/item flex items-center gap-2.5 px-4 py-2 rounded-full text-xs font-bold tracking-widest uppercase transition-all duration-300 text-white/70 hover:text-[#C5A572] hover:bg-[#C5A572]/10 whitespace-nowrap"
+                          data-testid="nav-long-distance"
+                        >
+                          <Truck className="h-3.5 w-3.5 flex-shrink-0 transition-all duration-300 group-hover/item:text-[#C5A572] group-hover/item:scale-110" />
+                          <span>Long Distance</span>
+                        </button>
+                      </NavigationMenuItem>
+
+                      {/* More Services Dropdown */}
+                      <NavigationMenuItem>
+                        <NavigationMenuTrigger
+                          data-testid="nav-services-trigger"
+                          className="group/trigger flex items-center gap-2.5 px-4 py-2 rounded-full text-xs font-bold tracking-widest uppercase transition-all duration-300 text-white/70 hover:text-[#C5A572] hover:bg-[#C5A572]/10 !bg-transparent data-[state=open]:!bg-[#C5A572]/10 data-[state=open]:text-[#C5A572] [&>svg]:hidden"
+                        >
+                          <Package className="h-3.5 w-3.5 transition-all duration-300 group-hover/trigger:text-[#C5A572] group-hover/trigger:scale-110" />
+                          <span>More Services</span>
+                        </NavigationMenuTrigger>
+                        <NavigationMenuContent>
+                          <div
+                            className="w-[520px] p-3"
+                            style={{
+                              background: "linear-gradient(145deg, #0F1924 0%, #1A2332 100%)",
+                              border: "1px solid rgba(197,165,114,0.25)",
+                              boxShadow: "0 20px 60px rgba(0,0,0,0.7), 0 0 0 1px rgba(197,165,114,0.1), inset 0 1px 0 rgba(197,165,114,0.1)"
+                            }}
+                          >
+                            <div className="px-3 py-2 mb-2">
+                              <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-[#C5A572]/60">All Services</span>
+                            </div>
+                            <div className="grid grid-cols-2 gap-1">
+                              {services.filter(s =>
+                                !['Residential Moving', 'Commercial Moving', 'Long Distance Moving'].includes(s.title)
+                              ).map((service) => (
+                                <button
+                                  key={service.href}
+                                  onClick={() => handleNavClick(service.href)}
+                                  className="group/item flex items-center gap-3 px-3 py-2.5 rounded-md cursor-pointer w-full text-left transition-all duration-200 hover:bg-[#C5A572]/10"
+                                  data-testid={`nav-service-${service.title.toLowerCase().replace(/\s+/g, '-')}`}
+                                >
+                                  <div className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 group-hover/item:bg-[#C5A572]/20" style={{ background: "rgba(197,165,114,0.1)" }}>
+                                    <service.icon className="h-4 w-4 text-[#C5A572]/70 group-hover/item:text-[#C5A572] transition-colors" />
+                                  </div>
+                                  <div className="flex-1 min-w-0">
+                                    <div className="text-white/85 font-semibold text-xs group-hover/item:text-[#C5A572] transition-colors truncate">{service.title}</div>
+                                    <div className="text-white/40 text-[11px] truncate">{service.description}</div>
+                                  </div>
+                                  <ChevronRight className="h-3 w-3 text-white/20 group-hover/item:text-[#C5A572]/60 flex-shrink-0 transition-all duration-200 group-hover/item:translate-x-0.5" />
+                                </button>
+                              ))}
+                            </div>
+                          </div>
+                        </NavigationMenuContent>
+                      </NavigationMenuItem>
+
+                    </NavigationMenuList>
+                  </NavigationMenu>
+
+                  {/* Blog */}
+                  <button
+                    onClick={() => handleNavClick("/blog")}
+                    data-testid="nav-blog"
+                    className="group/item flex items-center gap-2.5 px-4 py-2 rounded-full text-xs font-bold tracking-widest uppercase transition-all duration-300 text-white/70 hover:text-[#C5A572] hover:bg-[#C5A572]/10"
+                  >
+                    <FileText className="h-3.5 w-3.5 transition-all duration-300 group-hover/item:scale-110" />
+                    <span>Blog</span>
+                  </button>
+
+                  {/* Divider */}
+                  <div className="w-px h-6 bg-white/10 mx-2" />
+
+                  {/* Get Quote CTA */}
+                  <Link href="/book">
+                    <button
+                      data-testid="button-get-quote"
+                      className="relative flex items-center gap-2 px-5 py-2.5 rounded-full font-bold text-xs tracking-widest uppercase transition-all duration-300 overflow-hidden group/cta"
+                      style={{
+                        background: "linear-gradient(135deg, #C5A572 0%, #D4B483 50%, #C5A572 100%)",
+                        color: "#1A2332",
+                        boxShadow: "0 0 20px rgba(197,165,114,0.4), 0 4px 15px rgba(0,0,0,0.3)",
+                      }}
+                    >
+                      <span className="relative z-10 whitespace-nowrap">Free Estimate</span>
+                      <ChevronRight className="h-3.5 w-3.5 relative z-10 transition-transform duration-300 group-hover/cta:translate-x-0.5" />
+                      <span
+                        className="absolute inset-0 opacity-0 group-hover/cta:opacity-100 transition-opacity duration-300"
+                        style={{ background: "linear-gradient(135deg, #D4B483 0%, #E5C994 50%, #D4B483 100%)" }}
+                      />
+                    </button>
+                  </Link>
+
+                  {/* Admin lock */}
+                  <Link href="/admin">
+                    <Button variant="ghost" size="icon" className="text-white/30 hover:text-white/60 hover:bg-white/5" data-testid="link-admin-nav">
+                      <Lock className="h-4 w-4" />
                     </Button>
-                  </SheetTrigger>
-                  <SheetContent side="right" className="w-[300px] sm:w-[400px] bg-[#1A2332] border-primary/20 overflow-y-auto">
-                    <div className="flex flex-col gap-4 mt-8">
-                      {/* Main Navigation */}
-                      <div className="space-y-1">
-                        <button
-                          onClick={() => {
-                            handleNavClick("/");
-                            setMobileMenuOpen(false);
-                          }}
-                          className="flex items-center gap-3 p-3 rounded-md hover:bg-white/10 cursor-pointer w-full text-left"
-                          data-testid="mobile-nav-home"
-                        >
-                          <HomeIcon className="h-5 w-5 text-primary flex-shrink-0" />
-                          <span className="font-medium text-white">Home</span>
-                        </button>
-                        <button
-                          onClick={() => {
-                            handleNavClick("/contact");
-                            setMobileMenuOpen(false);
-                          }}
-                          className="flex items-center gap-3 p-3 rounded-md hover:bg-white/10 cursor-pointer w-full text-left"
-                          data-testid="mobile-nav-contact"
-                        >
-                          <Mail className="h-5 w-5 text-primary flex-shrink-0" />
-                          <span className="font-medium text-white">Contact Us</span>
-                        </button>
-                        <a
-                          href="tel:(613) 600-4000"
-                          className="flex items-center gap-3 p-3 rounded-md hover:bg-white/10 cursor-pointer w-full text-left"
-                          data-testid="mobile-nav-phone"
-                        >
-                          <Phone className="h-5 w-5 text-primary flex-shrink-0" />
-                          <span className="font-medium text-white">(613) 600-4000</span>
-                        </a>
-                      </div>
+                  </Link>
+                </div>
 
-                      {/* Divider */}
-                      <div className="border-t border-white/10" />
-
-                      {/* Services */}
-                      <div>
-                        <h3 className="font-bold text-sm uppercase tracking-wider mb-3 text-primary">Our Services</h3>
-                        <div className="space-y-1 max-h-[45vh] overflow-y-auto">
+                {/* Mobile Nav */}
+                <div className="lg:hidden flex items-center gap-2">
+                  <a href="tel:(613) 600-4000" className="p-2 text-[#C5A572]" data-testid="link-phone-mobile">
+                    <Phone className="h-5 w-5" />
+                  </a>
+                  <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
+                    <SheetTrigger asChild>
+                      <Button
+                        variant="ghost"
+                        size="icon"
+                        data-testid="button-mobile-menu"
+                        className="text-white/70 hover:bg-[#C5A572]/10 hover:text-[#C5A572]"
+                      >
+                        <Menu className="h-6 w-6" />
+                      </Button>
+                    </SheetTrigger>
+                    <SheetContent
+                      side="right"
+                      className="w-[300px] sm:w-[360px] border-l border-[#C5A572]/20 overflow-y-auto p-0"
+                      style={{ background: "linear-gradient(180deg, #0F1924 0%, #1A2332 100%)" }}
+                    >
+                      <div className="flex flex-col gap-0 mt-12">
+                        <div className="px-6 pb-4 border-b border-white/10">
+                          <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-[#C5A572]/60">Navigation</p>
+                        </div>
+                        <div className="p-3 space-y-0.5">
+                          <button
+                            onClick={() => { handleNavClick("/"); setMobileMenuOpen(false); }}
+                            className="flex items-center gap-3 px-4 py-3 rounded-md w-full text-left text-white/80 hover:text-[#C5A572] hover:bg-[#C5A572]/10 transition-all duration-200"
+                            data-testid="mobile-nav-home"
+                          >
+                            <HomeIcon className="h-4 w-4 text-[#C5A572]/70 flex-shrink-0" />
+                            <span className="font-semibold text-sm">Home</span>
+                          </button>
                           {services.map((service) => (
                             <button
                               key={service.href}
-                              onClick={() => {
-                                handleNavClick(service.href);
-                                setMobileMenuOpen(false);
-                              }}
-                              className="flex items-center gap-3 p-3 rounded-md hover:bg-white/10 cursor-pointer w-full text-left"
+                              onClick={() => { handleNavClick(service.href); setMobileMenuOpen(false); }}
+                              className="flex items-center gap-3 px-4 py-3 rounded-md w-full text-left text-white/80 hover:text-[#C5A572] hover:bg-[#C5A572]/10 transition-all duration-200"
                               data-testid={`mobile-nav-service-${service.title.toLowerCase().replace(/\s+/g, '-')}`}
                             >
-                              <service.icon className="h-5 w-5 text-primary flex-shrink-0" />
-                              <span className="font-medium text-white">{service.title}</span>
+                              <service.icon className="h-4 w-4 text-[#C5A572]/70 flex-shrink-0" />
+                              <span className="font-semibold text-sm">{service.title}</span>
                             </button>
                           ))}
+                          <button
+                            onClick={() => { handleNavClick("/blog"); setMobileMenuOpen(false); }}
+                            className="flex items-center gap-3 px-4 py-3 rounded-md w-full text-left text-white/80 hover:text-[#C5A572] hover:bg-[#C5A572]/10 transition-all duration-200"
+                            data-testid="mobile-nav-blog"
+                          >
+                            <FileText className="h-4 w-4 text-[#C5A572]/70 flex-shrink-0" />
+                            <span className="font-semibold text-sm">Blog</span>
+                          </button>
+                        </div>
+                        <div className="p-4 mt-2">
+                          <Link href="/book" onClick={() => setMobileMenuOpen(false)}>
+                            <button
+                              data-testid="mobile-get-quote"
+                              className="w-full py-3.5 rounded-full font-bold text-sm tracking-widest uppercase"
+                              style={{
+                                background: "linear-gradient(135deg, #C5A572 0%, #D4B483 100%)",
+                                color: "#1A2332",
+                                boxShadow: "0 0 25px rgba(197,165,114,0.4)"
+                              }}
+                            >
+                              Get Free Estimate
+                            </button>
+                          </Link>
                         </div>
                       </div>
+                    </SheetContent>
+                  </Sheet>
+                </div>
 
-                      {/* Divider */}
-                      <div className="border-t border-white/10" />
-
-                      {/* Locations */}
-                      <div className="space-y-1">
-                        <div className="flex items-center gap-3 p-3 text-white/70">
-                          <MapPin className="h-5 w-5 text-primary flex-shrink-0" />
-                          <span className="text-sm">Serving Ottawa & Area</span>
-                        </div>
-                      </div>
-
-                      {/* CTA Button */}
-                      <Link href="/book">
-                        <Button variant="default" className="w-full font-bold" size="lg" onClick={() => setMobileMenuOpen(false)} data-testid="button-mobile-quote">
-                          GET FREE ESTIMATE
-                        </Button>
-                      </Link>
-                    </div>
-                  </SheetContent>
-                </Sheet>
               </div>
             </div>
-          </div>
           </nav>
         </div>
 
