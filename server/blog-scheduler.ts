@@ -1,8 +1,6 @@
 import { storage } from "./storage";
 import { generateBlogPost, generateFeaturedImage, generateBlogIdeas } from "./ai-service";
 import { nanoid } from "nanoid";
-import fs from "fs";
-import path from "path";
 
 const BLOGS_PER_DAY = 1;
 let isGenerating = false;
@@ -28,49 +26,35 @@ export async function generateDailyBlogs(): Promise<void> {
         const blogContent = await generateBlogPost(topic);
         console.log(`[Blog Scheduler] Content generated for: "${blogContent.title}"`);
 
-        let featuredImagePath = "";
-        let inlineImagePath = "";
-        
+        // Store featured image as base64 data URL directly in DB — survives deployments
+        let featuredImageData: string | null = null;
         try {
           console.log(`[Blog Scheduler] Generating featured image...`);
           const imageBase64 = await generateFeaturedImage(blogContent.title, "featured");
-          
-          const imageBuffer = Buffer.from(imageBase64.replace(/^data:image\/\w+;base64,/, ""), "base64");
-          const imageName = `blog-${blogContent.slug}-featured-${nanoid(6)}.png`;
-          const imagePath = path.join(process.cwd(), "client", "public", "blog-images", imageName);
-          
-          if (!fs.existsSync(path.dirname(imagePath))) {
-            fs.mkdirSync(path.dirname(imagePath), { recursive: true });
-          }
-          
-          fs.writeFileSync(imagePath, imageBuffer);
-          featuredImagePath = `/blog-images/${imageName}`;
-          console.log(`[Blog Scheduler] Featured image saved: ${featuredImagePath}`);
+          // imageBase64 is already a data:image/png;base64,... string — store it directly
+          featuredImageData = imageBase64;
+          console.log(`[Blog Scheduler] Featured image generated and stored as base64 in DB`);
         } catch (imageError) {
           console.error(`[Blog Scheduler] Featured image generation failed:`, imageError);
-          featuredImagePath = "/og-image.png";
         }
 
+        // Store inline image as base64 data URL directly in content HTML — survives deployments
+        let inlineImageData: string | null = null;
         try {
           console.log(`[Blog Scheduler] Generating inline content image...`);
           const inlineBase64 = await generateFeaturedImage(blogContent.title, "inline");
-          
-          const inlineBuffer = Buffer.from(inlineBase64.replace(/^data:image\/\w+;base64,/, ""), "base64");
-          const inlineName = `blog-${blogContent.slug}-inline-${nanoid(6)}.png`;
-          const inlinePath = path.join(process.cwd(), "client", "public", "blog-images", inlineName);
-          
-          fs.writeFileSync(inlinePath, inlineBuffer);
-          inlineImagePath = `/blog-images/${inlineName}`;
-          console.log(`[Blog Scheduler] Inline image saved: ${inlineImagePath}`);
+          inlineImageData = inlineBase64;
+          console.log(`[Blog Scheduler] Inline image generated`);
         } catch (inlineError) {
           console.error(`[Blog Scheduler] Inline image generation failed:`, inlineError);
         }
 
+        // Embed inline image as base64 <img> tag directly in content
         let finalContent = blogContent.content;
-        if (inlineImagePath) {
+        if (inlineImageData) {
           const paragraphs = finalContent.split('\n\n');
           const insertIndex = Math.min(3, Math.floor(paragraphs.length / 3));
-          const imageHtml = `\n\n<figure class="my-8"><img src="${inlineImagePath}" alt="${blogContent.title} - Moving in Ottawa" class="w-full rounded-lg shadow-lg" /><figcaption class="text-center text-sm text-muted-foreground mt-2">Professional moving services in Ottawa</figcaption></figure>\n\n`;
+          const imageHtml = `\n\n<figure class="my-8"><img src="${inlineImageData}" alt="${blogContent.title} - Moving in Ottawa" class="w-full rounded-lg shadow-lg" /><figcaption class="text-center text-sm text-muted-foreground mt-2">Professional moving services in Ottawa</figcaption></figure>\n\n`;
           paragraphs.splice(insertIndex, 0, imageHtml);
           finalContent = paragraphs.join('\n\n');
         }
@@ -86,8 +70,8 @@ export async function generateDailyBlogs(): Promise<void> {
           slug: blogContent.slug,
           excerpt: blogContent.excerpt,
           content: finalContent,
-          featuredImage: featuredImagePath,
-          featuredImageAlt: `Featured image for ${blogContent.title}`,
+          featuredImage: featuredImageData,
+          featuredImageAlt: featuredImageData ? `${blogContent.title} - Prestige Moving Ottawa` : null,
           metaTitle: blogContent.metaTitle,
           metaDescription: blogContent.metaDescription,
           keywords: blogContent.keywords,

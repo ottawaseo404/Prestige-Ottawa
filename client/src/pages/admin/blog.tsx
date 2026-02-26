@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useQuery, useMutation } from "@tanstack/react-query";
 import { Skeleton } from "@/components/ui/skeleton";
-import { Plus, Search, Trash2, Edit, Eye, FileText, Sparkles, Loader2, MoreHorizontal } from "lucide-react";
+import { Plus, Search, Trash2, Edit, Eye, FileText, Sparkles, Loader2, MoreHorizontal, ImageOff } from "lucide-react";
 import { Link } from "wouter";
 import { format } from "date-fns";
 import type { BlogPost } from "@shared/schema";
@@ -66,6 +66,24 @@ export default function AdminBlog() {
     },
   });
 
+  const fixImagesMutation = useMutation({
+    mutationFn: async () => {
+      const res = await apiRequest("POST", "/api/admin/blog/ai/fix-broken-images");
+      return res.json();
+    },
+    onSuccess: (data) => {
+      if (data.fixed === 0) {
+        toast({ title: "No Broken Images", description: "All blog posts already have working images." });
+      } else {
+        toast({ title: "Images Fixed", description: `Regenerated images for ${data.fixed} blog post${data.fixed !== 1 ? "s" : ""}.` });
+        queryClient.invalidateQueries({ queryKey: ["/api/admin/blog/posts"] });
+      }
+    },
+    onError: (error: any) => {
+      toast({ title: "Fix Failed", description: error.message || "Failed to fix broken images.", variant: "destructive" });
+    },
+  });
+
   const filteredPosts = posts?.filter((post) => {
     const matchesSearch = !searchQuery || 
       post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -99,6 +117,16 @@ export default function AdminBlog() {
           <p className="text-muted-foreground">Create and manage your blog posts</p>
         </div>
         <div className="flex gap-2 flex-wrap">
+          <Button
+            variant="outline"
+            onClick={() => fixImagesMutation.mutate()}
+            disabled={fixImagesMutation.isPending}
+            data-testid="button-fix-images"
+            title="Regenerate missing featured images for AI-generated posts"
+          >
+            {fixImagesMutation.isPending ? <Loader2 className="h-4 w-4 mr-2 animate-spin" /> : <ImageOff className="h-4 w-4 mr-2" />}
+            Fix Images
+          </Button>
           <Button
             variant="outline"
             onClick={() => generateMutation.mutate()}

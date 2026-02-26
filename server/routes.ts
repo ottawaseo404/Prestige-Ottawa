@@ -1334,6 +1334,45 @@ Provide a detailed cost estimate in JSON format.`;
     }
   });
 
+  // Fix broken blog images: finds posts with filesystem-dependent paths and regenerates as base64
+  app.post("/api/admin/blog/ai/fix-broken-images", requireAdmin, async (req, res) => {
+    try {
+      const allPosts = await storage.getAllBlogPosts();
+      // Find posts whose featured_image is a /blog-images/blog-* filesystem path (not base64, not ChatGPT, not og-image)
+      const broken = allPosts.filter(p =>
+        p.featuredImage &&
+        p.featuredImage.startsWith("/blog-images/blog-") &&
+        !p.featuredImage.startsWith("data:")
+      );
+
+      if (broken.length === 0) {
+        return res.json({ success: true, message: "No broken images found", fixed: 0 });
+      }
+
+      console.log(`[Fix Images] Found ${broken.length} posts with broken images, regenerating...`);
+      let fixed = 0;
+
+      for (const post of broken) {
+        try {
+          const base64 = await generateFeaturedImage(post.title, "featured");
+          await storage.updateBlogPost(post.id, {
+            featuredImage: base64,
+            featuredImageAlt: `${post.title} - Prestige Moving Ottawa`,
+          });
+          fixed++;
+          console.log(`[Fix Images] Fixed: "${post.title}"`);
+        } catch (err) {
+          console.error(`[Fix Images] Failed for "${post.title}":`, err);
+        }
+      }
+
+      res.json({ success: true, message: `Fixed ${fixed} of ${broken.length} posts`, fixed, total: broken.length });
+    } catch (error: any) {
+      console.error("Error fixing broken images:", error);
+      res.status(500).json({ message: "Failed to fix broken images" });
+    }
+  });
+
   // Trigger manual blog generation (generates 2 blogs with AI images)
   app.post("/api/admin/blog/ai/generate-daily", requireAdmin, async (req, res) => {
     try {
