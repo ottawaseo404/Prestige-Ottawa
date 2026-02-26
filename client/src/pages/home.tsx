@@ -1230,7 +1230,7 @@ export default function Home() {
         <section className="py-20 md:py-28 bg-gradient-to-b from-gray-50 to-white overflow-hidden">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* Parliament Hill Truck Image */}
-            <div className="mb-12 max-w-3xl mx-auto">
+            <div className="mb-12">
               <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-primary/20 via-primary/10 to-primary/20 p-1.5">
                 <div className="relative rounded-xl overflow-hidden">
                   <img 
