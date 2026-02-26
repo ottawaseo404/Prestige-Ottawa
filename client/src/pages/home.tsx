@@ -14,7 +14,7 @@ import {
   Home as HomeIcon, Building2, MapPin, Menu, Warehouse, GraduationCap, 
   Heart, Music, Crown, Dumbbell, Box, Medal, ArrowRight, Star, 
   Quote, Users, ThumbsUp, ChevronLeft, ChevronRight, Truck, Headphones,
-  Mail, Calendar, Calculator, Sparkles, Lock, FileText, DollarSign
+  Mail, Calendar, Calculator, Sparkles, Lock, FileText, DollarSign, Zap, CheckCircle
 } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import {
@@ -1246,6 +1246,7 @@ export default function Home() {
 
             {/* Section Header */}
             <div className="text-center mb-16">
+              {/* Badge */}
               <div className="relative inline-flex flex-col sm:flex-row items-center gap-2 sm:gap-3 bg-gradient-to-br from-primary/25 via-primary/15 to-primary/25 border border-primary/40 rounded-2xl sm:rounded-full px-4 sm:px-6 py-3 sm:py-3 mb-6 shadow-xl shadow-primary/20 backdrop-blur-sm overflow-hidden group">
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
                 <div className="flex items-center justify-center w-10 h-10 sm:w-8 sm:h-8 bg-gradient-to-br from-primary to-primary/80 rounded-full shadow-lg shadow-primary/30">
@@ -1258,15 +1259,62 @@ export default function Home() {
                   ))}
                 </div>
               </div>
+
+              {/* Heading */}
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-[#1A2332] mb-6">
-                Prestige <span className="text-primary">Moving in Ottawa</span>
+                Ottawa's Most Trusted <span className="text-primary">Moving Company</span>
               </h2>
-              <p className="text-xl text-gray-600 max-w-5xl mx-auto mb-4">
-                At <strong className="text-[#1A2332]">Prestige Moving</strong>, we deliver an unmatched moving experience with top-of-the-line quality that sets us apart from the competition. Our <strong className="text-[#1A2332]">Ottawa movers</strong> provide white-glove service across Greater Ottawa, Kanata, Orleans, Nepean, Barrhaven, Gloucester, and the entire National Capital Region — because your belongings deserve nothing less than prestige.
+
+              {/* Intro paragraph */}
+              <p className="text-xl text-gray-600 max-w-5xl mx-auto mb-6 leading-relaxed">
+                At <strong className="text-[#1A2332]">Prestige Moving</strong>, we live and breathe one simple promise — getting you from one location to the next <strong className="text-[#1A2332]">fast, efficiently, safely, and with a smile</strong>. Whether you're crossing the street or crossing the province, our team of highly trained Ottawa movers treats every single move as if it were our own. We show up on time, work with precision, handle your belongings with the utmost care, and don't stop until you're completely settled in — because <em>your peace of mind is our top priority</em>.
               </p>
-              <p className="text-lg text-gray-500 max-w-5xl mx-auto">
-                Whether you're moving into your first apartment in Centretown, upgrading to a family home in Barrhaven, or relocating your business in the downtown core, our <strong className="text-[#1A2332]">professional movers</strong> handle every detail with care. From expert packing and furniture disassembly to safe transport and setup at your new location, we take the stress out of moving day so you can focus on what matters most. With <strong className="text-[#1A2332]">350+ five-star reviews</strong>, fully insured teams, and transparent pricing with no hidden fees, it's no wonder thousands of Ottawa families trust Prestige Moving for their most important moves.
+
+              {/* 4 value-prop pills */}
+              <div className="flex flex-wrap justify-center gap-3 mb-8">
+                {[
+                  { icon: Zap, label: "Lightning Fast", desc: "We move with urgency — no wasted time, ever" },
+                  { icon: Shield, label: "100% Safe", desc: "Fully insured, WSIB certified, zero damage policy" },
+                  { icon: Heart, label: "Genuinely Friendly", desc: "We love what we do — and it shows" },
+                  { icon: CheckCircle, label: "Ruthlessly Efficient", desc: "Expert systems that keep your move on track" },
+                ].map(({ icon: Icon, label, desc }) => (
+                  <div key={label} className="flex items-center gap-3 bg-white border border-primary/20 rounded-2xl px-5 py-3 shadow-sm hover:shadow-md hover:border-primary/40 transition-all duration-300">
+                    <div className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+                      <Icon className="h-4 w-4 text-primary" />
+                    </div>
+                    <div className="text-left">
+                      <div className="font-bold text-[#1A2332] text-sm leading-tight">{label}</div>
+                      <div className="text-gray-500 text-xs">{desc}</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Body copy */}
+              <p className="text-lg text-gray-600 max-w-5xl mx-auto mb-5 leading-relaxed">
+                We proudly offer a <strong className="text-[#1A2332]">complete suite of moving services</strong> designed to cover every need, every situation, and every budget. Our Ottawa moving specialists handle <strong className="text-[#1A2332]">Residential Moves</strong> — apartments, condos, townhomes, and houses — with the same dedication we bring to <strong className="text-[#1A2332]">Commercial & Office Relocations</strong>, ensuring zero business downtime. Planning a bigger journey? Our <strong className="text-[#1A2332]">Long Distance Moving</strong> teams are experienced across British Columbia and all of Canada, delivering your home safely to its next chapter.
               </p>
+              <p className="text-lg text-gray-600 max-w-5xl mx-auto mb-5 leading-relaxed">
+                Need help preparing? Our professional <strong className="text-[#1A2332]">Packing Services</strong> team will wrap, box, and label everything with military precision — or we'll deliver <strong className="text-[#1A2332]">Moving Supplies</strong> right to your door so you can pack at your own pace. Moving out of a dorm or campus housing? Our <strong className="text-[#1A2332]">Student Moving</strong> packages are affordable, flexible, and built for busy schedules. Need a place to store your belongings between moves? Our <strong className="text-[#1A2332]">Storage Solutions</strong> offer secure, climate-controlled facilities you can trust.
+              </p>
+              <p className="text-lg text-gray-600 max-w-5xl mx-auto mb-8 leading-relaxed">
+                We also specialize in the moves that demand the most care. Our <strong className="text-[#1A2332]">Specialty Item Moving</strong> team handles hot tubs, pool tables, and gym equipment with custom rigging and equipment. Got a treasured grand piano? Our <strong className="text-[#1A2332]">Piano Moving</strong> specialists are among the best in Ottawa. Handling irreplaceable <strong className="text-[#1A2332]">Antiques and Fine Art</strong>? We treat them like museum pieces. Need compassionate, patient service for an elderly parent? Our <strong className="text-[#1A2332]">Senior Moving</strong> team is gentle, kind, and thorough. Serving our country? We proudly support <strong className="text-[#1A2332]">Military Moves</strong> with structured, reliable, stress-free relocations. No matter what you need — we've got you covered, every step of the way.
+              </p>
+
+              {/* Service pills */}
+              <div className="flex flex-wrap justify-center gap-2 mb-2">
+                {[
+                  "Residential Moving", "Commercial Moving", "Long Distance Moving",
+                  "Packing Services", "Moving Supplies", "Student Moving",
+                  "Storage Solutions", "Specialty Item Moving", "Antique Moving",
+                  "Piano Moving", "Senior Moving", "Military Moving",
+                ].map((service) => (
+                  <span key={service} className="inline-flex items-center gap-1.5 bg-[#1A2332] text-primary text-sm font-semibold px-4 py-1.5 rounded-full">
+                    <CheckCircle className="h-3.5 w-3.5" />
+                    {service}
+                  </span>
+                ))}
+              </div>
             </div>
 
             {/* Featured Services - Equal Size Grid */}

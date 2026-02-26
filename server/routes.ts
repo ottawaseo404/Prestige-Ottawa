@@ -1376,7 +1376,7 @@ Provide a detailed cost estimate in JSON format.`;
   // Regenerate featured image for a single blog post
   app.post("/api/admin/blog/:id/generate-image", requireAdmin, async (req, res) => {
     try {
-      const post = await storage.getBlogPost(parseInt(req.params.id));
+      const post = await storage.getBlogPost(req.params.id);
       if (!post) return res.status(404).json({ message: "Post not found" });
       const base64 = await generateFeaturedImage(post.title, "featured");
       await storage.updateBlogPost(post.id, {
