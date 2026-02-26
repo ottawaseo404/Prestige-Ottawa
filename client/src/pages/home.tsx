@@ -1292,27 +1292,61 @@ export default function Home() {
 
               {/* Body copy */}
               <p className="text-lg text-gray-600 max-w-5xl mx-auto mb-5 leading-relaxed">
-                We proudly offer a <strong className="text-[#1A2332]">complete suite of moving services</strong> designed to cover every need, every situation, and every budget. Our Ottawa moving specialists handle <strong className="text-[#1A2332]">Residential Moves</strong> — apartments, condos, townhomes, and houses — with the same dedication we bring to <strong className="text-[#1A2332]">Commercial & Office Relocations</strong>, ensuring zero business downtime. Planning a bigger journey? Our <strong className="text-[#1A2332]">Long Distance Moving</strong> teams are experienced across British Columbia and all of Canada, delivering your home safely to its next chapter.
+                We proudly offer a <strong className="text-[#1A2332]">complete suite of moving services</strong> designed to cover every need, every situation, and every budget. Our Ottawa moving specialists handle{" "}
+                <Link href="/services/residential-moving"><strong className="text-[#1A2332] underline decoration-primary/40 hover:decoration-primary underline-offset-2 cursor-pointer">Residential Moves</strong></Link>
+                {" "}— apartments, condos, townhomes, and houses — with the same dedication we bring to{" "}
+                <Link href="/services/commercial-moving"><strong className="text-[#1A2332] underline decoration-primary/40 hover:decoration-primary underline-offset-2 cursor-pointer">Commercial & Office Relocations</strong></Link>
+                , ensuring zero business downtime. Planning a bigger journey? Our{" "}
+                <Link href="/services/long-distance-moving"><strong className="text-[#1A2332] underline decoration-primary/40 hover:decoration-primary underline-offset-2 cursor-pointer">Long Distance Moving</strong></Link>
+                {" "}teams are experienced across British Columbia and all of Canada, delivering your home safely to its next chapter.
               </p>
               <p className="text-lg text-gray-600 max-w-5xl mx-auto mb-5 leading-relaxed">
-                Need help preparing? Our professional <strong className="text-[#1A2332]">Packing Services</strong> team will wrap, box, and label everything with military precision — or we'll deliver <strong className="text-[#1A2332]">Moving Supplies</strong> right to your door so you can pack at your own pace. Moving out of a dorm or campus housing? Our <strong className="text-[#1A2332]">Student Moving</strong> packages are affordable, flexible, and built for busy schedules. Need a place to store your belongings between moves? Our <strong className="text-[#1A2332]">Storage Solutions</strong> offer secure, climate-controlled facilities you can trust.
+                Need help preparing? Our professional{" "}
+                <Link href="/services/packing-services"><strong className="text-[#1A2332] underline decoration-primary/40 hover:decoration-primary underline-offset-2 cursor-pointer">Packing Services</strong></Link>
+                {" "}team will wrap, box, and label everything with military precision — or we'll deliver{" "}
+                <Link href="/services/moving-supplies"><strong className="text-[#1A2332] underline decoration-primary/40 hover:decoration-primary underline-offset-2 cursor-pointer">Moving Supplies</strong></Link>
+                {" "}right to your door so you can pack at your own pace. Moving out of a dorm or campus housing? Our{" "}
+                <Link href="/services/student-moving"><strong className="text-[#1A2332] underline decoration-primary/40 hover:decoration-primary underline-offset-2 cursor-pointer">Student Moving</strong></Link>
+                {" "}packages are affordable, flexible, and built for busy schedules. Need a place to store your belongings between moves? Our{" "}
+                <Link href="/services/storage-solutions"><strong className="text-[#1A2332] underline decoration-primary/40 hover:decoration-primary underline-offset-2 cursor-pointer">Storage Solutions</strong></Link>
+                {" "}offer secure, climate-controlled facilities you can trust.
               </p>
               <p className="text-lg text-gray-600 max-w-5xl mx-auto mb-8 leading-relaxed">
-                We also specialize in the moves that demand the most care. Our <strong className="text-[#1A2332]">Specialty Item Moving</strong> team handles hot tubs, pool tables, and gym equipment with custom rigging and equipment. Got a treasured grand piano? Our <strong className="text-[#1A2332]">Piano Moving</strong> specialists are among the best in Ottawa. Handling irreplaceable <strong className="text-[#1A2332]">Antiques and Fine Art</strong>? We treat them like museum pieces. Need compassionate, patient service for an elderly parent? Our <strong className="text-[#1A2332]">Senior Moving</strong> team is gentle, kind, and thorough. Serving our country? We proudly support <strong className="text-[#1A2332]">Military Moves</strong> with structured, reliable, stress-free relocations. No matter what you need — we've got you covered, every step of the way.
+                We also specialize in the moves that demand the most care. Our{" "}
+                <Link href="/services/specialty-item-moving"><strong className="text-[#1A2332] underline decoration-primary/40 hover:decoration-primary underline-offset-2 cursor-pointer">Specialty Item Moving</strong></Link>
+                {" "}team handles hot tubs, pool tables, and gym equipment with custom rigging and equipment. Got a treasured grand piano? Our{" "}
+                <Link href="/services/piano-moving"><strong className="text-[#1A2332] underline decoration-primary/40 hover:decoration-primary underline-offset-2 cursor-pointer">Piano Moving</strong></Link>
+                {" "}specialists are among the best in Ottawa. Handling irreplaceable{" "}
+                <Link href="/services/antique-moving"><strong className="text-[#1A2332] underline decoration-primary/40 hover:decoration-primary underline-offset-2 cursor-pointer">Antiques and Fine Art</strong></Link>
+                ? We treat them like museum pieces. Need compassionate, patient service for an elderly parent? Our{" "}
+                <Link href="/services/senior-moving"><strong className="text-[#1A2332] underline decoration-primary/40 hover:decoration-primary underline-offset-2 cursor-pointer">Senior Moving</strong></Link>
+                {" "}team is gentle, kind, and thorough. Serving our country? We proudly support{" "}
+                <Link href="/services/military-moving"><strong className="text-[#1A2332] underline decoration-primary/40 hover:decoration-primary underline-offset-2 cursor-pointer">Military Moves</strong></Link>
+                {" "}with structured, reliable, stress-free relocations. No matter what you need — we've got you covered, every step of the way.
               </p>
 
               {/* Service pills */}
               <div className="flex flex-wrap justify-center gap-2 mb-2">
                 {[
-                  "Residential Moving", "Commercial Moving", "Long Distance Moving",
-                  "Packing Services", "Moving Supplies", "Student Moving",
-                  "Storage Solutions", "Specialty Item Moving", "Antique Moving",
-                  "Piano Moving", "Senior Moving", "Military Moving",
-                ].map((service) => (
-                  <span key={service} className="inline-flex items-center gap-1.5 bg-[#1A2332] text-primary text-sm font-semibold px-4 py-1.5 rounded-full">
-                    <CheckCircle className="h-3.5 w-3.5" />
-                    {service}
-                  </span>
+                  { label: "Residential Moving", href: "/services/residential-moving" },
+                  { label: "Commercial Moving", href: "/services/commercial-moving" },
+                  { label: "Long Distance Moving", href: "/services/long-distance-moving" },
+                  { label: "Packing Services", href: "/services/packing-services" },
+                  { label: "Moving Supplies", href: "/services/moving-supplies" },
+                  { label: "Student Moving", href: "/services/student-moving" },
+                  { label: "Storage Solutions", href: "/services/storage-solutions" },
+                  { label: "Specialty Item Moving", href: "/services/specialty-item-moving" },
+                  { label: "Antique Moving", href: "/services/antique-moving" },
+                  { label: "Piano Moving", href: "/services/piano-moving" },
+                  { label: "Senior Moving", href: "/services/senior-moving" },
+                  { label: "Military Moving", href: "/services/military-moving" },
+                ].map(({ label, href }) => (
+                  <Link key={label} href={href}>
+                    <span className="inline-flex items-center gap-1.5 bg-[#1A2332] text-primary text-sm font-semibold px-4 py-1.5 rounded-full hover:bg-primary hover:text-[#1A2332] transition-colors duration-200 cursor-pointer">
+                      <CheckCircle className="h-3.5 w-3.5" />
+                      {label}
+                    </span>
+                  </Link>
                 ))}
               </div>
             </div>
