@@ -524,8 +524,8 @@ export default function Home() {
                                     <service.icon className="h-4 w-4 text-[#C5A572]" />
                                   </div>
                                   <div className="flex-1 min-w-0">
-                                    <div className="text-[#1A2332] font-semibold text-sm group-hover/item:text-[#C5A572] transition-colors truncate">{service.title}</div>
-                                    <div className="text-[#1A2332]/50 text-xs truncate">{service.description}</div>
+                                    <div className="text-[#1A2332] font-semibold text-base group-hover/item:text-[#C5A572] transition-colors truncate">{service.title}</div>
+                                    <div className="text-[#1A2332]/50 text-sm truncate">{service.description}</div>
                                   </div>
                                   <ChevronRight className="h-3 w-3 text-[#C5A572]/30 group-hover/item:text-[#C5A572]/70 flex-shrink-0 transition-all duration-200 group-hover/item:translate-x-0.5" />
                                 </button>
