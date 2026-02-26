@@ -739,16 +739,6 @@ export default function Home() {
                   >
                     <SiYoutube className="h-4 w-4 text-white group-hover:text-[#1A2332] transition-colors" />
                   </a>
-                  <a
-                    href="https://vancouver.prestigemoving.ca"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2.5 bg-primary/20 backdrop-blur-sm border-2 border-primary/60 rounded-full px-5 py-2.5 text-sm font-bold text-primary uppercase tracking-wider hover:bg-primary hover:border-primary hover:text-[#1A2332] transition-all duration-300 shadow-[0_0_15px_rgba(197,165,114,0.3)] hover:shadow-[0_0_25px_rgba(197,165,114,0.5)]"
-                    data-testid="link-vancouver-hero"
-                  >
-                    <MapPin className="h-4 w-4" />
-                    Vancouver
-                  </a>
                 </div>
 
                 {/* Trust Badges Row */}
@@ -854,6 +844,20 @@ export default function Home() {
                       <Phone className="h-5 w-5 mr-3 transition-transform duration-300 group-hover:rotate-12 group-hover:scale-110" />
                       (613) 600-4000
                     </Button>
+                  </a>
+                </div>
+
+                {/* Vancouver location link */}
+                <div className="mt-4">
+                  <a
+                    href="https://vancouver.prestigemoving.ca"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2.5 bg-primary/20 backdrop-blur-sm border-2 border-primary/60 rounded-full px-5 py-2.5 text-sm font-bold text-primary uppercase tracking-wider hover:bg-primary hover:border-primary hover:text-[#1A2332] transition-all duration-300 shadow-[0_0_15px_rgba(197,165,114,0.3)] hover:shadow-[0_0_25px_rgba(197,165,114,0.5)]"
+                    data-testid="link-vancouver-hero"
+                  >
+                    <MapPin className="h-4 w-4" />
+                    Vancouver
                   </a>
                 </div>
               </div>
