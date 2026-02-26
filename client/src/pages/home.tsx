@@ -508,7 +508,7 @@ export default function Home() {
                             }}
                           >
                             <div className="px-3 py-2 mb-2 border-b border-gray-100">
-                              <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-[#C5A572]">All Moving Services</span>
+                              <span className="text-xs font-bold tracking-[0.2em] uppercase text-[#C5A572]">All Moving Services</span>
                             </div>
                             <div className="grid grid-cols-2 gap-0.5">
                               {services.filter(s =>
@@ -524,8 +524,8 @@ export default function Home() {
                                     <service.icon className="h-4 w-4 text-[#C5A572]" />
                                   </div>
                                   <div className="flex-1 min-w-0">
-                                    <div className="text-[#1A2332] font-semibold text-xs group-hover/item:text-[#C5A572] transition-colors truncate">{service.title}</div>
-                                    <div className="text-[#1A2332]/50 text-[11px] truncate">{service.description}</div>
+                                    <div className="text-[#1A2332] font-semibold text-sm group-hover/item:text-[#C5A572] transition-colors truncate">{service.title}</div>
+                                    <div className="text-[#1A2332]/50 text-xs truncate">{service.description}</div>
                                   </div>
                                   <ChevronRight className="h-3 w-3 text-[#C5A572]/30 group-hover/item:text-[#C5A572]/70 flex-shrink-0 transition-all duration-200 group-hover/item:translate-x-0.5" />
                                 </button>
@@ -596,7 +596,7 @@ export default function Home() {
                     >
                       <div className="flex flex-col gap-0 mt-12">
                         <div className="px-6 pb-4 border-b border-gray-100">
-                          <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-[#C5A572]">Navigation</p>
+                          <p className="text-xs font-bold tracking-[0.2em] uppercase text-[#C5A572]">Navigation</p>
                         </div>
                         <div className="p-3 space-y-0.5">
                           <button
