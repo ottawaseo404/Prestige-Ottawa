@@ -60,6 +60,7 @@ export interface IStorage {
   getPublishedBlogPosts(): Promise<BlogPost[]>;
   getPublishedBlogPostsLite(limit: number, offset: number): Promise<{ posts: Omit<BlogPost, 'content' | 'featuredImage' | 'aiPrompt' | 'authorAvatar'>[]; total: number }>;
   getBlogPost(id: string): Promise<BlogPost | undefined>;
+  getBlogPostImage(id: string): Promise<{ featuredImage: string | null; featuredImageAlt: string | null } | undefined>;
   getBlogPostBySlug(slug: string): Promise<BlogPost | undefined>;
   getBlogPostsByCategory(categoryId: string): Promise<BlogPost[]>;
   createBlogPost(post: InsertBlogPost): Promise<BlogPost>;
@@ -425,6 +426,14 @@ export class DbStorage implements IStorage {
 
   async getBlogPost(id: string): Promise<BlogPost | undefined> {
     const result = await this.db.select().from(blogPosts).where(eq(blogPosts.id, id));
+    return result[0];
+  }
+
+  async getBlogPostImage(id: string): Promise<{ featuredImage: string | null; featuredImageAlt: string | null } | undefined> {
+    const result = await this.db
+      .select({ featuredImage: blogPosts.featuredImage, featuredImageAlt: blogPosts.featuredImageAlt })
+      .from(blogPosts)
+      .where(eq(blogPosts.id, id));
     return result[0];
   }
 

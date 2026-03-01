@@ -8,6 +8,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { SharedNavigation } from "@/components/shared-navigation";
 import { SharedFooter } from "@/components/shared-footer";
 import { Helmet } from "react-helmet";
+import { LazyBlogImage } from "@/components/lazy-blog-image";
 
 interface BlogPostLite {
   id: string;
@@ -109,15 +110,7 @@ export default function Blog() {
                 {posts.map((post) => (
                   <Link key={post.id} href={`/blog/${post.slug}`}>
                     <Card className="overflow-hidden h-full hover:shadow-xl transition-shadow cursor-pointer group">
-                      <div className="h-48 bg-gradient-to-br from-[#1A2332] to-[#2a3a52] flex items-center justify-center">
-                        <div className="text-center px-4">
-                          <div className="w-12 h-12 bg-[#C5A572]/20 rounded-full flex items-center justify-center mx-auto mb-2">
-                            <svg className="w-6 h-6 text-[#C5A572]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                            </svg>
-                          </div>
-                        </div>
-                      </div>
+                      <LazyBlogImage postId={post.id} title={post.title} />
                       <CardContent className="p-6">
                         <div className="flex items-center gap-2 text-sm text-gray-500 mb-3">
                           <Calendar className="h-4 w-4" />

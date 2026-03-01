@@ -1100,6 +1100,19 @@ Provide a detailed cost estimate in JSON format.`;
     }
   });
 
+  // Get featured image for a single post (lazy-loaded by blog listing)
+  app.get("/api/blog/posts/:id/image", async (req, res) => {
+    try {
+      const data = await storage.getBlogPostImage(req.params.id);
+      if (!data) return res.status(404).json({ message: "Not found" });
+      res.set("Cache-Control", "public, max-age=604800"); // cache 7 days
+      res.json(data);
+    } catch (error: any) {
+      console.error("Error fetching blog post image:", error);
+      res.status(500).json({ message: "Failed to fetch image" });
+    }
+  });
+
   // Get posts by category (public)
   app.get("/api/blog/categories/:categoryId/posts", async (req, res) => {
     try {
