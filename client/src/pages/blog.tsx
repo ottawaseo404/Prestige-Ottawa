@@ -19,8 +19,11 @@ interface BlogPost {
 }
 
 export default function Blog() {
-  const { data: posts, isLoading } = useQuery<BlogPost[]>({
+  const { data: posts, isLoading, error, refetch } = useQuery<BlogPost[]>({
     queryKey: ["/api/blog/posts"],
+    staleTime: 0,
+    retry: 3,
+    retryDelay: 1000,
   });
 
   const publishedPosts = posts || [];
@@ -65,9 +68,15 @@ export default function Blog() {
                 </Card>
               ))}
             </div>
+          ) : error ? (
+            <div className="text-center py-12">
+              <p className="text-gray-500 text-lg mb-4">Unable to load blog posts.</p>
+              <button onClick={() => refetch()} className="text-primary underline font-medium">Try again</button>
+            </div>
           ) : publishedPosts.length === 0 ? (
             <div className="text-center py-12">
-              <p className="text-gray-500 text-lg">No blog posts available yet.</p>
+              <p className="text-gray-500 text-lg mb-4">No blog posts available yet.</p>
+              <button onClick={() => refetch()} className="text-primary underline font-medium">Refresh</button>
             </div>
           ) : (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
