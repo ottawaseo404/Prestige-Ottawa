@@ -59,7 +59,13 @@ export default function AdminBlog() {
       return res.json();
     },
     onSuccess: (data) => {
-      toast({ title: "Posts Generated", description: `Successfully generated ${data.generated || 0} blog posts with AI.` });
+      const count = data.generated ?? 0;
+      toast({
+        title: count > 0 ? "Posts Generated" : "Generation Complete",
+        description: count > 0
+          ? `Successfully generated ${count} blog post${count !== 1 ? "s" : ""} with AI.`
+          : data.message || "No posts were generated this run.",
+      });
       queryClient.invalidateQueries({ queryKey: ["/api/admin/blog/posts"] });
     },
     onError: (error: any) => {
@@ -88,7 +94,7 @@ export default function AdminBlog() {
   const generateImageForPost = async (postId: string, postTitle: string) => {
     setGeneratingImageIds(prev => new Set(prev).add(postId));
     try {
-      const res = await apiRequest("POST", `/api/admin/blog/${postId}/generate-image`);
+      const res = await apiRequest("POST", `/api/admin/blog/${postId}/generate-image`, { title: postTitle });
       const data = await res.json();
       if (data.success) {
         toast({ title: "Image Generated", description: `New featured image created for "${postTitle}".` });
@@ -153,7 +159,7 @@ export default function AdminBlog() {
             data-testid="button-ai-generate"
           >
             {generateMutation.isPending ? <Loader2 className="h-4 w-4 mr-2 animate-spin" /> : <Sparkles className="h-4 w-4 mr-2" />}
-            AI Generate
+            {generateMutation.isPending ? "Generating..." : "AI Generate"}
           </Button>
           <Link href="/admin/blog/new">
             <Button data-testid="button-new-post">

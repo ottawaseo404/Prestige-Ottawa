@@ -5,13 +5,14 @@ import { nanoid } from "nanoid";
 const BLOGS_PER_DAY = 1;
 let isGenerating = false;
 
-export async function generateDailyBlogs(): Promise<void> {
+export async function generateDailyBlogs(): Promise<number> {
   if (isGenerating) {
     console.log("[Blog Scheduler] Generation already in progress, skipping...");
-    return;
+    return 0;
   }
 
   isGenerating = true;
+  let generated = 0;
   console.log("[Blog Scheduler] Starting daily blog generation...");
 
   try {
@@ -26,19 +27,16 @@ export async function generateDailyBlogs(): Promise<void> {
         const blogContent = await generateBlogPost(topic);
         console.log(`[Blog Scheduler] Content generated for: "${blogContent.title}"`);
 
-        // Store featured image as base64 data URL directly in DB — survives deployments
         let featuredImageData: string | null = null;
         try {
           console.log(`[Blog Scheduler] Generating featured image...`);
           const imageBase64 = await generateFeaturedImage(blogContent.title, "featured");
-          // imageBase64 is already a data:image/png;base64,... string — store it directly
           featuredImageData = imageBase64;
           console.log(`[Blog Scheduler] Featured image generated and stored as base64 in DB`);
         } catch (imageError) {
           console.error(`[Blog Scheduler] Featured image generation failed:`, imageError);
         }
 
-        // Store inline image as base64 data URL directly in content HTML — survives deployments
         let inlineImageData: string | null = null;
         try {
           console.log(`[Blog Scheduler] Generating inline content image...`);
@@ -49,7 +47,6 @@ export async function generateDailyBlogs(): Promise<void> {
           console.error(`[Blog Scheduler] Inline image generation failed:`, inlineError);
         }
 
-        // Embed inline image as base64 <img> tag directly in content
         let finalContent = blogContent.content;
         if (inlineImageData) {
           const paragraphs = finalContent.split('\n\n');
@@ -83,6 +80,7 @@ export async function generateDailyBlogs(): Promise<void> {
           aiPrompt: topic,
         });
 
+        generated++;
         console.log(`[Blog Scheduler] Blog post created: "${blogContent.title}"`);
 
       } catch (blogError) {
@@ -90,12 +88,14 @@ export async function generateDailyBlogs(): Promise<void> {
       }
     }
 
-    console.log("[Blog Scheduler] Daily blog generation completed!");
+    console.log(`[Blog Scheduler] Daily blog generation completed! Generated ${generated} posts.`);
   } catch (error) {
     console.error("[Blog Scheduler] Error in daily blog generation:", error);
   } finally {
     isGenerating = false;
   }
+
+  return generated;
 }
 
 export function startBlogScheduler(): void {
@@ -112,11 +112,11 @@ export function startBlogScheduler(): void {
   console.log("[Blog Scheduler] Scheduled to run daily at 8 AM Pacific Time");
 }
 
-export async function triggerManualGeneration(): Promise<{ success: boolean; message: string }> {
+export async function triggerManualGeneration(): Promise<{ success: boolean; message: string; generated: number }> {
   if (isGenerating) {
-    return { success: false, message: "Blog generation already in progress" };
+    return { success: false, message: "Blog generation already in progress", generated: 0 };
   }
   
-  generateDailyBlogs();
-  return { success: true, message: "Blog generation started in background" };
+  const generated = await generateDailyBlogs();
+  return { success: true, message: `Generated ${generated} blog post${generated !== 1 ? "s" : ""} successfully`, generated };
 }

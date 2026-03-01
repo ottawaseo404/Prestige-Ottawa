@@ -1376,12 +1376,27 @@ Provide a detailed cost estimate in JSON format.`;
   // Regenerate featured image for a single blog post
   app.post("/api/admin/blog/:id/generate-image", requireAdmin, async (req, res) => {
     try {
-      const post = await storage.getBlogPost(req.params.id);
-      if (!post) return res.status(404).json({ message: "Post not found" });
-      const base64 = await generateFeaturedImage(post.title, "featured");
-      await storage.updateBlogPost(post.id, {
+      const postId = req.params.id;
+      const { title: titleFromBody } = req.body || {};
+
+      // Get title either from DB or from request body (fallback for posts not found by ID)
+      let title: string;
+      let foundById = false;
+      const post = await storage.getBlogPost(postId);
+      if (post) {
+        title = post.title;
+        foundById = true;
+      } else if (titleFromBody) {
+        title = titleFromBody;
+        console.log(`[Generate Image] Post ID "${postId}" not found in DB, using title from request body: "${title}"`);
+      } else {
+        return res.status(404).json({ message: "Post not found and no title provided" });
+      }
+
+      const base64 = await generateFeaturedImage(title, "featured");
+      await storage.updateBlogPost(postId, {
         featuredImage: base64,
-        featuredImageAlt: `${post.title} - Prestige Moving Ottawa`,
+        featuredImageAlt: `${title} - Prestige Moving Ottawa`,
       });
       res.json({ success: true, featuredImage: base64 });
     } catch (error: any) {
