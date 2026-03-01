@@ -37,34 +37,56 @@ OUTPUT FORMAT - Use proper HTML tags:
 - Use <hr class="wp-block-separator has-alpha-channel-opacity"/> between major sections
 - Add WordPress block classes: <h2 class="wp-block-heading">
 
-EXAMPLE CORRECT FORMAT:
-<p>Moving to a new home in Ottawa can be exciting...</p>
+MANDATORY SECTIONS — every post MUST include ALL of the following in order:
 
-<hr class="wp-block-separator has-alpha-channel-opacity"/>
+1. INTRODUCTION — engaging hook, 1–2 paragraphs
+2. MAIN BODY SECTIONS (3–5 h2 sections with detailed content)
+3. INTERNAL LINKS — naturally embed 3–5 links to these site pages within the body text:
+   - <a href="/services/residential-moving">residential moving in Ottawa</a>
+   - <a href="/services/commercial-moving">commercial moving services</a>
+   - <a href="/services/long-distance-moving">long-distance moving</a>
+   - <a href="/services/packing-services">professional packing services</a>
+   - <a href="/services/storage-solutions">storage solutions</a>
+   - <a href="/services/senior-moving">senior moving services</a>
+   - <a href="/services/piano-moving">piano moving</a>
+   - <a href="/services/specialty-item-moving">specialty item moving</a>
+   - <a href="/book">get a free moving quote</a>
+   Use anchor text that reads naturally in sentences.
 
-<h2 class="wp-block-heading"><strong>Why Choose Professional Ottawa Movers</strong></h2>
+4. EXTERNAL LINKS — include 2–3 links to authoritative external sources relevant to the topic. Examples:
+   - Canada Mortgage and Housing Corporation: https://www.cmhc-schl.gc.ca/
+   - City of Ottawa moving/permits: https://ottawa.ca/en/residents/home-and-property
+   - Canada Post mail forwarding: https://www.canadapost-postescanada.ca/cpc/en/personal/receiving/manage-mail/mail-forwarding.page
+   - Ontario Consumer Protection: https://www.ontario.ca/page/consumer-protection-ontario
+   - Ottawa Public Health: https://www.ottawapublichealth.ca/
+   - Statistics Canada housing data: https://www.statcan.gc.ca/
+   Embed these as <a href="..." target="_blank" rel="noopener noreferrer">anchor text</a> naturally in the content.
 
-<p>When relocating in the Ottawa area, professional movers offer several advantages:</p>
-
-<ul>
-<li><strong>Experience:</strong> Years of handling Ottawa's unique challenges</li>
-<li><strong>Equipment:</strong> Professional tools for safe transport</li>
-</ul>
+5. FAQ SECTION — include EXACTLY 5 frequently asked questions relevant to the topic.
+   Format:
+   <hr class="wp-block-separator has-alpha-channel-opacity"/>
+   <h2 class="wp-block-heading"><strong>Frequently Asked Questions</strong></h2>
+   <div class="faq-item">
+     <h3 class="faq-question">Question here?</h3>
+     <p class="faq-answer">Detailed answer here. Include 2–3 sentences.</p>
+   </div>
+   (repeat for all 5 questions)
 
 CRITICAL RULES:
 1. ONLY write about Ottawa, Ontario and surrounding areas (Orleans, Barrhaven, Kanata, Nepean, Stittsville, Bells Corners, Centretown, Hintonburg, Westboro, The Glebe, Rockcliffe Park, Sandy Hill, Gatineau)
 2. NEVER mention Calgary, Toronto, Vancouver, Montreal, or any non-Ottawa locations
-3. Write 1500-2000 words with detailed, actionable content
+3. Write 1800-2500 words total with detailed, actionable content
 4. Use keyword-rich subheadings naturally throughout
 5. Include local Ottawa references (Parliament Hill, Rideau Canal, ByWard Market, etc.)
 6. Mention Prestige Moving Ottawa naturally 2-3 times
-7. Include a call-to-action with phone number (613) 600-4000
+7. DO NOT include a CTA section — it will be appended automatically
 
 Company info:
 - Name: Prestige Moving Ottawa
 - Phone: (613) 600-4000
 - Address: 50 Colonnade Rd Unit 200B, Ottawa, ON K2E 7J6
-- Google rating: 5.0 stars with 349 reviews`;
+- Google rating: 5.0 stars with 349 reviews
+- Website: https://prestigemoving.ca`;
 
 export interface GeneratedBlogContent {
   title: string;

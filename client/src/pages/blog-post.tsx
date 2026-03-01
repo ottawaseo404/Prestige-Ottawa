@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { useParams, Link } from "wouter";
 import { Calendar, ArrowLeft, Tag } from "lucide-react";
@@ -8,15 +9,32 @@ import { SharedFooter } from "@/components/shared-footer";
 import { Helmet } from "react-helmet";
 
 interface BlogPost {
-  id: number;
+  id: string;
   title: string;
   slug: string;
   content: string;
   excerpt: string;
   featuredImage: string | null;
+  featuredImageAlt: string | null;
   publishedAt: string;
+  authorName: string;
   keywords: string[];
   metaDescription: string;
+  metaTitle: string;
+}
+
+function parseFaqSchema(html: string): object | null {
+  const matches = [...html.matchAll(/<h3[^>]*class="faq-question"[^>]*>([^<]+)<\/h3>\s*<p[^>]*class="faq-answer"[^>]*>([^<]*)<\/p>/g)];
+  if (matches.length === 0) return null;
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": matches.map((m) => ({
+      "@type": "Question",
+      "name": m[1].trim(),
+      "acceptedAnswer": { "@type": "Answer", "text": m[2].trim() },
+    })),
+  };
 }
 
 export default function BlogPost() {
@@ -30,7 +48,11 @@ export default function BlogPost() {
       return response.json();
     },
     enabled: !!slug,
+    staleTime: 5 * 60 * 1000,
+    retry: 2,
   });
+
+  const faqSchema = useMemo(() => post?.content ? parseFaqSchema(post.content) : null, [post?.content]);
 
   if (isLoading) {
     return (
@@ -67,10 +89,26 @@ export default function BlogPost() {
     );
   }
 
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": post.title,
+    "description": post.metaDescription || post.excerpt,
+    "author": { "@type": "Organization", "name": post.authorName || "Prestige Moving Team" },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Prestige Moving Ottawa",
+      "url": "https://prestigemoving.ca",
+      "logo": { "@type": "ImageObject", "url": "https://prestigemoving.ca/logo.png" },
+    },
+    "datePublished": post.publishedAt,
+    "url": `https://prestigemoving.ca/blog/${post.slug}`,
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <Helmet>
-        <title>{post.title} | Prestige Moving Ottawa Blog</title>
+        <title>{post.metaTitle || post.title} | Prestige Moving Ottawa Blog</title>
         <meta name="description" content={post.metaDescription || post.excerpt} />
         <meta name="keywords" content={post.keywords?.join(", ") || "Ottawa moving, moving tips"} />
         <link rel="canonical" href={`https://prestigemoving.ca/blog/${post.slug}`} />
@@ -79,6 +117,8 @@ export default function BlogPost() {
         <meta property="og:url" content={`https://prestigemoving.ca/blog/${post.slug}`} />
         <meta property="og:type" content="article" />
         {post.featuredImage && <meta property="og:image" content={post.featuredImage} />}
+        <script type="application/ld+json">{JSON.stringify(articleSchema)}</script>
+        {faqSchema && <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>}
       </Helmet>
       <SharedNavigation />
 
@@ -106,6 +146,9 @@ export default function BlogPost() {
                   })}
                 </span>
               </div>
+              {post.authorName && (
+                <span className="text-sm">by {post.authorName}</span>
+              )}
             </div>
           </header>
 
@@ -113,14 +156,14 @@ export default function BlogPost() {
             <div className="mb-8 rounded-lg overflow-hidden">
               <img
                 src={post.featuredImage}
-                alt={post.title}
+                alt={post.featuredImageAlt || post.title}
                 className="w-full h-auto"
               />
             </div>
           )}
 
           <div
-            className="prose prose-lg max-w-none prose-headings:text-gray-900 prose-p:text-gray-700 prose-a:text-primary prose-img:rounded-lg"
+            className="prose prose-lg max-w-none prose-headings:text-gray-900 prose-p:text-gray-700 prose-img:rounded-lg prose-strong:text-gray-900"
             dangerouslySetInnerHTML={{ __html: post.content }}
           />
 

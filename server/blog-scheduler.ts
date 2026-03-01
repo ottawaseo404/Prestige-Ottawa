@@ -56,6 +56,35 @@ export async function generateDailyBlogs(): Promise<number> {
           finalContent = paragraphs.join('\n\n');
         }
 
+        // Append standardized CTA section
+        const ctaSection = `
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+
+<div class="blog-cta-section" style="background: linear-gradient(135deg, #1A2332 0%, #2a3a52 100%); border-radius: 12px; padding: 40px; margin: 40px 0; text-align: center; color: white;">
+  <h2 style="color: white; font-size: 1.75rem; font-weight: 700; margin-bottom: 12px;">Ready to Move? Get a Free Quote Today</h2>
+  <p style="color: rgba(255,255,255,0.85); font-size: 1rem; margin-bottom: 24px; max-width: 560px; margin-left: auto; margin-right: auto;">Join thousands of satisfied Ottawa families who trusted Prestige Moving for their relocation. 5.0 stars · 349+ reviews · Fully licensed & insured.</p>
+  <div style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-bottom: 24px;">
+    <div style="background: rgba(197,165,114,0.15); border: 1px solid rgba(197,165,114,0.4); border-radius: 8px; padding: 12px 20px; color: white; font-size: 0.9rem;">
+      <strong style="color: #C5A572;">✓</strong> Free no-obligation estimate
+    </div>
+    <div style="background: rgba(197,165,114,0.15); border: 1px solid rgba(197,165,114,0.4); border-radius: 8px; padding: 12px 20px; color: white; font-size: 0.9rem;">
+      <strong style="color: #C5A572;">✓</strong> WSIB insured & certified
+    </div>
+    <div style="background: rgba(197,165,114,0.15); border: 1px solid rgba(197,165,114,0.4); border-radius: 8px; padding: 12px 20px; color: white; font-size: 0.9rem;">
+      <strong style="color: #C5A572;">✓</strong> Local Ottawa experts
+    </div>
+  </div>
+  <div style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: center;">
+    <a href="/book" style="background: #C5A572; color: #1A2332; font-weight: 700; padding: 14px 32px; border-radius: 8px; text-decoration: none; font-size: 1rem; display: inline-block;">Get Your Free Quote</a>
+    <a href="tel:6136004000" style="background: transparent; color: white; font-weight: 600; padding: 14px 32px; border-radius: 8px; text-decoration: none; font-size: 1rem; border: 2px solid rgba(255,255,255,0.4); display: inline-block;">Call (613) 600-4000</a>
+  </div>
+  <p style="color: rgba(255,255,255,0.55); font-size: 0.8rem; margin-top: 16px; margin-bottom: 0;">50 Colonnade Rd Unit 200B, Ottawa, ON · Mon–Sun 7am–8pm</p>
+</div>`;
+
+        finalContent = finalContent + ctaSection;
+
+        // FAQ JSON-LD schema is injected client-side in blog-post.tsx via Helmet
+
         const existingPost = await storage.getBlogPostBySlug(blogContent.slug);
         if (existingPost) {
           console.log(`[Blog Scheduler] Slug "${blogContent.slug}" already exists, adding unique suffix`);

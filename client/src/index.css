@@ -300,3 +300,61 @@
 .animate-shimmer {
   animation: shimmer 2s linear infinite;
 }
+
+
+/* ======= BLOG POST CONTENT STYLES ======= */
+
+/* FAQ Section */
+.faq-item {
+  margin-bottom: 1.25rem;
+  padding: 1.25rem 1.5rem;
+  background: hsl(var(--muted) / 0.4);
+  border-radius: 8px;
+  border-left: 4px solid hsl(var(--primary));
+}
+
+.faq-question {
+  font-size: 1.05rem !important;
+  font-weight: 700 !important;
+  color: hsl(var(--foreground)) !important;
+  margin-bottom: 0.5rem !important;
+  margin-top: 0 !important;
+}
+
+.faq-answer {
+  font-size: 0.95rem !important;
+  color: hsl(var(--muted-foreground)) !important;
+  margin-bottom: 0 !important;
+  line-height: 1.65 !important;
+}
+
+/* Blog prose internal/external links */
+.prose a[href^="/"] {
+  color: #C5A572;
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: rgba(197, 165, 114, 0.4);
+  text-underline-offset: 2px;
+}
+
+.prose a[href^="http"],
+.prose a[href^="https"] {
+  color: hsl(var(--primary));
+  text-decoration: underline;
+  text-decoration-color: hsl(var(--primary) / 0.3);
+  text-underline-offset: 2px;
+}
+
+.prose a[href^="http"]:after,
+.prose a[href^="https"]:after {
+  content: " ↗";
+  font-size: 0.75em;
+  opacity: 0.6;
+}
+
+/* Blog CTA section link hover */
+.blog-cta-section a:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+  transition: all 0.15s ease;
+}
