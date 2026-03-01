@@ -58,6 +58,7 @@ export interface IStorage {
   // Blog Post operations
   getAllBlogPosts(): Promise<BlogPost[]>;
   getPublishedBlogPosts(): Promise<BlogPost[]>;
+  getPublishedBlogPostsLite(limit: number, offset: number): Promise<{ posts: Omit<BlogPost, 'content' | 'featuredImage' | 'aiPrompt' | 'authorAvatar'>[]; total: number }>;
   getBlogPost(id: string): Promise<BlogPost | undefined>;
   getBlogPostBySlug(slug: string): Promise<BlogPost | undefined>;
   getBlogPostsByCategory(categoryId: string): Promise<BlogPost[]>;
@@ -383,6 +384,43 @@ export class DbStorage implements IStorage {
       .from(blogPosts)
       .where(eq(blogPosts.status, "published"))
       .orderBy(desc(blogPosts.publishedAt));
+  }
+
+  async getPublishedBlogPostsLite(limit: number, offset: number): Promise<{ posts: Omit<BlogPost, 'content' | 'featuredImage' | 'aiPrompt' | 'authorAvatar'>[]; total: number }> {
+    const [rows, totalRows] = await Promise.all([
+      this.db
+        .select({
+          id: blogPosts.id,
+          title: blogPosts.title,
+          slug: blogPosts.slug,
+          excerpt: blogPosts.excerpt,
+          featuredImageAlt: blogPosts.featuredImageAlt,
+          metaTitle: blogPosts.metaTitle,
+          metaDescription: blogPosts.metaDescription,
+          keywords: blogPosts.keywords,
+          canonicalUrl: blogPosts.canonicalUrl,
+          categoryId: blogPosts.categoryId,
+          tags: blogPosts.tags,
+          authorName: blogPosts.authorName,
+          status: blogPosts.status,
+          publishedAt: blogPosts.publishedAt,
+          scheduledAt: blogPosts.scheduledAt,
+          isAiGenerated: blogPosts.isAiGenerated,
+          viewCount: blogPosts.viewCount,
+          createdAt: blogPosts.createdAt,
+          updatedAt: blogPosts.updatedAt,
+        })
+        .from(blogPosts)
+        .where(eq(blogPosts.status, "published"))
+        .orderBy(desc(blogPosts.publishedAt))
+        .limit(limit)
+        .offset(offset),
+      this.db
+        .select({ count: count() })
+        .from(blogPosts)
+        .where(eq(blogPosts.status, "published")),
+    ]);
+    return { posts: rows as any, total: totalRows[0]?.count ?? 0 };
   }
 
   async getBlogPost(id: string): Promise<BlogPost | undefined> {

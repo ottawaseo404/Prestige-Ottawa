@@ -1073,8 +1073,11 @@ Provide a detailed cost estimate in JSON format.`;
   // Get all published posts (public)
   app.get("/api/blog/posts", async (req, res) => {
     try {
-      const posts = await storage.getPublishedBlogPosts();
-      res.json(posts);
+      const limit = Math.min(parseInt(req.query.limit as string) || 12, 50);
+      const page = Math.max(parseInt(req.query.page as string) || 1, 1);
+      const offset = (page - 1) * limit;
+      const result = await storage.getPublishedBlogPostsLite(limit, offset);
+      res.json({ posts: result.posts, total: result.total, page, limit, totalPages: Math.ceil(result.total / limit) });
     } catch (error: any) {
       console.error("Error fetching blog posts:", error);
       res.status(500).json({ message: "Failed to fetch blog posts" });
