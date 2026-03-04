@@ -68,6 +68,9 @@ import CustomCratingOttawa from "@/pages/seo/custom-crating-ottawa";
 import MoversInOttawa from "@/pages/seo/movers-in-ottawa";
 import LongDistanceMoversOttawa from "@/pages/seo/long-distance-movers-ottawa";
 import HowMuchDoesMovingCostOttawa from "@/pages/seo/how-much-does-moving-cost-ottawa";
+import OttawaToMontrealMovers from "@/pages/seo/ottawa-to-montreal-movers";
+import OttawaToTorontoMovers from "@/pages/seo/ottawa-to-toronto-movers";
+import OttawaToVancouverMovers from "@/pages/seo/ottawa-to-vancouver-movers";
 import AdminDashboard from "@/pages/admin/dashboard";
 import AdminBookings from "@/pages/admin/bookings";
 import AdminAnalytics from "@/pages/admin-analytics";
@@ -210,6 +213,9 @@ function Router() {
       <Route path="/movers-in-ottawa" component={MoversInOttawa} />
       <Route path="/long-distance-movers-ottawa" component={LongDistanceMoversOttawa} />
       <Route path="/how-much-does-moving-cost-ottawa" component={HowMuchDoesMovingCostOttawa} />
+      <Route path="/ottawa-to-montreal-movers" component={OttawaToMontrealMovers} />
+      <Route path="/ottawa-to-toronto-movers" component={OttawaToTorontoMovers} />
+      <Route path="/ottawa-to-vancouver-movers" component={OttawaToVancouverMovers} />
       <Route path="/junk-removal-ottawa" component={JunkRemovalOttawa} />
       <Route path="/furniture-assembly-ottawa" component={FurnitureAssemblyOttawa} />
       <Route path="/home-staging-ottawa" component={HomeStagingOttawa} />

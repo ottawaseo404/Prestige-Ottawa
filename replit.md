@@ -1,321 +1,34 @@
 # Prestige Moving Vancouver - Website & Booking System
 
-## Project Overview
-Modern, responsive website for Prestige Moving Vancouver franchise with integrated booking system and admin dashboard. Features direct integration with SmartMoving CRM platform for seamless lead management.
+## Overview
+This project delivers a modern, responsive website for Prestige Moving Vancouver, featuring an integrated booking system and an admin dashboard. Its primary purpose is to streamline lead management by directly integrating with the SmartMoving CRM platform. The system offers real-time pricing, comprehensive booking management, and an AI-powered blog system. The business vision is to enhance operational efficiency, improve customer experience, and increase market reach through a robust online presence.
 
-## Tech Stack
-- **Frontend**: React, TypeScript, Tailwind CSS, Shadcn UI
-- **Backend**: Node.js, Express, TypeScript
-- **State Management**: TanStack Query (React Query)
-- **Forms**: React Hook Form with Zod validation
-- **Routing**: Wouter
-- **Integration**: SmartMoving API
+## User Preferences
+I want iterative development. I prefer detailed explanations for complex features. I expect the agent to ask before making major architectural changes or introducing new dependencies. Ensure the communication is clear and concise, focusing on practical outcomes.
 
-## Features
+## System Architecture
 
-### Public Website
-- **Landing Page** (`/`):
-  - Hero section with Prestige Moving branding
-  - Three pricing packages (Premium, Deluxe, Diamond)
-  - Services grid showcasing all moving services
-  - Trust indicators (10,000+ moves, 5.0 rating, WSIB insured)
-  - Why Choose Us section
-  - Mobile responsive design
+### UI/UX Decisions
+The design system utilizes Gold (#C5A572), Navy (#1A2332), White, and Gray colors with the Inter font. Components are built using Shadcn UI with custom theming, ensuring a consistent aesthetic. Spacing follows a consistent 4/6/8/12/16/20/24 scale. Interactions include hover and active elevate systems. The homepage features a bold redesign with a dark navy navigation, full-bleed hero section, stats bars, trust badges, and featured services grid. All service pages are modernized with interactive tabs, testimonials, service area sections, FAQs, and enhanced SEO elements. The navigation includes a 2-column dropdown grid for desktop and a Sheet component for mobile.
 
-- **Booking System** (`/book`):
-  - Multi-step form (5 steps):
-    1. Move details (date, size, service type, package)
-    2. Origin address
-    3. Destination address
-    4. Contact information
-    5. Review & submit
-  - Real-time price estimation
-  - Form validation with Zod
-  - Progress indicator
-  - Automatic SmartMoving sync on submission
+### Technical Implementations
+The application is built with a React, TypeScript, Tailwind CSS, and Shadcn UI frontend, and a Node.js, Express, TypeScript backend. State management is handled by TanStack Query, and forms utilize React Hook Form with Zod validation. Wouter is used for routing. Data persistence is managed via PostgreSQL with Drizzle ORM and Neon serverless, ensuring all booking data survives server restarts.
 
-### Admin Dashboard
-- **Dashboard** (`/admin`):
-  - Stats cards (today's moves, pending quotes, confirmed moves)
-  - Recent bookings table
-  - Quick overview of business metrics
+### Feature Specifications
+- **Public Website**: Includes a landing page with pricing packages, services grid, and trust indicators. A multi-step booking form (move details, origin, destination, contact, review) provides real-time price estimation and Zod validation, automatically syncing submissions to SmartMoving.
+- **Admin Dashboard**: Offers an overview with stats cards, recent bookings, and business metrics. Bookings management includes a searchable, filterable table with status updates and manual SmartMoving sync. Package management allows editing hourly rates, travel fees, and package features. An AI-powered blog system enables creation, editing, and publishing of SEO-optimized articles with AI content generation using OpenAI GPT-4o, category/tag organization, and SEO meta fields.
+- **Blog System**: Features a listing page with filters and pagination, and individual post pages with rich formatting, JSON-LD schema, and social sharing.
+- **SEO Optimization**: Comprehensive SEO features are implemented across all pages, including XML sitemaps, robots.txt, Open Graph tags, social preview images, canonical URLs, and JSON-LD schema markup. Hero video management allows database-driven configurations with auto-rotation and graceful fallbacks.
 
-- **Bookings Management** (`/admin/bookings`):
-  - Searchable bookings table
-  - Filter and sort capabilities
-  - Status management (pending, confirmed, completed, cancelled)
-  - Individual booking detail view
-  - Manual sync to SmartMoving
-  - SmartMoving sync status tracking
+### System Design Choices
+The system supports multiple specialized service pages (e.g., residential, commercial, long-distance moving) each with dedicated SEO optimization, JSON-LD schema markup, and rich content. SmartMoving integration is central, with both automatic lead submission and webhook-based real-time status updates for bookings. The project emphasizes modularity and reusability, seen in components like the `table-of-contents.tsx`.
 
-- **SmartMoving Sync** (`/admin/smartmoving`):
-  - Connection status indicator
-  - Sync statistics (total, synced, pending)
-  - Bulk sync all pending bookings
-  - Sync activity monitoring
+## External Dependencies
 
-- **Package Management** (`/admin/packages`):
-  - View all pricing packages (Premium, Deluxe, Diamond)
-  - Edit hourly rates, travel fees, minimum hours
-  - Customize number of movers and trucks
-  - Edit package features list
-  - Toggle active/inactive status
-  - Mark packages as "Most Popular"
-  - Initialize default packages if none exist
-  - Changes reflect on homepage in real-time
-
-- **Customers** (`/admin/customers`):
-  - Placeholder for SmartMoving customer data
-  - Ready for future SmartMoving API integration
-
-- **Blog Management** (`/admin/blog`):
-  - AI-powered WordPress-like blog system
-  - Create, edit, and publish SEO-optimized articles
-  - AI content generation using OpenAI GPT-4o
-  - Categories and tags for organization
-  - SEO meta fields (title, description, focus keywords)
-  - Draft/published/scheduled status management
-  - Featured images with AI generation support
-  - Rich text editor for content creation
-  - Automatic slug generation from titles
-
-### Blog System (`/blog`)
-- **Blog Listing Page** (`/blog`):
-  - Displays all published posts with featured images
-  - Category filtering and search functionality
-  - Pagination support
-  - SEO-optimized with meta tags
-
-- **Blog Post Page** (`/blog/:slug`):
-  - Full article display with rich formatting
-  - JSON-LD schema markup for SEO
-  - Social sharing meta tags
-  - Related posts suggestions
-  - Author and publication date display
-
-## API Integration
-
-### SmartMoving Lead API
-- **Endpoint**: `https://api.smartmoving.com/api/leads/from-provider/v2`
-- **Authentication**: Provider Key (query parameter)
-- **Auto-sync**: Bookings automatically synced on submission
-- **Manual sync**: Individual or bulk sync from admin panel
-
-### Environment Variables
-- `SMARTMOVING_PROVIDER_KEY`: Required for lead submission
-- `SMARTMOVING_API_KEY`: Required for data fetching (future use)
-- `SESSION_SECRET`: Session management
-
-## Data Model
-
-### Booking Schema
-```typescript
-{
-  id: string
-  firstName, lastName: string
-  email, phone, phoneType: string
-  moveDate: Date
-  moveSize: string
-  serviceType: string
-  packageType: "Premium" | "Deluxe" | "Diamond"
-  origin: { street, city, province, postalCode, stairs }
-  destination: { street, city, province, postalCode, stairs }
-  notes?: string
-  referralSource: string
-  estimatedPrice?: number
-  status: "pending" | "confirmed" | "completed" | "cancelled"
-  smartmovingSynced: boolean
-  smartmovingId?: string
-  smartmovingSyncedAt?: Date
-}
-```
-
-## Package Pricing
-- **Premium**: $155/hr (2 movers, 16-20ft truck) - Min 3hrs + $155 travel
-- **Deluxe**: $195/hr (3 movers, 26ft truck) - Min 3hrs + $195 travel
-- **Diamond**: $315/hr (4 movers, 2 trucks) - Min 3hrs + $315 travel
-
-## Routes
-
-### Public
-- `/` - Landing page
-- `/book` - Booking form
-
-### Service Pages (All SEO Optimized with JSON-LD Schema)
-- `/services/residential-moving` - Apartments, condos, houses
-- `/services/commercial-moving` - Office relocations, business moves
-- `/services/long-distance-moving` - Cross-BC and Canada-wide moves
-- `/services/packing-services` - Full-service packing, materials
-- `/services/moving-supplies` - Boxes, tape, packing supplies delivery
-- `/services/student-moving` - Affordable moves for students
-- `/services/storage-solutions` - Climate-controlled storage
-- `/services/specialty-item-moving` - Hot tubs, pool tables, gym equipment
-- `/services/antique-moving` - Careful handling of valuables
-- `/services/piano-moving` - Specialized piano transport
-- `/services/senior-moving` - Compassionate elderly relocations
-- `/services/military-moving` - PCS moves and base relocations
-
-### Blog
-- `/blog` - Blog listing page
-- `/blog/:slug` - Individual blog post
-
-### Admin
-- `/admin` - Dashboard overview
-- `/admin/bookings` - Bookings management
-- `/admin/packages` - Package pricing management
-- `/admin/customers` - Customer data
-- `/admin/smartmoving` - SmartMoving sync panel
-- `/admin/blog` - Blog management
-- `/admin/blog/new` - Create new blog post
-- `/admin/blog/edit/:id` - Edit existing blog post
-
-## API Endpoints
-
-### Bookings
-- `GET /api/bookings` - Get all bookings
-- `GET /api/bookings/:id` - Get single booking
-- `POST /api/bookings` - Create booking (auto-syncs to SmartMoving)
-- `PATCH /api/bookings/:id/status` - Update booking status
-- `POST /api/bookings/:id/sync-smartmoving` - Manual sync to SmartMoving
-
-### SmartMoving
-- `GET /api/smartmoving/status` - Get sync status and connection state
-- `POST /api/smartmoving/sync-all` - Bulk sync all pending bookings
-- `GET /api/smartmoving/customers` - Get customers from SmartMoving API (pagination supported)
-- `POST /api/webhooks/smartmoving` - Webhook endpoint for real-time updates from SmartMoving
-
-### Packages
-- `GET /api/packages` - Get active packages (public)
-- `GET /api/admin/packages` - Get all packages including inactive (admin)
-- `GET /api/admin/packages/:id` - Get single package (admin)
-- `POST /api/admin/packages` - Create new package (admin)
-- `PATCH /api/admin/packages/:id` - Update package (admin)
-- `DELETE /api/admin/packages/:id` - Delete package (admin)
-- `POST /api/admin/packages/initialize` - Initialize default packages (admin)
-
-### Blog
-- `GET /api/blog` - Get published blog posts (public)
-- `GET /api/blog/:slug` - Get single blog post by slug (public)
-- `GET /api/admin/blog` - Get all blog posts including drafts (admin)
-- `GET /api/admin/blog/:id` - Get single blog post by ID (admin)
-- `POST /api/admin/blog` - Create new blog post (admin)
-- `PATCH /api/admin/blog/:id` - Update blog post (admin)
-- `DELETE /api/admin/blog/:id` - Delete blog post (admin)
-- `POST /api/admin/blog/generate-content` - AI-generate blog content (admin)
-- `GET /api/blog-categories` - Get all blog categories
-
-### Hero Videos
-- `GET /api/hero-videos/:pageSlug` - Get hero video config by page slug (public, returns 404 for fallback)
-- `GET /api/admin/hero-videos` - Get all hero video configurations (admin)
-- `GET /api/admin/hero-videos/:id` - Get single hero video config (admin)
-- `POST /api/admin/hero-videos` - Create new hero video config (admin)
-- `PATCH /api/admin/hero-videos/:id` - Update hero video config (admin)
-- `DELETE /api/admin/hero-videos/:id` - Delete hero video config (admin)
-
-## Design System
-- **Colors**: Gold (#C5A572), Navy (#1A2332), White, Gray
-- **Font**: Inter
-- **Components**: Shadcn UI with custom theming
-- **Spacing**: Consistent 4/6/8/12/16/20/24 scale
-- **Interactions**: Hover elevate, active elevate system
-
-## Development
-```bash
-npm run dev  # Starts both frontend (Vite) and backend (Express)
-```
-
-## Storage
-**PostgreSQL Database** - All booking data persists in PostgreSQL database using Drizzle ORM with Neon serverless. Data survives server restarts. DbStorage class implements all CRUD operations with proper connection pooling.
-
-## Recent Changes
-
-### Latest Updates (November 2025)
-- **Comprehensive Service Page Modernization**: All 9 remaining service pages (Packing, Moving Supplies, Student, Storage, Specialty Item, Antique, Piano, Senior, Military) now match the quality of the residential-moving page:
-  - Interactive service type tabs (4 tabs per page with icons and feature lists)
-  - Auto-rotating testimonials carousel (5 reviews each, 5-second rotation)
-  - Service areas sections with Vancouver neighborhoods/campuses/military bases
-  - FAQ accordion sections (5 questions each with detailed answers)
-  - Related services sections linking to complementary services
-  - Enhanced SEO with aggregateRating, multiple areaServed cities in schema.org
-  - WorkSafe BC badge integration throughout
-  - Comprehensive data-testid attributes for testing automation
-  - Stats bars with gold gradient and key metrics
-  - "About Our Service" sections with SEO content
-  - Storage Solutions includes interactive storage size calculator slider
-
-- **Bold Homepage Redesign**: Complete visual overhaul inspired by industry leaders:
-  - Dark navy (#1A2332) navigation with gold accents
-  - Full-bleed hero section with gradient overlay and experience badge
-  - Stats bar with key metrics (10,000+ moves, 5.0 rating, 15+ years, 50+ movers)
-  - Trust badges section (BBB A+, WSIB, Google 5-Star, Fully Licensed)
-  - Featured services grid on dark background with hover effects
-  - About section with two-column layout and company stats
-  - Package pricing cards with "Most Popular" highlight on Diamond
-  - Testimonials carousel with accessible navigation (aria-labels)
-  - Why Choose Us section with 6 feature blocks
-  - Strong CTA section with gold background
-  - Modern footer with all 12 service links organized in columns
-  - Fully responsive design with mobile-optimized layouts
-
-- **Complete 12-Service Page Suite**: All 12 moving services now have dedicated SEO-optimized pages:
-  - Residential, Commercial, Long Distance, Packing, Moving Supplies, Student
-  - Storage, Specialty Item, Antique, Piano, Senior, and Military Moving
-  - Each page includes: JSON-LD schema markup, meta descriptions, keywords, canonical URLs, Open Graph tags
-  - Comprehensive content sections with features, benefits, process steps, and clear CTAs
-  - Consistent navigation with back button, logo, and Get Quote CTA
-
-- **Enhanced Navigation**: 2-column dropdown grid displaying all 12 services:
-  - Desktop: Shadcn NavigationMenu with hover-activated dropdown (700px wide, 2-column grid)
-  - Mobile: Hamburger menu with Sheet component for responsive navigation
-  - Fixed logo sizing (h-16), header height h-20
-  - Enhanced styling: backdrop blur, shadow, smooth transitions, hover states
-
-### Phase 2 - Advanced Features
-- **Database Persistence**: Migrated from in-memory storage to PostgreSQL with Drizzle ORM - all bookings now persist across restarts
-- **SmartMoving Customer Integration**: Admin customers page now fetches real customer data from SmartMoving API
-- **Webhook System**: Implemented SmartMoving webhook endpoint for real-time booking status updates
-  - Handles Opportunity Status Changed, Job Created/Finalized/Closed events
-  - Automatically updates local booking status when SmartMoving sends notifications
-  - Comprehensive event logging for debugging
-
-## Phase 1 Completion
-- Implemented complete booking flow with SmartMoving Lead API integration
-- Built admin dashboard with comprehensive booking management
-- Added manual and bulk SmartMoving sync operations
-- Configured Prestige Moving branding throughout
-- Mobile-responsive design across all pages
-
-## Completed Enhancements
-- ✅ PostgreSQL persistence (implemented)
-- ✅ SmartMoving webhooks for real-time updates (implemented)
-- ✅ SmartMoving customer data integration (implemented)
-- ✅ Complete SEO optimization with social sharing (implemented)
-  - XML sitemap at `/sitemap.xml` with all 15 pages indexed
-  - Robots.txt with crawler guidance
-  - og:image and twitter:image tags on all pages
-  - Social preview image at `/og-image.png`
-  - Canonical URLs pointing to vancouver.prestigemoving.ca
-  - JSON-LD schema markup on all service pages
-- ✅ Hero Video Management (implemented)
-  - Admin interface at `/admin/hero-videos` for managing hero videos per page
-  - Database-driven video configurations with auto-rotation support
-  - Configurable rotation interval (seconds) per page
-  - Support for multiple videos per page with cycling
-  - Graceful fallback to default videos when API unavailable
-  - Pre-configured default videos for major pages (home, commercial, long-distance)
-
-## Upcoming Enhancements
-- Customer portal for tracking moves
-- Payment processing (Stripe) integration
-- SMS/Email notifications
-- Advanced analytics dashboard with revenue tracking
-- Service image gallery from prestigemoving.ca
-
-## Webhook Configuration
-To enable real-time sync from SmartMoving:
-1. Login to SmartMoving at https://app.smartmoving.com
-2. Navigate to Settings → Integrations → SmartMoving API → Webhooks
-3. Click "Add Webhook"
-4. Enter callback URL: `https://your-replit-url.replit.app/api/webhooks/smartmoving`
-5. Select events: Opportunity Status Changed, Opportunity Changed, Job Created, Job Finalized, Job Closed
-6. Save webhook configuration
+- **SmartMoving CRM**: Integrated for lead management and booking synchronization.
+  - **API**: `https://api.smartmoving.com/api/leads/from-provider/v2` for lead submission.
+  - **Webhooks**: Used for real-time updates on opportunity status, job creation, and closure.
+- **PostgreSQL Database**: Used for persistent data storage.
+  - **ORM**: Drizzle ORM.
+  - **Hosting**: Neon serverless.
+- **OpenAI GPT-4o**: Utilized for AI content generation within the blog system.

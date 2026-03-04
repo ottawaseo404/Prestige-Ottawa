@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { Helmet } from "react-helmet";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
@@ -10,6 +10,15 @@ import {
   CheckCircle2, Calculator, MapPin, Users, ChevronRight, Info
 } from "lucide-react";
 import { SeoKeywordsSection } from "@/components/seo-keywords-section";
+
+const COST_TOC = [
+  { id: "toc-calculator",  label: "Cost Calculator" },
+  { id: "toc-price-table", label: "Price Table" },
+  { id: "toc-factors",     label: "Cost Factors" },
+  { id: "toc-hidden-fees", label: "Hidden Fees" },
+  { id: "toc-long-distance", label: "Long-Distance" },
+  { id: "toc-faq",         label: "FAQs" },
+];
 
 const PRICING = {
   premium: { hourly: 155, travel: 155, movers: 2, truck: "16–20 ft", minHours: 3 },
@@ -40,6 +49,33 @@ export default function HowMuchDoesMovingCostOttawa() {
   const [hasStairs, setHasStairs] = useState(false);
   const [hasPacking, setHasPacking] = useState(false);
   const [hasSpecialty, setHasSpecialty] = useState(false);
+  const [activeSection, setActiveSection] = useState<string>("");
+
+  useEffect(() => {
+    const observers: IntersectionObserver[] = [];
+    const visible = new Set<string>();
+    COST_TOC.forEach(({ id }) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const obs = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) visible.add(id); else visible.delete(id);
+          const first = COST_TOC.find(i => visible.has(i.id));
+          if (first) setActiveSection(first.id);
+        },
+        { rootMargin: "-80px 0px -50% 0px", threshold: 0 }
+      );
+      obs.observe(el);
+      observers.push(obs);
+    });
+    return () => observers.forEach(o => o.disconnect());
+  }, []);
+
+  const scrollTo = (id: string) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 100, behavior: "smooth" });
+  };
 
   const estimate = useMemo(() => {
     const size = HOME_SIZES[homeSize];
@@ -278,8 +314,30 @@ export default function HowMuchDoesMovingCostOttawa() {
           </div>
         </section>
 
+        {/* Sticky TOC Bar */}
+        <div className="sticky top-16 z-40 bg-white border-b border-gray-100 shadow-sm">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex items-center gap-1 py-2 overflow-x-auto" style={{ scrollbarWidth: "none" }}>
+              <span className="text-xs font-semibold text-gray-400 uppercase tracking-widest whitespace-nowrap pr-3 border-r border-gray-200 mr-2">On this page</span>
+              {COST_TOC.map(item => (
+                <button
+                  key={item.id}
+                  onClick={() => scrollTo(item.id)}
+                  className={`px-4 py-2 rounded-full text-sm whitespace-nowrap font-medium transition-all ${
+                    activeSection === item.id
+                      ? "bg-[#C5A572] text-white"
+                      : "text-gray-600 hover:bg-gray-100 hover:text-gray-900"
+                  }`}
+                >
+                  {item.label}
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+
         {/* Interactive Calculator */}
-        <section className="py-16 bg-white" data-testid="section-calculator">
+        <section id="toc-calculator" className="py-16 bg-white" data-testid="section-calculator">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-10">
               <div className="inline-flex items-center gap-2 bg-[#1A2332]/5 rounded-full px-4 py-1.5 mb-4">
@@ -433,7 +491,7 @@ export default function HowMuchDoesMovingCostOttawa() {
         </section>
 
         {/* Full Price Table */}
-        <section className="py-16 bg-gray-50" data-testid="section-price-table">
+        <section id="toc-price-table" className="py-16 bg-gray-50" data-testid="section-price-table">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-10">
               <h2 className="text-3xl font-bold text-[#1A2332] mb-3">Ottawa Moving Cost by Home Size (2025)</h2>
@@ -482,7 +540,7 @@ export default function HowMuchDoesMovingCostOttawa() {
         </section>
 
         {/* Factors */}
-        <section className="py-16 bg-white" data-testid="section-factors">
+        <section id="toc-factors" className="py-16 bg-white" data-testid="section-factors">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-[#1A2332] mb-3">8 Factors That Affect Your Ottawa Moving Cost</h2>
@@ -503,7 +561,7 @@ export default function HowMuchDoesMovingCostOttawa() {
         </section>
 
         {/* Hidden Fees */}
-        <section className="py-16 bg-gray-50" data-testid="section-hidden-fees">
+        <section id="toc-hidden-fees" className="py-16 bg-gray-50" data-testid="section-hidden-fees">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-10">
               <h2 className="text-3xl font-bold text-[#1A2332] mb-3">Hidden Moving Fees to Watch Out For in Ottawa</h2>
@@ -537,7 +595,7 @@ export default function HowMuchDoesMovingCostOttawa() {
         </section>
 
         {/* Long-form content */}
-        <section className="py-16 bg-white" data-testid="section-content">
+        <section id="toc-long-distance" className="py-16 bg-white" data-testid="section-content">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
 
             <h2 className="text-3xl font-bold text-[#1A2332] mb-6">Understanding Ottawa Moving Costs in 2025</h2>
@@ -616,7 +674,7 @@ export default function HowMuchDoesMovingCostOttawa() {
         </section>
 
         {/* FAQ */}
-        <section className="py-16 bg-white" data-testid="section-faq">
+        <section id="toc-faq" className="py-16 bg-white" data-testid="section-faq">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl font-bold text-[#1A2332] text-center mb-12">Frequently Asked Questions About Ottawa Moving Costs</h2>
             <div className="space-y-3">
