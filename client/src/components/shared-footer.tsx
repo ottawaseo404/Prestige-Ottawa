@@ -23,11 +23,43 @@ const LONG_DISTANCE_ROUTES = [
   },
   {
     from: "Ottawa",
+    to: "Calgary",
+    distance: "3,300 km · 5–12 days",
+    from_price: "From $2,500",
+    href: "/ottawa-to-calgary-movers",
+    highlight: "Cross-Country",
+  },
+  {
+    from: "Ottawa",
+    to: "New Brunswick",
+    distance: "~1,000 km · ~10 hrs",
+    from_price: "From $1,500",
+    href: "/ottawa-to-new-brunswick-movers",
+    highlight: null,
+  },
+  {
+    from: "Ottawa",
+    to: "Halifax",
+    distance: "~1,500 km · ~15 hrs",
+    from_price: "From $1,800",
+    href: "/ottawa-to-halifax-movers",
+    highlight: null,
+  },
+  {
+    from: "Ottawa",
+    to: "Nova Scotia",
+    distance: "1,500–1,800 km",
+    from_price: "From $1,800",
+    href: "/ottawa-to-nova-scotia-movers",
+    highlight: null,
+  },
+  {
+    from: "Ottawa",
     to: "Vancouver",
     distance: "4,600 km · 7–14 days",
     from_price: "From $3,000",
     href: "/ottawa-to-vancouver-movers",
-    highlight: "Cross-Country",
+    highlight: "Longest Route",
   },
 ];
 
@@ -60,7 +92,7 @@ export function SharedFooter() {
             </Link>
           </div>
 
-          <div className="grid sm:grid-cols-3 gap-4">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
             {LONG_DISTANCE_ROUTES.map((route) => (
               <Link key={route.href} href={route.href}>
                 <div className="relative group bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 hover:border-[#C5A572]/40 transition-all duration-200 cursor-pointer">
@@ -146,6 +178,10 @@ export function SharedFooter() {
               <div className="space-y-2.5 text-sm text-white/65">
                 <Link href="/ottawa-to-montreal-movers" className="block hover:text-[#C5A572] transition-colors">Ottawa to Montreal</Link>
                 <Link href="/ottawa-to-toronto-movers" className="block hover:text-[#C5A572] transition-colors">Ottawa to Toronto</Link>
+                <Link href="/ottawa-to-calgary-movers" className="block hover:text-[#C5A572] transition-colors">Ottawa to Calgary</Link>
+                <Link href="/ottawa-to-new-brunswick-movers" className="block hover:text-[#C5A572] transition-colors">Ottawa to New Brunswick</Link>
+                <Link href="/ottawa-to-halifax-movers" className="block hover:text-[#C5A572] transition-colors">Ottawa to Halifax</Link>
+                <Link href="/ottawa-to-nova-scotia-movers" className="block hover:text-[#C5A572] transition-colors">Ottawa to Nova Scotia</Link>
                 <Link href="/ottawa-to-vancouver-movers" className="block hover:text-[#C5A572] transition-colors">Ottawa to Vancouver</Link>
                 <Link href="/long-distance-movers-ottawa" className="block hover:text-[#C5A572] transition-colors">Long-Distance Movers</Link>
               </div>
