@@ -322,7 +322,7 @@ export default function BestMoversOttawa() {
 
         {/* ─── MAIN CONTENT AREA ─── */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-          <div className="flex gap-12 items-start">
+          <div className="xl:flex gap-12 items-start">
 
             {/* TABLE OF CONTENTS */}
             <TableOfContents items={TOC_ITEMS} />
