@@ -255,10 +255,10 @@ export function CommercialMoversTemplate({ data }: { data: CommercialPageData })
               {/* ── FLEET PHOTO ── */}
               <div className="relative rounded-2xl overflow-hidden">
                 <img src={fiveTrucksImg} alt={`Prestige Moving commercial trucks serving ${data.name} Ottawa`} className="w-full h-56 object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-r from-[#0d1620]/82 to-transparent flex items-center">
+                <div className="absolute inset-0 bg-[#0d1620]/70 flex items-center">
                   <div className="pl-8">
                     <div className="text-white font-bold text-lg mb-1">Commercial Fleet — Serving {data.name} Businesses</div>
-                    <div className="text-white/55 text-sm">Multiple commercial trucks available for {data.name} office and business moves</div>
+                    <div className="text-white/70 text-sm">Multiple commercial trucks available for {data.name} office and business moves</div>
                   </div>
                 </div>
               </div>
@@ -389,7 +389,7 @@ export function CommercialMoversTemplate({ data }: { data: CommercialPageData })
               {/* ── NIGHT TRUCK CTA ── */}
               <div className="relative rounded-2xl overflow-hidden">
                 <img src={nightTruckImg} alt={`Prestige Moving commercial movers ${data.name} Ottawa`} className="w-full h-56 object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-r from-[#0d1620]/90 via-[#0d1620]/70 to-transparent flex items-center">
+                <div className="absolute inset-0 bg-[#0d1620]/72 flex items-center">
                   <div className="px-8 max-w-md">
                     <div className="text-white font-bold text-xl mb-2">Moving Your {data.name} Business?</div>
                     <div className="text-white/60 text-sm mb-4">After-hours, weekend, and phased moves available. Zero disruption to your operations is our goal.</div>

@@ -232,10 +232,10 @@ export function ResidentialMoversTemplate({ data }: { data: NeighbourhoodPageDat
               {/* ── FLEET PHOTO ── */}
               <div className="relative rounded-2xl overflow-hidden">
                 <img src={fiveTrucksImg} alt={`Prestige Moving trucks serving ${data.name} Ottawa`} className="w-full h-56 object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-r from-[#0d1620]/82 to-transparent flex items-center">
+                <div className="absolute inset-0 bg-[#0d1620]/70 flex items-center">
                   <div className="pl-8">
                     <div className="text-white font-bold text-lg mb-1">Serving {data.name} Daily</div>
-                    <div className="text-white/55 text-sm">Multiple trucks dispatched across {data.name} every day</div>
+                    <div className="text-white/70 text-sm">Multiple trucks dispatched across {data.name} every day</div>
                   </div>
                 </div>
               </div>
@@ -381,7 +381,7 @@ export function ResidentialMoversTemplate({ data }: { data: NeighbourhoodPageDat
               {/* ── NIGHT TRUCK CTA ── */}
               <div className="relative rounded-2xl overflow-hidden">
                 <img src={nightTruckImg} alt="Prestige Moving residential movers Ottawa" className="w-full h-56 object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-r from-[#0d1620]/90 via-[#0d1620]/70 to-transparent flex items-center">
+                <div className="absolute inset-0 bg-[#0d1620]/72 flex items-center">
                   <div className="px-8 max-w-md">
                     <div className="text-white font-bold text-xl mb-2">Ready to Move in {data.name}?</div>
                     <div className="text-white/60 text-sm mb-4">Book in under 2 minutes. We'll confirm your date and send a written quote.</div>
