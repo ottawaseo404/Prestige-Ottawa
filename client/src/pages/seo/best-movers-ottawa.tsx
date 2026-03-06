@@ -6,11 +6,11 @@ import { Card, CardContent } from "@/components/ui/card";
 import { SharedNavigation } from "@/components/shared-navigation";
 import { SharedFooter } from "@/components/shared-footer";
 import { TableOfContents } from "@/components/table-of-contents";
-import { SeoKeywordsSection } from "@/components/seo-keywords-section";
 import {
   Phone, CheckCircle2, TruckIcon, Shield, Clock, Users, Star, MapPin, ArrowRight,
   ChevronDown, Award, ThumbsUp, Calendar, Package, Home, Building2, Heart, BadgeCheck,
-  Banknote, Headset, AlertTriangle, XCircle, Truck
+  Banknote, Headset, AlertTriangle, Truck, GraduationCap, Music, Dumbbell, Medal,
+  Warehouse, Box, Navigation, ChevronRight, Globe
 } from "lucide-react";
 import fleetImg from "@assets/prestige-fleet_1771975522124.webp";
 import fiveTrucksImg from "@assets/5_trucks_1770166962675.webp";
@@ -25,6 +25,60 @@ const TOC_ITEMS = [
   { id: "areas-we-cover",      title: "Areas We Serve" },
   { id: "our-process",         title: "How It Works" },
   { id: "faqs",                title: "FAQ" },
+  { id: "explore-more",        title: "Explore More" },
+];
+
+const ALL_SERVICES = [
+  { icon: Home,          label: "Residential Moving",    href: "/services/residential-moving",   desc: "Houses, condos & apartments" },
+  { icon: Building2,     label: "Commercial Moving",     href: "/services/commercial-moving",    desc: "Offices & business relocations" },
+  { icon: Globe,         label: "Long Distance Moving",  href: "/services/long-distance-moving", desc: "Cross-province & Canada-wide" },
+  { icon: Package,       label: "Packing Services",      href: "/services/packing-services",     desc: "Full or partial professional packing" },
+  { icon: Box,           label: "Moving Supplies",       href: "/services/moving-supplies",      desc: "Boxes, tape & packing materials" },
+  { icon: GraduationCap, label: "Student Moving",        href: "/services/student-moving",       desc: "Affordable moves for students" },
+  { icon: Warehouse,     label: "Storage Solutions",     href: "/services/storage-solutions",    desc: "Secure climate-controlled storage" },
+  { icon: Dumbbell,      label: "Specialty Item Moving", href: "/services/specialty-item-moving",desc: "Hot tubs, pool tables, gym equipment" },
+  { icon: Award,         label: "Antique Moving",        href: "/services/antique-moving",       desc: "Careful handling of valuables" },
+  { icon: Music,         label: "Piano Moving",          href: "/services/piano-moving",         desc: "Specialized piano transport" },
+  { icon: Heart,         label: "Senior Moving",         href: "/services/senior-moving",        desc: "Compassionate elderly relocations" },
+  { icon: Medal,         label: "Military Moving",       href: "/services/military-moving",      desc: "PCS moves & base relocations" },
+];
+
+const LONG_DISTANCE_ROUTES = [
+  { city: "Montreal",       href: "/ottawa-to-montreal-movers",     time: "~2 hrs",  desc: "Most popular route — we run it daily" },
+  { city: "Toronto",        href: "/ottawa-to-toronto-movers",      time: "~4.5 hrs",desc: "Full household or commercial moves" },
+  { city: "Calgary",        href: "/ottawa-to-calgary-movers",      time: "~34 hrs", desc: "Expert cross-country packing included" },
+  { city: "Halifax",        href: "/ottawa-to-halifax-movers",      time: "~12 hrs", desc: "Maritime province specialists" },
+  { city: "Vancouver",      href: "/ottawa-to-vancouver-movers",    time: "~43 hrs", desc: "Coast-to-coast with full insurance" },
+  { city: "New Brunswick",  href: "/ottawa-to-new-brunswick-movers",time: "~8 hrs",  desc: "Fredericton, Moncton, Saint John" },
+  { city: "Nova Scotia",    href: "/ottawa-to-nova-scotia-movers",  time: "~11 hrs", desc: "Halifax, Dartmouth & surrounding areas" },
+];
+
+const OTTAWA_SEO_LINKS = [
+  { label: "Movers in Ottawa",         href: "/movers-in-ottawa" },
+  { label: "Ottawa Movers",            href: "/ottawa-movers" },
+  { label: "Moving Company Ottawa",    href: "/moving-company-ottawa" },
+  { label: "Professional Movers",      href: "/professional-movers-ottawa" },
+  { label: "Local Movers Ottawa",      href: "/local-movers-ottawa" },
+  { label: "Affordable Movers Ottawa", href: "/affordable-movers-ottawa" },
+  { label: "Licensed Movers Ottawa",   href: "/licensed-movers-ottawa" },
+  { label: "Insured Movers Ottawa",    href: "/insured-movers-ottawa" },
+  { label: "Residential Movers",       href: "/residential-movers-ottawa" },
+  { label: "Commercial Movers",        href: "/commercial-movers-ottawa" },
+  { label: "Movers Near Me Ottawa",    href: "/movers-near-me-ottawa" },
+  { label: "How Much Does Moving Cost",href: "/how-much-does-moving-cost-ottawa" },
+];
+
+const NEIGHBOURHOOD_LINKS = [
+  { label: "Orleans",         href: "/movers-near-me-ottawa" },
+  { label: "Barrhaven",       href: "/movers-near-me-ottawa" },
+  { label: "Nepean",          href: "/movers-near-me-ottawa" },
+  { label: "Kanata",          href: "/movers-near-me-ottawa" },
+  { label: "Gloucester",      href: "/movers-near-me-ottawa" },
+  { label: "Westboro",        href: "/movers-near-me-ottawa" },
+  { label: "The Glebe",       href: "/movers-near-me-ottawa" },
+  { label: "Centretown",      href: "/movers-near-me-ottawa" },
+  { label: "Hintonburg",      href: "/movers-near-me-ottawa" },
+  { label: "Rockcliffe Park", href: "/movers-near-me-ottawa" },
 ];
 
 const schemaData = {
@@ -566,7 +620,132 @@ export default function BestMoversOttawa() {
           </div>
         </div>
 
-        <SeoKeywordsSection currentPage="/best-movers-ottawa" />
+        {/* ─── INTERNAL LINKING HUB ─── */}
+        <section id="explore-more" className="scroll-mt-24 bg-[#0d1620] py-20">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+
+            {/* ── ALL SERVICES ── */}
+            <div>
+              <div className="flex items-center gap-3 mb-2">
+                <div className="h-px flex-1 bg-white/10" />
+                <span className="text-[#C5A572] text-xs font-bold uppercase tracking-widest">Our Services</span>
+                <div className="h-px flex-1 bg-white/10" />
+              </div>
+              <h2 className="text-2xl font-bold text-white text-center mb-2">Everything We Move in Ottawa</h2>
+              <p className="text-white/45 text-sm text-center mb-8 max-w-xl mx-auto">
+                From a studio apartment to a full commercial office — we're licensed, insured, and ready for every type of move.
+              </p>
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+                {ALL_SERVICES.map(({ icon: Icon, label, href, desc }) => (
+                  <Link key={href} href={href}>
+                    <div className="group flex items-start gap-3 p-4 rounded-xl bg-white/5 border border-white/8 hover:bg-white/10 hover:border-[#C5A572]/30 transition-all cursor-pointer">
+                      <div className="w-8 h-8 rounded-lg bg-[#C5A572]/15 flex items-center justify-center shrink-0 group-hover:bg-[#C5A572]/25 transition-colors">
+                        <Icon className="h-4 w-4 text-[#C5A572]" />
+                      </div>
+                      <div>
+                        <div className="text-white text-sm font-semibold leading-tight group-hover:text-[#C5A572] transition-colors">{label}</div>
+                        <div className="text-white/40 text-xs mt-0.5 leading-snug">{desc}</div>
+                      </div>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+              <div className="text-center mt-6">
+                <Link href="/services">
+                  <Button variant="outline" className="border-white/20 text-white/70 hover:text-white hover:border-white/40">
+                    View All Services <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </Link>
+              </div>
+            </div>
+
+            {/* ── LONG DISTANCE ROUTES ── */}
+            <div>
+              <div className="flex items-center gap-3 mb-2">
+                <div className="h-px flex-1 bg-white/10" />
+                <span className="text-[#C5A572] text-xs font-bold uppercase tracking-widest">Long Distance</span>
+                <div className="h-px flex-1 bg-white/10" />
+              </div>
+              <h2 className="text-2xl font-bold text-white text-center mb-2">Moving Out of Ottawa?</h2>
+              <p className="text-white/45 text-sm text-center mb-8 max-w-xl mx-auto">
+                Licensed interprovincial movers. Same 5-star standard, same transparent pricing — wherever you're headed.
+              </p>
+              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                {LONG_DISTANCE_ROUTES.map(({ city, href, time, desc }) => (
+                  <Link key={href} href={href}>
+                    <div className="group p-5 rounded-xl bg-white/5 border border-white/8 hover:bg-[#C5A572]/10 hover:border-[#C5A572]/40 transition-all cursor-pointer">
+                      <div className="flex items-center justify-between mb-2">
+                        <div className="flex items-center gap-2">
+                          <Navigation className="h-4 w-4 text-[#C5A572]" />
+                          <span className="text-white font-bold text-sm group-hover:text-[#C5A572] transition-colors">Ottawa → {city}</span>
+                        </div>
+                      </div>
+                      <div className="text-white/35 text-xs mb-2">{desc}</div>
+                      <div className="inline-flex items-center gap-1 bg-white/8 rounded-full px-2.5 py-1 text-white/50 text-xs">
+                        <Clock className="h-3 w-3" /> Drive: {time}
+                      </div>
+                    </div>
+                  </Link>
+                ))}
+                <Link href="/services/long-distance-moving">
+                  <div className="group p-5 rounded-xl bg-[#C5A572]/10 border border-[#C5A572]/20 hover:bg-[#C5A572]/20 hover:border-[#C5A572]/40 transition-all cursor-pointer flex flex-col items-center justify-center text-center min-h-[110px]">
+                    <Globe className="h-6 w-6 text-[#C5A572] mb-2" />
+                    <div className="text-[#C5A572] font-bold text-sm">All Long Distance Routes</div>
+                    <div className="text-white/40 text-xs mt-1">View every destination we serve</div>
+                  </div>
+                </Link>
+              </div>
+            </div>
+
+            {/* ── OTTAWA PAGES + NEIGHBOURHOODS ── */}
+            <div className="grid lg:grid-cols-2 gap-12">
+
+              {/* Ottawa keyword pages */}
+              <div>
+                <div className="flex items-center gap-3 mb-6">
+                  <MapPin className="h-4 w-4 text-[#C5A572]" />
+                  <span className="text-[#C5A572] text-xs font-bold uppercase tracking-widest">Ottawa Movers</span>
+                </div>
+                <div className="space-y-1.5">
+                  {OTTAWA_SEO_LINKS.map(({ label, href }) => (
+                    <Link key={href} href={href}>
+                      <div className="flex items-center justify-between px-4 py-3 rounded-lg hover:bg-white/6 group transition-colors cursor-pointer">
+                        <span className="text-white/65 text-sm group-hover:text-white transition-colors">{label}</span>
+                        <ChevronRight className="h-4 w-4 text-white/20 group-hover:text-[#C5A572] transition-colors" />
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+
+              {/* Neighbourhood pages */}
+              <div>
+                <div className="flex items-center gap-3 mb-6">
+                  <Home className="h-4 w-4 text-[#C5A572]" />
+                  <span className="text-[#C5A572] text-xs font-bold uppercase tracking-widest">Neighbourhoods</span>
+                </div>
+                <div className="space-y-1.5">
+                  {NEIGHBOURHOOD_LINKS.map(({ label, href }) => (
+                    <Link key={label} href={href}>
+                      <div className="flex items-center justify-between px-4 py-3 rounded-lg hover:bg-white/6 group transition-colors cursor-pointer">
+                        <span className="text-white/65 text-sm group-hover:text-white transition-colors">Movers in {label}</span>
+                        <ChevronRight className="h-4 w-4 text-white/20 group-hover:text-[#C5A572] transition-colors" />
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+                <div className="mt-4 px-4">
+                  <Link href="/movers-near-me-ottawa">
+                    <span className="text-[#C5A572] text-xs font-semibold flex items-center gap-1 hover:underline">
+                      See all Ottawa neighbourhoods <ArrowRight className="h-3 w-3" />
+                    </span>
+                  </Link>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </section>
 
         {/* ─── FINAL CTA ─── */}
         <section className="py-20 bg-[#1A2332]">
