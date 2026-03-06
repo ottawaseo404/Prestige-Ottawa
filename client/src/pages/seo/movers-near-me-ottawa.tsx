@@ -11,6 +11,9 @@ import {
 } from "lucide-react";
 import heroImg from "@assets/generated_images/movers-near-me-hero.png";
 import aerialImg from "@assets/generated_images/ottawa-neighbourhoods-aerial.png";
+import trucksFleetImg from "@assets/trucks_1772763928416.png";
+import snowTruckImg from "@assets/pics2_1772763996097.webp";
+import nightTruckImg from "@assets/pic5_1772763993370.webp";
 
 const REGIONS = [
   {
@@ -304,12 +307,23 @@ export default function MoversNearMeOttawa() {
                 ))}
               </div>
             </div>
-            <div className="relative rounded-2xl overflow-hidden shadow-xl">
-              <img src={aerialImg} alt="Ottawa neighbourhoods aerial view" className="w-full h-72 lg:h-96 object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#1A2332]/70 to-transparent flex items-end p-6">
-                <div>
-                  <div className="text-white font-bold text-lg">Ottawa, Ontario</div>
-                  <div className="text-white/70 text-sm">We cover every neighbourhood — north to south, east to west</div>
+            <div className="space-y-4">
+              <div className="relative rounded-2xl overflow-hidden shadow-xl">
+                <img src={trucksFleetImg} alt="Prestige Moving fleet of trucks in Ottawa" className="w-full h-64 object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#1A2332]/75 to-transparent flex items-end p-5">
+                  <div>
+                    <div className="text-white font-bold">Our Ottawa Fleet</div>
+                    <div className="text-white/65 text-sm">Multiple trucks dispatched daily across all neighbourhoods</div>
+                  </div>
+                </div>
+              </div>
+              <div className="relative rounded-2xl overflow-hidden shadow-xl">
+                <img src={aerialImg} alt="Ottawa neighbourhoods aerial view" className="w-full h-44 object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#1A2332]/70 to-transparent flex items-end p-5">
+                  <div>
+                    <div className="text-white font-bold text-sm">Ottawa, Ontario</div>
+                    <div className="text-white/65 text-xs">Every neighbourhood covered</div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -508,6 +522,37 @@ export default function MoversNearMeOttawa() {
           </div>
         </section>
 
+        {/* ─── SNOW TRUCK PHOTO BREAK ─── */}
+        <section className="relative rounded-3xl overflow-hidden">
+          <img
+            src={snowTruckImg}
+            alt="Prestige Moving truck delivering in Ottawa winter conditions"
+            className="w-full h-80 object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0d1620]/88 via-[#0d1620]/60 to-transparent" />
+          <div className="absolute inset-0 flex items-center">
+            <div className="max-w-6xl mx-auto px-10 w-full">
+              <div className="max-w-lg">
+                <div className="inline-flex items-center gap-2 bg-[#C5A572]/20 border border-[#C5A572]/30 rounded-full px-4 py-1.5 mb-4">
+                  <Shield className="h-4 w-4 text-[#C5A572]" />
+                  <span className="text-[#C5A572] text-sm font-semibold">Year-Round Service</span>
+                </div>
+                <h2 className="text-3xl font-bold text-white mb-3" style={{ textShadow: "0 2px 16px rgba(0,0,0,0.9)" }}>
+                  We Move in All Conditions
+                </h2>
+                <p className="text-white/80 text-base leading-relaxed mb-5" style={{ textShadow: "0 1px 8px rgba(0,0,0,0.8)" }}>
+                  Ottawa winters don't stop us. Our crews are trained for cold-weather moves — from protecting hardwood floors with runners, to managing icy driveways safely. We move year-round with no weather surcharges.
+                </p>
+                <Link href="/book">
+                  <Button className="bg-[#C5A572] hover:bg-[#b8955f] text-[#1A2332] font-bold">
+                    Book a Winter Move <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* ─── WHY PRESTIGE ─── */}
         <section className="bg-gradient-to-br from-[#1A2332] to-[#243347] rounded-3xl p-10 lg:p-14">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -586,33 +631,51 @@ export default function MoversNearMeOttawa() {
           </div>
         </section>
 
-        {/* ─── LONG DISTANCE CTA STRIP ─── */}
-        <section className="bg-gray-50 border border-gray-200 rounded-2xl p-8">
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
-            <div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">Moving Out of Ottawa?</h3>
-              <p className="text-gray-500">We're licensed interprovincial movers serving all major Canadian destinations.</p>
-              <div className="flex flex-wrap gap-3 mt-4">
-                {[
-                  { label: "→ Montreal", href: "/ottawa-to-montreal-movers" },
-                  { label: "→ Toronto", href: "/ottawa-to-toronto-movers" },
-                  { label: "→ Calgary", href: "/ottawa-to-calgary-movers" },
-                  { label: "→ Halifax", href: "/ottawa-to-halifax-movers" },
-                  { label: "→ Vancouver", href: "/ottawa-to-vancouver-movers" },
-                ].map(({ label, href }) => (
-                  <Link key={href} href={href}>
-                    <span className="inline-flex items-center gap-1 bg-white border border-gray-200 rounded-full px-4 py-1.5 text-sm font-medium text-gray-700 hover:border-[#C5A572] hover:text-[#C5A572] transition-colors">
-                      {label}
-                    </span>
-                  </Link>
-                ))}
+        {/* ─── LONG DISTANCE PHOTO STRIP ─── */}
+        <section className="relative rounded-3xl overflow-hidden">
+          <img
+            src={nightTruckImg}
+            alt="Prestige Moving truck on a long-distance move at night"
+            className="w-full h-72 object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0d1620]/92 via-[#0d1620]/75 to-[#0d1620]/50" />
+          <div className="absolute inset-0 flex items-center">
+            <div className="max-w-6xl mx-auto px-10 w-full">
+              <div className="flex flex-col md:flex-row md:items-center justify-between gap-8">
+                <div className="max-w-xl">
+                  <div className="inline-flex items-center gap-2 bg-[#C5A572]/20 border border-[#C5A572]/30 rounded-full px-4 py-1.5 mb-4">
+                    <TruckIcon className="h-4 w-4 text-[#C5A572]" />
+                    <span className="text-[#C5A572] text-sm font-semibold">Licensed Interprovincial Movers</span>
+                  </div>
+                  <h2 className="text-3xl font-bold text-white mb-3" style={{ textShadow: "0 2px 16px rgba(0,0,0,0.9)" }}>
+                    Moving Out of Ottawa?
+                  </h2>
+                  <p className="text-white/75 mb-5 leading-relaxed" style={{ textShadow: "0 1px 8px rgba(0,0,0,0.7)" }}>
+                    We're licensed interprovincial movers serving Montreal, Toronto, Calgary, Halifax, Vancouver and beyond — same professional standard, door-to-door.
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {[
+                      { label: "Montreal", href: "/ottawa-to-montreal-movers" },
+                      { label: "Toronto", href: "/ottawa-to-toronto-movers" },
+                      { label: "Calgary", href: "/ottawa-to-calgary-movers" },
+                      { label: "Halifax", href: "/ottawa-to-halifax-movers" },
+                      { label: "Vancouver", href: "/ottawa-to-vancouver-movers" },
+                    ].map(({ label, href }) => (
+                      <Link key={href} href={href}>
+                        <span className="inline-flex items-center gap-1 bg-white/10 border border-white/20 hover:bg-[#C5A572]/20 hover:border-[#C5A572]/50 rounded-full px-4 py-1.5 text-sm font-medium text-white transition-colors">
+                          → {label}
+                        </span>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+                <Link href="/services/long-distance-moving" className="shrink-0">
+                  <Button size="lg" className="bg-[#C5A572] hover:bg-[#b8955f] text-[#1A2332] font-bold px-8 whitespace-nowrap">
+                    All Long-Distance Routes <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
+                </Link>
               </div>
             </div>
-            <Link href="/services/long-distance-moving" className="shrink-0">
-              <Button size="lg" variant="outline" className="border-[#1A2332] text-[#1A2332] hover:bg-[#1A2332] hover:text-white px-8">
-                View Long-Distance Services
-              </Button>
-            </Link>
           </div>
         </section>
 
