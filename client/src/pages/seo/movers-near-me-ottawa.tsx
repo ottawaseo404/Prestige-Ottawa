@@ -192,7 +192,8 @@ export default function MoversNearMeOttawa() {
       <section className="relative min-h-[85vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
           <img src={heroImg} alt="Professional Ottawa movers" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0d1620]/92 via-[#1A2332]/80 to-[#1A2332]/40" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0d1620]/95 via-[#0d1620]/85 to-[#0d1620]/55" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0d1620]/60 via-transparent to-transparent" />
         </div>
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-32 w-full">
           <nav className="flex items-center gap-2 text-sm text-white/50 mb-6" aria-label="Breadcrumb">
@@ -207,11 +208,14 @@ export default function MoversNearMeOttawa() {
               <span className="text-[#C5A572] text-sm font-semibold">Serving All Ottawa Neighbourhoods</span>
             </div>
 
-            <h1 className="text-5xl md:text-6xl font-bold text-white leading-tight mb-6">
+            <h1
+              className="text-5xl md:text-6xl font-bold text-white leading-tight mb-6"
+              style={{ textShadow: "0 2px 24px rgba(0,0,0,0.85), 0 1px 6px rgba(0,0,0,0.7)" }}
+            >
               Movers Near You<br />
               <span className="text-[#C5A572]">in Ottawa</span>
             </h1>
-            <p className="text-xl text-white/80 mb-10 leading-relaxed max-w-2xl">
+            <p className="text-xl text-white/90 mb-10 leading-relaxed max-w-2xl" style={{ textShadow: "0 1px 12px rgba(0,0,0,0.8)" }}>
               Ottawa's highest-rated moving company — 5.0 stars, 500+ reviews. Professional, licensed, fully insured crews available in Barrhaven, Kanata, Orleans, Nepean, Westboro, and every Ottawa neighbourhood. Same-week availability.
             </p>
 
