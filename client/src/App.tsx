@@ -87,6 +87,17 @@ import ResidentialMoversCentretown from "@/pages/seo/residential-movers-centreto
 import ResidentialMoversSandyHill from "@/pages/seo/residential-movers-sandy-hill";
 import ResidentialMoversStittsville from "@/pages/seo/residential-movers-stittsville";
 import ResidentialMoversManotick from "@/pages/seo/residential-movers-manotick";
+import CommercialMoversOrleans from "@/pages/seo/commercial-movers-orleans";
+import CommercialMoversKanata from "@/pages/seo/commercial-movers-kanata";
+import CommercialMoversBarrhaven from "@/pages/seo/commercial-movers-barrhaven";
+import CommercialMoversNepean from "@/pages/seo/commercial-movers-nepean";
+import CommercialMoversGloucester from "@/pages/seo/commercial-movers-gloucester";
+import CommercialMoversWestboro from "@/pages/seo/commercial-movers-westboro";
+import CommercialMoversTheGlebe from "@/pages/seo/commercial-movers-the-glebe";
+import CommercialMoversCentretown from "@/pages/seo/commercial-movers-centretown";
+import CommercialMoversSandyHill from "@/pages/seo/commercial-movers-sandy-hill";
+import CommercialMoversStittsville from "@/pages/seo/commercial-movers-stittsville";
+import CommercialMoversManotick from "@/pages/seo/commercial-movers-manotick";
 import AdminDashboard from "@/pages/admin/dashboard";
 import AdminBookings from "@/pages/admin/bookings";
 import AdminAnalytics from "@/pages/admin-analytics";
@@ -248,6 +259,17 @@ function Router() {
       <Route path="/residential-movers-sandy-hill" component={ResidentialMoversSandyHill} />
       <Route path="/residential-movers-stittsville" component={ResidentialMoversStittsville} />
       <Route path="/residential-movers-manotick" component={ResidentialMoversManotick} />
+      <Route path="/commercial-movers-orleans" component={CommercialMoversOrleans} />
+      <Route path="/commercial-movers-kanata" component={CommercialMoversKanata} />
+      <Route path="/commercial-movers-barrhaven" component={CommercialMoversBarrhaven} />
+      <Route path="/commercial-movers-nepean" component={CommercialMoversNepean} />
+      <Route path="/commercial-movers-gloucester" component={CommercialMoversGloucester} />
+      <Route path="/commercial-movers-westboro" component={CommercialMoversWestboro} />
+      <Route path="/commercial-movers-the-glebe" component={CommercialMoversTheGlebe} />
+      <Route path="/commercial-movers-centretown" component={CommercialMoversCentretown} />
+      <Route path="/commercial-movers-sandy-hill" component={CommercialMoversSandyHill} />
+      <Route path="/commercial-movers-stittsville" component={CommercialMoversStittsville} />
+      <Route path="/commercial-movers-manotick" component={CommercialMoversManotick} />
       <Route path="/junk-removal-ottawa" component={JunkRemovalOttawa} />
       <Route path="/furniture-assembly-ottawa" component={FurnitureAssemblyOttawa} />
       <Route path="/home-staging-ottawa" component={HomeStagingOttawa} />

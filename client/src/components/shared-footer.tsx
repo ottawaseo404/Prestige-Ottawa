@@ -252,6 +252,21 @@ export function SharedFooter() {
                 <Link href="/residential-movers-manotick" className="block hover:text-[#C5A572] transition-colors">Residential Movers Manotick</Link>
               </div>
 
+              <h4 className="font-bold text-sm uppercase tracking-widest text-white/40 mb-4 mt-7">Commercial Movers</h4>
+              <div className="space-y-2.5 text-sm text-white/65 mb-7">
+                <Link href="/commercial-movers-orleans" className="block hover:text-[#C5A572] transition-colors">Commercial Movers Orleans</Link>
+                <Link href="/commercial-movers-kanata" className="block hover:text-[#C5A572] transition-colors">Commercial Movers Kanata</Link>
+                <Link href="/commercial-movers-barrhaven" className="block hover:text-[#C5A572] transition-colors">Commercial Movers Barrhaven</Link>
+                <Link href="/commercial-movers-nepean" className="block hover:text-[#C5A572] transition-colors">Commercial Movers Nepean</Link>
+                <Link href="/commercial-movers-gloucester" className="block hover:text-[#C5A572] transition-colors">Commercial Movers Gloucester</Link>
+                <Link href="/commercial-movers-westboro" className="block hover:text-[#C5A572] transition-colors">Commercial Movers Westboro</Link>
+                <Link href="/commercial-movers-the-glebe" className="block hover:text-[#C5A572] transition-colors">Commercial Movers The Glebe</Link>
+                <Link href="/commercial-movers-centretown" className="block hover:text-[#C5A572] transition-colors">Commercial Movers Centretown</Link>
+                <Link href="/commercial-movers-sandy-hill" className="block hover:text-[#C5A572] transition-colors">Commercial Movers Sandy Hill</Link>
+                <Link href="/commercial-movers-stittsville" className="block hover:text-[#C5A572] transition-colors">Commercial Movers Stittsville</Link>
+                <Link href="/commercial-movers-manotick" className="block hover:text-[#C5A572] transition-colors">Commercial Movers Manotick</Link>
+              </div>
+
               <h4 className="font-bold text-sm uppercase tracking-widest text-white/40 mb-4 mt-7">Contact Us</h4>
               <div className="space-y-3 text-sm text-white/65">
                 <div className="flex items-center gap-2 text-white font-semibold">
