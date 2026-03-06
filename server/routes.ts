@@ -132,6 +132,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
         { loc: "/ottawa-to-new-brunswick-movers", changefreq: "monthly", priority: "0.9" },
         { loc: "/ottawa-to-halifax-movers", changefreq: "monthly", priority: "0.9" },
         { loc: "/ottawa-to-nova-scotia-movers", changefreq: "monthly", priority: "0.9" },
+        { loc: "/movers-near-me-ottawa", changefreq: "monthly", priority: "0.9" },
         { loc: "/movers-in-orleans", changefreq: "monthly", priority: "0.7" },
         { loc: "/movers-in-barrhaven", changefreq: "monthly", priority: "0.7" },
         { loc: "/movers-in-nepean", changefreq: "monthly", priority: "0.7" },
