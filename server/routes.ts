@@ -180,6 +180,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
         { loc: "/furniture-assembly-ottawa", changefreq: "monthly", priority: "0.7" },
         { loc: "/ottawa-piano-movers", changefreq: "monthly", priority: "0.8" },
         { loc: "/how-to-choose-a-moving-company-ottawa", changefreq: "monthly", priority: "0.8" },
+        { loc: "/ottawa-contractors", changefreq: "monthly", priority: "0.8" },
         { loc: "/furniture-donation-disposal-ottawa", changefreq: "monthly", priority: "0.8" },
         { loc: "/moving-boxes-packing-supplies-ottawa", changefreq: "monthly", priority: "0.8" },
       ];

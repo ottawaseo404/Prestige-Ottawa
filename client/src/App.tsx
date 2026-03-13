@@ -122,6 +122,7 @@ import AdminPages from "@/pages/admin/pages";
 import AdminLogin from "@/pages/admin-login";
 import OttawaPianoMovers from "@/pages/seo/ottawa-piano-movers";
 import HowToChooseMovingCompanyOttawa from "@/pages/seo/how-to-choose-a-moving-company-ottawa";
+import OttawaContractors from "@/pages/seo/ottawa-contractors";
 import FurnitureDonationDisposalOttawa from "@/pages/seo/furniture-donation-disposal-ottawa";
 import MovingBoxesPackingSuppliesOttawa from "@/pages/seo/moving-boxes-packing-supplies-ottawa";
 import LocalOttawaMovingRates from "@/pages/seo/local-ottawa-moving-rates";
@@ -315,6 +316,7 @@ function Router() {
       <Route path="/custom-crating-ottawa" component={CustomCratingOttawa} />
       <Route path="/ottawa-piano-movers" component={OttawaPianoMovers} />
       <Route path="/how-to-choose-a-moving-company-ottawa" component={HowToChooseMovingCompanyOttawa} />
+      <Route path="/ottawa-contractors" component={OttawaContractors} />
       <Route path="/furniture-donation-disposal-ottawa" component={FurnitureDonationDisposalOttawa} />
       <Route path="/moving-boxes-packing-supplies-ottawa" component={MovingBoxesPackingSuppliesOttawa} />
       <Route path="/local-ottawa-moving-rates" component={LocalOttawaMovingRates} />
