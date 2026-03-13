@@ -203,6 +203,9 @@ export function SharedFooter() {
                 <Link href="/furniture-assembly-ottawa" className="block hover:text-[#C5A572] transition-colors">Furniture Assembly</Link>
                 <Link href="/home-staging-ottawa" className="block hover:text-[#C5A572] transition-colors">Home Staging</Link>
                 <Link href="/estate-cleanout-ottawa" className="block hover:text-[#C5A572] transition-colors">Estate Cleanout</Link>
+                <Link href="/custom-crating-ottawa" className="block hover:text-[#C5A572] transition-colors">Custom Crating</Link>
+                <Link href="/furniture-donation-disposal-ottawa" className="block hover:text-[#C5A572] transition-colors">Furniture Donation & Disposal</Link>
+                <Link href="/how-to-choose-a-moving-company-ottawa" className="block hover:text-[#C5A572] transition-colors">How to Choose a Mover</Link>
               </div>
             </div>
 
