@@ -1,17 +1,49 @@
-# Prestige Moving Vancouver - Robots.txt
-# https://vancouver.prestigemoving.ca
+# Prestige Moving Ottawa - Robots.txt
+# https://prestigemoving.ca
 
 User-agent: *
 Allow: /
-
-# Sitemap location
-Sitemap: https://vancouver.prestigemoving.ca/sitemap.xml
-
-# Disallow admin pages from indexing
 Disallow: /admin
 Disallow: /admin/
+Disallow: /login
 
-# Allow all service pages
+# Allow all public pages
 Allow: /services/
 Allow: /book
 Allow: /calculator
+Allow: /blog
+Allow: /sitemap.xml
+
+# AI / LLM Crawlers - explicitly allowed
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
+# Sitemap
+Sitemap: https://prestigemoving.ca/sitemap.xml

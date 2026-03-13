@@ -98,6 +98,18 @@ import CommercialMoversCentretown from "@/pages/seo/commercial-movers-centretown
 import CommercialMoversSandyHill from "@/pages/seo/commercial-movers-sandy-hill";
 import CommercialMoversStittsville from "@/pages/seo/commercial-movers-stittsville";
 import CommercialMoversManotick from "@/pages/seo/commercial-movers-manotick";
+import ResidentialMoversAltaVista from "@/pages/seo/residential-movers-alta-vista";
+import ResidentialMoversHintonburg from "@/pages/seo/residential-movers-hintonburg";
+import ResidentialMoversRiversideSouth from "@/pages/seo/residential-movers-riverside-south";
+import ResidentialMoversRockcliffePark from "@/pages/seo/residential-movers-rockcliffe-park";
+import ResidentialMoversBeaconHill from "@/pages/seo/residential-movers-beacon-hill";
+import ResidentialMoversOrleansVillage from "@/pages/seo/residential-movers-orleans-village";
+import CommercialMoversAltaVista from "@/pages/seo/commercial-movers-alta-vista";
+import CommercialMoversHintonburg from "@/pages/seo/commercial-movers-hintonburg";
+import CommercialMoversRiversideSouth from "@/pages/seo/commercial-movers-riverside-south";
+import CommercialMoversRockcliffePark from "@/pages/seo/commercial-movers-rockcliffe-park";
+import CommercialMoversBeaconHill from "@/pages/seo/commercial-movers-beacon-hill";
+import CommercialMoversOrleansVillage from "@/pages/seo/commercial-movers-orleans-village";
 import AdminDashboard from "@/pages/admin/dashboard";
 import AdminBookings from "@/pages/admin/bookings";
 import AdminAnalytics from "@/pages/admin-analytics";
@@ -284,6 +296,18 @@ function Router() {
       <Route path="/commercial-movers-sandy-hill" component={CommercialMoversSandyHill} />
       <Route path="/commercial-movers-stittsville" component={CommercialMoversStittsville} />
       <Route path="/commercial-movers-manotick" component={CommercialMoversManotick} />
+      <Route path="/residential-movers-alta-vista" component={ResidentialMoversAltaVista} />
+      <Route path="/residential-movers-hintonburg" component={ResidentialMoversHintonburg} />
+      <Route path="/residential-movers-riverside-south" component={ResidentialMoversRiversideSouth} />
+      <Route path="/residential-movers-rockcliffe-park" component={ResidentialMoversRockcliffePark} />
+      <Route path="/residential-movers-beacon-hill" component={ResidentialMoversBeaconHill} />
+      <Route path="/residential-movers-orleans-village" component={ResidentialMoversOrleansVillage} />
+      <Route path="/commercial-movers-alta-vista" component={CommercialMoversAltaVista} />
+      <Route path="/commercial-movers-hintonburg" component={CommercialMoversHintonburg} />
+      <Route path="/commercial-movers-riverside-south" component={CommercialMoversRiversideSouth} />
+      <Route path="/commercial-movers-rockcliffe-park" component={CommercialMoversRockcliffePark} />
+      <Route path="/commercial-movers-beacon-hill" component={CommercialMoversBeaconHill} />
+      <Route path="/commercial-movers-orleans-village" component={CommercialMoversOrleansVillage} />
       <Route path="/junk-removal-ottawa" component={JunkRemovalOttawa} />
       <Route path="/furniture-assembly-ottawa" component={FurnitureAssemblyOttawa} />
       <Route path="/home-staging-ottawa" component={HomeStagingOttawa} />
