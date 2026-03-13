@@ -217,9 +217,12 @@ export function SharedFooter() {
                 <Link href="/affordable-movers-ottawa" className="block hover:text-[#C5A572] transition-colors">Affordable Movers</Link>
                 <Link href="/licensed-movers-ottawa" className="block hover:text-[#C5A572] transition-colors">Licensed Movers</Link>
                 <Link href="/insured-movers-ottawa" className="block hover:text-[#C5A572] transition-colors">Insured Movers</Link>
+                <Link href="/professional-movers-ottawa" className="block hover:text-[#C5A572] transition-colors">Professional Movers</Link>
+                <Link href="/local-movers-ottawa" className="block hover:text-[#C5A572] transition-colors">Local Movers Ottawa</Link>
                 <Link href="/residential-movers-ottawa" className="block hover:text-[#C5A572] transition-colors">Residential Movers</Link>
                 <Link href="/commercial-movers-ottawa" className="block hover:text-[#C5A572] transition-colors">Commercial Movers</Link>
                 <Link href="/movers-near-me-ottawa" className="block hover:text-[#C5A572] transition-colors">Movers Near Me Ottawa</Link>
+                <Link href="/ottawa-piano-movers" className="block hover:text-[#C5A572] transition-colors">Ottawa Piano Movers</Link>
               </div>
 
               <h4 className="font-bold text-sm uppercase tracking-widest text-white/40 mb-4 mt-7">Neighbourhood Movers</h4>
@@ -231,7 +234,14 @@ export function SharedFooter() {
                 <Link href="/movers-in-gloucester" className="block hover:text-[#C5A572] transition-colors">Movers in Gloucester</Link>
                 <Link href="/movers-in-stittsville" className="block hover:text-[#C5A572] transition-colors">Movers in Stittsville</Link>
                 <Link href="/movers-in-westboro" className="block hover:text-[#C5A572] transition-colors">Movers in Westboro</Link>
+                <Link href="/movers-in-sandy-hill" className="block hover:text-[#C5A572] transition-colors">Movers in Sandy Hill</Link>
                 <Link href="/movers-in-alta-vista" className="block hover:text-[#C5A572] transition-colors">Movers in Alta Vista</Link>
+                <Link href="/movers-in-hintonburg" className="block hover:text-[#C5A572] transition-colors">Movers in Hintonburg</Link>
+                <Link href="/movers-in-riverside-south" className="block hover:text-[#C5A572] transition-colors">Movers in Riverside South</Link>
+                <Link href="/movers-in-rockcliffe-park" className="block hover:text-[#C5A572] transition-colors">Movers in Rockcliffe Park</Link>
+                <Link href="/movers-in-beacon-hill" className="block hover:text-[#C5A572] transition-colors">Movers in Beacon Hill</Link>
+                <Link href="/movers-in-manotick" className="block hover:text-[#C5A572] transition-colors">Movers in Manotick</Link>
+                <Link href="/movers-in-orleans-village" className="block hover:text-[#C5A572] transition-colors">Movers in Orleans Village</Link>
               </div>
             </div>
 
@@ -250,6 +260,12 @@ export function SharedFooter() {
                 <Link href="/residential-movers-sandy-hill" className="block hover:text-[#C5A572] transition-colors">Residential Movers Sandy Hill</Link>
                 <Link href="/residential-movers-stittsville" className="block hover:text-[#C5A572] transition-colors">Residential Movers Stittsville</Link>
                 <Link href="/residential-movers-manotick" className="block hover:text-[#C5A572] transition-colors">Residential Movers Manotick</Link>
+                <Link href="/residential-movers-alta-vista" className="block hover:text-[#C5A572] transition-colors">Residential Movers Alta Vista</Link>
+                <Link href="/residential-movers-hintonburg" className="block hover:text-[#C5A572] transition-colors">Residential Movers Hintonburg</Link>
+                <Link href="/residential-movers-riverside-south" className="block hover:text-[#C5A572] transition-colors">Residential Movers Riverside South</Link>
+                <Link href="/residential-movers-rockcliffe-park" className="block hover:text-[#C5A572] transition-colors">Residential Movers Rockcliffe Park</Link>
+                <Link href="/residential-movers-beacon-hill" className="block hover:text-[#C5A572] transition-colors">Residential Movers Beacon Hill</Link>
+                <Link href="/residential-movers-orleans-village" className="block hover:text-[#C5A572] transition-colors">Residential Movers Orleans Village</Link>
               </div>
 
               <h4 className="font-bold text-sm uppercase tracking-widest text-white/40 mb-4 mt-7">Commercial Movers</h4>
@@ -265,6 +281,12 @@ export function SharedFooter() {
                 <Link href="/commercial-movers-sandy-hill" className="block hover:text-[#C5A572] transition-colors">Commercial Movers Sandy Hill</Link>
                 <Link href="/commercial-movers-stittsville" className="block hover:text-[#C5A572] transition-colors">Commercial Movers Stittsville</Link>
                 <Link href="/commercial-movers-manotick" className="block hover:text-[#C5A572] transition-colors">Commercial Movers Manotick</Link>
+                <Link href="/commercial-movers-alta-vista" className="block hover:text-[#C5A572] transition-colors">Commercial Movers Alta Vista</Link>
+                <Link href="/commercial-movers-hintonburg" className="block hover:text-[#C5A572] transition-colors">Commercial Movers Hintonburg</Link>
+                <Link href="/commercial-movers-riverside-south" className="block hover:text-[#C5A572] transition-colors">Commercial Movers Riverside South</Link>
+                <Link href="/commercial-movers-rockcliffe-park" className="block hover:text-[#C5A572] transition-colors">Commercial Movers Rockcliffe Park</Link>
+                <Link href="/commercial-movers-beacon-hill" className="block hover:text-[#C5A572] transition-colors">Commercial Movers Beacon Hill</Link>
+                <Link href="/commercial-movers-orleans-village" className="block hover:text-[#C5A572] transition-colors">Commercial Movers Orleans Village</Link>
               </div>
 
               <h4 className="font-bold text-sm uppercase tracking-widest text-white/40 mb-4 mt-7">Contact Us</h4>
