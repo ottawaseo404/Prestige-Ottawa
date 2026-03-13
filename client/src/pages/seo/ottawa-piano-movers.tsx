@@ -99,7 +99,7 @@ export default function OttawaPianoMovers() {
         {/* ── HERO ── */}
         <section className="relative h-[520px] flex items-end pb-16">
           <img src={fleetImg} alt="Ottawa piano movers — Prestige Moving professional piano relocation" className="absolute inset-0 w-full h-full object-cover object-center" />
-          <div className="absolute inset-0 bg-[#0d1620]/92" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0d1620]/95 via-[#0d1620]/65 to-[#0d1620]/30" />
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
             <div className="inline-flex items-center gap-2 bg-[#C5A572]/20 border border-[#C5A572]/40 rounded-full px-4 py-1.5 mb-4">
               <Music className="h-3.5 w-3.5 text-[#C5A572]" />
@@ -386,7 +386,7 @@ export default function OttawaPianoMovers() {
 
                 <div className="mt-8 relative rounded-2xl overflow-hidden">
                   <img src={teamImg} alt="Prestige Moving piano moving team Ottawa" className="w-full h-52 object-cover object-center" />
-                  <div className="absolute inset-0 bg-[#0d1620]/85 flex items-center">
+                  <div className="absolute inset-0 bg-[#0d1620]/75 flex items-center">
                     <div className="pl-8">
                       <div className="text-white font-bold text-lg mb-1">Ottawa's Piano Moving Specialists</div>
                       <div className="text-white/70 text-sm">Trained crew, proper equipment, 5.0-star record across Ottawa</div>

@@ -673,7 +673,7 @@ export default function Home() {
               </video>
             ))}
             {/* Gradient Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-r from-[#1A2332]/95 via-[#1A2332]/80 to-[#1A2332]/60" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#1A2332]/80 via-[#1A2332]/55 to-[#1A2332]/25" />
           </div>
 
           {/* Video Slider Navigation Dots */}

@@ -81,7 +81,7 @@ export default function OttawaPackingServices() {
 
         <section className="relative h-[480px] flex items-end pb-16">
           <img src={teamImg} alt="Ottawa professional packing services — Prestige Moving crew" className="absolute inset-0 w-full h-full object-cover object-top" />
-          <div className="absolute inset-0 bg-[#0d1620]/92" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0d1620]/95 via-[#0d1620]/65 to-[#0d1620]/30" />
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
             <div className="inline-flex items-center gap-2 bg-[#C5A572]/20 border border-[#C5A572]/40 rounded-full px-4 py-1.5 mb-4">
               <Package className="h-3.5 w-3.5 text-[#C5A572]" />
