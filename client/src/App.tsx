@@ -112,6 +112,16 @@ import OttawaPianoMovers from "@/pages/seo/ottawa-piano-movers";
 import HowToChooseMovingCompanyOttawa from "@/pages/seo/how-to-choose-a-moving-company-ottawa";
 import FurnitureDonationDisposalOttawa from "@/pages/seo/furniture-donation-disposal-ottawa";
 import MovingBoxesPackingSuppliesOttawa from "@/pages/seo/moving-boxes-packing-supplies-ottawa";
+import LocalOttawaMovingRates from "@/pages/seo/local-ottawa-moving-rates";
+import OttawaPackingServices from "@/pages/seo/ottawa-packing-services";
+import MovingToOttawaFromToronto from "@/pages/seo/moving-to-ottawa-from-toronto";
+import ProfessionalHoistingOttawa from "@/pages/seo/professional-hoisting-ottawa";
+import PreparingAppliancesMovingOttawa from "@/pages/seo/preparing-appliances-for-moving-ottawa";
+import KanataMoverPage from "@/pages/seo/kanata-movers";
+import BarrhavenMovers from "@/pages/seo/barrhaven-movers";
+import MovingQuotesOttawa from "@/pages/seo/moving-quotes-ottawa";
+import FreeStorageMovingOttawa from "@/pages/seo/free-storage-moving-ottawa";
+import OttawaMovingChecklist from "@/pages/seo/ottawa-moving-checklist";
 import Calculator from "@/pages/calculator";
 import Contact from "@/pages/contact";
 import Blog from "@/pages/blog";
@@ -283,6 +293,16 @@ function Router() {
       <Route path="/how-to-choose-a-moving-company-ottawa" component={HowToChooseMovingCompanyOttawa} />
       <Route path="/furniture-donation-disposal-ottawa" component={FurnitureDonationDisposalOttawa} />
       <Route path="/moving-boxes-packing-supplies-ottawa" component={MovingBoxesPackingSuppliesOttawa} />
+      <Route path="/local-ottawa-moving-rates" component={LocalOttawaMovingRates} />
+      <Route path="/ottawa-packing-services" component={OttawaPackingServices} />
+      <Route path="/moving-to-ottawa-from-toronto" component={MovingToOttawaFromToronto} />
+      <Route path="/professional-hoisting-ottawa" component={ProfessionalHoistingOttawa} />
+      <Route path="/preparing-appliances-for-moving-ottawa" component={PreparingAppliancesMovingOttawa} />
+      <Route path="/kanata-movers" component={KanataMoverPage} />
+      <Route path="/barrhaven-movers" component={BarrhavenMovers} />
+      <Route path="/moving-quotes-ottawa" component={MovingQuotesOttawa} />
+      <Route path="/free-storage-moving-ottawa" component={FreeStorageMovingOttawa} />
+      <Route path="/ottawa-moving-checklist" component={OttawaMovingChecklist} />
       
       <Route path="/admin/pages">
         {() => (
