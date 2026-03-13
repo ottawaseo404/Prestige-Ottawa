@@ -26,6 +26,31 @@ const data: CommercialPageData = {
     "The bilingual nature of the Orleans business community is something Prestige Moving is fully equipped to serve. Our team includes French-speaking crew members and project coordinators. Commercial estimates, move-day coordination, and client communication can all be conducted in French or English according to your business's preference. For businesses whose staff may be predominantly francophone, this eliminates a common source of moving-day communication friction.",
     "Orleans Village's commercial sector spans everything from small independent service businesses in neighbourhood strip plazas to major healthcare practices and professional office suites. For healthcare and medical businesses — which constitute a significant proportion of Orleans' professional commercial activity — our specialized medical office move protocol covers patient record transport, diagnostic equipment handling, and clinical supply chain management. For retail and restaurant businesses, we focus on minimizing the gap between last service at the old location and first service at the new one.",
   ],
+  challenges: [
+    { icon: "truck", title: "East Ottawa Distance", desc: "Orleans Village's east Ottawa location means travel fees apply from central Ottawa. We calculate these transparently in every written commercial quote." },
+    { icon: "building", title: "Bilingual Business Communication", desc: "Many Orleans businesses operate primarily in French. Our bilingual commercial team communicates in your preferred official language throughout the move." },
+    { icon: "clock", title: "Retail Business Hours", desc: "Orleans retail businesses need to minimize closure time. We schedule evening and weekend moves so you lose as few selling hours as possible." },
+    { icon: "monitor", title: "Office & IT Infrastructure", desc: "Workstations, networking hardware, POS systems, and office IT moved with documented inventory so reconnection at the new location is seamless." },
+    { icon: "map", title: "Large Geographic Coverage", desc: "Orleans spans a wide east Ottawa area. Our familiarity with every commercial district — from Convent Glen to Cardinal Creek — means no time lost on move day." },
+  ],
+  prestigeReasons: [
+    { title: "Bilingual Commercial Service", desc: "French and English communication on every Orleans Village commercial move. Estimates, planning, and moving day coordination in your preferred language." },
+    { title: "Community Business Expertise", desc: "We've moved dozens of Orleans businesses — medical practices, retailers, professional offices — and know the commercial building stock throughout the community." },
+    { title: "Weekend & After-Hours Scheduling", desc: "Orleans commercial moves happen on evenings and weekends so your business opens on time without losing a working day." },
+    { title: "Documented Move Planning", desc: "A written move plan with equipment inventory, access logistics, and special handling instructions is standard on every Orleans commercial job." },
+    { title: "No Hidden Commercial Fees", desc: "Travel fees and all other charges are in your written quote. Your invoice matches your estimate exactly." },
+  ],
+  businessTypes: [
+    { type: "Medical & Healthcare Practices", desc: "Family medical clinics, dental offices, physiotherapy, and allied health businesses serving Orleans Village's large family population." },
+    { type: "Professional Services Offices", desc: "Accounting, insurance, real estate, legal, and financial advisory firms serving the east Ottawa community in French and English." },
+    { type: "Retail & Service Businesses", desc: "Place d'Orléans and Orleans Boulevard retailers, personal service businesses, and specialty shops." },
+    { type: "Childcare & Education Services", desc: "French and English daycares, tutoring centres, and educational services in this family-dense east Ottawa community." },
+    { type: "Community & Non-Profit Organizations", desc: "Social service agencies, religious organizations, and community centres serving Orleans Village's diverse, bilingual population." },
+  ],
+  processParagraphs: [
+    "Orleans Village commercial moves require the same systematic approach as any professional commercial relocation, but with two distinctive characteristics that shape our planning process. First, the bilingual nature of the Orleans business community means our project manager and crew lead are French-speaking and all written documentation — move plans, equipment inventories, completion certificates — are available in French as required. Second, the geographic scale of Orleans means that route planning and travel time estimation are built into every move plan, so there are no surprises about how long the drive between origin and destination addresses takes.",
+    "For Orleans Village's medical and healthcare businesses — a rapidly growing segment of the community's commercial fabric as the residential population expands — our commercial move service includes clinical protocols for patient record handling, diagnostic equipment care, and coordination with clinic administrators on the move sequence. For retail and service businesses, the priority is minimizing closure time: we plan moves to begin after your last business hour on a Friday or Saturday evening, and our goal is to have you operational in the new location before your doors open Monday morning.",
+  ],
   priceRange: "$900 – $5,000+",
   priceNote: "Typical Orleans Village commercial move",
   faqs: [

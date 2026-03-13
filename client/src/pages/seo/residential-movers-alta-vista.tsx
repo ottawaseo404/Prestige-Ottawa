@@ -25,6 +25,25 @@ const data: NeighbourhoodPageData = {
     "The proximity to The Ottawa Hospital's General Campus gives Alta Vista a high concentration of healthcare professionals among its resident population — a demographic that understands the value of precision, reliability, and zero tolerance for preventable errors. Prestige Moving's approach to every Alta Vista move reflects that same standard. Every crew member is trained, background-checked, and equipped with the professional tools that protect both your belongings and your home's surfaces on moving day.",
     "Alta Vista's mature street tree canopy is a defining feature of the neighbourhood and a practical consideration for moving logistics. Large, overhanging trees on residential streets can limit truck access on certain blocks, and Prestige Moving always conducts a pre-move logistics review to ensure our vehicles are positioned optimally. Where street access is restricted, we use our extended equipment ramps to bridge the distance efficiently.",
   ],
+  challenges: [
+    { icon: "home", title: "Bungalow Basement Stairwells", desc: "Alta Vista bungalows have finished basements with narrow, steep stairwells. We use stair-climbers and custom furniture straps to move every piece safely." },
+    { icon: "truck", title: "Mature Tree Street Access", desc: "Overhanging trees on Alta Vista streets can limit truck positioning. We pre-plan every move to determine the best access approach for your specific block." },
+    { icon: "building", title: "Hospital District Traffic", desc: "Traffic around The Ottawa Hospital's General Campus can be heavy on weekdays. We schedule moves to avoid peak hospital visitor and shift-change hours." },
+    { icon: "clock", title: "Healthcare Professional Schedules", desc: "Many Alta Vista residents work hospital schedules with irregular hours. We offer flexible early-morning and evening booking to accommodate shift workers." },
+    { icon: "map", title: "Riverside Park and Greenboro Distances", desc: "Alta Vista covers a wide area. We factor driving time between sub-communities into every move estimate so there are no surprises on pricing." },
+  ],
+  prestigeReasons: [
+    { title: "Bungalow & Split-Level Specialists", desc: "Alta Vista's housing stock is our specialty. Our crew has the right equipment for low-clearance basements, tight stairwells, and ground-level entries." },
+    { title: "Full Packing Service Available", desc: "Many Alta Vista healthcare professionals book full packing so their moving day is completely hands-off. We pack, move, and unpack every room." },
+    { title: "Reliable, On-Time Crew", desc: "For hospital workers with fixed schedule constraints, punctuality isn't optional. Our 98% on-time arrival rate is built for clients with tight timelines." },
+    { title: "Surface and Floor Protection Standard", desc: "We bring floor runners, door frame guards, and furniture blankets to every job. Your Alta Vista home's surfaces are protected from the first item to the last." },
+    { title: "No Hidden Fees", desc: "Your written quote is your final price. Alta Vista moves are estimated accurately upfront so there are no surprises on moving day." },
+  ],
+  movingTipsParagraphs: [
+    "Alta Vista residential moves are shaped primarily by the neighbourhood's mid-century housing stock — bungalows and split-level homes that are comfortable and well-maintained but present specific logistical considerations on moving day. The most common challenge our crew encounters in Alta Vista is the finished basement: almost every bungalow in the neighbourhood has one, and basement stairwells are typically narrower and steeper than the main-floor stairs. Large furniture pieces — sectional sofas, king-size bed frames, large wardrobes — need to be planned for carefully. Prestige Moving's crew assesses every piece before moving it: we determine the safest angle of approach, the right equipment (stair-climber, straps, or disassembly), and the best sequence for clearing the basement without damage to the item or the walls.",
+    "The mature street tree canopy that makes Alta Vista so beautiful also occasionally complicates moving truck positioning. On blocks with particularly heavy overhang, we may need to use extended ramps rather than backing the truck directly to the driveway. This is something we assess during your pre-move consultation — there are no surprises on moving day about where our truck will park or how the crew will access your home.",
+    "Alta Vista's proximity to The Ottawa Hospital's General Campus means weekday morning and early afternoon traffic on Smyth Road and nearby arteries can be heavier than typical Ottawa residential neighbourhoods. Where clients prefer, we schedule load-out during off-peak hours to ensure the crew can park and work without traffic pressure. For most Alta Vista moves, a mid-morning start (9–10am) strikes the right balance between avoiding rush hour and allowing full-day completion.",
+  ],
   priceRange: "$465 – $1,600",
   priceNote: "Typical Alta Vista residential move",
   faqs: [

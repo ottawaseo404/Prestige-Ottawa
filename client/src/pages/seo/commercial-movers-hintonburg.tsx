@@ -24,6 +24,31 @@ const data: CommercialPageData = {
     "The physical environment of Wellington West presents specific challenges for commercial moving. Heritage commercial buildings often lack loading docks, requiring all moves to be conducted from street-level loading zones. On-street parking is at a premium, and coordinating a time window with the City of Ottawa for temporary loading zone use is sometimes necessary for larger moves. Prestige Moving has completed commercial moves along Wellington West many times and has established relationships with the neighbourhood's commercial building managers and a working knowledge of the City's short-term loading zone protocols.",
     "For restaurants and food-service businesses — a growing segment of Hintonburg's commercial fabric — our commercial moves include specialized handling of commercial refrigeration units, kitchen equipment, and stainless steel prep surfaces. We coordinate restaurant moves to minimize the gap between your last service at the old location and your first service at the new one.",
   ],
+  challenges: [
+    { icon: "building", title: "Heritage Building Access", desc: "Hintonburg's century buildings have narrow stairwells, small freight entrances, and no loading bays. We plan every commercial move around the actual access constraints of your building." },
+    { icon: "truck", title: "Wellington West Street Parking", desc: "On-street parking for commercial trucks on Wellington West requires coordination with the city. We handle permits and timing so your move day runs smoothly." },
+    { icon: "clock", title: "Retail Business Continuity", desc: "Wellington West retailers cannot close for long. We structure commercial moves around your hours so you lose minimal selling time." },
+    { icon: "monitor", title: "Creative Studio Equipment", desc: "Design studios, photography studios, and creative workspaces have fragile, irreplaceable equipment. We treat every piece with the care your business depends on." },
+    { icon: "users", title: "Co-Working & Multi-Tenant Spaces", desc: "Multi-tenant commercial moves in Hintonburg require coordinating multiple businesses. We sequence access and moves so tenants don't conflict." },
+  ],
+  prestigeReasons: [
+    { title: "Heritage Building Specialists", desc: "Tight stairwells, narrow entries, and no freight elevators are our everyday work. We have the equipment and technique for every Hintonburg building." },
+    { title: "Boutique Business Experience", desc: "Retail, creative, and service businesses in Hintonburg need efficient moves with zero damage to merchandise and equipment." },
+    { title: "After-Hours & Weekend Moves", desc: "Most Hintonburg commercial moves are scheduled after close on a weekday or over a weekend so customer-facing operations aren't disrupted." },
+    { title: "Custom Crating for Fragile Items", desc: "Art, design samples, photography equipment — we provide custom crating and packing for items that can't be moved in standard boxes." },
+    { title: "No Hidden Commercial Fees", desc: "Your written quote covers everything including access complexity. Your invoice matches your estimate, guaranteed." },
+  ],
+  businessTypes: [
+    { type: "Boutique Retail Shops", desc: "Wellington West independent retailers — fashion, home goods, specialty food, and lifestyle shops moved efficiently with full merchandise protection." },
+    { type: "Creative Studios & Agencies", desc: "Design, photography, marketing, and communications studios — fragile, valuable equipment handled with documented care." },
+    { type: "Food & Beverage Businesses", desc: "Cafes, bars, and restaurants on Wellington West with commercial kitchen equipment and front-of-house furniture." },
+    { type: "Professional Services Offices", desc: "Law, accounting, consulting, and financial services offices in Hintonburg's commercial buildings." },
+    { type: "Co-Working & Studio Spaces", desc: "Multi-tenant shared offices and studio spaces coordinated with building management and individual tenant schedules." },
+  ],
+  processParagraphs: [
+    "Hintonburg commercial moves require more creative logistics planning than most Ottawa neighbourhoods because the buildings themselves — heritage structures converted to commercial use — weren't designed with modern moving operations in mind. Our project manager visits every Hintonburg commercial address before the move date to assess: stairwell width, freight access (or lack thereof), street truck positioning options, and any items in the business that need custom crating or special handling. This pre-visit is what separates a smooth Hintonburg commercial move from a chaotic one.",
+    "On move day, the documented plan is executed by our commercial crew who have been specifically briefed on the access constraints and item sensitivities of your Hintonburg business. For Wellington West retail locations, we schedule moves to begin after your last customers leave and aim to have the new location fully set up before your first customers the following morning. For creative studios and professional offices, the same after-hours logic applies — your business operation is the priority, and our move schedule is built around it.",
+  ],
   priceRange: "$800 – $4,000+",
   priceNote: "Typical Hintonburg business relocation",
   faqs: [

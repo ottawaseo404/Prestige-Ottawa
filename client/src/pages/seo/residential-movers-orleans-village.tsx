@@ -26,6 +26,25 @@ const data: NeighbourhoodPageData = {
     "The housing stock in Orleans reflects its growth history: from Convent Glen's mid-century bungalows and Queenswood Heights' 1980s detached homes to Chapel Hill's large executive properties and the brand-new construction underway in Cardinal Creek and Avalon. This diversity of home types across a large geographic area means that Orleans moves require genuine familiarity with the neighbourhood's layout — something Prestige Moving has built through hundreds of completed jobs across every Orleans community.",
     "Orleans Village's distance from Ottawa's urban core makes local area expertise especially important when planning a move. Route planning, parking logistics, and sub-community familiarity all contribute to move-day efficiency. Our crews know Orleans' street grid, community boundaries, and access patterns well — reducing delays and ensuring that even distant Orleans moves are completed within a predictable, reasonable timeframe.",
   ],
+  challenges: [
+    { icon: "truck", title: "East Ottawa Distance", desc: "Orleans Village's distance from central Ottawa means travel time is a cost factor. We calculate this transparently in every written quote." },
+    { icon: "home", title: "New Build Surface Protection", desc: "Cardinal Creek, Avalon, and other new Orleans developments have pristine new finishes. Floor runners and surface guards are standard on every new build move." },
+    { icon: "map", title: "Large Geographic Area", desc: "Orleans spans a wide area from Convent Glen to Trim Road. We factor sub-community driving time into every move estimate." },
+    { icon: "clock", title: "Family Move Coordination", desc: "Orleans families often have children, school schedules, and multiple priorities on moving day. We work efficiently so your family is settled before dinner." },
+    { icon: "building", title: "Townhouse Stairwell Access", desc: "Orleans Village has a high density of townhouses with tight stairwells and limited truck access. We bring extended ramps and stair equipment as standard." },
+  ],
+  prestigeReasons: [
+    { title: "Bilingual Moving Service", desc: "French and English communication on every Orleans Village move. Estimates, booking, and moving day coordination in your preferred language." },
+    { title: "Family Moving Specialists", desc: "We've helped hundreds of Orleans families move. Efficient, organized crews that minimize disruption for kids and parents alike." },
+    { title: "New Build Protection Protocol", desc: "Cardinal Creek and Avalon new builds get full floor and surface protection as standard. Your brand-new finishes stay pristine." },
+    { title: "Full Packing Service Available", desc: "Book full packing and arrive at a completely organized new home. We pack every room, move it, and unpack on arrival." },
+    { title: "No Hidden Fees", desc: "Travel fees and all other charges are stated in your written quote upfront. Your final bill matches your estimate exactly." },
+  ],
+  movingTipsParagraphs: [
+    "Orleans Village is one of Ottawa's most family-centric communities, and moving day logistics in Orleans reflect this. Most moves involve 3–5 bedroom family homes with the full inventory of family life: children's rooms with beds, desks, and toy collections; fully equipped kitchens with appliances; finished basements with entertainment systems and home gyms; garages with tools and sports equipment; and in many cases, a home office that needs to be relocated without disrupting a work-from-home schedule. Prestige Moving's Orleans crew is built for exactly this type of comprehensive family move.",
+    "The bilingual character of Orleans Village is something our team is fully equipped to serve. Orleans is a majority-francophone community, and a significant portion of our Orleans clients prefer to conduct all moving-day communication in French. Our French-speaking crew members and project coordinators handle estimates, scheduling, and day-of direction in whichever official language you prefer. This eliminates a source of communication friction that some movers cannot address.",
+    "The geographic scale of Orleans Village — spanning from the established Convent Glen area near Place d'Orléans to the developing northeast communities of Cardinal Creek and Avalon — means that route planning is a meaningful part of move logistics. Prestige Moving crews who serve Orleans are familiar with the full community layout, including the newer streets in Avalon and Cardinal Creek that don't yet appear accurately on some GPS systems. Our local knowledge means we arrive at the right address, on the right street, on time.",
+  ],
   priceRange: "$550 – $1,800",
   priceNote: "Typical Orleans Village residential move",
   faqs: [

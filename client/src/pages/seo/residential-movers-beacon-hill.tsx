@@ -24,6 +24,25 @@ const data: NeighbourhoodPageData = {
     "The housing stock in Beacon Hill presents the typical advantages and challenges of Ottawa's mid-century suburban design. Bungalows are common, which means ground-level entry but often finished basements with narrow stairwells. Split-level homes can create access complexity with multiple half-floors. Two-storey homes — while less common than bungalows — often feature the generous upstairs bedroom sizes that make furniture moving through stairwells a careful operation. Prestige Moving's crews have completed hundreds of Beacon Hill moves and are well-prepared for every type of property in the neighbourhood.",
     "Beacon Hill's proximity to federal government facilities — including RCMP headquarters and multiple government-adjacent employers in the east end — means many residents work on fixed government transfer schedules. Prestige Moving's reliable booking and on-time arrival record makes us a consistent choice for federal employees whose moving timelines are tied to posting and transfer deadlines.",
   ],
+  challenges: [
+    { icon: "home", title: "Bungalow & Split-Level Basements", desc: "Beacon Hill's split-levels and bungalows have finished basements with tight stairwells. We bring stair-climbers and furniture straps for every basement move." },
+    { icon: "clock", title: "Government Transfer Schedules", desc: "Many Beacon Hill residents move on federal government posting timelines. We deliver reliable, on-schedule service that respects posting deadlines." },
+    { icon: "truck", title: "East Ottawa Distance", desc: "Beacon Hill's east Ottawa location means travel time from central Ottawa applies. We calculate this transparently in every written quote." },
+    { icon: "map", title: "Blair Road Traffic", desc: "Blair Road at peak hours can slow access to Beacon Hill. We schedule arrivals to avoid the heaviest traffic windows on this main arterial." },
+    { icon: "building", title: "Apartment and Stacked Units", desc: "Some Beacon Hill addresses are stacked townhouses or low-rise apartments. Elevator or stair logistics are planned per property during our estimate." },
+  ],
+  prestigeReasons: [
+    { title: "Bungalow & Split-Level Specialists", desc: "Beacon Hill's housing stock matches what we handle every day across east Ottawa. The right equipment and experience for every home type." },
+    { title: "Senior Moving Service Available", desc: "Beacon Hill has a high proportion of long-established residents. Our senior moving service provides extra care, patience, and full unpacking support." },
+    { title: "On-Time, Every Time", desc: "For federal employees on posting deadlines, punctuality is everything. Our 98% on-time arrival rate reflects our commitment to schedule." },
+    { title: "Full Surface Protection", desc: "Floor runners, door frame guards, and furniture blankets come on every Beacon Hill job as standard." },
+    { title: "No Hidden Fees", desc: "Your written estimate is your final price. Travel fees and all other charges are stated clearly upfront." },
+  ],
+  movingTipsParagraphs: [
+    "Beacon Hill residential moves are most commonly driven by two demographic transitions: long-established residents downsizing from a family home they've occupied for 20–40 years, and younger families moving into those same homes. Both scenarios present their own logistical character. Downsizing moves from a fully furnished 3–4 bedroom Beacon Hill bungalow require careful inventory — there are often items accumulated over decades that need to be sorted, donated, disposed of, or moved to multiple destinations. Prestige Moving can coordinate with donation organizations and junk removal services to simplify this process.",
+    "The generational transition common in Beacon Hill means our crew frequently encounters the particular challenge of basement moves from 1960s and 1970s construction: finished basement rec rooms with original wood panelling, bar areas with heavy furniture, and workshop spaces with tools and equipment that need to be disassembled and carefully packed. Our crew treats these items with the same care as main-floor furniture — because to the families who have lived with them for decades, they are just as significant.",
+    "For Beacon Hill's federal government residents moving on posting schedules, timing is the single most important variable. Federal postings to new locations typically come with a fixed start date and relocation allowances that cover one move within a defined period. Prestige Moving's booking system accommodates government posting timelines and our client service team is experienced in working with relocation allowance documentation from the federal government's move management providers.",
+  ],
   priceRange: "$465 – $1,500",
   priceNote: "Typical Beacon Hill residential move",
   faqs: [

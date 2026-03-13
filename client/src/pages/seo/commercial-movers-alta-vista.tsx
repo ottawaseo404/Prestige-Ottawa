@@ -24,6 +24,31 @@ const data: CommercialPageData = {
     "Medical office moves require a level of care that exceeds standard commercial relocation. Patient records must be moved in compliance with privacy legislation. Diagnostic and imaging equipment requires manufacturer-certified handling procedures. Clinical supplies must maintain chain-of-custody integrity. Prestige Moving's commercial moving protocol for medical facilities includes documented asset tracking, sealed record transport, and coordination with your practice manager or clinic director to ensure clinical operations resume without delay at the new location.",
     "Beyond the healthcare sector, Alta Vista hosts a diverse range of professional businesses in accounting, law, financial services, and personal services that benefit from our standard commercial move package. For these businesses, the priority is moving efficiently and completely within a defined window — typically a weekend or a sequence of after-hours evenings — so that client-facing operations are disrupted for the minimum possible time.",
   ],
+  challenges: [
+    { icon: "building", title: "Medical Office Compliance", desc: "Healthcare moves require patient data privacy, equipment handling protocols, and minimal downtime. We plan every Alta Vista medical move around these requirements." },
+    { icon: "clock", title: "Minimal Business Downtime", desc: "Alta Vista businesses need to be operational quickly. We schedule weekend and evening moves to keep your business running with zero weekday disruption." },
+    { icon: "truck", title: "Hospital Campus Logistics", desc: "Coordinating near The Ottawa Hospital's General Campus means managing traffic patterns, loading access, and timing around hospital operations." },
+    { icon: "monitor", title: "Medical & Lab Equipment", desc: "Diagnostic equipment, lab supplies, and sensitive medical instruments require documented handling, protective packaging, and careful transport." },
+    { icon: "map", title: "Multi-Location Coordination", desc: "Medical practices with satellite offices need synchronized multi-site moves. We coordinate moves across multiple Alta Vista locations in one seamless operation." },
+  ],
+  prestigeReasons: [
+    { title: "Medical Office Move Specialists", desc: "We've relocated dozens of healthcare practices around the General Campus. Our protocols respect patient privacy, equipment fragility, and regulatory requirements." },
+    { title: "Weekend & After-Hours Availability", desc: "Alta Vista commercial moves happen on weekends and evenings so your practice reopens on Monday without missing a day." },
+    { title: "Documented Move Coordination", desc: "Our project manager produces a written move plan covering equipment inventory, sequence, and special handling — critical for medical and professional moves." },
+    { title: "IT Equipment Handling", desc: "Clinical workstations, EHR servers, and practice management systems handled with care and documented inventory so reconnection is seamless." },
+    { title: "No Hidden Commercial Fees", desc: "Your written commercial quote covers crew, trucks, equipment, and any access logistics. Your final invoice matches your estimate exactly." },
+  ],
+  businessTypes: [
+    { type: "Medical & Healthcare Offices", desc: "Family practices, specialist offices, imaging clinics, and therapy centres — moved with patient data privacy and equipment handling protocols." },
+    { type: "Allied Health & Wellness", desc: "Physiotherapy, chiropractic, dental, and optometry offices with specialized equipment and waiting room furniture." },
+    { type: "Professional Services Firms", desc: "Accounting, legal, financial advisory, and consulting offices throughout Alta Vista's commercial corridors." },
+    { type: "Government & Public Sector", desc: "Federal and provincial agencies with offices in Alta Vista's government-adjacent commercial areas." },
+    { type: "Retail & Service Businesses", desc: "Alta Vista strip mall and mixed-use commercial tenants — boutiques, service businesses, and food service relocations." },
+  ],
+  processParagraphs: [
+    "Alta Vista commercial moves — particularly those involving medical and healthcare offices — require an advance planning process that begins well before moving day. Our commercial project manager meets with the office manager or practice administrator 2–3 weeks before the scheduled move to inventory every piece of equipment, identify items requiring special handling, and determine the move sequence. For medical offices, this sequence must account for dependencies: the EHR server cannot be moved before the clinical workstations are packed, and certain diagnostic equipment requires manufacturer-approved shutdown and transport procedures. We coordinate these details in writing.",
+    "On move day, an Alta Vista commercial move proceeds according to the documented plan developed during the planning phase. For medical moves near the General Campus, we coordinate with building management for loading bay access, elevator booking, and any building-specific access requirements. Our crew follows the documented item sequence precisely, with the project manager present on-site throughout. The goal is a business that is fully operational on its first working day in the new location.",
+  ],
   priceRange: "$900 – $5,000+",
   priceNote: "Typical Alta Vista commercial or medical office move",
   faqs: [

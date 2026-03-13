@@ -25,6 +25,25 @@ const data: NeighbourhoodPageData = {
     "The neighbourhood's housing stock is overwhelmingly heritage in character — rows of early-20th-century red-brick semi-detached homes with narrow frontages, front porches, and steeply pitched roofs. These homes are beautiful and well-maintained, but they present specific challenges on moving day: tight stairwells, narrow front entries, second and third-floor bedrooms with challenging furniture access, and street frontages where truck access requires planning. Prestige Moving's crew has completed hundreds of moves in Hintonburg and understands every access constraint the neighbourhood presents.",
     "The neighbourhood's newer condo developments along Scott Street and Wellington West add a second dimension to Hintonburg moving: high-rise logistics, elevator booking, loading bay coordination, and building concierge requirements. Our crews routinely handle both types of Hintonburg move — the heritage row house and the new-construction condo — and bring the appropriate equipment and protocols for each.",
   ],
+  challenges: [
+    { icon: "building", title: "Narrow Heritage Stairwells", desc: "Hintonburg's century homes have tight, steep staircases. We use furniture straps, disassembly, and stair-climbers to navigate every piece safely." },
+    { icon: "truck", title: "Tight Street Parking", desc: "Wellington West and inner Hintonburg streets have limited truck access. We pre-plan load zone positioning and bring extended ramps when needed." },
+    { icon: "home", title: "Heritage Interior Features", desc: "Original plaster ceilings, period woodwork, and vintage hardwood floors require extra care. We use full floor runners and door frame guards on every Hintonburg move." },
+    { icon: "clock", title: "Condo Elevator Booking", desc: "Scott Street condo moves require elevator booking with building management. We coordinate this in advance so your move window runs smoothly." },
+    { icon: "map", title: "Alley and Lane Access", desc: "Many Hintonburg homes have laneway access only. We assess your specific property access during the estimate and plan accordingly." },
+  ],
+  prestigeReasons: [
+    { title: "Heritage Home Specialists", desc: "We've completed hundreds of moves in Hintonburg's century homes. Tight staircases and narrow entries are our everyday work." },
+    { title: "Condo Move Protocol", desc: "For Scott Street and Wellington West condos, we coordinate elevator booking, loading bay scheduling, and building access in advance." },
+    { title: "Custom Padding for Period Features", desc: "Original hardwood floors and heritage doorframes get extra protection. We bring additional padding for Hintonburg's irreplaceable architectural features." },
+    { title: "Extended Ramp Equipment", desc: "Where truck access is limited, our extended ramps bridge the gap between the truck and your front door efficiently and safely." },
+    { title: "No Hidden Fees", desc: "Your written quote covers everything — including access complexity. No surprises on moving day." },
+  ],
+  movingTipsParagraphs: [
+    "Hintonburg's heritage housing stock creates a distinctive set of challenges that our crew navigates on a regular basis. The neighbourhood's red-brick semi-detached homes from the early 1900s have narrow front entries, steep staircases with tight landings, and interior door widths that predate modern furniture dimensions. The result is that Hintonburg moves require more pre-planning than a standard suburban job: we assess your largest furniture pieces during the estimate phase and determine in advance which items need disassembly, which need angling through tight turns, and which — in rare cases — may need to be moved through a window.",
+    "Street logistics in Hintonburg require planning that goes beyond most Ottawa residential moves. Wellington West has active loading zones and significant pedestrian and cycling traffic that limits truck parking windows. On some inner residential streets, trucks can only access the property from the rear lane — which affects how your belongings are staged and loaded. Prestige Moving always conducts a logistics review for Hintonburg moves: we know which streets have good front access, which require lane access, and how to coordinate temporary parking arrangements for the move day.",
+    "Hintonburg's condo developments along Scott Street add a different dimension to moving in the neighbourhood. High-rise condo moves require elevator booking with the building, loading bay coordination, and compliance with the building's move-in time window — typically a weekday or Saturday booking. Our team handles all of this coordination directly with your building management so you don't have to manage it yourself.",
+  ],
   priceRange: "$465 – $1,400",
   priceNote: "Typical Hintonburg residential move",
   faqs: [
