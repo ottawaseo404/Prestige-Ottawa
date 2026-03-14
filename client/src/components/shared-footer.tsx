@@ -207,6 +207,9 @@ export function SharedFooter() {
                 <Link href="/furniture-donation-disposal-ottawa" className="block hover:text-[#C5A572] transition-colors">Furniture Donation & Disposal</Link>
                 <Link href="/how-to-choose-a-moving-company-ottawa" className="block hover:text-[#C5A572] transition-colors">How to Choose a Mover</Link>
                 <Link href="/ottawa-contractors" className="block hover:text-[#C5A572] transition-colors">Ottawa Contractors Partner</Link>
+                <Link href="/moving-companies-ottawa-reviews" className="block hover:text-[#C5A572] transition-colors">Best Moving Companies Ottawa</Link>
+                <Link href="/ottawa-neighbourhoods-guide" className="block hover:text-[#C5A572] transition-colors">Ottawa Neighbourhoods Guide</Link>
+                <Link href="/moving-in-winter-ottawa" className="block hover:text-[#C5A572] transition-colors">Moving in Winter Ottawa</Link>
               </div>
             </div>
 
@@ -227,6 +230,12 @@ export function SharedFooter() {
                 <Link href="/commercial-movers-ottawa" className="block hover:text-[#C5A572] transition-colors">Commercial Movers</Link>
                 <Link href="/movers-near-me-ottawa" className="block hover:text-[#C5A572] transition-colors">Movers Near Me Ottawa</Link>
                 <Link href="/ottawa-piano-movers" className="block hover:text-[#C5A572] transition-colors">Ottawa Piano Movers</Link>
+                <Link href="/apartment-movers-ottawa" className="block hover:text-[#C5A572] transition-colors">Apartment Movers Ottawa</Link>
+                <Link href="/condo-movers-ottawa" className="block hover:text-[#C5A572] transition-colors">Condo Movers Ottawa</Link>
+                <Link href="/cheap-movers-ottawa" className="block hover:text-[#C5A572] transition-colors">Cheap Movers Ottawa</Link>
+                <Link href="/same-day-movers-ottawa" className="block hover:text-[#C5A572] transition-colors">Same Day Movers Ottawa</Link>
+                <Link href="/last-minute-movers-ottawa" className="block hover:text-[#C5A572] transition-colors">Last Minute Movers Ottawa</Link>
+                <Link href="/office-movers-ottawa" className="block hover:text-[#C5A572] transition-colors">Office Movers Ottawa</Link>
               </div>
 
               <h4 className="font-bold text-sm uppercase tracking-widest text-white/40 mb-4 mt-7">Neighbourhood Movers</h4>
