@@ -2,8 +2,8 @@ import { Helmet } from "react-helmet";
 import { Button } from "@/components/ui/button";
 import { Phone, CheckCircle, Star, ArrowRight, Moon, Shield, Clock, Zap } from "lucide-react";
 import { Link } from "wouter";
-import SharedFooter from "@/components/shared-footer";
-import SharedNavigation from "@/components/shared-navigation";
+import { SharedFooter } from "@/components/shared-footer";
+import { SharedNavigation } from "@/components/shared-navigation";
 
 export default function NightMoversOttawa() {
   const faq = [

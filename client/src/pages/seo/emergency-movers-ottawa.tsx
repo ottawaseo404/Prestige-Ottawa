@@ -2,8 +2,8 @@ import { Helmet } from "react-helmet";
 import { Button } from "@/components/ui/button";
 import { Phone, CheckCircle, Star, ArrowRight, Zap, Shield, Clock, AlertCircle } from "lucide-react";
 import { Link } from "wouter";
-import SharedFooter from "@/components/shared-footer";
-import SharedNavigation from "@/components/shared-navigation";
+import { SharedFooter } from "@/components/shared-footer";
+import { SharedNavigation } from "@/components/shared-navigation";
 
 export default function EmergencyMoversOttawa() {
   const faq = [

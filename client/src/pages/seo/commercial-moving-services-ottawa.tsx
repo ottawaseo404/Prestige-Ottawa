@@ -2,8 +2,8 @@ import { Helmet } from "react-helmet";
 import { Button } from "@/components/ui/button";
 import { Phone, CheckCircle, Star, ArrowRight, Building, Shield, Clock, Truck, FileText, Users } from "lucide-react";
 import { Link } from "wouter";
-import SharedFooter from "@/components/shared-footer";
-import SharedNavigation from "@/components/shared-navigation";
+import { SharedFooter } from "@/components/shared-footer";
+import { SharedNavigation } from "@/components/shared-navigation";
 
 export default function CommercialMovingServicesOttawa() {
   const industries = ["Government & Federal Departments", "Law Firms & Legal Offices", "Medical Clinics & Dental Offices", "IT Companies & Tech Firms", "Retail Stores & Boutiques", "Restaurants & Food Service", "Non-Profits & Associations", "Financial Services", "Architecture & Design Firms", "Educational Institutions"];
