@@ -34,7 +34,7 @@ import { apiRequest } from "@/lib/queryClient";
 import type { MovingPackage } from "@shared/schema";
 import { useToast } from "@/hooks/use-toast";
 import { Helmet } from "react-helmet";
-import { SiInstagram, SiLinkedin } from "react-icons/si";
+import { SiFacebook, SiInstagram, SiLinkedin, SiYoutube } from "react-icons/si";
 import logoUrl from "@assets/transparentlogo_1770071884904.png";
 import { useHeroVideo } from "@/hooks/use-hero-video";
 import residentialImage from "@assets/truck1_1764291781341.jpeg";
@@ -697,27 +697,47 @@ export default function Home() {
             <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
               {/* Left Side - Hero Content */}
               <div className="max-w-xl">
-                {/* Social Media Icons - Instagram & LinkedIn */}
-                <div className="flex items-center gap-3 mb-4">
+                {/* Social Media Icons */}
+                <div className="flex items-center gap-3 mb-8">
+                  <a 
+                    href="https://www.facebook.com/prestigemoving.ca/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="group w-10 h-10 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center hover:bg-primary hover:border-primary transition-all duration-300 hover:scale-110"
+                    data-testid="social-facebook"
+                    aria-label="Follow us on Facebook"
+                  >
+                    <SiFacebook className="h-4 w-4 text-white group-hover:text-[#1A2332] transition-colors" />
+                  </a>
                   <a 
                     href="https://www.instagram.com/movingprestige/" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="group w-9 h-9 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center hover:bg-primary hover:border-primary transition-all duration-300 hover:scale-110"
+                    className="group w-10 h-10 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center hover:bg-primary hover:border-primary transition-all duration-300 hover:scale-110"
                     data-testid="social-instagram"
                     aria-label="Follow us on Instagram"
                   >
-                    <SiInstagram className="h-3.5 w-3.5 text-white group-hover:text-[#1A2332] transition-colors" />
+                    <SiInstagram className="h-4 w-4 text-white group-hover:text-[#1A2332] transition-colors" />
                   </a>
                   <a 
                     href="https://ca.linkedin.com/in/prestige-moving-inc-824520287" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="group w-9 h-9 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center hover:bg-primary hover:border-primary transition-all duration-300 hover:scale-110"
+                    className="group w-10 h-10 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center hover:bg-primary hover:border-primary transition-all duration-300 hover:scale-110"
                     data-testid="social-linkedin"
                     aria-label="Follow us on LinkedIn"
                   >
-                    <SiLinkedin className="h-3.5 w-3.5 text-white group-hover:text-[#1A2332] transition-colors" />
+                    <SiLinkedin className="h-4 w-4 text-white group-hover:text-[#1A2332] transition-colors" />
+                  </a>
+                  <a 
+                    href="https://www.youtube.com/@PrestigeMovingServicesInc" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="group w-10 h-10 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center hover:bg-primary hover:border-primary transition-all duration-300 hover:scale-110"
+                    data-testid="social-youtube"
+                    aria-label="Subscribe on YouTube"
+                  >
+                    <SiYoutube className="h-4 w-4 text-white group-hover:text-[#1A2332] transition-colors" />
                   </a>
                 </div>
 
