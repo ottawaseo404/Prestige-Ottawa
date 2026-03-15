@@ -282,6 +282,25 @@ export function SharedFooter() {
                 <Link href="/estate-moving-ottawa" className="block hover:text-[#C5A572] transition-colors">Estate Moving Ottawa</Link>
                 <Link href="/new-construction-home-movers-ottawa" className="block hover:text-[#C5A572] transition-colors">New Construction Movers</Link>
                 <Link href="/cross-town-movers-ottawa" className="block hover:text-[#C5A572] transition-colors">Cross-Town Movers Ottawa</Link>
+                <Link href="/long-distance-moving-company-ottawa" className="block hover:text-[#C5A572] transition-colors">Long Distance Moving Company</Link>
+                <Link href="/moving-companies-near-me-ottawa" className="block hover:text-[#C5A572] transition-colors">Moving Companies Near Me Ottawa</Link>
+                <Link href="/international-movers-ottawa" className="block hover:text-[#C5A572] transition-colors">International Movers Ottawa</Link>
+                <Link href="/ottawa-moving-and-delivery" className="block hover:text-[#C5A572] transition-colors">Ottawa Moving & Delivery</Link>
+                <Link href="/professional-movers-gloucester" className="block hover:text-[#C5A572] transition-colors">Professional Movers Gloucester</Link>
+                <Link href="/night-movers-ottawa" className="block hover:text-[#C5A572] transition-colors">Night Movers Ottawa</Link>
+                <Link href="/moving-companies-ottawa-prices" className="block hover:text-[#C5A572] transition-colors">Ottawa Moving Prices</Link>
+                <Link href="/reliable-movers-ottawa" className="block hover:text-[#C5A572] transition-colors">Reliable Movers Ottawa</Link>
+                <Link href="/professional-movers-orleans" className="block hover:text-[#C5A572] transition-colors">Professional Movers Orleans</Link>
+                <Link href="/senior-moving-services-ottawa" className="block hover:text-[#C5A572] transition-colors">Senior Moving Services Ottawa</Link>
+                <Link href="/moving-services-ottawa" className="block hover:text-[#C5A572] transition-colors">Moving Services Ottawa</Link>
+                <Link href="/corporate-relocation-services-ottawa" className="block hover:text-[#C5A572] transition-colors">Corporate Relocation Ottawa</Link>
+                <Link href="/moving-and-storage-ottawa" className="block hover:text-[#C5A572] transition-colors">Moving & Storage Ottawa</Link>
+                <Link href="/moving-nepean" className="block hover:text-[#C5A572] transition-colors">Moving in Nepean</Link>
+                <Link href="/small-moving-companies-ottawa" className="block hover:text-[#C5A572] transition-colors">Small Moving Companies Ottawa</Link>
+                <Link href="/piano-moving-ottawa" className="block hover:text-[#C5A572] transition-colors">Piano Moving Ottawa</Link>
+                <Link href="/emergency-movers-ottawa" className="block hover:text-[#C5A572] transition-colors">Emergency Movers Ottawa</Link>
+                <Link href="/commercial-moving-services-ottawa" className="block hover:text-[#C5A572] transition-colors">Commercial Moving Services</Link>
+                <Link href="/residential-moving-ottawa" className="block hover:text-[#C5A572] transition-colors">Residential Moving Ottawa</Link>
                 <Link href="/moving-within-ottawa" className="block hover:text-[#C5A572] transition-colors">Moving Within Ottawa</Link>
                 <Link href="/moving-from-kanata-to-barrhaven" className="block hover:text-[#C5A572] transition-colors">Kanata to Barrhaven Movers</Link>
                 <Link href="/moving-from-orleans-to-kanata" className="block hover:text-[#C5A572] transition-colors">Orleans to Kanata Movers</Link>

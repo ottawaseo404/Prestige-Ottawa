@@ -194,6 +194,25 @@ import MovingFromOntarioToQuebec from "@/pages/seo/moving-from-ontario-to-quebec
 import EstateMovingOttawa from "@/pages/seo/estate-moving-ottawa";
 import NewConstructionHomeMoversOttawa from "@/pages/seo/new-construction-home-movers-ottawa";
 import CrossTownMoversOttawa from "@/pages/seo/cross-town-movers-ottawa";
+import LongDistanceMovingCompanyOttawa from "@/pages/seo/long-distance-moving-company-ottawa";
+import MovingCompaniesNearMeOttawa from "@/pages/seo/moving-companies-near-me-ottawa";
+import InternationalMoversOttawa from "@/pages/seo/international-movers-ottawa";
+import OttawaMovingAndDelivery from "@/pages/seo/ottawa-moving-and-delivery";
+import ProfessionalMoversGloucester from "@/pages/seo/professional-movers-gloucester";
+import NightMoversOttawa from "@/pages/seo/night-movers-ottawa";
+import MovingCompaniesOttawaPrices from "@/pages/seo/moving-companies-ottawa-prices";
+import ReliableMoversOttawa from "@/pages/seo/reliable-movers-ottawa";
+import ProfessionalMoversOrleans from "@/pages/seo/professional-movers-orleans";
+import SeniorMovingServicesOttawa from "@/pages/seo/senior-moving-services-ottawa";
+import MovingServicesOttawa from "@/pages/seo/moving-services-ottawa";
+import CorporateRelocationServicesOttawa from "@/pages/seo/corporate-relocation-services-ottawa";
+import MovingAndStorageOttawa from "@/pages/seo/moving-and-storage-ottawa";
+import MovingNepean from "@/pages/seo/moving-nepean";
+import SmallMovingCompaniesOttawa from "@/pages/seo/small-moving-companies-ottawa";
+import PianoMovingOttawa from "@/pages/seo/piano-moving-ottawa";
+import EmergencyMoversOttawa from "@/pages/seo/emergency-movers-ottawa";
+import CommercialMovingServicesOttawa from "@/pages/seo/commercial-moving-services-ottawa";
+import ResidentialMovingOttawa from "@/pages/seo/residential-moving-ottawa";
 import Calculator from "@/pages/calculator";
 import Contact from "@/pages/contact";
 import Blog from "@/pages/blog";
@@ -447,6 +466,25 @@ function Router() {
       <Route path="/estate-moving-ottawa" component={EstateMovingOttawa} />
       <Route path="/new-construction-home-movers-ottawa" component={NewConstructionHomeMoversOttawa} />
       <Route path="/cross-town-movers-ottawa" component={CrossTownMoversOttawa} />
+      <Route path="/long-distance-moving-company-ottawa" component={LongDistanceMovingCompanyOttawa} />
+      <Route path="/moving-companies-near-me-ottawa" component={MovingCompaniesNearMeOttawa} />
+      <Route path="/international-movers-ottawa" component={InternationalMoversOttawa} />
+      <Route path="/ottawa-moving-and-delivery" component={OttawaMovingAndDelivery} />
+      <Route path="/professional-movers-gloucester" component={ProfessionalMoversGloucester} />
+      <Route path="/night-movers-ottawa" component={NightMoversOttawa} />
+      <Route path="/moving-companies-ottawa-prices" component={MovingCompaniesOttawaPrices} />
+      <Route path="/reliable-movers-ottawa" component={ReliableMoversOttawa} />
+      <Route path="/professional-movers-orleans" component={ProfessionalMoversOrleans} />
+      <Route path="/senior-moving-services-ottawa" component={SeniorMovingServicesOttawa} />
+      <Route path="/moving-services-ottawa" component={MovingServicesOttawa} />
+      <Route path="/corporate-relocation-services-ottawa" component={CorporateRelocationServicesOttawa} />
+      <Route path="/moving-and-storage-ottawa" component={MovingAndStorageOttawa} />
+      <Route path="/moving-nepean" component={MovingNepean} />
+      <Route path="/small-moving-companies-ottawa" component={SmallMovingCompaniesOttawa} />
+      <Route path="/piano-moving-ottawa" component={PianoMovingOttawa} />
+      <Route path="/emergency-movers-ottawa" component={EmergencyMoversOttawa} />
+      <Route path="/commercial-moving-services-ottawa" component={CommercialMovingServicesOttawa} />
+      <Route path="/residential-moving-ottawa" component={ResidentialMovingOttawa} />
 
       <Route path="/admin/pages">
         {() => (
