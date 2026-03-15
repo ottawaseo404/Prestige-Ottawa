@@ -210,6 +210,18 @@ export function SharedFooter() {
                 <Link href="/moving-companies-ottawa-reviews" className="block hover:text-[#C5A572] transition-colors">Best Moving Companies Ottawa</Link>
                 <Link href="/ottawa-neighbourhoods-guide" className="block hover:text-[#C5A572] transition-colors">Ottawa Neighbourhoods Guide</Link>
                 <Link href="/moving-in-winter-ottawa" className="block hover:text-[#C5A572] transition-colors">Moving in Winter Ottawa</Link>
+                <Link href="/moving-tips-ottawa" className="block hover:text-[#C5A572] transition-colors">Moving Tips Ottawa</Link>
+                <Link href="/moving-with-pets-ottawa" className="block hover:text-[#C5A572] transition-colors">Moving With Pets Ottawa</Link>
+                <Link href="/moving-with-children-ottawa" className="block hover:text-[#C5A572] transition-colors">Moving With Children Ottawa</Link>
+                <Link href="/office-moving-checklist-ottawa" className="block hover:text-[#C5A572] transition-colors">Office Moving Checklist</Link>
+                <Link href="/downsizing-moving-ottawa" className="block hover:text-[#C5A572] transition-colors">Downsizing Ottawa</Link>
+                <Link href="/packing-and-moving-ottawa" className="block hover:text-[#C5A572] transition-colors">Packing & Moving Ottawa</Link>
+                <Link href="/relocation-services-ottawa" className="block hover:text-[#C5A572] transition-colors">Relocation Services Ottawa</Link>
+                <Link href="/ottawa-to-gatineau-movers" className="block hover:text-[#C5A572] transition-colors">Ottawa to Gatineau Movers</Link>
+                <Link href="/moving-from-montreal-to-ottawa" className="block hover:text-[#C5A572] transition-colors">Montreal to Ottawa Movers</Link>
+                <Link href="/first-home-movers-ottawa" className="block hover:text-[#C5A572] transition-colors">First Home Movers Ottawa</Link>
+                <Link href="/moving-labour-ottawa" className="block hover:text-[#C5A572] transition-colors">Moving Labour Ottawa</Link>
+                <Link href="/furniture-rearranging-ottawa" className="block hover:text-[#C5A572] transition-colors">Furniture Rearranging Ottawa</Link>
               </div>
             </div>
 
@@ -236,6 +248,14 @@ export function SharedFooter() {
                 <Link href="/same-day-movers-ottawa" className="block hover:text-[#C5A572] transition-colors">Same Day Movers Ottawa</Link>
                 <Link href="/last-minute-movers-ottawa" className="block hover:text-[#C5A572] transition-colors">Last Minute Movers Ottawa</Link>
                 <Link href="/office-movers-ottawa" className="block hover:text-[#C5A572] transition-colors">Office Movers Ottawa</Link>
+                <Link href="/appliance-movers-ottawa" className="block hover:text-[#C5A572] transition-colors">Appliance Movers Ottawa</Link>
+                <Link href="/furniture-movers-ottawa" className="block hover:text-[#C5A572] transition-colors">Furniture Movers Ottawa</Link>
+                <Link href="/senior-movers-ottawa" className="block hover:text-[#C5A572] transition-colors">Senior Movers Ottawa</Link>
+                <Link href="/student-movers-ottawa" className="block hover:text-[#C5A572] transition-colors">Student Movers Ottawa</Link>
+                <Link href="/military-movers-ottawa" className="block hover:text-[#C5A572] transition-colors">Military Movers Ottawa</Link>
+                <Link href="/house-movers-ottawa" className="block hover:text-[#C5A572] transition-colors">House Movers Ottawa</Link>
+                <Link href="/townhouse-movers-ottawa" className="block hover:text-[#C5A572] transition-colors">Townhouse Movers Ottawa</Link>
+                <Link href="/two-men-and-truck-ottawa" className="block hover:text-[#C5A572] transition-colors">Two Men and a Truck Ottawa</Link>
               </div>
 
               <h4 className="font-bold text-sm uppercase tracking-widest text-white/40 mb-4 mt-7">Neighbourhood Movers</h4>

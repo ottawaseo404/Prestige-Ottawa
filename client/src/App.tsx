@@ -143,6 +143,26 @@ import KanataMoverPage from "@/pages/seo/kanata-movers";
 import BarrhavenMovers from "@/pages/seo/barrhaven-movers";
 import MovingQuotesOttawa from "@/pages/seo/moving-quotes-ottawa";
 import FreeStorageMovingOttawa from "@/pages/seo/free-storage-moving-ottawa";
+import ApplianceMoversOttawa from "@/pages/seo/appliance-movers-ottawa";
+import FurnitureMoversOttawa from "@/pages/seo/furniture-movers-ottawa";
+import SeniorMoversOttawa from "@/pages/seo/senior-movers-ottawa";
+import StudentMoversOttawa from "@/pages/seo/student-movers-ottawa";
+import MilitaryMoversOttawa from "@/pages/seo/military-movers-ottawa";
+import MovingWithPetsOttawa from "@/pages/seo/moving-with-pets-ottawa";
+import MovingWithChildrenOttawa from "@/pages/seo/moving-with-children-ottawa";
+import OfficeMovingChecklistOttawa from "@/pages/seo/office-moving-checklist-ottawa";
+import DownsizingMovingOttawa from "@/pages/seo/downsizing-moving-ottawa";
+import RelocationServicesOttawa from "@/pages/seo/relocation-services-ottawa";
+import PackingAndMovingOttawa from "@/pages/seo/packing-and-moving-ottawa";
+import TownhouseMoversOttawa from "@/pages/seo/townhouse-movers-ottawa";
+import MovingLabourOttawa from "@/pages/seo/moving-labour-ottawa";
+import TwoMenAndTruckOttawa from "@/pages/seo/two-men-and-truck-ottawa";
+import HouseMoversOttawa from "@/pages/seo/house-movers-ottawa";
+import FurnitureRearrangingOttawa from "@/pages/seo/furniture-rearranging-ottawa";
+import MovingTipsOttawa from "@/pages/seo/moving-tips-ottawa";
+import OttawaToGatineauMovers from "@/pages/seo/ottawa-to-gatineau-movers";
+import MovingFromMontrealToOttawa from "@/pages/seo/moving-from-montreal-to-ottawa";
+import FirstHomeMoversOttawa from "@/pages/seo/first-home-movers-ottawa";
 import OttawaMovingChecklist from "@/pages/seo/ottawa-moving-checklist";
 import Calculator from "@/pages/calculator";
 import Contact from "@/pages/contact";
@@ -335,6 +355,26 @@ function Router() {
       <Route path="/moving-in-winter-ottawa" component={MovingInWinterOttawa} />
       <Route path="/ottawa-neighbourhoods-guide" component={OttawaNeighbourhoodsGuide} />
       <Route path="/moving-companies-ottawa-reviews" component={MovingCompaniesOttawaReviews} />
+      <Route path="/appliance-movers-ottawa" component={ApplianceMoversOttawa} />
+      <Route path="/furniture-movers-ottawa" component={FurnitureMoversOttawa} />
+      <Route path="/senior-movers-ottawa" component={SeniorMoversOttawa} />
+      <Route path="/student-movers-ottawa" component={StudentMoversOttawa} />
+      <Route path="/military-movers-ottawa" component={MilitaryMoversOttawa} />
+      <Route path="/moving-with-pets-ottawa" component={MovingWithPetsOttawa} />
+      <Route path="/moving-with-children-ottawa" component={MovingWithChildrenOttawa} />
+      <Route path="/office-moving-checklist-ottawa" component={OfficeMovingChecklistOttawa} />
+      <Route path="/downsizing-moving-ottawa" component={DownsizingMovingOttawa} />
+      <Route path="/relocation-services-ottawa" component={RelocationServicesOttawa} />
+      <Route path="/packing-and-moving-ottawa" component={PackingAndMovingOttawa} />
+      <Route path="/townhouse-movers-ottawa" component={TownhouseMoversOttawa} />
+      <Route path="/moving-labour-ottawa" component={MovingLabourOttawa} />
+      <Route path="/two-men-and-truck-ottawa" component={TwoMenAndTruckOttawa} />
+      <Route path="/house-movers-ottawa" component={HouseMoversOttawa} />
+      <Route path="/furniture-rearranging-ottawa" component={FurnitureRearrangingOttawa} />
+      <Route path="/moving-tips-ottawa" component={MovingTipsOttawa} />
+      <Route path="/ottawa-to-gatineau-movers" component={OttawaToGatineauMovers} />
+      <Route path="/moving-from-montreal-to-ottawa" component={MovingFromMontrealToOttawa} />
+      <Route path="/first-home-movers-ottawa" component={FirstHomeMoversOttawa} />
       <Route path="/furniture-donation-disposal-ottawa" component={FurnitureDonationDisposalOttawa} />
       <Route path="/moving-boxes-packing-supplies-ottawa" component={MovingBoxesPackingSuppliesOttawa} />
       <Route path="/local-ottawa-moving-rates" component={LocalOttawaMovingRates} />
