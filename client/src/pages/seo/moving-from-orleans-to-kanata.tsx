@@ -1,0 +1,88 @@
+import { Helmet } from "react-helmet";
+import { Link } from "wouter";
+import { Button } from "@/components/ui/button";
+import { SharedNavigation } from "@/components/shared-navigation";
+import { SharedFooter } from "@/components/shared-footer";
+import { Phone, ArrowRight, CheckCircle2, TruckIcon } from "lucide-react";
+
+export default function MovingFromOrleansToKanata() {
+  return (
+    <>
+      <Helmet>
+        <title>Moving from Orleans to Kanata | Orleans Kanata Movers | Prestige Moving</title>
+        <meta name="description" content="Moving from Orleans to Kanata? Prestige Moving handles this cross-Ottawa move — east end to west end — with professional crews and flat-rate pricing. From $155/hr. (613) 600-4000." />
+        <meta name="keywords" content="moving from Orleans to Kanata, Orleans Kanata movers, Ottawa east to west movers, Ottawa suburb movers, movers Orleans Ottawa" />
+        <link rel="canonical" href="https://prestigemoving.ca/moving-from-orleans-to-kanata" />
+        <script type="application/ld+json">{JSON.stringify({ "@context": "https://schema.org", "@type": "MovingCompany", "name": "Prestige Moving Ottawa", "url": "https://prestigemoving.ca/moving-from-orleans-to-kanata", "telephone": "(613) 600-4000", "priceRange": "$$", "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "400" } })}</script>
+      </Helmet>
+      <SharedNavigation />
+      <section className="bg-gradient-to-br from-[#1A2332] via-[#1e2c40] to-[#243347] pt-20 pb-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl">
+            <div className="inline-flex items-center gap-2 bg-[#C5A572]/15 border border-[#C5A572]/25 rounded-full px-4 py-1.5 mb-5">
+              <TruckIcon className="h-3.5 w-3.5 text-[#C5A572]" />
+              <span className="text-[#C5A572] text-xs font-semibold uppercase tracking-wider">Orleans → Kanata Moving</span>
+            </div>
+            <h1 className="text-3xl md:text-5xl font-bold text-white mb-5 leading-tight">Moving from Orleans to Kanata — Cross-Ottawa Suburb Movers</h1>
+            <p className="text-white/70 text-lg mb-8">Orleans to Kanata is the full width of Ottawa — approximately 50 km from the francophone east end to the tech-hub west end. Prestige Moving handles this cross-city move with experienced crews who know both communities well.</p>
+            <div className="flex flex-wrap gap-3">
+              <Link href="/book"><Button className="bg-[#C5A572] text-[#1A2332] font-bold">Get Free Quote <ArrowRight className="ml-2 h-4 w-4" /></Button></Link>
+              <a href="tel:6136004000"><Button variant="outline" className="text-white border-white/30 bg-white/10"><Phone className="h-4 w-4 mr-2" /> (613) 600-4000</Button></a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div className="bg-[#C5A572] py-3">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap items-center justify-center gap-6 text-[#1A2332] text-sm font-semibold">
+          {["~50 km Across Ottawa", "From $155/hr", "All Home Types", "5.0★ Rated", "Written Quote"].map(t => <span key={t}>{t}</span>)}
+        </div>
+      </div>
+      <section className="bg-white py-16">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl font-bold text-[#1A2332] mb-5">Orleans to Kanata — Ottawa's Longest Cross-City Route</h2>
+          <div className="space-y-4 text-gray-700 leading-relaxed">
+            <p>Orleans sits on Ottawa's eastern edge — a predominantly francophone community with deep roots in Ottawa's public service community. Kanata sits on the opposite end — the west-end tech hub where companies like Nokia, Mitel, and hundreds of smaller tech firms operate. When careers or family situations drive a move from one end of Ottawa to the other, Prestige Moving handles the full journey.</p>
+            <p>The drive from Orleans to Kanata typically follows the Queensway (Highway 417) straight through the city — approximately 45 minutes to an hour depending on traffic. Our crews are familiar with the route and plan around peak traffic times to keep the move efficient.</p>
+            <p>We regularly move between all Orleans communities (Chapel Hill, Avalon, Fallingbrook, Queenswood Heights) and all Kanata communities (Bridlewood, Morgan's Grant, Beaverbrook, Kanata Lakes, Emerald Meadows) with equal familiarity.</p>
+          </div>
+          <div className="mt-8 grid md:grid-cols-2 gap-5">
+            <div className="bg-gray-50 border border-gray-200 rounded-xl p-5">
+              <h3 className="font-bold text-[#1A2332] mb-3">What's Included</h3>
+              <div className="space-y-2">
+                {["Professional Ottawa moving crew", "Properly sized truck for your home", "Furniture blanket protection", "Appliances and specialty items handled", "Orleans pickup, Kanata delivery", "Furniture placement at destination"].map(item => (
+                  <div key={item} className="flex items-start gap-2">
+                    <CheckCircle2 className="h-4 w-4 text-[#C5A572] shrink-0 mt-0.5" />
+                    <span className="text-gray-700 text-sm">{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="bg-[#1A2332] rounded-xl p-5">
+              <h3 className="font-bold text-white mb-3">Move at a Glance</h3>
+              <div className="space-y-2 text-white/70 text-sm">
+                <div className="flex justify-between"><span>Distance</span><span className="text-white font-medium">~50 km</span></div>
+                <div className="flex justify-between"><span>Drive Time</span><span className="text-white font-medium">~45–60 min</span></div>
+                <div className="flex justify-between"><span>2BR Move Time</span><span className="text-white font-medium">5–7 hours</span></div>
+                <div className="flex justify-between"><span>Starting Rate</span><span className="text-[#C5A572] font-medium">From $155/hr</span></div>
+              </div>
+              <Link href="/book" className="mt-4 block">
+                <Button className="bg-[#C5A572] text-[#1A2332] font-bold w-full">Get Written Quote</Button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className="bg-[#1A2332] py-14">
+        <div className="max-w-3xl mx-auto px-4 text-center">
+          <h2 className="text-2xl font-bold text-white mb-3">Ready to Move Orleans to Kanata?</h2>
+          <p className="text-white/70 mb-6">Get a quote for your cross-Ottawa move. Professional crew, transparent pricing.</p>
+          <div className="flex flex-wrap gap-3 justify-center">
+            <Link href="/book"><Button className="bg-[#C5A572] text-[#1A2332] font-bold">Get Free Quote</Button></Link>
+            <a href="tel:6136004000"><Button variant="outline" className="text-white border-white/30 bg-white/10"><Phone className="h-4 w-4 mr-2" /> (613) 600-4000</Button></a>
+          </div>
+        </div>
+      </section>
+      <SharedFooter />
+    </>
+  );
+}
