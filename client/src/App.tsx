@@ -164,6 +164,36 @@ import OttawaToGatineauMovers from "@/pages/seo/ottawa-to-gatineau-movers";
 import MovingFromMontrealToOttawa from "@/pages/seo/moving-from-montreal-to-ottawa";
 import FirstHomeMoversOttawa from "@/pages/seo/first-home-movers-ottawa";
 import OttawaMovingChecklist from "@/pages/seo/ottawa-moving-checklist";
+import MovingFromOttawaToToronto from "@/pages/seo/moving-from-ottawa-to-toronto";
+import MovingFromOttawaToVancouver from "@/pages/seo/moving-from-ottawa-to-vancouver";
+import MovingFromOttawaToCalgary from "@/pages/seo/moving-from-ottawa-to-calgary";
+import MovingFromOttawaToEdmonton from "@/pages/seo/moving-from-ottawa-to-edmonton";
+import MovingFromOttawaToWinnipeg from "@/pages/seo/moving-from-ottawa-to-winnipeg";
+import MovingFromOttawaToHamilton from "@/pages/seo/moving-from-ottawa-to-hamilton";
+import MovingFromOttawaToMississauga from "@/pages/seo/moving-from-ottawa-to-mississauga";
+import MovingFromOttawaToLondonOntario from "@/pages/seo/moving-from-ottawa-to-london-ontario";
+import MovingOttawaToKingston from "@/pages/seo/moving-ottawa-to-kingston";
+import MovingOttawaToBrockville from "@/pages/seo/moving-ottawa-to-brockville";
+import GovernmentOfficeMoversOttawa from "@/pages/seo/government-office-movers-ottawa";
+import CorporateMoversOttawa from "@/pages/seo/corporate-movers-ottawa";
+import MedicalOfficeMoversOttawa from "@/pages/seo/medical-office-movers-ottawa";
+import OfficeRelocationOttawa from "@/pages/seo/office-relocation-ottawa";
+import WarehouseMoversOttawa from "@/pages/seo/warehouse-movers-ottawa";
+import RetailStoreMoversOttawa from "@/pages/seo/retail-store-movers-ottawa";
+import ITEquipmentMoversOttawa from "@/pages/seo/it-equipment-movers-ottawa";
+import AfterHoursCommercialMoversOttawa from "@/pages/seo/after-hours-commercial-movers-ottawa";
+import WeekendCommercialMoversOttawa from "@/pages/seo/weekend-commercial-movers-ottawa";
+import InterprovincialMoversOttawa from "@/pages/seo/interprovincial-movers-ottawa";
+import MovingWithinOttawa from "@/pages/seo/moving-within-ottawa";
+import MovingFromKanataToBbarrhaven from "@/pages/seo/moving-from-kanata-to-barrhaven";
+import MovingFromOrleansToKanata from "@/pages/seo/moving-from-orleans-to-kanata";
+import MovingFromNepeanToGloucester from "@/pages/seo/moving-from-nepean-to-gloucester";
+import MovingFromOntarioToBC from "@/pages/seo/moving-from-ontario-to-bc";
+import MovingFromOntarioToAlberta from "@/pages/seo/moving-from-ontario-to-alberta";
+import MovingFromOntarioToQuebec from "@/pages/seo/moving-from-ontario-to-quebec";
+import EstateMovingOttawa from "@/pages/seo/estate-moving-ottawa";
+import NewConstructionHomeMoversOttawa from "@/pages/seo/new-construction-home-movers-ottawa";
+import CrossTownMoversOttawa from "@/pages/seo/cross-town-movers-ottawa";
 import Calculator from "@/pages/calculator";
 import Contact from "@/pages/contact";
 import Blog from "@/pages/blog";
@@ -387,7 +417,37 @@ function Router() {
       <Route path="/moving-quotes-ottawa" component={MovingQuotesOttawa} />
       <Route path="/free-storage-moving-ottawa" component={FreeStorageMovingOttawa} />
       <Route path="/ottawa-moving-checklist" component={OttawaMovingChecklist} />
-      
+      <Route path="/moving-from-ottawa-to-toronto" component={MovingFromOttawaToToronto} />
+      <Route path="/moving-from-ottawa-to-vancouver" component={MovingFromOttawaToVancouver} />
+      <Route path="/moving-from-ottawa-to-calgary" component={MovingFromOttawaToCalgary} />
+      <Route path="/moving-from-ottawa-to-edmonton" component={MovingFromOttawaToEdmonton} />
+      <Route path="/moving-from-ottawa-to-winnipeg" component={MovingFromOttawaToWinnipeg} />
+      <Route path="/moving-from-ottawa-to-hamilton" component={MovingFromOttawaToHamilton} />
+      <Route path="/moving-from-ottawa-to-mississauga" component={MovingFromOttawaToMississauga} />
+      <Route path="/moving-from-ottawa-to-london-ontario" component={MovingFromOttawaToLondonOntario} />
+      <Route path="/moving-ottawa-to-kingston" component={MovingOttawaToKingston} />
+      <Route path="/moving-ottawa-to-brockville" component={MovingOttawaToBrockville} />
+      <Route path="/government-office-movers-ottawa" component={GovernmentOfficeMoversOttawa} />
+      <Route path="/corporate-movers-ottawa" component={CorporateMoversOttawa} />
+      <Route path="/medical-office-movers-ottawa" component={MedicalOfficeMoversOttawa} />
+      <Route path="/office-relocation-ottawa" component={OfficeRelocationOttawa} />
+      <Route path="/warehouse-movers-ottawa" component={WarehouseMoversOttawa} />
+      <Route path="/retail-store-movers-ottawa" component={RetailStoreMoversOttawa} />
+      <Route path="/it-equipment-movers-ottawa" component={ITEquipmentMoversOttawa} />
+      <Route path="/after-hours-commercial-movers-ottawa" component={AfterHoursCommercialMoversOttawa} />
+      <Route path="/weekend-commercial-movers-ottawa" component={WeekendCommercialMoversOttawa} />
+      <Route path="/interprovincial-movers-ottawa" component={InterprovincialMoversOttawa} />
+      <Route path="/moving-within-ottawa" component={MovingWithinOttawa} />
+      <Route path="/moving-from-kanata-to-barrhaven" component={MovingFromKanataToBbarrhaven} />
+      <Route path="/moving-from-orleans-to-kanata" component={MovingFromOrleansToKanata} />
+      <Route path="/moving-from-nepean-to-gloucester" component={MovingFromNepeanToGloucester} />
+      <Route path="/moving-from-ontario-to-bc" component={MovingFromOntarioToBC} />
+      <Route path="/moving-from-ontario-to-alberta" component={MovingFromOntarioToAlberta} />
+      <Route path="/moving-from-ontario-to-quebec" component={MovingFromOntarioToQuebec} />
+      <Route path="/estate-moving-ottawa" component={EstateMovingOttawa} />
+      <Route path="/new-construction-home-movers-ottawa" component={NewConstructionHomeMoversOttawa} />
+      <Route path="/cross-town-movers-ottawa" component={CrossTownMoversOttawa} />
+
       <Route path="/admin/pages">
         {() => (
           <ProtectedAdminLayout>
