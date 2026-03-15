@@ -1,5 +1,6 @@
 import express, { type Request, Response, NextFunction } from "express";
 import session from "express-session";
+import connectPgSimple from "connect-pg-simple";
 import path from "path";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
@@ -19,15 +20,24 @@ declare module 'http' {
   }
 }
 
+const PgSession = connectPgSimple(session);
+
 app.use(session({
+  store: process.env.DATABASE_URL
+    ? new PgSession({
+        conString: process.env.DATABASE_URL,
+        tableName: "session",
+        createTableIfMissing: true,
+      })
+    : undefined,
   secret: process.env.SESSION_SECRET || 'prestige-moving-secret-key',
-  resave: true,
-  saveUninitialized: true,
+  resave: false,
+  saveUninitialized: false,
   cookie: {
     secure: true,
     httpOnly: true,
     sameSite: 'none' as const,
-    maxAge: 24 * 60 * 60 * 1000
+    maxAge: 30 * 24 * 60 * 60 * 1000
   }
 }));
 

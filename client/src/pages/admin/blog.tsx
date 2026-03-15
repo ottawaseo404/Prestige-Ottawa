@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useQuery, useMutation } from "@tanstack/react-query";
 import { Skeleton } from "@/components/ui/skeleton";
-import { Plus, Search, Trash2, Edit, Eye, FileText, Sparkles, Loader2, MoreHorizontal, ImageOff, ImagePlus } from "lucide-react";
+import { Plus, Search, Trash2, Edit, Eye, FileText, Sparkles, Loader2, MoreHorizontal, ImageOff, ImagePlus, RefreshCw, AlertCircle } from "lucide-react";
 import { Link } from "wouter";
 import { format } from "date-fns";
 import type { BlogPost } from "@shared/schema";
@@ -35,8 +35,9 @@ export default function AdminBlog() {
   const [deletePostId, setDeletePostId] = useState<string | null>(null);
   const [generatingImageIds, setGeneratingImageIds] = useState<Set<string>>(new Set());
 
-  const { data: posts, isLoading } = useQuery<BlogPost[]>({
+  const { data: posts, isLoading, isError, refetch } = useQuery<BlogPost[]>({
     queryKey: ["/api/admin/blog/posts"],
+    staleTime: 30 * 1000,
   });
 
   const deleteMutation = useMutation({
@@ -243,6 +244,16 @@ export default function AdminBlog() {
               {[1, 2, 3].map((i) => (
                 <Skeleton key={i} className="h-20 w-full" />
               ))}
+            </div>
+          ) : isError ? (
+            <div className="text-center py-12">
+              <AlertCircle className="h-12 w-12 text-destructive mx-auto mb-4" />
+              <h3 className="text-lg font-semibold mb-2">Failed to load posts</h3>
+              <p className="text-muted-foreground mb-4">There was a problem fetching your blog posts. This can happen after a server restart.</p>
+              <Button onClick={() => refetch()} data-testid="button-retry-load">
+                <RefreshCw className="h-4 w-4 mr-2" />
+                Retry
+              </Button>
             </div>
           ) : filteredPosts.length === 0 ? (
             <div className="text-center py-12">
