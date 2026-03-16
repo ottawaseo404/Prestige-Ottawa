@@ -227,6 +227,17 @@ export function SharedFooter() {
                 <Link href="/moving-from-ottawa-to-winnipeg" className="block hover:text-[#C5A572] transition-colors">Ottawa to Winnipeg Movers</Link>
                 <Link href="/moving-from-ottawa-to-hamilton" className="block hover:text-[#C5A572] transition-colors">Ottawa to Hamilton Movers</Link>
                 <Link href="/moving-from-ottawa-to-mississauga" className="block hover:text-[#C5A572] transition-colors">Ottawa to Mississauga Movers</Link>
+                <Link href="/moving-to-ottawa-from-toronto" className="block hover:text-[#C5A572] transition-colors">Toronto to Ottawa Movers</Link>
+                <Link href="/barrhaven-movers" className="block hover:text-[#C5A572] transition-colors">Barrhaven Movers</Link>
+                <Link href="/kanata-movers" className="block hover:text-[#C5A572] transition-colors">Kanata Movers</Link>
+                <Link href="/local-ottawa-moving-rates" className="block hover:text-[#C5A572] transition-colors">Ottawa Moving Rates</Link>
+                <Link href="/moving-quotes-ottawa" className="block hover:text-[#C5A572] transition-colors">Moving Quotes Ottawa</Link>
+                <Link href="/ottawa-moving-checklist" className="block hover:text-[#C5A572] transition-colors">Ottawa Moving Checklist</Link>
+                <Link href="/ottawa-packing-services" className="block hover:text-[#C5A572] transition-colors">Ottawa Packing Services</Link>
+                <Link href="/free-storage-moving-ottawa" className="block hover:text-[#C5A572] transition-colors">Free Storage Moving Ottawa</Link>
+                <Link href="/moving-boxes-packing-supplies-ottawa" className="block hover:text-[#C5A572] transition-colors">Moving Boxes Ottawa</Link>
+                <Link href="/professional-hoisting-ottawa" className="block hover:text-[#C5A572] transition-colors">Professional Hoisting Ottawa</Link>
+                <Link href="/preparing-appliances-for-moving-ottawa" className="block hover:text-[#C5A572] transition-colors">Appliance Moving Ottawa</Link>
                 <Link href="/moving-from-ottawa-to-london-ontario" className="block hover:text-[#C5A572] transition-colors">Ottawa to London ON Movers</Link>
                 <Link href="/moving-ottawa-to-kingston" className="block hover:text-[#C5A572] transition-colors">Ottawa to Kingston Movers</Link>
                 <Link href="/moving-ottawa-to-brockville" className="block hover:text-[#C5A572] transition-colors">Ottawa to Brockville Movers</Link>
