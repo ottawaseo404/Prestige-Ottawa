@@ -49,6 +49,8 @@ export default function AdminBlogEditor() {
       return res.json();
     },
     enabled: isEditing,
+    retry: 3,
+    retryDelay: (attempt) => Math.min(1000 * 2 ** attempt, 10000),
   });
 
   const { data: categories } = useQuery<BlogCategory[]>({

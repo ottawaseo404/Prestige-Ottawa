@@ -38,6 +38,8 @@ export default function AdminBlog() {
   const { data: posts, isLoading, isError, refetch } = useQuery<BlogPost[]>({
     queryKey: ["/api/admin/blog/posts"],
     staleTime: 30 * 1000,
+    retry: 3,
+    retryDelay: (attempt) => Math.min(1000 * 2 ** attempt, 10000),
   });
 
   const deleteMutation = useMutation({
