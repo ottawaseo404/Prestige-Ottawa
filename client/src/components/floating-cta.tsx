@@ -122,15 +122,25 @@ export function FloatingCTA() {
             <form onSubmit={handleSubmit} data-testid="form-quote">
               {/* Header */}
               <div className="bg-white px-6 pt-6 pb-4 border-b">
-                {/* Contact us link */}
-                <a
-                  href="tel:613-600-4000"
-                  className="flex items-center justify-center gap-2 w-full border border-gray-200 rounded-xl py-3 text-primary font-semibold text-sm hover:bg-gray-50 transition-colors mb-4"
-                  data-testid="link-contact-phone"
-                >
-                  <Mail className="h-4 w-4" />
-                  Contact Us
-                </a>
+                {/* Contact us / Call Now row */}
+                <div className="grid grid-cols-2 gap-2 mb-4">
+                  <a
+                    href="/contact"
+                    className="flex items-center justify-center gap-2 w-full border border-gray-200 rounded-xl py-3 text-primary font-semibold text-sm hover:bg-gray-50 transition-colors"
+                    data-testid="link-contact-email"
+                  >
+                    <Mail className="h-4 w-4" />
+                    Contact Us
+                  </a>
+                  <a
+                    href="tel:6136004000"
+                    className="flex items-center justify-center gap-2 w-full bg-[#C5A572] text-white rounded-xl py-3 font-semibold text-sm hover:bg-[#b8955f] transition-colors"
+                    data-testid="link-contact-phone"
+                  >
+                    <Phone className="h-4 w-4" />
+                    Call Now
+                  </a>
+                </div>
                 <div className="text-center text-xs text-muted-foreground uppercase tracking-widest mb-4">
                   or get a free quote
                 </div>
