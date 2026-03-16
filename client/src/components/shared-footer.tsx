@@ -228,6 +228,11 @@ export function SharedFooter() {
                 <Link href="/moving-from-ottawa-to-hamilton" className="block hover:text-[#C5A572] transition-colors">Ottawa to Hamilton Movers</Link>
                 <Link href="/moving-from-ottawa-to-mississauga" className="block hover:text-[#C5A572] transition-colors">Ottawa to Mississauga Movers</Link>
                 <Link href="/moving-to-ottawa-from-toronto" className="block hover:text-[#C5A572] transition-colors">Toronto to Ottawa Movers</Link>
+                <Link href="/moving-to-ottawa-from-vancouver" className="block hover:text-[#C5A572] transition-colors">Vancouver to Ottawa Movers</Link>
+                <Link href="/moving-to-ottawa-from-calgary" className="block hover:text-[#C5A572] transition-colors">Calgary to Ottawa Movers</Link>
+                <Link href="/moving-to-ottawa-from-edmonton" className="block hover:text-[#C5A572] transition-colors">Edmonton to Ottawa Movers</Link>
+                <Link href="/moving-to-ottawa-from-winnipeg" className="block hover:text-[#C5A572] transition-colors">Winnipeg to Ottawa Movers</Link>
+                <Link href="/moving-to-ottawa-from-montreal" className="block hover:text-[#C5A572] transition-colors">Montreal to Ottawa Movers</Link>
                 <Link href="/barrhaven-movers" className="block hover:text-[#C5A572] transition-colors">Barrhaven Movers</Link>
                 <Link href="/kanata-movers" className="block hover:text-[#C5A572] transition-colors">Kanata Movers</Link>
                 <Link href="/local-ottawa-moving-rates" className="block hover:text-[#C5A572] transition-colors">Ottawa Moving Rates</Link>
@@ -359,6 +364,24 @@ export function SharedFooter() {
                 <Link href="/residential-movers-rockcliffe-park" className="block hover:text-[#C5A572] transition-colors">Residential Movers Rockcliffe Park</Link>
                 <Link href="/residential-movers-beacon-hill" className="block hover:text-[#C5A572] transition-colors">Residential Movers Beacon Hill</Link>
                 <Link href="/residential-movers-orleans-village" className="block hover:text-[#C5A572] transition-colors">Residential Movers Orleans Village</Link>
+                <Link href="/residential-movers-bells-corners" className="block hover:text-[#C5A572] transition-colors">Residential Movers Bells Corners</Link>
+                <Link href="/residential-movers-hunt-club" className="block hover:text-[#C5A572] transition-colors">Residential Movers Hunt Club</Link>
+                <Link href="/residential-movers-vanier" className="block hover:text-[#C5A572] transition-colors">Residential Movers Vanier</Link>
+                <Link href="/residential-movers-manor-park" className="block hover:text-[#C5A572] transition-colors">Residential Movers Manor Park</Link>
+                <Link href="/residential-movers-blackburn-hamlet" className="block hover:text-[#C5A572] transition-colors">Residential Movers Blackburn Hamlet</Link>
+                <Link href="/residential-movers-crystal-beach" className="block hover:text-[#C5A572] transition-colors">Residential Movers Crystal Beach</Link>
+              </div>
+
+              <h4 className="font-bold text-sm uppercase tracking-widest text-white/40 mb-4 mt-7">Specialty Moving</h4>
+              <div className="space-y-2.5 text-sm text-white/65 mb-7">
+                <Link href="/pool-table-movers-ottawa" className="block hover:text-[#C5A572] transition-colors">Pool Table Movers Ottawa</Link>
+                <Link href="/hot-tub-movers-ottawa" className="block hover:text-[#C5A572] transition-colors">Hot Tub Movers Ottawa</Link>
+                <Link href="/gym-equipment-movers-ottawa" className="block hover:text-[#C5A572] transition-colors">Gym Equipment Movers Ottawa</Link>
+                <Link href="/antique-movers-ottawa" className="block hover:text-[#C5A572] transition-colors">Antique Movers Ottawa</Link>
+                <Link href="/embassy-movers-ottawa" className="block hover:text-[#C5A572] transition-colors">Embassy Movers Ottawa</Link>
+                <Link href="/federal-government-movers-ottawa" className="block hover:text-[#C5A572] transition-colors">Federal Government Movers</Link>
+                <Link href="/law-firm-movers-ottawa" className="block hover:text-[#C5A572] transition-colors">Law Firm Movers Ottawa</Link>
+                <Link href="/university-moving-ottawa" className="block hover:text-[#C5A572] transition-colors">University Moving Ottawa</Link>
               </div>
 
               <h4 className="font-bold text-sm uppercase tracking-widest text-white/40 mb-4 mt-7">Commercial Movers</h4>

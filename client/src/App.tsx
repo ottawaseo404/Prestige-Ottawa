@@ -213,6 +213,25 @@ import PianoMovingOttawa from "@/pages/seo/piano-moving-ottawa";
 import EmergencyMoversOttawa from "@/pages/seo/emergency-movers-ottawa";
 import CommercialMovingServicesOttawa from "@/pages/seo/commercial-moving-services-ottawa";
 import ResidentialMovingOttawa from "@/pages/seo/residential-moving-ottawa";
+import PoolTableMoversOttawa from "@/pages/seo/pool-table-movers-ottawa";
+import HotTubMoversOttawa from "@/pages/seo/hot-tub-movers-ottawa";
+import GymEquipmentMoversOttawa from "@/pages/seo/gym-equipment-movers-ottawa";
+import AntiqueMoversOttawa from "@/pages/seo/antique-movers-ottawa";
+import EmbassyMoversOttawa from "@/pages/seo/embassy-movers-ottawa";
+import FederalGovernmentMoversOttawa from "@/pages/seo/federal-government-movers-ottawa";
+import LawFirmMoversOttawa from "@/pages/seo/law-firm-movers-ottawa";
+import UniversityMovingOttawa from "@/pages/seo/university-moving-ottawa";
+import MovingToOttawaFromVancouver from "@/pages/seo/moving-to-ottawa-from-vancouver";
+import MovingToOttawaFromCalgary from "@/pages/seo/moving-to-ottawa-from-calgary";
+import MovingToOttawaFromMontreal from "@/pages/seo/moving-to-ottawa-from-montreal";
+import MovingToOttawaFromEdmonton from "@/pages/seo/moving-to-ottawa-from-edmonton";
+import MovingToOttawaFromWinnipeg from "@/pages/seo/moving-to-ottawa-from-winnipeg";
+import ResidentialMoversBellsCorners from "@/pages/seo/residential-movers-bells-corners";
+import ResidentialMoversHuntClub from "@/pages/seo/residential-movers-hunt-club";
+import ResidentialMoversVanier from "@/pages/seo/residential-movers-vanier";
+import ResidentialMoversManorPark from "@/pages/seo/residential-movers-manor-park";
+import ResidentialMoversBlackburnHamlet from "@/pages/seo/residential-movers-blackburn-hamlet";
+import ResidentialMoversCrystalBeach from "@/pages/seo/residential-movers-crystal-beach";
 import Calculator from "@/pages/calculator";
 import Contact from "@/pages/contact";
 import Blog from "@/pages/blog";
@@ -485,6 +504,25 @@ function Router() {
       <Route path="/emergency-movers-ottawa" component={EmergencyMoversOttawa} />
       <Route path="/commercial-moving-services-ottawa" component={CommercialMovingServicesOttawa} />
       <Route path="/residential-moving-ottawa" component={ResidentialMovingOttawa} />
+      <Route path="/pool-table-movers-ottawa" component={PoolTableMoversOttawa} />
+      <Route path="/hot-tub-movers-ottawa" component={HotTubMoversOttawa} />
+      <Route path="/gym-equipment-movers-ottawa" component={GymEquipmentMoversOttawa} />
+      <Route path="/antique-movers-ottawa" component={AntiqueMoversOttawa} />
+      <Route path="/embassy-movers-ottawa" component={EmbassyMoversOttawa} />
+      <Route path="/federal-government-movers-ottawa" component={FederalGovernmentMoversOttawa} />
+      <Route path="/law-firm-movers-ottawa" component={LawFirmMoversOttawa} />
+      <Route path="/university-moving-ottawa" component={UniversityMovingOttawa} />
+      <Route path="/moving-to-ottawa-from-vancouver" component={MovingToOttawaFromVancouver} />
+      <Route path="/moving-to-ottawa-from-calgary" component={MovingToOttawaFromCalgary} />
+      <Route path="/moving-to-ottawa-from-montreal" component={MovingToOttawaFromMontreal} />
+      <Route path="/moving-to-ottawa-from-edmonton" component={MovingToOttawaFromEdmonton} />
+      <Route path="/moving-to-ottawa-from-winnipeg" component={MovingToOttawaFromWinnipeg} />
+      <Route path="/residential-movers-bells-corners" component={ResidentialMoversBellsCorners} />
+      <Route path="/residential-movers-hunt-club" component={ResidentialMoversHuntClub} />
+      <Route path="/residential-movers-vanier" component={ResidentialMoversVanier} />
+      <Route path="/residential-movers-manor-park" component={ResidentialMoversManorPark} />
+      <Route path="/residential-movers-blackburn-hamlet" component={ResidentialMoversBlackburnHamlet} />
+      <Route path="/residential-movers-crystal-beach" component={ResidentialMoversCrystalBeach} />
 
       <Route path="/admin/pages">
         {() => (
