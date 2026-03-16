@@ -888,12 +888,20 @@ export default function Home() {
                     </div>
                   ) : (
                     <>
-                      <Link href="/contact">
-                        <Button variant="outline" className="w-full font-bold mb-3 border-primary/30 text-primary" data-testid="button-hero-contact">
-                          <Mail className="h-4 w-4 mr-2" />
-                          Contact Us
-                        </Button>
-                      </Link>
+                      <div className="grid grid-cols-2 gap-2 mb-3">
+                        <Link href="/contact">
+                          <Button variant="outline" className="w-full font-bold border-primary/30 text-primary" data-testid="button-hero-contact">
+                            <Mail className="h-4 w-4 mr-2" />
+                            Contact Us
+                          </Button>
+                        </Link>
+                        <a href="tel:6136004000">
+                          <Button className="w-full font-bold bg-[#C5A572] text-white" data-testid="button-hero-call">
+                            <Phone className="h-4 w-4 mr-2" />
+                            Call Now
+                          </Button>
+                        </a>
+                      </div>
 
                       <div className="relative mb-4">
                         <div className="absolute inset-0 flex items-center">
