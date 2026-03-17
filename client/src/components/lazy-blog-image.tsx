@@ -48,14 +48,15 @@ export function LazyBlogImage({ postId, title }: LazyBlogImageProps) {
   return (
     <div ref={ref} className="h-48 overflow-hidden bg-gradient-to-br from-[#1A2332] to-[#2a3a52]">
       {loading && <Skeleton className="h-full w-full" />}
-      {imageUrl && (
+      {imageUrl && !failed && (
         <img
           src={imageUrl}
           alt={title}
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+          onError={() => setFailed(true)}
         />
       )}
-      {!loading && !imageUrl && (
+      {!loading && (!imageUrl || failed) && (
         <div className="h-full flex items-center justify-center">
           <div className="w-12 h-12 bg-[#C5A572]/20 rounded-full flex items-center justify-center">
             <svg className="w-6 h-6 text-[#C5A572]" fill="none" viewBox="0 0 24 24" stroke="currentColor">

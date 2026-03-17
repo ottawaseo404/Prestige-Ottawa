@@ -5,6 +5,7 @@ import path from "path";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
 import { startBlogScheduler } from "./blog-scheduler";
+import { seedMissingBlogPosts } from "./seed-posts";
 
 const app = express();
 
@@ -123,5 +124,8 @@ app.use((req, res, next) => {
     
     // Blog scheduler disabled - re-enable when ready
     // startBlogScheduler();
+    
+    // Seed missing blog posts (runs once, skips if already present)
+    seedMissingBlogPosts().catch(console.error);
   });
 })();

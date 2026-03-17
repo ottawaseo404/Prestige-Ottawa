@@ -158,6 +158,7 @@ export default function BlogPost() {
                 src={post.featuredImage}
                 alt={post.featuredImageAlt || post.title}
                 className="w-full h-auto"
+                onError={(e) => { (e.currentTarget.parentElement as HTMLElement).style.display = 'none'; }}
               />
             </div>
           )}
