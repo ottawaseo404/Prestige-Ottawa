@@ -154,7 +154,7 @@ export function SharedFooter() {
             <div className="lg:col-span-1">
               <img src={logoUrl} alt="Prestige Moving" className="h-12 w-auto mb-6" />
               <p className="text-white/70 text-sm leading-relaxed">
-                Ottawa's trusted moving company providing professional residential and commercial moving services.
+                Ottawa movers trusted by 10,000+ families and businesses. Professional, fully insured residential and commercial moving services across Ottawa and the National Capital Region.
               </p>
               <div className="mt-6">
                 <WorkSafeBadge size="lg" />
@@ -163,8 +163,12 @@ export function SharedFooter() {
 
             {/* Col 2 — Services */}
             <div>
-              <h4 className="font-bold text-sm uppercase tracking-widest text-white/40 mb-4">Our Services</h4>
+              <h4 className="font-bold text-sm uppercase tracking-widest text-white/40 mb-4">Ottawa Movers</h4>
               <div className="space-y-2.5 text-sm text-white/65">
+                <Link href="/" className="block hover:text-[#C5A572] transition-colors font-semibold text-white/80">Ottawa Movers — Home</Link>
+                <Link href="/ottawa-movers" className="block hover:text-[#C5A572] transition-colors">Movers Ottawa</Link>
+                <Link href="/best-movers-ottawa" className="block hover:text-[#C5A572] transition-colors">Best Movers Ottawa</Link>
+                <Link href="/moving-company-ottawa" className="block hover:text-[#C5A572] transition-colors">Moving Company Ottawa</Link>
                 <Link href="/services/residential-moving" className="block hover:text-[#C5A572] transition-colors">Residential Moving</Link>
                 <Link href="/services/commercial-moving" className="block hover:text-[#C5A572] transition-colors">Commercial Moving</Link>
                 <Link href="/services/long-distance-moving" className="block hover:text-[#C5A572] transition-colors">Long Distance Moving</Link>

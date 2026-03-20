@@ -348,6 +348,77 @@ export default function Home() {
     ]
   };
 
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How much do Ottawa movers cost?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ottawa movers typically charge between $155–$315 per hour depending on crew size. Prestige Moving offers three packages: Premium ($155/hr, 2 movers), Deluxe ($195/hr, 3 movers), and Diamond ($315/hr, 4+ movers). All moves have a 3-hour minimum. Call (613) 600-4000 for a free quote."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the best moving company in Ottawa?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Prestige Moving is rated the best moving company in Ottawa with a 5.0-star Google rating and 350+ verified reviews. We are WSIB certified, fully insured with $2M liability coverage, and have completed over 10,000 successful moves across Ottawa and the National Capital Region."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How far in advance should I book movers in Ottawa?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We recommend booking Ottawa movers at least 2–4 weeks in advance. During peak moving season (May–September) and at month-end, book 4–6 weeks ahead. Prestige Moving also offers last-minute and same-day moving in Ottawa when availability permits."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Are Prestige Moving Ottawa movers insured?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Prestige Moving is fully licensed and insured with $2 million in liability coverage. All movers are WSIB certified, meaning they're covered under the Workplace Safety and Insurance Board. Your belongings are protected throughout every Ottawa move."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What areas in Ottawa do you service?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We serve all of Ottawa and surrounding areas including Kanata, Orleans, Nepean, Barrhaven, Gloucester, Stittsville, Westboro, Centretown, Vanier, Hintonburg, Rockcliffe Park, and all Ottawa neighbourhoods. We also serve Gatineau, Rockland, Manotick, Kemptville, and Carleton Place."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do Ottawa movers charge by the hour or by the job?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Most Ottawa movers, including Prestige Moving, charge by the hour with a 3-hour minimum. Our hourly rates include the moving truck, all blankets, dollies, and equipment. There are no hidden fees — the rate quoted is exactly what you pay."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I get a same-day mover in Ottawa?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, Prestige Moving offers same-day and last-minute moving services in Ottawa subject to availability. Call (613) 600-4000 as early as possible to check same-day slots. We accommodate urgent moves whenever our schedule allows."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the cheapest way to move in Ottawa?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The most affordable way to move in Ottawa is to book a 2-mover Premium crew ($155/hr), schedule mid-week (Tuesday–Thursday), and handle your own packing. Our online quote tool lets you estimate your total cost before committing. Call (613) 600-4000 for the best available rate."
+        }
+      }
+    ]
+  };
+
   const localBusinessSchema = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
@@ -371,7 +442,7 @@ export default function Home() {
     <>
       <Helmet>
         <meta name="google-site-verification" content="qCldQT0CrqE6wxeHt9aTvmBl_fvb9c0qdu1Abn_SSn8" />
-        <title>Prestige Moving Ottawa - Trusted Local & Long Distance Movers</title>
+        <title>Movers Ottawa | Best Ottawa Moving Company | Prestige Moving</title>
         <meta name="description" content="Looking for Ottawa movers? Prestige Moving Ottawa is the top moving company Ottawa trusts. Best movers Ottawa with 350 five-star reviews. Top movers Ottawa for residential, commercial & long-distance moves. Ottawa moving company - WSIB certified, fully insured. Free estimates - Call (613) 600-4000!" />
         <meta name="keywords" content="ottawa movers, moving company ottawa, best movers ottawa, top movers ottawa, ottawa moving company, movers ottawa, movers in ottawa, ottawa ontario movers, professional movers ottawa, local movers ottawa, affordable movers ottawa, residential movers ottawa, commercial movers ottawa, long distance movers ottawa, kanata movers, orleans movers, nepean movers, barrhaven movers, gatineau movers, greater ottawa movers" />
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
@@ -400,6 +471,7 @@ export default function Home() {
         <meta name="ICBM" content="45.4215, -75.6972" />
         <script type="application/ld+json">{JSON.stringify(organizationSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(localBusinessSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
       </Helmet>
       <div className="min-h-screen bg-background">
         {/* Sticky Header Container */}
@@ -771,9 +843,9 @@ export default function Home() {
                 </div>
                 
                 <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-white mb-4 leading-[0.95] tracking-tight text-left">
-                  <span className="block">Ottawa's</span>
-                  <span className="block text-primary drop-shadow-[0_0_30px_rgba(197,165,114,0.5)]">#1 Moving</span>
-                  <span className="block">Company</span>
+                  <span className="block">Ottawa</span>
+                  <span className="block text-primary drop-shadow-[0_0_30px_rgba(197,165,114,0.5)]">Movers</span>
+                  <span className="block">You Can Trust</span>
                 </h1>
                 
                 <p className="text-xl md:text-2xl text-white/90 mb-6 leading-relaxed max-w-xl font-medium text-left">
@@ -2327,6 +2399,54 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Ottawa Movers — Rich Content Section */}
+        <section className="py-16 md:py-20 bg-[#1A2332]">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+              <div>
+                <div className="inline-flex items-center gap-2 bg-primary/20 border border-primary/30 rounded-full px-4 py-1.5 mb-5">
+                  <MapPin className="h-3.5 w-3.5 text-primary" />
+                  <span className="text-xs font-semibold text-primary uppercase tracking-wider">Ottawa's Moving Experts</span>
+                </div>
+                <h2 className="text-3xl md:text-4xl font-black text-white mb-5 leading-tight">
+                  The Movers Ottawa Families &amp; Businesses Trust Most
+                </h2>
+                <div className="space-y-4 text-white/80 text-base leading-relaxed">
+                  <p>When you search for <strong className="text-primary">movers Ottawa</strong>, you deserve more than a list of trucks — you deserve a team that treats your move like their own. Since 2010, Prestige Moving has been Ottawa's most referred moving company, serving thousands of families, students, and businesses across every neighbourhood in the National Capital Region.</p>
+                  <p>Our <strong className="text-white">Ottawa movers</strong> are trained professionals — background-checked, uniformed, and experienced with everything from downtown condo moves to large suburban home relocations. Whether you're moving a studio apartment in Centretown, a family home in Barrhaven, or an office in Kanata, our crews arrive fully equipped with padded blankets, heavy-duty dollies, and climate-controlled trucks.</p>
+                  <p>As movers who live and work in Ottawa, we understand local challenges: narrow hallways in Westboro century homes, high-rise elevator bookings in the Glebe, or tight winter timelines. We've done it all — and we do it right, every time. That's why 10,000+ Ottawa residents have trusted us with their most important belongings.</p>
+                </div>
+              </div>
+              <div className="space-y-3">
+                {[
+                  { label: "Ottawa Residential Movers", detail: "Houses, condos, apartments — moved with care and efficiency.", href: "/services/residential-moving" },
+                  { label: "Ottawa Commercial Movers", detail: "Office relocations with minimal downtime to your business.", href: "/services/commercial-moving" },
+                  { label: "Long Distance from Ottawa", detail: "Moving across Ontario or Canada? We've got you covered.", href: "/services/long-distance-moving" },
+                  { label: "Same-Day Ottawa Movers", detail: "Urgent move? Call us early — we'll do our best to fit you in.", href: "/book" },
+                  { label: "Packing Services Ottawa", detail: "Full-service packing with professional materials included.", href: "/services/packing-services" },
+                  { label: "Piano & Specialty Movers Ottawa", detail: "Pianos, hot tubs, safes — handled by our Ottawa specialists.", href: "/services/specialty-item-moving" },
+                ].map((item, i) => (
+                  <Link key={i} href={item.href} className="flex items-start gap-4 p-4 bg-white/5 border border-white/10 rounded-md hover:border-primary/40 hover:bg-white/10 transition-all group" data-testid={`link-about-service-${i}`}>
+                    <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 shrink-0" />
+                    <div>
+                      <p className="font-semibold text-white group-hover:text-primary transition-colors text-sm">{item.label}</p>
+                      <p className="text-white/60 text-xs mt-0.5">{item.detail}</p>
+                    </div>
+                  </Link>
+                ))}
+                <div className="pt-2">
+                  <a href="tel:6136004000">
+                    <Button size="lg" className="w-full font-bold" data-testid="button-about-call">
+                      <Phone className="h-4 w-4 mr-2" />
+                      Call Ottawa's Best Movers: (613) 600-4000
+                    </Button>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Service Areas & SEO Links Section */}
         <section className="py-16 md:py-20 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -2420,6 +2540,81 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ Section */}
+        <section className="py-20 md:py-24 bg-gray-50">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 rounded-full px-4 py-1.5 mb-4">
+                <FileText className="h-3.5 w-3.5 text-primary" />
+                <span className="text-xs font-semibold text-primary uppercase tracking-wider">Common Questions</span>
+              </div>
+              <h2 className="text-3xl md:text-4xl font-black text-[#1A2332] mb-3">
+                Ottawa Movers — Frequently Asked Questions
+              </h2>
+              <p className="text-gray-500 max-w-xl mx-auto">
+                Everything you need to know before hiring movers in Ottawa
+              </p>
+            </div>
+            <div className="space-y-3">
+              {[
+                {
+                  q: "How much do movers cost in Ottawa?",
+                  a: "Ottawa movers typically charge $155–$315/hr depending on crew size. Our Premium package (2 movers) starts at $155/hr, Deluxe (3 movers) at $195/hr, and Diamond (4+ movers) at $315/hr. All packages have a 3-hour minimum and include the truck, blankets, and all equipment — no hidden fees."
+                },
+                {
+                  q: "What is the best moving company in Ottawa?",
+                  a: "Prestige Moving is consistently rated Ottawa's top moving company with a perfect 5.0 Google rating from 350+ verified reviews. We're WSIB certified, carry $2M liability insurance, and have completed 10,000+ successful moves across Ottawa and the National Capital Region since 2010."
+                },
+                {
+                  q: "How far in advance should I book Ottawa movers?",
+                  a: "We recommend booking 2–4 weeks ahead for most moves. For end-of-month moves or peak season (May–September), book 4–6 weeks in advance. We also offer last-minute and same-day moving in Ottawa when our schedule allows — call (613) 600-4000 to check availability."
+                },
+                {
+                  q: "Are Ottawa movers insured and licensed?",
+                  a: "All Prestige Moving crews carry $2 million in liability coverage and are WSIB certified, meaning they're covered under the Workplace Safety and Insurance Board. We are fully licensed and your belongings are protected from the moment we arrive until the final item is placed in your new home."
+                },
+                {
+                  q: "Do Ottawa movers charge for travel time?",
+                  a: "Yes — most Ottawa moving companies, including Prestige Moving, charge a travel fee covering drive time from our depot to your home and back. We are transparent about this fee upfront in your quote so there are never any surprises on moving day."
+                },
+                {
+                  q: "What Ottawa neighbourhoods do you serve?",
+                  a: "We serve every Ottawa neighbourhood including Kanata, Orleans, Nepean, Barrhaven, Gloucester, Stittsville, Westboro, Centretown, Vanier, Hintonburg, Rockcliffe Park, Alta Vista, Manor Park, and all surrounding areas. We also move to/from Gatineau, Rockland, Kemptville, Manotick, and Carleton Place."
+                },
+                {
+                  q: "Can I get a free moving quote in Ottawa?",
+                  a: "Yes — Prestige Moving provides free, no-obligation quotes online or by phone. Use our online booking tool for an instant estimate based on your move details, or call (613) 600-4000 to speak with a moving coordinator who can provide a full written quote within minutes."
+                },
+                {
+                  q: "What's the cheapest way to move in Ottawa?",
+                  a: "To minimize cost: book a 2-person crew, schedule mid-week (Tue–Thu), pack your own boxes, and book with at least 3–4 weeks' notice. Avoiding month-end dates — especially June 30 / July 1, the busiest moving days in Ottawa — can also reduce your rate significantly."
+                },
+              ].map((item, i) => (
+                <div key={i} className="bg-white border border-gray-200 rounded-md p-5 hover:border-primary/30 hover:shadow-sm transition-all" data-testid={`faq-item-${i}`}>
+                  <h3 className="text-base font-bold text-[#1A2332] mb-2">{item.q}</h3>
+                  <p className="text-gray-600 text-sm leading-relaxed">{item.a}</p>
+                </div>
+              ))}
+            </div>
+            <div className="mt-10 text-center">
+              <p className="text-gray-500 mb-5 text-sm">Still have questions? Our Ottawa moving team is ready to help.</p>
+              <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                <a href="tel:6136004000">
+                  <Button size="lg" className="font-bold" data-testid="button-faq-call">
+                    <Phone className="h-4 w-4 mr-2" />
+                    Call (613) 600-4000
+                  </Button>
+                </a>
+                <Link href="/book">
+                  <Button size="lg" variant="outline" className="font-bold" data-testid="button-faq-quote">
+                    Get Free Quote Online
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>
