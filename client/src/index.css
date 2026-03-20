@@ -358,3 +358,103 @@
   transform: translateY(-1px);
   transition: all 0.15s ease;
 }
+
+/* ======= PREMIUM BLOG CONTENT: TABLE OF CONTENTS ======= */
+.toc-box {
+  background: linear-gradient(135deg, hsl(var(--muted) / 0.6), hsl(var(--muted) / 0.3));
+  border: 1px solid hsl(var(--border));
+  border-radius: 12px;
+  padding: 1.5rem 2rem;
+  margin-bottom: 2.5rem;
+}
+
+.toc-title {
+  font-size: 0.75rem !important;
+  font-weight: 700 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: hsl(var(--muted-foreground)) !important;
+  margin-bottom: 0.75rem !important;
+  margin-top: 0 !important;
+}
+
+.toc-list {
+  margin: 0 !important;
+  padding-left: 1.25rem !important;
+  list-style-type: decimal;
+  space-y: 0.4rem;
+}
+
+.toc-list li {
+  margin-bottom: 0.4rem !important;
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.toc-list a {
+  color: #C5A572 !important;
+  text-decoration: none !important;
+  font-weight: 500;
+  transition: color 0.15s;
+}
+
+.toc-list a:hover {
+  color: hsl(var(--foreground)) !important;
+  text-decoration: underline !important;
+}
+
+/* Remove the external link arrow from TOC links */
+.toc-list a:after {
+  content: "" !important;
+}
+
+/* ======= PREMIUM BLOG CONTENT: FIGURES & IMAGES ======= */
+.blog-figure {
+  margin: 2.5rem 0 !important;
+  padding: 0;
+}
+
+.blog-figure img {
+  width: 100%;
+  border-radius: 12px;
+  display: block;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
+}
+
+.blog-figure figcaption {
+  font-size: 0.82rem;
+  color: hsl(var(--muted-foreground));
+  text-align: center;
+  margin-top: 0.75rem;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+/* ======= PREMIUM BLOG CONTENT: LEAD PARAGRAPH ======= */
+.lead-paragraph {
+  font-size: 1.15rem !important;
+  line-height: 1.8 !important;
+  color: hsl(var(--foreground)) !important;
+  font-weight: 400;
+  border-left: 3px solid #C5A572;
+  padding-left: 1.25rem;
+  margin-bottom: 2rem !important;
+}
+
+/* ======= PREMIUM BLOG CONTENT: SECTION DIVIDER ======= */
+.section-divider {
+  border: none;
+  border-top: 1px solid hsl(var(--border));
+  margin: 3rem 0 !important;
+}
+
+/* ======= PREMIUM BLOG CONTENT: CONCLUSION ======= */
+.conclusion-text {
+  font-size: 1rem !important;
+  line-height: 1.8 !important;
+  color: hsl(var(--muted-foreground)) !important;
+}
+
+.conclusion-text:last-child {
+  margin-bottom: 0 !important;
+}

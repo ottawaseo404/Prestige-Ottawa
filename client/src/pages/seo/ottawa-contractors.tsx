@@ -583,6 +583,24 @@ export default function OttawaContractors() {
                 </div>
               </section>
 
+              {/* Further Reading */}
+              <section className="not-prose mt-10">
+                <div className="bg-gradient-to-br from-[#1A2332] to-[#0f1a2b] rounded-2xl p-7 border border-[#C5A572]/20">
+                  <p className="text-[#C5A572] text-xs font-semibold uppercase tracking-wider mb-2">Further Reading</p>
+                  <h3 className="text-white font-bold text-xl mb-2">Ottawa Contractors &amp; Canada Home Maintenance: The Complete 2026 Guide</h3>
+                  <p className="text-white/65 text-sm leading-relaxed mb-5">
+                    Dive deeper into why Canada's national maintenance standards and Ottawa contractors go hand in hand. Covers seasonal maintenance calendars, real 2026 cost breakdowns, how to vet a contractor, and an 8-part guide to essential services for Ottawa homeowners.
+                  </p>
+                  <Link
+                    href="/blog/ottawa-contractors-canada-home-maintenance-guide"
+                    className="inline-flex items-center gap-2 bg-[#C5A572] text-[#1A2332] font-semibold text-sm px-5 py-2.5 rounded-lg hover:bg-[#d4b885] transition-colors"
+                  >
+                    Read the Full Guide
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                  </Link>
+                </div>
+              </section>
+
             </article>
 
             {/* Sticky Sidebar TOC */}
