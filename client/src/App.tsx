@@ -123,6 +123,7 @@ import AdminLogin from "@/pages/admin-login";
 import OttawaPianoMovers from "@/pages/seo/ottawa-piano-movers";
 import HowToChooseMovingCompanyOttawa from "@/pages/seo/how-to-choose-a-moving-company-ottawa";
 import OttawaContractors from "@/pages/seo/ottawa-contractors";
+import OttawaContractorsMaintenanceGuide from "@/pages/seo/ottawa-contractors-maintenance-guide";
 import ApartmentMoversOttawa from "@/pages/seo/apartment-movers-ottawa";
 import CondoMoversOttawa from "@/pages/seo/condo-movers-ottawa";
 import CheapMoversOttawa from "@/pages/seo/cheap-movers-ottawa";
@@ -414,6 +415,7 @@ function Router() {
       <Route path="/ottawa-piano-movers" component={OttawaPianoMovers} />
       <Route path="/how-to-choose-a-moving-company-ottawa" component={HowToChooseMovingCompanyOttawa} />
       <Route path="/ottawa-contractors" component={OttawaContractors} />
+      <Route path="/ottawa-contractors-canada-home-maintenance-guide" component={OttawaContractorsMaintenanceGuide} />
       <Route path="/apartment-movers-ottawa" component={ApartmentMoversOttawa} />
       <Route path="/condo-movers-ottawa" component={CondoMoversOttawa} />
       <Route path="/cheap-movers-ottawa" component={CheapMoversOttawa} />

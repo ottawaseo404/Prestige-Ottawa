@@ -117,7 +117,7 @@ async function seedOttawaContractors(pool: Pool) {
       "/blog-images/ottawa-contractors-home-maintenance.png",
       "Professional Ottawa contractors team performing exterior home maintenance on a Canadian home",
       "Prestige Moving Team",
-      "https://prestigemoving.ca/blog/ottawa-contractors-canada-home-maintenance-guide",
+      "https://prestigemoving.ca/ottawa-contractors-canada-home-maintenance-guide",
       new Date().toISOString(),
     ]
   );

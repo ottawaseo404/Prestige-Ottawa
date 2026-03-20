@@ -211,6 +211,7 @@ export function SharedFooter() {
                 <Link href="/furniture-donation-disposal-ottawa" className="block hover:text-[#C5A572] transition-colors">Furniture Donation & Disposal</Link>
                 <Link href="/how-to-choose-a-moving-company-ottawa" className="block hover:text-[#C5A572] transition-colors">How to Choose a Mover</Link>
                 <Link href="/ottawa-contractors" className="block hover:text-[#C5A572] transition-colors">Ottawa Contractors Partner</Link>
+                <Link href="/ottawa-contractors-canada-home-maintenance-guide" className="block hover:text-[#C5A572] transition-colors">Ottawa Contractors Guide 2026</Link>
                 <Link href="/moving-companies-ottawa-reviews" className="block hover:text-[#C5A572] transition-colors">Best Moving Companies Ottawa</Link>
                 <Link href="/ottawa-neighbourhoods-guide" className="block hover:text-[#C5A572] transition-colors">Ottawa Neighbourhoods Guide</Link>
                 <Link href="/moving-in-winter-ottawa" className="block hover:text-[#C5A572] transition-colors">Moving in Winter Ottawa</Link>

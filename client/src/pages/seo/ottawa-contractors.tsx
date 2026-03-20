@@ -592,7 +592,7 @@ export default function OttawaContractors() {
                     Dive deeper into why Canada's national maintenance standards and Ottawa contractors go hand in hand. Covers seasonal maintenance calendars, real 2026 cost breakdowns, how to vet a contractor, and an 8-part guide to essential services for Ottawa homeowners.
                   </p>
                   <Link
-                    href="/blog/ottawa-contractors-canada-home-maintenance-guide"
+                    href="/ottawa-contractors-canada-home-maintenance-guide"
                     className="inline-flex items-center gap-2 bg-[#C5A572] text-[#1A2332] font-semibold text-sm px-5 py-2.5 rounded-lg hover:bg-[#d4b885] transition-colors"
                   >
                     Read the Full Guide
