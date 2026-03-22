@@ -1,4 +1,4 @@
-import { LayoutDashboard, RefreshCw, LogOut, TruckIcon, BarChart3, Package, PenTool, Video, Globe } from "lucide-react";
+import { LayoutDashboard, RefreshCw, LogOut, TruckIcon, BarChart3, Package, PenTool, Video, Globe, Search } from "lucide-react";
 import {
   Sidebar,
   SidebarContent,
@@ -44,6 +44,11 @@ const menuItems = [
     title: "Blog",
     url: "/admin/blog",
     icon: PenTool,
+  },
+  {
+    title: "SEO Report",
+    url: "/admin/seo-report",
+    icon: Search,
   },
   {
     title: "Analytics",

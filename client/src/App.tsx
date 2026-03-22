@@ -119,6 +119,7 @@ import AdminHeroVideos from "@/pages/admin/hero-videos";
 import AdminBlog from "@/pages/admin/blog";
 import AdminBlogEditor from "@/pages/admin/blog-editor";
 import AdminPages from "@/pages/admin/pages";
+import AdminSeoReport from "@/pages/admin/seo-report";
 import AdminLogin from "@/pages/admin-login";
 import OttawaPianoMovers from "@/pages/seo/ottawa-piano-movers";
 import HowToChooseMovingCompanyOttawa from "@/pages/seo/how-to-choose-a-moving-company-ottawa";
@@ -530,6 +531,13 @@ function Router() {
         {() => (
           <ProtectedAdminLayout>
             <AdminPages />
+          </ProtectedAdminLayout>
+        )}
+      </Route>
+      <Route path="/admin/seo-report">
+        {() => (
+          <ProtectedAdminLayout>
+            <AdminSeoReport />
           </ProtectedAdminLayout>
         )}
       </Route>
