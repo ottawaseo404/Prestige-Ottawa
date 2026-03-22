@@ -56,6 +56,48 @@ export default function ResidentialMoving() {
     "description": "Professional residential moving services in Ottawa. Experienced movers for apartments, condos, and houses. WSIB certified with transparent pricing."
   };
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Ottawa Movers", "item": "https://prestigemoving.ca" },
+      { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://prestigemoving.ca/services" },
+      { "@type": "ListItem", "position": 3, "name": "Residential Moving Ottawa", "item": "https://prestigemoving.ca/services/residential-moving" }
+    ]
+  };
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How much does residential moving cost in Ottawa?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Residential moving in Ottawa starts at $155/hr for a 2-mover crew (Premium package), $195/hr for a 3-mover crew (Deluxe), and $315/hr for 4+ movers (Diamond). All packages include a 3-hour minimum, blanket wrapping, and all equipment. Call (613) 600-4000 for a custom quote." }
+      },
+      {
+        "@type": "Question",
+        "name": "How far in advance should I book movers in Ottawa?",
+        "acceptedAnswer": { "@type": "Answer", "text": "We recommend booking your Ottawa movers at least 2–4 weeks in advance, especially for moves on weekends or at the end of the month (the busiest time for moves). Summer months from May to September book up the fastest. Last-minute moves can sometimes be accommodated — call us at (613) 600-4000 to check availability." }
+      },
+      {
+        "@type": "Question",
+        "name": "Do Ottawa movers disassemble and reassemble furniture?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Prestige Moving includes disassembly and reassembly of standard furniture at no additional charge. This includes beds, sectional sofas, desks, wardrobes, and dining tables. We bring all necessary tools. Specialty items like pool tables or grand pianos require our specialty moving service." }
+      },
+      {
+        "@type": "Question",
+        "name": "Are residential movers in Ottawa insured?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Prestige Moving is fully insured with WSIB coverage for all workers and liability insurance for your belongings and property. We are also BBB accredited. Our insurance documentation is available upon request before your move." }
+      },
+      {
+        "@type": "Question",
+        "name": "What areas of Ottawa do you serve for residential moving?",
+        "acceptedAnswer": { "@type": "Answer", "text": "We serve all of Ottawa and the National Capital Region including Kanata, Orleans, Barrhaven, Nepean, Gloucester, Westboro, The Glebe, Sandy Hill, Centretown, Rockcliffe Park, Alta Vista, Manor Park, Stittsville, Manotick, and Gatineau QC." }
+      }
+    ]
+  };
+
   const testimonials = [
     { name: "Sarah M.", location: "Westboro", text: "Incredible service! They moved our 3-bedroom house in under 6 hours. Professional, careful, and friendly. The team went above and beyond!", rating: 5, date: "2 weeks ago" },
     { name: "David L.", location: "Kanata", text: "Best moving experience ever. The team was punctual, efficient, and took great care of our furniture. Highly recommend!", rating: 5, date: "1 month ago" },
@@ -117,6 +159,8 @@ export default function ResidentialMoving() {
         <meta property="og:image" content="https://prestigemoving.ca/og-image.png" />
         <link rel="canonical" href="https://prestigemoving.ca/services/residential-moving" />
         <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
+        <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
       </Helmet>
 
       <div className="min-h-screen bg-background">
@@ -219,7 +263,7 @@ export default function ResidentialMoving() {
                 </h2>
                 <div className="space-y-4 text-muted-foreground">
                   <p>
-                    Moving to a new home in Ottawa, Kanata, Orleans, or anywhere in the National Capital Region? <strong>Prestige Moving Ottawa</strong> has been helping families relocate since 2009, earning a reputation as one of the most trusted residential movers in Greater Ottawa.
+                    Moving to a new home in Ottawa, Kanata, Orleans, or anywhere in the National Capital Region? <strong>Prestige Moving Ottawa</strong> has been helping families relocate since 2009, earning a reputation as one of the most trusted <Link href="/" className="text-primary hover:underline">Ottawa movers</Link> in the National Capital Region.
                   </p>
                   <p>
                     Our experienced team handles everything from studio apartments in Centretown to luxury estates in Rockcliffe Park, ensuring your belongings arrive safely at your new address.

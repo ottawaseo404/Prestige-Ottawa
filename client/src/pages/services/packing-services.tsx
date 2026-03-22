@@ -62,6 +62,16 @@ export default function PackingServices() {
     "description": "Expert packing services in Ottawa. Full-service packing, fragile item protection, and quality materials included. Professional packers for stress-free moves."
   };
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Ottawa Movers", "item": "https://prestigemoving.ca" },
+      { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://prestigemoving.ca/services" },
+      { "@type": "ListItem", "position": 3, "name": "Packing Services Ottawa", "item": "https://prestigemoving.ca/services/packing-services" }
+    ]
+  };
+
   const testimonials = [
     { name: "Amanda R.", location: "Westboro", text: "The packing team was incredible! They wrapped every dish, glass, and picture frame with such care. Not a single item was damaged. Worth every penny!", rating: 5, date: "1 week ago" },
     { name: "Kevin M.", location: "Kanata", text: "We had a last-minute move and they packed our entire 4-bedroom house in just one day. Professional, organized, and everything arrived perfectly.", rating: 5, date: "2 weeks ago" },
@@ -151,6 +161,7 @@ export default function PackingServices() {
         <meta name="twitter:image" content="https://prestigemoving.ca/og-image.png" />
         <link rel="canonical" href="https://prestigemoving.ca/services/packing-services" />
         <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
+        <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
       </Helmet>
 
       <div className="min-h-screen bg-background">
@@ -253,7 +264,7 @@ export default function PackingServices() {
                 </h2>
                 <div className="space-y-4 text-muted-foreground">
                   <p>
-                    Moving to a new home in Ottawa, Kanata, Orleans, or anywhere in the National Capital Region? <strong>Prestige Moving Ottawa</strong> offers professional packing services that save you time, stress, and ensure your belongings arrive safely.
+                    Moving to a new home in Ottawa, Kanata, Orleans, or anywhere in the National Capital Region? <strong>Prestige Moving</strong> — the <Link href="/" className="text-primary hover:underline">Ottawa movers</Link> families rely on — offers professional packing services that save you time, stress, and ensure your belongings arrive safely.
                   </p>
                   <p>
                     Our expert packers bring years of experience and use only premium materials - from double-walled boxes to custom crating for artwork. Whether you need full-service packing or just help with fragile items, we've got you covered.

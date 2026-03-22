@@ -152,8 +152,8 @@ export default function MovingCompanyOttawa() {
           <img src={heroImage} alt="Prestige Moving company trucks ready for service in Ottawa" className="absolute inset-0 w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-r from-[#1A2332]/90 to-[#1A2332]/70" />
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4" data-testid="text-hero-heading">Ottawa's Premier Full-Service Moving Company</h1>
-            <p className="text-xl text-white/80 max-w-2xl mb-8">From residential relocations to complex commercial moves, Prestige Moving delivers the complete moving experience Ottawa trusts.</p>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4" data-testid="text-hero-heading">Moving Company Ottawa — Full-Service, 5-Star Rated</h1>
+            <p className="text-xl text-white/80 max-w-2xl mb-8">From residential relocations to complex commercial moves, Prestige Moving is the Ottawa moving company families and businesses trust — 350+ five-star reviews and counting.</p>
             <div className="flex flex-wrap gap-4">
               <Link href="/book"><Button className="bg-[#C5A572] hover:bg-[#B8956A] text-white border-[#C5A572]" data-testid="button-hero-quote">Get Free Quote</Button></Link>
               <a href="tel:6136004000"><Button variant="outline" className="text-white border-white/30 backdrop-blur-sm bg-white/10" data-testid="button-hero-call"><Phone className="h-4 w-4 mr-2" />Call (613) 600-4000</Button></a>

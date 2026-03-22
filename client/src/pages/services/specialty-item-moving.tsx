@@ -294,7 +294,7 @@ export default function SpecialtyItemMoving() {
               </h1>
 
               <p className="text-xl md:text-2xl text-white/80 mb-8 leading-relaxed" data-testid="text-hero-description">
-                From hot tubs and pool tables to gym equipment and safes, we've safely moved <span className="text-primary font-semibold">2,000+ specialty items</span> across the National Capital Region.
+                From hot tubs and pool tables to gym equipment and safes, we've safely moved <span className="text-primary font-semibold">2,000+ specialty items</span> — trusted by Ottawa families as the <Link href="/" className="text-primary/90 hover:text-primary font-semibold">Ottawa movers</Link> built for the jobs other companies won't take.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 mb-8">

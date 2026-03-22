@@ -52,6 +52,48 @@ export default function CommercialMoving() {
     "description": "Professional commercial and office moving services in Ottawa. WSIB certified, minimize downtime with experienced business movers."
   };
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Ottawa Movers", "item": "https://prestigemoving.ca" },
+      { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://prestigemoving.ca/services" },
+      { "@type": "ListItem", "position": 3, "name": "Commercial Moving Ottawa", "item": "https://prestigemoving.ca/services/commercial-moving" }
+    ]
+  };
+
+  const faqSchemaCommercial = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do commercial movers minimize business downtime in Ottawa?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Prestige Moving offers after-hours and weekend commercial moves in Ottawa to eliminate business-hours disruption. We complete most office moves overnight or over a weekend so your team arrives Monday to a fully set-up workspace. Our average office move downtime is 4–8 hours versus the industry average of 2–3 days." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can you move IT equipment and servers in Ottawa?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. We specialize in IT and server room moves in Ottawa. Our crew is trained in ESD (electrostatic discharge) protection, cable management, and careful handling of servers, networking equipment, and workstations. We coordinate with your IT team to ensure safe disconnection, transport, and reconnection." }
+      },
+      {
+        "@type": "Question",
+        "name": "How much does a commercial office move cost in Ottawa?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Commercial moving costs in Ottawa depend on office size, distance, timing, and services required. Small offices (under 10 workstations) typically range from $1,500–$3,500. Full floor office relocations range from $5,000–$20,000+. We provide detailed written quotes after a free on-site assessment with no hidden fees." }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you provide commercial moving services for healthcare facilities in Ottawa?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. We serve medical offices, dental clinics, and healthcare facilities throughout Ottawa. Our commercial moving team is trained in careful handling of medical equipment, compliance with cleanliness standards, and coordinating moves with minimal patient-care disruption." }
+      },
+      {
+        "@type": "Question",
+        "name": "How far in advance should Ottawa businesses book commercial movers?",
+        "acceptedAnswer": { "@type": "Answer", "text": "For a smooth commercial move in Ottawa, we recommend booking at least 4–6 weeks in advance. Large office moves or those requiring detailed IT coordination benefit from 6–8 weeks of planning. We can sometimes accommodate shorter timelines — contact us at (613) 600-4000 to discuss your requirements." }
+      }
+    ]
+  };
+
   const industries = [
     {
       icon: Building2,
@@ -161,6 +203,8 @@ export default function CommercialMoving() {
         <meta property="og:image" content="https://prestigemoving.ca/og-image.png" />
         <link rel="canonical" href="https://prestigemoving.ca/services/commercial-moving" />
         <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
+        <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(faqSchemaCommercial)}</script>
       </Helmet>
 
       <div className="min-h-screen bg-background">
@@ -215,7 +259,7 @@ export default function CommercialMoving() {
               </h1>
 
               <p className="text-xl md:text-2xl text-white/80 mb-8 leading-relaxed">
-                From tech startups to corporate headquarters, we've relocated <span className="text-primary font-semibold">1,500+ businesses</span> across Ottawa with minimal disruption and maximum efficiency.
+                From tech startups to corporate headquarters, we've relocated <span className="text-primary font-semibold">1,500+ businesses</span> across Ottawa — trusted by hundreds of organizations as the go-to <Link href="/" className="text-primary/80 hover:text-primary font-semibold">Ottawa movers</Link> for business relocations done right.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 mb-8">

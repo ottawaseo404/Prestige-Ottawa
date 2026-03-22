@@ -393,7 +393,7 @@ export default function SeniorMoving() {
                 </h2>
                 <div className="space-y-4 text-muted-foreground">
                   <p>
-                    Relocating an elderly loved one requires patience, understanding, and specialized care. <strong>Prestige Moving Ottawa</strong> provides compassionate senior moving services designed to support families through every step of this emotional transition.
+                    Relocating an elderly loved one requires patience, understanding, and specialized care. As the <Link href="/" className="text-primary hover:underline">Ottawa movers</Link> families trust for senior transitions, <strong>Prestige Moving</strong> provides compassionate service designed to support you through every step of this emotional process.
                   </p>
                   <p>
                     Whether moving to a <strong>retirement community, assisted living facility</strong>, or downsizing to a smaller home, our trained team provides the extra attention and time that senior moves deserve.

@@ -370,7 +370,7 @@ export default function StudentMoving() {
                 </h2>
                 <div className="space-y-4 text-muted-foreground">
                   <p>
-                    Moving as a student shouldn't break the bank. <strong>Prestige Moving Ottawa</strong> offers specialized student moving services designed for tight budgets and busy schedules. Whether you're moving from a uOttawa dorm to an off-campus apartment, or relocating between cities for school, we've got you covered.
+                    Moving as a student shouldn't break the bank. As the <Link href="/" className="text-primary hover:underline">Ottawa movers</Link> students trust most, <strong>Prestige Moving</strong> offers specialized student moving services designed for tight budgets and busy schedules. Whether you're moving from a uOttawa dorm to an off-campus apartment, or relocating between cities for school, we've got you covered.
                   </p>
                   <p>
                     Our team knows every campus in the National Capital Region - from uOttawa's Sandy Hill loading zones to Carleton's campus roads. We're familiar with residence move-out procedures, building protocols, and can work around your exam schedule.

@@ -413,7 +413,7 @@ export default function PianoMoving() {
                 </h2>
                 <div className="space-y-4 text-muted-foreground">
                   <p>
-                    Moving a piano requires specialized expertise that general movers simply don't have. <strong>Prestige Moving Ottawa</strong> has been the trusted choice for piano owners since 2009, earning a reputation as the most reliable piano movers in the National Capital Region.
+                    Moving a piano requires specialized expertise that general movers simply don't have. <strong>Prestige Moving</strong> — the <Link href="/" className="text-primary hover:underline">Ottawa movers</Link> trusted by piano owners since 2009 — has earned a reputation as the most reliable piano movers in the National Capital Region.
                   </p>
                   <p>
                     Our team understands the delicate internal mechanisms, precise weight distribution, and <strong>climate sensitivity of fine pianos</strong>. From Steinway grand pianos to cherished family uprights, we handle each instrument with the care it deserves.

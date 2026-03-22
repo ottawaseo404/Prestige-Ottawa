@@ -69,7 +69,49 @@ export default function LongDistanceMoving() {
       "@type": "Country",
       "name": "Canada"
     },
-    "description": "Professional coast-to-coast moving services from Ottawa to anywhere in Canada."
+    "description": "Professional long distance moving services from Ottawa to anywhere in Canada. GPS tracking, full insurance, dedicated crew."
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Ottawa Movers", "item": "https://prestigemoving.ca" },
+      { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://prestigemoving.ca/services" },
+      { "@type": "ListItem", "position": 3, "name": "Long Distance Movers Ottawa", "item": "https://prestigemoving.ca/services/long-distance-moving" }
+    ]
+  };
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How much does long distance moving from Ottawa cost?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Long distance moves from Ottawa are priced based on move size and destination distance. A studio apartment move to Toronto typically starts around $1,500–$2,500. A 3-bedroom home move to Calgary ranges from $5,000–$8,000. We provide detailed written quotes with no hidden fees. Call (613) 600-4000 for a custom estimate." }
+      },
+      {
+        "@type": "Question",
+        "name": "How long does a long distance move from Ottawa take?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Transit times depend on destination. Ottawa to Toronto is typically 1–2 days. Ottawa to Calgary is 3–5 days. Ottawa to Vancouver is 5–7 days. We provide guaranteed delivery windows and daily GPS tracking updates throughout the move." }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you offer GPS tracking for long distance moves from Ottawa?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Every long distance move includes real-time GPS tracking so you can monitor your belongings throughout the journey. You receive daily location updates and can contact your dedicated moving coordinator at any time." }
+      },
+      {
+        "@type": "Question",
+        "name": "Is my furniture insured during a long distance move?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. All long distance moves include full transit insurance covering your belongings up to $100,000. Additional coverage options are available for high-value items. Everything is documented and photographed before loading." }
+      },
+      {
+        "@type": "Question",
+        "name": "Do the same movers who pick up my belongings deliver them?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Prestige Moving uses a dedicated crew model — the same team that loads your belongings in Ottawa delivers them to your new home. There are no warehouse transfers or relay handoffs." }
+      }
+    ]
   };
 
   const moveSizes = ["Studio", "1 Bedroom", "2 Bedroom", "3 Bedroom", "4+ Bedroom"];
@@ -112,15 +154,17 @@ export default function LongDistanceMoving() {
   return (
     <>
       <Helmet>
-        <title>Coast to Coast Moving Services | Long Distance Movers Ottawa | Prestige Moving</title>
-        <meta name="description" content="Professional coast-to-coast moving services from Ottawa. Moving to Toronto, Calgary, Montreal, or anywhere in Canada? Experienced long distance movers with full insurance and GPS tracking." />
-        <meta name="keywords" content="coast to coast moving, long distance moving Ottawa, cross-Canada movers, Ottawa to Toronto movers, interprovincial moving" />
-        <meta property="og:title" content="Coast to Coast Moving Services | Prestige Moving Ottawa" />
-        <meta property="og:description" content="Professional long distance moving from Ottawa to anywhere in Canada. Full insurance, GPS tracking." />
+        <title>Long Distance Movers Ottawa | Canada-Wide Moving | Prestige Moving</title>
+        <meta name="description" content="Ottawa's top-rated long distance movers. Moving to Toronto, Calgary, Vancouver or anywhere in Canada? GPS tracking, $100K insurance, dedicated crew. Get your free quote: (613) 600-4000." />
+        <meta name="keywords" content="long distance movers Ottawa, long distance moving Ottawa, Ottawa to Toronto movers, Ottawa to Calgary movers, interprovincial moving Ottawa, coast to coast moving Canada" />
+        <meta property="og:title" content="Long Distance Movers Ottawa | Canada-Wide Moving | Prestige Moving" />
+        <meta property="og:description" content="Ottawa's top-rated long distance movers. GPS tracking, $100K insurance, dedicated crew. Moving anywhere in Canada." />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://prestigemoving.ca/og-image.png" />
         <link rel="canonical" href="https://prestigemoving.ca/services/long-distance-moving" />
         <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
+        <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
       </Helmet>
 
       <div className="min-h-screen bg-background">
@@ -522,7 +566,7 @@ export default function LongDistanceMoving() {
               </h2>
               <div className="prose prose-lg max-w-none text-muted-foreground mb-8">
                 <p>
-                  Planning a move from Ottawa to Toronto, Montreal, or anywhere across Canada? Prestige Moving Ottawa is your trusted partner for <strong>long distance and cross-country relocations</strong>. With over 15 years of experience moving families and businesses across provincial borders, we've perfected the art of safe, timely, and stress-free interstate moving.
+                  Planning a move from Ottawa to Toronto, Montreal, or anywhere across Canada? As Ottawa's most trusted <Link href="/" className="text-primary hover:underline">Ottawa movers</Link> for long distance relocations, Prestige Moving has perfected the art of safe, timely, and stress-free interstate moving over 15+ years and 10,000+ completed moves.
                 </p>
                 <p>
                   What makes us different from other long distance movers? Our <strong>real-time GPS tracking</strong> lets you follow your belongings every step of the way. Combined with dedicated moving coordinators, comprehensive transit insurance, and guaranteed delivery dates, we take the uncertainty out of long-haul moves. Whether you're relocating for work, family, or a fresh start, we treat your belongings with the care they deserve.
