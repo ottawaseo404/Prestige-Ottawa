@@ -824,7 +824,7 @@ export default function Home() {
                     href="https://maps.app.goo.gl/GKvmDPf3vZcTmRRw8" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 sm:gap-2.5 bg-white/10 border border-white/30 rounded-full px-3 sm:px-4 py-1.5 sm:py-2 hover:bg-white/20 hover:border-white/50 transition-all duration-300 cursor-pointer"
+                    className="inline-flex items-center gap-2 sm:gap-2.5 bg-white/10 border border-white/30 rounded-full px-3 sm:px-4 py-1.5 sm:py-2 hover:bg-white/20 hover:border-white/50 transition-all duration-300 cursor-pointer outline-none focus:outline-none"
                     data-testid="link-google-reviews"
                   >
                     <svg className="h-4 w-4 sm:h-5 sm:w-5" viewBox="0 0 24 24">
