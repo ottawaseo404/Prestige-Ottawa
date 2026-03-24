@@ -845,11 +845,11 @@ export default function Home() {
                 <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-white mb-4 leading-[0.95] tracking-tight text-left">
                   <span className="block">Ottawa</span>
                   <span className="block text-primary drop-shadow-[0_0_30px_rgba(197,165,114,0.5)]">Movers</span>
-                  <span className="block">Done Right</span>
+                  <span className="block">Near & Far</span>
                 </h1>
                 
                 <p className="text-xl md:text-2xl text-white/90 mb-6 leading-relaxed max-w-xl font-medium text-left">
-                  Ottawa's most-reviewed moving company — <span className="text-primary font-bold">350+ five-star reviews</span>. Written quote. On-time crew. Zero hidden fees.
+                  Residential moves across Ottawa or long distance across Canada — <span className="text-primary font-bold">350+ five-star reviews</span>, written quote, zero hidden fees.
                 </p>
 
                 {/* Quick Stats */}
