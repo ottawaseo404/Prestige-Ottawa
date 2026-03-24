@@ -843,7 +843,14 @@ export default function Home() {
                 </div>
                 
                 <h1 className="text-xl sm:text-3xl md:text-4xl font-black text-white mb-6 leading-tight tracking-tight text-left">
-                  <span className="text-primary">Ottawa's</span> Top Rated Moving Company for<br />
+                  <span className="text-primary">Ottawa's</span> Top Rated Moving Company for
+                  <span
+                    className="inline-block align-middle ml-3 opacity-70"
+                    style={{ animation: "truck-shuttle 3.5s ease-in-out infinite" }}
+                  >
+                    <Truck className="h-6 w-6 text-[#C5A572]" />
+                  </span>
+                  <br />
                   <span className="relative inline-block">
                     Local & Long Distance Moves
                     <span
