@@ -843,7 +843,7 @@ export default function Home() {
                 </div>
                 
                 <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-4 leading-tight tracking-tight text-left">
-                  Top-Rated Ottawa Moving Company<br />for Local & Long Distance Moves
+                  Top-Rated Ottawa Moving Company for<br />Local & Long Distance Moves
                 </h1>
                 
                 <p className="text-xl md:text-2xl text-white/90 mb-6 leading-relaxed max-w-xl font-medium text-left">
