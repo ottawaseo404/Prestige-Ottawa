@@ -842,8 +842,18 @@ export default function Home() {
                   </a>
                 </div>
                 
-                <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-4 leading-tight tracking-tight text-left">
-                  Top-Rated Ottawa Moving Company for<br />Local & Long Distance Moves
+                <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-6 leading-tight tracking-tight text-left">
+                  Top-Rated Ottawa Moving Company for<br />
+                  <span className="relative inline-block">
+                    Local & Long Distance Moves
+                    <span
+                      className="absolute -bottom-2 left-0 w-full h-[3px] rounded-full"
+                      style={{
+                        background: "linear-gradient(90deg, transparent, #C5A572 20%, #E8C97A 50%, #C5A572 80%, transparent)",
+                        boxShadow: "0 0 14px rgba(197,165,114,0.85), 0 0 4px rgba(232,201,122,1)"
+                      }}
+                    />
+                  </span>
                 </h1>
                 
                 <p className="text-xl md:text-2xl text-white/90 mb-6 leading-relaxed max-w-xl font-medium text-left">
