@@ -896,6 +896,27 @@ export default function SeniorMoving() {
           </div>
         </section>
 
+        {/* Related Resources / Internal Links */}
+        <section className="py-10 bg-gray-50 border-y border-gray-200">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <p className="text-gray-500 text-xs uppercase tracking-wider font-semibold mb-4 text-center">Related Senior Moving Resources</p>
+            <div className="flex flex-wrap justify-center gap-3">
+              <Link href="/senior-movers-ottawa">
+                <Button variant="outline" size="sm" className="border-[#C5A572] text-[#C5A572]">Senior Movers Ottawa — Pricing & Full Guide</Button>
+              </Link>
+              <Link href="/senior-moving-services-ottawa">
+                <Button variant="outline" size="sm" className="border-gray-300 text-gray-700">Ottawa Senior Movers — Services Overview</Button>
+              </Link>
+              <Link href="/downsizing-moving-ottawa">
+                <Button variant="outline" size="sm" className="border-gray-300 text-gray-700">Downsizing Moving Ottawa</Button>
+              </Link>
+              <Link href="/services/long-distance-moving">
+                <Button variant="outline" size="sm" className="border-gray-300 text-gray-700">Long Distance Senior Moves</Button>
+              </Link>
+            </div>
+          </div>
+        </section>
+
         {/* Final CTA */}
         <section className="py-16 md:py-20 bg-gradient-to-r from-primary via-amber-500 to-primary relative overflow-hidden">
           <div className="absolute inset-0 opacity-10">
