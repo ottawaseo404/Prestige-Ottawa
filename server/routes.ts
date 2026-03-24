@@ -1,5 +1,7 @@
 import type { Express, Request, Response, NextFunction } from "express";
 import { createServer, type Server } from "http";
+import fs from "fs";
+import path from "path";
 import { storage } from "./storage";
 import { insertBookingSchema, type SmartMovingLead, packageTypes, insertMovingPackageSchema, insertBlogPostSchema, insertBlogCategorySchema, insertHeroVideoSchema, availableVideos, heroVideoPages } from "@shared/schema";
 import { z } from "zod";
@@ -1881,6 +1883,92 @@ Provide a detailed cost estimate in JSON format.`;
     } catch (error: any) {
       console.error("Error deleting service page:", error);
       res.status(500).json({ message: "Failed to delete service page" });
+    }
+  });
+
+  // ─── Server-side meta injection for blog posts ───────────────────────────
+  // Intercepts /blog/:slug and injects the correct <title> and <meta> tags
+  // into the HTML before serving — ensures Google's crawler sees the right data
+  // without waiting for JavaScript to execute.
+  app.get("/blog/:slug", async (req: Request, res: Response, next: NextFunction) => {
+    try {
+      const { slug } = req.params;
+      const post = await storage.getBlogPostBySlug(slug);
+      if (!post || post.status !== "published") return next();
+
+      const title = post.metaTitle || `${post.title} | Prestige Moving Ottawa`;
+      const description = (post.metaDescription || post.excerpt || "").replace(/"/g, "&quot;").substring(0, 160);
+      const canonicalUrl = `https://prestigemoving.ca/blog/${slug}`;
+      const ogImage = post.featuredImage && post.featuredImage.startsWith("/")
+        ? `https://prestigemoving.ca${post.featuredImage}`
+        : "https://prestigemoving.ca/og-image.png";
+
+      // Find index.html — check production build first, then dev source
+      const prodHtml = path.resolve(import.meta.dirname, "public", "index.html");
+      const devHtml = path.resolve(import.meta.dirname, "..", "client", "index.html");
+      const htmlPath = fs.existsSync(prodHtml) ? prodHtml : devHtml;
+
+      if (!fs.existsSync(htmlPath)) return next();
+
+      let html = fs.readFileSync(htmlPath, "utf-8");
+
+      // Replace title
+      html = html.replace(
+        /<title>.*?<\/title>/,
+        `<title>${title.replace(/</g, "&lt;").replace(/>/g, "&gt;")}</title>`
+      );
+      // Replace meta description
+      html = html.replace(
+        /<meta name="description" content="[^"]*"/,
+        `<meta name="description" content="${description}"`
+      );
+      // Replace or inject OG tags
+      html = html.replace(
+        /<meta property="og:title" content="[^"]*"/,
+        `<meta property="og:title" content="${title.replace(/"/g, "&quot;")}"`
+      );
+      html = html.replace(
+        /<meta property="og:description" content="[^"]*"/,
+        `<meta property="og:description" content="${description}"`
+      );
+      // Inject canonical, og:url, og:image before </head>
+      const extraMeta = [
+        `<link rel="canonical" href="${canonicalUrl}" />`,
+        `<meta property="og:url" content="${canonicalUrl}" />`,
+        `<meta property="og:image" content="${ogImage}" />`,
+        `<meta property="og:type" content="article" />`,
+      ].join("\n    ");
+      html = html.replace("</head>", `  ${extraMeta}\n  </head>`);
+
+      res.set("Content-Type", "text/html").send(html);
+    } catch (err) {
+      next();
+    }
+  });
+
+  // ─── Redirect root-level blog slug URLs → /blog/slug ─────────────────────
+  // Some URLs (e.g. /best-way-to-move-across-canada) were indexed without the
+  // /blog/ prefix. Redirect them to the canonical URL.
+  app.get("/:slug([a-z0-9-]{5,80})", async (req: Request, res: Response, next: NextFunction) => {
+    try {
+      // Skip API routes, known pages, and static assets
+      const { slug } = req.params;
+      const knownPaths = new Set([
+        "residential-moving", "commercial-moving", "long-distance-moving",
+        "packing-services", "furniture-assembly", "junk-removal",
+        "piano-moving", "storage-solutions", "senior-moving", "specialty-moving",
+        "last-minute-moving", "blog", "booking", "admin", "sitemap.xml",
+        "robots.txt", "contact", "about", "pricing",
+      ]);
+      if (knownPaths.has(slug)) return next();
+
+      const post = await storage.getBlogPostBySlug(slug);
+      if (post && post.status === "published") {
+        return res.redirect(301, `/blog/${slug}`);
+      }
+      next();
+    } catch {
+      next();
     }
   });
 
