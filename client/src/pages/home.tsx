@@ -842,8 +842,8 @@ export default function Home() {
                   </a>
                 </div>
                 
-                <h1 className="text-xl sm:text-3xl md:text-4xl font-black text-white mb-6 leading-tight tracking-tight text-left">
-                  <span className="text-primary">Ottawa's</span> Top Rated Moving<br className="hidden sm:block" /> Company for{" "}
+                <h1 className="text-lg sm:text-2xl md:text-3xl font-black text-white mb-6 leading-tight tracking-tight text-left">
+                  <span className="text-primary">Ottawa's</span> Top Rated Moving Company for<br />
                   <span className="relative inline-block">
                     Local & Long Distance Moves
                     <span
