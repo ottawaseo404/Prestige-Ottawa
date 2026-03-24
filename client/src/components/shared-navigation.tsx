@@ -88,49 +88,43 @@ export function SharedNavigation() {
 
             {/* Desktop Nav */}
             <div className="hidden lg:flex items-center gap-1">
+
+              {/* Residential */}
+              <button
+                onClick={() => handleNavClick("/services/residential-moving")}
+                data-testid="nav-residential"
+                className={`group/item flex flex-col items-center gap-1 px-4 py-2 rounded-full text-sm font-bold tracking-widest uppercase transition-all duration-300 whitespace-nowrap ${isActive("/services/residential-moving") ? "bg-[#C5A572] text-white" : "text-[#1A2332]/70 hover:text-[#1A2332] hover:bg-[#C5A572]/10"}`}
+                style={isActive("/services/residential-moving") ? { boxShadow: "0 0 15px rgba(197,165,114,0.4)" } : undefined}
+              >
+                <HomeIcon className={`h-5 w-5 transition-transform duration-300 group-hover/item:scale-110 ${isActive("/services/residential-moving") ? "text-white" : "text-[#C5A572]"}`} />
+                <span>Residential</span>
+              </button>
+
+              {/* Commercial */}
+              <button
+                onClick={() => handleNavClick("/services/commercial-moving")}
+                data-testid="nav-commercial"
+                className={`group/item flex flex-col items-center gap-1 px-4 py-2 rounded-full text-sm font-bold tracking-widest uppercase transition-all duration-300 whitespace-nowrap ${isActive("/services/commercial-moving") ? "bg-[#C5A572] text-white" : "text-[#1A2332]/70 hover:text-[#1A2332] hover:bg-[#C5A572]/10"}`}
+                style={isActive("/services/commercial-moving") ? { boxShadow: "0 0 15px rgba(197,165,114,0.4)" } : undefined}
+              >
+                <Building2 className={`h-5 w-5 transition-transform duration-300 group-hover/item:scale-110 ${isActive("/services/commercial-moving") ? "text-white" : "text-[#C5A572]"}`} />
+                <span>Commercial</span>
+              </button>
+
+              {/* Long Distance */}
+              <button
+                onClick={() => handleNavClick("/services/long-distance-moving")}
+                data-testid="nav-long-distance"
+                className={`group/item flex flex-col items-center gap-1 px-4 py-2 rounded-full text-sm font-bold tracking-widest uppercase transition-all duration-300 whitespace-nowrap ${isActive("/services/long-distance-moving") ? "bg-[#C5A572] text-white" : "text-[#1A2332]/70 hover:text-[#1A2332] hover:bg-[#C5A572]/10"}`}
+                style={isActive("/services/long-distance-moving") ? { boxShadow: "0 0 15px rgba(197,165,114,0.4)" } : undefined}
+              >
+                <Truck className={`h-5 w-5 transition-transform duration-300 group-hover/item:scale-110 ${isActive("/services/long-distance-moving") ? "text-white" : "text-[#C5A572]"}`} />
+                <span>Long Distance</span>
+              </button>
+
+              {/* More Services Dropdown — NavigationMenu used only here */}
               <NavigationMenu delayDuration={0}>
-                <NavigationMenuList className="gap-0.5">
-
-                  {/* Residential */}
-                  <NavigationMenuItem>
-                    <button
-                      onClick={() => handleNavClick("/services/residential-moving")}
-                      data-testid="nav-residential"
-                      className={`group/item flex flex-col items-center gap-1 px-4 py-2 rounded-full text-sm font-bold tracking-widest uppercase transition-all duration-300 whitespace-nowrap ${isActive("/services/residential-moving") ? "bg-[#C5A572] text-white" : "text-[#1A2332]/70 hover:text-[#1A2332] hover:bg-[#C5A572]/10"}`}
-                      style={isActive("/services/residential-moving") ? { boxShadow: "0 0 15px rgba(197,165,114,0.4)" } : undefined}
-                    >
-                      <HomeIcon className={`h-5 w-5 transition-transform duration-300 group-hover/item:scale-110 ${isActive("/services/residential-moving") ? "text-white" : "text-[#C5A572]"}`} />
-                      <span>Residential</span>
-                    </button>
-                  </NavigationMenuItem>
-
-                  {/* Commercial */}
-                  <NavigationMenuItem>
-                    <button
-                      onClick={() => handleNavClick("/services/commercial-moving")}
-                      data-testid="nav-commercial"
-                      className={`group/item flex flex-col items-center gap-1 px-4 py-2 rounded-full text-sm font-bold tracking-widest uppercase transition-all duration-300 whitespace-nowrap ${isActive("/services/commercial-moving") ? "bg-[#C5A572] text-white" : "text-[#1A2332]/70 hover:text-[#1A2332] hover:bg-[#C5A572]/10"}`}
-                      style={isActive("/services/commercial-moving") ? { boxShadow: "0 0 15px rgba(197,165,114,0.4)" } : undefined}
-                    >
-                      <Building2 className={`h-5 w-5 transition-transform duration-300 group-hover/item:scale-110 ${isActive("/services/commercial-moving") ? "text-white" : "text-[#C5A572]"}`} />
-                      <span>Commercial</span>
-                    </button>
-                  </NavigationMenuItem>
-
-                  {/* Long Distance */}
-                  <NavigationMenuItem>
-                    <button
-                      onClick={() => handleNavClick("/services/long-distance-moving")}
-                      data-testid="nav-long-distance"
-                      className={`group/item flex flex-col items-center gap-1 px-4 py-2 rounded-full text-sm font-bold tracking-widest uppercase transition-all duration-300 whitespace-nowrap ${isActive("/services/long-distance-moving") ? "bg-[#C5A572] text-white" : "text-[#1A2332]/70 hover:text-[#1A2332] hover:bg-[#C5A572]/10"}`}
-                      style={isActive("/services/long-distance-moving") ? { boxShadow: "0 0 15px rgba(197,165,114,0.4)" } : undefined}
-                    >
-                      <Truck className={`h-5 w-5 transition-transform duration-300 group-hover/item:scale-110 ${isActive("/services/long-distance-moving") ? "text-white" : "text-[#C5A572]"}`} />
-                      <span>Long Distance</span>
-                    </button>
-                  </NavigationMenuItem>
-
-                  {/* More Services Dropdown */}
+                <NavigationMenuList>
                   <NavigationMenuItem>
                     <NavigationMenuTrigger
                       data-testid="nav-services-trigger"
@@ -176,7 +170,6 @@ export function SharedNavigation() {
                       </div>
                     </NavigationMenuContent>
                   </NavigationMenuItem>
-
                 </NavigationMenuList>
               </NavigationMenu>
 
