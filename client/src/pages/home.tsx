@@ -475,39 +475,7 @@ export default function Home() {
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
       </Helmet>
       <div className="min-h-screen bg-background">
-        {/* Sticky Header Container */}
-        <div className="sticky top-0 z-50">
-          {/* Top Contact Bar */}
-          <div className="hidden md:block bg-[#C5A572]">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="flex justify-between items-center h-9">
-                <div className="flex items-center gap-6">
-                  <a href="tel:613-600-4000" className="flex items-center gap-2 text-[#1A2332] text-xs hover:text-white transition-colors font-semibold" data-testid="topbar-phone">
-                    <Phone className="h-3 w-3" />
-                    <span>613-600-4000</span>
-                  </a>
-                  <a href="mailto:Ottawa@prestigemoving.ca" className="flex items-center gap-2 text-[#1A2332] text-xs hover:text-white transition-colors font-semibold" data-testid="topbar-email">
-                    <Mail className="h-3 w-3" />
-                    <span>Ottawa@prestigemoving.ca</span>
-                  </a>
-                  <a href="https://maps.app.goo.gl/5grQGZ18k1GrxuEj7" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-[#1A2332] text-xs font-semibold hover:text-white transition-colors" data-testid="topbar-address">
-                    <MapPin className="h-3 w-3" />
-                    <span>50 Colonnade Rd unit 200B, Ottawa, ON</span>
-                  </a>
-                </div>
-                <div className="flex items-center gap-1">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-3 w-3 fill-[#1A2332] text-[#1A2332]" />
-                  ))}
-                  <span className="text-[#1A2332] text-xs ml-1.5 font-semibold">5.0 · 10,000+ Moves</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Main Navigation */}
-          <SharedNavigation />
-        </div>
+        <SharedNavigation />
 
         {/* Hero Section - Full Bleed Dramatic with Video Background Slider */}
         <section className="relative min-h-[600px] md:min-h-[85vh] flex items-center overflow-x-clip pb-32 md:pb-24 bg-[#1A2332]">
