@@ -618,7 +618,7 @@ export default function Home() {
                 </h1>
                 
                 <p className="text-xl md:text-2xl text-white/90 mb-6 leading-relaxed max-w-xl font-medium text-left">
-                  Moving in Ottawa or anywhere in Canada — <span className="text-primary font-bold">350+ five-star reviews</span>, your full price in writing before we start, and no surprise charges on moving day.
+                  Ottawa's Residential &amp; Long Distance Moving experts — <span className="text-primary font-bold">350+ five-star Google reviews</span> and a 5-star rated team you can trust.
                 </p>
 
                 {/* Quick Stats */}
