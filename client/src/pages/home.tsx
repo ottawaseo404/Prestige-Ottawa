@@ -842,10 +842,8 @@ export default function Home() {
                   </a>
                 </div>
                 
-                <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-white mb-4 leading-[0.95] tracking-tight text-left">
-                  <span className="block">Ottawa</span>
-                  <span className="block text-primary drop-shadow-[0_0_30px_rgba(197,165,114,0.5)]">Movers</span>
-                  <span className="block">Near & Far</span>
+                <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-4 leading-tight tracking-tight text-left">
+                  Top-Rated Ottawa Moving Company<br />for Local & Long Distance Moves
                 </h1>
                 
                 <p className="text-xl md:text-2xl text-white/90 mb-6 leading-relaxed max-w-xl font-medium text-left">
