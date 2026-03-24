@@ -1,711 +1,256 @@
-import { useState, useEffect } from "react";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { 
-  Phone, CheckCircle2, Package, Box, Shield, Star, Sparkles, Clock, 
-  ArrowRight, ChevronLeft, ChevronRight, MapPin, Award, Zap, Timer, 
-  Users, ThumbsUp, HandHeart, Home, Building2, Truck, Warehouse, Heart,
-  Wine, Tv, Frame
-} from "lucide-react";
-import { Link } from "wouter";
+import { useState } from "react";
 import { Helmet } from "react-helmet";
+import { Link } from "wouter";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import { SharedNavigation } from "@/components/shared-navigation";
 import { SharedFooter } from "@/components/shared-footer";
-import ServiceQuoteForm from "@/components/service-quote-form";
-import { WorkSafeBadge } from "@/components/worksafe-badge";
 import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
-import packingHeroVideo from "@assets/generated_videos/professional_packing_services_vancouver.mp4";
-import packingImage from "@assets/generated_images/professional_packing_services_vancouver.png";
+  Phone, ArrowRight, CheckCircle2, Shield, Clock, Package,
+  Star, ChevronDown, Layers, Box, Truck, AlertTriangle, Sparkles
+} from "lucide-react";
+import packingHeroImg from "@assets/generated_images/packing_services_hero.png";
+
+const PACKING_OPTIONS = [
+  {
+    name: "Full-Home Packing",
+    price: "From $400",
+    desc: "We pack every room, every drawer, every closet. Our team arrives the day before your move (or moving morning) and packs your entire home using professional-grade materials. Every box labelled by room and contents.",
+    features: ["Every room packed", "All materials included", "Wardrobe boxes for clothing", "Dish packs for kitchen", "Room labelling system", "Loading-ready by move time"],
+    popular: true,
+  },
+  {
+    name: "Partial Packing",
+    price: "From $200",
+    desc: "You've packed most of it yourself, but there are rooms or items you'd rather leave to the professionals — the kitchen, breakables, artwork, electronics. We handle exactly the rooms or categories you specify.",
+    features: ["Choose specific rooms", "Fragile item specialist", "Kitchen & china packing", "Artwork & mirrors", "Electronics & TVs", "Flexible scope"],
+    popular: false,
+  },
+  {
+    name: "Fragile-Only Packing",
+    price: "From $120",
+    desc: "Your biggest moving fear is a broken mirror, cracked plate, or shattered family heirloom. Our fragile-only packing service handles every breakable item — dishes, glasses, artwork, lamps, ceramics — using professional wrap and dish packs.",
+    features: ["Dishes & glassware", "Artwork & mirrors", "Lamps & ceramics", "Figurines & collectibles", "Crystal & china", "Custom wrap for each piece"],
+    popular: false,
+  },
+  {
+    name: "Unpacking Service",
+    price: "From $250",
+    desc: "The hardest part of moving isn't packing — it's unpacking at the other end after a long moving day. Our unpacking team places items in the right rooms, assembles boxes, removes all packing materials, and leaves your new home feeling settled.",
+    features: ["Room-by-room unpacking", "Items placed where you want", "All materials removed", "Box breaking & hauling", "Kitchen setup available", "Same-day or next-day"],
+    popular: false,
+  },
+];
+
+const MATERIALS = [
+  { name: "Double-Wall Moving Boxes", desc: "Standard and large sizes. Double-wall construction prevents crushing under stacking weight. Used for most household items." },
+  { name: "Dish Pack Boxes", desc: "Extra-thick walls and cell dividers for plates, bowls, and glassware. Industry standard for protecting kitchen items in transit." },
+  { name: "Wardrobe Boxes", desc: "Full-height boxes with a hanging bar inside. Clothing goes straight from your closet rod to the wardrobe box — wrinkle-free." },
+  { name: "Mirror / Picture Boxes", desc: "Flat, adjustable boxes specifically sized for framed artwork, mirrors, and flat-screen TVs. Foam corner protectors included." },
+  { name: "Packing Paper", desc: "Unprinted newsprint paper for wrapping individual items, filling void space, and cushioning fragile pieces in boxes." },
+  { name: "Bubble Wrap", desc: "Multi-layer bubble wrap for glassware, ceramics, figurines, and any item that needs impact protection beyond paper alone." },
+  { name: "Stretch Wrap", desc: "Industrial-grade plastic stretch wrap for securing furniture drawers, protecting fabric surfaces, and bundle-wrapping items." },
+  { name: "Packing Tape & Dispensers", desc: "Professional-grade tape with strong adhesive. Applied with ergonomic dispensers — no fumbling with tape mid-pack." },
+];
+
+const FAQS = [
+  { q: "How long does professional packing take for an Ottawa home?", a: "Packing times vary by home size and volume. A 1-bedroom apartment typically takes our 2-person packing team 3–4 hours. A 3-bedroom home takes 6–8 hours. A 4+ bedroom family home can take 10–14 hours, which is why we often split packing across two days for larger homes. We'll give you a specific time estimate when you book." },
+  { q: "What's included in the packing service price?", a: "All packing materials are included — boxes, tape, packing paper, bubble wrap, dish packs, wardrobe boxes, and stretch wrap. There are no material surcharges. The quoted price covers labour and all materials from first item packed to last box sealed." },
+  { q: "Should I pack my own boxes or hire professionals?", a: "Self-packing works well for clothes, books, and everyday items. Professional packing is worth it for: the kitchen (most breakages happen here), artwork and mirrors, electronics and TVs, fine china and crystal, and the last-minute items you don't have time or energy to pack. Our fragile-only service is popular with people who want to pack most things themselves but are nervous about breakables." },
+  { q: "Are items packed by your team covered by insurance?", a: "Yes. Items packed by our professional packing team are covered by full replacement value insurance (available as an upgrade). Items you pack yourself are covered by basic valuation only. This is another strong reason to use professional packing for your most valuable items — it also affects your insurance coverage." },
+  { q: "Do you provide packing materials separately if I want to pack myself?", a: "Yes. We sell professional moving supplies through our moving supplies service — boxes, tape, bubble wrap, dish packs, wardrobe boxes, and more. See our moving supplies page for details or call (613) 600-4000 to order." },
+  { q: "How many boxes do I need for a 2-bedroom apartment?", a: "A typical 2-bedroom Ottawa apartment requires 40–60 boxes. This varies enormously based on how much stuff you have, whether you're including the kitchen, and how much you're donating or leaving behind. We recommend ordering more than you think you need — unused boxes can be returned." },
+  { q: "Can you pack and move on the same day?", a: "Yes for smaller homes — studios and 1-bedroom apartments are frequently packed and moved the same day. For 2-bedroom or larger homes, we typically recommend packing the day before for a smoother, faster moving day. Same-day pack-and-move is available as a premium service." },
+  { q: "Do you pack fragile and irreplaceable items like artwork?", a: "Yes. Artwork, antiques, family heirlooms, and irreplaceable items get special handling — custom wrapping, mirror boxes, custom crating where needed, and careful individual documentation. These are never thrown in with regular household packing." },
+];
 
 export default function PackingServices() {
-  const [activeTestimonial, setActiveTestimonial] = useState(0);
-  const [activeTab, setActiveTab] = useState(0);
-
-  const schemaData = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "name": "Professional Packing Services Ottawa",
-    "provider": {
-      "@type": "MovingCompany",
-      "name": "Prestige Moving Ottawa",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "50 Colonnade Rd Unit 200B",
-        "addressLocality": "Ottawa",
-        "addressRegion": "ON",
-        "postalCode": "K2E 7J6",
-        "addressCountry": "CA"
-      },
-      "telephone": "(613) 600-4000",
-      "priceRange": "$$",
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "5.0",
-        "reviewCount": "500"
-      }
-    },
-    "areaServed": [
-      { "@type": "City", "name": "Ottawa" },
-      { "@type": "City", "name": "Gatineau" },
-      { "@type": "City", "name": "Kanata" },
-      { "@type": "City", "name": "Orleans" },
-      { "@type": "City", "name": "Nepean" },
-      { "@type": "City", "name": "Barrhaven" },
-      { "@type": "City", "name": "Gloucester" }
-    ],
-    "description": "Expert packing services in Ottawa. Full-service packing, fragile item protection, and quality materials included. Professional packers for stress-free moves."
-  };
-
-  const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Ottawa Movers", "item": "https://prestigemoving.ca" },
-      { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://prestigemoving.ca/services" },
-      { "@type": "ListItem", "position": 3, "name": "Packing Services Ottawa", "item": "https://prestigemoving.ca/services/packing-services" }
-    ]
-  };
-
-  const testimonials = [
-    { name: "Amanda R.", location: "Westboro", text: "The packing team was incredible! They wrapped every dish, glass, and picture frame with such care. Not a single item was damaged. Worth every penny!", rating: 5, date: "1 week ago" },
-    { name: "Kevin M.", location: "Kanata", text: "We had a last-minute move and they packed our entire 4-bedroom house in just one day. Professional, organized, and everything arrived perfectly.", rating: 5, date: "2 weeks ago" },
-    { name: "Susan L.", location: "Orleans", text: "I was nervous about my grandmother's antique china collection. The team used custom packing and it all arrived without a scratch. Highly recommend!", rating: 5, date: "3 weeks ago" },
-    { name: "James T.", location: "Nepean", text: "Best packing service in Ottawa! They labeled every box by room and contents. Unpacking was so much easier. The materials they use are top quality.", rating: 5, date: "1 month ago" },
-    { name: "Michelle K.", location: "Downtown", text: "Their fragile item specialists packed my wine collection and artwork beautifully. Custom crating for my paintings was impressive. Five stars!", rating: 5, date: "2 months ago" }
-  ];
-
-  const serviceTypes = [
-    {
-      title: "Full-Service Packing",
-      icon: Package,
-      description: "Complete home or office packing from start to finish",
-      features: ["All materials included", "Room-by-room organization", "Detailed labeling", "Same-day available"]
-    },
-    {
-      title: "Fragile Items",
-      icon: Wine,
-      description: "Specialized handling for delicate and valuable items",
-      features: ["China & glassware", "Artwork & mirrors", "Electronics & TVs", "Wine collections"]
-    },
-    {
-      title: "Furniture Protection",
-      icon: Frame,
-      description: "Expert wrapping and padding for all furniture types",
-      features: ["Moving blankets", "Shrink wrapping", "Corner protection", "Mattress bags"]
-    },
-    {
-      title: "Partial Packing",
-      icon: Box,
-      description: "Flexible options to fit your needs and budget",
-      features: ["Kitchen only", "Fragile items only", "Last-minute help", "Custom plans"]
-    }
-  ];
-
-  const neighborhoods = [
-    "Downtown", "Westboro", "The Glebe", "Byward Market", "Sandy Hill",
-    "Centretown", "Hintonburg", "Kanata", "Orleans",
-    "Nepean", "Barrhaven", "Alta Vista", "Rockcliffe Park", "New Edinburgh", "Little Italy"
-  ];
-
-  const faqItems = [
-    {
-      question: "How far in advance should I book packing services?",
-      answer: "We recommend booking at least 1-2 weeks in advance for standard moves. However, we do offer same-day and next-day packing services for urgent situations. During peak moving season (May-August), we suggest booking 2-3 weeks ahead to secure your preferred date."
-    },
-    {
-      question: "Do I need to provide any packing materials?",
-      answer: "No, all packing materials are included in our service. We bring professional-grade boxes in various sizes, bubble wrap, packing paper, tape, furniture blankets, mattress bags, and specialty materials for fragile items. Everything needed for a safe move is covered."
-    },
-    {
-      question: "How long does it take to pack a typical home?",
-      answer: "Packing times vary based on home size and contents. A 1-bedroom apartment typically takes 2-3 hours, a 2-bedroom takes 4-5 hours, and a 3-4 bedroom home takes 6-8 hours. Homes with many fragile items or collections may require additional time for proper care."
-    },
-    {
-      question: "Can you pack specialty items like artwork or antiques?",
-      answer: "Absolutely! Our team includes fragile item specialists trained in handling artwork, antiques, china, crystal, wine collections, and other valuables. We use custom crating for paintings, acid-free tissue for delicate items, and climate-appropriate materials for sensitive pieces."
-    },
-    {
-      question: "What happens if something gets damaged during packing?",
-      answer: "As a WSIB certified company, we carry full liability insurance. In the rare event of damage, our claims process is straightforward and we work quickly to resolve any issues. Our careful packing techniques mean damage claims are extremely rare - our track record speaks for itself."
-    }
-  ];
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveTestimonial((prev) => (prev + 1) % testimonials.length);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, [testimonials.length]);
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [activeOption, setActiveOption] = useState(0);
 
   return (
     <>
       <Helmet>
-        <title>Professional Packing Services Ottawa ON | Expert Packers | Prestige Moving</title>
-        <meta name="description" content="Expert packing services in Ottawa ON. Full-service packing, fragile item protection, quality materials included. WSIB certified. Save time and ensure safe transport. Free quote!" />
-        <meta name="keywords" content="packing services Ottawa, professional packers ON, moving packing service, fragile item packing, full service packing, Ottawa packers, Kanata packing service, Orleans packing company" />
-        <meta property="og:title" content="Professional Packing Services Ottawa | Prestige Moving" />
-        <meta property="og:description" content="Ottawa's trusted packing specialists. Expert packers, quality materials, fragile item handling. WSIB certified for your peace of mind." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://prestigemoving.ca/services/packing-services" />
-        <meta property="og:image" content="https://prestigemoving.ca/og-image.png" />
-        <meta property="og:site_name" content="Prestige Moving Ottawa" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Professional Packing Services Ottawa | Prestige Moving" />
-        <meta name="twitter:description" content="Expert packing services with premium materials. Fragile item specialists. WSIB certified." />
-        <meta name="twitter:image" content="https://prestigemoving.ca/og-image.png" />
+        <title>Packing Services Ottawa | Professional Packing & Unpacking | Prestige Moving</title>
+        <meta name="description" content="Ottawa's professional packing service. Full-home, partial, and fragile-only packing by expert movers. All materials included. Serving all Ottawa neighbourhoods. Call (613) 600-4000." />
+        <meta name="keywords" content="packing services Ottawa, professional packing Ottawa, moving packing service Ottawa, packing and moving Ottawa, fragile packing Ottawa" />
         <link rel="canonical" href="https://prestigemoving.ca/services/packing-services" />
-        <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
-        <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify({ "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": FAQS.map(f => ({ "@type": "Question", "name": f.q, "acceptedAnswer": { "@type": "Answer", "text": f.a } })) })}</script>
       </Helmet>
+      <SharedNavigation />
 
-      <div className="min-h-screen bg-background">
-        <SharedNavigation />
-
-        {/* Hero Section */}
-        <section className="relative min-h-[85vh] flex items-center overflow-hidden" data-testid="section-hero">
-          <video 
-            autoPlay 
-            loop 
-            muted 
-            playsInline
-            className="absolute inset-0 w-full h-full object-cover"
-          >
-            <source src={packingHeroVideo} type="video/mp4" />
-          </video>
-          <div className="absolute inset-0 bg-gradient-to-r from-[#1A2332] via-[#1A2332]/90 to-[#1A2332]/40" />
-
-          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16">
-            <div className="max-w-2xl">
-              <div className="flex items-center gap-3 mb-6">
-                <Badge className="bg-primary/20 text-primary border-primary/40 px-4 py-1.5">
-                  <Package className="h-4 w-4 mr-2" />
-                  Packing Services
-                </Badge>
-                <Badge className="bg-green-500/20 text-green-400 border-green-500/40">
-                  <Zap className="h-3 w-3 mr-1" />
-                  Same-Day Available
-                </Badge>
-              </div>
-
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-6 leading-[1.1]">
-                Ottawa's<br />
-                <span className="text-primary">#1 Packing Experts</span>
-              </h1>
-
-              <p className="text-xl md:text-2xl text-white/80 mb-8 leading-relaxed">
-                Let our expert team handle the packing while you focus on your move. We've safely packed <span className="text-primary font-semibold">10,000+ Ottawa homes</span>.
-              </p>
-
-              <div className="flex flex-col sm:flex-row gap-4 mb-8">
-                <Link href="/book">
-                  <Button size="lg" className="text-lg font-bold px-8 py-7 shadow-xl shadow-primary/30 group" data-testid="button-hero-quote">
-                    Get Free Quote
-                    <ArrowRight className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" />
-                  </Button>
-                </Link>
-                <a href="tel:613-600-4000">
-                  <Button size="lg" variant="outline" className="text-lg font-bold px-8 py-7 border-2 border-white/40 text-white hover:bg-white/10 backdrop-blur-sm" data-testid="button-hero-call">
-                    <Phone className="h-5 w-5 mr-2" />
-                    (613) 600-4000
-                  </Button>
-                </a>
-              </div>
-
-              <div className="flex flex-wrap gap-6">
-                <WorkSafeBadge size="md" />
-                <div className="flex items-center gap-2 text-white/70">
-                  <Award className="h-5 w-5 text-primary" />
-                  <span>BBB A+ Rated</span>
-                </div>
-                <div className="flex items-center gap-2 text-white/70">
-                  <Timer className="h-5 w-5 text-primary" />
-                  <span>Materials Included</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <ServiceQuoteForm defaultService="Packing Services" serviceName="Packing" />
-
-        {/* Stats Bar */}
-        <section className="bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-400 py-6" data-testid="section-stats">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-              {[
-                { value: "10,000+", label: "Homes Packed" },
-                { value: "5.0★", label: "Google Rating" },
-                { value: "Same Day", label: "Service Available" },
-                { value: "100%", label: "Satisfaction" }
-              ].map((stat, index) => (
-                <div key={index} data-testid={`stat-${index}`}>
-                  <div className="text-2xl md:text-4xl font-black text-[#1A2332]">{stat.value}</div>
-                  <div className="text-sm font-bold text-[#1A2332]/80 uppercase tracking-wide">{stat.label}</div>
-                </div>
+      {/* Hero */}
+      <section className="relative min-h-[540px] flex items-center overflow-hidden">
+        <div className="absolute inset-0">
+          <img src={packingHeroImg} alt="Professional packers wrapping furniture in Ottawa home" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#1A2332]/95 via-[#1A2332]/80 to-[#1A2332]/30" />
+        </div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+          <div className="max-w-2xl">
+            <div className="flex flex-wrap gap-2 mb-5">
+              {["All Materials Included", "Same-Day Available", "Fragile Specialists"].map(t => (
+                <Badge key={t} className="bg-[#C5A572]/20 text-[#C5A572] border border-[#C5A572]/30 text-xs font-semibold">{t}</Badge>
               ))}
             </div>
-          </div>
-        </section>
-
-        {/* About Our Service */}
-        <section className="py-16 md:py-20 bg-white" data-testid="section-about">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div>
-                <Badge className="bg-primary/10 text-primary mb-4">About Our Service</Badge>
-                <h2 className="text-3xl md:text-4xl font-black text-foreground mb-6">
-                  Ottawa's Premier Packing Company
-                </h2>
-                <div className="space-y-4 text-muted-foreground">
-                  <p>
-                    Moving to a new home in Ottawa, Kanata, Orleans, or anywhere in the National Capital Region? <strong>Prestige Moving</strong> — the <Link href="/" className="text-primary hover:underline">Ottawa movers</Link> families rely on — offers professional packing services that save you time, stress, and ensure your belongings arrive safely.
-                  </p>
-                  <p>
-                    Our expert packers bring years of experience and use only premium materials - from double-walled boxes to custom crating for artwork. Whether you need full-service packing or just help with fragile items, we've got you covered.
-                  </p>
-                  <p>
-                    As a <strong>WSIB certified moving company</strong>, we prioritize the safety of both our team and your belongings. All materials are included in our transparent pricing - no hidden fees or surprises.
-                  </p>
-                </div>
-                <div className="mt-8">
-                  <Link href="/book">
-                    <Button size="lg" className="font-bold" data-testid="button-about-quote">
-                      Get Your Free Quote
-                      <ArrowRight className="h-5 w-5 ml-2" />
-                    </Button>
-                  </Link>
-                </div>
-              </div>
-              
-              <div className="relative rounded-2xl overflow-hidden h-[400px]">
-                <img 
-                  src={packingImage}
-                  alt="Prestige Moving professional packers in Ottawa"
-                  className="absolute inset-0 w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#1A2332]/60 to-transparent" />
-                <div className="absolute bottom-6 left-6 right-6">
-                  <div className="flex items-center gap-3">
-                    <div className="flex -space-x-2">
-                      {[...Array(4)].map((_, i) => (
-                        <div key={i} className="h-10 w-10 rounded-full bg-primary border-2 border-white flex items-center justify-center">
-                          <Star className="h-4 w-4 text-[#1A2332] fill-[#1A2332]" />
-                        </div>
-                      ))}
-                    </div>
-                    <div className="text-white">
-                      <div className="font-bold">350+ Reviews</div>
-                      <div className="text-sm text-white/70">5-Star Rated on Google</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* What's Included */}
-        <section className="py-16 md:py-20 bg-gray-50" data-testid="section-included">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <Badge className="bg-primary/10 text-primary mb-4">What's Included</Badge>
-              <h2 className="text-3xl md:text-4xl font-black text-foreground mb-4">
-                Everything You Need for Stress-Free Packing
-              </h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Our packing service includes all materials and expertise for a safe move
-              </p>
-            </div>
-
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {[
-                { title: "Premium Moving Boxes", description: "New, sturdy boxes in all sizes for every item", icon: Box },
-                { title: "Bubble Wrap & Paper", description: "Industrial-grade protection for fragile items", icon: Package },
-                { title: "Furniture Blankets", description: "Thick padding to prevent scratches and dents", icon: Frame },
-                { title: "Custom Crating", description: "Specialty protection for artwork and antiques", icon: Sparkles },
-                { title: "Detailed Labeling", description: "Room-by-room organization for easy unpacking", icon: CheckCircle2 },
-                { title: "WSIB Certified", description: "Full compliance with safety standards", icon: Award }
-              ].map((item, index) => (
-                <Card key={index} className="border-2 hover:border-primary/50 transition-colors" data-testid={`card-included-${index}`}>
-                  <CardContent className="p-6">
-                    <div className="h-12 w-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
-                      <item.icon className="h-6 w-6 text-primary" />
-                    </div>
-                    <h3 className="font-bold text-lg text-foreground mb-2">{item.title}</h3>
-                    <p className="text-muted-foreground">{item.description}</p>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Service Types with Tabs */}
-        <section className="py-16 md:py-20 bg-[#1A2332]" data-testid="section-service-types">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <Badge className="bg-primary/20 text-primary border-primary/30 mb-4">Our Services</Badge>
-              <h2 className="text-3xl md:text-4xl font-black text-white mb-4">
-                Packing Services We Offer
-              </h2>
-              <p className="text-lg text-white/60 max-w-2xl mx-auto">
-                Choose the packing option that fits your needs and budget
-              </p>
-            </div>
-
-            {/* Tab Navigation */}
-            <div className="flex justify-center gap-2 mb-10 flex-wrap">
-              {serviceTypes.map((service, index) => {
-                const ServiceIcon = service.icon;
-                return (
-                  <button
-                    key={index}
-                    onClick={() => setActiveTab(index)}
-                    className={`group px-6 py-3 rounded-full font-semibold transition-all duration-300 flex items-center gap-2 ${
-                      activeTab === index 
-                        ? 'bg-primary text-[#1A2332] shadow-lg shadow-primary/30' 
-                        : 'bg-white/10 text-white hover:bg-white/20'
-                    }`}
-                    data-testid={`tab-${service.title.toLowerCase().replace(/\s+/g, '-')}`}
-                  >
-                    <ServiceIcon className="h-5 w-5" />
-                    {service.title}
-                  </button>
-                );
-              })}
-            </div>
-
-            {/* Active Service Content */}
-            <div className="bg-white/5 backdrop-blur border border-white/10 rounded-3xl p-8 md:p-12">
-              <div className="grid md:grid-cols-2 gap-8 items-center">
-                <div>
-                  <h3 className="text-2xl md:text-3xl font-black text-white mb-4">
-                    {serviceTypes[activeTab].title}
-                  </h3>
-                  <p className="text-lg text-white/70 mb-6">
-                    {serviceTypes[activeTab].description}
-                  </p>
-
-                  <div className="grid grid-cols-2 gap-4 mb-8">
-                    {serviceTypes[activeTab].features.map((feature, i) => (
-                      <div key={i} className="flex items-center gap-3">
-                        <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0" />
-                        <span className="text-white">{feature}</span>
-                      </div>
-                    ))}
-                  </div>
-
-                  <Link href="/book">
-                    <Button size="lg" className="font-bold" data-testid="button-service-quote">
-                      Get a Quote
-                      <ArrowRight className="h-5 w-5 ml-2" />
-                    </Button>
-                  </Link>
-                </div>
-                
-                <div className="relative rounded-2xl overflow-hidden h-[300px]">
-                  <img 
-                    src={packingImage}
-                    alt={serviceTypes[activeTab].title}
-                    className="absolute inset-0 w-full h-full object-cover"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Why Choose Us */}
-        <section className="py-16 md:py-20 bg-white" data-testid="section-why-choose">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <Badge className="bg-primary/10 text-primary mb-4">Why Choose Us</Badge>
-              <h2 className="text-3xl md:text-4xl font-black text-foreground mb-4">
-                The Prestige Packing Difference
-              </h2>
-            </div>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {[
-                { icon: Shield, title: "Fully Insured", description: "Complete protection for your belongings throughout the packing process", color: "from-amber-500 to-amber-600" },
-                { icon: Users, title: "Expert Packers", description: "Average 5+ years experience per packer. Trained specialists who care.", color: "from-blue-500 to-blue-600" },
-                { icon: Clock, title: "Same-Day Service", description: "Need packing done fast? We offer same-day and next-day availability.", color: "from-emerald-500 to-emerald-600" },
-                { icon: ThumbsUp, title: "All Materials Included", description: "Boxes, bubble wrap, tape, and specialty materials - all covered.", color: "from-violet-500 to-violet-600" },
-                { icon: HandHeart, title: "Fragile Item Specialists", description: "Custom packing for artwork, antiques, china, and valuables.", color: "from-rose-500 to-rose-600" },
-                { icon: Award, title: "WSIB Certified", description: "Full compliance with workplace safety standards for your peace of mind.", color: "from-primary to-amber-600" }
-              ].map((item, index) => (
-                <Card key={index} className="border-2 hover:border-primary/50 transition-all hover:shadow-lg" data-testid={`card-why-${index}`}>
-                  <CardContent className="p-6">
-                    <div className={`h-14 w-14 bg-gradient-to-br ${item.color} rounded-xl flex items-center justify-center mb-4`}>
-                      <item.icon className="h-7 w-7 text-white" />
-                    </div>
-                    <h3 className="text-xl font-bold mb-2">{item.title}</h3>
-                    <p className="text-muted-foreground">{item.description}</p>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Testimonials Carousel */}
-        <section className="py-16 md:py-20 bg-gray-50" data-testid="section-testimonials">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <Badge className="bg-primary/10 text-primary mb-4">Reviews</Badge>
-              <h2 className="text-3xl md:text-4xl font-black text-foreground mb-4">
-                What Customers Say About Our Packing
-              </h2>
-              <div className="flex items-center justify-center gap-2 text-muted-foreground">
-                <div className="flex">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-5 w-5 fill-primary text-primary" />
-                  ))}
-                </div>
-                <span>Based on 350+ Google Reviews</span>
-              </div>
-            </div>
-
-            <div className="relative max-w-4xl mx-auto">
-              <Card className="border-2 shadow-xl">
-                <CardContent className="p-8 md:p-12">
-                  <div className="flex gap-1 mb-6">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="h-6 w-6 fill-primary text-primary" />
-                    ))}
-                  </div>
-                  <p className="text-xl md:text-2xl text-foreground mb-8 leading-relaxed" data-testid="testimonial-text">
-                    "{testimonials[activeTestimonial].text}"
-                  </p>
-                  <div className="flex items-center justify-between flex-wrap gap-4">
-                    <div className="flex items-center gap-4">
-                      <div className="h-14 w-14 bg-gradient-to-br from-primary to-amber-600 rounded-full flex items-center justify-center text-white font-bold text-xl">
-                        {testimonials[activeTestimonial].name[0]}
-                      </div>
-                      <div>
-                        <p className="font-bold text-lg" data-testid="testimonial-name">{testimonials[activeTestimonial].name}</p>
-                        <p className="text-muted-foreground flex items-center gap-1">
-                          <MapPin className="h-4 w-4" /> {testimonials[activeTestimonial].location}
-                        </p>
-                      </div>
-                    </div>
-                    <span className="text-sm text-muted-foreground">{testimonials[activeTestimonial].date}</span>
-                  </div>
-                </CardContent>
-              </Card>
-
-              <div className="flex items-center justify-center gap-4 mt-8">
-                <button 
-                  onClick={() => setActiveTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length)}
-                  className="w-12 h-12 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors"
-                  aria-label="Previous testimonial"
-                  data-testid="button-testimonial-prev"
-                >
-                  <ChevronLeft className="h-6 w-6" />
-                </button>
-                <div className="flex gap-2">
-                  {testimonials.map((_, index) => (
-                    <button
-                      key={index}
-                      onClick={() => setActiveTestimonial(index)}
-                      className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                        index === activeTestimonial ? 'bg-primary w-8' : 'bg-gray-300 hover:bg-gray-400'
-                      }`}
-                      aria-label={`Go to testimonial ${index + 1}`}
-                      data-testid={`button-testimonial-dot-${index}`}
-                    />
-                  ))}
-                </div>
-                <button 
-                  onClick={() => setActiveTestimonial((prev) => (prev + 1) % testimonials.length)}
-                  className="w-12 h-12 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors"
-                  aria-label="Next testimonial"
-                  data-testid="button-testimonial-next"
-                >
-                  <ChevronRight className="h-6 w-6" />
-                </button>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Service Areas */}
-        <section className="py-16 md:py-20 bg-[#1A2332]" data-testid="section-service-areas">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-10">
-              <Badge className="bg-primary/20 text-primary border-primary/30 mb-4">Coverage</Badge>
-              <h2 className="text-3xl md:text-4xl font-black text-white mb-4">
-                Ottawa Neighborhoods We Serve
-              </h2>
-              <p className="text-lg text-white/60">
-                Professional packing services across the National Capital Region
-              </p>
-            </div>
-
-            <div className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">
-              {neighborhoods.map((hood, index) => (
-                <Badge 
-                  key={index}
-                  className="bg-white/10 text-white border-white/20 hover:bg-primary hover:text-[#1A2332] hover:border-primary transition-all duration-300 cursor-pointer px-4 py-2 text-sm font-medium"
-                  data-testid={`badge-neighborhood-${index}`}
-                >
-                  <MapPin className="h-3 w-3 mr-1" />
-                  {hood}
-                </Badge>
-              ))}
-            </div>
-
-            <div className="text-center mt-8">
-              <WorkSafeBadge size="md" />
-            </div>
-          </div>
-        </section>
-
-        {/* FAQ Section */}
-        <section className="py-16 md:py-20 bg-white" data-testid="section-faq">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <Badge className="bg-primary/10 text-primary mb-4">FAQ</Badge>
-              <h2 className="text-3xl md:text-4xl font-black text-foreground mb-4">
-                Common Questions About Packing Services
-              </h2>
-              <p className="text-lg text-muted-foreground">
-                Everything you need to know about our professional packing
-              </p>
-            </div>
-
-            <Accordion type="single" collapsible className="w-full" data-testid="accordion-faq">
-              {faqItems.map((item, index) => (
-                <AccordionItem key={index} value={`item-${index}`} data-testid={`accordion-item-${index}`}>
-                  <AccordionTrigger className="text-left text-lg font-semibold" data-testid={`accordion-trigger-${index}`}>
-                    {item.question}
-                  </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground text-base leading-relaxed" data-testid={`accordion-content-${index}`}>
-                    {item.answer}
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
-          </div>
-        </section>
-
-        {/* Related Services */}
-        <section className="py-16 md:py-20 bg-gray-50" data-testid="section-related">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <Badge className="bg-primary/10 text-primary mb-4">More Services</Badge>
-              <h2 className="text-3xl md:text-4xl font-black text-foreground mb-4">
-                Complete Your Move
-              </h2>
-              <p className="text-lg text-muted-foreground">
-                Additional services to make your transition seamless
-              </p>
-            </div>
-            
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              <Link href="/services/residential-moving">
-                <Card className="border-2 hover:border-primary hover:shadow-lg transition-all h-full" data-testid="link-residential-moving">
-                  <CardContent className="p-6">
-                    <Home className="h-8 w-8 text-primary mb-4" />
-                    <h3 className="font-bold text-lg mb-2">Residential Moving</h3>
-                    <p className="text-muted-foreground">Complete home moving services across Ottawa</p>
-                  </CardContent>
-                </Card>
-              </Link>
-              <Link href="/services/commercial-moving">
-                <Card className="border-2 hover:border-primary hover:shadow-lg transition-all h-full" data-testid="link-commercial-moving">
-                  <CardContent className="p-6">
-                    <Building2 className="h-8 w-8 text-primary mb-4" />
-                    <h3 className="font-bold text-lg mb-2">Commercial Moving</h3>
-                    <p className="text-muted-foreground">Office and business relocation experts</p>
-                  </CardContent>
-                </Card>
-              </Link>
-              <Link href="/services/storage-solutions">
-                <Card className="border-2 hover:border-primary hover:shadow-lg transition-all h-full" data-testid="link-storage-solutions">
-                  <CardContent className="p-6">
-                    <Warehouse className="h-8 w-8 text-primary mb-4" />
-                    <h3 className="font-bold text-lg mb-2">Storage Solutions</h3>
-                    <p className="text-muted-foreground">Climate-controlled short and long-term storage</p>
-                  </CardContent>
-                </Card>
-              </Link>
-              <Link href="/services/long-distance-moving">
-                <Card className="border-2 hover:border-primary hover:shadow-lg transition-all h-full" data-testid="link-long-distance">
-                  <CardContent className="p-6">
-                    <Truck className="h-8 w-8 text-primary mb-4" />
-                    <h3 className="font-bold text-lg mb-2">Long Distance Moving</h3>
-                    <p className="text-muted-foreground">Cross-province and Canada-wide relocations</p>
-                  </CardContent>
-                </Card>
-              </Link>
-              <Link href="/services/senior-moving">
-                <Card className="border-2 hover:border-primary hover:shadow-lg transition-all h-full" data-testid="link-senior-moving">
-                  <CardContent className="p-6">
-                    <Heart className="h-8 w-8 text-primary mb-4" />
-                    <h3 className="font-bold text-lg mb-2">Senior Moving</h3>
-                    <p className="text-muted-foreground">Compassionate downsizing and relocation assistance</p>
-                  </CardContent>
-                </Card>
-              </Link>
-              <Link href="/services/specialty-item-moving">
-                <Card className="border-2 hover:border-primary hover:shadow-lg transition-all h-full" data-testid="link-specialty-items">
-                  <CardContent className="p-6">
-                    <Sparkles className="h-8 w-8 text-primary mb-4" />
-                    <h3 className="font-bold text-lg mb-2">Specialty Items</h3>
-                    <p className="text-muted-foreground">Hot tubs, pool tables, gym equipment & more</p>
-                  </CardContent>
-                </Card>
-              </Link>
-            </div>
-          </div>
-        </section>
-
-        {/* CTA Section */}
-        <section className="py-16 md:py-20 bg-gradient-to-r from-primary via-amber-500 to-primary relative overflow-hidden" data-testid="section-cta">
-          <div className="absolute inset-0 opacity-10">
-            <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl" />
-            <div className="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl" />
-          </div>
-          
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-            <div className="inline-flex items-center gap-2 bg-[#1A2332]/20 backdrop-blur rounded-full px-4 py-2 mb-6">
-              <Sparkles className="h-4 w-4 text-[#1A2332]" />
-              <span className="text-[#1A2332] font-semibold text-sm">Free No-Obligation Quote</span>
-            </div>
-            
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-[#1A2332] mb-6">
-              Ready to Take the Stress Out of Packing?
-            </h2>
-            
-            <p className="text-xl text-[#1A2332]/80 mb-8 max-w-2xl mx-auto">
-              Join 10,000+ Ottawa families who trusted our expert packers. Get your personalized quote in under 1 hour.
+            <h1 className="text-4xl md:text-5xl font-black text-white mb-5 leading-tight">
+              Professional Packing Services Ottawa —<br />
+              <span className="text-[#C5A572]">We Pack, You Relax</span>
+            </h1>
+            <p className="text-white/80 text-lg mb-8 leading-relaxed">
+              Full-home packing, partial packing, fragile-only, and unpacking services across Ottawa. All materials included — no separate supply charges. The most stress-reducing part of any Ottawa move.
             </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/book">
-                <Button size="lg" className="bg-[#1A2332] hover:bg-[#1A2332]/90 text-white text-lg font-bold px-10 py-7 shadow-xl" data-testid="button-cta-quote">
-                  Get Free Quote
-                  <ArrowRight className="h-5 w-5 ml-2" />
-                </Button>
-              </Link>
-              <a href="tel:613-600-4000">
-                <Button size="lg" variant="outline" className="border-2 border-[#1A2332] text-[#1A2332] hover:bg-[#1A2332] hover:text-white text-lg font-bold px-10 py-7" data-testid="button-cta-call">
-                  <Phone className="h-5 w-5 mr-2" />
-                  (613) 600-4000
-                </Button>
-              </a>
+            <div className="flex flex-wrap gap-3">
+              <Link href="/book"><Button className="bg-[#C5A572] text-[#1A2332] font-bold text-base px-6">Book Packing Service <ArrowRight className="ml-2 h-4 w-4" /></Button></Link>
+              <a href="tel:6136004000"><Button variant="outline" className="text-white border-white/30 bg-white/10 text-base px-6"><Phone className="h-4 w-4 mr-2" />(613) 600-4000</Button></a>
             </div>
           </div>
-        </section>
-        <SharedFooter />
+        </div>
+      </section>
+
+      {/* Trust bar */}
+      <div className="bg-[#C5A572] py-3">
+        <div className="max-w-7xl mx-auto px-4 flex flex-wrap items-center justify-center gap-6 text-[#1A2332] text-sm font-semibold">
+          {["All Materials Included", "Breakage Coverage Available", "5.0★ 400+ Reviews", "Serve All Ottawa Neighbourhoods"].map(t => (
+            <span key={t} className="flex items-center gap-1.5"><CheckCircle2 className="h-3.5 w-3.5" />{t}</span>
+          ))}
+        </div>
       </div>
+
+      {/* Packing Options */}
+      <section className="bg-white py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl font-bold text-[#1A2332] mb-3">Packing Service Options</h2>
+            <p className="text-gray-600 max-w-xl mx-auto">Choose the level of packing support that fits your situation. Mix and match — we can pack certain rooms while you handle others.</p>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+            {PACKING_OPTIONS.map((opt, i) => (
+              <button key={i} onClick={() => setActiveOption(i)} className={`text-left rounded-xl border p-5 transition-all ${activeOption === i ? "border-[#C5A572] bg-[#C5A572]/5 shadow-md" : "border-gray-200 bg-gray-50 hover-elevate"}`}>
+                <div className="flex items-center justify-between mb-2">
+                  <span className="font-bold text-[#1A2332] text-sm">{opt.name}</span>
+                  {opt.popular && <Badge className="bg-[#C5A572]/15 text-[#C5A572] border-[#C5A572]/20 text-xs">Popular</Badge>}
+                </div>
+                <div className="text-[#C5A572] font-bold text-sm mb-2">{opt.price}</div>
+                <p className="text-gray-500 text-xs leading-relaxed">{opt.desc.substring(0, 80)}...</p>
+              </button>
+            ))}
+          </div>
+          <div className="bg-[#1A2332] rounded-2xl p-8 text-white">
+            <div className="grid md:grid-cols-2 gap-8">
+              <div>
+                <div className="text-[#C5A572] text-xs font-semibold uppercase tracking-wider mb-2">{PACKING_OPTIONS[activeOption].name}</div>
+                <div className="text-2xl font-black text-[#C5A572] mb-3">{PACKING_OPTIONS[activeOption].price}</div>
+                <p className="text-white/80 leading-relaxed text-sm">{PACKING_OPTIONS[activeOption].desc}</p>
+              </div>
+              <div>
+                <div className="text-sm font-semibold text-white mb-3">What's Included</div>
+                <div className="grid grid-cols-2 gap-2">
+                  {PACKING_OPTIONS[activeOption].features.map(f => (
+                    <div key={f} className="flex items-start gap-2">
+                      <CheckCircle2 className="h-3.5 w-3.5 text-[#C5A572] shrink-0 mt-0.5" />
+                      <span className="text-white/75 text-xs">{f}</span>
+                    </div>
+                  ))}
+                </div>
+                <div className="mt-5">
+                  <Link href="/book"><Button className="bg-[#C5A572] text-[#1A2332] font-bold">Book This Service <ArrowRight className="ml-2 h-4 w-4" /></Button></Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Materials */}
+      <section className="bg-gray-50 py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl font-bold text-[#1A2332] mb-3">Professional Packing Materials — All Included</h2>
+            <p className="text-gray-600 max-w-xl mx-auto">No material surcharges. Every supply below is included in your packing service quote at no additional cost.</p>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {MATERIALS.map(m => (
+              <div key={m.name} className="bg-white rounded-xl border border-gray-100 p-5">
+                <div className="w-8 h-8 bg-[#C5A572]/15 rounded-lg flex items-center justify-center mb-3">
+                  <Box className="h-4 w-4 text-[#C5A572]" />
+                </div>
+                <h3 className="font-bold text-[#1A2332] text-sm mb-1">{m.name}</h3>
+                <p className="text-gray-600 text-xs leading-relaxed">{m.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Long form content */}
+      <section className="bg-white py-16">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl font-bold text-[#1A2332] mb-6">Why Professional Packing Makes an Ottawa Move Smoother</h2>
+          <div className="space-y-5 text-gray-700 leading-relaxed">
+            <p>Packing is consistently ranked as the most time-consuming and stressful part of moving. The average Ottawa household contains 10,000–15,000 individual items. Sorting, wrapping, boxing, and labelling all of those items properly — while maintaining a household and preparing for a major life change — is an enormous undertaking. Professional packing services exist to take that burden entirely off your plate.</p>
+            <h3 className="text-xl font-bold text-[#1A2332] mt-8 mb-3">The Kitchen: Where Most Moving Damage Happens</h3>
+            <p>The single room where most moving breakages occur is the kitchen. Plates, bowls, glasses, mugs, and serving dishes are all fragile, heavy, and awkward to pack without the right technique and materials. Professional packers use dish packs — boxes with extra-thick double-wall construction and cell dividers — that dramatically reduce breakage rates. Each plate is individually paper-wrapped and placed vertically (the strongest orientation for transit). Professional packing is most valuable in the kitchen above any other room in your home.</p>
+            <h3 className="text-xl font-bold text-[#1A2332] mt-8 mb-3">Artwork, Mirrors, and Irreplaceable Items</h3>
+            <p>Framed artwork and mirrors require flat, adjustable mirror boxes with foam corner protection. Family photographs require acid-free tissue paper and special handling. Antiques and heirlooms require custom wrapping and documentation. These items can't be replaced if damaged — which is exactly why they should be packed by professionals using the right materials and techniques, not thrown into a box at 11pm the night before moving day.</p>
+            <h3 className="text-xl font-bold text-[#1A2332] mt-8 mb-3">Ottawa's Packing Timeline</h3>
+            <p>Most Ottawa homeowners significantly underestimate how long self-packing takes. A 2-bedroom apartment that looks manageable often takes 20–30 hours to properly pack. Professional packers work faster because they do this all day, every day — they know which materials to use for which items, they have a system, and they're not distracted by the emotional aspects of going through every drawer. Our full-home packing team packs a 3-bedroom Ottawa home in a single working day.</p>
+            <p>Ready to take packing off your list? Book our packing service alongside your <Link href="/services/residential-moving" className="text-[#C5A572] hover:underline">Ottawa residential moving</Link> service for a fully managed move. Have specialty items like artwork or antiques? See our <Link href="/services/antique-moving" className="text-[#C5A572] hover:underline">antique moving</Link> page.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="bg-gray-50 py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl font-bold text-[#1A2332] mb-8 text-center">What Ottawa Clients Say About Our Packing Service</h2>
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              { name: "Tanya R.", area: "Kanata", review: "I was dreading packing 12 years of accumulated stuff in a 3-bedroom house. The packing team arrived at 8am and had the entire house packed, labelled, and ready to go by 3pm. My kitchen — the thing I was most worried about — arrived at the new place without a single broken item. Worth every penny." },
+              { name: "Michael S.", area: "Westboro", review: "Used the fragile-only packing service because I trusted myself with clothes and books but not with my grandmother's china. Absolutely the right call. The team wrapped every piece individually, used the proper dish packs, and not one piece broke. Highly recommend for anyone with irreplaceable items." },
+              { name: "Lisa & David K.", area: "Orleans", review: "The unpacking service at the other end was the best decision we made. After a long moving day, the last thing we wanted to do was unpack 80 boxes. The team came the next morning, unpacked everything into the right rooms, and took all the cardboard away. We were settled by lunchtime." },
+            ].map(t => (
+              <div key={t.name} className="bg-white rounded-xl p-6 border border-gray-100">
+                <div className="flex gap-0.5 mb-3">{[...Array(5)].map((_, i) => <Star key={i} className="h-4 w-4 text-[#C5A572] fill-[#C5A572]" />)}</div>
+                <p className="text-gray-700 text-sm leading-relaxed mb-4 italic">"{t.review}"</p>
+                <div className="font-bold text-[#1A2332] text-sm">{t.name}</div>
+                <div className="text-gray-500 text-xs mt-0.5">{t.area}, Ottawa</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="bg-white py-16">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl font-bold text-[#1A2332] mb-8 text-center">Packing Services FAQ</h2>
+          <div className="space-y-3">
+            {FAQS.map((faq, i) => (
+              <div key={i} className="border border-gray-200 rounded-xl overflow-hidden">
+                <button className="w-full flex items-center justify-between px-5 py-4 text-left bg-gray-50 hover-elevate" onClick={() => setOpenFaq(openFaq === i ? null : i)}>
+                  <span className="font-semibold text-[#1A2332] text-sm pr-4">{faq.q}</span>
+                  <ChevronDown className={`h-4 w-4 text-[#C5A572] shrink-0 transition-transform ${openFaq === i ? "rotate-180" : ""}`} />
+                </button>
+                {openFaq === i && <div className="px-5 pb-5 pt-4 text-gray-600 text-sm leading-relaxed border-t border-gray-100 bg-white">{faq.a}</div>}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="bg-[#1A2332] py-14">
+        <div className="max-w-3xl mx-auto px-4 text-center">
+          <Package className="h-10 w-10 text-[#C5A572] mx-auto mb-4" />
+          <h2 className="text-2xl font-bold text-white mb-3">Book Ottawa's Professional Packing Team</h2>
+          <p className="text-white/65 mb-8 max-w-xl mx-auto">Full-home, partial, fragile-only, or unpacking service. All materials included. Add packing to any Ottawa move booking.</p>
+          <div className="flex flex-wrap gap-3 justify-center">
+            <Link href="/book"><Button className="bg-[#C5A572] text-[#1A2332] font-bold">Book Packing Service <ArrowRight className="ml-2 h-4 w-4" /></Button></Link>
+            <a href="tel:6136004000"><Button variant="outline" className="text-white border-white/30 bg-white/10"><Phone className="h-4 w-4 mr-2" />(613) 600-4000</Button></a>
+          </div>
+        </div>
+      </section>
+      <SharedFooter />
     </>
   );
 }

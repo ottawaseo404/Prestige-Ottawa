@@ -1,1002 +1,240 @@
-import { useState, useEffect } from "react";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
-import {
-  Phone,
-  CheckCircle2,
-  Box,
-  Package,
-  Truck,
-  Scissors,
-  ShoppingBag,
-  Star,
-  Clock,
-  Shield,
-  ArrowRight,
-  MapPin,
-  Mail,
-  User,
-  ChevronRight,
-  ChevronLeft,
-  Loader2,
-  Home,
-  Building2,
-  Warehouse,
-  GraduationCap,
-  Zap,
-  Award,
-  Timer,
-  Sparkles,
-  Heart,
-  Music,
-  Layers,
-  Recycle,
-  Calculator,
-} from "lucide-react";
-import { Link } from "wouter";
+import { useState } from "react";
 import { Helmet } from "react-helmet";
+import { Link } from "wouter";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import { SharedNavigation } from "@/components/shared-navigation";
 import { SharedFooter } from "@/components/shared-footer";
-import ServiceQuoteForm from "@/components/service-quote-form";
-import { WorkSafeBadge } from "@/components/worksafe-badge";
-import { useToast } from "@/hooks/use-toast";
-import { apiRequest } from "@/lib/queryClient";
+import {
+  Phone, ArrowRight, CheckCircle2, Package,
+  Star, ChevronDown, Box, Truck, ShoppingCart
+} from "lucide-react";
+import suppliesHeroImg from "@assets/generated_images/moving_supplies_hero.png";
+
+const PRODUCTS = [
+  {
+    category: "Moving Boxes",
+    items: [
+      { name: "Small Box (1.5 cu ft)", price: "$3.50", desc: "Books, canned goods, heavy items. The workhorse of any move — ideal for anything dense or heavy." },
+      { name: "Medium Box (3.0 cu ft)", price: "$4.50", desc: "Kitchen items, clothes, toys, moderate-weight household items. Our most popular size." },
+      { name: "Large Box (4.5 cu ft)", price: "$5.50", desc: "Lightweight bulky items — linens, pillows, stuffed animals, lampshades." },
+      { name: "Extra Large Box (6.0 cu ft)", price: "$6.50", desc: "Very lightweight items only — comforters, duvets, large pillows. Never overload extra large boxes." },
+      { name: "Dish Pack Box (5.2 cu ft)", price: "$8.50", desc: "Extra-thick walls and cell dividers for plates, bowls, and glassware. Worth every penny for kitchen china." },
+      { name: "Wardrobe Box (with bar)", price: "$18.00", desc: "Full-height box with hanging bar. Clothing transfers directly from closet rod. No folding, no wrinkles." },
+    ]
+  },
+  {
+    category: "Packing Materials",
+    items: [
+      { name: "Packing Paper (25 lbs)", price: "$22.00", desc: "Unprinted newsprint paper for wrapping individual items. 25 lbs fills approximately 40 medium boxes." },
+      { name: "Bubble Wrap Roll (24\"×50')", price: "$28.00", desc: "Multi-layer bubble wrap for fragile items. Essential for glassware, ceramics, and electronics." },
+      { name: "Packing Tape (6-pack)", price: "$18.00", desc: "Professional-grade moving tape with strong adhesive. 6 rolls typically handles a 2-bedroom move." },
+      { name: "Stretch Wrap Roll (18\"×1500')", price: "$24.00", desc: "Industrial stretch wrap for furniture protection, securing drawers, and wrapping irregularly shaped items." },
+      { name: "Foam Pouches (25-pack)", price: "$16.00", desc: "Self-sealing foam pouches for glasses, mugs, and small fragile items. Faster than paper wrapping." },
+      { name: "Marker + Labels Set", price: "$8.00", desc: "Heavy-duty permanent markers and label stickers for box organization. Colour-coded by room." },
+    ]
+  },
+  {
+    category: "Specialty Items",
+    items: [
+      { name: "Mirror/Picture Box (adjustable)", price: "$22.00", desc: "Adjustable flat box for framed artwork, mirrors, and flat-screen TVs. Foam corner protectors included." },
+      { name: "Mattress Bag (Queen)", price: "$16.00", desc: "Heavy-duty plastic mattress bag for protection during transit. Keeps mattress clean and protected from moisture." },
+      { name: "Furniture Pads (6-pack)", price: "$45.00", desc: "Heavy-duty moving blankets for furniture protection. Professional-grade — same as our crew uses." },
+      { name: "TV Box Kit (fits up to 70\")", price: "$28.00", desc: "Custom TV box with foam inserts and corner protection for flat-screen TVs up to 70 inches." },
+      { name: "Mattress Box (King)", price: "$38.00", desc: "Corrugated mattress box for extra protection — recommended for pillow-top and memory foam mattresses." },
+      { name: "Wine/Bottle Divider Kit", price: "$12.00", desc: "Cell dividers specifically for wine bottles, liquor, and fragile bottles. Fits standard medium moving box." },
+    ]
+  }
+];
+
+const HOW_MANY = [
+  { home: "Studio / Bachelor", small: "10–15", medium: "8–12", large: "3–5", wardrobes: "1–2", total: "25–35 boxes" },
+  { home: "1 Bedroom", small: "15–20", medium: "12–18", large: "5–8", wardrobes: "2–3", total: "35–50 boxes" },
+  { home: "2 Bedroom", small: "20–30", medium: "18–25", large: "8–12", wardrobes: "3–4", total: "50–70 boxes" },
+  { home: "3 Bedroom", small: "30–45", medium: "25–35", large: "12–18", wardrobes: "4–6", total: "75–105 boxes" },
+  { home: "4+ Bedroom", small: "45–60", medium: "35–50", large: "18–25", wardrobes: "6–8", total: "105–145 boxes" },
+];
+
+const FAQS = [
+  { q: "Can I buy moving supplies and have them delivered in Ottawa?", a: "Yes. We offer moving supply delivery throughout Ottawa and surrounding communities. Order by phone at (613) 600-4000 or through our online booking system. Delivery is available 7 days a week. Supplies can also be picked up at our Ottawa facility." },
+  { q: "Can I return unused boxes after my move?", a: "Yes. Unused, undamaged boxes can be returned for a refund of 50% of the purchase price within 30 days of purchase. This means you can order more than you need without worrying about waste. Tape, packing paper, and other consumables cannot be returned." },
+  { q: "What's the difference between cheap moving boxes and professional moving boxes?", a: "Cheap moving boxes from grocery stores and liquor stores are used — they've been weakened by previous use, exposure to moisture, and handling. Professional new moving boxes have never been used, are rated for specific weight loads, and have consistent wall thickness throughout. For a serious move, professional boxes are worth the small premium — a collapsing box is expensive in broken items." },
+  { q: "How many boxes do I need for a 2-bedroom apartment?", a: "A 2-bedroom Ottawa apartment typically requires 50–70 boxes. This varies significantly based on how much stuff you have, whether you're packing the kitchen (which can require 15–20 boxes alone), and how much you're donating or leaving behind. We recommend ordering 10–15% more than you think you need — unused boxes can be returned." },
+  { q: "What's the most important packing supply to buy?", a: "Packing paper. Most people buy too little and end up wrapping fragile items with fewer layers than they need, or leaving void space in boxes unfilled. 25 lbs of packing paper is the right amount for a 2-bedroom apartment. If you run out, breakage rates go up. Bubble wrap is second — invest in proper bubble wrap for glassware and fragile items rather than trying to substitute with other materials." },
+  { q: "Are dish pack boxes worth the extra cost?", a: "Yes — absolutely. Dish packs cost more than standard medium boxes but they have significantly thicker walls and optional cell dividers that protect plates and bowls in transit. A broken set of china or crystal costs far more than the difference in box price. If you have any kitchen items you care about, use proper dish packs." },
+];
 
 export default function MovingSupplies() {
-  const { toast } = useToast();
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [activeTestimonial, setActiveTestimonial] = useState(0);
-  const [activeTab, setActiveTab] = useState(0);
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    message: "",
-  });
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    
-    try {
-      await apiRequest("POST", "/api/quote-request", {
-        ...formData,
-        serviceType: "Moving Supplies",
-      });
-      
-      toast({
-        title: "Quote Request Submitted!",
-        description: "We'll contact you within 1 hour with your quote.",
-      });
-      setFormData({ name: "", email: "", phone: "", message: "" });
-    } catch (error: any) {
-      toast({
-        title: "Submission Failed",
-        description: error.message || "Please try again or call us directly at (613) 600-4000",
-        variant: "destructive",
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
-  const schemaData = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "name": "Moving Supplies Delivery Ottawa",
-    "provider": {
-      "@type": "MovingCompany",
-      "name": "Prestige Moving Ottawa",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "50 Colonnade Rd Unit 200B",
-        "postalCode": "K2E 7J6",
-        "addressLocality": "Ottawa",
-        "addressRegion": "ON",
-        "addressCountry": "CA"
-      },
-      "telephone": "(613) 600-4000",
-      "priceRange": "$",
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "5.0",
-        "reviewCount": "350"
-      }
-    },
-    "areaServed": [
-      { "@type": "City", "name": "Ottawa" },
-      { "@type": "City", "name": "Kanata" },
-      { "@type": "City", "name": "Orleans" },
-      { "@type": "City", "name": "Nepean" },
-      { "@type": "City", "name": "Barrhaven" },
-      { "@type": "City", "name": "Gloucester" },
-      { "@type": "City", "name": "Gatineau" }
-    ],
-    "description": "Moving supplies delivery service in Ottawa. Professional-grade boxes, packing materials, tape, and protective supplies delivered to your door. Same-day delivery available."
-  };
-
-  const faqData = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "Do you offer same-day delivery for moving supplies?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes! Order by noon and we can deliver your moving supplies the same day throughout Greater Ottawa, Kanata, Orleans, Nepean, and surrounding areas."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What moving supplies do you offer?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "We offer a complete range of professional-grade supplies including various box sizes, bubble wrap, packing paper, tape, furniture pads, wardrobe boxes, mattress covers, and specialty boxes for dishes and electronics."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Can I return unused supplies?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Absolutely! We accept returns of unused, unopened supplies in their original condition. Simply contact us within 14 days of your purchase for a full refund."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Do you offer supply bundles for different home sizes?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes! We offer pre-assembled kits designed for studio apartments, 1-bedroom, 2-bedroom, 3-bedroom homes, and larger. These bundles include all the essential supplies at a discounted package price."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Are your boxes eco-friendly?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes, we prioritize sustainability. Our boxes are made from recycled cardboard and are fully recyclable. We also offer a box buyback program where we purchase back gently used boxes after your move."
-        }
-      }
-    ]
-  };
-
-  const testimonials = [
-    { name: "Amanda W.", location: "Westboro", text: "Ordered supplies for my condo move and they arrived the same day! Great quality boxes that held up perfectly. The wardrobe boxes saved me so much time.", rating: 5, date: "1 week ago" },
-    { name: "Kevin P.", location: "Kanata", text: "The 2-bedroom pack had everything I needed. Bubble wrap, tape, markers - all professional grade. Saved me multiple trips to the store.", rating: 5, date: "2 weeks ago" },
-    { name: "Rachel S.", location: "Orleans", text: "Love that they buy back unused supplies! I returned 8 boxes after my move and got a refund. Eco-friendly and wallet-friendly!", rating: 5, date: "3 weeks ago" },
-    { name: "Marcus T.", location: "Nepean", text: "The specialty dish pack boxes were a lifesaver. Every piece of china arrived without a scratch. Worth every penny for the peace of mind.", rating: 5, date: "1 month ago" },
-    { name: "Linda H.", location: "Barrhaven", text: "Used Prestige for supplies and their full moving service. The consistency in quality from supplies to service is impressive. Highly recommend!", rating: 5, date: "2 months ago" }
-  ];
-
-  const supplyCategories = [
-    {
-      title: "Boxes & Containers",
-      icon: Box,
-      description: "Professional-grade moving boxes in every size",
-      features: ["Small boxes (1.5 cu ft)", "Medium boxes (3 cu ft)", "Large boxes (4.5 cu ft)", "Wardrobe boxes with bars"]
-    },
-    {
-      title: "Wrapping & Protection",
-      icon: Layers,
-      description: "Premium protective materials for fragile items",
-      features: ["Bubble wrap rolls", "Packing paper (newsprint-free)", "Foam pouches & sheets", "Furniture pads & blankets"]
-    },
-    {
-      title: "Tape & Sealing",
-      icon: Scissors,
-      description: "Heavy-duty sealing and labeling supplies",
-      features: ["Packing tape (6-pack)", "Tape dispensers", "Colored labels", "Permanent markers"]
-    },
-    {
-      title: "Specialty Supplies",
-      icon: Shield,
-      description: "Protection for unique and valuable items",
-      features: ["Dish pack kits", "Mattress covers", "TV/Electronics boxes", "Picture/Mirror boxes"]
-    }
-  ];
-
-  const faqs = [
-    {
-      question: "Do you offer same-day delivery for moving supplies?",
-      answer: "Yes! Order by noon and we can deliver your moving supplies the same day throughout Greater Ottawa, Kanata, Orleans, Nepean, and surrounding areas. We understand that moving timelines can be tight, so we prioritize fast delivery."
-    },
-    {
-      question: "What moving supplies do you offer?",
-      answer: "We offer a complete range of professional-grade supplies including various box sizes (small, medium, large, extra-large), bubble wrap rolls, packing paper, heavy-duty tape, furniture pads, wardrobe boxes with hanging bars, mattress covers, dish pack kits, electronics boxes, and specialized crating materials."
-    },
-    {
-      question: "Can I return unused supplies?",
-      answer: "Absolutely! We accept returns of unused, unopened supplies in their original condition. Simply contact us within 14 days of your purchase for a full refund. We'll even pick them up for free if you used our moving services."
-    },
-    {
-      question: "Do you offer supply bundles for different home sizes?",
-      answer: "Yes! We offer pre-assembled kits designed for studio apartments, 1-bedroom, 2-bedroom, 3-bedroom homes, and larger. These bundles include all the essential supplies at a discounted package price, saving you both time and money."
-    },
-    {
-      question: "Are your boxes eco-friendly?",
-      answer: "Yes, we prioritize sustainability. Our boxes are made from recycled cardboard and are fully recyclable. We also offer a box buyback program where we purchase back gently used boxes after your move."
-    }
-  ];
-
-  const supplyPackages = [
-    {
-      name: "Studio Pack",
-      description: "Perfect for studio apartments and small spaces",
-      items: ["15 moving boxes (mixed sizes)", "1 roll bubble wrap", "1 roll packing paper", "2 rolls packing tape", "Markers & labels"],
-      price: "$89",
-      popular: false
-    },
-    {
-      name: "1-Bedroom Pack",
-      description: "Ideal for 1-bedroom apartments",
-      items: ["25 moving boxes (mixed sizes)", "1 wardrobe box", "2 rolls bubble wrap", "2 rolls packing paper", "4 rolls packing tape", "Markers & labels"],
-      price: "$149",
-      popular: false
-    },
-    {
-      name: "2-Bedroom Pack",
-      description: "Most popular for families",
-      items: ["40 moving boxes (mixed sizes)", "2 wardrobe boxes", "3 rolls bubble wrap", "3 rolls packing paper", "6 rolls packing tape", "Dish pack kit", "Markers & labels"],
-      price: "$229",
-      popular: true
-    },
-    {
-      name: "3+ Bedroom Pack",
-      description: "Complete kit for larger homes",
-      items: ["60 moving boxes (mixed sizes)", "3 wardrobe boxes", "5 rolls bubble wrap", "5 rolls packing paper", "8 rolls packing tape", "Dish pack kit", "2 mattress covers", "Markers & labels"],
-      price: "$349",
-      popular: false
-    }
-  ];
-
-  const neighborhoods = [
-    "Centretown", "The Glebe", "Westboro", "Hintonburg", "Sandy Hill",
-    "Old Ottawa South", "Wellington West", "New Edinburgh", "Rockcliffe Park",
-    "Kanata", "Orleans", "Nepean", "Barrhaven", "Gloucester", "Gatineau"
-  ];
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveTestimonial((prev) => (prev + 1) % testimonials.length);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, [testimonials.length]);
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [activeCategory, setActiveCategory] = useState(0);
 
   return (
     <>
       <Helmet>
-        <title>Moving Supplies Delivery Ottawa ON | Boxes, Packing Materials | Prestige Moving</title>
-        <meta name="description" content="Moving supplies delivered to your door in Ottawa ON. Professional-grade boxes, bubble wrap, packing paper, tape, and specialty materials. Same-day delivery available. Order online or call (613) 600-4000!" />
-        <meta name="keywords" content="moving supplies Ottawa, moving boxes delivery, packing materials ON, bubble wrap Ottawa, moving tape delivery, cardboard boxes Ottawa, wardrobe boxes, packing supplies delivery" />
-        <meta property="og:title" content="Moving Supplies Delivery Ottawa | Boxes & Packing Materials | Prestige Moving" />
-        <meta property="og:description" content="Professional moving supplies delivered to your door in Ottawa. Same-day delivery on boxes, bubble wrap, tape, and packing materials. Free returns on unused supplies!" />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://prestigemoving.ca/services/moving-supplies" />
-        <meta property="og:image" content="https://prestigemoving.ca/og-image.png" />
-        <meta property="og:site_name" content="Prestige Moving Ottawa" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Moving Supplies Delivery Ottawa | Prestige Moving" />
-        <meta name="twitter:description" content="Professional moving supplies delivered to your door. Same-day delivery available in Greater Ottawa." />
-        <meta name="twitter:image" content="https://prestigemoving.ca/og-image.png" />
+        <title>Moving Supplies Ottawa | Boxes, Tape, Packing Materials | Prestige Moving</title>
+        <meta name="description" content="Professional moving supplies in Ottawa — boxes, packing paper, bubble wrap, wardrobe boxes, dish packs, and more. Delivery available. Used or returned boxes accepted. Call (613) 600-4000." />
+        <meta name="keywords" content="moving supplies Ottawa, moving boxes Ottawa, packing supplies Ottawa, buy moving boxes Ottawa, wardrobe boxes Ottawa, dish packs Ottawa" />
         <link rel="canonical" href="https://prestigemoving.ca/services/moving-supplies" />
-        <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
-        <script type="application/ld+json">{JSON.stringify(faqData)}</script>
+        <script type="application/ld+json">{JSON.stringify({ "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": FAQS.map(f => ({ "@type": "Question", "name": f.q, "acceptedAnswer": { "@type": "Answer", "text": f.a } })) })}</script>
       </Helmet>
+      <SharedNavigation />
 
-      <div className="min-h-screen bg-background">
-        <SharedNavigation />
-
-        {/* Hero Section */}
-        <section className="relative min-h-[85vh] flex items-center overflow-hidden">
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            className="absolute inset-0 w-full h-full object-cover"
-            data-testid="video-hero"
-          >
-            <source src="/videos/moving-supplies-hero.mp4" type="video/mp4" />
-          </video>
-          <div className="absolute inset-0 bg-gradient-to-r from-[#1A2332] via-[#1A2332]/90 to-[#1A2332]/40" />
-          
-          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16">
-            <div className="max-w-2xl">
-              <div className="flex items-center gap-3 mb-6 flex-wrap">
-                <Badge className="bg-primary/20 text-primary border-primary/40 px-4 py-1.5" data-testid="badge-service-type">
-                  <Package className="h-4 w-4 mr-2" />
-                  Moving Supplies
-                </Badge>
-                <Badge className="bg-green-500/20 text-green-400 border-green-500/40" data-testid="badge-same-day">
-                  <Zap className="h-3 w-3 mr-1" />
-                  Same-Day Delivery
-                </Badge>
-              </div>
-
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-6 leading-[1.1]" data-testid="heading-hero">
-                Moving Supplies<br />
-                <span className="text-primary">Delivered to You</span>
-              </h1>
-
-              <p className="text-xl md:text-2xl text-white/80 mb-8 leading-relaxed" data-testid="text-hero-description">
-                Professional-grade boxes, packing materials, and protective supplies delivered right to your door. <span className="text-primary font-semibold">Same-day delivery</span> available in Greater Ottawa.
-              </p>
-
-              <div className="flex flex-col sm:flex-row gap-4 mb-8">
-                <Link href="/book">
-                  <Button size="lg" className="text-lg font-bold px-8 py-7 shadow-xl shadow-primary/30 group" data-testid="button-hero-order">
-                    Order Supplies Now
-                    <ArrowRight className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" />
-                  </Button>
-                </Link>
-                <a href="tel:613-600-4000">
-                  <Button size="lg" variant="outline" className="text-lg font-bold px-8 py-7 border-2 border-white/40 text-white hover:bg-white/10 backdrop-blur-sm" data-testid="button-hero-call">
-                    <Phone className="h-5 w-5 mr-2" />
-                    (613) 600-4000
-                  </Button>
-                </a>
-              </div>
-
-              <div className="flex flex-wrap gap-6">
-                <WorkSafeBadge size="md" data-testid="badge-worksafe" />
-                <div className="flex items-center gap-2 text-white/70">
-                  <Recycle className="h-5 w-5 text-primary" />
-                  <span>Eco-Friendly</span>
-                </div>
-                <div className="flex items-center gap-2 text-white/70">
-                  <Timer className="h-5 w-5 text-primary" />
-                  <span>Free Returns</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <ServiceQuoteForm defaultService="Moving Supplies" serviceName="Moving Supplies" />
-
-        {/* Stats Bar */}
-        <section className="bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-400 py-6">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-              {[
-                { value: "5,000+", label: "Orders Delivered" },
-                { value: "5.0", label: "Google Rating" },
-                { value: "Same Day", label: "Delivery Available" },
-                { value: "100%", label: "Quality Guaranteed" }
-              ].map((stat, index) => (
-                <div key={index} data-testid={`stat-${index}`}>
-                  <div className="text-2xl md:text-4xl font-black text-[#1A2332]">{stat.value}</div>
-                  <div className="text-sm font-bold text-[#1A2332]/80 uppercase tracking-wide">{stat.label}</div>
-                </div>
+      {/* Hero */}
+      <section className="relative min-h-[480px] flex items-center overflow-hidden">
+        <div className="absolute inset-0">
+          <img src={suppliesHeroImg} alt="Professional moving supplies boxes tape packing materials Ottawa" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#1A2332]/95 via-[#1A2332]/80 to-[#1A2332]/30" />
+        </div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+          <div className="max-w-2xl">
+            <div className="flex flex-wrap gap-2 mb-5">
+              {["Ottawa Delivery Available", "Unused Boxes Returnable", "Professional Grade", "Bundle Discounts"].map(t => (
+                <Badge key={t} className="bg-[#C5A572]/20 text-[#C5A572] border border-[#C5A572]/30 text-xs font-semibold">{t}</Badge>
               ))}
             </div>
-          </div>
-        </section>
-
-        {/* About Section */}
-        <section className="py-16 md:py-20 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div>
-                <Badge className="bg-primary/10 text-primary mb-4">About Our Supplies</Badge>
-                <h2 className="text-3xl md:text-4xl font-black text-foreground mb-6" data-testid="heading-about">
-                  Ottawa's Premier Moving Supply Delivery
-                </h2>
-                <div className="space-y-4 text-muted-foreground">
-                  <p>
-                    Planning a DIY move or need to supplement your moving day supplies? <strong>Prestige Moving Ottawa</strong> delivers professional-grade moving supplies right to your door throughout Greater Ottawa and the National Capital Region.
-                  </p>
-                  <p>
-                    Our supplies are the same high-quality materials our professional movers use daily. From heavy-duty boxes to specialty protection for fragile items, we have everything you need for a successful move.
-                  </p>
-                  <p>
-                    Plus, we're committed to sustainability. Our boxes are made from <strong>recycled cardboard</strong> and we offer a buyback program for gently used supplies after your move.
-                  </p>
-                </div>
-                <div className="mt-8">
-                  <Link href="/book">
-                    <Button size="lg" className="font-bold" data-testid="button-about-order">
-                      Order Supplies Now
-                      <ArrowRight className="h-5 w-5 ml-2" />
-                    </Button>
-                  </Link>
-                </div>
-              </div>
-              
-              <div className="relative rounded-2xl overflow-hidden bg-gradient-to-br from-primary/20 to-primary/5 p-8 h-[400px] flex items-center justify-center">
-                <div className="grid grid-cols-2 gap-6">
-                  {[
-                    { icon: Box, label: "Moving Boxes" },
-                    { icon: Layers, label: "Bubble Wrap" },
-                    { icon: Scissors, label: "Tape & Tools" },
-                    { icon: Shield, label: "Protection" }
-                  ].map((item, index) => (
-                    <div key={index} className="bg-white rounded-xl p-6 shadow-lg text-center hover-elevate">
-                      <div className="h-12 w-12 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-3">
-                        <item.icon className="h-6 w-6 text-primary" />
-                      </div>
-                      <span className="font-bold text-foreground">{item.label}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Supply Categories Tabs */}
-        <section className="py-16 md:py-20 bg-[#1A2332]">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <Badge className="bg-primary/20 text-primary border-primary/30 mb-4">Our Products</Badge>
-              <h2 className="text-3xl md:text-4xl font-black text-white mb-4" data-testid="heading-categories">
-                Browse Supply Categories
-              </h2>
-              <p className="text-lg text-white/60 max-w-2xl mx-auto">
-                Professional-grade supplies for every type of move
-              </p>
-            </div>
-
-            {/* Tab Navigation */}
-            <div className="flex justify-center gap-2 mb-10 flex-wrap">
-              {supplyCategories.map((category, index) => {
-                const CategoryIcon = category.icon;
-                return (
-                  <button
-                    key={index}
-                    onClick={() => setActiveTab(index)}
-                    className={`group px-6 py-3 rounded-full font-semibold transition-all duration-300 flex items-center gap-2 ${
-                      activeTab === index 
-                        ? 'bg-primary text-[#1A2332] shadow-lg shadow-primary/30' 
-                        : 'bg-white/10 text-white hover:bg-white/20'
-                    }`}
-                    data-testid={`tab-${category.title.toLowerCase().replace(/\s+/g, '-')}`}
-                  >
-                    <CategoryIcon className="h-5 w-5" />
-                    {category.title}
-                  </button>
-                );
-              })}
-            </div>
-
-            {/* Active Category Content */}
-            <div className="bg-white/5 backdrop-blur border border-white/10 rounded-3xl p-8 md:p-12">
-              <div className="grid md:grid-cols-2 gap-8 items-center">
-                <div>
-                  <h3 className="text-2xl md:text-3xl font-black text-white mb-4">
-                    {supplyCategories[activeTab].title}
-                  </h3>
-                  <p className="text-lg text-white/70 mb-6">
-                    {supplyCategories[activeTab].description}
-                  </p>
-
-                  <div className="grid grid-cols-1 gap-4 mb-8">
-                    {supplyCategories[activeTab].features.map((feature, i) => (
-                      <div key={i} className="flex items-center gap-3">
-                        <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0" />
-                        <span className="text-white">{feature}</span>
-                      </div>
-                    ))}
-                  </div>
-
-                  <Link href="/book">
-                    <Button size="lg" className="font-bold" data-testid="button-category-order">
-                      Order Now
-                      <ArrowRight className="h-5 w-5 ml-2" />
-                    </Button>
-                  </Link>
-                </div>
-                
-                <div className="relative rounded-2xl overflow-hidden bg-gradient-to-br from-primary/30 to-primary/10 h-[300px] flex items-center justify-center">
-                  <div className="text-center p-8">
-                    {(() => {
-                      const CategoryIcon = supplyCategories[activeTab].icon;
-                      return <CategoryIcon className="h-24 w-24 text-primary mx-auto mb-4" />;
-                    })()}
-                    <p className="text-white font-bold text-xl">{supplyCategories[activeTab].title}</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Kits & Packages */}
-        <section className="py-16 md:py-20 bg-gray-50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <Badge className="bg-primary/10 text-primary mb-4">
-                <Calculator className="h-3 w-3 mr-1" />
-                Kits & Packages
-              </Badge>
-              <h2 className="text-3xl md:text-4xl font-black text-foreground mb-4" data-testid="heading-packages">
-                Moving Supply Packages
-              </h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Pre-assembled kits sized for your home - save up to 25% vs. buying individually
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {supplyPackages.map((pkg, index) => (
-                <Card 
-                  key={index} 
-                  className={`relative transition-all duration-300 ${pkg.popular ? 'ring-2 ring-primary shadow-xl' : 'hover:shadow-lg'}`}
-                  data-testid={`card-package-${index}`}
-                >
-                  {pkg.popular && (
-                    <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-[#1A2332]">
-                      Most Popular
-                    </Badge>
-                  )}
-                  <CardHeader className="text-center pt-8">
-                    <CardTitle className="text-xl">{pkg.name}</CardTitle>
-                    <CardDescription>{pkg.description}</CardDescription>
-                    <div className="text-4xl font-black text-primary mt-4">{pkg.price}</div>
-                  </CardHeader>
-                  <CardContent>
-                    <ul className="space-y-2 mb-6">
-                      {pkg.items.map((item, i) => (
-                        <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
-                          <CheckCircle2 className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                    <Link href="/book">
-                      <Button 
-                        variant={pkg.popular ? "default" : "outline"} 
-                        className="w-full"
-                        data-testid={`button-order-${pkg.name.toLowerCase().replace(/\s+/g, '-')}`}
-                      >
-                        Order Now
-                      </Button>
-                    </Link>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-
-            <div className="mt-10 text-center">
-              <p className="text-muted-foreground mb-4">Need a custom package? We can create one just for you!</p>
-              <a href="tel:613-600-4000">
-                <Button variant="outline" size="lg" data-testid="button-custom-package">
-                  <Phone className="h-5 w-5 mr-2" />
-                  Call for Custom Quote
-                </Button>
-              </a>
-            </div>
-          </div>
-        </section>
-
-        {/* Why Choose Us */}
-        <section className="py-16 md:py-20 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <Badge className="bg-primary/10 text-primary mb-4">Why Choose Us</Badge>
-              <h2 className="text-3xl md:text-4xl font-black text-foreground mb-4" data-testid="heading-why-us">
-                The Prestige Difference
-              </h2>
-            </div>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {[
-                { icon: Truck, title: "Same-Day Delivery", description: "Order by noon and receive your supplies the same day in Greater Ottawa", color: "from-amber-500 to-amber-600" },
-                { icon: Award, title: "Professional Grade", description: "The same quality materials our professional movers use daily", color: "from-blue-500 to-blue-600" },
-                { icon: Recycle, title: "Eco-Friendly", description: "Recycled cardboard boxes with our buyback program for sustainability", color: "from-emerald-500 to-emerald-600" },
-                { icon: Timer, title: "Free Returns", description: "Return unused, unopened supplies within 14 days for a full refund", color: "from-violet-500 to-violet-600" },
-                { icon: ShoppingBag, title: "Bundle Savings", description: "Save up to 25% with our pre-assembled kits sized for your home", color: "from-rose-500 to-rose-600" },
-                { icon: Shield, title: "Quality Guaranteed", description: "Every supply meets our strict quality standards or your money back", color: "from-primary to-amber-600" }
-              ].map((item, index) => (
-                <Card key={index} className="border-2 hover:border-primary/50 transition-all hover:shadow-lg" data-testid={`card-feature-${index}`}>
-                  <CardContent className="p-6">
-                    <div className={`h-14 w-14 bg-gradient-to-br ${item.color} rounded-xl flex items-center justify-center mb-4`}>
-                      <item.icon className="h-7 w-7 text-white" />
-                    </div>
-                    <h3 className="text-xl font-bold mb-2">{item.title}</h3>
-                    <p className="text-muted-foreground">{item.description}</p>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Testimonials */}
-        <section className="py-16 md:py-20 bg-gray-50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <Badge className="bg-primary/10 text-primary mb-4">Reviews</Badge>
-              <h2 className="text-3xl md:text-4xl font-black text-foreground mb-4" data-testid="heading-testimonials">
-                What Customers Say
-              </h2>
-              <div className="flex items-center justify-center gap-2 text-muted-foreground">
-                <div className="flex">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-5 w-5 fill-primary text-primary" />
-                  ))}
-                </div>
-                <span>Based on 350+ Google Reviews</span>
-              </div>
-            </div>
-
-            <div className="relative max-w-4xl mx-auto">
-              <Card className="border-2 shadow-xl">
-                <CardContent className="p-8 md:p-12">
-                  <div className="flex gap-1 mb-6">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="h-6 w-6 fill-primary text-primary" />
-                    ))}
-                  </div>
-                  <p className="text-xl md:text-2xl text-foreground mb-8 leading-relaxed" data-testid="text-testimonial">
-                    "{testimonials[activeTestimonial].text}"
-                  </p>
-                  <div className="flex items-center justify-between flex-wrap gap-4">
-                    <div className="flex items-center gap-4">
-                      <div className="h-14 w-14 bg-gradient-to-br from-primary to-amber-600 rounded-full flex items-center justify-center text-white font-bold text-xl">
-                        {testimonials[activeTestimonial].name[0]}
-                      </div>
-                      <div>
-                        <p className="font-bold text-lg" data-testid="text-testimonial-name">{testimonials[activeTestimonial].name}</p>
-                        <p className="text-muted-foreground flex items-center gap-1">
-                          <MapPin className="h-4 w-4" /> {testimonials[activeTestimonial].location}
-                        </p>
-                      </div>
-                    </div>
-                    <span className="text-sm text-muted-foreground">{testimonials[activeTestimonial].date}</span>
-                  </div>
-                </CardContent>
-              </Card>
-
-              <div className="flex items-center justify-center gap-4 mt-8">
-                <button 
-                  onClick={() => setActiveTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length)}
-                  className="w-12 h-12 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors"
-                  aria-label="Previous testimonial"
-                  data-testid="button-testimonial-prev"
-                >
-                  <ChevronLeft className="h-6 w-6" />
-                </button>
-                <div className="flex gap-2">
-                  {testimonials.map((_, index) => (
-                    <button
-                      key={index}
-                      onClick={() => setActiveTestimonial(index)}
-                      className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                        index === activeTestimonial ? 'bg-primary w-8' : 'bg-gray-300 hover:bg-gray-400'
-                      }`}
-                      aria-label={`Go to testimonial ${index + 1}`}
-                      data-testid={`button-testimonial-dot-${index}`}
-                    />
-                  ))}
-                </div>
-                <button 
-                  onClick={() => setActiveTestimonial((prev) => (prev + 1) % testimonials.length)}
-                  className="w-12 h-12 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors"
-                  aria-label="Next testimonial"
-                  data-testid="button-testimonial-next"
-                >
-                  <ChevronRight className="h-6 w-6" />
-                </button>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Service Areas */}
-        <section className="py-16 md:py-20 bg-[#1A2332]">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-10">
-              <Badge className="bg-primary/20 text-primary border-primary/30 mb-4">Delivery Coverage</Badge>
-              <h2 className="text-3xl md:text-4xl font-black text-white mb-4" data-testid="heading-service-areas">
-                Ottawa Areas We Deliver To
-              </h2>
-              <p className="text-lg text-white/60">
-                Same-day delivery available throughout National Capital Region
-              </p>
-            </div>
-
-            <div className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">
-              {neighborhoods.map((hood, index) => (
-                <Badge 
-                  key={index}
-                  className="bg-white/10 text-white border-white/20 hover:bg-primary hover:text-[#1A2332] hover:border-primary transition-all duration-300 cursor-pointer px-4 py-2 text-sm font-medium"
-                  data-testid={`badge-neighborhood-${index}`}
-                >
-                  <MapPin className="h-3 w-3 mr-1" />
-                  {hood}
-                </Badge>
-              ))}
-            </div>
-
-            <div className="text-center mt-8">
-              <p className="text-white/60 text-sm">
-                Don't see your area? We deliver to all of Greater Ottawa, Greater Ottawa Area, and Fraser Valley!
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* FAQ Section */}
-        <section className="py-16 md:py-20 bg-white">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <Badge className="bg-primary/10 text-primary mb-4">FAQ</Badge>
-              <h2 className="text-3xl md:text-4xl font-black text-foreground mb-4" data-testid="heading-faq">
-                Frequently Asked Questions
-              </h2>
-              <p className="text-lg text-muted-foreground">
-                Everything you need to know about our moving supplies
-              </p>
-            </div>
-
-            <Accordion type="single" collapsible className="space-y-4">
-              {faqs.map((faq, index) => (
-                <AccordionItem 
-                  key={index} 
-                  value={`item-${index}`}
-                  className="bg-card border rounded-lg px-6"
-                  data-testid={`accordion-item-${index}`}
-                >
-                  <AccordionTrigger className="text-left hover:no-underline py-6" data-testid={`accordion-trigger-${index}`}>
-                    <span className="font-semibold text-foreground">{faq.question}</span>
-                  </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground pb-6">
-                    {faq.answer}
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
-          </div>
-        </section>
-
-        {/* Related Services */}
-        <section className="py-16 md:py-20 bg-gray-50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <Badge className="bg-primary/10 text-primary mb-4">More Services</Badge>
-              <h2 className="text-3xl md:text-4xl font-black text-foreground mb-4" data-testid="heading-related-services">
-                Complete Your Move
-              </h2>
-              <p className="text-lg text-muted-foreground">
-                Additional services to make your transition seamless
-              </p>
-            </div>
-            
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              <Link href="/services/packing-services">
-                <Card className="border-2 hover:border-primary hover:shadow-lg transition-all h-full" data-testid="link-packing-services">
-                  <CardContent className="p-6">
-                    <Package className="h-8 w-8 text-primary mb-4" />
-                    <h3 className="font-bold text-lg mb-2">Packing Services</h3>
-                    <p className="text-muted-foreground">Professional packing for fragile items and full homes</p>
-                  </CardContent>
-                </Card>
-              </Link>
-              <Link href="/services/residential-moving">
-                <Card className="border-2 hover:border-primary hover:shadow-lg transition-all h-full" data-testid="link-residential-moving">
-                  <CardContent className="p-6">
-                    <Home className="h-8 w-8 text-primary mb-4" />
-                    <h3 className="font-bold text-lg mb-2">Residential Moving</h3>
-                    <p className="text-muted-foreground">Full-service home moving across Ottawa</p>
-                  </CardContent>
-                </Card>
-              </Link>
-              <Link href="/services/commercial-moving">
-                <Card className="border-2 hover:border-primary hover:shadow-lg transition-all h-full" data-testid="link-commercial-moving">
-                  <CardContent className="p-6">
-                    <Building2 className="h-8 w-8 text-primary mb-4" />
-                    <h3 className="font-bold text-lg mb-2">Commercial Moving</h3>
-                    <p className="text-muted-foreground">Office and business relocation specialists</p>
-                  </CardContent>
-                </Card>
-              </Link>
-              <Link href="/services/storage-solutions">
-                <Card className="border-2 hover:border-primary hover:shadow-lg transition-all h-full" data-testid="link-storage-solutions">
-                  <CardContent className="p-6">
-                    <Warehouse className="h-8 w-8 text-primary mb-4" />
-                    <h3 className="font-bold text-lg mb-2">Storage Solutions</h3>
-                    <p className="text-muted-foreground">Climate-controlled short and long-term storage</p>
-                  </CardContent>
-                </Card>
-              </Link>
-              <Link href="/services/student-moving">
-                <Card className="border-2 hover:border-primary hover:shadow-lg transition-all h-full" data-testid="link-student-moving">
-                  <CardContent className="p-6">
-                    <GraduationCap className="h-8 w-8 text-primary mb-4" />
-                    <h3 className="font-bold text-lg mb-2">Student Moving</h3>
-                    <p className="text-muted-foreground">Budget-friendly moves for students</p>
-                  </CardContent>
-                </Card>
-              </Link>
-              <Link href="/services/senior-moving">
-                <Card className="border-2 hover:border-primary hover:shadow-lg transition-all h-full" data-testid="link-senior-moving">
-                  <CardContent className="p-6">
-                    <Heart className="h-8 w-8 text-primary mb-4" />
-                    <h3 className="font-bold text-lg mb-2">Senior Moving</h3>
-                    <p className="text-muted-foreground">Compassionate downsizing and relocation assistance</p>
-                  </CardContent>
-                </Card>
-              </Link>
-            </div>
-          </div>
-        </section>
-
-        {/* CTA Form Section */}
-        <section className="py-16 md:py-20 bg-[#1A2332]">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div>
-                <Badge className="mb-4 bg-primary text-[#1A2332]">Quick Quote</Badge>
-                <h2 className="text-3xl md:text-4xl font-black text-white mb-6" data-testid="heading-quote-form">
-                  Get Your Free Supply Quote
-                </h2>
-                <p className="text-gray-300 text-lg mb-8">
-                  Not sure what you need? Tell us about your move and we'll recommend the perfect supply package. Free quote, no obligation.
-                </p>
-                <ul className="space-y-4">
-                  <li className="flex items-center gap-3 text-gray-200">
-                    <CheckCircle2 className="h-5 w-5 text-primary" />
-                    <span>Response within 1 hour</span>
-                  </li>
-                  <li className="flex items-center gap-3 text-gray-200">
-                    <CheckCircle2 className="h-5 w-5 text-primary" />
-                    <span>Personalized recommendations</span>
-                  </li>
-                  <li className="flex items-center gap-3 text-gray-200">
-                    <CheckCircle2 className="h-5 w-5 text-primary" />
-                    <span>Bundle discounts available</span>
-                  </li>
-                  <li className="flex items-center gap-3 text-gray-200">
-                    <CheckCircle2 className="h-5 w-5 text-primary" />
-                    <span>Free returns on unused supplies</span>
-                  </li>
-                </ul>
-              </div>
-
-              <Card className="bg-white">
-                <CardHeader>
-                  <CardTitle className="text-2xl">Request Your Quote</CardTitle>
-                  <CardDescription>Fill out the form and we'll get back to you ASAP</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <form onSubmit={handleSubmit} className="space-y-4">
-                    <div className="space-y-2">
-                      <Label htmlFor="name">Full Name</Label>
-                      <div className="relative">
-                        <User className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                        <Input
-                          id="name"
-                          placeholder="Your name"
-                          className="pl-10"
-                          value={formData.name}
-                          onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                          required
-                          data-testid="input-name"
-                        />
-                      </div>
-                    </div>
-                    <div className="grid grid-cols-2 gap-4">
-                      <div className="space-y-2">
-                        <Label htmlFor="email">Email</Label>
-                        <div className="relative">
-                          <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                          <Input
-                            id="email"
-                            type="email"
-                            placeholder="email@example.com"
-                            className="pl-10"
-                            value={formData.email}
-                            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                            required
-                            data-testid="input-email"
-                          />
-                        </div>
-                      </div>
-                      <div className="space-y-2">
-                        <Label htmlFor="phone">Phone</Label>
-                        <div className="relative">
-                          <Phone className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                          <Input
-                            id="phone"
-                            type="tel"
-                            placeholder="604-XXX-XXXX"
-                            className="pl-10"
-                            value={formData.phone}
-                            onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                            required
-                            data-testid="input-phone"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="message">Tell us about your move</Label>
-                      <Textarea
-                        id="message"
-                        placeholder="Home size, move date, any special items..."
-                        rows={4}
-                        value={formData.message}
-                        onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                        data-testid="input-message"
-                      />
-                    </div>
-                    <Button 
-                      type="submit" 
-                      className="w-full py-6"
-                      data-testid="button-submit-quote"
-                      disabled={isSubmitting}
-                    >
-                      {isSubmitting ? (
-                        <>
-                          <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                          Submitting...
-                        </>
-                      ) : (
-                        <>
-                          Get Free Quote
-                          <ChevronRight className="ml-2 h-4 w-4" />
-                        </>
-                      )}
-                    </Button>
-                  </form>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </section>
-
-        {/* Final CTA Section */}
-        <section className="py-16 md:py-20 bg-gradient-to-r from-primary via-amber-500 to-primary relative overflow-hidden">
-          <div className="absolute inset-0 opacity-10">
-            <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl" />
-            <div className="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl" />
-          </div>
-          
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-            <div className="inline-flex items-center gap-2 bg-[#1A2332]/20 backdrop-blur rounded-full px-4 py-2 mb-6">
-              <Sparkles className="h-4 w-4 text-[#1A2332]" />
-              <span className="text-[#1A2332] font-semibold text-sm">Same-Day Delivery Available</span>
-            </div>
-            
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-[#1A2332] mb-6" data-testid="heading-final-cta">
-              Ready to Order Your Supplies?
-            </h2>
-            
-            <p className="text-xl text-[#1A2332]/80 mb-8 max-w-2xl mx-auto">
-              Professional-grade moving supplies delivered to your door. Free returns on unused items. Order now for same-day delivery!
+            <h1 className="text-4xl md:text-5xl font-black text-white mb-5 leading-tight">
+              Moving Supplies Ottawa —<br />
+              <span className="text-[#C5A572]">Professional Grade, Delivered to Your Door</span>
+            </h1>
+            <p className="text-white/80 text-lg mb-8 leading-relaxed">
+              Professional-grade moving boxes, packing paper, bubble wrap, wardrobe boxes, dish packs, tape, and specialty supplies — delivered anywhere in Ottawa. Unused boxes returnable within 30 days.
             </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/book">
-                <Button size="lg" className="bg-[#1A2332] hover:bg-[#1A2332]/90 text-white text-lg font-bold px-10 py-7 shadow-xl" data-testid="button-cta-order">
-                  Order Supplies Now
-                  <ArrowRight className="h-5 w-5 ml-2" />
-                </Button>
-              </Link>
-              <a href="tel:613-600-4000">
-                <Button size="lg" variant="outline" className="border-2 border-[#1A2332] text-[#1A2332] hover:bg-[#1A2332] hover:text-white text-lg font-bold px-10 py-7" data-testid="button-cta-call">
-                  <Phone className="h-5 w-5 mr-2" />
-                  (613) 600-4000
-                </Button>
-              </a>
+            <div className="flex flex-wrap gap-3">
+              <a href="tel:6136004000"><Button className="bg-[#C5A572] text-[#1A2332] font-bold text-base px-6"><Phone className="h-4 w-4 mr-2" />Order Now — (613) 600-4000</Button></a>
+              <Link href="/book"><Button variant="outline" className="text-white border-white/30 bg-white/10 text-base px-6">Book a Move <ArrowRight className="ml-2 h-4 w-4" /></Button></Link>
             </div>
           </div>
-        </section>
-        <SharedFooter />
+        </div>
+      </section>
+
+      {/* Trust bar */}
+      <div className="bg-[#C5A572] py-3">
+        <div className="max-w-7xl mx-auto px-4 flex flex-wrap items-center justify-center gap-6 text-[#1A2332] text-sm font-semibold">
+          {["Ottawa Delivery Available", "50% Return on Unused Boxes", "Professional Grade Only", "Bundle Discounts on Orders 50+", "Same-Day Delivery Available"].map(t => (
+            <span key={t} className="flex items-center gap-1.5"><CheckCircle2 className="h-3.5 w-3.5" />{t}</span>
+          ))}
+        </div>
       </div>
+
+      {/* Product catalog */}
+      <section className="bg-white py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl font-bold text-[#1A2332] mb-3">Moving Supplies Catalogue</h2>
+            <p className="text-gray-600 max-w-xl mx-auto">Professional-grade supplies only — no recycled grocery store boxes. Prices include Ottawa delivery (minimum order applies).</p>
+          </div>
+
+          {/* Category tabs */}
+          <div className="flex flex-wrap gap-2 justify-center mb-8">
+            {PRODUCTS.map((cat, i) => (
+              <button key={i} onClick={() => setActiveCategory(i)} className={`px-4 py-2 rounded-xl text-sm font-semibold border transition-all ${activeCategory === i ? "bg-[#1A2332] text-white border-[#1A2332]" : "bg-white text-gray-700 border-gray-200 hover-elevate"}`}>{cat.category}</button>
+            ))}
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {PRODUCTS[activeCategory].items.map(item => (
+              <div key={item.name} className="bg-gray-50 rounded-xl border border-gray-100 p-5">
+                <div className="flex items-start justify-between mb-2">
+                  <h3 className="font-bold text-[#1A2332] text-sm flex-1 pr-3">{item.name}</h3>
+                  <span className="text-[#C5A572] font-black text-sm shrink-0">{item.price}</span>
+                </div>
+                <p className="text-gray-600 text-xs leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-8 bg-[#1A2332] rounded-2xl p-6 text-white text-center">
+            <p className="text-white/80 mb-4">Order by phone for same-day or next-day Ottawa delivery. Bundle discounts available on orders of 50+ boxes.</p>
+            <a href="tel:6136004000"><Button className="bg-[#C5A572] text-[#1A2332] font-bold"><Phone className="h-4 w-4 mr-2" />Order Now — (613) 600-4000</Button></a>
+          </div>
+        </div>
+      </section>
+
+      {/* How many boxes */}
+      <section className="bg-gray-50 py-16">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl font-bold text-[#1A2332] mb-3">How Many Boxes Do I Need?</h2>
+            <p className="text-gray-600 max-w-xl mx-auto">Ottawa household estimates based on thousands of moves. Order 10–15% more than you think — unused boxes are returnable.</p>
+          </div>
+          <div className="overflow-x-auto rounded-xl border border-gray-200">
+            <table className="w-full border-collapse">
+              <thead>
+                <tr className="bg-[#1A2332] text-white">
+                  <th className="text-left p-4 text-sm font-bold">Home Size</th>
+                  <th className="text-left p-4 text-sm font-bold">Small</th>
+                  <th className="text-left p-4 text-sm font-bold">Medium</th>
+                  <th className="text-left p-4 text-sm font-bold">Large</th>
+                  <th className="text-left p-4 text-sm font-bold">Wardrobes</th>
+                  <th className="text-left p-4 text-sm font-bold">Total</th>
+                </tr>
+              </thead>
+              <tbody>
+                {HOW_MANY.map((row, i) => (
+                  <tr key={i} className={i % 2 === 0 ? "bg-white" : "bg-gray-50"}>
+                    <td className="p-4 font-bold text-[#1A2332] text-sm">{row.home}</td>
+                    <td className="p-4 text-gray-700 text-sm">{row.small}</td>
+                    <td className="p-4 text-gray-700 text-sm">{row.medium}</td>
+                    <td className="p-4 text-gray-700 text-sm">{row.large}</td>
+                    <td className="p-4 text-gray-700 text-sm">{row.wardrobes}</td>
+                    <td className="p-4 font-bold text-[#C5A572] text-sm">{row.total}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="text-xs text-gray-500 mt-3 text-center">Estimates vary based on how much stuff you have and what you're donating. Add dish packs separately for kitchen china and glassware.</p>
+        </div>
+      </section>
+
+      {/* Long-form content */}
+      <section className="bg-white py-16">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl font-bold text-[#1A2332] mb-6">Choosing the Right Moving Supplies in Ottawa</h2>
+          <div className="space-y-5 text-gray-700 leading-relaxed">
+            <p>Most Ottawa residents significantly underestimate the supplies they need for a move — and then compensate by using whatever is available: grocery store boxes, newspaper wrapping, insufficient tape, and improvised protective materials. The result is predictable: more damage, more stress, and a move that takes longer because of poor organization. Professional moving supplies make every part of a move faster and safer.</p>
+            <h3 className="text-xl font-bold text-[#1A2332] mt-8 mb-3">Why Professional Boxes Are Worth It</h3>
+            <p>Grocery store boxes are free — but they're used. A box that previously held lettuce or liquor bottles has been moistened, opened and resealed, and loaded beyond its original rated capacity. The wall integrity is compromised. Used boxes fail in transit — they buckle under stacking weight, the bottoms give way when lifted, and they offer dramatically less protection than new boxes. Professional moving boxes are unused, rated to specific weight capacities, and maintain their structural integrity throughout loading, transport, and unloading.</p>
+            <h3 className="text-xl font-bold text-[#1A2332] mt-8 mb-3">The Dish Pack Investment</h3>
+            <p>Dish pack boxes cost more than standard medium boxes — but consider the alternative. A standard medium box used for plates risks breakage because the walls are thinner and there are no cell dividers to prevent pieces from hitting each other. A single broken set of china is worth more than the difference in box cost for an entire kitchen pack. Dish packs also load more efficiently because the cell dividers allow more plates to be safely packed per box.</p>
+            <h3 className="text-xl font-bold text-[#1A2332] mt-8 mb-3">The Wardrobe Box — Ottawa's Best Moving Supply Investment</h3>
+            <p>For Ottawa residents with significant hanging clothing — work clothes, formal wear, seasonal coats — wardrobe boxes are the single best supply investment in the move. Clothing goes directly from the closet rod into the wardrobe box on its hanger, travels hanging (not folded or crammed), and hangs again in the new closet within minutes of arrival. For dry-clean-only items, work suits, and formal wear, wardrobe boxes eliminate the dry cleaning trip that inevitably follows a move where clothing was folded into regular boxes.</p>
+            <p>Need professional packing in addition to supplies? See our <Link href="/services/packing-services" className="text-[#C5A572] hover:underline">packing services</Link> page. Ready to book your Ottawa move? See our <Link href="/services/residential-moving" className="text-[#C5A572] hover:underline">residential moving</Link> service.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="bg-gray-50 py-16">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl font-bold text-[#1A2332] mb-8 text-center">Moving Supplies FAQ</h2>
+          <div className="space-y-3">
+            {FAQS.map((faq, i) => (
+              <div key={i} className="border border-gray-200 rounded-xl overflow-hidden">
+                <button className="w-full flex items-center justify-between px-5 py-4 text-left bg-white hover-elevate" onClick={() => setOpenFaq(openFaq === i ? null : i)}>
+                  <span className="font-semibold text-[#1A2332] text-sm pr-4">{faq.q}</span>
+                  <ChevronDown className={`h-4 w-4 text-[#C5A572] shrink-0 transition-transform ${openFaq === i ? "rotate-180" : ""}`} />
+                </button>
+                {openFaq === i && <div className="px-5 pb-5 pt-4 text-gray-600 text-sm leading-relaxed border-t border-gray-100 bg-gray-50">{faq.a}</div>}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="bg-[#1A2332] py-14">
+        <div className="max-w-3xl mx-auto px-4 text-center">
+          <ShoppingCart className="h-10 w-10 text-[#C5A572] mx-auto mb-4" />
+          <h2 className="text-2xl font-bold text-white mb-3">Order Moving Supplies in Ottawa</h2>
+          <p className="text-white/65 mb-8 max-w-xl mx-auto">Boxes, packing paper, bubble wrap, wardrobes, dish packs — delivered anywhere in Ottawa. Order today for next-day delivery.</p>
+          <div className="flex flex-wrap gap-3 justify-center">
+            <a href="tel:6136004000"><Button className="bg-[#C5A572] text-[#1A2332] font-bold"><Phone className="h-4 w-4 mr-2" />(613) 600-4000</Button></a>
+            <Link href="/book"><Button variant="outline" className="text-white border-white/30 bg-white/10">Book a Move Too <ArrowRight className="ml-2 h-4 w-4" /></Button></Link>
+          </div>
+        </div>
+      </section>
+      <SharedFooter />
     </>
   );
 }

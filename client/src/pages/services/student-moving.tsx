@@ -1,936 +1,269 @@
-import { useState, useEffect } from "react";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
-import {
-  Phone,
-  CheckCircle2,
-  GraduationCap,
-  DollarSign,
-  Shield,
-  Clock,
-  Backpack,
-  Star,
-  ArrowRight,
-  Mail,
-  User,
-  ChevronRight,
-  ChevronLeft,
-  Building2,
-  Calendar,
-  Percent,
-  Loader2,
-  Home,
-  Box,
-  Package,
-  Warehouse,
-  Truck,
-  Heart,
-  Zap,
-  Award,
-  Timer,
-  Users,
-  ThumbsUp,
-  MapPin,
-  Sparkles,
-} from "lucide-react";
-import { Link } from "wouter";
+import { useState } from "react";
 import { Helmet } from "react-helmet";
+import { Link } from "wouter";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import { SharedNavigation } from "@/components/shared-navigation";
 import { SharedFooter } from "@/components/shared-footer";
-import ServiceQuoteForm from "@/components/service-quote-form";
-import { WorkSafeBadge } from "@/components/worksafe-badge";
-import { useToast } from "@/hooks/use-toast";
-import { apiRequest } from "@/lib/queryClient";
-import studentMovingVideo from "@assets/generated_videos/student_moving_vancouver_campus.mp4";
+import {
+  Phone, ArrowRight, CheckCircle2, MapPin,
+  Star, ChevronDown, GraduationCap, Clock, DollarSign, Package
+} from "lucide-react";
+import studentHeroImg from "@assets/generated_images/student_moving_hero.png";
+
+const UNIVERSITIES = [
+  { name: "University of Ottawa", area: "Sandy Hill / Lowertown", desc: "We know the narrow streets and elevator booking requirements of Sandy Hill. Frequent moves to Vanier, Hintonburg, and Centretown for upper-year students." },
+  { name: "Carleton University", area: "Glebe / Ottawa South", desc: "Carleton's campus is in the south end. We move students to Glebe, Ottawa South, Barrhaven, and Nepean neighbourhoods throughout the year." },
+  { name: "Algonquin College", area: "Woodroffe / College Square", desc: "Algonquin students move to Nepean, Bells Corners, and Kanata. We handle these suburban routes regularly and know the building access requirements." },
+  { name: "Dominican University", area: "Westboro", desc: "Small campus, big neighbourhood. Westboro's older buildings have their own moving quirks — no elevator, narrow stairwells. We've done it many times." },
+  { name: "Heritage College (Gatineau)", area: "Hull / Gatineau", desc: "We cross the river for Gatineau college moves. Quebec French coordination and Outaouais building rules are familiar territory for our team." },
+];
+
+const PACKAGES = [
+  {
+    name: "Dorm Package",
+    price: "$155/hr (2 movers)",
+    min: "2-hour minimum",
+    best: "Dorm rooms & studio apartments",
+    features: ["2 movers + truck", "2-hour minimum", "Dorm setup expertise", "Fast & efficient", "Weekday & weekend"],
+    highlight: false,
+  },
+  {
+    name: "Student Apartment Package",
+    price: "$155/hr (2 movers)",
+    min: "3-hour minimum",
+    best: "1–2 bedroom student apartments",
+    features: ["2 movers + truck", "3-hour minimum", "Elevator coordination", "Furniture assembly", "All Ottawa campuses"],
+    highlight: true,
+  },
+  {
+    name: "Off-Campus Home Package",
+    price: "$195/hr (3 movers)",
+    min: "3-hour minimum",
+    best: "Shared houses & larger apartments",
+    features: ["3 movers + truck", "3-hour minimum", "Shared home experience", "Multi-room organization", "Appliance moving"],
+    highlight: false,
+  },
+];
+
+const TIPS = [
+  { title: "Book Early for September Moves", desc: "Ottawa's September 1st is the biggest moving day of the year — thousands of students move simultaneously. Book your student move 4–6 weeks in advance for guaranteed availability." },
+  { title: "Know Your Building's Rules", desc: "Most Ottawa apartment buildings require elevator reservations and restrict moving to certain hours (often 8am–8pm). We handle this coordination for you — just give us the building management contact." },
+  { title: "Declutter Before the Move", desc: "Student moves are the perfect opportunity to donate what you're no longer using. Fewer items = faster move = lower final cost. Ottawa's Value Village and Habitat for Humanity accept furniture donations." },
+  { title: "Label Boxes by Room", desc: "Even for a small student apartment, labelling boxes by room makes unloading dramatically faster. Our crew places boxes in the right room, which saves time at the end of a long moving day." },
+  { title: "Parking Matters Downtown", desc: "Downtown Ottawa and Sandy Hill have strict parking regulations. We arrange temporary moving truck permits with the City of Ottawa where required — this is included in your move." },
+  { title: "Consider a Weekday Move", desc: "Weekend student moves are the most expensive because demand is highest. If you have flexibility, a Tuesday or Wednesday move is typically 20–30% faster due to lower traffic and building elevator availability." },
+];
+
+const FAQS = [
+  { q: "How much does student moving in Ottawa cost?", a: "Student moves in Ottawa start at $155/hr with a 2-hour minimum (dorm moves) or 3-hour minimum (apartments). A typical 1-bedroom student apartment move in Ottawa runs 3–4 hours, totalling $465–$620. We offer a 10% student discount — just show your valid student ID at booking. Moving a dorm room or bachelor apartment usually takes 2–3 hours." },
+  { q: "Do you offer student moving discounts?", a: "Yes. We offer a 10% student discount on all moves booked with a valid university or college student card (uOttawa, Carleton, Algonquin, or any Canadian institution). Mention the discount when booking — it's applied directly to your invoice." },
+  { q: "How far in advance should I book a September student move?", a: "For moves around September 1st (Ottawa's peak student moving day), book 4–6 weeks in advance. Availability fills up quickly in the last two weeks of August and first week of September. For May–August moves and January semester moves, 2–3 weeks in advance is typically sufficient." },
+  { q: "Can you move a dorm room in a short time?", a: "Yes. Most dorm room moves in Ottawa take 2–3 hours with our 2-mover team. Dorms typically have less furniture — a bed, desk, dresser, and boxes. We've become very efficient at navigating university residence hallways, elevators, and loading areas." },
+  { q: "Do you move in the middle of lease terms?", a: "Yes. We move students year-round — not just September and May. Mid-year moves between semesters, moving back home for the summer, or moving mid-lease for any reason. Call (613) 600-4000 for availability." },
+  { q: "What if my new building won't let me move until 9am?", a: "Building move-in restrictions are very common in Ottawa — most buildings require elevator bookings and have specific move hours. We work around these restrictions and coordinate with building management on your behalf. Just provide the building management contact when you book." },
+];
 
 export default function StudentMoving() {
-  const { toast } = useToast();
-  const [activeTestimonial, setActiveTestimonial] = useState(0);
-  const [activeTab, setActiveTab] = useState(0);
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    school: "",
-    message: "",
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    
-    try {
-      const response = await apiRequest("POST", "/api/quote-request", {
-        ...formData,
-        serviceType: "Student Moving",
-      });
-      
-      toast({
-        title: "Quote Request Submitted!",
-        description: "We'll contact you within 1 hour with your student discount quote.",
-      });
-      setFormData({ name: "", email: "", phone: "", school: "", message: "" });
-    } catch (error: any) {
-      toast({
-        title: "Submission Failed",
-        description: error.message || "Please try again or call us directly at (613) 600-4000",
-        variant: "destructive",
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
-  const schemaData = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "name": "Student Moving Services Ottawa",
-    "provider": {
-      "@type": "MovingCompany",
-      "name": "Prestige Moving Ottawa",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "50 Colonnade Rd Unit 200B",
-        "postalCode": "K2E 7J6",
-        "addressLocality": "Ottawa",
-        "addressRegion": "ON",
-        "addressCountry": "CA"
-      },
-      "telephone": "(613) 600-4000",
-      "priceRange": "$",
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "5.0",
-        "reviewCount": "350"
-      }
-    },
-    "areaServed": [
-      { "@type": "City", "name": "Ottawa" },
-      { "@type": "City", "name": "Kanata" },
-      { "@type": "City", "name": "Orleans" },
-      { "@type": "City", "name": "Nepean" },
-      { "@type": "City", "name": "Gatineau" }
-    ],
-    "description": "Affordable student moving services in Ottawa. 15% student discount for uOttawa, Carleton, and Algonquin students. Dorm and apartment moves with professional care."
-  };
-
-  const faqData = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "How much is the student discount?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Students with valid ID receive 15% off our regular rates. Additional discounts available for group bookings and mid-month moves."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Do you move students from uOttawa residence?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes! We specialize in uOttawa moves from 90U, Rideau, Henderson, and all other residences. We're familiar with loading zones and building protocols."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Can you move me on short notice?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "We often accommodate last-minute bookings, especially during non-peak times. We've helped many students with next-day moves!"
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What if I only have a few items?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "No move is too small! Our student mini-move special starts at just $199 for small loads."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Do you help with international student moves?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Absolutely! We help international students arriving and leaving Ottawa, with storage solutions for semester breaks."
-        }
-      }
-    ]
-  };
-
-  const testimonials = [
-    { name: "Priya K.", location: "uOttawa", text: "Best student moving service! They moved my entire dorm room to my new apartment in Sandy Hill in just 2 hours. Super affordable with the student discount!", rating: 5, date: "2 weeks ago" },
-    { name: "Marcus T.", location: "Carleton", text: "These guys understand student budgets. Fast, careful, and my furniture arrived without a scratch. Highly recommend for any student move!", rating: 5, date: "1 month ago" },
-    { name: "Emma L.", location: "Algonquin", text: "Moving from residence was stressful but Prestige made it easy. They knew exactly where to park and how to use the elevators. Very professional!", rating: 5, date: "3 weeks ago" },
-    { name: "Jason W.", location: "La Cité", text: "My roommates and I all moved together and got a group discount. Saved so much money! They handled our gaming setups with extra care.", rating: 5, date: "1 week ago" },
-    { name: "Sofia R.", location: "St. Paul University", text: "As an international student, I was worried about moving. The team was so helpful and patient. They even helped with furniture assembly!", rating: 5, date: "2 months ago" }
-  ];
-
-  const serviceTypes = [
-    {
-      title: "Dorm Moves",
-      icon: GraduationCap,
-      description: "Expert residence and dorm moving specialists",
-      features: ["Elevator booking handled", "Loading zone knowledge", "Quick checkout turnaround", "Move-in/move-out timing"]
-    },
-    {
-      title: "Apartment Moves",
-      icon: Building2,
-      description: "Basement suites to high-rise apartments",
-      features: ["Basement suite access", "Shared rental transitions", "Furniture disassembly", "Stair-friendly equipment"]
-    },
-    {
-      title: "Cross-City Moves",
-      icon: Truck,
-      description: "Moving anywhere in Greater Ottawa",
-      features: ["uOttawa to Downtown", "Carleton to Kanata", "Between campuses", "Any Ottawa area"]
-    },
-    {
-      title: "Storage Options",
-      icon: Warehouse,
-      description: "Summer storage between semesters",
-      features: ["Climate-controlled units", "Flexible rental terms", "Pick-up and delivery", "Secure 24/7 access"]
-    }
-  ];
-
-  const campuses = [
-    { name: "uOttawa", full: "University of Ottawa", areas: "Sandy Hill, Byward Market" },
-    { name: "Carleton", full: "Carleton University", areas: "Old Ottawa South, The Glebe" },
-    { name: "Algonquin", full: "Algonquin College", areas: "Nepean, Barrhaven" },
-    { name: "La Cité", full: "La Cité collégiale", areas: "Orleans, Vanier" },
-    { name: "St. Paul", full: "Saint Paul University", areas: "Sandy Hill" },
-    { name: "Dominican", full: "Dominican University College", areas: "Centretown" },
-    { name: "Willis", full: "Willis College", areas: "Downtown Ottawa" },
-    { name: "Cégep", full: "Cégep Heritage College", areas: "Gatineau" },
-  ];
-
-  const faqs = [
-    {
-      question: "How much is the student discount?",
-      answer: "Students with valid ID receive 15% off our regular rates. Additional discounts are available for group bookings (multiple students moving on the same day) and mid-month moves when demand is lower. Ask about our semester-end specials!"
-    },
-    {
-      question: "Do you move students from uOttawa residence?",
-      answer: "Yes! We specialize in uOttawa moves from all residences including 90U, Rideau, Henderson, Marchand, Stanton, and Thompson. We're familiar with all loading zones, elevator booking requirements, and building protocols."
-    },
-    {
-      question: "Can you move me on short notice?",
-      answer: "We understand student schedules can be unpredictable. We often accommodate last-minute bookings, especially during non-peak times. Call us and we'll do our best to fit you in - we've helped many students with next-day moves!"
-    },
-    {
-      question: "What if I only have a few items?",
-      answer: "No move is too small! We offer affordable minimum rates for students with just a few items like a bed, desk, and boxes. Our student mini-move special starts at just $199 for small loads."
-    },
-    {
-      question: "Can you help with international student moves?",
-      answer: "Absolutely! We help international students both arriving to Ottawa and leaving at the end of their studies. We can also connect you with storage solutions if you're traveling between semesters."
-    }
-  ];
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveTestimonial((prev) => (prev + 1) % testimonials.length);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, [testimonials.length]);
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [activeUni, setActiveUni] = useState(0);
 
   return (
     <>
       <Helmet>
-        <title>Student Moving Services Ottawa | 15% Discount uOttawa, Carleton, Algonquin Movers | Prestige Moving</title>
-        <meta name="description" content="Affordable student moving services in Ottawa. 15% student discount for uOttawa, Carleton, Algonquin students. Dorm and apartment moves starting at $199. WSIB certified. Get your free quote!" />
-        <meta name="keywords" content="student moving Ottawa, uOttawa movers, Carleton moving service, Algonquin student movers, affordable student moving, dorm moving Ottawa, student discount movers, La Cité moving, St. Paul University movers" />
-        <meta property="og:title" content="Student Moving Services Ottawa | 15% Student Discount | Prestige Moving" />
-        <meta property="og:description" content="Affordable student moving in Ottawa. 15% discount for university students. Mini-moves from $199. Professional, budget-friendly service for dorms and apartments." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://prestigemoving.ca/services/student-moving" />
-        <meta property="og:image" content="https://prestigemoving.ca/og-image.png" />
-        <meta property="og:site_name" content="Prestige Moving Ottawa" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Student Moving Services Ottawa | Prestige Moving" />
-        <meta name="twitter:description" content="15% student discount on moving services. Dorms, apartments, cross-city moves." />
-        <meta name="twitter:image" content="https://prestigemoving.ca/og-image.png" />
+        <title>Student Movers Ottawa | Affordable University & College Moving | Prestige Moving</title>
+        <meta name="description" content="Affordable student moving in Ottawa. Moving from dorms, apartments, and shared houses near uOttawa, Carleton, Algonquin. 10% student discount. Starting at $155/hr. Call (613) 600-4000." />
+        <meta name="keywords" content="student movers Ottawa, university moving Ottawa, college moving Ottawa, uOttawa movers, Carleton movers, Algonquin movers, affordable movers Ottawa students" />
         <link rel="canonical" href="https://prestigemoving.ca/services/student-moving" />
-        <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
-        <script type="application/ld+json">{JSON.stringify(faqData)}</script>
+        <script type="application/ld+json">{JSON.stringify({ "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": FAQS.map(f => ({ "@type": "Question", "name": f.q, "acceptedAnswer": { "@type": "Answer", "text": f.a } })) })}</script>
       </Helmet>
+      <SharedNavigation />
 
-      <div className="min-h-screen bg-background">
-        <SharedNavigation />
-
-        {/* Hero Section */}
-        <section className="relative min-h-[85vh] flex items-center overflow-hidden">
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            className="absolute inset-0 w-full h-full object-cover"
-            data-testid="hero-video"
-          >
-            <source src={studentMovingVideo} type="video/mp4" />
-          </video>
-          <div className="absolute inset-0 bg-gradient-to-r from-[#1A2332] via-[#1A2332]/90 to-[#1A2332]/40" />
-          
-          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16">
-            <div className="max-w-2xl">
-              <div className="flex items-center gap-3 mb-6 flex-wrap">
-                <Badge className="bg-primary/20 text-primary border-primary/40 px-4 py-1.5">
-                  <GraduationCap className="h-4 w-4 mr-2" />
-                  Student Moving
-                </Badge>
-                <Badge className="bg-green-500/20 text-green-400 border-green-500/40">
-                  <Percent className="h-3 w-3 mr-1" />
-                  15% Student Discount
-                </Badge>
-              </div>
-
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-6 leading-[1.1]">
-                Affordable<br />
-                <span className="text-primary">Student Moves</span>
-              </h1>
-
-              <p className="text-xl md:text-2xl text-white/80 mb-8 leading-relaxed">
-                Budget-friendly moving for <span className="text-primary font-semibold">uOttawa, Carleton, Algonquin</span> and all Ottawa students. Mini-moves from $199.
-              </p>
-
-              <div className="flex flex-col sm:flex-row gap-4 mb-8">
-                <Link href="/book">
-                  <Button size="lg" className="text-lg font-bold px-8 py-7 shadow-xl shadow-primary/30 group" data-testid="button-hero-quote">
-                    Get Student Quote
-                    <ArrowRight className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" />
-                  </Button>
-                </Link>
-                <a href="tel:613-600-4000">
-                  <Button size="lg" variant="outline" className="text-lg font-bold px-8 py-7 border-2 border-white/40 text-white hover:bg-white/10 backdrop-blur-sm" data-testid="button-hero-call">
-                    <Phone className="h-5 w-5 mr-2" />
-                    (613) 600-4000
-                  </Button>
-                </a>
-              </div>
-
-              <div className="flex flex-wrap gap-6">
-                <WorkSafeBadge size="md" data-testid="badge-worksafe" />
-                <div className="flex items-center gap-2 text-white/70">
-                  <Award className="h-5 w-5 text-primary" />
-                  <span>5.0 Google Rating</span>
-                </div>
-                <div className="flex items-center gap-2 text-white/70">
-                  <Timer className="h-5 w-5 text-primary" />
-                  <span>1-Hour Quotes</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <ServiceQuoteForm defaultService="Student Moving" serviceName="Student Moving" />
-
-        {/* Stats Bar */}
-        <section className="bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-400 py-6">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-              {[
-                { value: "15%", label: "Student Discount" },
-                { value: "5,000+", label: "Students Moved" },
-                { value: "$199", label: "Mini-Move Start" },
-                { value: "5.0★", label: "Google Rating" }
-              ].map((stat, index) => (
-                <div key={index} data-testid={`stat-${stat.label.toLowerCase().replace(/\s+/g, '-')}`}>
-                  <div className="text-2xl md:text-4xl font-black text-[#1A2332]">{stat.value}</div>
-                  <div className="text-sm font-bold text-[#1A2332]/80 uppercase tracking-wide">{stat.label}</div>
-                </div>
+      {/* Hero */}
+      <section className="relative min-h-[520px] flex items-center overflow-hidden">
+        <div className="absolute inset-0">
+          <img src={studentHeroImg} alt="Students moving into university apartment in Ottawa" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#1A2332]/95 via-[#1A2332]/80 to-[#1A2332]/30" />
+        </div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+          <div className="max-w-2xl">
+            <div className="flex flex-wrap gap-2 mb-5">
+              {["10% Student Discount", "Starting $155/hr", "2-Hr Minimum Dorm Moves", "All Ottawa Campuses"].map(t => (
+                <Badge key={t} className="bg-[#C5A572]/20 text-[#C5A572] border border-[#C5A572]/30 text-xs font-semibold">{t}</Badge>
               ))}
             </div>
-          </div>
-        </section>
-
-        {/* About Our Student Moving Service */}
-        <section className="py-16 md:py-20 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div>
-                <Badge className="bg-primary/10 text-primary mb-4">About Our Service</Badge>
-                <h2 className="text-3xl md:text-4xl font-black text-foreground mb-6">
-                  Ottawa's Trusted Student Moving Experts
-                </h2>
-                <div className="space-y-4 text-muted-foreground">
-                  <p>
-                    Moving as a student shouldn't break the bank. As the <Link href="/" className="text-primary hover:underline">Ottawa movers</Link> students trust most, <strong>Prestige Moving</strong> offers specialized student moving services designed for tight budgets and busy schedules. Whether you're moving from a uOttawa dorm to an off-campus apartment, or relocating between cities for school, we've got you covered.
-                  </p>
-                  <p>
-                    Our team knows every campus in the National Capital Region - from uOttawa's Sandy Hill loading zones to Carleton's campus roads. We're familiar with residence move-out procedures, building protocols, and can work around your exam schedule.
-                  </p>
-                  <p>
-                    As a <strong>WSIB certified moving company</strong>, your belongings are fully protected. Show your student ID and receive 15% off your move, plus ask about group discounts when roommates book together!
-                  </p>
-                </div>
-                <div className="mt-8">
-                  <Link href="/book">
-                    <Button size="lg" className="font-bold" data-testid="button-about-quote">
-                      Get Your Student Quote
-                      <ArrowRight className="h-5 w-5 ml-2" />
-                    </Button>
-                  </Link>
-                </div>
-              </div>
-              
-              <div className="relative rounded-2xl overflow-hidden h-[400px] bg-gradient-to-br from-primary/20 to-primary/5">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center p-8">
-                    <div className="h-24 w-24 bg-primary rounded-2xl flex items-center justify-center mx-auto mb-6">
-                      <GraduationCap className="h-12 w-12 text-[#1A2332]" />
-                    </div>
-                    <h3 className="text-2xl font-bold mb-2">Student Special</h3>
-                    <p className="text-4xl font-black text-primary mb-2">15% OFF</p>
-                    <p className="text-muted-foreground">With valid student ID</p>
-                  </div>
-                </div>
-                <div className="absolute bottom-6 left-6 right-6">
-                  <div className="flex items-center gap-3 bg-white/90 backdrop-blur rounded-xl p-4">
-                    <div className="flex -space-x-2">
-                      {[...Array(4)].map((_, i) => (
-                        <div key={i} className="h-10 w-10 rounded-full bg-primary border-2 border-white flex items-center justify-center">
-                          <Star className="h-4 w-4 text-[#1A2332] fill-[#1A2332]" />
-                        </div>
-                      ))}
-                    </div>
-                    <div>
-                      <div className="font-bold">5,000+ Students</div>
-                      <div className="text-sm text-muted-foreground">Trusted our moves</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Service Types Tabs */}
-        <section className="py-16 md:py-20 bg-[#1A2332]">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <Badge className="bg-primary/20 text-primary border-primary/30 mb-4">Our Services</Badge>
-              <h2 className="text-3xl md:text-4xl font-black text-white mb-4">
-                Student Moving Options
-              </h2>
-              <p className="text-lg text-white/60 max-w-2xl mx-auto">
-                Choose the service that fits your move and budget
-              </p>
-            </div>
-
-            {/* Tab Navigation */}
-            <div className="flex justify-center gap-2 mb-10 flex-wrap">
-              {serviceTypes.map((service, index) => {
-                const ServiceIcon = service.icon;
-                return (
-                  <button
-                    key={index}
-                    onClick={() => setActiveTab(index)}
-                    className={`group px-6 py-3 rounded-full font-semibold transition-all duration-300 flex items-center gap-2 ${
-                      activeTab === index 
-                        ? 'bg-primary text-[#1A2332] shadow-lg shadow-primary/30' 
-                        : 'bg-white/10 text-white hover:bg-white/20'
-                    }`}
-                    data-testid={`tab-${service.title.toLowerCase().replace(/\s+/g, '-')}`}
-                  >
-                    <ServiceIcon className="h-5 w-5" />
-                    {service.title}
-                  </button>
-                );
-              })}
-            </div>
-
-            {/* Active Service Content */}
-            <div className="bg-white/5 backdrop-blur border border-white/10 rounded-3xl p-8 md:p-12">
-              <div className="grid md:grid-cols-2 gap-8 items-center">
-                <div>
-                  <h3 className="text-2xl md:text-3xl font-black text-white mb-4">
-                    {serviceTypes[activeTab].title}
-                  </h3>
-                  <p className="text-lg text-white/70 mb-6">
-                    {serviceTypes[activeTab].description}
-                  </p>
-
-                  <div className="grid grid-cols-2 gap-4 mb-8">
-                    {serviceTypes[activeTab].features.map((feature, i) => (
-                      <div key={i} className="flex items-center gap-3">
-                        <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0" />
-                        <span className="text-white">{feature}</span>
-                      </div>
-                    ))}
-                  </div>
-
-                  <Link href="/book">
-                    <Button size="lg" className="font-bold" data-testid="button-service-quote">
-                      Get a Quote
-                      <ArrowRight className="h-5 w-5 ml-2" />
-                    </Button>
-                  </Link>
-                </div>
-                
-                <div className="relative rounded-2xl overflow-hidden h-[300px] bg-gradient-to-br from-primary/30 to-primary/10 flex items-center justify-center">
-                  <div className="text-center">
-                    {(() => {
-                      const ActiveIcon = serviceTypes[activeTab].icon;
-                      return <ActiveIcon className="h-24 w-24 text-primary mx-auto mb-4" />;
-                    })()}
-                    <p className="text-white font-semibold text-xl">{serviceTypes[activeTab].title}</p>
-                    <p className="text-white/60">Starting at $199</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Why Students Choose Us */}
-        <section className="py-16 md:py-20 bg-gray-50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <Badge className="bg-primary/10 text-primary mb-4">Why Choose Us</Badge>
-              <h2 className="text-3xl md:text-4xl font-black text-foreground mb-4">
-                Why Students Choose Prestige Moving
-              </h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Trusted by thousands of Ottawa students for affordable, hassle-free moves
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {[
-                { icon: DollarSign, title: "15% Student Discount", description: "Show your valid student ID and save 15% on any move. Mini-moves start at just $199!", color: "from-emerald-500 to-emerald-600" },
-                { icon: Users, title: "Group Booking Savings", description: "Moving with roommates? Book together and save even more with our group discounts.", color: "from-blue-500 to-blue-600" },
-                { icon: Clock, title: "Flexible Scheduling", description: "We work around your classes, exams, and semester end dates. Even last-minute moves!", color: "from-violet-500 to-violet-600" },
-                { icon: ThumbsUp, title: "Campus Experts", description: "We know every campus loading zone, elevator protocol, and building procedure.", color: "from-amber-500 to-amber-600" },
-                { icon: Shield, title: "Fully Insured", description: "WSIB certified. Your electronics, furniture, and belongings are protected.", color: "from-rose-500 to-rose-600" },
-                { icon: Zap, title: "Quick Turnarounds", description: "Same-day quotes and fast moves - perfect for tight checkout deadlines.", color: "from-primary to-amber-600" }
-              ].map((item, index) => (
-                <Card key={index} className="border-2 hover:border-primary/50 transition-all hover:shadow-lg" data-testid={`card-why-${item.title.toLowerCase().replace(/\s+/g, '-')}`}>
-                  <CardContent className="p-6">
-                    <div className={`h-14 w-14 bg-gradient-to-br ${item.color} rounded-xl flex items-center justify-center mb-4`}>
-                      <item.icon className="h-7 w-7 text-white" />
-                    </div>
-                    <h3 className="text-xl font-bold mb-2">{item.title}</h3>
-                    <p className="text-muted-foreground">{item.description}</p>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Campus Areas Section */}
-        <section className="py-16 md:py-20 bg-[#1A2332]">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-10">
-              <Badge className="bg-primary/20 text-primary border-primary/30 mb-4">Coverage</Badge>
-              <h2 className="text-3xl md:text-4xl font-black text-white mb-4">
-                Campus Areas We Serve
-              </h2>
-              <p className="text-lg text-white/60">
-                Expert movers for every school in National Capital Region
-              </p>
-            </div>
-
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              {campuses.map((campus, index) => (
-                <Card key={index} className="bg-white/5 border-white/10 hover:bg-white/10 transition-colors" data-testid={`card-campus-${campus.name.toLowerCase()}`}>
-                  <CardContent className="p-6 text-center">
-                    <div className="h-12 w-12 bg-primary/20 rounded-xl flex items-center justify-center mx-auto mb-3">
-                      <GraduationCap className="h-6 w-6 text-primary" />
-                    </div>
-                    <h3 className="text-xl font-bold text-white mb-1">{campus.name}</h3>
-                    <p className="text-sm text-white/60 mb-2">{campus.full}</p>
-                    <div className="flex items-center justify-center gap-1 text-xs text-primary">
-                      <MapPin className="h-3 w-3" />
-                      {campus.areas}
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Testimonials Carousel */}
-        <section className="py-16 md:py-20 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <Badge className="bg-primary/10 text-primary mb-4">Reviews</Badge>
-              <h2 className="text-3xl md:text-4xl font-black text-foreground mb-4">
-                What Students Say
-              </h2>
-              <div className="flex items-center justify-center gap-2 text-muted-foreground">
-                <div className="flex">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-5 w-5 fill-primary text-primary" />
-                  ))}
-                </div>
-                <span>Based on 350+ Google Reviews</span>
-              </div>
-            </div>
-
-            <div className="relative max-w-4xl mx-auto">
-              <Card className="border-2 shadow-xl">
-                <CardContent className="p-8 md:p-12">
-                  <div className="flex gap-1 mb-6">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="h-6 w-6 fill-primary text-primary" />
-                    ))}
-                  </div>
-                  <p className="text-xl md:text-2xl text-foreground mb-8 leading-relaxed" data-testid="text-testimonial">
-                    "{testimonials[activeTestimonial].text}"
-                  </p>
-                  <div className="flex items-center justify-between flex-wrap gap-4">
-                    <div className="flex items-center gap-4">
-                      <div className="h-14 w-14 bg-gradient-to-br from-primary to-amber-600 rounded-full flex items-center justify-center text-white font-bold text-xl">
-                        {testimonials[activeTestimonial].name[0]}
-                      </div>
-                      <div>
-                        <p className="font-bold text-lg" data-testid="text-testimonial-name">{testimonials[activeTestimonial].name}</p>
-                        <p className="text-muted-foreground flex items-center gap-1">
-                          <GraduationCap className="h-4 w-4" /> {testimonials[activeTestimonial].location}
-                        </p>
-                      </div>
-                    </div>
-                    <span className="text-sm text-muted-foreground">{testimonials[activeTestimonial].date}</span>
-                  </div>
-                </CardContent>
-              </Card>
-
-              <div className="flex items-center justify-center gap-4 mt-8">
-                <button 
-                  onClick={() => setActiveTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length)}
-                  className="w-12 h-12 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors"
-                  aria-label="Previous testimonial"
-                  data-testid="button-testimonial-prev"
-                >
-                  <ChevronLeft className="h-6 w-6" />
-                </button>
-                <div className="flex gap-2">
-                  {testimonials.map((_, index) => (
-                    <button
-                      key={index}
-                      onClick={() => setActiveTestimonial(index)}
-                      className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                        index === activeTestimonial ? 'bg-primary w-8' : 'bg-gray-300 hover:bg-gray-400'
-                      }`}
-                      aria-label={`Go to testimonial ${index + 1}`}
-                      data-testid={`button-testimonial-dot-${index}`}
-                    />
-                  ))}
-                </div>
-                <button 
-                  onClick={() => setActiveTestimonial((prev) => (prev + 1) % testimonials.length)}
-                  className="w-12 h-12 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors"
-                  aria-label="Next testimonial"
-                  data-testid="button-testimonial-next"
-                >
-                  <ChevronRight className="h-6 w-6" />
-                </button>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* FAQ Section */}
-        <section className="py-16 md:py-20 bg-gray-50">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <Badge className="bg-primary/10 text-primary mb-4">FAQ</Badge>
-              <h2 className="text-3xl md:text-4xl font-black text-foreground mb-4">
-                Student Moving FAQs
-              </h2>
-              <p className="text-lg text-muted-foreground">
-                Common questions from students about our moving services
-              </p>
-            </div>
-
-            <Accordion type="single" collapsible className="space-y-4">
-              {faqs.map((faq, index) => (
-                <AccordionItem 
-                  key={index} 
-                  value={`item-${index}`}
-                  className="bg-white border-2 rounded-lg px-6 hover:border-primary/50 transition-colors"
-                  data-testid={`accordion-faq-${index}`}
-                >
-                  <AccordionTrigger className="text-left hover:no-underline py-6">
-                    <span className="font-semibold text-foreground">{faq.question}</span>
-                  </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground pb-6">
-                    {faq.answer}
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
-          </div>
-        </section>
-
-        {/* Related Services */}
-        <section className="py-16 md:py-20 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <Badge className="bg-primary/10 text-primary mb-4">More Services</Badge>
-              <h2 className="text-3xl md:text-4xl font-black text-foreground mb-4">
-                Related Services
-              </h2>
-              <p className="text-lg text-muted-foreground">
-                Additional services to make your student move complete
-              </p>
-            </div>
-            
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              <Link href="/services/residential-moving">
-                <Card className="border-2 hover:border-primary hover:shadow-lg transition-all h-full" data-testid="card-related-residential">
-                  <CardContent className="p-6">
-                    <Home className="h-8 w-8 text-primary mb-4" />
-                    <h3 className="font-bold text-lg mb-2">Residential Moving</h3>
-                    <p className="text-muted-foreground">Full home moving services across Ottawa</p>
-                  </CardContent>
-                </Card>
-              </Link>
-              <Link href="/services/packing-services">
-                <Card className="border-2 hover:border-primary hover:shadow-lg transition-all h-full" data-testid="card-related-packing">
-                  <CardContent className="p-6">
-                    <Package className="h-8 w-8 text-primary mb-4" />
-                    <h3 className="font-bold text-lg mb-2">Packing Services</h3>
-                    <p className="text-muted-foreground">Let us pack for you - save time before exams</p>
-                  </CardContent>
-                </Card>
-              </Link>
-              <Link href="/services/storage-solutions">
-                <Card className="border-2 hover:border-primary hover:shadow-lg transition-all h-full" data-testid="card-related-storage">
-                  <CardContent className="p-6">
-                    <Warehouse className="h-8 w-8 text-primary mb-4" />
-                    <h3 className="font-bold text-lg mb-2">Storage Solutions</h3>
-                    <p className="text-muted-foreground">Store your items during summer break</p>
-                  </CardContent>
-                </Card>
-              </Link>
-              <Link href="/services/moving-supplies">
-                <Card className="border-2 hover:border-primary hover:shadow-lg transition-all h-full" data-testid="card-related-supplies">
-                  <CardContent className="p-6">
-                    <Box className="h-8 w-8 text-primary mb-4" />
-                    <h3 className="font-bold text-lg mb-2">Moving Supplies</h3>
-                    <p className="text-muted-foreground">Boxes and packing materials delivered</p>
-                  </CardContent>
-                </Card>
-              </Link>
-              <Link href="/services/long-distance-moving">
-                <Card className="border-2 hover:border-primary hover:shadow-lg transition-all h-full" data-testid="card-related-long-distance">
-                  <CardContent className="p-6">
-                    <Truck className="h-8 w-8 text-primary mb-4" />
-                    <h3 className="font-bold text-lg mb-2">Long Distance Moving</h3>
-                    <p className="text-muted-foreground">Moving home after graduation</p>
-                  </CardContent>
-                </Card>
-              </Link>
-              <Link href="/services/specialty-item-moving">
-                <Card className="border-2 hover:border-primary hover:shadow-lg transition-all h-full" data-testid="card-related-specialty">
-                  <CardContent className="p-6">
-                    <Sparkles className="h-8 w-8 text-primary mb-4" />
-                    <h3 className="font-bold text-lg mb-2">Specialty Items</h3>
-                    <p className="text-muted-foreground">Gaming setups, instruments, and more</p>
-                  </CardContent>
-                </Card>
-              </Link>
-            </div>
-          </div>
-        </section>
-
-        {/* CTA Form Section */}
-        <section className="py-16 md:py-20 bg-[#1A2332]">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div>
-                <Badge className="mb-4 bg-primary text-[#1A2332]">Student Special</Badge>
-                <h2 className="text-3xl md:text-4xl font-black text-white mb-6">
-                  Get Your Student Moving Quote
-                </h2>
-                <p className="text-white/70 text-lg mb-8">
-                  Show your student ID and save 15% on your move. Plus, ask about our group booking discounts for roommates moving together!
-                </p>
-                <ul className="space-y-4">
-                  <li className="flex items-center gap-3 text-white">
-                    <CheckCircle2 className="h-5 w-5 text-primary" />
-                    <span>15% student discount</span>
-                  </li>
-                  <li className="flex items-center gap-3 text-white">
-                    <CheckCircle2 className="h-5 w-5 text-primary" />
-                    <span>Mini-move specials from $199</span>
-                  </li>
-                  <li className="flex items-center gap-3 text-white">
-                    <CheckCircle2 className="h-5 w-5 text-primary" />
-                    <span>Response within 1 hour</span>
-                  </li>
-                  <li className="flex items-center gap-3 text-white">
-                    <CheckCircle2 className="h-5 w-5 text-primary" />
-                    <span>WSIB certified</span>
-                  </li>
-                </ul>
-              </div>
-
-              <Card className="bg-white">
-                <CardHeader>
-                  <CardTitle className="text-2xl">Request Student Quote</CardTitle>
-                  <CardDescription>Fill out the form for your discounted rate</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <form onSubmit={handleSubmit} className="space-y-4">
-                    <div className="space-y-2">
-                      <Label htmlFor="name">Full Name</Label>
-                      <div className="relative">
-                        <User className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                        <Input
-                          id="name"
-                          placeholder="Your name"
-                          className="pl-10"
-                          value={formData.name}
-                          onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                          required
-                          data-testid="input-name"
-                        />
-                      </div>
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="school">School/University</Label>
-                      <div className="relative">
-                        <GraduationCap className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                        <Input
-                          id="school"
-                          placeholder="e.g., UBC, SFU, BCIT"
-                          className="pl-10"
-                          value={formData.school}
-                          onChange={(e) => setFormData({ ...formData, school: e.target.value })}
-                          required
-                          data-testid="input-school"
-                        />
-                      </div>
-                    </div>
-                    <div className="grid grid-cols-2 gap-4">
-                      <div className="space-y-2">
-                        <Label htmlFor="email">Email</Label>
-                        <div className="relative">
-                          <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                          <Input
-                            id="email"
-                            type="email"
-                            placeholder="student@email.com"
-                            className="pl-10"
-                            value={formData.email}
-                            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                            required
-                            data-testid="input-email"
-                          />
-                        </div>
-                      </div>
-                      <div className="space-y-2">
-                        <Label htmlFor="phone">Phone</Label>
-                        <div className="relative">
-                          <Phone className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                          <Input
-                            id="phone"
-                            type="tel"
-                            placeholder="604-XXX-XXXX"
-                            className="pl-10"
-                            value={formData.phone}
-                            onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                            required
-                            data-testid="input-phone"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="message">Move Details</Label>
-                      <Textarea
-                        id="message"
-                        placeholder="Tell us about your move: current location, destination, move date, items..."
-                        rows={4}
-                        value={formData.message}
-                        onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                        data-testid="input-message"
-                      />
-                    </div>
-                    <Button 
-                      type="submit" 
-                      className="w-full py-6"
-                      data-testid="button-submit-quote"
-                      disabled={isSubmitting}
-                    >
-                      {isSubmitting ? (
-                        <>
-                          <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                          Submitting...
-                        </>
-                      ) : (
-                        <>
-                          Get Student Quote
-                          <ArrowRight className="ml-2 h-4 w-4" />
-                        </>
-                      )}
-                    </Button>
-                  </form>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </section>
-
-        {/* Final CTA Section */}
-        <section className="py-16 md:py-20 bg-gradient-to-r from-primary via-amber-500 to-primary relative overflow-hidden">
-          <div className="absolute inset-0 opacity-10">
-            <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl" />
-            <div className="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl" />
-          </div>
-          
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-            <div className="inline-flex items-center gap-2 bg-[#1A2332]/20 backdrop-blur rounded-full px-4 py-2 mb-6">
-              <GraduationCap className="h-4 w-4 text-[#1A2332]" />
-              <span className="text-[#1A2332] font-semibold text-sm">15% Student Discount</span>
-            </div>
-            
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-[#1A2332] mb-6">
-              Ready for Your Student Move?
-            </h2>
-            
-            <p className="text-xl text-[#1A2332]/80 mb-8 max-w-2xl mx-auto">
-              Join 5,000+ Ottawa students who trusted us with their move. Get your personalized quote in under 1 hour.
+            <h1 className="text-4xl md:text-5xl font-black text-white mb-5 leading-tight">
+              Student Movers Ottawa —<br />
+              <span className="text-[#C5A572]">Affordable, Fast, Stress-Free</span>
+            </h1>
+            <p className="text-white/80 text-lg mb-8 leading-relaxed">
+              Dorm moves, apartment moves, shared house moves — near uOttawa, Carleton, Algonquin, and every Ottawa campus. 10% student discount, low hourly rate, and a crew that knows how to navigate Ottawa building elevators, narrow hallways, and September chaos.
             </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/book">
-                <Button size="lg" className="bg-[#1A2332] hover:bg-[#1A2332]/90 text-white text-lg font-bold px-10 py-7 shadow-xl" data-testid="button-cta-quote">
-                  Get Student Quote
-                  <ArrowRight className="h-5 w-5 ml-2" />
-                </Button>
-              </Link>
-              <a href="tel:613-600-4000">
-                <Button size="lg" variant="outline" className="border-2 border-[#1A2332] text-[#1A2332] hover:bg-[#1A2332] hover:text-white text-lg font-bold px-10 py-7" data-testid="button-cta-call">
-                  <Phone className="h-5 w-5 mr-2" />
-                  (613) 600-4000
-                </Button>
-              </a>
+            <div className="flex flex-wrap gap-3">
+              <Link href="/book"><Button className="bg-[#C5A572] text-[#1A2332] font-bold text-base px-6">Book Student Move <ArrowRight className="ml-2 h-4 w-4" /></Button></Link>
+              <a href="tel:6136004000"><Button variant="outline" className="text-white border-white/30 bg-white/10 text-base px-6"><Phone className="h-4 w-4 mr-2" />(613) 600-4000</Button></a>
             </div>
           </div>
-        </section>
-        <SharedFooter />
+        </div>
+      </section>
+
+      {/* Trust bar */}
+      <div className="bg-[#C5A572] py-3">
+        <div className="max-w-7xl mx-auto px-4 flex flex-wrap items-center justify-center gap-6 text-[#1A2332] text-sm font-semibold">
+          {["10% Student Discount", "All Ottawa Campuses", "September Move Specialists", "2-Hr Minimum for Dorms", "Elevator Booking Included"].map(t => (
+            <span key={t} className="flex items-center gap-1.5"><CheckCircle2 className="h-3.5 w-3.5" />{t}</span>
+          ))}
+        </div>
       </div>
+
+      {/* Pricing Packages */}
+      <section className="bg-white py-16">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl font-bold text-[#1A2332] mb-3">Student Moving Packages</h2>
+            <p className="text-gray-600 max-w-xl mx-auto">Transparent hourly pricing. 10% student discount applied to all packages with valid student ID. No hidden fees.</p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6">
+            {PACKAGES.map(pkg => (
+              <div key={pkg.name} className={`rounded-2xl border p-7 ${pkg.highlight ? "bg-[#1A2332] border-[#1A2332] text-white shadow-xl" : "bg-white border-gray-200"}`}>
+                {pkg.highlight && <div className="text-center mb-4"><Badge className="bg-[#C5A572]/20 text-[#C5A572] border-[#C5A572]/30 text-xs">Most Popular</Badge></div>}
+                <h3 className={`text-lg font-black mb-1 ${pkg.highlight ? "text-white" : "text-[#1A2332]"}`}>{pkg.name}</h3>
+                <div className="text-[#C5A572] font-black text-xl mb-1">{pkg.price}</div>
+                <div className={`text-xs mb-1 ${pkg.highlight ? "text-white/60" : "text-gray-500"}`}>{pkg.min}</div>
+                <div className={`text-xs font-medium mb-5 ${pkg.highlight ? "text-white/70" : "text-gray-600"}`}>{pkg.best}</div>
+                <div className="space-y-2 mb-6">
+                  {pkg.features.map(f => (
+                    <div key={f} className="flex items-center gap-2">
+                      <CheckCircle2 className="h-3.5 w-3.5 text-[#C5A572] shrink-0" />
+                      <span className={`text-sm ${pkg.highlight ? "text-white/80" : "text-gray-700"}`}>{f}</span>
+                    </div>
+                  ))}
+                </div>
+                <Link href="/book" className="block">
+                  <Button className={`w-full font-bold ${pkg.highlight ? "bg-[#C5A572] text-[#1A2332]" : "bg-[#1A2332] text-white"}`}>Book This <ArrowRight className="ml-2 h-4 w-4" /></Button>
+                </Link>
+              </div>
+            ))}
+          </div>
+          <p className="text-center text-xs text-gray-500 mt-4">10% student discount applied at booking with valid student ID from any Canadian post-secondary institution.</p>
+        </div>
+      </section>
+
+      {/* Campus Guide */}
+      <section className="bg-gray-50 py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl font-bold text-[#1A2332] mb-3">Ottawa Campus Moving Guide</h2>
+            <p className="text-gray-600 max-w-xl mx-auto">We've moved thousands of students near every Ottawa campus. Each campus area has its own quirks — we know them all.</p>
+          </div>
+          <div className="flex flex-wrap gap-2 justify-center mb-6">
+            {UNIVERSITIES.map((u, i) => (
+              <button key={i} onClick={() => setActiveUni(i)} className={`px-4 py-2 rounded-xl text-sm font-semibold border transition-all ${activeUni === i ? "bg-[#1A2332] text-white border-[#1A2332]" : "bg-white text-gray-700 border-gray-200 hover-elevate"}`}>{u.name}</button>
+            ))}
+          </div>
+          <div className="bg-white rounded-2xl border border-gray-100 p-8 max-w-3xl mx-auto">
+            <div className="flex items-start gap-4">
+              <div className="w-12 h-12 bg-[#C5A572]/15 rounded-xl flex items-center justify-center shrink-0">
+                <GraduationCap className="h-6 w-6 text-[#C5A572]" />
+              </div>
+              <div>
+                <h3 className="text-xl font-bold text-[#1A2332] mb-1">{UNIVERSITIES[activeUni].name}</h3>
+                <div className="flex items-center gap-1.5 text-gray-500 text-sm mb-3"><MapPin className="h-3.5 w-3.5 text-[#C5A572]" />{UNIVERSITIES[activeUni].area}</div>
+                <p className="text-gray-700 leading-relaxed">{UNIVERSITIES[activeUni].desc}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Tips */}
+      <section className="bg-white py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl font-bold text-[#1A2332] mb-3">Tips for a Smooth Ottawa Student Move</h2>
+            <p className="text-gray-600 max-w-xl mx-auto">From booking to moving day — what Ottawa students need to know for a stress-free move.</p>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {TIPS.map(tip => (
+              <div key={tip.title} className="bg-gray-50 rounded-xl border border-gray-100 p-5">
+                <h3 className="font-bold text-[#1A2332] text-sm mb-2">{tip.title}</h3>
+                <p className="text-gray-600 text-sm leading-relaxed">{tip.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Long-form content */}
+      <section className="bg-gray-50 py-16">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl font-bold text-[#1A2332] mb-6">Student Moving in Ottawa — What You Need to Know</h2>
+          <div className="space-y-5 text-gray-700 leading-relaxed">
+            <p>Ottawa is a university city. Between the University of Ottawa, Carleton University, Algonquin College, Dominican University, and Heritage College across the river in Gatineau, tens of thousands of students call Ottawa home for the school year. Every September 1st, thousands of those students move simultaneously — making Ottawa's student moving season one of the most intense in Canada.</p>
+            <h3 className="text-xl font-bold text-[#1A2332] mt-8 mb-3">September 1st in Ottawa — What to Expect</h3>
+            <p>September 1st is not just a busy day in Ottawa — it's chaos. Most student leases run from September 1st to August 31st, which means the majority of Ottawa's student rental market turns over on a single day. Moving trucks are everywhere. Elevators are booked solid in Sandy Hill and downtown high-rises. Parking is impossible on Laurier and King Edward. If you're moving on or around September 1st and haven't booked 4–6 weeks in advance, you risk not finding available movers at all.</p>
+            <h3 className="text-xl font-bold text-[#1A2332] mt-8 mb-3">Ottawa's Student Neighbourhoods</h3>
+            <p>The most popular student neighbourhoods in Ottawa each have their own character and moving challenges. Sandy Hill (adjacent to uOttawa) is full of Victorian walk-ups and converted houses with narrow stairwells — no elevator, tight turns, old wooden floors that need protection. The Glebe and Ottawa South are popular for Carleton students, with older homes and street parking challenges. Lower Town and Vanier have more affordable rents and are increasingly popular with students from both campuses. Barrhaven and Nepean are common for Algonquin students who don't mind the commute.</p>
+            <h3 className="text-xl font-bold text-[#1A2332] mt-8 mb-3">How to Save Money on an Ottawa Student Move</h3>
+            <p>Student moves don't need to break the bank. Ways to reduce your moving cost in Ottawa: move on a weekday instead of weekend (buildings are less busy, movers are faster), declutter before moving day (fewer items = fewer hours = lower cost), have everything packed before the movers arrive (you only pay for moving, not packing time), and choose the right crew size for your home (a dorm room doesn't need 3 movers). Our 10% student discount is automatically applied when you book with a valid student ID.</p>
+            <p>Also moving long-distance from Ottawa at the end of your degree? See our <Link href="/services/long-distance-moving" className="text-[#C5A572] hover:underline">long distance moving</Link> service. Need packing help? See our <Link href="/services/packing-services" className="text-[#C5A572] hover:underline">packing services</Link> page.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="bg-white py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl font-bold text-[#1A2332] mb-8 text-center">Ottawa Students Recommend Prestige Moving</h2>
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              { name: "Priya S.", school: "uOttawa Student", review: "Moved from a Sandy Hill walk-up to a Centretown apartment. The crew handled the narrow stairs and no-elevator situation perfectly. Faster than I expected and nothing was damaged. Used the student discount — saved $40 on my move. Will book again next year." },
+              { name: "James M.", school: "Carleton Student", review: "September 1st move in Sandy Hill. I booked 5 weeks early and it's a good thing I did. Professional crew, showed up on time despite the chaos around them, and had me settled in my new Glebe apartment by early afternoon. Worth every dollar." },
+              { name: "Emma L.", school: "Algonquin College Student", review: "Moving from Nepean to a new place near the College Square area. The team was fast, friendly, and the pricing was exactly what was quoted. No hidden fees, no nonsense. Used the student discount. Will recommend to every student I know in Ottawa." },
+            ].map(t => (
+              <div key={t.name} className="bg-gray-50 rounded-xl p-6 border border-gray-100">
+                <div className="flex gap-0.5 mb-3">{[...Array(5)].map((_, i) => <Star key={i} className="h-4 w-4 text-[#C5A572] fill-[#C5A572]" />)}</div>
+                <p className="text-gray-700 text-sm leading-relaxed mb-4 italic">"{t.review}"</p>
+                <div className="font-bold text-[#1A2332] text-sm">{t.name}</div>
+                <div className="text-gray-500 text-xs mt-0.5">{t.school}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="bg-gray-50 py-16">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl font-bold text-[#1A2332] mb-8 text-center">Student Moving FAQ</h2>
+          <div className="space-y-3">
+            {FAQS.map((faq, i) => (
+              <div key={i} className="border border-gray-200 rounded-xl overflow-hidden">
+                <button className="w-full flex items-center justify-between px-5 py-4 text-left bg-gray-50 hover-elevate" onClick={() => setOpenFaq(openFaq === i ? null : i)}>
+                  <span className="font-semibold text-[#1A2332] text-sm pr-4">{faq.q}</span>
+                  <ChevronDown className={`h-4 w-4 text-[#C5A572] shrink-0 transition-transform ${openFaq === i ? "rotate-180" : ""}`} />
+                </button>
+                {openFaq === i && <div className="px-5 pb-5 pt-4 text-gray-600 text-sm leading-relaxed border-t border-gray-100 bg-white">{faq.a}</div>}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="bg-[#1A2332] py-14">
+        <div className="max-w-3xl mx-auto px-4 text-center">
+          <GraduationCap className="h-10 w-10 text-[#C5A572] mx-auto mb-4" />
+          <h2 className="text-2xl font-bold text-white mb-3">Book Your Ottawa Student Move</h2>
+          <p className="text-white/65 mb-2 max-w-xl mx-auto">10% discount with student ID. All Ottawa campuses. September moves book up fast — reserve your date early.</p>
+          <p className="text-[#C5A572] font-semibold mb-8">(613) 600-4000 · Ottawa@prestigemoving.ca</p>
+          <div className="flex flex-wrap gap-3 justify-center">
+            <Link href="/book"><Button className="bg-[#C5A572] text-[#1A2332] font-bold">Book Student Move <ArrowRight className="ml-2 h-4 w-4" /></Button></Link>
+            <a href="tel:6136004000"><Button variant="outline" className="text-white border-white/30 bg-white/10"><Phone className="h-4 w-4 mr-2" />(613) 600-4000</Button></a>
+          </div>
+        </div>
+      </section>
+      <SharedFooter />
     </>
   );
 }

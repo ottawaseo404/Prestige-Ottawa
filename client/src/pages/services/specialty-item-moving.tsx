@@ -1,793 +1,253 @@
-import { useState, useEffect } from "react";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
-import {
-  Phone,
-  CheckCircle2,
-  Dumbbell,
-  Shield,
-  Star,
-  Clock,
-  Users,
-  ArrowRight,
-  MapPin,
-  Home,
-  Building2,
-  Package,
-  Warehouse,
-  Award,
-  Zap,
-  Timer,
-  ThumbsUp,
-  HandHeart,
-  ChevronLeft,
-  ChevronRight,
-  Sparkles,
-  Heart,
-  TruckIcon,
-  Music,
-  Weight,
-  Waves,
-  Circle,
-  Stethoscope,
-  Wrench,
-  Truck,
-} from "lucide-react";
-import { Link } from "wouter";
+import { useState } from "react";
 import { Helmet } from "react-helmet";
+import { Link } from "wouter";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import { SharedNavigation } from "@/components/shared-navigation";
 import { SharedFooter } from "@/components/shared-footer";
-import ServiceQuoteForm from "@/components/service-quote-form";
-import { WorkSafeBadge } from "@/components/worksafe-badge";
+import {
+  Phone, ArrowRight, CheckCircle2, Shield, AlertTriangle,
+  Star, ChevronDown, Settings, Truck, Package
+} from "lucide-react";
+import specialtyHeroImg from "@assets/generated_images/specialty_moving_hero.png";
+
+const SPECIALTY_ITEMS = [
+  {
+    name: "Hot Tubs & Spas",
+    weight: "400–900 kg",
+    challenge: "Weight, awkward shape, plumbing disconnection, tight spaces",
+    approach: "We drain, disconnect, and wrap your hot tub before moving it with a specialized dolly and strap system. Access planning is done in advance — we verify gate widths, pathways, and floor load capacity at destination.",
+  },
+  {
+    name: "Pool Tables",
+    weight: "300–700 kg",
+    challenge: "Slate disassembly, felt protection, precise re-levelling",
+    approach: "Pool tables cannot be moved intact without damaging the slate and felt. We disassemble, protect each slate piece individually, transport, and professionally re-level and re-felt at destination. Re-levelling is included.",
+  },
+  {
+    name: "Gun Safes & Vaults",
+    weight: "200–1,000+ kg",
+    challenge: "Extreme weight, floor load limits, narrow passages",
+    approach: "Heavy safes require specialized dolly equipment, stair rollers, and crew strength. We assess floor load capacity at origin and destination before moving. All safes moved with RCMP-compliant protocols (empty, locked).",
+  },
+  {
+    name: "Gym & Fitness Equipment",
+    weight: "Varies",
+    challenge: "Complex disassembly, cable routing, heavy bases",
+    approach: "Treadmills, ellipticals, cable machines, squat racks, and all fitness equipment disassembled, transported, and fully reassembled. We photograph all cable routing before disassembly and restore it exactly.",
+  },
+  {
+    name: "Arcade Machines & Pinball",
+    weight: "100–300 kg",
+    challenge: "Electronics, glass panels, height and width restrictions",
+    approach: "Arcade machines and pinball tables have fragile glass, electronics, and precise balance requirements. We specialize in moving collector-grade arcade equipment without damage — padded blankets, custom protection, careful tipping and rotation.",
+  },
+  {
+    name: "Statues & Outdoor Art",
+    weight: "Varies",
+    challenge: "Fragility, balance, pedestals, outdoor-to-indoor",
+    approach: "Garden statues, bronze sculptures, ceramic art pieces — each requires custom wrapping and handling. We provide custom crating for exceptionally fragile or valuable pieces. Indoor placement is performed with felt pads to protect flooring.",
+  },
+];
+
+const PROCESS = [
+  { num: "01", title: "Pre-Move Assessment", desc: "Before booking, our specialist evaluates your item and your space. We measure doorways, hallways, stairwells, and outdoor pathways at both origin and destination. We identify any access challenges and plan solutions before moving day." },
+  { num: "02", title: "Equipment Staging", desc: "The right equipment is everything. Depending on your item, we arrive with: heavy-duty appliance dollies, stair rollers, extended straps, furniture sliders, custom crating, specialized lifting harnesses, or a combination." },
+  { num: "03", title: "Careful Disassembly (if required)", desc: "Items like pool tables, gym equipment, and certain hot tubs must be partially disassembled for moving. We photograph all components and connections before disassembly and restore the item completely at destination." },
+  { num: "04", title: "Protected Transport", desc: "Specialty items travel with additional padding, custom blocking, and in some cases their own transport vehicle. They are secured with multiple anchor points — nothing shifts in transit." },
+  { num: "05", title: "Professional Placement & Reassembly", desc: "At destination, we place your item exactly where you want it, complete all reassembly, and test proper function before leaving. Pool table re-levelling and equipment testing are performed on site." },
+];
+
+const FAQS = [
+  { q: "How much does it cost to move a hot tub in Ottawa?", a: "Moving a hot tub in Ottawa typically costs $400–$900 depending on the tub's size, weight, access conditions at both locations, and distance. Hot tub moving requires specialized equipment and a minimum 3-person crew. We assess the access conditions and quote accordingly — some hot tub moves require crane assistance if access is extremely limited, which adds to the cost." },
+  { q: "Can you move a pool table and re-level it?", a: "Yes. Pool table moving requires full disassembly — the slate (which can weigh 250–400 kg alone) must be removed, transported flat, and professionally reinstalled and levelled. We include re-levelling and re-felting assessment in every pool table move. A pool table that isn't properly levelled at destination isn't playable — we make sure it is." },
+  { q: "How do you move a gun safe weighing 500 kg?", a: "Heavy safes require specialized stair roller dollies, heavy-duty moving straps, and multiple experienced crew members. Before moving day, we assess floor load capacity at both origin and destination — safes this heavy can cause floor damage if not properly managed. All safes are moved empty and locked per RCMP guidelines. We cannot move safes with ammunition or firearms inside." },
+  { q: "Do you need to disassemble gym equipment to move it?", a: "Most gym equipment requires at least partial disassembly for moving — treadmills fold or have removable consoles, cable machines have components that must be detached, and squat racks typically come apart in sections. We photograph all cable routing and hardware before disassembly and restore everything to factory specification at destination." },
+  { q: "Can you move outdoor garden statues and fountains?", a: "Yes. Garden statues, fountains, and outdoor art pieces are specialty moves that require custom padding and careful handling. Stone and concrete pieces are extremely heavy relative to their size and very fragile at thin points (arms, wings, decorative elements). We wrap each piece individually and use appropriate lifting equipment." },
+  { q: "What if my specialty item won't fit through the door?", a: "This is the most common challenge with specialty items. We assess doorway, hallway, and stairwell dimensions before moving day and develop a plan. Solutions include: removing door frames (re-installed after), taking windows off their tracks, crane lifts over balconies for high-rise deliveries, or in some cases creating a custom route through the property. There's almost always a solution — it just requires planning." },
+];
 
 export default function SpecialtyItemMoving() {
-  const [activeTestimonial, setActiveTestimonial] = useState(0);
-  const [activeTab, setActiveTab] = useState(0);
-
-  const schemaData = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "name": "Specialty Item Moving Services Ottawa",
-    "provider": {
-      "@type": "MovingCompany",
-      "name": "Prestige Moving Ottawa",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "50 Colonnade Rd Unit 200B",
-        "postalCode": "K2E 7J6",
-        "addressLocality": "Ottawa",
-        "addressRegion": "ON",
-        "addressCountry": "CA"
-      },
-      "telephone": "(613) 600-4000",
-      "priceRange": "$$",
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "5.0",
-        "reviewCount": "200"
-      }
-    },
-    "areaServed": [
-      { "@type": "City", "name": "Ottawa" },
-      { "@type": "City", "name": "Kanata" },
-      { "@type": "City", "name": "Orleans" },
-      { "@type": "City", "name": "Nepean" },
-      { "@type": "City", "name": "Barrhaven" },
-      { "@type": "City", "name": "Gloucester" },
-      { "@type": "City", "name": "Gatineau" }
-    ],
-    "description": "Professional specialty item moving services in Ottawa. Expert handling of hot tubs, pool tables, gym equipment, medical equipment, safes, and oversized items. WSIB certified with specialized equipment."
-  };
-
-  const faqData = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "How do you move a hot tub safely in Ottawa?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "We drain and disconnect the hot tub, secure all components, use specialized lifting equipment and dollies, and can arrange crane services for difficult access locations. Our WSIB certified crew is trained specifically in hot tub moving procedures."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Can you move and reassemble a pool table?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes! We provide complete pool table moving including disassembly, slate protection and transport, reassembly, and professional leveling at your new location. We handle all types including 7', 8', and 9' tables."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What gym equipment do you move in Ottawa?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "We move all types of fitness equipment including treadmills, ellipticals, rowing machines, weight machines, free weights, squat racks, cable systems, and complete home gym setups. We handle both residential and commercial gym equipment."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Do you move medical equipment and hospital beds?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes, we specialize in moving sensitive medical equipment including hospital beds, exam tables, imaging equipment, and specialized medical devices with proper handling protocols and sanitization procedures."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How do you move heavy safes in Ottawa?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "We use specialized equipment including safe dollies, stair climbers, and rigging equipment for heavy safes. Our team is trained in proper weight distribution and can move safes up to 2,000+ lbs safely."
-        }
-      }
-    ]
-  };
-
-  const testimonials = [
-    { 
-      name: "Robert K.", 
-      location: "Rockcliffe Park", 
-      text: "Incredible job moving our 800lb hot tub from the backyard to our new home. They had specialized equipment and got it done in under 3 hours!", 
-      rating: 5, 
-      date: "2 weeks ago",
-      itemType: "Hot Tub"
-    },
-    { 
-      name: "Angela M.", 
-      location: "Kanata", 
-      text: "Our 9' slate pool table was moved perfectly. They disassembled it, transported it carefully, and reassembled with professional leveling. Plays like new!", 
-      rating: 5, 
-      date: "1 month ago",
-      itemType: "Pool Table"
-    },
-    { 
-      name: "Jason T.", 
-      location: "Orleans", 
-      text: "Moved my entire home gym including a commercial treadmill and cable machine. These guys know how to handle heavy fitness equipment.", 
-      rating: 5, 
-      date: "3 weeks ago",
-      itemType: "Gym Equipment"
-    },
-    { 
-      name: "Dr. Linda W.", 
-      location: "Ottawa", 
-      text: "They relocated our medical clinic equipment including exam tables and sensitive diagnostic machines. Professional, careful, and on schedule.", 
-      rating: 5, 
-      date: "1 week ago",
-      itemType: "Medical Equipment"
-    },
-    { 
-      name: "Mark S.", 
-      location: "Nepean", 
-      text: "Moved a 1,500lb gun safe from my basement up stairs and into a new location. Incredible skill and equipment. Highly recommend for heavy items!", 
-      rating: 5, 
-      date: "2 months ago",
-      itemType: "Heavy Safe"
-    }
-  ];
-
-  const specialtyTypes = [
-    {
-      title: "Hot Tubs",
-      icon: Waves,
-      description: "Expert hot tub relocation with specialized equipment",
-      features: ["Professional disconnection", "Complete draining & prep", "Specialized lifting dollies", "Crane services available"]
-    },
-    {
-      title: "Pool Tables",
-      icon: Circle,
-      description: "Complete disassembly, transport, and professional setup",
-      features: ["Careful disassembly", "Slate protection", "Professional reassembly", "Precision leveling"]
-    },
-    {
-      title: "Gym Equipment",
-      icon: Dumbbell,
-      description: "Commercial and home fitness equipment specialists",
-      features: ["Treadmills & ellipticals", "Weight machines", "Free weight systems", "Complete gym setups"]
-    },
-    {
-      title: "Medical Equipment",
-      icon: Stethoscope,
-      description: "Sensitive medical and clinical equipment handling",
-      features: ["Hospital beds", "Exam tables", "Imaging equipment", "Sanitization protocols"]
-    }
-  ];
-
-  const faqs = [
-    {
-      question: "How do you move a hot tub safely?",
-      answer: "We follow a comprehensive hot tub moving process: professional disconnection of electrical and plumbing, complete draining and prep, use of specialized lifting equipment like hot tub dollies and moving straps, protective padding during transport, and crane services for difficult access locations. Our WSIB certified crew is specifically trained in hot tub moving procedures to ensure safe transport."
-    },
-    {
-      question: "Can you move and reassemble a pool table?",
-      answer: "Yes! We provide complete pool table moving services including careful disassembly of rails, pockets, and felt, slate protection with specialized covers and padding, secure transport in climate-controlled trucks, professional reassembly at your new location, and precise leveling to ensure perfect gameplay. We handle all table sizes including 7', 8', and 9' tables."
-    },
-    {
-      question: "What gym equipment do you move?",
-      answer: "We move all types of fitness equipment including treadmills, ellipticals, stationary bikes, rowing machines, multi-station weight machines, free weights and dumbbells, squat racks and power cages, cable crossover systems, and complete home or commercial gym setups. We handle disassembly, transport, and reassembly as needed."
-    },
-    {
-      question: "Do you move medical equipment?",
-      answer: "Yes! We specialize in moving sensitive medical and clinical equipment including hospital beds, exam tables, dental chairs, imaging equipment, and specialized medical devices. Our team follows proper handling protocols and can work around clinical schedules to minimize disruption to your practice."
-    },
-    {
-      question: "How do you move heavy safes?",
-      answer: "Safe moving requires specialized expertise and equipment. We use professional safe dollies, stair climbers, and rigging equipment for heavy safes weighing up to 2,000+ lbs. Our team is trained in proper weight distribution, doorway navigation, and floor protection to ensure your safe arrives undamaged while protecting your property."
-    }
-  ];
-
-  const neighborhoods = [
-    "Centretown", "The Glebe", "Westboro", "Hintonburg", "Sandy Hill",
-    "Orleans", "Kanata", "Nepean", "Barrhaven", 
-    "Gloucester", "Rockcliffe Park", "New Edinburgh", "Alta Vista", "Manotick", "Gatineau"
-  ];
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveTestimonial((prev) => (prev + 1) % testimonials.length);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, [testimonials.length]);
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [activeItem, setActiveItem] = useState(0);
 
   return (
     <>
       <Helmet>
-        <title>Specialty Item Moving Ottawa ON | Hot Tub, Pool Table, Gym & Medical Equipment Movers | Prestige Moving</title>
-        <meta name="description" content="Professional specialty item moving in Ottawa ON. Hot tubs, pool tables, gym equipment, medical equipment, safes. WSIB certified, specialized equipment. Get your free quote today!" />
-        <meta name="keywords" content="specialty item moving Ottawa, hot tub movers ON, pool table moving Ottawa, gym equipment movers, medical equipment moving, safe movers Ottawa, heavy item moving, oversized item relocation" />
-        <meta property="og:title" content="Specialty Item Moving Ottawa | Hot Tubs, Pool Tables, Gym & Medical Equipment | Prestige Moving" />
-        <meta property="og:description" content="Ottawa's trusted specialty item movers. From hot tubs and pool tables to gym and medical equipment. WSIB certified, specialized equipment, expert handling." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://prestigemoving.ca/services/specialty-item-moving" />
-        <meta property="og:image" content="https://prestigemoving.ca/og-image.png" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Specialty Item Moving Ottawa | Prestige Moving" />
-        <meta name="twitter:description" content="Expert hot tub, pool table, gym & medical equipment movers. WSIB certified." />
-        <meta name="twitter:image" content="https://prestigemoving.ca/og-image.png" />
+        <title>Specialty Item Movers Ottawa | Hot Tubs, Pool Tables, Safes | Prestige Moving</title>
+        <meta name="description" content="Ottawa's specialty item moving experts. Hot tubs, pool tables, gun safes, gym equipment, arcade machines, and more. Fully equipped specialist team. Call (613) 600-4000." />
+        <meta name="keywords" content="specialty movers Ottawa, hot tub movers Ottawa, pool table movers Ottawa, gun safe movers Ottawa, heavy item movers Ottawa, specialty moving Ottawa" />
         <link rel="canonical" href="https://prestigemoving.ca/services/specialty-item-moving" />
-        <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
-        <script type="application/ld+json">{JSON.stringify(faqData)}</script>
+        <script type="application/ld+json">{JSON.stringify({ "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": FAQS.map(f => ({ "@type": "Question", "name": f.q, "acceptedAnswer": { "@type": "Answer", "text": f.a } })) })}</script>
       </Helmet>
+      <SharedNavigation />
 
-      <div className="min-h-screen bg-background">
-        <SharedNavigation />
-
-        {/* Hero Section */}
-        <section className="relative min-h-[85vh] flex items-center overflow-hidden">
-          <video 
-            autoPlay 
-            loop 
-            muted 
-            playsInline
-            className="absolute inset-0 w-full h-full object-cover"
-            data-testid="hero-video-specialty"
-          >
-            <source src="/videos/specialty-item-hero.mp4" type="video/mp4" />
-          </video>
-          <div className="absolute inset-0 bg-gradient-to-r from-[#1A2332] via-[#1A2332]/90 to-[#1A2332]/40" />
-
-          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16">
-            <div className="max-w-2xl">
-              <div className="flex items-center gap-3 mb-6 flex-wrap">
-                <Badge className="bg-primary/20 text-primary border-primary/40 px-4 py-1.5" data-testid="badge-specialty-moving">
-                  <Sparkles className="h-4 w-4 mr-2" />
-                  Specialty Item Moving
-                </Badge>
-                <Badge className="bg-green-500/20 text-green-400 border-green-500/40" data-testid="badge-specialized-equipment">
-                  <Wrench className="h-3 w-3 mr-1" />
-                  Specialized Equipment
-                </Badge>
-              </div>
-
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-black text-white mb-6 leading-[1.1]" data-testid="heading-hero">
-                Ottawa's <span className="text-primary">Heavy Item Experts</span>
-              </h1>
-
-              <p className="text-xl md:text-2xl text-white/80 mb-8 leading-relaxed" data-testid="text-hero-description">
-                From hot tubs and pool tables to gym equipment and safes, we've safely moved <span className="text-primary font-semibold">2,000+ specialty items</span> — trusted by Ottawa families as the <Link href="/" className="text-primary/90 hover:text-primary font-semibold">Ottawa movers</Link> built for the jobs other companies won't take.
-              </p>
-
-              <div className="flex flex-col sm:flex-row gap-4 mb-8">
-                <Link href="/book">
-                  <Button size="lg" className="text-lg font-bold px-8 py-7 shadow-xl shadow-primary/30 group" data-testid="button-hero-quote">
-                    Get Free Quote
-                    <ArrowRight className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" />
-                  </Button>
-                </Link>
-                <a href="tel:613-600-4000">
-                  <Button size="lg" variant="outline" className="text-lg font-bold px-8 py-7 border-2 border-white/40 text-white hover:bg-white/10 backdrop-blur-sm" data-testid="button-hero-call">
-                    <Phone className="h-5 w-5 mr-2" />
-                    (613) 600-4000
-                  </Button>
-                </a>
-              </div>
-
-              <div className="flex flex-wrap gap-6">
-                <WorkSafeBadge size="md" data-testid="badge-worksafe-hero" />
-                <div className="flex items-center gap-2 text-white/70" data-testid="badge-bbb">
-                  <Award className="h-5 w-5 text-primary" />
-                  <span>BBB A+ Rated</span>
-                </div>
-                <div className="flex items-center gap-2 text-white/70" data-testid="badge-insured">
-                  <Shield className="h-5 w-5 text-primary" />
-                  <span>Fully Insured</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <ServiceQuoteForm defaultService="Specialty Item Moving" serviceName="Specialty Item Moving" />
-
-        {/* Stats Bar */}
-        <section className="bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-400 py-6" data-testid="section-stats">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-              {[
-                { value: "2,000+", label: "Specialty Items Moved" },
-                { value: "5.0★", label: "Google Rating" },
-                { value: "15+", label: "Years Experience" },
-                { value: "Same Day", label: "Quote Response" }
-              ].map((stat, index) => (
-                <div key={index} data-testid={`stat-${index}`}>
-                  <div className="text-2xl md:text-4xl font-black text-[#1A2332]">{stat.value}</div>
-                  <div className="text-sm font-bold text-[#1A2332]/80 uppercase tracking-wide">{stat.label}</div>
-                </div>
+      {/* Hero */}
+      <section className="relative min-h-[520px] flex items-center overflow-hidden">
+        <div className="absolute inset-0">
+          <img src={specialtyHeroImg} alt="Specialty movers moving a hot tub in Ottawa" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#1A2332]/95 via-[#1A2332]/80 to-[#1A2332]/30" />
+        </div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+          <div className="max-w-2xl">
+            <div className="flex flex-wrap gap-2 mb-5">
+              {["Hot Tubs", "Pool Tables", "Gun Safes", "Gym Equipment", "Arcade Machines"].map(t => (
+                <Badge key={t} className="bg-[#C5A572]/20 text-[#C5A572] border border-[#C5A572]/30 text-xs font-semibold">{t}</Badge>
               ))}
             </div>
-          </div>
-        </section>
-
-        {/* About Our Service */}
-        <section className="py-16 md:py-20 bg-white" data-testid="section-about">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div>
-                <Badge className="bg-primary/10 text-primary mb-4">About Our Service</Badge>
-                <h2 className="text-3xl md:text-4xl font-black text-foreground mb-6" data-testid="heading-about">
-                  Ottawa's Premier Specialty Item Movers
-                </h2>
-                <div className="space-y-4 text-muted-foreground">
-                  <p>
-                    When standard moving services aren't enough, <strong>Prestige Moving Ottawa</strong> delivers the specialized expertise your unique items require. Our trained specialists have the equipment and know-how to safely transport items that other movers won't touch.
-                  </p>
-                  <p>
-                    From <strong>hot tub relocation</strong> and pool table moving to gym equipment transport and medical equipment handling, we've built our reputation on successfully moving the items that matter most to Ottawa families and businesses.
-                  </p>
-                  <p>
-                    As a <strong>WSIB certified moving company</strong>, we prioritize safety for both our team and your valuable belongings. Our movers are fully insured and trained on specialized equipment handling procedures.
-                  </p>
-                </div>
-                <div className="mt-8">
-                  <Link href="/book">
-                    <Button size="lg" className="font-bold" data-testid="button-about-quote">
-                      Get Your Free Quote
-                      <ArrowRight className="h-5 w-5 ml-2" />
-                    </Button>
-                  </Link>
-                </div>
-              </div>
-              
-              <div className="relative rounded-2xl overflow-hidden h-[400px] bg-gradient-to-br from-[#1A2332] to-[#2A3342]">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="grid grid-cols-2 gap-6 p-8">
-                    <div className="bg-white/10 backdrop-blur rounded-2xl p-6 text-center">
-                      <Waves className="h-12 w-12 text-primary mx-auto mb-3" />
-                      <span className="text-white font-semibold">Hot Tubs</span>
-                    </div>
-                    <div className="bg-white/10 backdrop-blur rounded-2xl p-6 text-center">
-                      <Circle className="h-12 w-12 text-primary mx-auto mb-3" />
-                      <span className="text-white font-semibold">Pool Tables</span>
-                    </div>
-                    <div className="bg-white/10 backdrop-blur rounded-2xl p-6 text-center">
-                      <Dumbbell className="h-12 w-12 text-primary mx-auto mb-3" />
-                      <span className="text-white font-semibold">Gym Equipment</span>
-                    </div>
-                    <div className="bg-white/10 backdrop-blur rounded-2xl p-6 text-center">
-                      <Stethoscope className="h-12 w-12 text-primary mx-auto mb-3" />
-                      <span className="text-white font-semibold">Medical Equipment</span>
-                    </div>
-                  </div>
-                </div>
-                <div className="absolute bottom-6 left-6 right-6">
-                  <div className="flex items-center gap-3">
-                    <div className="flex -space-x-2">
-                      {[...Array(4)].map((_, i) => (
-                        <div key={i} className="h-10 w-10 rounded-full bg-primary border-2 border-white flex items-center justify-center">
-                          <Star className="h-4 w-4 text-[#1A2332] fill-[#1A2332]" />
-                        </div>
-                      ))}
-                    </div>
-                    <div className="text-white">
-                      <div className="font-bold">200+ Reviews</div>
-                      <div className="text-sm text-white/70">5-Star Specialty Moving</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Specialty Types Tabs */}
-        <section className="py-16 md:py-20 bg-[#1A2332]" data-testid="section-specialty-types">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <Badge className="bg-primary/20 text-primary border-primary/30 mb-4">Our Specialties</Badge>
-              <h2 className="text-3xl md:text-4xl font-black text-white mb-4" data-testid="heading-specialty-types">
-                Specialty Items We Move
-              </h2>
-              <p className="text-lg text-white/60 max-w-2xl mx-auto">
-                Expert handling for oversized, heavy, and unique items
-              </p>
-            </div>
-
-            {/* Tab Navigation */}
-            <div className="flex justify-center gap-2 mb-10 flex-wrap">
-              {specialtyTypes.map((specialty, index) => {
-                const SpecialtyIcon = specialty.icon;
-                return (
-                  <button
-                    key={index}
-                    onClick={() => setActiveTab(index)}
-                    className={`group px-6 py-3 rounded-full font-semibold transition-all duration-300 flex items-center gap-2 ${
-                      activeTab === index 
-                        ? 'bg-primary text-[#1A2332] shadow-lg shadow-primary/30' 
-                        : 'bg-white/10 text-white hover:bg-white/20'
-                    }`}
-                    data-testid={`tab-${specialty.title.toLowerCase().replace(/\s+/g, '-')}`}
-                  >
-                    <SpecialtyIcon className="h-5 w-5" />
-                    {specialty.title}
-                  </button>
-                );
-              })}
-            </div>
-
-            {/* Active Specialty Content */}
-            <div className="bg-white/5 backdrop-blur border border-white/10 rounded-3xl p-8 md:p-12">
-              <div className="grid md:grid-cols-2 gap-8 items-center">
-                <div>
-                  <h3 className="text-2xl md:text-3xl font-black text-white mb-4" data-testid="text-active-specialty-title">
-                    {specialtyTypes[activeTab].title} Moving
-                  </h3>
-                  <p className="text-lg text-white/70 mb-6" data-testid="text-active-specialty-description">
-                    {specialtyTypes[activeTab].description}
-                  </p>
-
-                  <div className="grid grid-cols-2 gap-4 mb-8">
-                    {specialtyTypes[activeTab].features.map((feature, i) => (
-                      <div key={i} className="flex items-center gap-3" data-testid={`feature-${i}`}>
-                        <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0" />
-                        <span className="text-white">{feature}</span>
-                      </div>
-                    ))}
-                  </div>
-
-                  <Link href="/book">
-                    <Button size="lg" className="font-bold" data-testid="button-specialty-quote">
-                      Get a Quote
-                      <ArrowRight className="h-5 w-5 ml-2" />
-                    </Button>
-                  </Link>
-                </div>
-                
-                <div className="relative rounded-2xl overflow-hidden h-[300px] bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
-                  {(() => {
-                    const ActiveIcon = specialtyTypes[activeTab].icon;
-                    return <ActiveIcon className="h-32 w-32 text-primary/50" />;
-                  })()}
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Heavy Item Experts Section */}
-        <section className="py-16 md:py-20 bg-gray-50" data-testid="section-heavy-item-experts">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <Badge className="bg-primary/10 text-primary mb-4">Heavy Item Experts</Badge>
-              <h2 className="text-3xl md:text-4xl font-black text-foreground mb-4" data-testid="heading-heavy-experts">
-                Why Trust Us With Your Heavy Items
-              </h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Specialized equipment, trained professionals, and proven techniques
-              </p>
-            </div>
-
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {[
-                { icon: Wrench, title: "Specialized Equipment", description: "Professional dollies, stair climbers, rigging equipment, and crane coordination for items up to 2,000+ lbs", color: "from-amber-500 to-amber-600" },
-                { icon: Users, title: "Trained Specialists", description: "Our crew members have 5+ years average experience with heavy and oversized items", color: "from-blue-500 to-blue-600" },
-                { icon: Shield, title: "Full Insurance Coverage", description: "Complete protection for high-value specialty items from pickup to delivery", color: "from-emerald-500 to-emerald-600" },
-                { icon: Timer, title: "Efficient Process", description: "Pre-move assessments, access planning, and streamlined execution", color: "from-violet-500 to-violet-600" },
-                { icon: ThumbsUp, title: "Damage-Free Guarantee", description: "Proven techniques to protect both your items and property during the move", color: "from-rose-500 to-rose-600" },
-                { icon: Award, title: "WSIB Certified", description: "Full compliance with workplace safety standards for lifting heavy items", color: "from-primary to-amber-600" }
-              ].map((item, index) => (
-                <Card key={index} className="border-2 hover:border-primary/50 transition-all hover:shadow-lg" data-testid={`card-expert-${index}`}>
-                  <CardContent className="p-6">
-                    <div className={`h-14 w-14 bg-gradient-to-br ${item.color} rounded-xl flex items-center justify-center mb-4`}>
-                      <item.icon className="h-7 w-7 text-white" />
-                    </div>
-                    <h3 className="text-xl font-bold mb-2">{item.title}</h3>
-                    <p className="text-muted-foreground">{item.description}</p>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Testimonials Carousel */}
-        <section className="py-16 md:py-20 bg-white" data-testid="section-testimonials">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <Badge className="bg-primary/10 text-primary mb-4">Reviews</Badge>
-              <h2 className="text-3xl md:text-4xl font-black text-foreground mb-4" data-testid="heading-testimonials">
-                What Our Customers Say
-              </h2>
-              <div className="flex items-center justify-center gap-2 text-muted-foreground">
-                <div className="flex">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-5 w-5 fill-primary text-primary" />
-                  ))}
-                </div>
-                <span>Based on 200+ Specialty Move Reviews</span>
-              </div>
-            </div>
-
-            <div className="relative max-w-4xl mx-auto">
-              <Card className="border-2 shadow-xl" data-testid="card-testimonial-active">
-                <CardContent className="p-8 md:p-12">
-                  <div className="flex gap-1 mb-4">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="h-6 w-6 fill-primary text-primary" />
-                    ))}
-                  </div>
-                  <Badge className="mb-4 bg-primary/10 text-primary" data-testid="badge-item-type">
-                    {testimonials[activeTestimonial].itemType}
-                  </Badge>
-                  <p className="text-xl md:text-2xl text-foreground mb-8 leading-relaxed" data-testid="text-testimonial-quote">
-                    "{testimonials[activeTestimonial].text}"
-                  </p>
-                  <div className="flex items-center justify-between flex-wrap gap-4">
-                    <div className="flex items-center gap-4">
-                      <div className="h-14 w-14 bg-gradient-to-br from-primary to-amber-600 rounded-full flex items-center justify-center text-white font-bold text-xl">
-                        {testimonials[activeTestimonial].name[0]}
-                      </div>
-                      <div>
-                        <p className="font-bold text-lg" data-testid="text-testimonial-name">{testimonials[activeTestimonial].name}</p>
-                        <p className="text-muted-foreground flex items-center gap-1">
-                          <MapPin className="h-4 w-4" /> {testimonials[activeTestimonial].location}
-                        </p>
-                      </div>
-                    </div>
-                    <span className="text-sm text-muted-foreground">{testimonials[activeTestimonial].date}</span>
-                  </div>
-                </CardContent>
-              </Card>
-
-              <div className="flex items-center justify-center gap-4 mt-8">
-                <button 
-                  onClick={() => setActiveTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length)}
-                  className="w-12 h-12 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors"
-                  aria-label="Previous testimonial"
-                  data-testid="button-testimonial-prev"
-                >
-                  <ChevronLeft className="h-6 w-6" />
-                </button>
-                <div className="flex gap-2">
-                  {testimonials.map((_, index) => (
-                    <button
-                      key={index}
-                      onClick={() => setActiveTestimonial(index)}
-                      className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                        index === activeTestimonial ? 'bg-primary w-8' : 'bg-gray-300 hover:bg-gray-400'
-                      }`}
-                      aria-label={`Go to testimonial ${index + 1}`}
-                      data-testid={`button-testimonial-dot-${index}`}
-                    />
-                  ))}
-                </div>
-                <button 
-                  onClick={() => setActiveTestimonial((prev) => (prev + 1) % testimonials.length)}
-                  className="w-12 h-12 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors"
-                  aria-label="Next testimonial"
-                  data-testid="button-testimonial-next"
-                >
-                  <ChevronRight className="h-6 w-6" />
-                </button>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* FAQ Section */}
-        <section className="py-16 md:py-20 bg-gray-50" data-testid="section-faq">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <Badge className="bg-primary/10 text-primary mb-4">FAQ</Badge>
-              <h2 className="text-3xl md:text-4xl font-black text-foreground mb-4" data-testid="heading-faq">
-                Frequently Asked Questions
-              </h2>
-              <p className="text-lg text-muted-foreground">
-                Everything you need to know about specialty item moving
-              </p>
-            </div>
-
-            <Accordion type="single" collapsible className="w-full space-y-4" data-testid="accordion-faq">
-              {faqs.map((faq, index) => (
-                <AccordionItem 
-                  key={index} 
-                  value={`item-${index}`}
-                  className="bg-white border rounded-xl px-6 shadow-sm"
-                  data-testid={`accordion-item-${index}`}
-                >
-                  <AccordionTrigger 
-                    className="text-left hover:no-underline py-6"
-                    data-testid={`accordion-trigger-${index}`}
-                  >
-                    <span className="font-semibold text-foreground">{faq.question}</span>
-                  </AccordionTrigger>
-                  <AccordionContent className="pb-6 text-muted-foreground leading-relaxed" data-testid={`accordion-content-${index}`}>
-                    {faq.answer}
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
-          </div>
-        </section>
-
-        {/* Service Areas */}
-        <section className="py-16 md:py-20 bg-[#1A2332]" data-testid="section-service-areas">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-10">
-              <Badge className="bg-primary/20 text-primary border-primary/30 mb-4">Coverage</Badge>
-              <h2 className="text-3xl md:text-4xl font-black text-white mb-4" data-testid="heading-service-areas">
-                Ottawa Areas We Serve
-              </h2>
-              <p className="text-lg text-white/60">
-                Specialty item moving across National Capital Region and the Greater Ottawa Area
-              </p>
-            </div>
-
-            <div className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">
-              {neighborhoods.map((hood, index) => (
-                <Badge 
-                  key={index}
-                  className="bg-white/10 text-white border-white/20 hover:bg-primary hover:text-[#1A2332] hover:border-primary transition-all duration-300 cursor-pointer px-4 py-2 text-sm font-medium"
-                  data-testid={`badge-neighborhood-${index}`}
-                >
-                  <MapPin className="h-3 w-3 mr-1" />
-                  {hood}
-                </Badge>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Related Services */}
-        <section className="py-16 md:py-20 bg-gray-50" data-testid="section-related-services">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <Badge className="bg-primary/10 text-primary mb-4">More Services</Badge>
-              <h2 className="text-3xl md:text-4xl font-black text-foreground mb-4" data-testid="heading-related-services">
-                Related Moving Services
-              </h2>
-              <p className="text-lg text-muted-foreground">
-                Explore our full range of professional moving solutions
-              </p>
-            </div>
-            
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              <Link href="/services/residential-moving">
-                <Card className="border-2 hover:border-primary hover:shadow-lg transition-all h-full" data-testid="link-residential-moving">
-                  <CardContent className="p-6">
-                    <Home className="h-8 w-8 text-primary mb-4" />
-                    <h3 className="font-bold text-lg mb-2">Residential Moving</h3>
-                    <p className="text-muted-foreground">Full-service home moving for apartments, condos, and houses</p>
-                  </CardContent>
-                </Card>
-              </Link>
-              <Link href="/services/commercial-moving">
-                <Card className="border-2 hover:border-primary hover:shadow-lg transition-all h-full" data-testid="link-commercial-moving">
-                  <CardContent className="p-6">
-                    <Building2 className="h-8 w-8 text-primary mb-4" />
-                    <h3 className="font-bold text-lg mb-2">Commercial Moving</h3>
-                    <p className="text-muted-foreground">Office relocations and business equipment moving</p>
-                  </CardContent>
-                </Card>
-              </Link>
-              <Link href="/services/piano-moving">
-                <Card className="border-2 hover:border-primary hover:shadow-lg transition-all h-full" data-testid="link-piano-moving">
-                  <CardContent className="p-6">
-                    <Music className="h-8 w-8 text-primary mb-4" />
-                    <h3 className="font-bold text-lg mb-2">Piano Moving</h3>
-                    <p className="text-muted-foreground">Expert grand, baby grand, and upright piano transport</p>
-                  </CardContent>
-                </Card>
-              </Link>
-              <Link href="/services/storage-solutions">
-                <Card className="border-2 hover:border-primary hover:shadow-lg transition-all h-full" data-testid="link-storage-solutions">
-                  <CardContent className="p-6">
-                    <Warehouse className="h-8 w-8 text-primary mb-4" />
-                    <h3 className="font-bold text-lg mb-2">Storage Solutions</h3>
-                    <p className="text-muted-foreground">Climate-controlled short and long-term storage</p>
-                  </CardContent>
-                </Card>
-              </Link>
-              <Link href="/services/packing-services">
-                <Card className="border-2 hover:border-primary hover:shadow-lg transition-all h-full" data-testid="link-packing-services">
-                  <CardContent className="p-6">
-                    <Package className="h-8 w-8 text-primary mb-4" />
-                    <h3 className="font-bold text-lg mb-2">Packing Services</h3>
-                    <p className="text-muted-foreground">Professional packing for fragile and specialty items</p>
-                  </CardContent>
-                </Card>
-              </Link>
-              <Link href="/services/long-distance-moving">
-                <Card className="border-2 hover:border-primary hover:shadow-lg transition-all h-full" data-testid="link-long-distance-moving">
-                  <CardContent className="p-6">
-                    <Truck className="h-8 w-8 text-primary mb-4" />
-                    <h3 className="font-bold text-lg mb-2">Long Distance Moving</h3>
-                    <p className="text-muted-foreground">Cross-province and Canada-wide specialty item transport</p>
-                  </CardContent>
-                </Card>
-              </Link>
-            </div>
-          </div>
-        </section>
-
-        {/* CTA Section */}
-        <section className="py-16 md:py-20 bg-gradient-to-r from-primary via-amber-500 to-primary relative overflow-hidden" data-testid="section-cta">
-          <div className="absolute inset-0 opacity-10">
-            <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl" />
-            <div className="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl" />
-          </div>
-          
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-            <div className="inline-flex items-center gap-2 bg-[#1A2332]/20 backdrop-blur rounded-full px-4 py-2 mb-6">
-              <Sparkles className="h-4 w-4 text-[#1A2332]" />
-              <span className="text-[#1A2332] font-semibold text-sm">Free Specialty Item Assessment</span>
-            </div>
-            
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-[#1A2332] mb-6" data-testid="heading-cta">
-              Ready to Move Your Specialty Items?
-            </h2>
-            
-            <p className="text-xl text-[#1A2332]/80 mb-8 max-w-2xl mx-auto">
-              Join 2,000+ customers who trusted us with their hot tubs, pool tables, gym equipment, and more. Get your personalized quote today.
+            <h1 className="text-4xl md:text-5xl font-black text-white mb-5 leading-tight">
+              Specialty Item Movers Ottawa —<br />
+              <span className="text-[#C5A572]">The Items No One Else Will Touch</span>
+            </h1>
+            <p className="text-white/80 text-lg mb-8 leading-relaxed">
+              Hot tubs, pool tables, gun safes, gym equipment, arcade machines, and other oversized or ultra-heavy items. We have the equipment, crew, and expertise to move what standard movers refuse. Pre-move assessment included on every specialty job.
             </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/book">
-                <Button size="lg" className="bg-[#1A2332] hover:bg-[#1A2332]/90 text-white text-lg font-bold px-10 py-7 shadow-xl" data-testid="button-cta-quote">
-                  Get Free Quote
-                  <ArrowRight className="h-5 w-5 ml-2" />
-                </Button>
-              </Link>
-              <a href="tel:613-600-4000">
-                <Button size="lg" variant="outline" className="border-2 border-[#1A2332] text-[#1A2332] hover:bg-[#1A2332] hover:text-white text-lg font-bold px-10 py-7" data-testid="button-cta-call">
-                  <Phone className="h-5 w-5 mr-2" />
-                  (613) 600-4000
-                </Button>
-              </a>
+            <div className="flex flex-wrap gap-3">
+              <Link href="/book"><Button className="bg-[#C5A572] text-[#1A2332] font-bold text-base px-6">Get Specialty Quote <ArrowRight className="ml-2 h-4 w-4" /></Button></Link>
+              <a href="tel:6136004000"><Button variant="outline" className="text-white border-white/30 bg-white/10 text-base px-6"><Phone className="h-4 w-4 mr-2" />(613) 600-4000</Button></a>
             </div>
           </div>
-        </section>
-        <SharedFooter />
+        </div>
+      </section>
+
+      {/* Trust bar */}
+      <div className="bg-[#C5A572] py-3">
+        <div className="max-w-7xl mx-auto px-4 flex flex-wrap items-center justify-center gap-6 text-[#1A2332] text-sm font-semibold">
+          {["Pre-Move Site Assessment", "Specialized Equipment", "Full Reassembly Included", "WSIB & $2M Insured", "5.0★ Ottawa Reviews"].map(t => (
+            <span key={t} className="flex items-center gap-1.5"><CheckCircle2 className="h-3.5 w-3.5" />{t}</span>
+          ))}
+        </div>
       </div>
+
+      {/* Specialty Item Selector */}
+      <section className="bg-white py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl font-bold text-[#1A2332] mb-3">Specialty Items We Move in Ottawa</h2>
+            <p className="text-gray-600 max-w-xl mx-auto">Click any item to see the specific challenges, our approach, and what to expect on moving day.</p>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 mb-8">
+            {SPECIALTY_ITEMS.map((item, i) => (
+              <button key={i} onClick={() => setActiveItem(i)} className={`text-left rounded-xl border p-4 transition-all ${activeItem === i ? "border-[#C5A572] bg-[#C5A572]/5 shadow-md" : "border-gray-200 bg-gray-50 hover-elevate"}`}>
+                <div className="font-bold text-[#1A2332] text-sm mb-1">{item.name}</div>
+                <div className="text-gray-500 text-xs">Weight: {item.weight}</div>
+              </button>
+            ))}
+          </div>
+          <div className="bg-[#1A2332] rounded-2xl p-8 text-white">
+            <div className="grid md:grid-cols-2 gap-8">
+              <div>
+                <div className="text-[#C5A572] text-xs font-semibold uppercase tracking-wider mb-2">Selected Item</div>
+                <h3 className="text-2xl font-bold mb-2">{SPECIALTY_ITEMS[activeItem].name}</h3>
+                <div className="text-white/60 text-sm mb-4">Typical weight: {SPECIALTY_ITEMS[activeItem].weight}</div>
+                <div className="mb-4">
+                  <div className="text-white/50 text-xs font-semibold uppercase mb-1">Key Challenges</div>
+                  <p className="text-white/80 text-sm">{SPECIALTY_ITEMS[activeItem].challenge}</p>
+                </div>
+              </div>
+              <div>
+                <div className="text-white/50 text-xs font-semibold uppercase mb-2">Our Approach</div>
+                <p className="text-white/80 text-sm leading-relaxed">{SPECIALTY_ITEMS[activeItem].approach}</p>
+                <div className="mt-5">
+                  <Link href="/book"><Button className="bg-[#C5A572] text-[#1A2332] font-bold">Get Quote for This Item <ArrowRight className="ml-2 h-4 w-4" /></Button></Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Process */}
+      <section className="bg-gray-50 py-16">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-[#1A2332] mb-3">Specialty Item Moving Process</h2>
+            <p className="text-gray-600">Every specialty move is assessed before booking day. No surprises — just expert execution.</p>
+          </div>
+          <div className="space-y-4">
+            {PROCESS.map((step, i) => (
+              <div key={i} className="flex gap-5 items-start bg-white rounded-2xl p-6 border border-gray-100">
+                <div className="w-12 h-12 bg-[#1A2332] rounded-xl flex items-center justify-center shrink-0">
+                  <span className="text-[#C5A572] font-black text-sm">{step.num}</span>
+                </div>
+                <div>
+                  <h3 className="font-bold text-[#1A2332] text-lg mb-1">{step.title}</h3>
+                  <p className="text-gray-600 leading-relaxed text-sm">{step.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Long-form content */}
+      <section className="bg-white py-16">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl font-bold text-[#1A2332] mb-6">Specialty Item Moving in Ottawa — What Makes It Different</h2>
+          <div className="space-y-5 text-gray-700 leading-relaxed">
+            <p>Specialty item moving is a category apart from regular household moving. Standard moving training covers furniture, boxes, and appliances — it does not cover the physics of moving a 700 kg pool table through a finished basement, the engineering of a hot tub extraction through a narrow gate, or the floor load calculations required for a 900 kg vault. Specialty moving requires dedicated equipment, trained technique, and pre-move planning that standard moving companies simply aren't set up to provide.</p>
+            <h3 className="text-xl font-bold text-[#1A2332] mt-8 mb-3">Hot Tub Moving in Ottawa</h3>
+            <p>Ottawa's housing stock — from Kanata suburban homes to Glebe Victorian houses — often presents challenging hot tub access situations. A hot tub that arrived via crane during construction can't leave the same way once the fence is up. Our hot tub moving team assesses every access point before the move: gate widths (minimum 900mm required), slope of pathways, foundation clearance, and destination space. Most Ottawa hot tub moves are possible with the right equipment and planning — even when homeowners have been told otherwise by other companies.</p>
+            <h3 className="text-xl font-bold text-[#1A2332] mt-8 mb-3">Pool Table Moving and Re-Levelling</h3>
+            <p>Pool table moving is a specialty within a specialty. The slate — usually three pieces, each weighing 80–130 kg — must be individually removed, carefully transported flat, and precisely reinstalled. The felt must be inspected and replaced if damaged. And critically, the table must be re-levelled to a tolerance of less than 1mm across the full playing surface. A pool table that isn't level isn't playable. Our pool table moving service includes professional re-levelling at destination — it's not an optional add-on.</p>
+            <p>For regular household moving in Ottawa, see our <Link href="/services/residential-moving" className="text-[#C5A572] hover:underline">residential moving</Link> service. For piano moving specifically, see our dedicated <Link href="/services/piano-moving" className="text-[#C5A572] hover:underline">piano moving</Link> page.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="bg-gray-50 py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl font-bold text-[#1A2332] mb-8 text-center">Ottawa Clients on Our Specialty Moving Service</h2>
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              { name: "Trevor B.", area: "Barrhaven", item: "Hot Tub Move", review: "Three other companies told me my hot tub couldn't be moved without removing part of my fence. Prestige sent someone to assess first, figured out an approach that didn't require fence removal, and did the whole job in 4 hours. Nobody was hurt, nothing was damaged." },
+              { name: "Caitlin M.", area: "The Glebe", item: "Pool Table Move", review: "Moved an 8-foot slate pool table from a finished basement. The crew disassembled everything, numbered all the slate pieces, and re-assembled it perfectly at the new house. Re-levelled it on site — the table plays as well as it ever did. Very impressed." },
+              { name: "Robert H.", area: "Kanata", item: "Gun Safe Move", review: "800 kg safe in a finished basement. I was worried about the floor and the stairs. The Prestige crew assessed the floor load capacity first, used stair rollers I didn't know existed, and got it out without a scratch on anything. Professional operation." },
+            ].map(t => (
+              <div key={t.name} className="bg-white rounded-xl p-6 border border-gray-100">
+                <div className="flex gap-0.5 mb-1">{[...Array(5)].map((_, i) => <Star key={i} className="h-4 w-4 text-[#C5A572] fill-[#C5A572]" />)}</div>
+                <Badge className="bg-[#C5A572]/10 text-[#C5A572] border-0 text-xs mb-3">{t.item}</Badge>
+                <p className="text-gray-700 text-sm leading-relaxed mb-4 italic">"{t.review}"</p>
+                <div className="font-bold text-[#1A2332] text-sm">{t.name}</div>
+                <div className="text-gray-500 text-xs mt-0.5">{t.area}, Ottawa</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="bg-white py-16">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl font-bold text-[#1A2332] mb-8 text-center">Specialty Item Moving FAQ</h2>
+          <div className="space-y-3">
+            {FAQS.map((faq, i) => (
+              <div key={i} className="border border-gray-200 rounded-xl overflow-hidden">
+                <button className="w-full flex items-center justify-between px-5 py-4 text-left bg-gray-50 hover-elevate" onClick={() => setOpenFaq(openFaq === i ? null : i)}>
+                  <span className="font-semibold text-[#1A2332] text-sm pr-4">{faq.q}</span>
+                  <ChevronDown className={`h-4 w-4 text-[#C5A572] shrink-0 transition-transform ${openFaq === i ? "rotate-180" : ""}`} />
+                </button>
+                {openFaq === i && <div className="px-5 pb-5 pt-4 text-gray-600 text-sm leading-relaxed border-t border-gray-100 bg-white">{faq.a}</div>}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="bg-[#1A2332] py-14">
+        <div className="max-w-3xl mx-auto px-4 text-center">
+          <Settings className="h-10 w-10 text-[#C5A572] mx-auto mb-4" />
+          <h2 className="text-2xl font-bold text-white mb-3">Get a Quote for Your Specialty Item</h2>
+          <p className="text-white/65 mb-8 max-w-xl mx-auto">Tell us what you need moved. We assess, quote, and execute — with the right equipment and experienced crew for the job.</p>
+          <div className="flex flex-wrap gap-3 justify-center">
+            <Link href="/book"><Button className="bg-[#C5A572] text-[#1A2332] font-bold">Get Specialty Quote <ArrowRight className="ml-2 h-4 w-4" /></Button></Link>
+            <a href="tel:6136004000"><Button variant="outline" className="text-white border-white/30 bg-white/10"><Phone className="h-4 w-4 mr-2" />(613) 600-4000</Button></a>
+          </div>
+        </div>
+      </section>
+      <SharedFooter />
     </>
   );
 }
