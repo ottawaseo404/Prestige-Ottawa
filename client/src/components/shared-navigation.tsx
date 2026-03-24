@@ -99,7 +99,7 @@ export function SharedNavigation() {
                       className={`group/item flex flex-col items-center gap-1 px-4 py-2 rounded-full text-sm font-bold tracking-widest uppercase transition-all duration-300 whitespace-nowrap ${isActive("/services/residential-moving") ? "bg-[#C5A572] text-white" : "text-[#1A2332]/70 hover:text-[#1A2332] hover:bg-[#C5A572]/10"}`}
                       style={isActive("/services/residential-moving") ? { boxShadow: "0 0 15px rgba(197,165,114,0.4)" } : undefined}
                     >
-                      <HomeIcon className="h-5 w-5 text-[#C5A572] transition-transform duration-300 group-hover/item:scale-110" />
+                      <HomeIcon className={`h-5 w-5 transition-transform duration-300 group-hover/item:scale-110 ${isActive("/services/residential-moving") ? "text-white" : "text-[#C5A572]"}`} />
                       <span>Residential</span>
                     </button>
                   </NavigationMenuItem>
@@ -112,7 +112,7 @@ export function SharedNavigation() {
                       className={`group/item flex flex-col items-center gap-1 px-4 py-2 rounded-full text-sm font-bold tracking-widest uppercase transition-all duration-300 whitespace-nowrap ${isActive("/services/commercial-moving") ? "bg-[#C5A572] text-white" : "text-[#1A2332]/70 hover:text-[#1A2332] hover:bg-[#C5A572]/10"}`}
                       style={isActive("/services/commercial-moving") ? { boxShadow: "0 0 15px rgba(197,165,114,0.4)" } : undefined}
                     >
-                      <Building2 className="h-5 w-5 text-[#C5A572] transition-transform duration-300 group-hover/item:scale-110" />
+                      <Building2 className={`h-5 w-5 transition-transform duration-300 group-hover/item:scale-110 ${isActive("/services/commercial-moving") ? "text-white" : "text-[#C5A572]"}`} />
                       <span>Commercial</span>
                     </button>
                   </NavigationMenuItem>
@@ -125,7 +125,7 @@ export function SharedNavigation() {
                       className={`group/item flex flex-col items-center gap-1 px-4 py-2 rounded-full text-sm font-bold tracking-widest uppercase transition-all duration-300 whitespace-nowrap ${isActive("/services/long-distance-moving") ? "bg-[#C5A572] text-white" : "text-[#1A2332]/70 hover:text-[#1A2332] hover:bg-[#C5A572]/10"}`}
                       style={isActive("/services/long-distance-moving") ? { boxShadow: "0 0 15px rgba(197,165,114,0.4)" } : undefined}
                     >
-                      <Truck className="h-5 w-5 text-[#C5A572] transition-transform duration-300 group-hover/item:scale-110" />
+                      <Truck className={`h-5 w-5 transition-transform duration-300 group-hover/item:scale-110 ${isActive("/services/long-distance-moving") ? "text-white" : "text-[#C5A572]"}`} />
                       <span>Long Distance</span>
                     </button>
                   </NavigationMenuItem>
@@ -185,7 +185,7 @@ export function SharedNavigation() {
                 className={`group/item flex flex-col items-center gap-1 px-4 py-2 rounded-full text-sm font-bold tracking-widest uppercase transition-all duration-300 ${isActive("/blog") ? "bg-[#C5A572] text-white" : "text-[#1A2332]/70 hover:text-[#1A2332] hover:bg-[#C5A572]/10"}`}
                 style={isActive("/blog") ? { boxShadow: "0 0 15px rgba(197,165,114,0.4)" } : undefined}
               >
-                <FileText className="h-5 w-5 text-[#C5A572] transition-transform duration-300 group-hover/item:scale-110" />
+                <FileText className={`h-5 w-5 transition-transform duration-300 group-hover/item:scale-110 ${isActive("/blog") ? "text-white" : "text-[#C5A572]"}`} />
                 <span>Blog</span>
               </button>
 
