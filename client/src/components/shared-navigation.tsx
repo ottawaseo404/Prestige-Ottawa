@@ -96,10 +96,10 @@ export function SharedNavigation() {
                     <button
                       onClick={() => handleNavClick("/services/residential-moving")}
                       data-testid="nav-residential"
-                      className={`group/item flex items-center gap-2 px-4 py-2 rounded-full text-sm font-bold tracking-widest uppercase transition-all duration-300 whitespace-nowrap ${isActive("/services/residential-moving") ? "bg-[#C5A572] text-white" : "text-[#1A2332]/70 hover:text-[#1A2332] hover:bg-[#C5A572]/10"}`}
+                      className={`group/item flex flex-col items-center gap-1 px-4 py-2 rounded-full text-sm font-bold tracking-widest uppercase transition-all duration-300 whitespace-nowrap ${isActive("/services/residential-moving") ? "bg-[#C5A572] text-white" : "text-[#1A2332]/70 hover:text-[#1A2332] hover:bg-[#C5A572]/10"}`}
                       style={isActive("/services/residential-moving") ? { boxShadow: "0 0 15px rgba(197,165,114,0.4)" } : undefined}
                     >
-                      <HomeIcon className="h-3.5 w-3.5 flex-shrink-0 text-[#C5A572] transition-transform duration-300 group-hover/item:scale-110" />
+                      <HomeIcon className="h-5 w-5 text-[#C5A572] transition-transform duration-300 group-hover/item:scale-110" />
                       <span>Residential</span>
                     </button>
                   </NavigationMenuItem>
@@ -109,10 +109,10 @@ export function SharedNavigation() {
                     <button
                       onClick={() => handleNavClick("/services/commercial-moving")}
                       data-testid="nav-commercial"
-                      className={`group/item flex items-center gap-2 px-4 py-2 rounded-full text-sm font-bold tracking-widest uppercase transition-all duration-300 whitespace-nowrap ${isActive("/services/commercial-moving") ? "bg-[#C5A572] text-white" : "text-[#1A2332]/70 hover:text-[#1A2332] hover:bg-[#C5A572]/10"}`}
+                      className={`group/item flex flex-col items-center gap-1 px-4 py-2 rounded-full text-sm font-bold tracking-widest uppercase transition-all duration-300 whitespace-nowrap ${isActive("/services/commercial-moving") ? "bg-[#C5A572] text-white" : "text-[#1A2332]/70 hover:text-[#1A2332] hover:bg-[#C5A572]/10"}`}
                       style={isActive("/services/commercial-moving") ? { boxShadow: "0 0 15px rgba(197,165,114,0.4)" } : undefined}
                     >
-                      <Building2 className="h-3.5 w-3.5 flex-shrink-0 text-[#C5A572] transition-transform duration-300 group-hover/item:scale-110" />
+                      <Building2 className="h-5 w-5 text-[#C5A572] transition-transform duration-300 group-hover/item:scale-110" />
                       <span>Commercial</span>
                     </button>
                   </NavigationMenuItem>
@@ -122,10 +122,10 @@ export function SharedNavigation() {
                     <button
                       onClick={() => handleNavClick("/services/long-distance-moving")}
                       data-testid="nav-long-distance"
-                      className={`group/item flex items-center gap-2 px-4 py-2 rounded-full text-sm font-bold tracking-widest uppercase transition-all duration-300 whitespace-nowrap ${isActive("/services/long-distance-moving") ? "bg-[#C5A572] text-white" : "text-[#1A2332]/70 hover:text-[#1A2332] hover:bg-[#C5A572]/10"}`}
+                      className={`group/item flex flex-col items-center gap-1 px-4 py-2 rounded-full text-sm font-bold tracking-widest uppercase transition-all duration-300 whitespace-nowrap ${isActive("/services/long-distance-moving") ? "bg-[#C5A572] text-white" : "text-[#1A2332]/70 hover:text-[#1A2332] hover:bg-[#C5A572]/10"}`}
                       style={isActive("/services/long-distance-moving") ? { boxShadow: "0 0 15px rgba(197,165,114,0.4)" } : undefined}
                     >
-                      <Truck className="h-3.5 w-3.5 flex-shrink-0 text-[#C5A572] transition-transform duration-300 group-hover/item:scale-110" />
+                      <Truck className="h-5 w-5 text-[#C5A572] transition-transform duration-300 group-hover/item:scale-110" />
                       <span>Long Distance</span>
                     </button>
                   </NavigationMenuItem>
@@ -134,9 +134,9 @@ export function SharedNavigation() {
                   <NavigationMenuItem>
                     <NavigationMenuTrigger
                       data-testid="nav-services-trigger"
-                      className="group/trigger flex items-center gap-2 px-4 py-2 rounded-full text-sm font-bold tracking-widest uppercase transition-all duration-300 text-[#1A2332]/70 hover:text-[#1A2332] hover:bg-[#C5A572]/10 !bg-transparent data-[state=open]:!bg-[#C5A572]/10 data-[state=open]:text-[#1A2332] [&>svg]:hidden"
+                      className="group/trigger flex flex-col items-center gap-1 px-4 py-2 rounded-full text-sm font-bold tracking-widest uppercase transition-all duration-300 text-[#1A2332]/70 hover:text-[#1A2332] hover:bg-[#C5A572]/10 !bg-transparent data-[state=open]:!bg-[#C5A572]/10 data-[state=open]:text-[#1A2332] [&>svg]:hidden"
                     >
-                      <Package className="h-3.5 w-3.5 text-[#C5A572] transition-transform duration-300 group-hover/trigger:scale-110" />
+                      <Package className="h-5 w-5 text-[#C5A572] transition-transform duration-300 group-hover/trigger:scale-110" />
                       <span>More Services</span>
                     </NavigationMenuTrigger>
                     <NavigationMenuContent>
@@ -182,15 +182,15 @@ export function SharedNavigation() {
               <button
                 onClick={() => handleNavClick("/blog")}
                 data-testid="nav-blog"
-                className={`group/item flex items-center gap-2 px-4 py-2 rounded-full text-sm font-bold tracking-widest uppercase transition-all duration-300 ${isActive("/blog") ? "bg-[#C5A572] text-white" : "text-[#1A2332]/70 hover:text-[#1A2332] hover:bg-[#C5A572]/10"}`}
+                className={`group/item flex flex-col items-center gap-1 px-4 py-2 rounded-full text-sm font-bold tracking-widest uppercase transition-all duration-300 ${isActive("/blog") ? "bg-[#C5A572] text-white" : "text-[#1A2332]/70 hover:text-[#1A2332] hover:bg-[#C5A572]/10"}`}
                 style={isActive("/blog") ? { boxShadow: "0 0 15px rgba(197,165,114,0.4)" } : undefined}
               >
-                <FileText className="h-3.5 w-3.5 text-[#C5A572] transition-transform duration-300 group-hover/item:scale-110" />
+                <FileText className="h-5 w-5 text-[#C5A572] transition-transform duration-300 group-hover/item:scale-110" />
                 <span>Blog</span>
               </button>
 
               {/* Divider */}
-              <div className="w-px h-5 bg-gray-200 mx-2" />
+              <div className="w-px h-10 bg-gray-200 mx-2" />
 
               {/* Get Quote CTA */}
               <Link href="/book">
