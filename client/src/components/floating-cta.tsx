@@ -90,7 +90,7 @@ export function FloatingCTA() {
       <button
         onClick={() => setOpen(true)}
         data-testid="floating-button-estimate"
-        className="fixed bottom-24 md:bottom-8 right-4 z-[9998] group flex items-center gap-2 bg-primary text-primary-foreground font-bold px-5 py-3.5 rounded-full shadow-[0_8px_32px_rgba(197,165,114,0.45)] transition-all duration-300 hover:shadow-[0_12px_40px_rgba(197,165,114,0.65)] hover:-translate-y-1 active:translate-y-0 cursor-pointer border-0"
+        className="fixed bottom-6 right-4 z-[9998] group flex items-center gap-2 bg-primary text-primary-foreground font-bold px-5 py-3.5 rounded-full shadow-[0_8px_32px_rgba(197,165,114,0.45)] transition-all duration-300 hover:shadow-[0_12px_40px_rgba(197,165,114,0.65)] hover:-translate-y-1 active:translate-y-0 cursor-pointer border-0"
       >
         <span className="absolute inset-0 rounded-full bg-primary animate-ping opacity-25 pointer-events-none" />
         <Phone className="h-4 w-4 shrink-0" />
