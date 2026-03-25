@@ -4,7 +4,7 @@ import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { SharedNavigation } from "@/components/shared-navigation";
 import { SharedFooter } from "@/components/shared-footer";
-import { Phone, ArrowRight, CheckCircle2, Star, Shield, Clock, TruckIcon, Building2, ChevronDown, Users, Package, MapPin } from "lucide-react";
+import { Phone, ArrowRight, CheckCircle2, Star, Shield, Clock, TruckIcon, Building2, ChevronDown, Users, Package, MapPin, Lock } from "lucide-react";
 
 const FAQS = [
   { q: "How much does it cost to hire apartment movers in Ottawa?", a: "Apartment moves in Ottawa typically range from $350–$900 for a one-bedroom and $550–$1,400 for a two-bedroom, depending on floor, elevator availability, and distance. Prestige Moving's Premium package starts at $155/hr (2 movers + truck) with a 3-hour minimum. You receive a written quote before booking — no surprises on the invoice." },
@@ -69,7 +69,13 @@ export default function ApartmentMoversOttawa() {
           <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
             {PACKAGE_ITEMS.map(pkg => (
               <div key={pkg.label} className="border border-gray-200 rounded-2xl p-6 text-center hover:border-[#C5A572] transition-colors">
-                <div className="text-[#C5A572] text-2xl font-bold mb-1">{pkg.price}</div>
+                <div className="relative inline-flex items-center gap-1.5 bg-gray-100 rounded-lg px-3 py-1.5 mb-1 overflow-hidden mx-auto">
+                  <span className="text-xl font-bold text-[#C5A572] blur-sm select-none pointer-events-none">$000/hr</span>
+                  <div className="absolute inset-0 flex items-center justify-center bg-white/80 backdrop-blur-[1px]">
+                    <Lock className="h-3.5 w-3.5 text-[#C5A572] mr-1" />
+                    <span className="text-xs font-bold text-[#1A2332]">Call for Rate</span>
+                  </div>
+                </div>
                 <div className="text-[#1A2332] font-bold text-lg mb-1">{pkg.label}</div>
                 <div className="text-gray-500 text-sm mb-3">{pkg.crew}</div>
                 <div className="bg-[#1A2332]/5 rounded-lg px-3 py-2 text-xs text-gray-600 font-medium">Best for: {pkg.best}</div>

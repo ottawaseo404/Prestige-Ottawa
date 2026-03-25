@@ -41,7 +41,7 @@ const data: NeighbourhoodPageData = {
     { title: "Deep Local Street Knowledge", desc: "We know every one-way street, every no-parking zone, and the best approach route for every Sandy Hill block." },
     { title: "Early September Availability", desc: "We expand capacity for Sandy Hill's September rush. Book well ahead and we'll be there on the most competitive moving days." },
     { title: "Perfect 5.0 Star Rating", desc: "Students and established residents alike rate us 5 stars. 400+ verified reviews across Ottawa confirm our consistency." },
-    { title: "Affordable Student Options", desc: "Our Premium package ($155/hr, 2 movers) is designed for the typical Sandy Hill student move — efficient and transparent." },
+    { title: "Affordable Student Options", desc: "Our Premium package (2 movers) is designed for the typical Sandy Hill student move — efficient, transparent, and competitively priced." },
   ],
   movingTipsParagraphs: [
     "Sandy Hill's most critical moving planning consideration is simple: book early. The neighbourhood's student population creates the most demand-constrained moving window in all of Ottawa during the last two weeks of August and the first days of September. Quality movers are booked solid 4–6 weeks out during this period. Prestige recommends booking your Sandy Hill move the moment you have a confirmed lease date — particularly if your move falls between August 25th and September 3rd.",

@@ -360,14 +360,20 @@ export function CommercialMoversTemplate({ data }: { data: CommercialPageData })
                 </p>
                 <div className="grid sm:grid-cols-3 gap-4 mb-6">
                   {[
-                    { pkg: "Premium", rate: "$155/hr", crew: "2 movers + truck", best: "Small offices, 1–10 workstations" },
-                    { pkg: "Deluxe", rate: "$195/hr", crew: "3 movers + truck", best: "Medium offices, 10–30 workstations" },
-                    { pkg: "Diamond", rate: "$315/hr", crew: "4 movers + 2 trucks", best: "Large offices, full business relocations" },
-                  ].map(({ pkg, rate, crew, best }, i) => (
+                    { pkg: "Premium", crew: "2 movers + truck", best: "Small offices, 1–10 workstations" },
+                    { pkg: "Deluxe", crew: "3 movers + truck", best: "Medium offices, 10–30 workstations" },
+                    { pkg: "Diamond", crew: "4 movers + 2 trucks", best: "Large offices, full business relocations" },
+                  ].map(({ pkg, crew, best }, i) => (
                     <div key={i} className={`p-5 rounded-xl border-2 ${i === 1 ? "border-[#C5A572] bg-[#C5A572]/5" : "border-gray-200 bg-white"}`}>
                       {i === 1 && <div className="text-[#C5A572] text-xs font-bold uppercase tracking-wide mb-2">Most Popular</div>}
                       <div className="font-bold text-[#1A2332] text-lg mb-1">{pkg}</div>
-                      <div className="text-2xl font-bold text-[#C5A572] mb-2">{rate}</div>
+                      <div className="relative inline-flex items-center gap-1.5 bg-gray-100 rounded-lg px-3 py-1.5 mb-2 overflow-hidden">
+                        <span className="text-xl font-bold text-[#C5A572] blur-sm select-none pointer-events-none">$000/hr</span>
+                        <div className="absolute inset-0 flex items-center justify-center bg-white/70 backdrop-blur-[1px]">
+                          <Lock className="h-3.5 w-3.5 text-[#C5A572] mr-1" />
+                          <span className="text-xs font-bold text-[#1A2332]">Call for Rate</span>
+                        </div>
+                      </div>
                       <div className="text-gray-600 text-xs mb-1">{crew}</div>
                       <div className="text-gray-400 text-xs">{best}</div>
                     </div>
@@ -375,14 +381,14 @@ export function CommercialMoversTemplate({ data }: { data: CommercialPageData })
                 </div>
                 <div className="bg-[#1A2332] rounded-xl p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                   <div>
-                    <div className="text-white font-bold mb-0.5">{data.priceRange} — Typical {data.name} Commercial Move</div>
-                    <div className="text-white/50 text-sm">{data.priceNote} · Written quote before every move · No hidden fees</div>
+                    <div className="text-white font-bold mb-0.5">Custom pricing for every {data.name} commercial move</div>
+                    <div className="text-white/50 text-sm">Written quote before every move · No hidden fees · 3-hour minimum</div>
                   </div>
-                  <Link href="/contact">
+                  <a href="tel:6136004000">
                     <Button className="bg-[#C5A572] text-[#1A2332] font-bold shrink-0">
-                      Request Commercial Quote <ArrowRight className="ml-2 h-4 w-4" />
+                      <Phone className="h-4 w-4 mr-2" /> Call Now
                     </Button>
-                  </Link>
+                  </a>
                 </div>
               </section>
 

@@ -7,7 +7,7 @@ import { SharedFooter } from "@/components/shared-footer";
 import {
   Phone, TruckIcon, Shield, Clock, Star, ArrowRight, CheckCircle2,
   MapPin, ChevronDown, DollarSign, Users, Home, Package, Zap, Award,
-  Navigation, Building2, TreePine, GraduationCap, Briefcase, HeartHandshake
+  Navigation, Building2, TreePine, GraduationCap, Briefcase, HeartHandshake, Lock
 } from "lucide-react";
 import heroImg from "@assets/generated_images/movers-near-me-hero.png";
 import aerialImg from "@assets/generated_images/ottawa-neighbourhoods-aerial.png";
@@ -260,7 +260,7 @@ export default function MoversNearMeOttawa() {
             {[
               { val: "500+", label: "5-Star Reviews" },
               { val: "15+", label: "Ottawa Neighbourhoods" },
-              { val: "$155/hr", label: "Starting Rate" },
+              { val: "Call Us", label: "For Pricing" },
               { val: "7 Days", label: "Mon–Sun Service" },
             ].map(stat => (
               <div key={stat.label}>
@@ -487,7 +487,7 @@ export default function MoversNearMeOttawa() {
                         Get Exact Quote — Free <ArrowRight className="ml-2 h-4 w-4" />
                       </Button>
                     </Link>
-                    <p className="text-white/30 text-xs text-center mt-3">Estimates based on $155/hr. Actual price confirmed before booking.</p>
+                    <p className="text-white/30 text-xs text-center mt-3">All estimates confirmed before booking. Price locked with written quote.</p>
                   </div>
                 )}
               </div>
@@ -586,7 +586,7 @@ export default function MoversNearMeOttawa() {
             <div className="grid grid-cols-2 gap-4">
               {[
                 { val: "5.0★", label: "Google Rating", sub: "500+ verified reviews" },
-                { val: "$155/hr", label: "Starting Rate", sub: "No hidden fees" },
+                { val: "Call Us", label: "For Pricing", sub: "No hidden fees" },
                 { val: "100%", label: "WSIB Registered", sub: "Every crew member" },
                 { val: "15+", label: "Ottawa Areas", sub: "We know every street" },
               ].map(({ val, label, sub }) => (

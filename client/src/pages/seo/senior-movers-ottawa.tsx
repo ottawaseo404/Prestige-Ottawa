@@ -7,7 +7,7 @@ import { SharedFooter } from "@/components/shared-footer";
 import {
   Phone, ArrowRight, CheckCircle2, Heart, ChevronDown, Shield,
   Clock, Users, Star, MapPin, Package, Home, Truck, DollarSign,
-  Calendar, Award, HandHeart, Building2, ChevronRight
+  Calendar, Award, HandHeart, Building2, ChevronRight, Lock
 } from "lucide-react";
 
 const FAQS = [
@@ -168,7 +168,7 @@ export default function SeniorMoversOttawa() {
               Patient, Affordable & Family-Coordinated
             </h1>
             <p className="text-white/75 text-lg mb-6 leading-relaxed">
-              Moving later in life is one of the most emotionally significant transitions a person makes. Our senior moving team in Ottawa moves at your pace, handles every belonging with care, and keeps your family informed every step of the way. Affordable rates from $155/hr. Written quote. No hidden fees.
+              Moving later in life is one of the most emotionally significant transitions a person makes. Our senior moving team in Ottawa moves at your pace, handles every belonging with care, and keeps your family informed every step of the way. Transparent, competitive rates. Written quote. No hidden fees.
             </p>
             <div className="flex flex-wrap gap-4 mb-8">
               {["5.0★ Rated — 400+ Reviews", "WSIB Certified", "Written Quote Guaranteed", "No Hidden Fees"].map(t => (
@@ -197,7 +197,7 @@ export default function SeniorMoversOttawa() {
       {/* Trust bar */}
       <div className="bg-[#C5A572] py-3">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap items-center justify-center gap-6 text-[#1A2332] text-sm font-semibold">
-          {["Patient, No-Rush Crew", "Retirement Community Experience", "Family Remote Coordination", "Downsizing & Donation Help", "Affordable from $155/hr"].map(t => (
+          {["Patient, No-Rush Crew", "Retirement Community Experience", "Family Remote Coordination", "Downsizing & Donation Help", "Transparent Pricing"].map(t => (
             <span key={t} className="flex items-center gap-1.5"><CheckCircle2 className="h-3.5 w-3.5" />{t}</span>
           ))}
         </div>
@@ -223,7 +223,7 @@ export default function SeniorMoversOttawa() {
                 { icon: HandHeart, title: "Downsizing & Donation Help", desc: "We help sort belongings into categories: moving to new home, transferring to family, donating to Ottawa charities, or disposal. We coordinate with local charities for pickup and with disposal services for items that cannot be donated." },
                 { icon: Shield, title: "Antique & Heirloom Protection", desc: "Decades of accumulated possessions include irreplaceable items. Every piece is blanket-wrapped with quilted moving pads. China, artwork, grandfather clocks, and family heirlooms receive our highest-level protection protocol." },
                 { icon: Building2, title: "Retirement Community Experience", desc: "We know Ottawa's retirement communities: their move-in procedures, elevator booking requirements, service elevator access, parking rules, and scheduling windows. We coordinate directly with facility staff so your family doesn't have to." },
-                { icon: DollarSign, title: "Transparent, Affordable Pricing", desc: "Seniors on fixed incomes deserve complete pricing clarity. Your written quote is your final invoice. We offer the same competitive hourly rates for senior moves as all our services — starting at $155/hr with no hidden charges." },
+                { icon: DollarSign, title: "Transparent, Affordable Pricing", desc: "Seniors on fixed incomes deserve complete pricing clarity. Your written quote is your final invoice. We offer the same competitive hourly rates for senior moves as all our services — no hidden charges." },
               ].map(({ icon: Icon, title, desc }) => (
                 <div key={title} className="flex gap-4 bg-gray-50 rounded-xl p-4 border border-gray-100">
                   <div className="w-9 h-9 bg-[#C5A572]/15 rounded-lg flex items-center justify-center shrink-0">
@@ -256,7 +256,13 @@ export default function SeniorMoversOttawa() {
                   <h3 className="font-bold text-[#1A2332] text-lg">{pkg.name}</h3>
                   {pkg.name === "Deluxe" && <span className="text-xs bg-[#C5A572] text-[#1A2332] font-bold px-2 py-0.5 rounded-full">Most Popular</span>}
                 </div>
-                <div className="text-[#C5A572] text-3xl font-bold mb-1">{pkg.rate}</div>
+                <div className="relative inline-flex items-center gap-1.5 bg-gray-100 rounded-lg px-3 py-1.5 mb-2 overflow-hidden">
+                  <span className="text-xl font-bold text-[#C5A572] blur-sm select-none pointer-events-none">{pkg.rate}</span>
+                  <div className="absolute inset-0 flex items-center justify-center bg-white/70 backdrop-blur-[1px]">
+                    <Lock className="h-3.5 w-3.5 text-[#C5A572] mr-1" />
+                    <span className="text-xs font-bold text-[#1A2332]">Call for Rate</span>
+                  </div>
+                </div>
                 <div className="text-gray-500 text-sm mb-4">{pkg.crew} · 3-hr minimum</div>
                 <p className="text-gray-600 text-sm leading-relaxed">{pkg.best}</p>
                 <div className="mt-5">

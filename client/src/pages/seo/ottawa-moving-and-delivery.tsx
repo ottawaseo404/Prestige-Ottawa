@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet";
 import { Button } from "@/components/ui/button";
-import { Phone, CheckCircle, Star, ArrowRight, Package, Truck, Clock, Shield } from "lucide-react";
+import { Phone, CheckCircle, Star, ArrowRight, Package, Truck, Clock, Shield, Lock } from "lucide-react";
 import { Link } from "wouter";
 import { SharedFooter } from "@/components/shared-footer";
 import { SharedNavigation } from "@/components/shared-navigation";
@@ -124,7 +124,13 @@ export default function OttawaMovingAndDelivery() {
               ].map((p) => (
                 <div key={p.tier} className="bg-white border border-gray-200 rounded-md p-6">
                   <h3 className="font-bold text-[#1A2332] text-lg mb-1">{p.tier}</h3>
-                  <p className="text-[#C5A572] font-bold text-xl mb-3">{p.price}</p>
+                  <div className="relative inline-flex items-center gap-1.5 bg-gray-100 rounded-lg px-3 py-1.5 mb-3 overflow-hidden">
+                    <span className="text-lg font-bold text-[#C5A572] blur-sm select-none pointer-events-none">{p.price}</span>
+                    <div className="absolute inset-0 flex items-center justify-center bg-white/70 backdrop-blur-[1px]">
+                      <Lock className="h-3.5 w-3.5 text-[#C5A572] mr-1" />
+                      <span className="text-xs font-bold text-[#1A2332]">Call for Rate</span>
+                    </div>
+                  </div>
                   <p className="text-gray-600 text-sm">{p.desc}</p>
                 </div>
               ))}

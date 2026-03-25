@@ -116,7 +116,7 @@ export default function MovingCompaniesNearMeOttawa() {
                 { icon: <Award className="h-6 w-6" />, title: "Ottawa's #1 Rated", desc: "4.9 stars across 500+ verified Google reviews. More five-stars than any other Ottawa moving company." },
                 { icon: <Shield className="h-6 w-6" />, title: "Fully Insured Moves", desc: "Every move is covered by our commercial liability policy. Your furniture is protected from pickup to placement." },
                 { icon: <Clock className="h-6 w-6" />, title: "On Time, Every Time", desc: "We arrive in your moving window, work efficiently, and finish when we say we will. No wasted hours billed." },
-                { icon: <CheckCircle className="h-6 w-6" />, title: "Transparent Pricing", desc: "Hourly rates with no hidden fees. Premium from $155/hr, Deluxe from $195/hr. 3-hour minimum." },
+                { icon: <CheckCircle className="h-6 w-6" />, title: "Transparent Pricing", desc: "Hourly rates with no hidden fees. Call us for your custom rate — 3-hour minimum, all-inclusive." },
                 { icon: <MapPin className="h-6 w-6" />, title: "Local Ottawa Crews", desc: "Our teams live and work in Ottawa. We know the traffic, the buildings, and the neighbourhoods intimately." },
                 { icon: <Phone className="h-6 w-6" />, title: "Real People Answer", desc: "Call us and a real person picks up — not a call centre. Book, adjust, or ask questions with ease." },
               ].map((item) => (

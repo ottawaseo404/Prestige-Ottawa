@@ -7,7 +7,7 @@ import { SharedFooter } from "@/components/shared-footer";
 import { TableOfContents } from "@/components/table-of-contents";
 import {
   Phone, Star, ArrowRight, ChevronDown, CheckCircle2, MapPin,
-  TruckIcon, Shield, Award, Clock, DollarSign, Package
+  TruckIcon, Shield, Award, Clock, DollarSign, Package, Lock
 } from "lucide-react";
 import fleetImg from "@assets/prestige-fleet_1771975522124.webp";
 import teamImg from "@assets/prestige_moving_1772836136864.jpg";
@@ -98,7 +98,7 @@ export default function KanataMoverPage() {
             {[
               { value: "5.0 ★",     label: "Google Rating" },
               { value: "400+",      label: "Five-Star Reviews" },
-              { value: "$155/hr",   label: "Starting Rate" },
+              { value: "Call Us",   label: "For Pricing" },
               { value: "Same-Day",  label: "Kanata Availability" },
             ].map(({ value, label }, i) => (
               <div key={i}><div className="text-lg font-bold text-[#C5A572]">{value}</div><div className="text-white/50 text-xs mt-0.5">{label}</div></div>

@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet";
 import { Button } from "@/components/ui/button";
-import { Phone, CheckCircle, Star, ArrowRight, DollarSign, Clock, Shield, Truck } from "lucide-react";
+import { Phone, CheckCircle, Star, ArrowRight, DollarSign, Clock, Shield, Truck, Lock } from "lucide-react";
 import { Link } from "wouter";
 import { SharedFooter } from "@/components/shared-footer";
 import { SharedNavigation } from "@/components/shared-navigation";
@@ -105,7 +105,13 @@ export default function MovingCompaniesOttawaPrices() {
                 <div key={pkg.name} className={`border-2 rounded-md p-6 ${i === 1 ? "border-[#C5A572] bg-[#C5A572]/5" : "border-gray-200 bg-white"}`}>
                   {i === 1 && <div className="text-center mb-3"><span className="bg-[#C5A572] text-white text-xs font-bold px-3 py-1 rounded-full">MOST POPULAR</span></div>}
                   <h3 className="font-bold text-[#1A2332] text-xl text-center mb-1">{pkg.name}</h3>
-                  <p className="text-[#C5A572] font-bold text-3xl text-center mb-2">{pkg.rate}</p>
+                  <div className="relative inline-flex items-center gap-1.5 bg-gray-100 rounded-lg px-3 py-1.5 mb-2 overflow-hidden mx-auto">
+                    <span className="text-xl font-bold text-[#C5A572] blur-sm select-none pointer-events-none">{pkg.rate}</span>
+                    <div className="absolute inset-0 flex items-center justify-center bg-white/70 backdrop-blur-[1px]">
+                      <Lock className="h-3.5 w-3.5 text-[#C5A572] mr-1" />
+                      <span className="text-xs font-bold text-[#1A2332]">Call for Rate</span>
+                    </div>
+                  </div>
                   <p className="text-sm text-gray-500 text-center mb-1">{pkg.team}</p>
                   <p className="text-xs text-gray-400 text-center mb-4">Best for: {pkg.best}</p>
                   <ul className="space-y-2">

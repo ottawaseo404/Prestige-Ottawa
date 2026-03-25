@@ -3,7 +3,7 @@ import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { SharedNavigation } from "@/components/shared-navigation";
 import { SharedFooter } from "@/components/shared-footer";
-import { Phone, ArrowRight, CheckCircle2, Star, Shield, TruckIcon } from "lucide-react";
+import { Phone, ArrowRight, CheckCircle2, Star, Shield, TruckIcon, Lock } from "lucide-react";
 
 const COMPARISON = [
   { feature: "Google Rating (Ottawa)", prestige: "5.0★ (400+ reviews)", competitor: "4.3★" },
@@ -12,7 +12,7 @@ const COMPARISON = [
   { feature: "WSIB Certified", prestige: "Yes — current", competitor: "Yes" },
   { feature: "Fuel Surcharge", prestige: "None — all-inclusive", competitor: "Standard charge" },
   { feature: "Ottawa Neighbourhood Coverage", prestige: "All 25+ neighbourhoods", competitor: "Central Ottawa focus" },
-  { feature: "Starting Rate", prestige: "$155/hr (2 movers + truck)", competitor: "Market-rate pricing" },
+  { feature: "Starting Rate", prestige: "Call for Rate", competitor: "Market-rate pricing" },
   { feature: "Response Time", prestige: "Same-day quote", competitor: "Varies" },
 ];
 

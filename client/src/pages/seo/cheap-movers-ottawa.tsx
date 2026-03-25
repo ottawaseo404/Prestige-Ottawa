@@ -4,7 +4,7 @@ import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { SharedNavigation } from "@/components/shared-navigation";
 import { SharedFooter } from "@/components/shared-footer";
-import { Phone, ArrowRight, CheckCircle2, Shield, Clock, TruckIcon, ChevronDown, DollarSign, AlertTriangle, Star } from "lucide-react";
+import { Phone, ArrowRight, CheckCircle2, Shield, Clock, TruckIcon, ChevronDown, DollarSign, AlertTriangle, Star, Lock } from "lucide-react";
 
 const FAQS = [
   { q: "What is the cheapest time to move in Ottawa?", a: "The most affordable times to move in Ottawa are mid-week (Tuesday–Thursday) and mid-month — avoiding the end-of-month surge when demand peaks. Winter moves (November–March) are also typically cheaper than summer peak season. Prestige Moving's rates are consistent year-round, but availability and flexibility are best outside peak periods." },
@@ -44,7 +44,7 @@ export default function CheapMoversOttawa() {
               <span className="text-[#C5A572] text-xs font-semibold uppercase tracking-wider">Affordable Ottawa Moving</span>
             </div>
             <h1 className="text-3xl md:text-5xl font-bold text-white mb-5 leading-tight">Cheap Movers Ottawa —<br className="hidden md:block" /> Transparent Pricing, Zero Hidden Fees</h1>
-            <p className="text-white/70 text-lg mb-8">The cheapest mover isn't always the one with the lowest advertised rate. Prestige Moving offers genuinely all-inclusive pricing — what you're quoted is what you pay. From $155/hr, written quote before booking.</p>
+            <p className="text-white/70 text-lg mb-8">The cheapest mover isn't always the one with the lowest advertised rate. Prestige Moving offers genuinely all-inclusive pricing — what you're quoted is what you pay. Written quote before every booking — call us for your rate.</p>
             <div className="flex flex-wrap gap-3">
               <Link href="/book"><Button className="bg-[#C5A572] text-[#1A2332] font-bold">Get Honest Quote <ArrowRight className="ml-2 h-4 w-4" /></Button></Link>
               <a href="tel:6136004000"><Button variant="outline" className="text-white border-white/30 bg-white/10"><Phone className="h-4 w-4 mr-2" /> (613) 600-4000</Button></a>
@@ -56,7 +56,7 @@ export default function CheapMoversOttawa() {
       <div className="bg-[#C5A572] py-3">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-center justify-center gap-6 text-[#1A2332] text-sm font-semibold">
-            {["From $155/hr All-Inclusive", "No Fuel Surcharges", "No Stair Fees", "No Travel Add-Ons", "Written Quote = Final Invoice"].map(t => <span key={t}>{t}</span>)}
+            {["Call for All-Inclusive Rate", "No Fuel Surcharges", "No Stair Fees", "No Travel Add-Ons", "Written Quote = Final Invoice"].map(t => <span key={t}>{t}</span>)}
           </div>
         </div>
       </div>
@@ -73,10 +73,16 @@ export default function CheapMoversOttawa() {
               { name: "Diamond", price: "$315/hr", crew: "4 Movers + 2 Trucks", min: "3-hr min = $945", best: "Large homes, estates" },
             ].map(pkg => (
               <div key={pkg.name} className="bg-gray-50 border border-gray-200 rounded-2xl p-6">
-                <div className="text-[#C5A572] text-2xl font-bold mb-1">{pkg.price}</div>
+                <div className="relative inline-flex items-center gap-1.5 bg-gray-100 rounded-lg px-3 py-1.5 mb-2 overflow-hidden">
+                  <span className="text-xl font-bold text-[#C5A572] blur-sm select-none pointer-events-none">{pkg.price}</span>
+                  <div className="absolute inset-0 flex items-center justify-center bg-white/70 backdrop-blur-[1px]">
+                    <Lock className="h-3.5 w-3.5 text-[#C5A572] mr-1" />
+                    <span className="text-xs font-bold text-[#1A2332]">Call for Rate</span>
+                  </div>
+                </div>
                 <div className="text-[#1A2332] font-bold mb-1">{pkg.name}</div>
                 <div className="text-gray-500 text-sm mb-2">{pkg.crew}</div>
-                <div className="text-gray-400 text-xs mb-3">{pkg.min}</div>
+                <div className="text-gray-400 text-xs mb-3">3-hr minimum</div>
                 <div className="bg-white border border-gray-200 rounded-lg px-3 py-2 text-xs text-gray-600">Best for: {pkg.best}</div>
               </div>
             ))}
@@ -110,7 +116,7 @@ export default function CheapMoversOttawa() {
           <div className="space-y-5 text-gray-700 leading-relaxed">
             <p>When Ottawa residents search for "cheap movers," they're usually looking for one thing: a moving company that won't surprise them with a bill twice what they expected. That's a completely reasonable goal — and it's exactly what transparent, written-quote pricing delivers. The problem is that the movers advertising the cheapest hourly rates in Ottawa are frequently not the ones with the cheapest final invoices.</p>
             <p>The pattern of bait-and-switch pricing in the Ottawa moving market works like this: a company advertises $99/hr, gets the booking, and then on moving day begins adding fees — a fuel surcharge ($50–$100), a stair fee ($25 per flight), a long carry charge for distances over 50 feet, a minimum truck fee, and an overtime rate that kicks in after a suspiciously short "standard window." By the end of a move that should have cost $400, the invoice is $750 — and the client has no recourse because they signed a contract with no fixed total.</p>
-            <p>Prestige Moving's approach is different: <strong>our written quote is your final price.</strong> We calculate everything upfront — travel time from our location to yours, stairs at either address, distance between origin and destination, and the crew size you need. The number in your quote is the number on your invoice. Our rates start at $155/hr for our 2-mover Premium package, and for most Ottawa apartment and small home moves, the total comes to $465–$900 — genuinely competitive with any honest Ottawa moving company.</p>
+            <p>Prestige Moving's approach is different: <strong>our written quote is your final price.</strong> We calculate everything upfront — travel time from our location to yours, stairs at either address, distance between origin and destination, and the crew size you need. The number in your quote is the number on your invoice. Our rates are competitive with any honest Ottawa moving company — call us for your all-inclusive quote.</p>
             <p>See also: <Link href="/how-much-does-moving-cost-ottawa" className="text-[#C5A572] hover:underline">Complete 2026 Ottawa Moving Cost Guide</Link> · <Link href="/affordable-movers-ottawa" className="text-[#C5A572] hover:underline">Affordable Movers Ottawa</Link></p>
           </div>
         </div>
@@ -136,7 +142,7 @@ export default function CheapMoversOttawa() {
       <section className="bg-[#1A2332] py-14">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl font-bold text-white mb-4">Affordable Ottawa Moving — Get Your Written Quote</h2>
-          <p className="text-white/65 mb-8">From $155/hr · No hidden fees · 5.0★ rated · Written quote = final price</p>
+          <p className="text-white/65 mb-8">Call for all-inclusive rate · No hidden fees · 5.0★ rated · Written quote = final price</p>
           <div className="flex flex-wrap gap-3 justify-center">
             <Link href="/book"><Button className="bg-[#C5A572] text-[#1A2332] font-bold">Book Now <ArrowRight className="ml-2 h-4 w-4" /></Button></Link>
             <a href="tel:6136004000"><Button variant="outline" className="text-white border-white/30 bg-white/10"><Phone className="h-4 w-4 mr-2" /> (613) 600-4000</Button></a>

@@ -7,7 +7,7 @@ import { SharedNavigation } from "@/components/shared-navigation";
 import { SharedFooter } from "@/components/shared-footer";
 import {
   Phone, ArrowRight, CheckCircle2, MapPin,
-  Star, ChevronDown, GraduationCap, Clock, DollarSign, Package
+  Star, ChevronDown, GraduationCap, Clock, DollarSign, Package, Lock
 } from "lucide-react";
 import studentHeroImg from "@assets/generated_images/student_moving_hero.png";
 
@@ -88,7 +88,7 @@ export default function StudentMoving() {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className="max-w-2xl">
             <div className="flex flex-wrap gap-2 mb-5">
-              {["10% Student Discount", "Starting $155/hr", "2-Hr Minimum Dorm Moves", "All Ottawa Campuses"].map(t => (
+              {["10% Student Discount", "Call for Pricing", "2-Hr Minimum Dorm Moves", "All Ottawa Campuses"].map(t => (
                 <Badge key={t} className="bg-[#C5A572]/20 text-[#C5A572] border border-[#C5A572]/30 text-xs font-semibold">{t}</Badge>
               ))}
             </div>
@@ -128,7 +128,13 @@ export default function StudentMoving() {
               <div key={pkg.name} className={`rounded-2xl border p-7 ${pkg.highlight ? "bg-[#1A2332] border-[#1A2332] text-white shadow-xl" : "bg-white border-gray-200"}`}>
                 {pkg.highlight && <div className="text-center mb-4"><Badge className="bg-[#C5A572]/20 text-[#C5A572] border-[#C5A572]/30 text-xs">Most Popular</Badge></div>}
                 <h3 className={`text-lg font-black mb-1 ${pkg.highlight ? "text-white" : "text-[#1A2332]"}`}>{pkg.name}</h3>
-                <div className="text-[#C5A572] font-black text-xl mb-1">{pkg.price}</div>
+                <div className="relative inline-flex items-center gap-1.5 bg-gray-100 rounded-lg px-3 py-1.5 mb-1 overflow-hidden">
+                  <span className="text-lg font-black text-[#C5A572] blur-sm select-none pointer-events-none">$000/hr</span>
+                  <div className="absolute inset-0 flex items-center justify-center bg-white/80 backdrop-blur-[1px]">
+                    <Lock className="h-3.5 w-3.5 text-[#C5A572] mr-1.5" />
+                    <span className="text-xs font-bold text-[#1A2332]">Call for Rate</span>
+                  </div>
+                </div>
                 <div className={`text-xs mb-1 ${pkg.highlight ? "text-white/60" : "text-gray-500"}`}>{pkg.min}</div>
                 <div className={`text-xs font-medium mb-5 ${pkg.highlight ? "text-white/70" : "text-gray-600"}`}>{pkg.best}</div>
                 <div className="space-y-2 mb-6">

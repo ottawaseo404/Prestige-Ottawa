@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet";
 import { Button } from "@/components/ui/button";
-import { Phone, CheckCircle, Star, ArrowRight, Heart, Shield, Clock, Users, MapPin, ChevronRight } from "lucide-react";
+import { Phone, CheckCircle, Star, ArrowRight, Heart, Shield, Clock, Users, MapPin, ChevronRight, Lock } from "lucide-react";
 import { Link } from "wouter";
 import { SharedFooter } from "@/components/shared-footer";
 import { SharedNavigation } from "@/components/shared-navigation";
@@ -163,7 +163,7 @@ export default function SeniorMovingServicesOttawa() {
               <p>Ottawa senior movers need to understand more than just how to carry furniture. The best senior moving companies in Ottawa combine logistical skill with emotional intelligence — the ability to read a room, slow down when needed, and treat the act of moving as the significant life transition it is.</p>
               <p>Prestige Moving has been serving Ottawa families through senior transitions since 2009. We've moved clients from long-time family homes in Rockcliffe Park and the Glebe into retirement suites in Kanata and Barrhaven. We've coordinated with adult children managing a parent's move from Vancouver. We've worked through the specific procedures of every major retirement community in Ottawa.</p>
               <p>Our approach begins before moving day: every crew lead is briefed on the nature of the move, the senior's situation, and any specific requests from the family. On moving day, we check in regularly and adapt our pace to what's comfortable. We assign a single point of contact for all family communications so no one is left wondering what's happening.</p>
-              <p>For families looking for affordable movers for seniors in Ottawa, our rates start at $155/hr — competitive with any mover in the city, with no hidden charges and a written quote guaranteed before every move.</p>
+              <p>For families looking for affordable movers for seniors in Ottawa, our rates are competitive with any mover in the city, with no hidden charges and a written quote guaranteed before every move. Call us for your custom rate.</p>
             </div>
           </div>
         </section>

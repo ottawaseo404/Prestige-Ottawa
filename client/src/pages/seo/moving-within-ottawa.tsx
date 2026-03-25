@@ -4,7 +4,7 @@ import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { SharedNavigation } from "@/components/shared-navigation";
 import { SharedFooter } from "@/components/shared-footer";
-import { Phone, ArrowRight, CheckCircle2, TruckIcon } from "lucide-react";
+import { Phone, ArrowRight, CheckCircle2, TruckIcon, Lock } from "lucide-react";
 
 const NEIGHBOURHOODS = ["Westboro", "Centretown", "Kanata", "Barrhaven", "Orleans", "Nepean", "Gloucester", "Vanier", "Hintonburg", "Glebe", "Alta Vista", "Hunt Club", "Stittsville", "Manotick", "Rockcliffe Park"];
 
@@ -36,7 +36,7 @@ export default function MovingWithinOttawa() {
               <span className="text-[#C5A572] text-xs font-semibold uppercase tracking-wider">Local Moving — Ottawa</span>
             </div>
             <h1 className="text-3xl md:text-5xl font-bold text-white mb-5 leading-tight">Moving Within Ottawa — Local Movers for Every Neighbourhood</h1>
-            <p className="text-white/70 text-lg mb-8">Ottawa is a large city — a move from Kanata to Barrhaven is 30 km. From Orléans to Nepean is nearly 40 km. Prestige Moving covers all local Ottawa moves with professional crews, proper trucks, and transparent pricing from $155/hr.</p>
+            <p className="text-white/70 text-lg mb-8">Ottawa is a large city — a move from Kanata to Barrhaven is 30 km. From Orléans to Nepean is nearly 40 km. Prestige Moving covers all local Ottawa moves with professional crews, proper trucks, and transparent all-inclusive pricing. Call us for your custom rate.</p>
             <div className="flex flex-wrap gap-3">
               <Link href="/book"><Button className="bg-[#C5A572] text-[#1A2332] font-bold">Get Free Quote <ArrowRight className="ml-2 h-4 w-4" /></Button></Link>
               <a href="tel:6136004000"><Button variant="outline" className="text-white border-white/30 bg-white/10"><Phone className="h-4 w-4 mr-2" /> (613) 600-4000</Button></a>
@@ -46,7 +46,7 @@ export default function MovingWithinOttawa() {
       </section>
       <div className="bg-[#C5A572] py-3">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap items-center justify-center gap-6 text-[#1A2332] text-sm font-semibold">
-          {["From $155/hr", "All Ottawa Neighbourhoods", "3-Hour Minimum", "5.0★ Rated", "No Hidden Fees"].map(t => <span key={t}>{t}</span>)}
+          {["Call for Pricing", "All Ottawa Neighbourhoods", "3-Hour Minimum", "5.0★ Rated", "No Hidden Fees"].map(t => <span key={t}>{t}</span>)}
         </div>
       </div>
       <section className="bg-white py-16">
@@ -67,14 +67,20 @@ export default function MovingWithinOttawa() {
             </div>
           </div>
           <div className="mt-8 grid md:grid-cols-3 gap-4">
-            {[{ title: "Apartment Move", size: "1 Bedroom", time: "3–4 hours", rate: "$155/hr" },
-              { title: "Home Move", size: "2 Bedroom", time: "4–6 hours", rate: "$155/hr" },
-              { title: "Family Move", size: "3+ Bedroom", time: "6–9 hours", rate: "$155–$195/hr" }].map(p => (
+            {[{ title: "Apartment Move", size: "1 Bedroom", time: "3–4 hours" },
+              { title: "Home Move", size: "2 Bedroom", time: "4–6 hours" },
+              { title: "Family Move", size: "3+ Bedroom", time: "6–9 hours" }].map(p => (
               <div key={p.title} className="bg-gray-50 border border-gray-200 rounded-xl p-4 text-center">
                 <h4 className="font-bold text-[#1A2332]">{p.title}</h4>
                 <p className="text-gray-500 text-sm">{p.size}</p>
-                <p className="text-[#C5A572] font-bold text-lg mt-2">{p.rate}</p>
-                <p className="text-gray-500 text-xs">{p.time}</p>
+                <div className="relative inline-flex items-center gap-1.5 bg-white border border-gray-200 rounded-lg px-2.5 py-1 mt-2 overflow-hidden mx-auto">
+                  <span className="text-base font-bold text-[#C5A572] blur-sm select-none pointer-events-none">$000/hr</span>
+                  <div className="absolute inset-0 flex items-center justify-center bg-white/80 backdrop-blur-[1px]">
+                    <Lock className="h-3 w-3 text-[#C5A572] mr-1" />
+                    <span className="text-[10px] font-bold text-[#1A2332]">Call for Rate</span>
+                  </div>
+                </div>
+                <p className="text-gray-500 text-xs mt-1">{p.time}</p>
               </div>
             ))}
           </div>

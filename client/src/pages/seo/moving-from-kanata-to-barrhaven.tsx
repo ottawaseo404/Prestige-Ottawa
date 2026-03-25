@@ -34,7 +34,7 @@ export default function MovingFromKanataToBarthaven() {
       </section>
       <div className="bg-[#C5A572] py-3">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap items-center justify-center gap-6 text-[#1A2332] text-sm font-semibold">
-          {["~30 km Within Ottawa", "From $155/hr", "3-Hour Minimum", "5.0★ Rated", "Written Quote"].map(t => <span key={t}>{t}</span>)}
+          {["~30 km Within Ottawa", "Call for Pricing", "3-Hour Minimum", "5.0★ Rated", "Written Quote"].map(t => <span key={t}>{t}</span>)}
         </div>
       </div>
       <section className="bg-white py-16">
@@ -63,7 +63,7 @@ export default function MovingFromKanataToBarthaven() {
                 <div className="flex justify-between"><span>Distance</span><span className="text-white font-medium">~30 km</span></div>
                 <div className="flex justify-between"><span>Drive Time</span><span className="text-white font-medium">~30–40 min</span></div>
                 <div className="flex justify-between"><span>2BR Move Time</span><span className="text-white font-medium">4–6 hours</span></div>
-                <div className="flex justify-between"><span>Starting Rate</span><span className="text-[#C5A572] font-medium">From $155/hr</span></div>
+                <div className="flex justify-between"><span>Starting Rate</span><span className="text-[#C5A572] font-medium">Call Us</span></div>
               </div>
               <Link href="/book" className="mt-4 block">
                 <Button className="bg-[#C5A572] text-[#1A2332] font-bold w-full">Get Written Quote</Button>

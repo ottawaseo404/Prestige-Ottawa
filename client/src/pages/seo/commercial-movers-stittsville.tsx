@@ -36,7 +36,7 @@ const data: CommercialPageData = {
   ],
   prestigeReasons: [
     { title: "West Ottawa Expertise", desc: "We serve the Stittsville-Kanata corridor daily. No extra charges, no treated-as-outlier status for your Stittsville address." },
-    { title: "Small Business Friendly", desc: "Our Premium package ($155/hr) is sized for Stittsville's typical small office and professional practice moves." },
+    { title: "Small Business Friendly", desc: "Our Premium package (2 movers + truck) is sized for Stittsville's typical small office and professional practice moves." },
     { title: "First Commercial Move Support", desc: "Never done a commercial move before? We guide you through planning, labelling, and preparation so the move day is smooth." },
     { title: "After-Hours Availability", desc: "Weekend and evening moves so your Stittsville business doesn't lose a day. Even for small offices, we make this work." },
     { title: "Fixed Written Quotes", desc: "Small businesses need budget certainty. Our quotes are accurate, written, and firm — the invoice matches." },

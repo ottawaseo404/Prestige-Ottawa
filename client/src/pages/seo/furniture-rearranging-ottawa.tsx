@@ -3,7 +3,7 @@ import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { SharedNavigation } from "@/components/shared-navigation";
 import { SharedFooter } from "@/components/shared-footer";
-import { Phone, ArrowRight, CheckCircle2 } from "lucide-react";
+import { Phone, ArrowRight, CheckCircle2, Lock } from "lucide-react";
 
 export default function FurnitureRearrangingOttawa() {
   return (
@@ -58,7 +58,7 @@ export default function FurnitureRearrangingOttawa() {
                 <p>For full furniture moving as part of a relocation, see our <Link href="/furniture-movers-ottawa" className="text-[#C5A572] hover:underline">furniture movers Ottawa</Link> page. For staging a home before sale, see our <Link href="/home-staging-ottawa" className="text-[#C5A572] hover:underline">home staging Ottawa</Link> service.</p>
               </div>
               <div className="mt-6 bg-[#1A2332] rounded-xl p-5">
-                <div className="text-[#C5A572] font-bold mb-1">From $155/hr · 3-hour minimum</div>
+                <div className="text-[#C5A572] font-bold mb-1 flex items-center gap-1.5"><Lock className="h-3.5 w-3.5" /> Call for Rate · 3-hour minimum</div>
                 <div className="text-white/70 text-sm mb-3">Most single-room rearranges complete within the 3-hour minimum</div>
                 <a href="tel:6136004000" className="block">
                   <Button className="bg-[#C5A572] text-[#1A2332] font-bold w-full"><Phone className="h-4 w-4 mr-2" /> (613) 600-4000</Button>

@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet";
 import { Button } from "@/components/ui/button";
-import { Phone, CheckCircle, Star, ArrowRight, Shield, Clock, Award, DollarSign } from "lucide-react";
+import { Phone, CheckCircle, Star, ArrowRight, Shield, Clock, Award, DollarSign, Lock } from "lucide-react";
 import { Link } from "wouter";
 import { SharedFooter } from "@/components/shared-footer";
 import { SharedNavigation } from "@/components/shared-navigation";
@@ -65,7 +65,7 @@ export default function SmallMovingCompaniesOttawa() {
           <div className="max-w-5xl mx-auto flex flex-wrap justify-center gap-8 text-white text-sm font-semibold">
             <span className="flex items-center gap-2"><Star className="h-4 w-4 fill-current" /> 4.9 Stars · 500+ Reviews</span>
             <span className="flex items-center gap-2"><Shield className="h-4 w-4" /> Fully Insured</span>
-            <span className="flex items-center gap-2"><DollarSign className="h-4 w-4" /> From $155/hr</span>
+            <span className="flex items-center gap-2"><Lock className="h-4 w-4" /> Call for Pricing</span>
             <span className="flex items-center gap-2"><CheckCircle className="h-4 w-4" /> Owner-Operated</span>
           </div>
         </section>
@@ -76,7 +76,7 @@ export default function SmallMovingCompaniesOttawa() {
             <div className="grid md:grid-cols-3 gap-6">
               {[
                 { icon: <Award className="h-6 w-6" />, title: "Personal Accountability", desc: "When something matters — and your move always does — you want a company where the owner cares personally about your experience." },
-                { icon: <DollarSign className="h-6 w-6" />, title: "Competitive Rates", desc: "No national franchise fees, no bloated head office overhead. We pass savings directly to Ottawa customers starting at $155/hr." },
+                { icon: <DollarSign className="h-6 w-6" />, title: "Competitive Rates", desc: "No national franchise fees, no bloated head office overhead. We pass savings directly to Ottawa customers. Call us for your rate." },
                 { icon: <Clock className="h-6 w-6" />, title: "Flexible & Responsive", desc: "Small companies adapt. Last-minute date change? Special request? Unusual item? We work with you — not against our rigid policy manual." },
                 { icon: <Shield className="h-6 w-6" />, title: "Fully Insured Anyway", desc: "Small doesn't mean unprotected. We carry the same commercial liability and cargo insurance as any national chain — you're fully covered." },
                 { icon: <Star className="h-6 w-6" />, title: "Real Reviews", desc: "500+ genuine Google reviews from Ottawa neighbours who used us. Not purchased reviews or testimonials — real people, real moves." },

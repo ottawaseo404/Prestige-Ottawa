@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet";
 import { Button } from "@/components/ui/button";
-import { Phone, CheckCircle, Star, ArrowRight, Truck, Package, Shield, Clock, Home, Building } from "lucide-react";
+import { Phone, CheckCircle, Star, ArrowRight, Truck, Package, Shield, Clock, Home, Building, Lock } from "lucide-react";
 import { Link } from "wouter";
 import { SharedFooter } from "@/components/shared-footer";
 import { SharedNavigation } from "@/components/shared-navigation";
@@ -107,7 +107,13 @@ export default function MovingServicesOttawa() {
               ].map((pkg, i) => (
                 <div key={pkg.name} className={`border-2 rounded-md p-6 ${i === 1 ? "border-[#C5A572]" : "border-gray-200"} bg-white`}>
                   <h3 className="font-bold text-[#1A2332] text-xl mb-1">{pkg.name}</h3>
-                  <p className="text-[#C5A572] font-bold text-2xl mb-1">{pkg.rate}</p>
+                  <div className="relative inline-flex items-center gap-1.5 bg-gray-100 rounded-lg px-3 py-1.5 mb-2 overflow-hidden">
+                    <span className="text-xl font-bold text-[#C5A572] blur-sm select-none pointer-events-none">{pkg.rate}</span>
+                    <div className="absolute inset-0 flex items-center justify-center bg-white/70 backdrop-blur-[1px]">
+                      <Lock className="h-3.5 w-3.5 text-[#C5A572] mr-1" />
+                      <span className="text-xs font-bold text-[#1A2332]">Call for Rate</span>
+                    </div>
+                  </div>
                   <p className="text-sm text-gray-500 mb-3">{pkg.team}</p>
                   <p className="text-gray-600 text-sm">{pkg.desc}</p>
                 </div>

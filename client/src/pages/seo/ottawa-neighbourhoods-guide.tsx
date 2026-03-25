@@ -204,7 +204,7 @@ export default function OttawaNeighbourhoodsGuide() {
           <h2 className="text-2xl font-bold text-[#1A2332] mb-5">Moving Between Ottawa Neighbourhoods</h2>
           <div className="space-y-5 text-gray-700 leading-relaxed">
             <p>Local Ottawa moves — from one neighbourhood to another — are Prestige Moving's core business. Whether you're upgrading from a Centretown apartment to a Westboro house, downsizing from a Kanata family home to a Sandy Hill condo, or making the jump from Orleans to The Glebe, we've done that exact route dozens of times and understand the logistics of both addresses.</p>
-            <p>Every local Ottawa move is covered by our Premium package starting at $155/hr (2 movers + truck, 3-hour minimum). For larger homes or moves with multiple stops, our Deluxe ($195/hr, 3 movers) and Diamond ($315/hr, 4 movers + 2 trucks) packages provide the crew and capacity for complex moves.</p>
+            <p>Every local Ottawa move is covered by our Premium, Deluxe, and Diamond packages — each including a professional crew, truck, all equipment, and blanket wrapping. Call us for your rate and we'll tailor the right crew size for your home and timeline.</p>
             <p>Not sure which neighbourhood is right for you? The resources below can help with your Ottawa relocation research:</p>
             <ul className="list-disc list-inside space-y-1 text-sm pl-2">
               <li><Link href="/moving-to-ottawa-from-toronto" className="text-[#C5A572] hover:underline">Moving to Ottawa from Toronto</Link></li>

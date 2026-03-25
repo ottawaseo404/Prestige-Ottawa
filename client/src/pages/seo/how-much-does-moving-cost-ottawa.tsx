@@ -7,7 +7,7 @@ import { SharedFooter } from "@/components/shared-footer";
 import {
   Phone, TruckIcon, Shield, Clock, Star, ArrowRight, ChevronDown,
   Calendar, Home, Building2, Package, DollarSign, AlertCircle,
-  CheckCircle2, Calculator, MapPin, Users, ChevronRight, Info
+  CheckCircle2, Calculator, MapPin, Users, ChevronRight, Info, Lock
 } from "lucide-react";
 import { SeoKeywordsSection } from "@/components/seo-keywords-section";
 
@@ -391,7 +391,7 @@ export default function HowMuchDoesMovingCostOttawa() {
                           data-testid={`button-pkg-${p}`}
                         >
                           <div className="capitalize font-bold">{p}</div>
-                          <div className="text-[10px] mt-0.5 opacity-70">${PRICING[p].hourly}/hr · {PRICING[p].movers} movers</div>
+                          <div className="text-[10px] mt-0.5 opacity-70">{PRICING[p].movers} movers · call for rate</div>
                         </button>
                       ))}
                     </div>
@@ -439,7 +439,7 @@ export default function HowMuchDoesMovingCostOttawa() {
                       <div className="space-y-3 text-sm">
                         <div className="flex justify-between text-white/70">
                           <span>Package</span>
-                          <span className="text-white font-semibold capitalize">{pkg} — ${PRICING[pkg].hourly}/hr</span>
+                          <span className="text-white font-semibold capitalize">{pkg} package · call for rate</span>
                         </div>
                         <div className="flex justify-between text-white/70">
                           <span>Movers & Truck</span>
@@ -451,7 +451,7 @@ export default function HowMuchDoesMovingCostOttawa() {
                         </div>
                         <div className="flex justify-between text-white/70">
                           <span>Travel Fee</span>
-                          <span className="text-white font-semibold">${PRICING[pkg].travel}</span>
+                          <span className="text-white font-semibold">Included in estimate</span>
                         </div>
                         {hasPacking && (
                           <div className="flex justify-between text-white/70">
@@ -501,9 +501,9 @@ export default function HowMuchDoesMovingCostOttawa() {
             {/* Package legend */}
             <div className="grid grid-cols-3 gap-4 mb-6">
               {[
-                { label: "Premium", sub: "2 movers · 16–20 ft truck", rate: "$155/hr + $155 travel", color: "border-gray-300 bg-white" },
-                { label: "Deluxe", sub: "3 movers · 26 ft truck", rate: "$195/hr + $195 travel", color: "border-[#C5A572] bg-[#C5A572]/5" },
-                { label: "Diamond", sub: "4 movers · 2 trucks", rate: "$315/hr + $315 travel", color: "border-[#1A2332] bg-[#1A2332]/5" },
+                { label: "Premium", sub: "2 movers · 16–20 ft truck", rate: "Call for Rate", color: "border-gray-300 bg-white" },
+                { label: "Deluxe", sub: "3 movers · 26 ft truck", rate: "Call for Rate", color: "border-[#C5A572] bg-[#C5A572]/5" },
+                { label: "Diamond", sub: "4 movers · 2 trucks", rate: "Call for Rate", color: "border-[#1A2332] bg-[#1A2332]/5" },
               ].map((p, i) => (
                 <div key={i} className={`rounded-md border p-3 text-center ${p.color}`} data-testid={`pkg-legend-${i}`}>
                   <div className="font-bold text-[#1A2332] text-sm">{p.label}</div>

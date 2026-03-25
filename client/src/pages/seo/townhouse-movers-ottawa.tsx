@@ -4,7 +4,7 @@ import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { SharedNavigation } from "@/components/shared-navigation";
 import { SharedFooter } from "@/components/shared-footer";
-import { Phone, ArrowRight, CheckCircle2, ChevronDown, Home } from "lucide-react";
+import { Phone, ArrowRight, CheckCircle2, ChevronDown, Home, Lock } from "lucide-react";
 
 const FAQS = [
   { q: "What's different about moving a townhouse vs. a house or apartment?", a: "Townhouses combine challenges from both: narrow staircase access (like apartments) with the volume of a full house. Multiple levels mean everything must travel up and down stairs, often in a tight space. Our crew uses stair-climbing dollies and furniture straps to move efficiently through these layouts." },
@@ -49,7 +49,7 @@ export default function TownhouseMoversOttawa() {
               <div className="space-y-4 text-gray-700 leading-relaxed text-sm">
                 <p>Ottawa's townhouse market has expanded significantly across <Link href="/movers-in-kanata" className="text-[#C5A572] hover:underline">Kanata</Link>, <Link href="/movers-in-barrhaven" className="text-[#C5A572] hover:underline">Barrhaven</Link>, <Link href="/movers-in-riverside-south" className="text-[#C5A572] hover:underline">Riverside South</Link>, and <Link href="/movers-in-orleans" className="text-[#C5A572] hover:underline">Orleans</Link>. These homes offer the space of a house at a more accessible price point — typically 3 floors, 1,400–1,800 sq ft, with narrow interior staircases and shared driveways in townhouse complexes.</p>
                 <p>The narrow staircase is the defining challenge of a townhouse move. Standard home movers can navigate a typical 36-inch staircase with most furniture. Ottawa's newer townhouse developments sometimes have staircases as narrow as 32 inches, requiring careful measurement of oversized items (king beds, large sectionals) before moving day to plan disassembly where needed.</p>
-                <p>Our Deluxe package (3 movers + truck at $195/hr) is the most efficient configuration for a standard 2–3 bedroom Ottawa townhouse. Three crew members working in relay on a staircase — one at bottom, one in the middle, one at top — move items much faster than two movers climbing the full flight with each piece.</p>
+                <p>Our Deluxe package (3 movers + truck) is the most efficient configuration for a standard 2–3 bedroom Ottawa townhouse. Three crew members working in relay on a staircase — one at bottom, one in the middle, one at top — move items much faster than two movers climbing the full flight with each piece.</p>
               </div>
             </div>
             <div>

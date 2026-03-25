@@ -4,7 +4,7 @@ import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { SharedNavigation } from "@/components/shared-navigation";
 import { SharedFooter } from "@/components/shared-footer";
-import { Phone, ArrowRight, CheckCircle2, Star, Shield, Clock, TruckIcon, Building2, ChevronDown, Package, MapPin } from "lucide-react";
+import { Phone, ArrowRight, CheckCircle2, Star, Shield, Clock, TruckIcon, Building2, ChevronDown, Package, MapPin, Lock } from "lucide-react";
 
 const FAQS = [
   { q: "How much does a condo move cost in Ottawa?", a: "Condo moves in Ottawa typically range from $465–$1,400 depending on size, floor, building requirements, and distance. Our Premium package at $155/hr (2 movers + truck) covers most 1–2 bedroom condos. Written quote provided before booking — final invoice always matches." },
@@ -83,11 +83,15 @@ export default function CondoMoversOttawa() {
                 </div>
               ))}
               <div className="mt-6 bg-[#1A2332] rounded-xl p-5">
-                <div className="text-[#C5A572] font-bold mb-1">Starting from $155/hr</div>
+                <div className="text-[#C5A572] font-bold mb-1 flex items-center gap-1.5">
+                  <Lock className="h-3.5 w-3.5" /> Call for Pricing
+                </div>
                 <div className="text-white/70 text-sm">Premium: 2 movers + truck · 3-hour minimum</div>
-                <Link href="/book" className="mt-3 block">
-                  <Button className="bg-[#C5A572] text-[#1A2332] font-bold w-full">Book Your Condo Move</Button>
-                </Link>
+                <a href="tel:6136004000" className="mt-3 block">
+                  <Button className="bg-[#C5A572] text-[#1A2332] font-bold w-full">
+                    <Phone className="h-4 w-4 mr-2" /> (613) 600-4000
+                  </Button>
+                </a>
               </div>
             </div>
           </div>

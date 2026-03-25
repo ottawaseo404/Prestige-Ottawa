@@ -4,7 +4,7 @@ import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { SharedNavigation } from "@/components/shared-navigation";
 import { SharedFooter } from "@/components/shared-footer";
-import { Phone, ArrowRight, CheckCircle2, ChevronDown, GraduationCap, Clock, DollarSign } from "lucide-react";
+import { Phone, ArrowRight, CheckCircle2, ChevronDown, GraduationCap, Clock, DollarSign, Lock } from "lucide-react";
 
 const FAQS = [
   { q: "How much does a student move cost in Ottawa?", a: "Most student moves in Ottawa are 1-bedroom or bachelor units moving near Carleton University or uOttawa. These typically take 3–4 hours with our Premium crew (2 movers + truck at $155/hr), for a total of $465–$620. Written quote before booking — no surprise fees on move-out day." },
@@ -44,7 +44,7 @@ export default function StudentMoversOttawa() {
       </section>
       <div className="bg-[#C5A572] py-3">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap items-center justify-center gap-6 text-[#1A2332] text-sm font-semibold">
-          {["From $155/hr", "No Hidden Fees", "Book Early for April/August", "Written Quote", "5.0★ Rated"].map(t => <span key={t}>{t}</span>)}
+          {["Call for Pricing", "No Hidden Fees", "Book Early for April/August", "Written Quote", "5.0★ Rated"].map(t => <span key={t}>{t}</span>)}
         </div>
       </div>
       <section className="bg-white py-16">
@@ -98,7 +98,7 @@ export default function StudentMoversOttawa() {
       <section className="bg-[#1A2332] py-14">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl font-bold text-white mb-4">Book Your Ottawa Student Move</h2>
-          <p className="text-white/65 mb-8">From $155/hr · Written quote · No surprise fees · Book early for April/August</p>
+          <p className="text-white/65 mb-8">Call us for pricing · Written quote · No surprise fees · Book early for April/August</p>
           <div className="flex flex-wrap gap-3 justify-center">
             <Link href="/book"><Button className="bg-[#C5A572] text-[#1A2332] font-bold">Book Now <ArrowRight className="ml-2 h-4 w-4" /></Button></Link>
             <a href="tel:6136004000"><Button variant="outline" className="text-white border-white/30 bg-white/10"><Phone className="h-4 w-4 mr-2" /> (613) 600-4000</Button></a>

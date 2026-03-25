@@ -7,7 +7,7 @@ import { SharedFooter } from "@/components/shared-footer";
 import { TableOfContents } from "@/components/table-of-contents";
 import {
   Phone, Star, ArrowRight, ChevronDown, CheckCircle2, ChevronRight,
-  DollarSign, TruckIcon, Clock, AlertTriangle, Calendar, MapPin, Package, Shield
+  DollarSign, TruckIcon, Clock, AlertTriangle, Calendar, MapPin, Package, Shield, Lock
 } from "lucide-react";
 import fleetImg from "@assets/prestige-fleet_1771975522124.webp";
 
@@ -99,7 +99,7 @@ export default function LocalOttawaMovingRates() {
         <section className="bg-[#1A2332] py-6">
           <div className="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
             {[
-              { value: "$155–$315/hr", label: "Ottawa Mover Hourly Rates" },
+              { value: "Call Now", label: "For Hourly Rates" },
               { value: "3-hr min",     label: "Minimum Booking" },
               { value: "$600–$900",    label: "Avg 2-Bedroom Move" },
               { value: "$1,200–$2,000", label: "Avg 4-Bedroom House" },
@@ -160,13 +160,19 @@ export default function LocalOttawaMovingRates() {
                 <h3 className="text-xl font-bold text-[#1A2332] mb-4">Prestige Moving Ottawa Rates (2026)</h3>
                 <div className="grid sm:grid-cols-3 gap-4">
                   {[
-                    { name: "Premium Package",  rate: "$155/hr", min: "3-hour minimum", includes: "2 movers, 1 truck, blankets, wrap, basic disassembly", best: "1–2 bedroom moves, straightforward access" },
-                    { name: "Deluxe Package",   rate: "$195/hr", min: "3-hour minimum", includes: "3 movers, 1 truck, full equipment, priority scheduling", best: "2–3 bedroom homes, some stairs or specialty items" },
-                    { name: "Diamond Package",  rate: "$315/hr", min: "3-hour minimum", includes: "4+ movers, 2 trucks, full service with senior crew lead", best: "4+ bedroom homes, estates, commercial moves" },
-                  ].map(({ name, rate, min, includes, best }, i) => (
+                    { name: "Premium Package",  min: "3-hour minimum", includes: "2 movers, 1 truck, blankets, wrap, basic disassembly", best: "1–2 bedroom moves, straightforward access" },
+                    { name: "Deluxe Package",   min: "3-hour minimum", includes: "3 movers, 1 truck, full equipment, priority scheduling", best: "2–3 bedroom homes, some stairs or specialty items" },
+                    { name: "Diamond Package",  min: "3-hour minimum", includes: "4+ movers, 2 trucks, full service with senior crew lead", best: "4+ bedroom homes, estates, commercial moves" },
+                  ].map(({ name, min, includes, best }, i) => (
                     <div key={i} className="p-5 rounded-xl bg-gray-50 border border-gray-100">
                       <div className="font-bold text-[#1A2332] text-base mb-1">{name}</div>
-                      <div className="text-2xl font-bold text-[#C5A572] mb-1">{rate}</div>
+                      <div className="relative inline-flex items-center gap-1.5 bg-white rounded-lg px-3 py-1.5 mb-1 border border-gray-200 overflow-hidden">
+                        <span className="text-xl font-bold text-[#C5A572] blur-sm select-none pointer-events-none">$000/hr</span>
+                        <div className="absolute inset-0 flex items-center justify-center bg-white/80 backdrop-blur-[1px]">
+                          <Lock className="h-3.5 w-3.5 text-[#C5A572] mr-1" />
+                          <span className="text-xs font-bold text-[#1A2332]">Call for Rate</span>
+                        </div>
+                      </div>
                       <div className="text-xs text-gray-400 mb-3">{min}</div>
                       <div className="text-xs text-gray-500 mb-1"><span className="font-medium text-gray-600">Includes: </span>{includes}</div>
                       <div className="text-xs text-gray-500"><span className="font-medium text-gray-600">Best for: </span>{best}</div>

@@ -3,7 +3,7 @@ import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { SharedNavigation } from "@/components/shared-navigation";
 import { SharedFooter } from "@/components/shared-footer";
-import { Phone, ArrowRight, CheckCircle2, TruckIcon } from "lucide-react";
+import { Phone, ArrowRight, CheckCircle2, TruckIcon, Lock } from "lucide-react";
 
 export default function CrossTownMoversOttawa() {
   return (
@@ -34,7 +34,7 @@ export default function CrossTownMoversOttawa() {
       </section>
       <div className="bg-[#C5A572] py-3">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap items-center justify-center gap-6 text-[#1A2332] text-sm font-semibold">
-          {["Any Ottawa Neighbourhoods", "From $155/hr", "Experienced City Crews", "5.0★ Rated", "No Hidden Fees"].map(t => <span key={t}>{t}</span>)}
+          {["Any Ottawa Neighbourhoods", "Call for Pricing", "Experienced City Crews", "5.0★ Rated", "No Hidden Fees"].map(t => <span key={t}>{t}</span>)}
         </div>
       </div>
       <section className="bg-white py-16">
@@ -43,7 +43,7 @@ export default function CrossTownMoversOttawa() {
           <div className="space-y-4 text-gray-700 leading-relaxed">
             <p>Ottawa residents often underestimate the scale of a cross-town move. The city spans approximately 70 km east-to-west — moving from Orléans to Stittsville involves navigating the full length of the Queensway, with all the traffic variables that come with it. A south-to-north move from Barrhaven to Rockcliffe Park crosses the full socioeconomic range of the city.</p>
             <p>For cross-town moves, we plan the drive time into the overall schedule — ensuring your total moving time and cost are communicated upfront. We know which routes to avoid during rush hour, which communities have specific parking or access challenges, and how to time the move to minimize delays.</p>
-            <p>Cross-town moves are priced by the hour like all local Ottawa moves — from $155/hr with a 3-hour minimum. The drive time between communities is included in the move time, so you pay only for actual hours worked — no separate travel surcharges for Ottawa-area moves.</p>
+            <p>Cross-town moves are priced by the hour like all local Ottawa moves — call us for your rate, with a 3-hour minimum. The drive time between communities is included in the move time, so you pay only for actual hours worked — no separate travel surcharges for Ottawa-area moves.</p>
           </div>
           <div className="mt-8 grid sm:grid-cols-2 gap-3">
             {[
