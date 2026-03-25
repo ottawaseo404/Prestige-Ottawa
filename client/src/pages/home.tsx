@@ -1671,11 +1671,15 @@ export default function Home() {
                   </div>
                   <div className="mb-6">
                     <h3 className="text-2xl font-black text-[#1A2332] mb-2">PREMIUM PACKAGE</h3>
-                    <div className="flex items-baseline gap-1 mb-1">
-                      <span className="text-3xl font-black text-primary">${pricingType === "residential" ? "155" : "165"}</span>
-                      <span className="text-gray-600">/hr</span>
+                    <div className="relative inline-flex items-center gap-2 bg-gray-50 border border-gray-200 rounded-xl px-4 py-2.5 mb-1 overflow-hidden">
+                      <span className="text-3xl font-black text-primary blur-sm select-none pointer-events-none">$155</span>
+                      <span className="text-gray-400 blur-sm select-none pointer-events-none">/hr</span>
+                      <div className="absolute inset-0 flex items-center justify-center bg-white/60 backdrop-blur-[1px]">
+                        <Lock className="h-4 w-4 text-primary mr-1.5" />
+                        <span className="text-sm font-bold text-[#1A2332]">Call for Pricing</span>
+                      </div>
                     </div>
-                    <p className="text-sm text-gray-500 font-medium">Minimum 3 hours + ${pricingType === "residential" ? "155" : "165"} travel fee within Ottawa</p>
+                    <p className="text-sm text-gray-500 font-medium">Minimum 3 hours · travel fee included in quote</p>
                   </div>
                   
                   <div className="mb-6 p-3 bg-primary/10 rounded-xl">
@@ -1725,14 +1729,15 @@ export default function Home() {
                   </div>
 
                   <p className="text-xs text-gray-500 mb-6 p-3 bg-gray-50 rounded-lg">
-                    <Star className="h-3 w-3 inline text-primary mr-1" /> Need extra help? Add an additional mover for $50/hr and an extra $50 travel fee.
+                    <Star className="h-3 w-3 inline text-primary mr-1" /> Need extra help? We'll build a custom crew size for your move — just call us.
                   </p>
 
-                  <Link href="/book">
-                    <Button variant="outline" className="w-full font-bold" data-testid="button-book-premium">
-                      BOOK YOUR MOVE
+                  <a href="tel:6136004000">
+                    <Button variant="outline" className="w-full font-bold" data-testid="button-call-premium">
+                      <Phone className="h-4 w-4 mr-2" />
+                      CALL US FOR PRICING
                     </Button>
-                  </Link>
+                  </a>
                 </div>
 
                 {/* Deluxe Package - Featured */}
@@ -1748,11 +1753,15 @@ export default function Home() {
                   </div>
                   <div className="mb-6">
                     <h3 className="text-2xl font-black text-white mb-2">DELUXE PACKAGE</h3>
-                    <div className="flex items-baseline gap-1 mb-1">
-                      <span className="text-3xl font-black text-primary">${pricingType === "residential" ? "195" : "205"}</span>
-                      <span className="text-white/70">/hr</span>
+                    <div className="relative inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-xl px-4 py-2.5 mb-1 overflow-hidden">
+                      <span className="text-3xl font-black text-primary blur-sm select-none pointer-events-none">$195</span>
+                      <span className="text-white/50 blur-sm select-none pointer-events-none">/hr</span>
+                      <div className="absolute inset-0 flex items-center justify-center bg-[#1A2332]/60 backdrop-blur-[1px]">
+                        <Lock className="h-4 w-4 text-primary mr-1.5" />
+                        <span className="text-sm font-bold text-white">Call for Pricing</span>
+                      </div>
                     </div>
-                    <p className="text-sm text-white/60 font-medium">Minimum 3 hours + ${pricingType === "residential" ? "195" : "205"} travel fee within Ottawa</p>
+                    <p className="text-sm text-white/60 font-medium">Minimum 3 hours · travel fee included in quote</p>
                   </div>
                   
                   <div className="mb-6 p-3 bg-primary/20 rounded-xl">
@@ -1805,11 +1814,12 @@ export default function Home() {
                     The Deluxe Package is designed for medium-sized moves, ensuring every piece of furniture is carefully wrapped, transported, and reassembled with precision.
                   </p>
 
-                  <Link href="/book">
-                    <Button className="w-full font-bold shadow-lg shadow-primary/30" data-testid="button-book-deluxe">
-                      BOOK YOUR MOVE
+                  <a href="tel:6136004000">
+                    <Button className="w-full font-bold shadow-lg shadow-primary/30" data-testid="button-call-deluxe">
+                      <Phone className="h-4 w-4 mr-2" />
+                      CALL US FOR PRICING
                     </Button>
-                  </Link>
+                  </a>
                 </div>
 
                 {/* Diamond Package */}
@@ -1819,11 +1829,15 @@ export default function Home() {
                   </div>
                   <div className="mb-6">
                     <h3 className="text-2xl font-black text-[#1A2332] mb-2">DIAMOND PACKAGE</h3>
-                    <div className="flex items-baseline gap-1 mb-1">
-                      <span className="text-3xl font-black text-primary">${pricingType === "residential" ? "315" : "325"}</span>
-                      <span className="text-gray-600">/hr</span>
+                    <div className="relative inline-flex items-center gap-2 bg-gray-50 border border-gray-200 rounded-xl px-4 py-2.5 mb-1 overflow-hidden">
+                      <span className="text-3xl font-black text-primary blur-sm select-none pointer-events-none">$315</span>
+                      <span className="text-gray-400 blur-sm select-none pointer-events-none">/hr</span>
+                      <div className="absolute inset-0 flex items-center justify-center bg-white/60 backdrop-blur-[1px]">
+                        <Lock className="h-4 w-4 text-primary mr-1.5" />
+                        <span className="text-sm font-bold text-[#1A2332]">Call for Pricing</span>
+                      </div>
                     </div>
-                    <p className="text-sm text-gray-500 font-medium">Minimum 3 hours + ${pricingType === "residential" ? "315" : "325"} travel fee within Ottawa</p>
+                    <p className="text-sm text-gray-500 font-medium">Minimum 3 hours · travel fee included in quote</p>
                   </div>
                   
                   <div className="mb-6 p-3 bg-primary/10 rounded-xl">
@@ -1880,22 +1894,24 @@ export default function Home() {
                     For those with larger moves, the Diamond Package provides top-tier service with additional movers and trucks to ensure an efficient relocation.
                   </p>
 
-                  <Link href="/book">
-                    <Button variant="outline" className="w-full font-bold" data-testid="button-book-diamond">
-                      BOOK YOUR MOVE
+                  <a href="tel:6136004000">
+                    <Button variant="outline" className="w-full font-bold" data-testid="button-call-diamond">
+                      <Phone className="h-4 w-4 mr-2" />
+                      CALL US FOR PRICING
                     </Button>
-                  </Link>
+                  </a>
                 </div>
               </div>
 
             {/* Pricing Note */}
             <div className="mt-10 text-center">
               <p className="text-gray-500 text-sm">
-                All prices are subject to change based on specific move requirements. 
-                <Link href="/book" className="text-primary font-semibold hover:underline ml-1">
-                  Get a personalized quote
-                </Link>
+                Every move is different. Call us and we'll give you an exact price in 2 minutes — no pressure, no commitment.
               </p>
+              <a href="tel:6136004000" className="inline-flex items-center gap-2 mt-3 text-primary font-bold text-base hover:underline">
+                <Phone className="h-4 w-4" />
+                (613) 600-4000
+              </a>
             </div>
 
             {/* SEO Content Section - Ottawa Movers */}
