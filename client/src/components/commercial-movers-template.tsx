@@ -367,13 +367,13 @@ export function CommercialMoversTemplate({ data }: { data: CommercialPageData })
                     <div key={i} className={`p-5 rounded-xl border-2 ${i === 1 ? "border-[#C5A572] bg-[#C5A572]/5" : "border-gray-200 bg-white"}`}>
                       {i === 1 && <div className="text-[#C5A572] text-xs font-bold uppercase tracking-wide mb-2">Most Popular</div>}
                       <div className="font-bold text-[#1A2332] text-lg mb-1">{pkg}</div>
-                      <div className="relative inline-flex items-center gap-1.5 bg-gray-100 rounded-lg px-3 py-1.5 mb-2 overflow-hidden">
+                      <a href="tel:6136004000" className="relative inline-flex items-center gap-1.5 bg-gray-100 rounded-lg px-3 py-1.5 mb-2 overflow-hidden cursor-pointer">
                         <span className="text-xl font-bold text-[#C5A572] blur-sm select-none pointer-events-none">$000/hr</span>
                         <div className="absolute inset-0 flex items-center justify-center bg-white/70 backdrop-blur-[1px]">
                           <Lock className="h-3.5 w-3.5 text-[#C5A572] mr-1" />
                           <span className="text-xs font-bold text-[#1A2332]">Call for Rate</span>
                         </div>
-                      </div>
+                      </a>
                       <div className="text-gray-600 text-xs mb-1">{crew}</div>
                       <div className="text-gray-400 text-xs">{best}</div>
                     </div>

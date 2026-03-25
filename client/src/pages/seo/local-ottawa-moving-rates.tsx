@@ -166,13 +166,13 @@ export default function LocalOttawaMovingRates() {
                   ].map(({ name, min, includes, best }, i) => (
                     <div key={i} className="p-5 rounded-xl bg-gray-50 border border-gray-100">
                       <div className="font-bold text-[#1A2332] text-base mb-1">{name}</div>
-                      <div className="relative inline-flex items-center gap-1.5 bg-white rounded-lg px-3 py-1.5 mb-1 border border-gray-200 overflow-hidden">
+                      <a href="tel:6136004000" className="relative inline-flex items-center gap-1.5 bg-white rounded-lg px-3 py-1.5 mb-1 border border-gray-200 overflow-hidden cursor-pointer">
                         <span className="text-xl font-bold text-[#C5A572] blur-sm select-none pointer-events-none">$000/hr</span>
                         <div className="absolute inset-0 flex items-center justify-center bg-white/80 backdrop-blur-[1px]">
                           <Lock className="h-3.5 w-3.5 text-[#C5A572] mr-1" />
                           <span className="text-xs font-bold text-[#1A2332]">Call for Rate</span>
                         </div>
-                      </div>
+                      </a>
                       <div className="text-xs text-gray-400 mb-3">{min}</div>
                       <div className="text-xs text-gray-500 mb-1"><span className="font-medium text-gray-600">Includes: </span>{includes}</div>
                       <div className="text-xs text-gray-500"><span className="font-medium text-gray-600">Best for: </span>{best}</div>

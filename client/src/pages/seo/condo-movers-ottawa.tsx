@@ -83,9 +83,9 @@ export default function CondoMoversOttawa() {
                 </div>
               ))}
               <div className="mt-6 bg-[#1A2332] rounded-xl p-5">
-                <div className="text-[#C5A572] font-bold mb-1 flex items-center gap-1.5">
+                <a href="tel:6136004000" className="text-[#C5A572] font-bold mb-1 flex items-center gap-1.5 cursor-pointer">
                   <Lock className="h-3.5 w-3.5" /> Call for Pricing
-                </div>
+                </a>
                 <div className="text-white/70 text-sm">Premium: 2 movers + truck · 3-hour minimum</div>
                 <a href="tel:6136004000" className="mt-3 block">
                   <Button className="bg-[#C5A572] text-[#1A2332] font-bold w-full">

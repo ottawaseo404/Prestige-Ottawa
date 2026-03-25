@@ -124,13 +124,13 @@ export default function OttawaMovingAndDelivery() {
               ].map((p) => (
                 <div key={p.tier} className="bg-white border border-gray-200 rounded-md p-6">
                   <h3 className="font-bold text-[#1A2332] text-lg mb-1">{p.tier}</h3>
-                  <div className="relative inline-flex items-center gap-1.5 bg-gray-100 rounded-lg px-3 py-1.5 mb-3 overflow-hidden">
+                  <a href="tel:6136004000" className="relative inline-flex items-center gap-1.5 bg-gray-100 rounded-lg px-3 py-1.5 mb-3 overflow-hidden cursor-pointer">
                     <span className="text-lg font-bold text-[#C5A572] blur-sm select-none pointer-events-none">{p.price}</span>
                     <div className="absolute inset-0 flex items-center justify-center bg-white/70 backdrop-blur-[1px]">
                       <Lock className="h-3.5 w-3.5 text-[#C5A572] mr-1" />
                       <span className="text-xs font-bold text-[#1A2332]">Call for Rate</span>
                     </div>
-                  </div>
+                  </a>
                   <p className="text-gray-600 text-sm">{p.desc}</p>
                 </div>
               ))}

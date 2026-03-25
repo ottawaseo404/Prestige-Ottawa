@@ -46,7 +46,7 @@ export default function MovingWithinOttawa() {
       </section>
       <div className="bg-[#C5A572] py-3">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap items-center justify-center gap-6 text-[#1A2332] text-sm font-semibold">
-          {["Call for Pricing", "All Ottawa Neighbourhoods", "3-Hour Minimum", "5.0★ Rated", "No Hidden Fees"].map(t => <span key={t}>{t}</span>)}
+          {["Call for Pricing", "All Ottawa Neighbourhoods", "3-Hour Minimum", "5.0★ Rated", "No Hidden Fees"].map(t => t === "Call for Pricing" ? <a key={t} href="tel:6136004000">{t}</a> : <span key={t}>{t}</span>)}
         </div>
       </div>
       <section className="bg-white py-16">
@@ -73,13 +73,13 @@ export default function MovingWithinOttawa() {
               <div key={p.title} className="bg-gray-50 border border-gray-200 rounded-xl p-4 text-center">
                 <h4 className="font-bold text-[#1A2332]">{p.title}</h4>
                 <p className="text-gray-500 text-sm">{p.size}</p>
-                <div className="relative inline-flex items-center gap-1.5 bg-white border border-gray-200 rounded-lg px-2.5 py-1 mt-2 overflow-hidden mx-auto">
+                <a href="tel:6136004000" className="relative inline-flex items-center gap-1.5 bg-white border border-gray-200 rounded-lg px-2.5 py-1 mt-2 overflow-hidden mx-auto cursor-pointer">
                   <span className="text-base font-bold text-[#C5A572] blur-sm select-none pointer-events-none">$000/hr</span>
                   <div className="absolute inset-0 flex items-center justify-center bg-white/80 backdrop-blur-[1px]">
                     <Lock className="h-3 w-3 text-[#C5A572] mr-1" />
                     <span className="text-[10px] font-bold text-[#1A2332]">Call for Rate</span>
                   </div>
-                </div>
+                </a>
                 <p className="text-gray-500 text-xs mt-1">{p.time}</p>
               </div>
             ))}

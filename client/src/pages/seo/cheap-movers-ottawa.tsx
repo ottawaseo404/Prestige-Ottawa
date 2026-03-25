@@ -73,13 +73,13 @@ export default function CheapMoversOttawa() {
               { name: "Diamond", price: "$315/hr", crew: "4 Movers + 2 Trucks", min: "3-hr min = $945", best: "Large homes, estates" },
             ].map(pkg => (
               <div key={pkg.name} className="bg-gray-50 border border-gray-200 rounded-2xl p-6">
-                <div className="relative inline-flex items-center gap-1.5 bg-gray-100 rounded-lg px-3 py-1.5 mb-2 overflow-hidden">
+                <a href="tel:6136004000" className="relative inline-flex items-center gap-1.5 bg-gray-100 rounded-lg px-3 py-1.5 mb-2 overflow-hidden cursor-pointer">
                   <span className="text-xl font-bold text-[#C5A572] blur-sm select-none pointer-events-none">{pkg.price}</span>
                   <div className="absolute inset-0 flex items-center justify-center bg-white/70 backdrop-blur-[1px]">
                     <Lock className="h-3.5 w-3.5 text-[#C5A572] mr-1" />
                     <span className="text-xs font-bold text-[#1A2332]">Call for Rate</span>
                   </div>
-                </div>
+                </a>
                 <div className="text-[#1A2332] font-bold mb-1">{pkg.name}</div>
                 <div className="text-gray-500 text-sm mb-2">{pkg.crew}</div>
                 <div className="text-gray-400 text-xs mb-3">3-hr minimum</div>

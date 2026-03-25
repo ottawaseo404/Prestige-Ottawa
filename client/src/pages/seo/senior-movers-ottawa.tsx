@@ -256,13 +256,13 @@ export default function SeniorMoversOttawa() {
                   <h3 className="font-bold text-[#1A2332] text-lg">{pkg.name}</h3>
                   {pkg.name === "Deluxe" && <span className="text-xs bg-[#C5A572] text-[#1A2332] font-bold px-2 py-0.5 rounded-full">Most Popular</span>}
                 </div>
-                <div className="relative inline-flex items-center gap-1.5 bg-gray-100 rounded-lg px-3 py-1.5 mb-2 overflow-hidden">
+                <a href="tel:6136004000" className="relative inline-flex items-center gap-1.5 bg-gray-100 rounded-lg px-3 py-1.5 mb-2 overflow-hidden cursor-pointer">
                   <span className="text-xl font-bold text-[#C5A572] blur-sm select-none pointer-events-none">{pkg.rate}</span>
                   <div className="absolute inset-0 flex items-center justify-center bg-white/70 backdrop-blur-[1px]">
                     <Lock className="h-3.5 w-3.5 text-[#C5A572] mr-1" />
                     <span className="text-xs font-bold text-[#1A2332]">Call for Rate</span>
                   </div>
-                </div>
+                </a>
                 <div className="text-gray-500 text-sm mb-4">{pkg.crew} · 3-hr minimum</div>
                 <p className="text-gray-600 text-sm leading-relaxed">{pkg.best}</p>
                 <div className="mt-5">

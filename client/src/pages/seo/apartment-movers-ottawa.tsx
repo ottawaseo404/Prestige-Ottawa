@@ -69,13 +69,13 @@ export default function ApartmentMoversOttawa() {
           <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
             {PACKAGE_ITEMS.map(pkg => (
               <div key={pkg.label} className="border border-gray-200 rounded-2xl p-6 text-center hover:border-[#C5A572] transition-colors">
-                <div className="relative inline-flex items-center gap-1.5 bg-gray-100 rounded-lg px-3 py-1.5 mb-1 overflow-hidden mx-auto">
+                <a href="tel:6136004000" className="relative inline-flex items-center gap-1.5 bg-gray-100 rounded-lg px-3 py-1.5 mb-1 overflow-hidden mx-auto cursor-pointer">
                   <span className="text-xl font-bold text-[#C5A572] blur-sm select-none pointer-events-none">$000/hr</span>
                   <div className="absolute inset-0 flex items-center justify-center bg-white/80 backdrop-blur-[1px]">
                     <Lock className="h-3.5 w-3.5 text-[#C5A572] mr-1" />
                     <span className="text-xs font-bold text-[#1A2332]">Call for Rate</span>
                   </div>
-                </div>
+                </a>
                 <div className="text-[#1A2332] font-bold text-lg mb-1">{pkg.label}</div>
                 <div className="text-gray-500 text-sm mb-3">{pkg.crew}</div>
                 <div className="bg-[#1A2332]/5 rounded-lg px-3 py-2 text-xs text-gray-600 font-medium">Best for: {pkg.best}</div>

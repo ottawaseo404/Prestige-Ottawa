@@ -89,7 +89,9 @@ export default function StudentMoving() {
           <div className="max-w-2xl">
             <div className="flex flex-wrap gap-2 mb-5">
               {["10% Student Discount", "Call for Pricing", "2-Hr Minimum Dorm Moves", "All Ottawa Campuses"].map(t => (
-                <Badge key={t} className="bg-[#C5A572]/20 text-[#C5A572] border border-[#C5A572]/30 text-xs font-semibold">{t}</Badge>
+                t === "Call for Pricing"
+                  ? <a key={t} href="tel:6136004000"><Badge className="bg-[#C5A572]/20 text-[#C5A572] border border-[#C5A572]/30 text-xs font-semibold">{t}</Badge></a>
+                  : <Badge key={t} className="bg-[#C5A572]/20 text-[#C5A572] border border-[#C5A572]/30 text-xs font-semibold">{t}</Badge>
               ))}
             </div>
             <h1 className="text-4xl md:text-5xl font-black text-white mb-5 leading-tight">
@@ -128,13 +130,13 @@ export default function StudentMoving() {
               <div key={pkg.name} className={`rounded-2xl border p-7 ${pkg.highlight ? "bg-[#1A2332] border-[#1A2332] text-white shadow-xl" : "bg-white border-gray-200"}`}>
                 {pkg.highlight && <div className="text-center mb-4"><Badge className="bg-[#C5A572]/20 text-[#C5A572] border-[#C5A572]/30 text-xs">Most Popular</Badge></div>}
                 <h3 className={`text-lg font-black mb-1 ${pkg.highlight ? "text-white" : "text-[#1A2332]"}`}>{pkg.name}</h3>
-                <div className="relative inline-flex items-center gap-1.5 bg-gray-100 rounded-lg px-3 py-1.5 mb-1 overflow-hidden">
+                <a href="tel:6136004000" className="relative inline-flex items-center gap-1.5 bg-gray-100 rounded-lg px-3 py-1.5 mb-1 overflow-hidden cursor-pointer">
                   <span className="text-lg font-black text-[#C5A572] blur-sm select-none pointer-events-none">$000/hr</span>
                   <div className="absolute inset-0 flex items-center justify-center bg-white/80 backdrop-blur-[1px]">
                     <Lock className="h-3.5 w-3.5 text-[#C5A572] mr-1.5" />
                     <span className="text-xs font-bold text-[#1A2332]">Call for Rate</span>
                   </div>
-                </div>
+                </a>
                 <div className={`text-xs mb-1 ${pkg.highlight ? "text-white/60" : "text-gray-500"}`}>{pkg.min}</div>
                 <div className={`text-xs font-medium mb-5 ${pkg.highlight ? "text-white/70" : "text-gray-600"}`}>{pkg.best}</div>
                 <div className="space-y-2 mb-6">

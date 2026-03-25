@@ -117,7 +117,8 @@ export default function ResidentialMoving() {
             <div className="flex flex-wrap gap-x-6 gap-y-2 mb-8">
               {["Call for Pricing", "3-Hour Minimum", "Packing Available", "Same-Week Availability"].map(t => (
                 <div key={t} className="flex items-center gap-1.5 text-white/75 text-sm">
-                  <CheckCircle2 className="h-4 w-4 text-[#C5A572] shrink-0" /><span>{t}</span>
+                  <CheckCircle2 className="h-4 w-4 text-[#C5A572] shrink-0" />
+                  {t === "Call for Pricing" ? <a href="tel:6136004000">{t}</a> : <span>{t}</span>}
                 </div>
               ))}
             </div>
@@ -225,13 +226,13 @@ export default function ResidentialMoving() {
                 {pkg.highlight && <div className="text-center mb-4"><Badge className="bg-[#C5A572]/20 text-[#C5A572] border-[#C5A572]/30 text-xs">Most Popular</Badge></div>}
                 <div className="text-center mb-6">
                   <h3 className={`text-xl font-black mb-1 ${pkg.highlight ? "text-white" : "text-[#1A2332]"}`}>{pkg.name}</h3>
-                  <div className="relative inline-flex items-center gap-1.5 bg-gray-100 rounded-lg px-3 py-1.5 mb-1 overflow-hidden mx-auto">
+                  <a href="tel:6136004000" className="relative inline-flex items-center gap-1.5 bg-gray-100 rounded-lg px-3 py-1.5 mb-1 overflow-hidden mx-auto cursor-pointer">
                     <span className="text-2xl font-black text-[#C5A572] blur-sm select-none pointer-events-none">$000/hr</span>
                     <div className="absolute inset-0 flex items-center justify-center bg-white/80 backdrop-blur-[1px]">
                       <Lock className="h-3.5 w-3.5 text-[#C5A572] mr-1.5" />
                       <span className="text-xs font-bold text-[#1A2332]">Call for Rate</span>
                     </div>
-                  </div>
+                  </a>
                   <div className={`text-sm font-semibold mb-1 ${pkg.highlight ? "text-white/80" : "text-gray-600"}`}>{pkg.crew}</div>
                   <div className={`text-xs ${pkg.highlight ? "text-white/60" : "text-gray-500"}`}>{pkg.best}</div>
                 </div>

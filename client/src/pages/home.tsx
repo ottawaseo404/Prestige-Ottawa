@@ -1671,14 +1671,14 @@ export default function Home() {
                   </div>
                   <div className="mb-6">
                     <h3 className="text-2xl font-black text-[#1A2332] mb-2">PREMIUM PACKAGE</h3>
-                    <div className="relative inline-flex items-center gap-2 bg-gray-50 border border-gray-200 rounded-xl px-4 py-2.5 mb-1 overflow-hidden">
+                    <a href="tel:6136004000" className="relative inline-flex items-center gap-2 bg-gray-50 border border-gray-200 rounded-xl px-4 py-2.5 mb-1 overflow-hidden cursor-pointer">
                       <span className="text-3xl font-black text-primary blur-sm select-none pointer-events-none">$155</span>
                       <span className="text-gray-400 blur-sm select-none pointer-events-none">/hr</span>
                       <div className="absolute inset-0 flex items-center justify-center bg-white/60 backdrop-blur-[1px]">
                         <Lock className="h-4 w-4 text-primary mr-1.5" />
                         <span className="text-sm font-bold text-[#1A2332]">Call for Pricing</span>
                       </div>
-                    </div>
+                    </a>
                     <p className="text-sm text-gray-500 font-medium">Minimum 3 hours · travel fee included in quote</p>
                   </div>
                   
@@ -1753,14 +1753,14 @@ export default function Home() {
                   </div>
                   <div className="mb-6">
                     <h3 className="text-2xl font-black text-white mb-2">DELUXE PACKAGE</h3>
-                    <div className="relative inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-xl px-4 py-2.5 mb-1 overflow-hidden">
+                    <a href="tel:6136004000" className="relative inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-xl px-4 py-2.5 mb-1 overflow-hidden cursor-pointer">
                       <span className="text-3xl font-black text-primary blur-sm select-none pointer-events-none">$195</span>
                       <span className="text-white/50 blur-sm select-none pointer-events-none">/hr</span>
                       <div className="absolute inset-0 flex items-center justify-center bg-[#1A2332]/60 backdrop-blur-[1px]">
                         <Lock className="h-4 w-4 text-primary mr-1.5" />
                         <span className="text-sm font-bold text-white">Call for Pricing</span>
                       </div>
-                    </div>
+                    </a>
                     <p className="text-sm text-white/60 font-medium">Minimum 3 hours · travel fee included in quote</p>
                   </div>
                   
@@ -1829,14 +1829,14 @@ export default function Home() {
                   </div>
                   <div className="mb-6">
                     <h3 className="text-2xl font-black text-[#1A2332] mb-2">DIAMOND PACKAGE</h3>
-                    <div className="relative inline-flex items-center gap-2 bg-gray-50 border border-gray-200 rounded-xl px-4 py-2.5 mb-1 overflow-hidden">
+                    <a href="tel:6136004000" className="relative inline-flex items-center gap-2 bg-gray-50 border border-gray-200 rounded-xl px-4 py-2.5 mb-1 overflow-hidden cursor-pointer">
                       <span className="text-3xl font-black text-primary blur-sm select-none pointer-events-none">$315</span>
                       <span className="text-gray-400 blur-sm select-none pointer-events-none">/hr</span>
                       <div className="absolute inset-0 flex items-center justify-center bg-white/60 backdrop-blur-[1px]">
                         <Lock className="h-4 w-4 text-primary mr-1.5" />
                         <span className="text-sm font-bold text-[#1A2332]">Call for Pricing</span>
                       </div>
-                    </div>
+                    </a>
                     <p className="text-sm text-gray-500 font-medium">Minimum 3 hours · travel fee included in quote</p>
                   </div>
                   

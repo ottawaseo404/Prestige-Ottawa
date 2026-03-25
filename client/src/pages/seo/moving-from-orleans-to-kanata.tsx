@@ -34,7 +34,7 @@ export default function MovingFromOrleansToKanata() {
       </section>
       <div className="bg-[#C5A572] py-3">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap items-center justify-center gap-6 text-[#1A2332] text-sm font-semibold">
-          {["~50 km Across Ottawa", "Call for Pricing", "All Home Types", "5.0★ Rated", "Written Quote"].map(t => <span key={t}>{t}</span>)}
+          {["~50 km Across Ottawa", "Call for Pricing", "All Home Types", "5.0★ Rated", "Written Quote"].map(t => t === "Call for Pricing" ? <a key={t} href="tel:6136004000">{t}</a> : <span key={t}>{t}</span>)}
         </div>
       </div>
       <section className="bg-white py-16">

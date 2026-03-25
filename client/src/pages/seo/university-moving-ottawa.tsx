@@ -80,7 +80,7 @@ export default function UniversityMovingOttawa() {
             </div>
             <div className="bg-[#1A2332]/5 border border-[#C5A572]/20 rounded-md p-6 text-center">
               <h3 className="font-bold text-[#1A2332] mb-2">Student Moving Rates</h3>
-              <p className="text-gray-600 text-sm flex items-center justify-center gap-1.5"><Lock className="h-3.5 w-3.5 text-[#C5A572]" /> <strong className="text-[#C5A572]">Call for Rate</strong> · 3-hour minimum · Most student apartments complete in 3–5 hours</p>
+              <p className="text-gray-600 text-sm flex items-center justify-center gap-1.5"><Lock className="h-3.5 w-3.5 text-[#C5A572]" /> <a href="tel:6136004000" className="text-[#C5A572] font-bold">Call for Rate</a> · 3-hour minimum · Most student apartments complete in 3–5 hours</p>
             </div>
           </div>
         </section>

@@ -65,7 +65,7 @@ export default function SmallMovingCompaniesOttawa() {
           <div className="max-w-5xl mx-auto flex flex-wrap justify-center gap-8 text-white text-sm font-semibold">
             <span className="flex items-center gap-2"><Star className="h-4 w-4 fill-current" /> 4.9 Stars · 500+ Reviews</span>
             <span className="flex items-center gap-2"><Shield className="h-4 w-4" /> Fully Insured</span>
-            <span className="flex items-center gap-2"><Lock className="h-4 w-4" /> Call for Pricing</span>
+            <a href="tel:6136004000" className="flex items-center gap-2"><Lock className="h-4 w-4" /> Call for Pricing</a>
             <span className="flex items-center gap-2"><CheckCircle className="h-4 w-4" /> Owner-Operated</span>
           </div>
         </section>
