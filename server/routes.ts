@@ -300,8 +300,18 @@ export async function registerRoutes(app: Express): Promise<Server> {
         { loc: "/residential-movers-manor-park", changefreq: "monthly", priority: "0.8" },
         { loc: "/residential-movers-blackburn-hamlet", changefreq: "monthly", priority: "0.8" },
         { loc: "/residential-movers-crystal-beach", changefreq: "monthly", priority: "0.8" },
+        { loc: "/residential-movers-overbrook", changefreq: "monthly", priority: "0.8" },
+        { loc: "/residential-movers-old-ottawa-south", changefreq: "monthly", priority: "0.8" },
+        { loc: "/residential-movers-new-edinburgh", changefreq: "monthly", priority: "0.8" },
+        { loc: "/residential-movers-lowertown", changefreq: "monthly", priority: "0.8" },
+        { loc: "/white-glove-movers-ottawa", changefreq: "monthly", priority: "0.9" },
+        { loc: "/moving-from-hamilton-to-ottawa", changefreq: "monthly", priority: "0.9" },
+        { loc: "/sitemap", changefreq: "monthly", priority: "0.5" },
         { loc: "/furniture-donation-disposal-ottawa", changefreq: "monthly", priority: "0.8" },
         { loc: "/moving-boxes-packing-supplies-ottawa", changefreq: "monthly", priority: "0.8" },
+        { loc: "/ottawa-contractors-canada-home-maintenance-guide", changefreq: "monthly", priority: "0.7" },
+        { loc: "/moving-to-ottawa-from-winnipeg", changefreq: "monthly", priority: "0.9" },
+        { loc: "/affordable-movers-ottawa", changefreq: "monthly", priority: "0.8" },
       ];
 
       let xml = `<?xml version="1.0" encoding="UTF-8"?>
