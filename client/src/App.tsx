@@ -234,6 +234,12 @@ import ResidentialMoversVanier from "@/pages/seo/residential-movers-vanier";
 import ResidentialMoversManorPark from "@/pages/seo/residential-movers-manor-park";
 import ResidentialMoversBlackburnHamlet from "@/pages/seo/residential-movers-blackburn-hamlet";
 import ResidentialMoversCrystalBeach from "@/pages/seo/residential-movers-crystal-beach";
+import ResidentialMoversOverbrook from "@/pages/seo/residential-movers-overbrook";
+import ResidentialMoversOldOttawaSouth from "@/pages/seo/residential-movers-old-ottawa-south";
+import ResidentialMoversNewEdinburgh from "@/pages/seo/residential-movers-new-edinburgh";
+import ResidentialMoversLowertown from "@/pages/seo/residential-movers-lowertown";
+import WhiteGloveMoversOttawa from "@/pages/seo/white-glove-movers-ottawa";
+import MovingFromHamiltonToOttawa from "@/pages/seo/moving-from-hamilton-to-ottawa";
 import Calculator from "@/pages/calculator";
 import Contact from "@/pages/contact";
 import Blog from "@/pages/blog";
@@ -526,6 +532,12 @@ function Router() {
       <Route path="/residential-movers-manor-park" component={ResidentialMoversManorPark} />
       <Route path="/residential-movers-blackburn-hamlet" component={ResidentialMoversBlackburnHamlet} />
       <Route path="/residential-movers-crystal-beach" component={ResidentialMoversCrystalBeach} />
+      <Route path="/residential-movers-overbrook" component={ResidentialMoversOverbrook} />
+      <Route path="/residential-movers-old-ottawa-south" component={ResidentialMoversOldOttawaSouth} />
+      <Route path="/residential-movers-new-edinburgh" component={ResidentialMoversNewEdinburgh} />
+      <Route path="/residential-movers-lowertown" component={ResidentialMoversLowertown} />
+      <Route path="/white-glove-movers-ottawa" component={WhiteGloveMoversOttawa} />
+      <Route path="/moving-from-hamilton-to-ottawa" component={MovingFromHamiltonToOttawa} />
 
       <Route path="/admin/pages">
         {() => (
