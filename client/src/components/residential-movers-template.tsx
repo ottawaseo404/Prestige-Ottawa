@@ -433,7 +433,7 @@ export function ResidentialMoversTemplate({ data }: { data: NeighbourhoodPageDat
         {/* ─── INTERNAL LINKS ─── */}
         <section className="bg-[#0d1620] py-14">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid lg:grid-cols-3 gap-10">
+            <div className="grid lg:grid-cols-4 gap-10">
 
               {/* Related neighbourhoods */}
               <div>
@@ -468,6 +468,7 @@ export function ResidentialMoversTemplate({ data }: { data: NeighbourhoodPageDat
                     { label: "Senior Moving", href: "/services/senior-moving" },
                     { label: "Long Distance Moving", href: "/services/long-distance-moving" },
                     { label: "Commercial Moving", href: "/services/commercial-moving" },
+                    { label: "White Glove Moving", href: "/white-glove-movers-ottawa" },
                   ].map(({ label, href }) => (
                     <Link key={href} href={href}>
                       <div className="flex items-center justify-between px-3 py-2.5 rounded-lg hover:bg-white/6 group transition-colors cursor-pointer">
@@ -493,6 +494,7 @@ export function ResidentialMoversTemplate({ data }: { data: NeighbourhoodPageDat
                     { label: "Affordable Movers Ottawa", href: "/affordable-movers-ottawa" },
                     { label: "Movers Near Me Ottawa", href: "/movers-near-me-ottawa" },
                     { label: "Moving Cost Calculator", href: "/calculator" },
+                    { label: "How Much Does Moving Cost?", href: "/how-much-does-moving-cost-ottawa" },
                     { label: "Book a Move", href: "/book" },
                   ].map(({ label, href }) => (
                     <Link key={href} href={href}>
@@ -502,6 +504,51 @@ export function ResidentialMoversTemplate({ data }: { data: NeighbourhoodPageDat
                       </div>
                     </Link>
                   ))}
+                </div>
+              </div>
+
+              {/* External Resources */}
+              <div>
+                <div className="flex items-center gap-2 mb-5">
+                  <Headset className="h-4 w-4 text-[#C5A572]" />
+                  <span className="text-[#C5A572] text-xs font-bold uppercase tracking-widest">Moving Resources</span>
+                </div>
+                <div className="space-y-1 mb-6">
+                  {[
+                    { label: "Ottawa Moving Checklist", href: "/ottawa-moving-checklist" },
+                    { label: "Moving Tips Blog", href: "/blog" },
+                    { label: "Ottawa Packing Services", href: "/ottawa-packing-services" },
+                    { label: "Moving Quotes Ottawa", href: "/moving-quotes-ottawa" },
+                    { label: "Moving With Pets Ottawa", href: "/moving-with-pets-ottawa" },
+                    { label: "Free Storage Moving Ottawa", href: "/free-storage-moving-ottawa" },
+                  ].map(({ label, href }) => (
+                    <Link key={href} href={href}>
+                      <div className="flex items-center justify-between px-3 py-2.5 rounded-lg hover:bg-white/6 group transition-colors cursor-pointer">
+                        <span className="text-white/60 text-sm group-hover:text-white transition-colors">{label}</span>
+                        <ChevronRight className="h-4 w-4 text-white/20 group-hover:text-[#C5A572] transition-colors" />
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+                <div className="border-t border-white/10 pt-4">
+                  <p className="text-white/30 text-xs font-bold uppercase tracking-widest mb-3">Official Links</p>
+                  <div className="space-y-2 text-xs">
+                    <a href="https://ottawa.ca" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-white/40 hover:text-[#C5A572] transition-colors">
+                      <Globe className="h-3 w-3 shrink-0" /> City of Ottawa
+                    </a>
+                    <a href="https://www.ontario.ca/page/serviceontario" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-white/40 hover:text-[#C5A572] transition-colors">
+                      <Globe className="h-3 w-3 shrink-0" /> ServiceOntario — Address Change
+                    </a>
+                    <a href="https://www.canadapost-postescanada.ca/cpc/en/personal/receiving/manage-mail/mail-forwarding.page" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-white/40 hover:text-[#C5A572] transition-colors">
+                      <Globe className="h-3 w-3 shrink-0" /> Canada Post — Mail Forwarding
+                    </a>
+                    <a href="https://www.wsib.ca" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-white/40 hover:text-[#C5A572] transition-colors">
+                      <Globe className="h-3 w-3 shrink-0" /> WSIB Ontario
+                    </a>
+                    <a href="https://www.bbb.org/ca/on/ottawa" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-white/40 hover:text-[#C5A572] transition-colors">
+                      <Globe className="h-3 w-3 shrink-0" /> BBB Ottawa
+                    </a>
+                  </div>
                 </div>
               </div>
 

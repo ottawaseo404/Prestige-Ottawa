@@ -224,6 +224,7 @@ export function SharedFooter() {
                 <Link href="/relocation-services-ottawa" className="block hover:text-[#C5A572] transition-colors">Relocation Services Ottawa</Link>
                 <Link href="/ottawa-to-gatineau-movers" className="block hover:text-[#C5A572] transition-colors">Ottawa to Gatineau Movers</Link>
                 <Link href="/moving-from-montreal-to-ottawa" className="block hover:text-[#C5A572] transition-colors">Montreal to Ottawa Movers</Link>
+                <Link href="/moving-from-hamilton-to-ottawa" className="block hover:text-[#C5A572] transition-colors">Hamilton to Ottawa Movers</Link>
                 <Link href="/first-home-movers-ottawa" className="block hover:text-[#C5A572] transition-colors">First Home Movers Ottawa</Link>
                 <Link href="/moving-from-ottawa-to-toronto" className="block hover:text-[#C5A572] transition-colors">Ottawa to Toronto Movers</Link>
                 <Link href="/moving-from-ottawa-to-vancouver" className="block hover:text-[#C5A572] transition-colors">Ottawa to Vancouver Movers</Link>
@@ -375,10 +376,15 @@ export function SharedFooter() {
                 <Link href="/residential-movers-manor-park" className="block hover:text-[#C5A572] transition-colors">Residential Movers Manor Park</Link>
                 <Link href="/residential-movers-blackburn-hamlet" className="block hover:text-[#C5A572] transition-colors">Residential Movers Blackburn Hamlet</Link>
                 <Link href="/residential-movers-crystal-beach" className="block hover:text-[#C5A572] transition-colors">Residential Movers Crystal Beach</Link>
+                <Link href="/residential-movers-overbrook" className="block hover:text-[#C5A572] transition-colors">Residential Movers Overbrook</Link>
+                <Link href="/residential-movers-old-ottawa-south" className="block hover:text-[#C5A572] transition-colors">Residential Movers Old Ottawa South</Link>
+                <Link href="/residential-movers-new-edinburgh" className="block hover:text-[#C5A572] transition-colors">Residential Movers New Edinburgh</Link>
+                <Link href="/residential-movers-lowertown" className="block hover:text-[#C5A572] transition-colors">Residential Movers Lowertown</Link>
               </div>
 
               <h4 className="font-bold text-sm uppercase tracking-widest text-white/40 mb-4 mt-7">Specialty Moving</h4>
               <div className="space-y-2.5 text-sm text-white/65 mb-7">
+                <Link href="/white-glove-movers-ottawa" className="block hover:text-[#C5A572] transition-colors">White Glove Movers Ottawa</Link>
                 <Link href="/pool-table-movers-ottawa" className="block hover:text-[#C5A572] transition-colors">Pool Table Movers Ottawa</Link>
                 <Link href="/hot-tub-movers-ottawa" className="block hover:text-[#C5A572] transition-colors">Hot Tub Movers Ottawa</Link>
                 <Link href="/gym-equipment-movers-ottawa" className="block hover:text-[#C5A572] transition-colors">Gym Equipment Movers Ottawa</Link>
@@ -450,8 +456,24 @@ export function SharedFooter() {
 
           </div>
 
+          {/* External Resources Bar */}
+          <div className="border-t border-white/10 mt-12 pt-8 pb-8">
+            <h4 className="font-bold text-xs uppercase tracking-widest text-white/30 mb-4">Trusted Resources & Official Links</h4>
+            <div className="flex flex-wrap gap-x-6 gap-y-2 text-xs text-white/40">
+              <a href="https://ottawa.ca" target="_blank" rel="noopener noreferrer" className="hover:text-[#C5A572] transition-colors">City of Ottawa — Official Site</a>
+              <a href="https://www.ontario.ca/page/serviceontario" target="_blank" rel="noopener noreferrer" className="hover:text-[#C5A572] transition-colors">ServiceOntario — Change of Address</a>
+              <a href="https://www.canadapost-postescanada.ca/cpc/en/personal/receiving/manage-mail/mail-forwarding.page" target="_blank" rel="noopener noreferrer" className="hover:text-[#C5A572] transition-colors">Canada Post — Mail Forwarding</a>
+              <a href="https://www.wsib.ca" target="_blank" rel="noopener noreferrer" className="hover:text-[#C5A572] transition-colors">WSIB Ontario — Workplace Safety</a>
+              <a href="https://www.bbb.org/ca/on/ottawa" target="_blank" rel="noopener noreferrer" className="hover:text-[#C5A572] transition-colors">Better Business Bureau Ottawa</a>
+              <a href="https://www.ottawapolice.ca" target="_blank" rel="noopener noreferrer" className="hover:text-[#C5A572] transition-colors">Ottawa Police — Truck Permits</a>
+              <a href="https://www.cmhc-schl.gc.ca" target="_blank" rel="noopener noreferrer" className="hover:text-[#C5A572] transition-colors">CMHC — Canada Mortgage & Housing</a>
+              <a href="https://www.hydroottawa.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#C5A572] transition-colors">Hydro Ottawa — Service Transfer</a>
+              <a href="/sitemap" className="hover:text-[#C5A572] transition-colors">Full Site Index & Sitemap</a>
+            </div>
+          </div>
+
           {/* Bottom bar */}
-          <div className="border-t border-white/10 mt-12 pt-8">
+          <div className="border-t border-white/10 pt-8">
             <div className="flex flex-col md:flex-row items-center md:items-start gap-6 mb-6">
               <div className="flex-shrink-0 flex items-center justify-center w-16 h-16 rounded-full border-2 border-white/30">
                 <svg viewBox="0 0 50 50" className="w-14 h-14" aria-label="Canadian Owned and Operated">

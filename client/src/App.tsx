@@ -240,6 +240,7 @@ import ResidentialMoversNewEdinburgh from "@/pages/seo/residential-movers-new-ed
 import ResidentialMoversLowertown from "@/pages/seo/residential-movers-lowertown";
 import WhiteGloveMoversOttawa from "@/pages/seo/white-glove-movers-ottawa";
 import MovingFromHamiltonToOttawa from "@/pages/seo/moving-from-hamilton-to-ottawa";
+import Sitemap from "@/pages/sitemap";
 import Calculator from "@/pages/calculator";
 import Contact from "@/pages/contact";
 import Blog from "@/pages/blog";
@@ -538,6 +539,7 @@ function Router() {
       <Route path="/residential-movers-lowertown" component={ResidentialMoversLowertown} />
       <Route path="/white-glove-movers-ottawa" component={WhiteGloveMoversOttawa} />
       <Route path="/moving-from-hamilton-to-ottawa" component={MovingFromHamiltonToOttawa} />
+      <Route path="/sitemap" component={Sitemap} />
 
       <Route path="/admin/pages">
         {() => (
