@@ -151,12 +151,12 @@ export default function LongDistanceMoversOttawa() {
   return (
     <>
       <Helmet>
-        <title>Long Distance Movers Ottawa | Cross-Canada Moving | Prestige Moving</title>
-        <meta name="description" content="Ottawa's #1 long distance moving company. Professional cross-Canada moves from Ottawa to Toronto, Montreal, Vancouver, Calgary & every province. Binding estimates, dedicated trucks, full insurance. Call (613) 600-4000." />
+        <title>Long Distance Movers Ottawa | Moving Across Canada Since 2014 | Prestige Moving</title>
+        <meta name="description" content="Moving Ottawa to anywhere in Canada since 2014. Fully insured · Licensed interprovincial carrier · 350+ five-star reviews. Ottawa to Toronto from $1,200 · Montreal from $900 · Vancouver from $3,000. Binding written estimates — no surprise charges. Call (613) 600-4000." />
         <meta name="keywords" content="long distance movers ottawa, cross canada moving, ottawa to toronto movers, ottawa to vancouver movers, ottawa to calgary movers, interprovincial movers ottawa, long distance moving company ottawa" />
         <link rel="canonical" href="https://prestigemoving.ca/long-distance-movers-ottawa" />
-        <meta property="og:title" content="Long Distance Movers Ottawa | Cross-Canada Moving | Prestige Moving" />
-        <meta property="og:description" content="Ottawa's top-rated long distance moving company. Cross-Canada moves to every province. Binding estimates, no hidden fees." />
+        <meta property="og:title" content="Long Distance Movers Ottawa | Moving Across Canada Since 2014 | Prestige Moving" />
+        <meta property="og:description" content="Fully insured · Licensed interprovincial carrier · 350+ five-star reviews. Ottawa to Toronto from $1,200 · Montreal from $900 · Vancouver from $3,000. Binding estimates, no hidden fees." />
         <meta property="og:url" content="https://prestigemoving.ca/long-distance-movers-ottawa" />
         <meta property="og:type" content="website" />
         <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
@@ -176,9 +176,12 @@ export default function LongDistanceMoversOttawa() {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <div className="inline-flex items-center gap-2 bg-primary/20 border border-primary/40 rounded-full px-4 py-1.5 mb-6">
-                <Route className="h-3.5 w-3.5 text-primary" />
-                <span className="text-xs font-semibold text-primary uppercase tracking-wider">Long Distance Moving Specialists</span>
+              <div className="flex flex-wrap items-center gap-3 mb-6">
+                <div className="inline-flex items-center gap-2 bg-primary/20 border border-primary/40 rounded-full px-4 py-1.5">
+                  <Route className="h-3.5 w-3.5 text-primary" />
+                  <span className="text-xs font-semibold text-primary uppercase tracking-wider">Long Distance Moving Specialists</span>
+                </div>
+                <span className="text-white/30 text-xs">Updated March 2026</span>
               </div>
 
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight mb-6">
@@ -188,7 +191,7 @@ export default function LongDistanceMoversOttawa() {
               </h1>
 
               <p className="text-xl text-white/75 mb-8 leading-relaxed">
-                From Ottawa to Toronto, Vancouver, Calgary, Halifax — and every city in between. Prestige Moving is Ottawa's most trusted long distance moving company, with dedicated trucks, binding estimates, and a 5-star record across 10,000+ moves.
+                From Ottawa to Toronto, Vancouver, Calgary, Halifax — and every city in between. As the <Link href="/" className="text-[#C5A572] hover:underline">Ottawa movers</Link> with 350+ five-star reviews, Prestige Moving is the city's most trusted long distance moving company — dedicated trucks, binding estimates, and a 5-star record across 10,000+ moves.
               </p>
 
               <div className="grid grid-cols-2 gap-3 mb-8">

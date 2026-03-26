@@ -95,18 +95,18 @@ export default function OttawaToMontrealMovers() {
   return (
     <>
       <Helmet>
-        <title>Ottawa to Montreal Movers | Prestige Moving – Trusted Interprovincial Moving</title>
-        <meta name="description" content="Moving from Ottawa to Montreal? Get reliable, licensed interprovincial movers starting from $900. Transparent pricing, full insurance, and no hidden fees. Book your free quote today." />
-        <meta name="keywords" content="Ottawa to Montreal movers, Ottawa Montreal moving company, interprovincial movers Ottawa, moving from Ottawa to Montreal, Ottawa Montreal moving cost, licensed movers Ottawa Quebec" />
+        <title>Ottawa to Montreal Moving Company | Licensed Interprovincial Movers | Prestige Moving</title>
+        <meta name="description" content="Ottawa to Montreal moving company — fully licensed interprovincial movers since 2014. Prices from $900 · Full insurance · No hidden fees · 350+ five-star reviews. July 1 specialists. Binding written estimates. Call (613) 600-4000 for your free quote." />
+        <meta name="keywords" content="Ottawa to Montreal movers, Ottawa to Montreal moving company, Ottawa Montreal moving company, interprovincial movers Ottawa, moving from Ottawa to Montreal, Ottawa Montreal moving cost, licensed movers Ottawa Quebec" />
         <link rel="canonical" href="https://prestigemoving.ca/ottawa-to-montreal-movers" />
-        <meta property="og:title" content="Ottawa to Montreal Movers | Prestige Moving" />
-        <meta property="og:description" content="Professional, licensed interprovincial moving from Ottawa to Montreal. Pricing from $900. Book your free quote today." />
+        <meta property="og:title" content="Ottawa to Montreal Moving Company | Licensed Interprovincial Movers | Prestige Moving" />
+        <meta property="og:description" content="Ottawa to Montreal moving company — fully licensed, insured, 350+ five-star reviews. Prices from $900, no hidden fees. July 1 specialists. Book your free quote today." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://prestigemoving.ca/ottawa-to-montreal-movers" />
         <meta property="og:image" content="https://prestigemoving.ca/og-image.png" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Ottawa to Montreal Movers | Prestige Moving" />
-        <meta name="twitter:description" content="Professional, licensed interprovincial moving from Ottawa to Montreal. Pricing from $900." />
+        <meta name="twitter:title" content="Ottawa to Montreal Moving Company | Prestige Moving" />
+        <meta name="twitter:description" content="Ottawa to Montreal moving company — licensed, insured, 350+ five-star reviews. Prices from $900. July 1 specialists. Call (613) 600-4000." />
         <script type="application/ld+json">{JSON.stringify(schema)}</script>
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
       </Helmet>
@@ -124,16 +124,19 @@ export default function OttawaToMontrealMovers() {
           </nav>
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <div className="inline-flex items-center gap-2 bg-[#C5A572]/20 border border-[#C5A572]/30 rounded-full px-4 py-1.5 mb-5">
-                <Star className="h-4 w-4 text-[#C5A572] fill-[#C5A572]" />
-                <span className="text-[#C5A572] text-sm font-semibold">5.0 Stars · 500+ Reviews · Licensed & Insured</span>
+              <div className="flex flex-wrap items-center gap-3 mb-5">
+                <div className="inline-flex items-center gap-2 bg-[#C5A572]/20 border border-[#C5A572]/30 rounded-full px-4 py-1.5">
+                  <Star className="h-4 w-4 text-[#C5A572] fill-[#C5A572]" />
+                  <span className="text-[#C5A572] text-sm font-semibold">5.0 Stars · 500+ Reviews · Licensed & Insured</span>
+                </div>
+                <time dateTime="2026-03" className="text-white/30 text-xs">Updated March 2026</time>
               </div>
               <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight mb-5">
                 Ottawa to Montreal<br />
                 <span className="text-[#C5A572]">Moving Services</span>
               </h1>
               <p className="text-lg text-white/75 mb-8 leading-relaxed">
-                Moving from Ottawa to Montreal? Prestige Moving is your trusted interprovincial partner — fully licensed, fully insured, and experienced with Ontario–Quebec moves. We handle everything from packing to final placement in your new Montreal home.
+                Moving from Ottawa to Montreal? As the <Link href="/" className="text-[#C5A572] hover:underline">movers Ottawa</Link> residents trust most — fully licensed, fully insured, and experienced with Ontario–Quebec interprovincial moves — Prestige Moving handles everything from packing to final placement in your new Montreal home.
               </p>
               <div className="flex flex-wrap gap-3 mb-8">
                 {["196 km Route", "~2 hr Drive", "From $900", "No Hidden Fees"].map(b => (
