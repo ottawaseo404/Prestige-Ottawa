@@ -99,7 +99,8 @@ export default function LongDistanceMoving() {
           <video autoPlay muted loop playsInline className="w-full h-full object-cover" poster={longDistanceHeroImg}>
             <source src="/videos/long-distance-hero.mp4" type="video/mp4" />
           </video>
-          <div className="absolute inset-0 bg-gradient-to-r from-[#1A2332]/92 via-[#1A2332]/78 to-[#1A2332]/40" />
+          <div className="absolute inset-0 bg-[#1A2332]/75" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#1A2332]/60 via-transparent to-transparent" />
         </div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
           <div className="max-w-2xl">
