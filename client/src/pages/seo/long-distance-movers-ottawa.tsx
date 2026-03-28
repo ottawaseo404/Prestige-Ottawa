@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { SharedNavigation } from "@/components/shared-navigation";
 import { SharedFooter } from "@/components/shared-footer";
+import { SeoKeywordsSection } from "@/components/seo-keywords-section";
 import {
   Phone, CheckCircle2, TruckIcon, Shield, Clock, Users, Star,
   MapPin, ArrowRight, ChevronDown, Award, Package,
@@ -728,6 +729,8 @@ export default function LongDistanceMoversOttawa() {
           </div>
         </div>
       </section>
+
+      <SeoKeywordsSection currentPage="/long-distance-movers-ottawa" />
 
       {/* CTA Section */}
       <section className="py-20 bg-[#1A2332]" data-testid="section-cta">

@@ -4,6 +4,7 @@ import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { SharedNavigation } from "@/components/shared-navigation";
 import { SharedFooter } from "@/components/shared-footer";
+import { SeoKeywordsSection } from "@/components/seo-keywords-section";
 import { Phone, ArrowRight, CheckCircle2, Star, Shield, Clock, TruckIcon, Building2, ChevronDown, Users, Package, MapPin, Lock } from "lucide-react";
 
 const FAQS = [
@@ -142,6 +143,8 @@ export default function ApartmentMoversOttawa() {
           </div>
         </div>
       </section>
+
+      <SeoKeywordsSection currentPage="/apartment-movers-ottawa" />
 
       {/* CTA */}
       <section className="bg-[#1A2332] py-14">

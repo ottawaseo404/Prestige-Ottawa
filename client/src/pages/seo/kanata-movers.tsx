@@ -4,6 +4,7 @@ import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { SharedNavigation } from "@/components/shared-navigation";
 import { SharedFooter } from "@/components/shared-footer";
+import { SeoKeywordsSection } from "@/components/seo-keywords-section";
 import { TableOfContents } from "@/components/table-of-contents";
 import {
   Phone, Star, ArrowRight, ChevronDown, CheckCircle2, MapPin,
@@ -258,6 +259,8 @@ export default function KanataMoverPage() {
             </div>
           </div>
         </div>
+
+        <SeoKeywordsSection currentPage="/kanata-movers" />
 
         <section className="py-16 bg-[#1A2332]">
           <div className="max-w-4xl mx-auto px-4 text-center">

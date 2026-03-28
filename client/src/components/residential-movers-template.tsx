@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { SharedNavigation } from "@/components/shared-navigation";
 import { SharedFooter } from "@/components/shared-footer";
 import { TableOfContents } from "@/components/table-of-contents";
+import { SeoKeywordsSection } from "@/components/seo-keywords-section";
 import {
   Phone, Star, MapPin, ArrowRight, ChevronDown, Award, Clock, Package,
   Home, Building2, Shield, CheckCircle2, TruckIcon, Users, Banknote,
@@ -555,6 +556,8 @@ export function ResidentialMoversTemplate({ data }: { data: NeighbourhoodPageDat
             </div>
           </div>
         </section>
+
+        <SeoKeywordsSection currentPage={`/${data.slug}`} />
 
         {/* ─── FINAL CTA ─── */}
         <section className="py-16 bg-[#1A2332]">

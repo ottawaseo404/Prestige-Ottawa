@@ -4,6 +4,7 @@ import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { SharedNavigation } from "@/components/shared-navigation";
 import { SharedFooter } from "@/components/shared-footer";
+import { SeoKeywordsSection } from "@/components/seo-keywords-section";
 import { TableOfContents } from "@/components/table-of-contents";
 import {
   Phone, CheckCircle2, TruckIcon, Shield, Clock, Users, Star, MapPin, ArrowRight,
@@ -745,6 +746,8 @@ export default function BestMoversOttawa() {
             </div>
           </div>
         </section>
+
+        <SeoKeywordsSection currentPage="/best-movers-ottawa" />
 
         {/* ─── FINAL CTA ─── */}
         <section className="py-20 bg-[#1A2332]">

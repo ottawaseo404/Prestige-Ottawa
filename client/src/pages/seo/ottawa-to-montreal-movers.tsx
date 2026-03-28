@@ -4,6 +4,7 @@ import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { SharedNavigation } from "@/components/shared-navigation";
 import { SharedFooter } from "@/components/shared-footer";
+import { SeoKeywordsSection } from "@/components/seo-keywords-section";
 import { TableOfContents } from "@/components/table-of-contents";
 import {
   Phone, TruckIcon, Shield, Clock, Star, ArrowRight, CheckCircle2,
@@ -428,6 +429,8 @@ export default function OttawaToMontrealMovers() {
 
         </div>
       </div>
+
+      <SeoKeywordsSection currentPage="/ottawa-to-montreal-movers" />
 
       <SharedFooter />
     </>

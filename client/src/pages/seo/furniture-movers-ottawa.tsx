@@ -4,6 +4,7 @@ import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { SharedNavigation } from "@/components/shared-navigation";
 import { SharedFooter } from "@/components/shared-footer";
+import { SeoKeywordsSection } from "@/components/seo-keywords-section";
 import { Phone, ArrowRight, CheckCircle2, ChevronDown, Package, Sofa, Shield, Star, MapPin, Clock, Truck } from "lucide-react";
 
 const FAQS = [
@@ -241,6 +242,8 @@ export default function FurnitureMoversOttawa() {
           </div>
         </div>
       </section>
+
+      <SeoKeywordsSection currentPage="/furniture-movers-ottawa" />
 
       {/* CTA */}
       <section className="bg-[#1A2332] py-14">
