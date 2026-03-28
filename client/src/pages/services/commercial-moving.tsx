@@ -113,7 +113,7 @@ export default function CommercialMoving() {
       {/* ── Hero ── */}
       <section className="relative min-h-[600px] flex items-center overflow-hidden">
         <div className="absolute inset-0">
-          <video autoPlay muted loop playsInline className="w-full h-full object-cover" poster={commercialHeroImg}>
+          <video autoPlay muted loop playsInline className="w-full h-full object-cover">
             <source src="/videos/commercial-hero.mp4" type="video/mp4" />
           </video>
           <div className="absolute inset-0 bg-[#1A2332]/75" />
