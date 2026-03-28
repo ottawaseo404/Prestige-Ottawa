@@ -96,8 +96,10 @@ export default function LongDistanceMoving() {
       {/* ── Hero ── */}
       <section className="relative min-h-[600px] flex items-center overflow-hidden">
         <div className="absolute inset-0">
-          <img src={longDistanceHeroImg} alt="Long distance moving truck on Canadian highway from Ottawa" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#1A2332]/96 via-[#1A2332]/82 to-[#1A2332]/30" />
+          <video autoPlay muted loop playsInline className="w-full h-full object-cover" poster={longDistanceHeroImg}>
+            <source src="/videos/long-distance-hero.mp4" type="video/mp4" />
+          </video>
+          <div className="absolute inset-0 bg-gradient-to-r from-[#1A2332]/92 via-[#1A2332]/78 to-[#1A2332]/40" />
         </div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
           <div className="max-w-2xl">
