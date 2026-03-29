@@ -12,9 +12,8 @@ import {
   Truck, Package, Star, ChevronDown, Lock,
   Navigation, Users, Calendar, Globe, FileText, Info, AlertTriangle, Clock
 } from "lucide-react";
-import longDistanceHeroImg from "@assets/generated_images/long_distance_moving_hero.png";
-import longDistanceCanadaImg from "@assets/generated_images/long-distance-movers-canada.png";
-import highwayTruckImg from "@assets/generated_images/long_distance_highway_truck.png";
+import longDistanceCanadaImg from "@assets/prestige_moving_2_1774748704647.webp";
+import highwayTruckImg from "@assets/prestige_moving_5_1774748704647.webp";
 
 const TOC_ITEMS = [
   { id: "overview", title: "Overview" },
@@ -176,7 +175,7 @@ export default function LongDistanceMoving() {
                   <p>We serve every route from Ottawa — <Link href="/ottawa-to-toronto-movers" className="text-[#C5A572] hover:underline">Toronto</Link>, <Link href="/ottawa-to-montreal-movers" className="text-[#C5A572] hover:underline">Montreal</Link>, <Link href="/ottawa-to-vancouver-movers" className="text-[#C5A572] hover:underline">Vancouver</Link>, <Link href="/ottawa-to-calgary-movers" className="text-[#C5A572] hover:underline">Calgary</Link>, <Link href="/ottawa-to-halifax-movers" className="text-[#C5A572] hover:underline">Halifax</Link>, <Link href="/moving-from-ottawa-to-winnipeg" className="text-[#C5A572] hover:underline">Winnipeg</Link>, <Link href="/moving-from-ottawa-to-edmonton" className="text-[#C5A572] hover:underline">Edmonton</Link>, and every province in Canada. Our long-distance division uses our own fleet (no third-party brokers), the same dedicated crew from loading in Ottawa to delivery at your destination, real-time GPS tracking throughout transit, and climate-controlled trucks for furniture and electronics that require temperature stability.</p>
                 </div>
                 <div className="rounded-2xl overflow-hidden mt-6">
-                  <img src={highwayTruckImg} alt="Prestige Moving truck on a Canadian highway representing long distance moving service from Ottawa" className="w-full h-64 object-cover" />
+                  <img src={highwayTruckImg} alt="Prestige Moving crew loading wrapped furniture into a truck — Ottawa long distance moving" className="w-full h-64 object-cover" />
                 </div>
               </section>
 
@@ -408,7 +407,7 @@ export default function LongDistanceMoving() {
                 <h2 className="text-2xl font-bold text-[#1A2332] mb-6">Ottawa Long Distance Moving Route Guides</h2>
 
                 <div className="rounded-2xl overflow-hidden mb-8">
-                  <img src={longDistanceCanadaImg} alt="Canada long distance moving from Ottawa across the country" className="w-full h-64 object-cover" />
+                  <img src={longDistanceCanadaImg} alt="Prestige Moving truck parked in Toronto at night — Ottawa to Toronto long distance movers" className="w-full h-64 object-cover" />
                 </div>
 
                 <div className="space-y-6">

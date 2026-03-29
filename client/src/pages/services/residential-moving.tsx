@@ -12,9 +12,8 @@ import {
   Home, Package, Star, ChevronDown, Truck, Users,
   Award, DollarSign, Zap, Key, Lock, Building2, Heart, Info
 } from "lucide-react";
-import residentialHeroImg from "@assets/generated_images/residential_moving_hero.png";
-import residentialTruckImg from "@assets/generated_images/residential_moving_truck_at_home.png";
-import packingServicesImg from "@assets/generated_images/professional_packing_services.png";
+import residentialTruckImg from "@assets/prestige_moving_3_1774748704647.webp";
+import packingServicesImg from "@assets/prestige_moving_6_1774748704646.webp";
 
 const TOC_ITEMS = [
   { id: "overview", title: "What We Do" },
@@ -343,7 +342,7 @@ export default function ResidentialMoving() {
               <section id="protecting-belongings">
                 <h2 className="text-2xl font-bold text-[#1A2332] mb-6">How We Protect Your Belongings</h2>
                 <div className="rounded-2xl overflow-hidden mb-6">
-                  <img src={packingServicesImg} alt="Professional movers using padded moving blankets to protect furniture" className="w-full h-64 object-cover" />
+                  <img src={packingServicesImg} alt="Prestige Moving crew member stretch-wrapping furniture inside a home — Ottawa residential movers" className="w-full h-64 object-cover" />
                 </div>
                 <div className="grid md:grid-cols-2 gap-4 mb-6">
                   {[
@@ -417,7 +416,7 @@ export default function ResidentialMoving() {
                 <h2 className="text-2xl font-bold text-[#1A2332] mb-6">Ottawa Neighbourhood Moving Guide</h2>
 
                 <div className="rounded-2xl overflow-hidden mb-6">
-                  <img src={residentialTruckImg} alt="Prestige Moving truck parked outside an Ottawa residential home" className="w-full h-64 object-cover" />
+                  <img src={residentialTruckImg} alt="Prestige Moving crew member carrying boxes down a staircase in an Ottawa home" className="w-full h-64 object-cover" />
                 </div>
 
                 <div className="space-y-5 text-gray-700 leading-relaxed">

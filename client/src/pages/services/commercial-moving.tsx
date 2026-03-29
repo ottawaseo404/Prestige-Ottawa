@@ -13,7 +13,7 @@ import {
   Monitor, Server, Archive, Zap, Calendar, Award, Lock, FileText, Info
 } from "lucide-react";
 import commercialHeroImg from "@assets/generated_images/commercial_moving_hero.png";
-import commercialOfficeImg from "@assets/generated_images/commercial_office_movers_working.png";
+import commercialOfficeImg from "@assets/prestigemoving1_1774748704648.webp";
 import commercialSetupImg from "@assets/generated_images/commercial_office_setup_complete.png";
 
 const TOC_ITEMS = [
@@ -194,7 +194,7 @@ export default function CommercialMoving() {
                 </div>
 
                 <div className="rounded-2xl overflow-hidden mt-6">
-                  <img src={commercialOfficeImg} alt="Prestige Moving commercial crew carefully moving office equipment" className="w-full h-64 object-cover" />
+                  <img src={commercialOfficeImg} alt="Prestige Moving truck in winter — Ottawa commercial movers operating year-round" className="w-full h-64 object-cover" />
                 </div>
               </section>
 
