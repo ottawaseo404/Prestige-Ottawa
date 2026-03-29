@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { Helmet } from "react-helmet";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
@@ -77,17 +77,17 @@ const WHY_CHOOSE = [
   { icon: Award, title: "Ottawa's #1 Commercial Mover", desc: "Trusted by law firms, tech companies, federal departments, and healthcare organizations across Ottawa. 5.0★ across 400+ Google reviews." },
 ];
 
-const FAQS = [
+const FAQS: { q: string; a: React.ReactNode }[] = [
   { q: "How much does commercial moving in Ottawa cost?", a: "Commercial moving costs in Ottawa are quoted based on the scope of work: number of employees, volume of furniture and equipment, distance, and hours required. We provide detailed written quotes after a site assessment — not ballpark estimates that change on moving day. Most medium-sized Ottawa office moves (20–50 employees) run $5,000–$15,000 for a weekend move." },
   { q: "How do you minimize business disruption during an office move?", a: "We specialize in after-hours, overnight, and weekend commercial moves in Ottawa. The typical commercial move timeline: Friday evening load-out, overnight transit or staging, Saturday delivery and setup, Monday morning your team walks into a fully operational office. We coordinate with building management for after-hours elevator access and parking." },
   { q: "Can you handle server room and IT equipment moves?", a: "Yes. We work with your IT team or vendor on server room relocation. This includes photographing rack configurations before disconnection, cable labelling and management, anti-static packing for equipment, climate-controlled transport, and coordination with your IT team for proper power-down and startup sequences." },
-  { q: "Do you have experience moving federal government departments in Ottawa?", a: "Yes. Ottawa's status as the national capital means we have extensive experience with federal government moves — Treasury Board guidelines, security clearance coordination, classified document handling protocols, and the documentation requirements of federal facility managers. We've moved multiple federal departments and Crown corporations." },
+  { q: "Do you have experience moving federal government departments in Ottawa?", a: <span>Yes. Ottawa's status as the national capital means we have extensive experience with <Link href="/federal-government-movers-ottawa" className="text-[#C5A572] hover:underline">federal government moves in Ottawa</Link> — Treasury Board guidelines, security clearance coordination, classified document handling protocols, and the documentation requirements of federal facility managers. We've moved multiple federal departments and Crown corporations.</span> },
   { q: "What insurance do you carry for commercial moves?", a: "All commercial moves are covered by $5M commercial general liability insurance and full WSIB coverage for all workers on site. We provide certificates of insurance to building management and property owners before move day. Additional coverage can be arranged for high-value equipment." },
   { q: "Can you move medical equipment and clinical offices?", a: "Yes. Medical office and clinical moves require specialized protocols — PHIPA-compliant handling of patient files, medical equipment moving expertise, sterile environment standards, and coordination with equipment vendors for calibration after relocation. We serve medical offices, dental practices, physiotherapy clinics, and allied health providers across Ottawa." },
-  { q: "Do you move businesses from Ottawa to other cities?", a: "Yes. We offer commercial long-distance moving from Ottawa — office relocations to Toronto, Montreal, and other Canadian cities. Commercial long-distance moves are quoted on a project basis after a site assessment. See our long distance moving page for details." },
+  { q: "Do you move businesses from Ottawa to other cities?", a: <span>Yes. We offer <Link href="/services/long-distance-moving" className="text-[#C5A572] hover:underline">commercial long-distance moving from Ottawa</Link> — office relocations to <Link href="/ottawa-to-toronto-movers" className="text-[#C5A572] hover:underline">Toronto</Link>, <Link href="/ottawa-to-montreal-movers" className="text-[#C5A572] hover:underline">Montreal</Link>, <Link href="/ottawa-to-vancouver-movers" className="text-[#C5A572] hover:underline">Vancouver</Link>, <Link href="/ottawa-to-calgary-movers" className="text-[#C5A572] hover:underline">Calgary</Link>, and other Canadian cities. Commercial long-distance moves are quoted on a project basis after a site assessment.</span> },
   { q: "How far in advance should we book a commercial move?", a: "For large office moves (50+ employees), we recommend 4–8 weeks of advance planning. For smaller businesses (under 20 employees), 2–3 weeks is typically sufficient. Summer and end-of-month dates book quickly. Complex moves involving server rooms, medical equipment, or multi-phase relocations benefit from 6–8 weeks of planning regardless of business size." },
   { q: "Do you provide a written quote for commercial moves?", a: "Always. We never provide verbal estimates that can change on moving day. After our site assessment, you receive a detailed written quote breaking down crew size, estimated hours, any specialized equipment required, and all fees. No surprises on invoice day." },
-  { q: "Can you handle modular furniture disassembly and reassembly?", a: "Yes. We are experienced with all major modular office furniture systems including Herman Miller, Steelcase, Knoll, Teknion, and Haworth. Our crew disassembles workstations, labels components, transports them safely, and fully reassembles at the new location according to your floor plan." },
+  { q: "Can you handle modular furniture disassembly and reassembly?", a: <span>Yes. We are experienced with all major modular office furniture systems including Herman Miller, Steelcase, Knoll, Teknion, and Haworth. Our crew disassembles workstations, labels components, transports them safely, and fully reassembles at the new location according to your floor plan. See our <Link href="/furniture-movers-ottawa" className="text-[#C5A572] hover:underline">furniture movers Ottawa</Link> page for more on how we handle large and modular pieces.</span> },
 ];
 
 export default function CommercialMoving() {
@@ -188,9 +188,9 @@ export default function CommercialMoving() {
               <section id="overview">
                 <h2 className="text-2xl font-bold text-[#1A2332] mb-4">Commercial Moving in Ottawa — What You Need to Know</h2>
                 <div className="prose max-w-none text-gray-700 leading-relaxed space-y-4">
-                  <p>Commercial moving in Ottawa is fundamentally different from residential moving — it's a project with business continuity at stake, stakeholders to satisfy, and zero tolerance for mistakes. An Ottawa business that's down for two days because of a poorly executed office move loses revenue, damages client relationships, and erodes employee morale. The best commercial movers in Ottawa understand this, and plan accordingly.</p>
-                  <p>Prestige Moving has executed over 500 commercial relocations across Ottawa — from 5-person startup offices in Kanata North to multi-floor federal government department relocations in downtown Ottawa's government campus. Our commercial moving division operates with dedicated project coordinators, specialized equipment for IT and server relocation, $5M commercial liability insurance, and a scheduling model built entirely around your business hours — not ours.</p>
-                  <p>The difference between a good commercial move and a disastrous one is planning. Our commercial moves begin with a formal site assessment at both origin and destination, a documented inventory system, a coordinated IT disconnection protocol, and a detailed timeline shared with all stakeholders before a single piece of furniture moves. On moving day, your dedicated coordinator is on site from start to finish — not reachable by phone from a dispatch office.</p>
+                  <p>Commercial moving in Ottawa is fundamentally different from <Link href="/services/residential-moving" className="text-[#C5A572] hover:underline">residential moving</Link> — it's a project with business continuity at stake, stakeholders to satisfy, and zero tolerance for mistakes. An Ottawa business that's down for two days because of a poorly executed office move loses revenue, damages client relationships, and erodes employee morale. The <Link href="/best-movers-ottawa" className="text-[#C5A572] hover:underline">best commercial movers in Ottawa</Link> understand this, and plan accordingly.</p>
+                  <p>Prestige Moving has executed over 500 commercial relocations across Ottawa — from 5-person startup offices in <Link href="/commercial-movers-kanata" className="text-[#C5A572] hover:underline">Kanata North</Link> to multi-floor <Link href="/federal-government-movers-ottawa" className="text-[#C5A572] hover:underline">federal government department relocations</Link> in downtown Ottawa's government campus. Our commercial moving division operates with dedicated project coordinators, specialized equipment for IT and server relocation, $5M commercial liability insurance, and a scheduling model built entirely around your business hours — not ours.</p>
+                  <p>The difference between a good commercial move and a disastrous one is planning. Our commercial moves begin with a formal site assessment at both origin and destination, a documented inventory system, a coordinated IT disconnection protocol, and a detailed timeline shared with all stakeholders before a single piece of furniture moves. On moving day, your dedicated coordinator is on site from start to finish — not reachable by phone from a dispatch office. Need to understand <Link href="/how-much-does-moving-cost-ottawa" className="text-[#C5A572] hover:underline">how much a commercial move in Ottawa costs</Link>? We break it down clearly.</p>
                 </div>
 
                 <div className="rounded-2xl overflow-hidden mt-6">
@@ -286,9 +286,9 @@ export default function CommercialMoving() {
               <section id="it-moving">
                 <h2 className="text-2xl font-bold text-[#1A2332] mb-6">IT Equipment & Server Room Relocation in Ottawa</h2>
                 <div className="text-gray-700 leading-relaxed space-y-4 mb-6">
-                  <p>Ottawa's growing technology sector — particularly in Kanata North, home to Nokia, Shopify, and hundreds of tech startups — means IT equipment relocation is one of the most critical components of many commercial moves we handle. A botched server room move can mean hours or days of business downtime, data loss, or equipment failure. We treat IT relocation with the protocol it demands.</p>
+                  <p>Ottawa's growing technology sector — particularly in <Link href="/commercial-movers-kanata" className="text-[#C5A572] hover:underline">Kanata North</Link>, home to Nokia, Shopify, and hundreds of tech startups — means IT equipment relocation is one of the most critical components of many commercial moves we handle. A botched server room move can mean hours or days of business downtime, data loss, or equipment failure. We treat IT relocation with the protocol it demands.</p>
                   <p>Our IT moving protocol begins weeks before moving day. We coordinate with your IT team (or external IT vendor) to document the existing server rack configuration — every server, switch, router, patch panel, and cable — through detailed photography and inventory sheets. This documentation becomes your before-and-after reference and protects against disputes about what was where.</p>
-                  <p>On disconnection day, every cable is labelled to the device and port it connects to. Network cables, power cables, and fibre runs are coiled, labelled, and bagged to the specific rack unit they belong to. Servers and networking equipment are packed with anti-static materials — we don't use standard moving blankets for server equipment. Climate-controlled transport is standard for all IT hardware.</p>
+                  <p>On disconnection day, every cable is labelled to the device and port it connects to. Network cables, power cables, and fibre runs are coiled, labelled, and bagged to the specific rack unit they belong to. Servers and networking equipment are packed with anti-static materials — we don't use standard moving blankets for server equipment. <Link href="/services/specialty-item-moving" className="text-[#C5A572] hover:underline">Climate-controlled transport for specialty items</Link> is standard for all IT hardware.</p>
                 </div>
                 <div className="grid sm:grid-cols-2 gap-4">
                   {[
@@ -319,9 +319,9 @@ export default function CommercialMoving() {
                   <img src={commercialSetupImg} alt="Newly organized government office space after Prestige Moving relocation" className="w-full h-64 object-cover" />
                 </div>
                 <div className="text-gray-700 leading-relaxed space-y-4">
-                  <p>No city in Canada has the volume and complexity of federal government office moves that Ottawa does. Department relocations, organizational restructurings, Government of Canada real estate portfolio consolidations, and end-of-lease moves happen continuously across the National Capital Region — involving hundreds of employees, classified materials, and facilities in secure buildings with specific access protocols.</p>
-                  <p>Our experience with federal government moves includes Treasury Board Secretariat procurement guideline adherence, security clearance coordination for crew access to secure facilities, chain-of-custody documentation for sensitive materials and classified documents, coordination with Shared Services Canada for IT asset management, and compliance with National Capital Commission facility requirements for moves in federal heritage buildings.</p>
-                  <p>We understand the documentation requirements, reporting structure, and approval processes that government facility managers require before and after a move. We've worked with departments across Public Services and Procurement Canada, National Defence, Agriculture Canada, Health Canada, and Crown corporations including CBC/Radio-Canada. Past performance references available upon request.</p>
+                  <p>No city in Canada has the volume and complexity of <Link href="/federal-government-movers-ottawa" className="text-[#C5A572] hover:underline">federal government office moves in Ottawa</Link> that Ottawa does. Department relocations, organizational restructurings, Government of Canada real estate portfolio consolidations, and end-of-lease moves happen continuously across the National Capital Region — involving hundreds of employees, classified materials, and facilities in secure buildings with specific access protocols.</p>
+                  <p>Our experience with <Link href="/federal-government-movers-ottawa" className="text-[#C5A572] hover:underline">federal government moving in Ottawa</Link> includes Treasury Board Secretariat procurement guideline adherence, security clearance coordination for crew access to secure facilities, chain-of-custody documentation for sensitive materials and classified documents, coordination with Shared Services Canada for IT asset management, and compliance with National Capital Commission facility requirements for moves in federal heritage buildings.</p>
+                  <p>We understand the documentation requirements, reporting structure, and approval processes that government facility managers require before and after a move. We've worked with departments across Public Services and Procurement Canada, National Defence, Agriculture Canada, Health Canada, and Crown corporations including CBC/Radio-Canada. <Link href="/law-firm-movers-ottawa" className="text-[#C5A572] hover:underline">Law firm office moves</Link> and regulated professional associations are also a major part of our Ottawa commercial portfolio. Past performance references available upon request.</p>
                   <div className="bg-[#1A2332]/5 border border-[#1A2332]/10 rounded-xl p-5 mt-4">
                     <div className="flex items-start gap-3">
                       <Shield className="h-5 w-5 text-[#C5A572] shrink-0 mt-0.5" />
@@ -446,19 +446,61 @@ export default function CommercialMoving() {
                 <p className="text-gray-600 mb-6">We serve all commercial and industrial areas of Ottawa and the National Capital Region.</p>
                 <div className="flex flex-wrap gap-2 mb-6">
                   {[
-                    "Downtown Ottawa Core", "Kanata North Tech Park", "Nepean Business Park", "Hunt Club / Walkley",
-                    "Gloucester / Innes", "Vanier Industrial", "Orleans Commercial", "Bells Corners",
-                    "Carling / Westboro", "Bank Street Corridor", "Wellington West", "Rideau Centre Area",
-                    "Airport / South Keys", "Merivale Road Corridor", "Gatineau (Quebec)", "Federal Government Campus"
-                  ].map(area => (
-                    <span key={area} className="bg-white border border-gray-200 text-gray-700 rounded-lg px-3 py-1.5 text-sm font-medium flex items-center gap-1.5">
-                      <MapPin className="h-3.5 w-3.5 text-[#C5A572]" />{area}
+                    { label: "Downtown Ottawa Core", href: "/commercial-movers-ottawa" },
+                    { label: "Kanata North Tech Park", href: "/commercial-movers-kanata" },
+                    { label: "Nepean Business Park", href: "/commercial-movers-nepean" },
+                    { label: "Hunt Club / Walkley", href: null },
+                    { label: "Gloucester / Innes", href: "/commercial-movers-gloucester" },
+                    { label: "Vanier Industrial", href: null },
+                    { label: "Orleans Commercial", href: "/commercial-movers-orleans" },
+                    { label: "Bells Corners", href: null },
+                    { label: "Carling / Westboro", href: "/commercial-movers-westboro" },
+                    { label: "Bank Street Corridor", href: null },
+                    { label: "Wellington West", href: "/commercial-movers-the-glebe" },
+                    { label: "Sandy Hill", href: "/commercial-movers-sandy-hill" },
+                    { label: "Stittsville", href: "/commercial-movers-stittsville" },
+                    { label: "Manotick", href: "/commercial-movers-manotick" },
+                    { label: "Gatineau (Quebec)", href: null },
+                    { label: "Federal Government Campus", href: "/federal-government-movers-ottawa" },
+                  ].map(({ label, href }) => href ? (
+                    <Link key={label} href={href} className="bg-white border border-gray-200 text-[#C5A572] rounded-lg px-3 py-1.5 text-sm font-medium flex items-center gap-1.5 hover:border-[#C5A572]/40 transition-colors">
+                      <MapPin className="h-3.5 w-3.5 text-[#C5A572]" />{label}
+                    </Link>
+                  ) : (
+                    <span key={label} className="bg-white border border-gray-200 text-gray-700 rounded-lg px-3 py-1.5 text-sm font-medium flex items-center gap-1.5">
+                      <MapPin className="h-3.5 w-3.5 text-[#C5A572]" />{label}
                     </span>
                   ))}
                 </div>
                 <div className="text-sm text-gray-600 leading-relaxed space-y-2">
                   <p>For residential moving services in Ottawa, see our <Link href="/services/residential-moving" className="text-[#C5A572] hover:underline">residential moving</Link> page. For moves beyond Ottawa, see our <Link href="/services/long-distance-moving" className="text-[#C5A572] hover:underline">long distance moving</Link> page.</p>
-                  <p>Specialty commercial services: <Link href="/furniture-movers-ottawa" className="text-[#C5A572] hover:underline">commercial furniture moving Ottawa</Link>, <Link href="/packing-services-ottawa" className="text-[#C5A572] hover:underline">office packing services Ottawa</Link>, <Link href="/storage-solutions-ottawa" className="text-[#C5A572] hover:underline">commercial storage Ottawa</Link>.</p>
+                  <p>Specialty commercial services: <Link href="/furniture-movers-ottawa" className="text-[#C5A572] hover:underline">commercial furniture moving Ottawa</Link>, <Link href="/services/packing-services" className="text-[#C5A572] hover:underline">office packing services Ottawa</Link>, <Link href="/services/storage-solutions" className="text-[#C5A572] hover:underline">commercial storage Ottawa</Link>, <Link href="/law-firm-movers-ottawa" className="text-[#C5A572] hover:underline">law firm movers Ottawa</Link>, <Link href="/white-glove-movers-ottawa" className="text-[#C5A572] hover:underline">white glove moving Ottawa</Link>.</p>
+                </div>
+              </section>
+
+              {/* ── Related Services Interlinks ── */}
+              <section>
+                <h2 className="text-2xl font-bold text-[#1A2332] mb-6">Related Moving Services in Ottawa</h2>
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {[
+                    { title: "Residential Moving Ottawa", desc: "Moving your home or family? See our full residential service.", href: "/services/residential-moving" },
+                    { title: "Long Distance Moving", desc: "Ottawa office relocations to Toronto, Montreal, Vancouver, and beyond.", href: "/services/long-distance-moving" },
+                    { title: "Packing Services Ottawa", desc: "Full professional packing for offices — fragile items, IT equipment, files.", href: "/services/packing-services" },
+                    { title: "Storage Solutions Ottawa", desc: "Secure commercial storage between office phases or during renovations.", href: "/services/storage-solutions" },
+                    { title: "Federal Government Movers", desc: "Specialized experience with federal department and Crown corporation moves.", href: "/federal-government-movers-ottawa" },
+                    { title: "Law Firm Movers Ottawa", desc: "Confidential document handling and after-hours moves for Ottawa law firms.", href: "/law-firm-movers-ottawa" },
+                    { title: "Furniture Movers Ottawa", desc: "Commercial furniture systems — Herman Miller, Steelcase, modular disassembly.", href: "/furniture-movers-ottawa" },
+                    { title: "Specialty Item Moving", desc: "Server equipment, medical devices, heavy machinery, and high-value assets.", href: "/services/specialty-item-moving" },
+                    { title: "White Glove Moving Ottawa", desc: "Premium handling for high-value offices, boardrooms, and executive suites.", href: "/white-glove-movers-ottawa" },
+                    { title: "Same-Day Movers Ottawa", desc: "Urgent commercial moves handled same-day when time is critical.", href: "/same-day-movers-ottawa" },
+                    { title: "Moving to Toronto", desc: "Ottawa office relocating to Toronto? We handle the full project.", href: "/ottawa-to-toronto-movers" },
+                    { title: "Moving to Montreal", desc: "Ottawa to Montreal commercial relocation — bilingual coordination.", href: "/ottawa-to-montreal-movers" },
+                  ].map(item => (
+                    <Link key={item.title} href={item.href} className="bg-white rounded-xl border border-gray-100 p-5 hover:border-[#C5A572]/30 transition-colors group">
+                      <div className="font-bold text-[#1A2332] text-sm mb-1 group-hover:text-[#C5A572] transition-colors">{item.title}</div>
+                      <div className="text-gray-500 text-xs leading-relaxed">{item.desc}</div>
+                    </Link>
+                  ))}
                 </div>
               </section>
 
