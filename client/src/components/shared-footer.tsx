@@ -195,6 +195,7 @@ export function SharedFooter() {
                 <Link href="/ottawa-to-nova-scotia-movers" className="block hover:text-[#C5A572] transition-colors">Ottawa to Nova Scotia</Link>
                 <Link href="/ottawa-to-vancouver-movers" className="block hover:text-[#C5A572] transition-colors">Ottawa to Vancouver</Link>
                 <Link href="/long-distance-movers-ottawa" className="block hover:text-[#C5A572] transition-colors">Long-Distance Movers</Link>
+                <a href="https://ottawalongdistancemovers.com/" target="_blank" rel="noopener noreferrer" className="block text-[#C5A572]/80 hover:text-[#C5A572] transition-colors">Long Distance Movers Ottawa ↗</a>
               </div>
 
               <h4 className="font-bold text-sm uppercase tracking-widest text-white/40 mb-4 mt-7">Resources</h4>

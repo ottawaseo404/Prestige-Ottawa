@@ -192,7 +192,7 @@ export default function LongDistanceMoversOttawa() {
               </h1>
 
               <p className="text-xl text-white/75 mb-8 leading-relaxed">
-                From Ottawa to Toronto, Vancouver, Calgary, Halifax — and every city in between. As the <Link href="/" className="text-[#C5A572] hover:underline">Ottawa movers</Link> with 350+ five-star reviews, Prestige Moving is the city's most trusted long distance moving company — dedicated trucks, binding estimates, and a 5-star record across 10,000+ moves.
+                From Ottawa to Toronto, Vancouver, Calgary, Halifax — and every city in between. As the <Link href="/" className="text-[#C5A572] hover:underline">Ottawa movers</Link> with 350+ five-star reviews, Prestige Moving is the city's most trusted <a href="https://ottawalongdistancemovers.com/" target="_blank" rel="noopener noreferrer" className="text-[#C5A572] hover:underline">long distance movers in ottawa</a> — dedicated trucks, binding estimates, and a 5-star record across 10,000+ moves.
               </p>
 
               <div className="grid grid-cols-2 gap-3 mb-8">

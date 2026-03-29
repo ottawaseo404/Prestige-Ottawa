@@ -668,7 +668,7 @@ export default function BestMoversOttawa() {
               </div>
               <h2 className="text-2xl font-bold text-white text-center mb-2">Moving Out of Ottawa?</h2>
               <p className="text-white/45 text-sm text-center mb-8 max-w-xl mx-auto">
-                Licensed interprovincial movers. Same 5-star standard, same transparent pricing — wherever you're headed.
+                Licensed <a href="https://ottawalongdistancemovers.com/" target="_blank" rel="noopener noreferrer" className="text-[#C5A572] hover:underline">long distance movers in ottawa</a>. Same 5-star standard, same transparent pricing — wherever you're headed.
               </p>
               <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 {LONG_DISTANCE_ROUTES.map(({ city, href, time, desc }) => (

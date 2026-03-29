@@ -1141,7 +1141,7 @@ export default function Home() {
                 <Link href="/services/commercial-moving"><strong className="text-[#1A2332] underline decoration-primary/40 hover:decoration-primary underline-offset-2 cursor-pointer">Commercial & Office Relocations</strong></Link>
                 , ensuring zero business downtime. Planning a bigger journey? Our{" "}
                 <Link href="/services/long-distance-moving"><strong className="text-[#1A2332] underline decoration-primary/40 hover:decoration-primary underline-offset-2 cursor-pointer">Long Distance Moving</strong></Link>
-                {" "}teams are experienced across British Columbia and all of Canada, delivering your home safely to its next chapter.
+                {" "}teams are experienced across British Columbia and all of Canada — trusted <a href="https://ottawalongdistancemovers.com/" target="_blank" rel="noopener noreferrer" className="text-[#C5A572] hover:underline">long distance movers ottawa</a>, delivering your home safely to its next chapter.
               </p>
               <p className="text-lg text-gray-600 max-w-5xl mx-auto mb-5 leading-relaxed">
                 Need help preparing? Our professional{" "}
