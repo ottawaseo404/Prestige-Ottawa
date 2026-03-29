@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { Helmet } from "react-helmet";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
@@ -72,25 +72,46 @@ const STEPS = [
   { num: "05", title: "Delivery & Room-by-Room Placement", desc: "At your new home, we place every item exactly where you want it — not just wherever is convenient for us. Furniture is reassembled, appliances are reconnected, and we do a final walkthrough with you before we leave." },
 ];
 
-const FAQS = [
-  { q: "How much does residential moving in Ottawa cost?", a: "Residential moving in Ottawa is priced hourly. Our Premium package (2 movers + truck) is competitively priced — call (613) 600-4000 for current rates. Our Deluxe (3 movers) is ideal for 2–3 bedroom homes. Diamond (4+ movers) covers large estates. All packages have a 3-hour minimum. A typical 2-bedroom apartment move takes 4–6 hours. We'll confirm pricing for your specific move when you book." },
+const FAQS: { q: string; a: React.ReactNode }[] = [
+  { q: "How much does residential moving in Ottawa cost?", a: <span>Residential moving in Ottawa is priced hourly. Our Premium package (2 movers + truck) is competitively priced — call (613) 600-4000 for current rates. Our Deluxe (3 movers) is ideal for 2–3 bedroom homes. Diamond (4+ movers) covers large estates. All packages have a 3-hour minimum. A typical 2-bedroom apartment move takes 4–6 hours. See our <Link href="/how-much-does-moving-cost-ottawa" className="text-[#C5A572] hover:underline">Ottawa moving cost guide</Link> for a detailed breakdown.</span> },
   { q: "How far in advance should I book an Ottawa mover?", a: "For summer moves (May–September), we recommend booking 4–6 weeks in advance. Ottawa's moving season peaks in late June and July. For fall and winter moves, 2–3 weeks is typically sufficient. We do maintain last-minute availability for urgent situations — call (613) 600-4000 for same-week openings." },
   { q: "Do you move in winter in Ottawa?", a: "Yes. Ottawa winters don't slow us down. Our crew uses ice-grip footwear, floor runners on all surfaces, and takes extra care with frozen paths and front steps. Winter moves are often faster (lighter traffic) and our winter availability is better than summer. Some of our best-reviewed moves happen in January and February." },
   { q: "Do I need to empty dresser drawers before the move?", a: "For local Ottawa moves, you can leave lightweight items (clothes, linens) in dresser drawers — we'll wrap and move the dresser as-is. Remove heavy or fragile items like books, tools, or breakables. We'll advise on your specific situation when you book." },
-  { q: "Do you move pianos and other specialty items?", a: "Yes. We move upright and grand pianos, gun safes, large aquariums, hot tubs, antique furniture, and other specialty items. These require advance notice and may require specialized equipment or extra crew members. Mention specialty items when booking so we can prepare the right equipment." },
+  { q: "Do you move pianos and other specialty items?", a: <span>Yes. We move upright and grand pianos, gun safes, large aquariums, hot tubs, antique furniture, and other specialty items. See our dedicated <Link href="/services/piano-moving" className="text-[#C5A572] hover:underline">piano moving Ottawa</Link> and <Link href="/services/specialty-item-moving" className="text-[#C5A572] hover:underline">specialty item moving</Link> pages for details. These require advance notice — mention specialty items when booking so we can prepare the right equipment.</span> },
   { q: "Are my belongings insured during an Ottawa move?", a: "Yes. All moves include basic valuation coverage. We also offer enhanced full-replacement value protection for an additional fee — recommended for high-value furniture, electronics, and specialty items. Our coordinator will explain coverage options when you book." },
-  { q: "Do you offer packing services in Ottawa?", a: "Yes. Full-service packing is available as an add-on. Our packing team uses professional-grade materials: double-wall boxes, dish packs, wardrobe boxes, and specialty wrap for fragile items. We can pack your entire home the day before your move or on moving day itself." },
-  { q: "What areas in Ottawa do you service?", a: "We service all Ottawa neighbourhoods and surrounding communities: Kanata, Barrhaven, Orleans, Gloucester, Nepean, Vanier, Westboro, The Glebe, Old Ottawa South, Alta Vista, Manotick, Stittsville, Richmond, and all areas within the Ottawa–Gatineau region." },
+  { q: "Do you offer packing services in Ottawa?", a: <span>Yes. Full-service <Link href="/services/packing-services" className="text-[#C5A572] hover:underline">packing services in Ottawa</Link> are available as an add-on. Our packing team uses professional-grade materials: double-wall boxes, dish packs, wardrobe boxes, and specialty wrap for fragile items. We can pack your entire home the day before your move or on moving day itself.</span> },
+  { q: "What areas in Ottawa do you service?", a: <span>We service all Ottawa neighbourhoods: <Link href="/residential-movers-kanata" className="text-[#C5A572] hover:underline">Kanata</Link>, <Link href="/residential-movers-barrhaven" className="text-[#C5A572] hover:underline">Barrhaven</Link>, <Link href="/residential-movers-orleans" className="text-[#C5A572] hover:underline">Orleans</Link>, <Link href="/residential-movers-gloucester" className="text-[#C5A572] hover:underline">Gloucester</Link>, <Link href="/residential-movers-nepean" className="text-[#C5A572] hover:underline">Nepean</Link>, <Link href="/residential-movers-vanier" className="text-[#C5A572] hover:underline">Vanier</Link>, <Link href="/residential-movers-westboro" className="text-[#C5A572] hover:underline">Westboro</Link>, <Link href="/residential-movers-the-glebe" className="text-[#C5A572] hover:underline">The Glebe</Link>, <Link href="/residential-movers-old-ottawa-south" className="text-[#C5A572] hover:underline">Old Ottawa South</Link>, <Link href="/residential-movers-alta-vista" className="text-[#C5A572] hover:underline">Alta Vista</Link>, <Link href="/residential-movers-manotick" className="text-[#C5A572] hover:underline">Manotick</Link>, <Link href="/residential-movers-stittsville" className="text-[#C5A572] hover:underline">Stittsville</Link>, and all communities within the Ottawa–Gatineau region.</span> },
   { q: "What should I do to prepare for moving day?", a: "Two to three days before your move: confirm elevator bookings and parking permits for condo buildings, label all boxes by destination room, disassemble any flat-pack furniture you prefer to move flat, separate items going to storage or donation, and set aside an overnight bag with essentials. Your Prestige coordinator will send a detailed pre-move checklist 48 hours before your date." },
-  { q: "Can you move a piano in Ottawa?", a: "Yes. We are experienced piano movers in Ottawa. Upright pianos, baby grand pianos, and digital pianos are all within our capability. Grand pianos require specialized equipment and extra crew. Piano moving requires advance notice so we can bring the right equipment — dolly, skid board, padding, and sufficient crew size. Call us to discuss your specific piano type." },
+  { q: "Can you move a piano in Ottawa?", a: <span>Yes. We are experienced <Link href="/services/piano-moving" className="text-[#C5A572] hover:underline">piano movers in Ottawa</Link>. Upright pianos, baby grand pianos, and digital pianos are all within our capability. Grand pianos require specialized equipment and extra crew. Piano moving requires advance notice so we can bring the right equipment — dolly, skid board, padding, and sufficient crew size. Also see our <Link href="/ottawa-piano-movers" className="text-[#C5A572] hover:underline">Ottawa piano movers</Link> page.</span> },
 ];
 
-const NEIGHBOURHOODS = [
-  "Kanata", "Barrhaven", "Orleans", "Gloucester", "Nepean", "Vanier",
-  "Westboro", "Hintonburg", "The Glebe", "Old Ottawa South", "Alta Vista",
-  "Hunt Club", "Riverside South", "Stittsville", "Richmond", "Manotick",
-  "Rockcliffe Park", "Manor Park", "Sandy Hill", "Lowertown", "Centretown",
-  "Byward Market", "New Edinburgh", "Overbrook", "Carson Meadows", "Blackburn Hamlet"
+const NEIGHBOURHOODS: { label: string; href: string | null }[] = [
+  { label: "Kanata", href: "/residential-movers-kanata" },
+  { label: "Barrhaven", href: "/residential-movers-barrhaven" },
+  { label: "Orleans", href: "/residential-movers-orleans" },
+  { label: "Gloucester", href: "/residential-movers-gloucester" },
+  { label: "Nepean", href: "/residential-movers-nepean" },
+  { label: "Vanier", href: "/residential-movers-vanier" },
+  { label: "Westboro", href: "/residential-movers-westboro" },
+  { label: "Hintonburg", href: "/residential-movers-hintonburg" },
+  { label: "The Glebe", href: "/residential-movers-the-glebe" },
+  { label: "Old Ottawa South", href: "/residential-movers-old-ottawa-south" },
+  { label: "Alta Vista", href: "/residential-movers-alta-vista" },
+  { label: "Hunt Club", href: "/residential-movers-hunt-club" },
+  { label: "Riverside South", href: "/residential-movers-riverside-south" },
+  { label: "Stittsville", href: "/residential-movers-stittsville" },
+  { label: "Richmond", href: null },
+  { label: "Manotick", href: "/residential-movers-manotick" },
+  { label: "Rockcliffe Park", href: "/residential-movers-rockcliffe-park" },
+  { label: "Manor Park", href: "/residential-movers-manor-park" },
+  { label: "Sandy Hill", href: "/residential-movers-sandy-hill" },
+  { label: "Lowertown", href: "/residential-movers-lowertown" },
+  { label: "Centretown", href: "/residential-movers-centretown" },
+  { label: "Byward Market", href: null },
+  { label: "New Edinburgh", href: "/residential-movers-new-edinburgh" },
+  { label: "Overbrook", href: "/residential-movers-overbrook" },
+  { label: "Beacon Hill", href: "/residential-movers-beacon-hill" },
+  { label: "Blackburn Hamlet", href: "/residential-movers-blackburn-hamlet" },
 ];
 
 const CHECKLIST = [
@@ -200,9 +221,9 @@ export default function ResidentialMoving() {
               <section id="overview">
                 <h2 className="text-2xl font-bold text-[#1A2332] mb-4">Residential Moving Services in Ottawa</h2>
                 <div className="prose max-w-none text-gray-700 leading-relaxed space-y-4">
-                  <p>Moving your home is one of the most significant events in your life — and in Ottawa's busy housing market, it's also one of the most logistically demanding. Whether you're relocating from a downtown Centretown condo to a Barrhaven new build, moving a family home in Kanata to make room for a growing household in Orleans, or starting fresh in a Sandy Hill apartment, Prestige Moving has the crew, equipment, and Ottawa-specific expertise to execute your move without damage, delays, or unwanted surprises.</p>
-                  <p>Since 2015, we've moved over 15,000 Ottawa homes. Our 400+ five-star Google reviews — the most of any locally owned Ottawa moving company — reflect a consistent commitment to protection, punctuality, and professionalism that large national van lines simply can't match. We're Ottawa's movers, moving Ottawa families.</p>
-                  <p>Our residential moving service covers every aspect of your home relocation: loading and unloading, furniture disassembly and reassembly, appliance moving, packing and unpacking, and careful room-by-room placement in your new home. We carry $2M commercial liability insurance and full WSIB coverage on every crew member — something you should require from any mover before they enter your home.</p>
+                  <p>Moving your home is one of the most significant events in your life — and in Ottawa's busy housing market, it's also one of the most logistically demanding. Whether you're relocating from a downtown <Link href="/residential-movers-centretown" className="text-[#C5A572] hover:underline">Centretown condo</Link> to a <Link href="/residential-movers-barrhaven" className="text-[#C5A572] hover:underline">Barrhaven</Link> new build, moving a family home in <Link href="/residential-movers-kanata" className="text-[#C5A572] hover:underline">Kanata</Link> to make room for a growing household in <Link href="/residential-movers-orleans" className="text-[#C5A572] hover:underline">Orleans</Link>, or starting fresh in a <Link href="/residential-movers-sandy-hill" className="text-[#C5A572] hover:underline">Sandy Hill apartment</Link>, Prestige Moving has the crew, equipment, and Ottawa-specific expertise to execute your move without damage, delays, or unwanted surprises.</p>
+                  <p>Since 2015, we've moved over 15,000 Ottawa homes. Our 400+ five-star Google reviews — the most of any locally owned <Link href="/best-movers-ottawa" className="text-[#C5A572] hover:underline">Ottawa moving company</Link> — reflect a consistent commitment to protection, punctuality, and professionalism that large national van lines simply can't match. We're Ottawa's movers, moving Ottawa families.</p>
+                  <p>Our residential moving service covers every aspect of your home relocation: loading and unloading, furniture disassembly and reassembly, appliance moving, <Link href="/services/packing-services" className="text-[#C5A572] hover:underline">packing and unpacking</Link>, and careful room-by-room placement in your new home. We carry $2M commercial liability insurance and full WSIB coverage on every crew member — something you should require from any mover before they enter your home.</p>
                 </div>
               </section>
 
@@ -268,8 +289,8 @@ export default function ResidentialMoving() {
                     <h3 className="text-xl font-bold text-[#1A2332] mt-1">Apartment & Condo Moving in Ottawa</h3>
                   </div>
                   <div className="text-gray-700 leading-relaxed space-y-3">
-                    <p>Ottawa's condominium market has expanded dramatically in neighbourhoods like Centretown, Little Italy, Westboro, and the Byward Market. Moving in and out of Ottawa condo buildings requires careful coordination with building management — elevator reservations (typically required 72+ hours in advance), insurance certificates naming the building as additional insured, approved parking zones for moving trucks, and mandated floor protection in lobbies and elevators.</p>
-                    <p>Our team handles all of this pre-move coordination as a standard part of your service — not an extra charge. We carry current WSIB and $2M liability certificates that satisfy the insurance requirements of every major Ottawa condo corporation. Our movers use professional floor runners, elevator blankets, and doorframe protectors as standard practice on every condo move.</p>
+                    <p>Ottawa's <Link href="/condo-movers-ottawa" className="text-[#C5A572] hover:underline">condominium moving</Link> market has expanded dramatically in neighbourhoods like <Link href="/residential-movers-centretown" className="text-[#C5A572] hover:underline">Centretown</Link>, Little Italy, <Link href="/residential-movers-westboro" className="text-[#C5A572] hover:underline">Westboro</Link>, and the Byward Market. Moving in and out of Ottawa condo buildings requires careful coordination with building management — elevator reservations (typically required 72+ hours in advance), insurance certificates naming the building as additional insured, approved parking zones for moving trucks, and mandated floor protection in lobbies and elevators.</p>
+                    <p>Our team handles all of this pre-move coordination as a standard part of your service — not an extra charge. We carry current WSIB and $2M liability certificates that satisfy the insurance requirements of every major Ottawa condo corporation. Our movers use professional floor runners, elevator blankets, and doorframe protectors as standard practice on every <Link href="/condo-movers-ottawa" className="text-[#C5A572] hover:underline">condo move in Ottawa</Link>.</p>
                     <p>For high-rise buildings with limited elevator windows, our crew plans systematically to make the most of your reserved time. We've moved clients in Claridge, Richcraft, Mastercraft, and every major Ottawa condo brand — we know exactly what each building requires before we arrive.</p>
                   </div>
                 </div>
@@ -283,7 +304,7 @@ export default function ResidentialMoving() {
                     <h3 className="text-xl font-bold text-[#1A2332] mt-1">Family Home Moves in Ottawa's Suburbs</h3>
                   </div>
                   <div className="text-gray-700 leading-relaxed space-y-3">
-                    <p>Moving a family home in Kanata, Barrhaven, Orleans, Stittsville, or other Ottawa suburbs is a different animal than a condo move. Larger volumes, more furniture disassembly and reassembly, coordinated timing around mortgage possession dates and school calendars, and often long driveways or rural road access all add complexity that inexperienced crews aren't equipped for.</p>
+                    <p>Moving a family home in <Link href="/residential-movers-kanata" className="text-[#C5A572] hover:underline">Kanata</Link>, <Link href="/residential-movers-barrhaven" className="text-[#C5A572] hover:underline">Barrhaven</Link>, <Link href="/residential-movers-orleans" className="text-[#C5A572] hover:underline">Orleans</Link>, <Link href="/residential-movers-stittsville" className="text-[#C5A572] hover:underline">Stittsville</Link>, or other Ottawa suburbs is a different animal than a condo move. Larger volumes, more furniture disassembly and reassembly, coordinated timing around mortgage possession dates and school calendars, and often long driveways or rural road access all add complexity that inexperienced crews aren't equipped for.</p>
                     <p>Our Deluxe (3 movers) and Diamond (4+ movers) packages are purpose-built for family home moves. Larger crews work faster, meaning your move costs less overall even at the same hourly rate. A 4-bedroom home in Barrhaven that might take a 2-person crew 12 hours can typically be completed by our 4-person Diamond crew in 7–9 hours — saving you money while protecting your belongings better.</p>
                     <p>We coordinate possession dates with your realtor or lawyer to ensure same-day moves run smoothly, including timing our arrival at the new property after your keys are confirmed ready. We've executed hundreds of same-day possession moves in Ottawa — we know how to handle the timing without adding stress to your closing day.</p>
                   </div>
@@ -298,8 +319,8 @@ export default function ResidentialMoving() {
                     <h3 className="text-xl font-bold text-[#1A2332] mt-1">Senior Moving Services in Ottawa</h3>
                   </div>
                   <div className="text-gray-700 leading-relaxed space-y-3">
-                    <p>Moving a senior family member — whether downsizing from a longtime family home or transitioning to a retirement community — requires extra patience, care, and consideration that goes beyond physical moving. Our crew understands the emotional significance of every piece being moved, takes extra time with seniors who want to be involved in placement decisions, and works at a pace that respects the situation rather than rushing to close out billable hours.</p>
-                    <p>We assist with downsizing logistics — working with family members on what items are going to the new home, what's going to family members, what's being donated, and coordinating with donation pickup services. For moves to retirement residences and senior living facilities in Ottawa (The Redwoods, The Glebe Centre, Hillel Lodge, and others), we're familiar with each building's moving protocols and access requirements.</p>
+                    <p>Moving a senior family member — whether downsizing from a longtime family home or transitioning to a retirement community — requires extra patience, care, and consideration that goes beyond physical moving. Our <Link href="/services/senior-moving" className="text-[#C5A572] hover:underline">senior moving service</Link> understands the emotional significance of every piece being moved, takes extra time with seniors who want to be involved in placement decisions, and works at a pace that respects the situation rather than rushing to close out billable hours.</p>
+                    <p>We assist with downsizing logistics — working with family members on what items are going to the new home, what's going to family members, what's being donated, and coordinating with donation pickup services. For moves to retirement residences and senior living facilities in Ottawa (The Redwoods, The Glebe Centre, Hillel Lodge, and others), we're familiar with each building's moving protocols and access requirements. See our dedicated <Link href="/senior-movers-ottawa" className="text-[#C5A572] hover:underline">senior movers Ottawa</Link> page for more details.</p>
                   </div>
                 </div>
 
@@ -312,8 +333,8 @@ export default function ResidentialMoving() {
                     <h3 className="text-xl font-bold text-[#1A2332] mt-1">Student & Small Moves in Ottawa</h3>
                   </div>
                   <div className="text-gray-700 leading-relaxed space-y-3">
-                    <p>University of Ottawa and Carleton University move-in and move-out season (late August and April/May) is among Ottawa's busiest moving periods. Sandy Hill, Centretown, and Hintonburg apartments see massive turnover in these windows. Our Premium 2-mover package is sized exactly for student apartment moves — efficient, affordable, and professional.</p>
-                    <p>We don't run smaller moves like an afterthought. A 1-bedroom Sandy Hill apartment gets the same blanket-wrapped furniture, protected floors, and professional crew as a Rockcliffe Park estate. Our 3-hour minimum for all moves is an industry standard — and we typically complete student apartment moves well within that window.</p>
+                    <p>University of Ottawa and Carleton University move-in and move-out season (late August and April/May) is among Ottawa's busiest moving periods. <Link href="/residential-movers-sandy-hill" className="text-[#C5A572] hover:underline">Sandy Hill</Link>, <Link href="/residential-movers-centretown" className="text-[#C5A572] hover:underline">Centretown</Link>, and <Link href="/residential-movers-hintonburg" className="text-[#C5A572] hover:underline">Hintonburg</Link> apartments see massive turnover in these windows. Our Premium 2-mover package is sized exactly for <Link href="/student-movers-ottawa" className="text-[#C5A572] hover:underline">student apartment moves</Link> — efficient, affordable, and professional.</p>
+                    <p>We don't run smaller moves like an afterthought. A 1-bedroom Sandy Hill apartment gets the same blanket-wrapped furniture, protected floors, and professional crew as a <Link href="/residential-movers-rockcliffe-park" className="text-[#C5A572] hover:underline">Rockcliffe Park</Link> estate. Our 3-hour minimum for all moves is an industry standard — and we typically complete student apartment moves well within that window.</p>
                   </div>
                 </div>
               </section>
@@ -403,16 +424,16 @@ export default function ResidentialMoving() {
                   <p>Ottawa's geography, building stock, and neighbourhoods each present unique challenges for residential moving. Understanding these challenges before moving day — not discovering them on the day — is what separates professional Ottawa movers from casual operators.</p>
 
                   <h3 className="text-xl font-bold text-[#1A2332] mt-4">Moving in Ottawa's Downtown Core</h3>
-                  <p>Centretown, Byward Market, Sandy Hill, and Lowertown are Ottawa's densest residential neighbourhoods. Parking is the primary challenge — on-street residential parking is limited, and many downtown Ottawa streets require temporary no-parking permits for moving day. We apply for these permits as part of your move at no extra charge, typically 5–7 business days before your move date. Downtown buildings, including walk-ups and older converted homes, often have narrow stairways that require furniture to be tilted, rotated, or partially disassembled to navigate. Our crew identifies these challenges during a pre-move site visit for larger jobs.</p>
+                  <p><Link href="/residential-movers-centretown" className="text-[#C5A572] hover:underline">Centretown</Link>, Byward Market, <Link href="/residential-movers-sandy-hill" className="text-[#C5A572] hover:underline">Sandy Hill</Link>, and <Link href="/residential-movers-lowertown" className="text-[#C5A572] hover:underline">Lowertown</Link> are Ottawa's densest residential neighbourhoods. Parking is the primary challenge — on-street residential parking is limited, and many downtown Ottawa streets require temporary no-parking permits for moving day. We apply for these permits as part of your move at no extra charge, typically 5–7 business days before your move date. Downtown buildings, including walk-ups and older converted homes, often have narrow stairways that require furniture to be tilted, rotated, or partially disassembled to navigate. Our crew identifies these challenges during a pre-move site visit for larger jobs.</p>
 
                   <h3 className="text-xl font-bold text-[#1A2332] mt-4">Moving in Ottawa's Western Suburbs (Kanata, Stittsville, Richmond)</h3>
-                  <p>Kanata, Ottawa's fastest-growing suburb and home to the city's technology sector, has seen enormous residential growth over the past decade. New-build neighbourhoods like Morgan's Grant, Beaverbrook, and Bridlewood have standardized layouts that make coordinated moves efficient. However, moving during Kanata's peak periods (long weekends, July 1st period) can create significant traffic challenges along Highway 417. We plan Kanata routes carefully and time departure from origin to avoid peak traffic windows.</p>
+                  <p><Link href="/residential-movers-kanata" className="text-[#C5A572] hover:underline">Kanata</Link>, Ottawa's fastest-growing suburb and home to the city's technology sector, has seen enormous residential growth over the past decade. New-build neighbourhoods like Morgan's Grant, Beaverbrook, and Bridlewood have standardized layouts that make coordinated moves efficient. However, moving during Kanata's peak periods (long weekends, July 1st period) can create significant traffic challenges along Highway 417. We plan <Link href="/residential-movers-kanata" className="text-[#C5A572] hover:underline">Kanata moving routes</Link> carefully and time departure from origin to avoid peak traffic windows. <Link href="/residential-movers-stittsville" className="text-[#C5A572] hover:underline">Stittsville</Link> moves are also well within our regular service area.</p>
 
                   <h3 className="text-xl font-bold text-[#1A2332] mt-4">Moving in Ottawa's South End (Barrhaven, Nepean, Hunt Club)</h3>
-                  <p>Barrhaven has become one of Ottawa's largest suburban communities, with a mix of single-family homes, townhouses, and new-build developments. Half Moon Bay, Stonebridge, and Longfields are particularly active moving destinations as young families seek newer, larger homes with proximity to good schools and Highway 416. Nepean and Hunt Club offer a mix of older established homes and newer developments, with access typically excellent for large moving trucks.</p>
+                  <p><Link href="/residential-movers-barrhaven" className="text-[#C5A572] hover:underline">Barrhaven</Link> has become one of Ottawa's largest suburban communities, with a mix of single-family homes, townhouses, and new-build developments. Half Moon Bay, Stonebridge, and Longfields are particularly active moving destinations as young families seek newer, larger homes with proximity to good schools and Highway 416. <Link href="/residential-movers-nepean" className="text-[#C5A572] hover:underline">Nepean</Link> and <Link href="/residential-movers-hunt-club" className="text-[#C5A572] hover:underline">Hunt Club</Link> offer a mix of older established homes and newer developments, with access typically excellent for large moving trucks.</p>
 
                   <h3 className="text-xl font-bold text-[#1A2332] mt-4">Moving in Ottawa's East End (Orleans, Gloucester, Blackburn Hamlet)</h3>
-                  <p>Orleans is Ottawa's largest suburban francophone community, with strong demand for residential moving services particularly around the summer period. Chaperal, Queenswood Heights, and Fallingbrook are active moving destinations. Gloucester's mix of high-rise apartments near the Gloucester Centre and single-family homes in South Keys and Heron Gate creates diverse moving scenarios. We serve all areas east of the Rideau River to the Quebec border.</p>
+                  <p><Link href="/residential-movers-orleans" className="text-[#C5A572] hover:underline">Orleans</Link> is Ottawa's largest suburban francophone community, with strong demand for residential moving services particularly around the summer period. Chaperal, Queenswood Heights, and Fallingbrook are active moving destinations. <Link href="/residential-movers-gloucester" className="text-[#C5A572] hover:underline">Gloucester's</Link> mix of high-rise apartments near the Gloucester Centre and single-family homes in South Keys and Heron Gate creates diverse moving scenarios. We serve all areas east of the Rideau River to the Quebec border, including <Link href="/residential-movers-blackburn-hamlet" className="text-[#C5A572] hover:underline">Blackburn Hamlet</Link>.</p>
                 </div>
               </section>
 
@@ -506,16 +527,46 @@ export default function ResidentialMoving() {
                 <h2 className="text-2xl font-bold text-[#1A2332] mb-4">Ottawa Neighbourhoods We Serve</h2>
                 <p className="text-gray-600 mb-6">We move throughout Ottawa and surrounding communities. Wherever your move starts or ends, we cover it.</p>
                 <div className="flex flex-wrap gap-2">
-                  {NEIGHBOURHOODS.map(n => (
-                    <span key={n} className="bg-white border border-gray-200 text-gray-700 rounded-lg px-3 py-1.5 text-sm font-medium flex items-center gap-1.5">
-                      <MapPin className="h-3.5 w-3.5 text-[#C5A572]" />{n}
+                  {NEIGHBOURHOODS.map(({ label, href }) => href ? (
+                    <Link key={label} href={href} className="bg-white border border-gray-200 text-[#C5A572] rounded-lg px-3 py-1.5 text-sm font-medium flex items-center gap-1.5 hover:border-[#C5A572]/40 transition-colors">
+                      <MapPin className="h-3.5 w-3.5 text-[#C5A572]" />{label}
+                    </Link>
+                  ) : (
+                    <span key={label} className="bg-white border border-gray-200 text-gray-700 rounded-lg px-3 py-1.5 text-sm font-medium flex items-center gap-1.5">
+                      <MapPin className="h-3.5 w-3.5 text-[#C5A572]" />{label}
                     </span>
                   ))}
                 </div>
                 <p className="text-xs text-gray-500 mt-4">Not listed? We likely serve your area. Call (613) 600-4000 to confirm coverage.</p>
                 <div className="mt-6 text-sm text-gray-600 leading-relaxed space-y-2">
-                  <p>For neighbourhood-specific moving information, visit our dedicated pages: <Link href="/kanata-movers" className="text-[#C5A572] hover:underline">Kanata movers</Link>, <Link href="/barrhaven-movers" className="text-[#C5A572] hover:underline">Barrhaven movers</Link>, <Link href="/orleans-movers" className="text-[#C5A572] hover:underline">Orleans movers</Link>, <Link href="/nepean-movers" className="text-[#C5A572] hover:underline">Nepean movers</Link>, <Link href="/gloucester-movers" className="text-[#C5A572] hover:underline">Gloucester movers</Link>, and <Link href="/westboro-movers" className="text-[#C5A572] hover:underline">Westboro movers</Link>.</p>
-                  <p>Also see our specialty services: <Link href="/furniture-movers-ottawa" className="text-[#C5A572] hover:underline">furniture movers Ottawa</Link>, <Link href="/apartment-movers-ottawa" className="text-[#C5A572] hover:underline">apartment movers Ottawa</Link>, <Link href="/senior-movers-ottawa" className="text-[#C5A572] hover:underline">senior movers Ottawa</Link>, and <Link href="/packing-services-ottawa" className="text-[#C5A572] hover:underline">packing services Ottawa</Link>.</p>
+                  <p>For neighbourhood-specific moving information, visit our dedicated pages: <Link href="/residential-movers-kanata" className="text-[#C5A572] hover:underline">Kanata movers</Link>, <Link href="/residential-movers-barrhaven" className="text-[#C5A572] hover:underline">Barrhaven movers</Link>, <Link href="/residential-movers-orleans" className="text-[#C5A572] hover:underline">Orleans movers</Link>, <Link href="/residential-movers-nepean" className="text-[#C5A572] hover:underline">Nepean movers</Link>, <Link href="/residential-movers-gloucester" className="text-[#C5A572] hover:underline">Gloucester movers</Link>, and <Link href="/residential-movers-westboro" className="text-[#C5A572] hover:underline">Westboro movers</Link>.</p>
+                  <p>Specialty services: <Link href="/furniture-movers-ottawa" className="text-[#C5A572] hover:underline">furniture movers Ottawa</Link>, <Link href="/apartment-movers-ottawa" className="text-[#C5A572] hover:underline">apartment movers Ottawa</Link>, <Link href="/condo-movers-ottawa" className="text-[#C5A572] hover:underline">condo movers Ottawa</Link>, <Link href="/senior-movers-ottawa" className="text-[#C5A572] hover:underline">senior movers Ottawa</Link>, <Link href="/services/packing-services" className="text-[#C5A572] hover:underline">packing services Ottawa</Link>, and <Link href="/services/storage-solutions" className="text-[#C5A572] hover:underline">storage solutions Ottawa</Link>.</p>
+                </div>
+              </section>
+
+              {/* ── Related Services Interlinks ── */}
+              <section>
+                <h2 className="text-2xl font-bold text-[#1A2332] mb-6">Related Moving Services in Ottawa</h2>
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {[
+                    { title: "Commercial Moving Ottawa", desc: "Moving an office or business? We handle full commercial relocations.", href: "/services/commercial-moving" },
+                    { title: "Long Distance Moving", desc: "Moving from Ottawa to Toronto, Montreal, Vancouver, or anywhere in Canada.", href: "/services/long-distance-moving" },
+                    { title: "Packing Services Ottawa", desc: "Full professional packing and unpacking — we do all the boxes for you.", href: "/services/packing-services" },
+                    { title: "Storage Solutions Ottawa", desc: "Short and long-term storage during your move or renovation.", href: "/services/storage-solutions" },
+                    { title: "Piano Moving Ottawa", desc: "Upright, baby grand, and grand piano moving across Ottawa.", href: "/services/piano-moving" },
+                    { title: "Senior Moving Ottawa", desc: "Compassionate, patient moving for seniors and retirement transitions.", href: "/services/senior-moving" },
+                    { title: "Antique Moving Ottawa", desc: "White-glove care for antique furniture, artwork, and collectibles.", href: "/services/antique-moving" },
+                    { title: "Specialty Item Moving", desc: "Safes, hot tubs, gym equipment, and oversized items handled safely.", href: "/services/specialty-item-moving" },
+                    { title: "Apartment Movers Ottawa", desc: "Fast, efficient condo and apartment moves with elevator coordination.", href: "/apartment-movers-ottawa" },
+                    { title: "Furniture Movers Ottawa", desc: "Individual furniture pieces moved, arranged, or rearranged.", href: "/furniture-movers-ottawa" },
+                    { title: "Student Movers Ottawa", desc: "Affordable moves for university students in Sandy Hill, Centretown, and beyond.", href: "/student-movers-ottawa" },
+                    { title: "Moving Cost Guide Ottawa", desc: "Understand exactly what your Ottawa move will cost before booking.", href: "/how-much-does-moving-cost-ottawa" },
+                  ].map(item => (
+                    <Link key={item.title} href={item.href} className="bg-white rounded-xl border border-gray-100 p-5 hover:border-[#C5A572]/30 transition-colors group">
+                      <div className="font-bold text-[#1A2332] text-sm mb-1 group-hover:text-[#C5A572] transition-colors">{item.title}</div>
+                      <div className="text-gray-500 text-xs leading-relaxed">{item.desc}</div>
+                    </Link>
+                  ))}
                 </div>
               </section>
 
