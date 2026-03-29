@@ -84,7 +84,7 @@ export function TableOfContents({ items }: TableOfContentsProps) {
       </aside>
 
       {/* Mobile collapsible */}
-      <div className="xl:hidden mb-6 border border-gray-200 rounded-xl overflow-hidden bg-white shadow-sm">
+      <div className="xl:hidden w-full mb-2 border border-gray-200 rounded-xl overflow-hidden bg-white shadow-sm">
         <button
           onClick={() => setMobileOpen((o) => !o)}
           className="w-full flex items-center justify-between px-5 py-4 text-sm font-semibold text-gray-800"

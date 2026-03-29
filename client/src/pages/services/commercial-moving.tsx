@@ -119,14 +119,14 @@ export default function CommercialMoving() {
           <div className="absolute inset-0 bg-[#1A2332]/75" />
           <div className="absolute inset-0 bg-gradient-to-r from-[#1A2332]/60 via-transparent to-transparent" />
         </div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 md:py-24">
           <div className="max-w-2xl">
             <div className="flex flex-wrap gap-2 mb-5">
               {["After-Hours Moves", "$5M Insured", "Dedicated Coordinator", "Zero Downtime"].map(t => (
                 <Badge key={t} className="bg-[#C5A572]/20 text-[#C5A572] border border-[#C5A572]/30 text-xs font-semibold">{t}</Badge>
               ))}
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-5 leading-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white mb-5 leading-tight">
               Ottawa's Commercial<br />
               <span className="text-[#C5A572]">Moving Experts</span>
             </h1>
@@ -179,10 +179,10 @@ export default function CommercialMoving() {
       {/* ── Main Content with TOC ── */}
       <div className="bg-gray-50 py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex gap-12 items-start">
+          <div className="flex flex-col xl:flex-row gap-6 xl:gap-12 items-start">
             <TableOfContents items={TOC_ITEMS} />
 
-            <div className="min-w-0 flex-1 space-y-16">
+            <div className="min-w-0 flex-1 space-y-12 xl:space-y-16">
 
               {/* ── Overview ── */}
               <section id="overview">
