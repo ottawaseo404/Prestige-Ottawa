@@ -431,6 +431,13 @@ export function SharedFooter() {
                   <Mail className="h-4 w-4 shrink-0" />
                   ottawa@prestigemoving.ca
                 </a>
+                <div className="mt-3 space-y-0.5 text-xs text-white/50">
+                  <div className="text-white/70 font-semibold text-xs mb-1">Hours</div>
+                  <div className="flex justify-between gap-4"><span>Mon / Tue / Wed / Fri</span><span>7 a.m.–11:30 p.m.</span></div>
+                  <div className="flex justify-between gap-4"><span>Thursday</span><span>9 a.m.–11:30 p.m.</span></div>
+                  <div className="flex justify-between gap-4"><span>Saturday</span><span>9 a.m.–11 p.m.</span></div>
+                  <div className="flex justify-between gap-4"><span>Sunday</span><span>9 a.m.–10:30 p.m.</span></div>
+                </div>
                 <div className="flex items-center gap-2 text-white font-semibold mt-3">
                   <MapPin className="h-4 w-4 text-[#C5A572] shrink-0" />
                   Vancouver

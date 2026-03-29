@@ -173,7 +173,7 @@ export default function MoversNearMeOttawa() {
           },
           "geo": { "@type": "GeoCoordinates", "latitude": "45.3878", "longitude": "-75.6769" },
           "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "500" },
-          "openingHours": "Mo-Su 07:00-20:00",
+          "openingHours": ["Mo Tu We Fr 07:00-23:30", "Th 09:00-23:30", "Sa 09:00-23:00", "Su 09:00-22:30"],
           "areaServed": ["Barrhaven", "Kanata", "Orleans", "Nepean", "Westboro", "Gloucester", "Alta Vista", "Downtown Ottawa", "Stittsville"],
           "priceRange": "$155–$315/hr",
           "description": "Ottawa's highest-rated local moving company. Serving all Ottawa neighbourhoods with professional, licensed, fully insured moving crews."

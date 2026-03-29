@@ -302,7 +302,7 @@ export default function Home() {
       "latitude": 45.4215,
       "longitude": -75.6972
     },
-    "openingHours": "Mo-Su 08:00-20:00",
+    "openingHours": ["Mo Tu We Fr 07:00-23:30", "Th 09:00-23:30", "Sa 09:00-23:00", "Su 09:00-22:30"],
     "priceRange": "$$",
     "aggregateRating": {
       "@type": "AggregateRating",

@@ -292,6 +292,27 @@ export default function Contact() {
                   </div>
                 </div>
 
+                <div>
+                  <h3 className="text-xl font-bold mb-4">Office Hours</h3>
+                  <div className="bg-gray-50 rounded-lg p-4 space-y-2 text-sm">
+                    <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-3">50 Colonnade Rd Unit 200B, Ottawa, ON K2E 7J6</p>
+                    {[
+                      { day: "Monday", hours: "7:00 a.m. – 11:30 p.m." },
+                      { day: "Tuesday", hours: "7:00 a.m. – 11:30 p.m." },
+                      { day: "Wednesday", hours: "7:00 a.m. – 11:30 p.m." },
+                      { day: "Thursday", hours: "9:00 a.m. – 11:30 p.m." },
+                      { day: "Friday", hours: "7:00 a.m. – 11:30 p.m." },
+                      { day: "Saturday", hours: "9:00 a.m. – 11:00 p.m." },
+                      { day: "Sunday", hours: "9:00 a.m. – 10:30 p.m." },
+                    ].map(({ day, hours }) => (
+                      <div key={day} className="flex justify-between items-center border-b border-gray-100 pb-2 last:border-0 last:pb-0">
+                        <span className="font-medium text-gray-700">{day}</span>
+                        <span className="text-gray-600">{hours}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
                 <div className="bg-gradient-to-r from-primary to-amber-500 rounded-xl p-6 text-[#1A2332]">
                   <h3 className="text-xl font-bold mb-2">Prefer to Talk?</h3>
                   <p className="mb-4">Our friendly team is standing by to answer your questions and provide instant quotes.</p>
