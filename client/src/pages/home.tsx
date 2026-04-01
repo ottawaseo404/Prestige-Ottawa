@@ -452,7 +452,7 @@ export default function Home() {
         <meta property="og:title" content="Prestige Moving Ottawa | Best Ottawa Movers | Top Moving Company Ottawa" />
         <meta property="og:description" content="Prestige Moving Ottawa - The best movers Ottawa has to offer! Top-rated Ottawa moving company with 350 five-star Google reviews. Ottawa movers for residential, commercial & long-distance moves. WSIB certified. Get your free quote today!" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://prestigemoving.ca" />
+        <meta property="og:url" content="https://prestigemoving.ca/" />
         <meta property="og:site_name" content="Prestige Moving Ottawa" />
         <meta property="og:locale" content="en_CA" />
         <meta property="og:image" content="https://prestigemoving.ca/og-image.png" />
@@ -465,7 +465,7 @@ export default function Home() {
         <meta name="twitter:description" content="Top movers Ottawa trusts! Prestige Moving Ottawa is the best moving company Ottawa. 350 five-star reviews, WSIB certified. Ottawa movers for all your moving needs. Free quote!" />
         <meta name="twitter:image" content="https://prestigemoving.ca/og-image.png" />
         <meta name="twitter:image:alt" content="Prestige Moving Ottawa - Top Ottawa Moving Company" />
-        <link rel="canonical" href="https://prestigemoving.ca" />
+        <link rel="canonical" href="https://prestigemoving.ca/" />
         <meta name="geo.region" content="CA-ON" />
         <meta name="geo.placename" content="Ottawa" />
         <meta name="geo.position" content="45.4215;-75.6972" />

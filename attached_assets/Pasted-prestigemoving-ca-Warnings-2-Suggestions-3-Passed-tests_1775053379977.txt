@@ -1,0 +1,56 @@
+prestigemoving.ca
+Warnings
+2 
+Suggestions
+3 
+Passed tests
+6 
+Headings 
+H1 tag missing
+Headings provide the right structure to a page if you use them in the right way. It defines the hierarchy of the page, from most important to less important headings.
+ Suggest something else
+
+Internal links 
+No internal links pointing to this page
+Internal links help search engines find and rank this page. Add some links to it to boost it's rankings.
+Suggest internal links
+
+Canonical URL 
+This page has no self-referencing canonical URL
+A self-referencing canonical URL helps ensure that the right URL get indexed
+Structured data 
+No Structured Data on this page
+By adding Structured Data to a page, Google will understand the contents more easily. It also helps increase visibility in SERPs.
+OpenGraph tags 
+Some OpenGraph tags are missing
+OpenGraph tags make it very easy for visitors to share the page with their friends. Include OpenGraph tags to help them spread the word.
+og:image
+og:url
+Indexability 
+This page is indexable
+There are no noindex instructions for search engines. This page can be crawled and indexed.
+Meta description 
+View SERP preview
+The meta description looks good
+A meta description shows up in the results of Google and other search engines. It should be between 120 and 170 characters. This one is 162 characters.
+Ottawa's premium moving service. Residential and commercial moves with transparent pricing, professional movers, and WSIB insurance. Get your instant quote today!
+
+ Suggest something else
+
+Page title 
+View SERP preview
+The page title looks good
+The page title should capture the essence of the page, and be somewhere between 15 and 70 characters. This one is 53 characters.
+Prestige Moving Ottawa - Professional Moving Services
+
+ Suggest something else
+
+Broken links 
+All the links on this page are working
+Broken links hurt the user experience and SEO. No broken links on this page
+Internal redirects 
+No internal redirects found.
+All the internal links point directly to the right location
+Alt texts 
+All images have alt texts
+Alt texts help visually impaired people and search engines to figure out what is shown in an image. It is required to have an alt text for every image.
