@@ -202,6 +202,7 @@ export function SharedFooter() {
               <div className="space-y-2.5 text-sm text-white/65">
                 <Link href="/how-much-does-moving-cost-ottawa" className="block hover:text-[#C5A572] transition-colors">Moving Cost Guide 2026</Link>
                 <Link href="/ottawa-long-distance-movers-guide" className="block hover:text-[#C5A572] transition-colors">Long Distance Movers Guide</Link>
+                <Link href="/senior-movers-ottawa-guide" className="block hover:text-[#C5A572] transition-colors">Senior Movers Ottawa Guide</Link>
                 <Link href="/blog" className="block hover:text-[#C5A572] transition-colors">Moving Tips Blog</Link>
                 <Link href="/calculator" className="block hover:text-[#C5A572] transition-colors">Moving Calculator</Link>
                 <Link href="/contact" className="block hover:text-[#C5A572] transition-colors">Contact Us</Link>
