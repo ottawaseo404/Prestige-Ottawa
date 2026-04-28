@@ -242,6 +242,11 @@ import WhiteGloveMoversOttawa from "@/pages/seo/white-glove-movers-ottawa";
 import MovingFromHamiltonToOttawa from "@/pages/seo/moving-from-hamilton-to-ottawa";
 import OttawaLongDistanceMoversGuide from "@/pages/seo/ottawa-long-distance-movers-guide";
 import SeniorMoversOttawaGuide from "@/pages/seo/senior-movers-ottawa-guide";
+import ResidentialMovingGuideOttawa from "@/pages/seo/residential-moving-guide-ottawa";
+import LongDistanceMovingGuideCanada from "@/pages/seo/long-distance-moving-guide-canada";
+import MovingFromOttawaToSudbury from "@/pages/seo/moving-from-ottawa-to-sudbury";
+import MovingFromOttawaToThunderBay from "@/pages/seo/moving-from-ottawa-to-thunder-bay";
+import MovingFromOttawaToSaskatoon from "@/pages/seo/moving-from-ottawa-to-saskatoon";
 import Sitemap from "@/pages/sitemap";
 import Calculator from "@/pages/calculator";
 import Contact from "@/pages/contact";
@@ -543,6 +548,11 @@ function Router() {
       <Route path="/moving-from-hamilton-to-ottawa" component={MovingFromHamiltonToOttawa} />
       <Route path="/ottawa-long-distance-movers-guide" component={OttawaLongDistanceMoversGuide} />
       <Route path="/senior-movers-ottawa-guide" component={SeniorMoversOttawaGuide} />
+      <Route path="/residential-moving-guide-ottawa" component={ResidentialMovingGuideOttawa} />
+      <Route path="/long-distance-moving-guide-canada" component={LongDistanceMovingGuideCanada} />
+      <Route path="/moving-from-ottawa-to-sudbury" component={MovingFromOttawaToSudbury} />
+      <Route path="/moving-from-ottawa-to-thunder-bay" component={MovingFromOttawaToThunderBay} />
+      <Route path="/moving-from-ottawa-to-saskatoon" component={MovingFromOttawaToSaskatoon} />
       <Route path="/sitemap" component={Sitemap} />
 
       <Route path="/admin/pages">
