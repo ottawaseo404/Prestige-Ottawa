@@ -65,6 +65,38 @@ export default function ResidentialMovingGuideOttawa() {
           "@type": "FAQPage",
           mainEntity: FAQS.map(f => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
         })}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Ottawa Movers", item: "https://prestigemoving.ca" },
+            { "@type": "ListItem", position: 2, name: "Guides", item: "https://prestigemoving.ca/blog" },
+            { "@type": "ListItem", position: 3, name: "Residential Moving Guide Ottawa", item: "https://prestigemoving.ca/residential-moving-guide-ottawa" },
+          ],
+        })}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "HowTo",
+          name: "How to Plan a Residential Move in Ottawa",
+          description: "A step-by-step guide to planning and executing a residential move in Ottawa, from initial planning to moving day.",
+          totalTime: "P30D",
+          estimatedCost: { "@type": "MonetaryAmount", currency: "CAD", value: "700–2500" },
+          step: [
+            { "@type": "HowToStep", position: 1, name: "Book Your Moving Company Early", text: "Get written quotes from at least three licensed Ottawa moving companies 4–6 weeks before your move date. Confirm WSIB coverage and ask for a binding quote." },
+            { "@type": "HowToStep", position: 2, name: "Start Decluttering 3–4 Weeks Out", text: "Sort every room and decide what comes with you, what gets donated, and what gets discarded. Less volume = lower moving cost and an easier unpack." },
+            { "@type": "HowToStep", position: 3, name: "Gather Packing Supplies", text: "Source appropriate boxes (double-wall for heavy items, wardrobe boxes for clothes, dish packs for kitchen), packing tape, bubble wrap, and markers." },
+            { "@type": "HowToStep", position: 4, name: "Pack Room by Room — Starting with Non-Essentials", text: "Begin packing seasonal items, books, and decorations 2–3 weeks out. Label every box with its destination room and a brief contents description." },
+            { "@type": "HowToStep", position: 5, name: "Notify Address Change", text: "Update your address with Canada Post mail forwarding, ServiceOntario, your bank, employer, subscriptions, and the CRA at least 2 weeks before your move date." },
+            { "@type": "HowToStep", position: 6, name: "Prepare Your Home for Moving Day", text: "Protect floors with runners, disassemble large furniture in advance, disconnect appliances, and set aside a day-of essentials bag." },
+            { "@type": "HowToStep", position: 7, name: "Oversee Moving Day", text: "Be present at the start to walk the crew through your home, point out fragile items, and confirm where things go at the destination. Tip the crew if the service was excellent." },
+          ],
+          tool: [
+            { "@type": "HowToTool", name: "Packing boxes" },
+            { "@type": "HowToTool", name: "Packing tape and markers" },
+            { "@type": "HowToTool", name: "Bubble wrap and moving blankets" },
+            { "@type": "HowToTool", name: "Professional moving company" },
+          ],
+        })}</script>
       </Helmet>
 
       <SharedNavigation />

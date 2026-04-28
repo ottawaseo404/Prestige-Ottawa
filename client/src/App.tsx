@@ -247,6 +247,8 @@ import LongDistanceMovingGuideCanada from "@/pages/seo/long-distance-moving-guid
 import MovingFromOttawaToSudbury from "@/pages/seo/moving-from-ottawa-to-sudbury";
 import MovingFromOttawaToThunderBay from "@/pages/seo/moving-from-ottawa-to-thunder-bay";
 import MovingFromOttawaToSaskatoon from "@/pages/seo/moving-from-ottawa-to-saskatoon";
+import About from "@/pages/about";
+import Reviews from "@/pages/reviews";
 import Sitemap from "@/pages/sitemap";
 import Calculator from "@/pages/calculator";
 import Contact from "@/pages/contact";
@@ -325,6 +327,8 @@ function Router() {
       {/* Public Pages */}
       <Route path="/" component={Home} />
       <Route path="/book" component={Booking} />
+      <Route path="/about" component={About} />
+      <Route path="/reviews" component={Reviews} />
       <Route path="/calculator" component={Calculator} />
       <Route path="/contact" component={Contact} />
       <Route path="/blog" component={Blog} />

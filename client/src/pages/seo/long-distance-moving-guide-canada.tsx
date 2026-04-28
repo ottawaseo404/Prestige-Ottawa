@@ -40,7 +40,7 @@ export default function LongDistanceMovingGuideCanada() {
   return (
     <>
       <Helmet>
-        <title>Long Distance Moving Guide Canada 2026 | Ottawa Cross-Country Movers | Prestige Moving</title>
+        <title>Long Distance Moving Guide Canada 2026 | Prestige Moving Ottawa</title>
         <meta name="description" content="The complete Canadian long distance moving guide for 2026. Covering costs, timelines, planning, packing, your rights, and how to choose a trustworthy interprovincial mover from Ottawa." />
         <meta name="keywords" content="long distance moving canada, cross country movers canada, interprovincial movers ottawa, long distance movers ottawa, canada moving guide, moving across canada ottawa" />
         <link rel="canonical" href="https://prestigemoving.ca/long-distance-moving-guide-canada" />
@@ -63,6 +63,32 @@ export default function LongDistanceMovingGuideCanada() {
           "@context": "https://schema.org",
           "@type": "FAQPage",
           mainEntity: FAQS.map(f => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
+        })}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Ottawa Movers", item: "https://prestigemoving.ca" },
+            { "@type": "ListItem", position: 2, name: "Long Distance Movers Ottawa", item: "https://prestigemoving.ca/services/long-distance-moving" },
+            { "@type": "ListItem", position: 3, name: "Long Distance Moving Guide Canada", item: "https://prestigemoving.ca/long-distance-moving-guide-canada" },
+          ],
+        })}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "HowTo",
+          name: "How to Plan a Long Distance Move Across Canada from Ottawa",
+          description: "A complete step-by-step guide to planning a long distance or interprovincial move from Ottawa across Canada.",
+          totalTime: "P45D",
+          estimatedCost: { "@type": "MonetaryAmount", currency: "CAD", value: "1500–5000" },
+          step: [
+            { "@type": "HowToStep", position: 1, name: "Get Written Binding Quotes", text: "Contact at least three CVOR-certified long distance movers 6–8 weeks before your move. Request written binding quotes — not estimates — and confirm all-in pricing including fuel, ferry, and elevator surcharges." },
+            { "@type": "HowToStep", position: 2, name: "Book Your Transit Insurance", text: "Standard valuation is minimal — book full replacement value coverage for all high-value items before the move begins." },
+            { "@type": "HowToStep", position: 3, name: "Inventory Your Belongings", text: "Create a written inventory of everything being moved. Photograph high-value items and note their condition before loading." },
+            { "@type": "HowToStep", position: 4, name: "Plan Your Packing Timeline", text: "Begin packing non-essentials 3 weeks before departure. All boxes must be sealed, labelled, and ready before the crew arrives." },
+            { "@type": "HowToStep", position: 5, name: "Coordinate Delivery Window", text: "Confirm a realistic delivery window with your mover. Long distance moves typically take 3–14 days depending on the route and whether your shipment is consolidated or dedicated." },
+            { "@type": "HowToStep", position: 6, name: "Update Address and Services", text: "Update your address with Canada Post, your provincial health card, driver's licence, employer, bank, and the CRA before you leave." },
+            { "@type": "HowToStep", position: 7, name: "Be Present for Delivery", text: "Arrange to be at the destination address during the delivery window. Walk through the inventory upon arrival and note any discrepancies on the bill of lading before signing." },
+          ],
         })}</script>
       </Helmet>
 

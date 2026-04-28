@@ -200,6 +200,13 @@ export function SharedFooter() {
 
               <h4 className="font-bold text-sm uppercase tracking-widest text-white/40 mb-4 mt-7">Resources</h4>
               <div className="space-y-2.5 text-sm text-white/65">
+                <Link href="/about" className="block hover:text-[#C5A572] transition-colors font-semibold text-white/80">About Prestige Moving</Link>
+                <Link href="/reviews" className="block hover:text-[#C5A572] transition-colors">Ottawa Movers Reviews — 5★</Link>
+                <Link href="/residential-moving-guide-ottawa" className="block hover:text-[#C5A572] transition-colors">Residential Moving Guide 2026</Link>
+                <Link href="/long-distance-moving-guide-canada" className="block hover:text-[#C5A572] transition-colors">Long Distance Moving Guide 2026</Link>
+                <Link href="/moving-from-ottawa-to-sudbury" className="block hover:text-[#C5A572] transition-colors">Ottawa to Sudbury Movers</Link>
+                <Link href="/moving-from-ottawa-to-thunder-bay" className="block hover:text-[#C5A572] transition-colors">Ottawa to Thunder Bay Movers</Link>
+                <Link href="/moving-from-ottawa-to-saskatoon" className="block hover:text-[#C5A572] transition-colors">Ottawa to Saskatoon Movers</Link>
                 <Link href="/how-much-does-moving-cost-ottawa" className="block hover:text-[#C5A572] transition-colors">Moving Cost Guide 2026</Link>
                 <Link href="/ottawa-long-distance-movers-guide" className="block hover:text-[#C5A572] transition-colors">Long Distance Movers Guide</Link>
                 <Link href="/senior-movers-ottawa-guide" className="block hover:text-[#C5A572] transition-colors">Senior Movers Ottawa Guide</Link>

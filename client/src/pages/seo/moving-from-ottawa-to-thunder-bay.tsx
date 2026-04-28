@@ -34,7 +34,7 @@ export default function MovingFromOttawaToThunderBay() {
   return (
     <>
       <Helmet>
-        <title>Moving From Ottawa to Thunder Bay | Long Distance Movers | Prestige Moving</title>
+        <title>Ottawa to Thunder Bay Movers | Long Distance Moving | Prestige</title>
         <meta name="description" content="Planning a move from Ottawa to Thunder Bay? Expert long distance movers, binding written quotes, full packing service. ~1,500 km route. Call (613) 600-4000." />
         <meta name="keywords" content="moving from ottawa to thunder bay, ottawa to thunder bay movers, long distance movers ottawa thunder bay, ottawa thunder bay moving company, movers ottawa to northwestern ontario" />
         <link rel="canonical" href="https://prestigemoving.ca/moving-from-ottawa-to-thunder-bay" />
@@ -46,6 +46,31 @@ export default function MovingFromOttawaToThunderBay() {
           "@context": "https://schema.org",
           "@type": "FAQPage",
           mainEntity: FAQS.map(f => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
+        })}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Ottawa Movers", item: "https://prestigemoving.ca" },
+            { "@type": "ListItem", position: 2, name: "Long Distance Movers Ottawa", item: "https://prestigemoving.ca/services/long-distance-moving" },
+            { "@type": "ListItem", position: 3, name: "Moving From Ottawa to Thunder Bay", item: "https://prestigemoving.ca/moving-from-ottawa-to-thunder-bay" },
+          ],
+        })}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Service",
+          name: "Ottawa to Thunder Bay Moving Service",
+          serviceType: "Long Distance Moving",
+          description: "Professional long distance movers for the 1,500 km Ottawa to Thunder Bay route. Binding written quotes, full packing service, CVOR certified, fully insured.",
+          provider: {
+            "@type": "MovingCompany",
+            name: "Prestige Moving Ottawa",
+            telephone: "+16136004000",
+            url: "https://prestigemoving.ca",
+            address: { "@type": "PostalAddress", addressLocality: "Ottawa", addressRegion: "ON", addressCountry: "CA" },
+            aggregateRating: { "@type": "AggregateRating", ratingValue: "5.0", reviewCount: "400", bestRating: "5" },
+          },
+          areaServed: [{ "@type": "City", name: "Ottawa" }, { "@type": "City", name: "Thunder Bay" }],
         })}</script>
       </Helmet>
       <SharedNavigation />

@@ -34,7 +34,7 @@ export default function MovingFromOttawaToSaskatoon() {
   return (
     <>
       <Helmet>
-        <title>Moving From Ottawa to Saskatoon | Long Distance Movers | Prestige Moving</title>
+        <title>Ottawa to Saskatoon Movers | Interprovincial Moving | Prestige</title>
         <meta name="description" content="Planning a move from Ottawa to Saskatoon? Expert interprovincial movers, binding quotes, full service. 2,750 km Ottawa to Saskatchewan route. Call (613) 600-4000." />
         <meta name="keywords" content="moving from ottawa to saskatoon, ottawa to saskatoon movers, long distance movers ottawa saskatoon, interprovincial movers ottawa saskatchewan, ottawa saskatoon moving company" />
         <link rel="canonical" href="https://prestigemoving.ca/moving-from-ottawa-to-saskatoon" />
@@ -46,6 +46,31 @@ export default function MovingFromOttawaToSaskatoon() {
           "@context": "https://schema.org",
           "@type": "FAQPage",
           mainEntity: FAQS.map(f => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
+        })}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Ottawa Movers", item: "https://prestigemoving.ca" },
+            { "@type": "ListItem", position: 2, name: "Long Distance Movers Ottawa", item: "https://prestigemoving.ca/services/long-distance-moving" },
+            { "@type": "ListItem", position: 3, name: "Moving From Ottawa to Saskatoon", item: "https://prestigemoving.ca/moving-from-ottawa-to-saskatoon" },
+          ],
+        })}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Service",
+          name: "Ottawa to Saskatoon Moving Service",
+          serviceType: "Long Distance Moving",
+          description: "Professional interprovincial movers for the 2,750 km Ottawa to Saskatoon route. Binding written quotes, full packing service, CVOR certified, fully insured.",
+          provider: {
+            "@type": "MovingCompany",
+            name: "Prestige Moving Ottawa",
+            telephone: "+16136004000",
+            url: "https://prestigemoving.ca",
+            address: { "@type": "PostalAddress", addressLocality: "Ottawa", addressRegion: "ON", addressCountry: "CA" },
+            aggregateRating: { "@type": "AggregateRating", ratingValue: "5.0", reviewCount: "400", bestRating: "5" },
+          },
+          areaServed: [{ "@type": "City", name: "Ottawa" }, { "@type": "City", name: "Saskatoon" }, { "@type": "AdministrativeArea", name: "Saskatchewan" }],
         })}</script>
       </Helmet>
       <SharedNavigation />

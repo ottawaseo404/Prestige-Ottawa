@@ -34,7 +34,7 @@ export default function MovingFromOttawaToSudbury() {
   return (
     <>
       <Helmet>
-        <title>Moving From Ottawa to Sudbury | Long Distance Movers | Prestige Moving</title>
+        <title>Ottawa to Sudbury Movers | Long Distance Moving | Prestige Moving</title>
         <meta name="description" content="Planning a move from Ottawa to Sudbury? Get a binding written quote, full packing service, and reliable long distance movers for the 500 km Ottawa to Sudbury route. Call (613) 600-4000." />
         <meta name="keywords" content="moving from ottawa to sudbury, ottawa to sudbury movers, ottawa sudbury moving company, long distance movers ottawa sudbury, movers ottawa to sudbury ontario" />
         <link rel="canonical" href="https://prestigemoving.ca/moving-from-ottawa-to-sudbury" />
@@ -46,6 +46,31 @@ export default function MovingFromOttawaToSudbury() {
           "@context": "https://schema.org",
           "@type": "FAQPage",
           mainEntity: FAQS.map(f => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
+        })}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Ottawa Movers", item: "https://prestigemoving.ca" },
+            { "@type": "ListItem", position: 2, name: "Long Distance Movers Ottawa", item: "https://prestigemoving.ca/services/long-distance-moving" },
+            { "@type": "ListItem", position: 3, name: "Moving From Ottawa to Sudbury", item: "https://prestigemoving.ca/moving-from-ottawa-to-sudbury" },
+          ],
+        })}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Service",
+          name: "Ottawa to Sudbury Moving Service",
+          serviceType: "Long Distance Moving",
+          description: "Professional long distance movers for the Ottawa to Sudbury route. Written binding quotes, full packing and unpacking, CVOR certified, fully insured.",
+          provider: {
+            "@type": "MovingCompany",
+            name: "Prestige Moving Ottawa",
+            telephone: "+16136004000",
+            url: "https://prestigemoving.ca",
+            address: { "@type": "PostalAddress", addressLocality: "Ottawa", addressRegion: "ON", addressCountry: "CA" },
+            aggregateRating: { "@type": "AggregateRating", ratingValue: "5.0", reviewCount: "400", bestRating: "5" },
+          },
+          areaServed: [{ "@type": "City", name: "Ottawa" }, { "@type": "City", name: "Sudbury" }],
         })}</script>
       </Helmet>
 

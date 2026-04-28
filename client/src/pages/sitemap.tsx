@@ -13,6 +13,8 @@ const SECTIONS = [
     title: "Ottawa Moving — Core Pages",
     links: [
       { label: "Home", href: "/" },
+      { label: "About Prestige Moving Ottawa", href: "/about" },
+      { label: "Ottawa Movers Reviews", href: "/reviews" },
       { label: "Ottawa Movers", href: "/ottawa-movers" },
       { label: "Moving Company Ottawa", href: "/moving-company-ottawa" },
       { label: "Professional Movers Ottawa", href: "/professional-movers-ottawa" },
@@ -265,6 +267,13 @@ const SECTIONS = [
     icon: BookOpen,
     title: "Moving Guides & Resources",
     links: [
+      { label: "About Prestige Moving Ottawa", href: "/about" },
+      { label: "Ottawa Movers Reviews — 400+ Five Stars", href: "/reviews" },
+      { label: "Residential Moving Guide Ottawa 2026", href: "/residential-moving-guide-ottawa" },
+      { label: "Long Distance Moving Guide Canada 2026", href: "/long-distance-moving-guide-canada" },
+      { label: "Moving From Ottawa to Sudbury", href: "/moving-from-ottawa-to-sudbury" },
+      { label: "Moving From Ottawa to Thunder Bay", href: "/moving-from-ottawa-to-thunder-bay" },
+      { label: "Moving From Ottawa to Saskatoon", href: "/moving-from-ottawa-to-saskatoon" },
       { label: "How Much Does Moving Cost Ottawa?", href: "/how-much-does-moving-cost-ottawa" },
       { label: "How to Choose a Moving Company Ottawa", href: "/how-to-choose-a-moving-company-ottawa" },
       { label: "Ottawa Moving Checklist", href: "/ottawa-moving-checklist" },
